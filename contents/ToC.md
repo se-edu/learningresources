@@ -2,7 +2,7 @@
 
 * C#
 * C++
-* Java
+* [Java](java/Java.md)
 * JavaScript
 * Python
 * Ruby
