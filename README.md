@@ -2,7 +2,7 @@
 
 This repository is a collection of Software Engineering learning resources.
 
-Click **[here](contents/README.md)** to start exploring the resources.
+**Click [here](contents/README.md) to start exploring the resources**.
 
 ---
 

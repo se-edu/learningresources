@@ -1,8 +1,8 @@
 # Guidelines for Contributors
 
-* Our objective is to help SE students to reach suitable resources that helps them learn a relevant topic quickly. 
-  It is meant to be a _curated_ list of _tried-and-tested_ learning resources, organized in a _meaningful sequence_,
-  with _commentary_.
+* Our objective is to help SE students learn a relevant topic quickly by locating good learning resources. 
+  Therefore, this is meant to be a **_curated_** list of **_tried-and-tested_** learning resources, **_organized_** 
+  in a meaningful sequence, with **_commentary_**.
   * We can include learning resources for any technical topic useful for SE students.
   * We should select the best external learning resources to include under a topic.
   * We should not include resources that we did not try ourselves. 
