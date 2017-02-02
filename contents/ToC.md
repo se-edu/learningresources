@@ -21,6 +21,7 @@
 * Requirements
 * Revision control
 * Security
+    * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
 * Scalability
 * Testing
 * UIX
