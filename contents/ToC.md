@@ -28,5 +28,5 @@
 
 ## Other Tools/Technologies
 
-* CheckStyle
+* [CheckStyle](staticAnalysis/checkStyle.md)
 * AI
