@@ -23,7 +23,7 @@ According to the [checks list](http://checkstyle.sourceforge.net/checks.html), t
 As described in [here](http://checkstyle.sourceforge.net/writingchecks.html#Limitations), there are several limitation in CheckStyle.
 
 - The code must be written in ASCII characters only.
-- The examined code have to be compilable. The reason is describe in [How does it work section](how-does-it-work).
+- The examined code have to be compilable. The reason is describe in [How does it work section](#how-does-it-work).
 - File will be examined one by one, there is no check to check multiple file at the same time (e.g. you cannot determine the full inheritance hierarchy of a class)
 
 ### How to use it
