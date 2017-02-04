@@ -64,8 +64,8 @@ Many static analysis tools will provide way to suppress the warning. For example
 #### Cannot catch error introducted in runtime envirnment
 Since static analysis is done without executing the programme. Some vulnerabilities that introduced in the runtime cannot be caught.
 
-### Static Analysis Tools
-The are several static analysis tool that can be used. The detailed discussion of them is as below:
+### How to do static Analysis (Static Analysis Tools)
+The are several static analysis tools that can be used to assist the process. The detailed discussion of them is as below:
 
 - CheckStyle
 - PMD
