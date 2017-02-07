@@ -42,6 +42,7 @@ Therefore, the hacker has managed to add additional malicious "functionality" to
 the website, that is not written by the original website developer.
 
 Resources:
+
 1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 32)
 1. http://guides.rubyonrails.org/security.html#cross-site-scripting-xss
 1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
@@ -64,6 +65,7 @@ is therefore not stored in a database. For example:
 `https://www.ecard.com/view-ecard.php?content=Happy%20Holidays<script>...</script>`
 
 Resources:
+
 1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 33)
 1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks
 1. http://security.stackexchange.com/questions/65142/what-is-reflected-xss
@@ -83,6 +85,7 @@ remove undesired HTML elements, and only allowing certain whitelisted HTML
 elements to be used (e.g. whitelisting only `<b>` and `<i>`).
 
 Resources:
+
 1. https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet
 (2.2 RULE #1 - HTML Escape Before Inserting Untrusted Data into HTML Element Content)
 (2.7 RULE #6 - Sanitize HTML Markup with a Library Designed for the Job)
