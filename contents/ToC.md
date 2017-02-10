@@ -5,7 +5,7 @@
 * [Java](java/Java.md)
 * JavaScript
 * Python
-* Ruby
+* [Ruby](ruby/Ruby.md)
 * Swift
 
 ## SE Topics
