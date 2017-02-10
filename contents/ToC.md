@@ -11,6 +11,7 @@
 ## SE Topics
 
 * Code quality
+  * [Code quality metrics](codeQuality/CodeQualityMetrics.md)
 * Data
 * Functional programming
 * Maintenance
