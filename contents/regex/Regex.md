@@ -22,14 +22,14 @@ Think about a witness of a robbery. How might he describe the robber to the poli
 
 ## Helpful links
 
-[Try it out online](https://regex101.com/)
-[Quick Start Guide](http://www.regular-expressions.info/quickstart.html)
-[Regex Examples](http://www.regular-expressions.info/examples.html)
+[Try it out online](https://regex101.com/)<br>
+[Quick Start Guide](http://www.regular-expressions.info/quickstart.html)<br>
+[Regex Examples](http://www.regular-expressions.info/examples.html)<br>
 [Regex Course](https://regexone.com/)
 
 # Advanced topics
 
-[The Regex Engine](http://www.regular-expressions.info/engine.html)
+[The Regex Engine](http://www.regular-expressions.info/engine.html)<br>
 [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
 
 ## Reflection
@@ -38,11 +38,11 @@ Think about a witness of a robbery. How might he describe the robber to the poli
 
 ## Learning resources
 
-[Cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
+[Cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)<br>
 [Comprehensive Regex Knowledge Base](http://www.regular-expressions.info/)
 
 ### Fun Stuff
-[Regex Golf - Test your Regex skills!](https://alf.nu/RegexGolf)
+[Regex Golf - Test your Regex skills!](https://alf.nu/RegexGolf)<br>
 [Regex Crossword - Crosswords, but with Regex](https://regexcrossword.com/)
 
 ### Further Reading
