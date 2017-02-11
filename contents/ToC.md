@@ -12,6 +12,7 @@
 
 * Code quality
 * Data
+  * [Databases](data/databases.md)
 * Functional programming
 * Maintenance
 * Multi-threading
