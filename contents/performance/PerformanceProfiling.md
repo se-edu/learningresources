@@ -6,8 +6,7 @@ Author: [Ong Heng Le](https://github.com/initialshl)
 
 A performance profiler is a tool which collects data (such as function timings) about 
 your program to identify the areas with performance issues, commonly used in code 
-optimization. CPU sampling and instrumentation are the two most common types of 
-performance profiling methods.
+optimization. There are two common types of performance profiling methods.
 
 * **CPU sampling**: Collects *samples* at fixed intervals, which provides an overview of your program's performance
 * **Instrumentation**: Collects detailed *elapsed timings* about your program
@@ -106,7 +105,7 @@ spent in their calling functions.
 This behavior is usually enabled by default, which may be undesirable when you want to 
 examine *small functions* carefully.
 
-> You can set your profiler to [include/exclude small functions from instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx).
+> See how to set your profiler to [include/exclude small functions from instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx).
 
 ### Resources:
 1. [How to: Limit Instrumentation to Specific Functions](https://msdn.microsoft.com/en-us/library/cc470663.aspx)
