@@ -2,7 +2,7 @@
 
 Author: [Ong Heng Le](https://github.com/initialshl)
 
-# Overview
+## Overview
 
 Performance profiling involves collecting data (such as function timings) 
 about a program to identify areas with performance issues. It is a tool that 
@@ -51,11 +51,11 @@ about the execution time of each function.
 
 ## 3. Trace down the problem
 
-We now start to identify the performance issues using the performance report. The two 
+You can identify the performance issues using the performance report. The two 
 useful information analyzed by the profiler are shown in the `Summary` view.
 
-* **Hot Path**: The branch of the call tree which took up the most execution time *(inclusive samples)*
 * **Functions With Most Individual Work**: The functions which took up the most execution time *(exclusive samples)*
+* **Hot Path**: The branch of the call tree which took up the most execution time *(inclusive samples)*
 
 To locate performance issues quickly, the **Functions With Most Individual Work** provides 
 a list of functions which are usually candidates for optimization.
@@ -69,8 +69,9 @@ to learn how to identify performance problems.
 
 ## 4. Identify areas for improvements upwards
 
-Now that you have identified the problem, you can now start to optimize the code in the 
+You have identified the problem, and may now want to optimize the code in the 
 function body. But before that, here's a final tip: 
+
 > It is sometimes possible (and easier) to optimize by reducing the number of calls to 
 that function from its calling functions.
 
