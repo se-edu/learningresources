@@ -32,6 +32,7 @@ The power of regex revolves around the idea that most data comes in a regular, p
 Regex exploits these simlarities and provides a way of specifying patterns that can fit almost any use case. Some of the basic functionalities are as follows:
 
 Name | Regex | Use | Example
+--- | --- | --- | ---
 Literal characters | Any character(s) | Matches any substring | `cat` matches `category`
 Escape characters | `\t`, `\n`, `\d`... | Matches [special characters](http://www.regular-expressions.info/refcharacters.html). | `\t` matches a tab character
 Anchors | `^`, `$` | Matches start and end of string | `^ant` matches `antics` but not `pant`
@@ -54,8 +55,8 @@ Say you have a passage of text which contains NRICs to be censored.
 
 ### Example
 
-> John - S1234567A
-> Mary - S8192853B
+> John - S1234567A <br>
+> Mary - S8192853B <br>
 > David - S1235326C
 
 This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct a Reges:
@@ -67,17 +68,17 @@ As we can see, the `S` matches the very first S, [\d]{7} matches a string of 7 d
 
 ### Result
 
-> John - SXXXXXXXX
-> Mary - SXXXXXXXX
+> John - SXXXXXXXX <br>
+> Mary - SXXXXXXXX <br>
 > David - SXXXXXXXX
 
 ## Capturing groups
 
 Now, imagine you have a section of text with many dates written in the US Date Format (MM/DD/YYYY).
 
-> Calendar
-> 02/20/2017 Paul's Birthday
-> 02/24/2017 Presentation at work
+> Calendar <br>
+> 02/20/2017 Paul's Birthday <br>
+> 02/24/2017 Presentation at work <br>
 > 02/25/2017 Workshop
 
 However, you want them to be written in (DD/MM/YYYY) instead. As we can see, this isn't as simple as just finding and replacing text, we must also maintain the data in the search string (e.g. `02/20` becomes `20/02`). This can be done using a **capturing group**. A capturing group is a part of a Regex surrounded by brackets `()`. They are numbered `1`, `2`, `3`, from left to right and are used to hold captured data. For example:
@@ -91,9 +92,9 @@ Using this, we can construct our regex as follows:
 
 ### Result
 
-> Calendar
-> 20/02/2017 Paul's Birthday
-> 24/02/2017 Presentation at work
+> Calendar <br>
+> 20/02/2017 Paul's Birthday <br>
+> 24/02/2017 Presentation at work <br>
 > 25/02/2017 Workshop
 
 ## Helpful links
@@ -118,27 +119,35 @@ Regex works similarly to most brute force searches. A simplified Regex engine wo
 
 For example, for the regex `light` against the sentence `He likes light lightbulbs.`:
 
-> `He likes light lightbulbs.`:
-> `^`
-> `light`
+```
+He likes light lightbulbs.
+^
+light
+```
 
 First, the engine checks against the start of the string, `H` against `l`. This doesn't match, so the engine moves on to `e`, then ` `, and so on.
 
-> `He likes light lightbulbs.`:
-> `   ^`
-> `   light`
+```
+He likes light lightbulbs.
+   ^
+   light
+```
 
 Once it reaches the first `l`, it sees a match, consumes the `l` and starts comparing the rest of the string.
 
-> `He likes light lightbulbs.`:
-> `     ^`
-> `   light`
+```
+He likes light lightbulbs.
+     ^
+   light
+```
 
 However, when it reaches `k`, it finds a different character so it knows it's not a match. It then starts again from `i` (the letter after `l`).
 
-> `He likes light lightbulbs.`:
-> `         ^`
-> `         light`
+```
+He likes light lightbulbs.
+         ^
+         light
+```
 
 Finally, when it finds a match, it returns the match and terminates. Note that the second `light` in `lightbulbs` is ignored.
 
@@ -148,29 +157,37 @@ Of course, more complex Regex functions will require more steps, but this will g
 
 The operators `{}`, `*` and `+` are called greedy operators because they try to match as many characters as possible. For example, for the regex `b.*` against the string `baaaaaa`:
 
-> `baaaaaaaaa`
-> ` ^`
-> `ba`
+```
+baaaaaaaaa
+ ^
+ba
+```
 
 Although a suitable match (`ba`) has already been found, the engine sees that it can match against a longer string of `a`s. It will instead return the match `baaaaaaaaa`, matching the entire string.
 
 But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex `c.*ed` against the string `contested`.
- 
-> `contested`
-> `        ^`
-> `c........ed`
+
+```
+contested
+        ^
+c........ed
+```
 
 Remember that `.*` matches any number of characters, and this includes the `ed` at the back! The entire string is matched by `c.*`, leaving no characters left for `ed`. This obviously doesn't match, so the engine backtracks one step:
 
-> `contested`
-> `        ^`
-> `c.......ed`
+```
+contested
+        ^
+c.......ed
+```
 
 As we can see, `e` still doesn't match `d`, so we take another step back:
 
-> `contested`
-> `       ^`
-> `c......ed`
+```
+contested
+       ^
+c......ed
+```
 
 Finally, we get a match and see that both strings match.
 
