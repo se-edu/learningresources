@@ -85,6 +85,7 @@ a list of functions which are usually good candidates for optimization.
 
 If you would like to trace down to the problem more carefully, the **Hot Path** is a good 
 starting point. 
+
 1. Start by clicking on a function with high *inclusive samples*. 
 1. In the `Function Details` view, compare the samples in the Function body and the Called functions.
 1. If a Called function has more samples, click on it to go to its `Function Details` view.
@@ -100,6 +101,7 @@ to get a good practice on identifying performance problems.
 Now that you have identified the problem, you can now start to optimize the code in the 
 function body. But before that, here's a final tip: it is sometimes possible (and easier) 
 to optimize by reducing the number of calls to that function from its calling functions.
+
 1. In the `Function Details` view, click on the Calling functions with high *inclusive samples*.
 1. Examine the code in the Function Code View and reduce the number of function calls if possible.
 1. You may repeat step 2 to investigate further upwards, or return to the function under optimization.
