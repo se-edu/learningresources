@@ -30,7 +30,7 @@ tools on your own project, while making neccessary adjustments when required. <b
 
 <br>
 
-## 1. Running a performance profiling session
+## 1. Run a performance profiling session
 
 With your project opened in Visual Studio 2015, run the profiler found in the menu under 
 `Debug -> Performance Profiler`. 
@@ -58,7 +58,7 @@ suitable for most general uses.
 
 <br>
 
-## 2. Viewing the performance report
+## 2. View the performance report
 
 After your profiling session has ended, the profiler will analyze the data collected and 
 generate a comprehensive performance report, which you can explore on your own. You may 
@@ -122,7 +122,7 @@ to optimize by reducing the number of calls to that function from its calling fu
 ## Sampling Interval
 
 CPU sampling, by default in Visual Studio 2015, captures data at an interval of 
-10,000,000 CPU cycles. You can set a custom interval or do sampling based on events, 
+10,000,000 CPU cycles. You can set a custom interval or perform sampling based on events, 
 such as page faults or system calls, in the sampling settings.
 
 > Read more about [other types of sampling events and how to choose sampling events](https://msdn.microsoft.com/en-us/library/ms182376.aspx).
