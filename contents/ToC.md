@@ -17,7 +17,7 @@
 * Multi-threading
 * OOP
 * Performance
-	* [CPU Profiling](performance/CpuProfiling.md)
+    * [Performance Profiling](performance/PerformanceProfiling.md)
 * Project management
 * Requirements
 * Revision control
