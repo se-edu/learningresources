@@ -152,7 +152,8 @@ func greet(person: String, alreadyGreeted: Bool) -> String {
     } else {
         return greet(person: person)
     }
-}```
+}
+```
 
 In the past(Swift 2), the label for the first parameter of a function is implicitly omitted when you call the function. To find out why, as well as learn more about parameter labels and naming functions well: http://inaka.net/blog/2016/09/16/function-naming-in-swift-3/
 
