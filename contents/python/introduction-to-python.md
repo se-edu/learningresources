@@ -14,7 +14,7 @@ Both newbies and experienced programmers can also benefit from [The Python Tutor
 
 Strings, lists, and dictionaries belong to a type of class known as `Iterables`. If you're interested in delving nto the inner workings of `Iterable` classes, check out [Iterables, Iterators and Generators](https://excess.org/article/2013/02/itergen1/) by Ian Ward. He begins by explaining the `Iterable` class, then goes into the `Iterator` and `Generator` classes, both of which are powerful tools in Python.
 
-## Slicing
+## Indexing and Slicing
 
 Accessing an element in a list using its index is known as indexing, e.g. `my_list[0]` returns the first element of my_list (Iterables are zero-indexed; this means that the first index is 0). Slicing, on the other hand, allows us to access a range of elements in a list. Extended slicing extends this functionality by introducing a step parameter, allowing us to do things like access every other element. Read more about this inn my blog post on [indexing and slicing](https://samsontmr.github.io/Slicing-and-Dicing/) in Python,
 
@@ -28,5 +28,6 @@ While Python is really useful for writing small scripts, often we want to use it
 Data Science seems to be all the rage recently, so you'll be glad to know that Python has become a major player in the field of Data Science, rivalled only by R. Some commonly used Python libraries in Data Science include [pandas](http://pandas.pydata.org/) for data management and manipulation, [numpy](http://www.numpy.org/) and [scipy](http://www.scipy.org/) for scientific computing, [scikit-learn](http://scikit-learn.org/) for general machine learning and [matplotlib](http://matplotlib.org/) for data visualization.
 
 ### Tutorials
+
 To get started, take a look at my [introduction to pandas](https://samsontmr.github.io/Sentimental-Pandas/), the [numpy Quickstart](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html) guide, [matplotlib tutorials](http://matplotlib.org/users/tutorials.html#introductory) or
 [scikit-learn basics](http://scikit-learn.org/stable/tutorial/basic/tutorial.html). scikit-learn also has a number of machine learning focused [tutorials](http://scikit-learn.org/stable/tutorial/index.html) available for those looking to pick up machine learning.
