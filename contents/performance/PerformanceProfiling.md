@@ -4,10 +4,10 @@ Author: [Ong Heng Le](https://github.com/initialshl)
 
 ## Overview
 
-Performance profiling involves collecting data (such as function timings) 
-about a program to identify areas with performance issues. It is a tool that 
-is usually used in code optimization. CPU sampling and instrumentation are 
-the two most common types of performance profiling methods.
+A performance profiler is a tool which collects data (such as function timings) about 
+your program to identify the areas with performance issues, commonly used in code 
+optimization. CPU sampling and instrumentation are the two most common types of 
+performance profiling methods.
 
 * **CPU sampling**: Collects *samples* at fixed intervals, which provides an overview of your program's performance
 * **Instrumentation**: Collects detailed *elapsed timings* about your program
@@ -32,10 +32,7 @@ tools on your own project. <br>
 
 ## 1. Run a performance profiling session
 
-Before you start, you will be asked to choose a profiling method. It is recommended to 
-use **CPU sampling** for your first profiling session.
-
-> To start a performance profiling session, follow this guide on 
+To start a performance profiling session, follow this guide on 
 [Creating and running a performance session](https://msdn.microsoft.com/en-us/library/ms182372.aspx#Anchor_0).
 
 ## 2. View the performance report
@@ -73,7 +70,7 @@ You have identified the problem, and may now want to optimize the code in the
 function body. But before that, here's a final tip: 
 
 > It is sometimes possible (and easier) to optimize by reducing the number of calls to 
-that function from its calling functions.
+that function in its calling functions.
 
 ### Resources:
 1. [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/en-us/library/ms182372.aspx)
@@ -97,7 +94,7 @@ such as page faults or system calls, in the sampling settings.
 ## Instrumentation Overhead
 
 Instrumentation profiling incurs a substantial overhead, which is an increase in file size 
-and execution time of the program, which makes it unsuitable for large projects.
+and execution time of the program. This makes it unsuitable for large projects.
 
 > In such cases, it is recommended to [limit instrumentation to specific functions](https://msdn.microsoft.com/en-us/library/cc470663.aspx), 
 instead of using instrumentation on the entire project.
@@ -109,20 +106,20 @@ spent in their calling functions.
 This behavior is usually enabled by default, which may be undesirable when you want to 
 examine *small functions* carefully.
 
-> You can set your profiler to [include/exclude *small functions* from instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx).
+> You can set your profiler to [include/exclude small functions from instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx).
 
 ### Resources:
 1. [How to: Limit Instrumentation to Specific Functions](https://msdn.microsoft.com/en-us/library/cc470663.aspx)
+1. [Excluding Small Functions From Instrumentation](https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/)
 1. [How to: Limit Instrumentation to Specific DLLs](https://msdn.microsoft.com/en-us/library/bb385752.aspx)
 1. [How to: Exclude or Include Short Functions from Instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx)
-1. [Excluding Small Functions From Instrumentation](https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/)
 
 # Profiling Other Types Of Data
 
-Other than collecting performance statistics and timing data, the profiler is also able 
-to collect other data such as memory allocation and GPU usage. 
+Other than collecting performance statistics and timing data, profilers are also able 
+to collect other information such as memory allocation and GPU usage. 
 
-> Here is the list of [profiling tools](https://msdn.microsoft.com/en-us/library/mt210448.aspx) available in Visual Studio 2015.
+> Here is a list of [profiling tools](https://msdn.microsoft.com/en-us/library/mt210448.aspx) available in Visual Studio 2015.
 
 Here are some other resources which may interest you.
 
