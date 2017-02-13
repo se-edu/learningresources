@@ -130,6 +130,82 @@ captured by the first line. The following lines will then examine all their meth
 annotation and register it so that it will receive the specified event when it is fired. Of course this implementation
 leaves out a lot of details but you get the idea of how java reflections works.
 
+Another example of reflections might arise when you are trying to get a private field of another class. While this should
+optimally be solved by modifying the field visibility to `protected` or `public`, sometimes it is not possible to do so
+becuase you might not have any access to the code (for example codes in libraries or frameworks).
+
+For the sake of simplicity, let use the previous example of a `Animal`. The class definition can look like this.
+
+```java
+
+public class Animal {
+    private int age;
+    private boolean isAlive;
+    public String name;
+
+    public Animal(String animalName) {
+        name = animalName;
+        age = 0;
+        isAlive = true;
+    }
+
+    public void onUpdate() {
+        age++;
+
+        if (age > 100) {
+            setDead();
+        }
+    }
+
+    private void setDead() {
+        isAlive = false;
+    }
+}
+```
+
+And let's assume that you for some reason cannot modify this code. But you are interested in making a new class `Sheep`
+that extends `Animal` and do something when his age reaches certain threshold. But the annoying thing is that somebody
+decided that it is a good idea to make the age value `private` instead of `protected` in a top-level class such as this!
+So you cannot access the age of your `Sheep` even though it is an `Animal`.
+
+This of course can be solved by reflections as follows:
+
+```java
+
+public class Sheep extends Animal {
+    private boolean hasWool;
+
+    public Sheep(String animalName) {
+        super(animalName);
+        hasWool = false;
+    }
+
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+
+        int age = getPrivateAge();
+
+        if (age > 20) {
+            setHasWool();
+        }
+    }
+
+    private void setHasWool() {
+        hasWool = true;
+    }
+
+    private int getPrivateAge() {
+        // Since class is a reserved keyword, we use clazz in variable names
+        Class<Animal> animalClazz = Animal.class;
+
+        Field f = animalClazz.getDeclaredField("age");
+        f.setAccessible(true);
+        return f.get(this);
+    }
+}
+```
+
 ### Disadvantages of reflections
 
 While Java reflections is powerful, you should not immediately jump on the reflections ship. This is because there are
