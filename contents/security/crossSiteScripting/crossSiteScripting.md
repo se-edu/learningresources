@@ -9,7 +9,7 @@ Cross site scripting (XSS) is a vulnerability found in websites.
 Text boxes are commonly used in forms in websites to ask the user for input. For
 example, blog websites may provide a text box for visitors of the blog to enter comments.
 
-However, are commenters limited to just typing in plain text? Some website do not
+However, are commenters limited to just typing in plain text? Some websites do not
 check the input, thus commenters are able to use formatting HTML tags, such
 as `<b>` for bolding and `<i>` for italicizing.
 
