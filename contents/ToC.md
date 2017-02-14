@@ -16,7 +16,7 @@
 * Maintenance
 * Multi-threading
 * OOP
-* Performance
+* [Performance](performance/Performance.md)
 * Project management
 * Requirements
 * Revision control

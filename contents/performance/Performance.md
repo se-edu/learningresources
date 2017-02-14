@@ -4,14 +4,17 @@ Author: [Ian Teo](https://github.com/IanTeo)
 
 ## Overview
 
-Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; for applications running in small battery operated devices to huge data centres.
+Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; from applications running in small battery operated devices to huge data centres.
 
-`Premature optimization is the root of all evil.`<br>
-I think many people have heard of this quote from Donald Knuth before. This quote is actually misintepreted frequently, because of the lack of context. Here is the full quote:<br>
-`We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.`<br>
+> Premature optimization is the root of all evil.
+
+I think many people have heard of this quote from Donald Knuth before. This quote is actually misinterpreted frequently, because of the lack of context. Here is the full quote:
+
+> We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.
+
 You can find a nice explaination of the quote [here](http://wiki.c2.com/?PrematureOptimization).
 
-This is not a guide on how to optimize that 3%, but rather, to teach you standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out more about optimizing that 3%, you can find more at [Other Resources](#other-resources) below.
+This is not a guide on how to optimize that 3%, but rather, to explain standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out more about optimizing that 3%, you can find more at [Other Resources](#other-resources) below.
 
 The 2 techniques you should know are:
 
@@ -20,18 +23,17 @@ The 2 techniques you should know are:
 
 ## Using Appropriate Data Structures and Algorithms
 
-Using the appropriate Data Structures and Algorithms can improve the execution speed of your program trememdously. However, it requires time to learn and understand the nuances of each Data Structure and Algorithm and when to use them.
+Using appropriate Data Structures and Algorithms can improve the execution speed of your program trememdously. However, it requires time to learn and understand the nuances of each Data Structure and Algorithm and when to use them.
 
 A good example of how Data Structures and Algorithms can improve execution time is with [binary search](https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm). When finding a particular element in a list, you need to search through the entire list. If it has a million entries, every find will require you to look through **1,000,000** entries. However, if you have a [sorted](https://www.tutorialspoint.com/data_structures_algorithms/sorting_algorithms.htm) list, you can use binary search to reduce the number of entries you have to look through to around **20**!
 
-If you are interested in learning more about Data Structures, you can learn more from the following resources:
+If you are interested in learning more about Data Structures and Algorithms, you can learn more from the following resources:
 
-* [Geeksforgeeks.org](http://www.geeksforgeeks.org/data-structures/)
-* [Introduction to Algorithms (Book)](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844)
-* [MIT online course](http://courses.csail.mit.edu/6.851/spring12/lectures/)
-* [topcoder.com](https://www.topcoder.com/community/data-science/data-science-tutorials/)
+* [Geeksforgeeks.org](http://www.geeksforgeeks.org/data-structures/): Introduction to data structures with code examples
+* [Introduction to Algorithms (Book)](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844): A good read for beginners interested in data structures and algorithms
+* [MIT online course](http://courses.csail.mit.edu/6.851/spring12/lectures/): A online course by MIT on data structures and algorithms
+* [topcoder.com](https://www.topcoder.com/community/data-science/data-science-tutorials/the-importance-of-algorithms/): A good write up on the importance of algorithms
 
-There are more of such resources online. Just Google and you shall find.
 
 ## Using Cache Friendly code
 
@@ -40,31 +42,29 @@ Before we can talk about this, we need to know what the computer memory is. Comp
 > You can take a look at the extent of the difference of their access speeds [here](https://gist.github.com/jboner/2841832) <br>
 > You can also check out this [infographic](http://imgur.com/8LIwV4C)
 
-To understand this topic, you only need to know how the cache works. It is okay if you do not understand exactly how the other components, registers, RAM and disk work.
+To understand this topic, you only need to know how the cache works. It is okay if you do not understand exactly how the other components, registers, RAM and disk work. The cache is simply a place to store memory so that it can be accessed quickly. The cache is usually split into a few layers, L1, L2 and L3 cache, where the L1 cache is the fastest and L3 is the slowest. The faster a cache is, the more expensive it is. This means that the L1 cache (a few kilobytes big) is smaller than the L2 cache (a few megabytes big) and so on, until the RAM (a few gigabytes big).
 
-The faster a cache is, the more expensive it is. This means that the L1 cache (a few kilobytes big) is smaller than the L2 cache (a few megabytes big) and so on, until the RAM (a few gigabytes big).
-
-Whenever data is requested, the computer will first look in the cache for the data. If it exists, this is known as a **cache hit**. If it does not exist, this is known as a **cache miss**. When a **cache miss** happens, a contiguous block of memory (not just the requested data) is retrieved and stored onto the cache. Because of this, we want remember these rules to make cache friendly codes:
+Whenever data is requested, the computer will first look in the cache for the data. If it exists, this is known as a **cache hit**. If it does not exist, this is known as a **cache miss**. When a **cache miss** happens, a contiguous block of memory containing the requested data is retrieved and stored onto the cache. Because of this, we want to remember these rules to make cache friendly codes:
 
 * Temporal Locality
 * Spatial Locality
 * Row/Column Major Order
 
-#### Temportal Locality
+#### Temporal Locality
 
 This rule states that recently used memory will likely be used in the near future. This means that making the scope of your variables smaller helps with execution times, as it will likely result in less cache misses.
 
 #### Spatial Locality
 
-This rule states that memory stored near each other will likely be used in the near future. This means that using contiguous data structures, like arrays, helps improve the execution times. This is because the contiguous block of memory retrieved will likely contain the other memory that need to be used.
+This rule states that memory stored near each other will likely be used in the near future. This means that using contiguous data structures, such as arrays, help improve the execution times. This is because the contiguous block of memory will likely contain the other elements of the array, resulting in less **cache misses**.
 
 An example of a Data Structure that does not do well in this aspect is [Linked List](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm). In a Linked List, each node can be stored anywhere on the memory. This means that there will likely be more cache misses when trying to iterate through a Linked List. This can cause Linked Lists to be much slower than what you would expect in theory.
 
 #### Row/Column Major Order
 
-This rule is how multidimensional arrays are stored in memory. Different programming languages have different methods of storing multidimensional arrays. [More Information](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
+This rule is about how multidimensional arrays are stored in memory. Different programming languages have different methods of storing multidimensional arrays. [More Information](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
 
-Using the incorrect method of access can cause many cache misses, resulting in a much slower execution time. Thus, it is important to be aware what major order the programming language is using.
+Using the incorrect method of access can cause many cache misses, resulting in a much slower execution time. Thus, it is important to be aware of which major order the programming language is using.
 
 For example, Java uses Row Major Order. We can create a test to see how big an impact using the wrong Major Order can be on the execution time.
 
@@ -94,6 +94,8 @@ System.out.println("Column major: " +(System.currentTimeMillis() - time));
 
 In the example above, Row major takes around 100ms, while column major takes around 2000ms. You can use the codes above and try it on your own too.
 
+> This test was done on a typical notebook. Your results may vary based on the hardware of your computer
+
 [Wikipedia](https://en.wikipedia.org/wiki/Locality_of_reference) and the [University of Maryland](https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/matrix.html) have excellent articles which covers everything I have mentioned and more.
 
 ## Other Resources
@@ -101,4 +103,3 @@ In the example above, Row major takes around 100ms, while column major takes aro
 If you want to know more about Optimization, especially for that critical 3%, these other resources could be useful:
 
 * Finding the critical path - [Performance Profiling](PerformanceProfiling.md)
-* Speed up intensive computations - [GPGPU]()
