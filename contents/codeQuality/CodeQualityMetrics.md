@@ -18,22 +18,26 @@ In fact, [the Boeing 777 project attributed its success to excellent usage of Qu
 
 *Note that the term "Code Quality" here is scoped to be the readability, understandability, and maintainability of the code. While performance can be considered a legitimate basis for some metrics (e.g. time taken to run certain operations, based on profiling), it is not considered for this purpose.*
 
-## Example of Metrics
+## Examples of Metrics
 
 ### Complexity Metrics
 
-Complexity metrics measures how "complex" methods, classes, packages, etc. are. It is arguably the most useful metric for the largest number of developer because it is the easiest to grasp, the most directly relevant to the coding activity, and applicable to most/all programming languages.
+Complexity metrics measure how "complex" methods, classes, packages, etc. are. "Complex" here is defined as difficult to understand and difficult to maintain.
 
-- The most well-known complexity metric is **Cyclomatic Complexity (CC)**, invented by Thomas McCabe in 1976. [Here](http://www.whiteboxtest.com/cyclomatic-complexity.php) is an excellent explanation on how to make use of it to measure your code quality. CC corresponds to the **minimum number of test cases needed to achieve 100% branch coverage**.
+They are arguably the most useful metrics for the largest number of developers because they are the easiest to grasp, the most directly relevant to the coding activity, and applicable to most/all programming languages.
+
+- The most well-known complexity metric is **Cyclomatic Complexity (CC)**, invented by Thomas McCabe in 1976. CC corresponds to the **minimum number of test cases needed to achieve 100% branch coverage**. [Here](http://www.whiteboxtest.com/cyclomatic-complexity.php) is an excellent explanation on how to make use of it to measure your code quality.
 - An alternative, less well-known, harder to calculate complexity metric is **NPath Complexity (NC)**, invented by Brian A. Nejmeh in 1988. NC corresponds to the **minimum number of test cases needed to achieve 100% path coverage**.
 
-> [Here](http://www.literateprogramming.com/mccabe.pdf) is the original paper by McCabe, and [here](http://delivery.acm.org/10.1145/50000/42379/p188-nejmeh.pdf?ip=137.132.250.8&id=42379&acc=ACTIVE%20SERVICE&key=FF6731C4D3E3CFFF%2EBB5EB8D2067C1662%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=726592962&CFTOKEN=31567842&__acm__=1486743928_30f8e35ed72667612c6449afe5db3998) is the original paper by Nejmeh.
+> [Here](http://www.literateprogramming.com/mccabe.pdf) is the original paper by McCabe, and [here](http://dl.acm.org/citation.cfm?doid=42372.42379) is the original paper by Nejmeh.
 
-This complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.
+These complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.
 
 ### Class Design Metrics
 
-Class design metrics measures how "well-designed" a class is. Metrics on this level are more applicable for QA team members and software architects, but still holds some relevance to students and junior developers who have to design a class-level API.
+Class design metrics measure how "well-designed" a class is. "Well-designed" here is defined as conformance to good software engineering principles such as high cohesion, low coupling, promoting encapsulation and information hiding. Well-designed classes promote reuse and ease maintenance effort.
+
+Metrics on this level are more applicable for QA team members and software architects, but still hold some relevance to students and junior developers who have to design a class-level API.
 
 The most well-accepted metrics for class design are [**The Chidamber and Kemerer Metrics**](http://www.virtualmachinery.com/sidebar3.htm):
 - Weighted Methods per Class (WMC)
@@ -45,7 +49,7 @@ The most well-accepted metrics for class design are [**The Chidamber and Kemerer
 
 ### Package Design Metrics
 
-Package design metrics measures how "well-designed" a package is. Metrics on this level are mostly applicable only for QA team members and software architects.
+Package design metrics measure how "well-designed" a package is. "Well-designed" here is similarly defined as the one in class design metrics. Metrics on this level are mostly applicable only for QA team members and software architects.
 
 The most well-accepted metrics for package design are [**"the group of five"**](http://www.virtualmachinery.com/jhawkmetricssyspack.htm):
 - Afferent Coupling (Ca)
@@ -56,7 +60,7 @@ The most well-accepted metrics for package design are [**"the group of five"**](
 
 ### Seemingly Trivial Metrics
 
-The previous sections have introduced mostly new concepts that are foreign to newer developers.
+The previous sections have introduced mostly new concepts that are foreign to many developers.
 However, measures that are seemingly trivial and easy-to-overlook can also count as metrics, such as the following:
 - Number of lines of codes in a class/method/...
 - Number of methods in a class
@@ -75,7 +79,7 @@ You might then ask: can I define my own code quality metric? Yes, you can. [This
 
 ## Making Sense of It
 
-Any code quality metric is as good as it is used; without context, it is merely a number. **Do not** use any metric just for the sake of it.
+Any code quality metric is as good as how it is used; without context, it is merely a number. **Do not** use any metric just for the sake of it.
 - It makes little sense to say: "This method has a CC value of 42. It is bad."
 - It makes more sense to say: "This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it, and it is bad."
 - It makes the most sense to say: "This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it. This indicates an overly complex method, and it will be difficult to maintain in the long run. Try to separate it to calls of a few methods of CC value of 10 or less each; that way we can better design test cases for those smaller methods and achieve perfect coverage."
