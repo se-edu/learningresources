@@ -4,7 +4,10 @@ Authors: Ch'ng Ming Shin
 
 # Overview
 
-If you are transitioning from another language to Swift, I am here to make your life easier. The common solutions to "How to learn Swift" from Quora and StackOverflow are to
+Introduced in 2014, Swift is a fast, modern, safe and interactive programming language. If you have ever thought of building an app for your MacBook or iPhone (or any other Apple Product), Swift is the language for you. With its syntactic sugar, it is much more readable compared to it's "predecessor" Objective-C(ObjC). Together with its Playground feature, you can run your code easily, making Swift easy to learn.
+
+<!--
+If you have decided to build an app for your MacBook or iPhone (or any other Apple Product) or transitioning from another language to Swift, I am here to make your life easier. The common solutions to "How to learn Swift" from Quora and StackOverflow are to
 
 1. Dive into a project
 
@@ -15,8 +18,7 @@ https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift
 Those are great suggestions but diving into a new project with no prior experience to Swift makes it an ardous trial of google searches of how to implement stuff. And reading documentation, while really helpful, might be overkill and boring as there might be many concepts that you already know.
 
 To ease this pain, I am providing a 3rd solution where I try to summarise the more common and important aspects of Swift that are generally different from other languages.
-
-
+-->
 
 # Getting Started
 
@@ -49,17 +51,17 @@ Constant and variable names can contain almost any character, including Unicode 
 
 There is the idea of mutability of variables. If a variable should not be immutable, use let to declare it as a immutable constant. (let is similiar to final in Java)
 
-`
+```
 let a = 2
 var b = 3
-`
+```
 
 Unlike Java, it is not compulsory to annotate the type of a variable, but once the type of a variable is decided, it cannot be changed.
 
-`
+```
 var c: Int
 var d //this is legal
-`
+```
 
 nil in Swift is the same as null in Java
 
