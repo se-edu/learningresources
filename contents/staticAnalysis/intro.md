@@ -44,6 +44,21 @@ case 'green':
 ```
 Static analysis tools will automatically alert the programme about the potential bugs.
 
+#### Improve Code Quality
+Static analysis will pick up common pitfalls and suggest changes to help you improve your code quality. For example
+
+``` java
+if (isConditionTrue()) {
+	return true;
+} else {
+	return false;
+}
+```
+Majority of static analysis tools will point out that this can be simplified to
+
+``` java
+return isConditionTrue();
+```
 
 ### Limitation of static analysis
 
@@ -67,8 +82,8 @@ Since static analysis is done without executing the programme. Some vulnerabilit
 ### How to do static Analysis (Static Analysis Tools)
 The are several static analysis tools that can be used to assist the process. The detailed discussion of them is as below:
 
-- [CheckStyle](checkStyle.md)
-- PMD
+- [CheckStyle](checkStyle.md) (for Java only)
+- [PMD](PMD.md)
 - findBugs
 - eslint
 
