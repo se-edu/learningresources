@@ -1,6 +1,6 @@
 # Java
 
-Authors: John Doe, Jane Doe
+Authors: [Jeremy Goh](https://github.com/MightyCupcakes)
 
 # Overview
 
