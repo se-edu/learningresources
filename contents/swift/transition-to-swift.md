@@ -1,6 +1,6 @@
 # Swift
 
-Authors: Ch'ng Ming Shin
+Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md)
 
 # Overview
 
