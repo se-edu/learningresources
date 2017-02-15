@@ -22,24 +22,31 @@ To ease this pain, I am providing a 3rd solution where I try to summarise the mo
 
 # Getting Started
 
-Cheatsheets:
-One page cheatsheet: https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf
-
-Multiple pages of cheatsheet (mainly code examples with comments): https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
-
-Main Swift Concepts (less indepth, wide range of topics, long explanations): https://guides.codepath.com/ios/Swift-Basics
-
-Good readings on Swift:
-Design of Swift, why change from obj-C
+## Good readings on Swift:
+- Design of Swift, why the change from obj-C:
 http://swiftjester.org/papers/whats-different-about-swift.html
 
-Basics of Apple Swift in playground: https://github.com/Codeido/swift-basics
 
-Guide to Xcode(IDE for Swift):
+- Main Swift Concepts (less indepth, wide range of topics, long explanations):
+https://guides.codepath.com/ios/Swift-Basics
+
+- Basics of Apple Swift in playground:
+https://github.com/Codeido/swift-basics
+
+- Guide to Xcode(IDE for Swift):
 http://codewithchris.com/xcode-tutorial/
 
-Another compilation of links:
+- Another compilation of links:
 http://www.whoishostingthis.com/resources/swift/
+
+## Cheatsheets:
+- One page cheatsheet:
+https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf
+
+- Multiple pages of cheatsheet (mainly code examples with comments):
+https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
+
+
 
 
 # Swift Basics
