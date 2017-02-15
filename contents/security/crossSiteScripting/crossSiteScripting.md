@@ -1,6 +1,6 @@
 # Cross Site Scripting
 
-Author: Tan Wang Leng
+Author: [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md)
 
 ## Overview
 
@@ -33,20 +33,12 @@ show the script portion of the comment, because it is legal HTML (you won't see
 the tags like `<b>` and `<i>` when viewing webpages, so you definitely won't see
 `<script>` on the webpage).
 
-However, the browser is **actually executing the script**. Therefore, the hacker
-can write any script that he wants (in our example, a function to send to the
-hacker the user's cookies), without the user even being aware of what's going
-on.
+However, the browser is **actually executing the script**, without the visitor even being aware of what's going on.
+
+This means that any malicious users (i.e. hackers) can write a script on their comments, such that everyone that visits the website will have the script executed. The script can be malicious in nature (in our example, the script sends the cookie of the visitor to the hacker).
 
 Therefore, the hacker has managed to add additional malicious "functionality" to
-the website, that is not written by the original website developer.
-
-Resources:
-
-1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 32)
-1. http://guides.rubyonrails.org/security.html#cross-site-scripting-xss
-1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
-1. http://www.symantec.com/connect/blogs/cross-site-scripting-vulnerabilities
+the website, that is not intended by the original website developer.
 
 ## Types of Cross Site Scripting
 
@@ -64,12 +56,6 @@ is therefore not stored in a database. For example:
 
 `https://www.ecard.com/view-ecard.php?content=Happy%20Holidays<script>...</script>`
 
-Resources:
-
-1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 33)
-1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks
-1. http://security.stackexchange.com/questions/65142/what-is-reflected-xss
-
 ## Preventing Cross Site Scripting
 
 There are a couple of ways to prevent your website against XSS. The two most
@@ -84,11 +70,30 @@ intention is to actually show someone how to code for example).
 remove undesired HTML elements, and only allowing certain whitelisted HTML
 elements to be used (e.g. whitelisting only `<b>` and `<i>`).
 
-Resources:
+## Resources
 
+References:
+1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 32 & 33)
+(Basic description of the XSS attack taken from here)
+1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks
+(Description of the two types of XSS attack taken from here)
+
+Additional Reading Resources:
+1. https://www.owasp.org/index.php/Testing_for_Cross_site_scripting
+(How to test your website for XSS attacks)
 1. https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet
-(2.2 RULE #1 - HTML Escape Before Inserting Untrusted Data into HTML Element Content)
-(2.7 RULE #6 - Sanitize HTML Markup with a Library Designed for the Job)
-1. https://github.com/OWASP/java-html-sanitizer
+(A list of possible preventions, which contains even more ways to protect your site from XSS attacks).
+1. http://guides.rubyonrails.org/security.html#cross-site-scripting-xss
+(In-depth discussion of how XSS attacks work, the different possible scenarios of such attacks, and possible preventive measures)
+1. https://www.owasp.org/index.php/DOM_Based_XSS
+(Discussion about DOM-based XSS attacks, a third possible type of XSS attacks)
+1. https://excess-xss.com/
+(Comprehensive coverage of *all* aspects of XSS)
+
+Additional Resources:
+1. https://github.com/OWASP/java-html-sanitizer (Java Sanitization framework)
+(Implementation of HTML sanitization in Java)
 1. https://github.com/rails/rails_xss
+(Ruby on Rails plugin responsible for escaping String input in Ruby on Rails websites)
 1. http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html
+(Ruby on Rails HTML sanitization function)
