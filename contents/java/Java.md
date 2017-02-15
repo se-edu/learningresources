@@ -22,7 +22,7 @@ of fields of existing objects. Hence the name reflection because Java is in a wa
 
 ### The Basics of Reflections
 
-Before getting started with reflections in Java, it is important to realise that classes itself is an object. Every
+Before getting started with reflections in Java, it is important to realise that classes themselves is an object. Every
 unique `Object` is assigned an immutable `Class` object by the JVM. This immutable `Class` object is fundamentally 
 different from *instances* of a class. The class object itself holds information about its name, the package it resides 
 in and other important information while an instance of a class holds the instanced values and methods as defined
@@ -83,9 +83,10 @@ make your life easier.
 ### Applications
 
 You might have learnt from your Software Engineering module that the observer pattern can be used for objects that are
-interested to get notified if the state of another object is changed. However, you don't want to create a troublesome
-bidirectional dependency between two unrelated objects that have no business talking to each other. This is when the
-observer pattern becomes useful.
+interested to get notified if the state of another object is changed. The observer pattern is useful because you can
+avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other
+while allowing the objects to be notified of any changes in another object.
+
 
 One prime example of the implementation of the observer pattern is the Google Events bus used in [AddressBook Level 4](https://github.com/se-edu/addressbook-level4/)
 .The event bus uses reflections to observe all registered objects via `register` method for methods annotated with the
@@ -99,7 +100,7 @@ An example implementation (not the actual) of the `Subscribe` annotation might b
 public @interface Subscribe { }
 ```
 
-And that is it! Important parts of the code to note is the first and second line before the declaration. The first line
+And that is it! Important parts of the code to note are the first and second line before the declaration. The first line
 tells Java that this annotation must not be discarded during compile time so it will be available during runtime. The
 retention poilcy is there because some annotation do not mean anything after compilation (such as `Override` and
 `SuppressWarnings`), so it does not make sense to keep the annotation after compiling.
@@ -121,6 +122,15 @@ public class Sheep extends Animal {
         name = nameOfSheep;
         EVENTS_BUS.register(this);
     }
+
+    @Subscribe
+    public void handleWeatherChangeEvent(WeatherChangeEvent event) {
+        if (event.weather == Weather.RAIN) {
+            hide();
+        }
+    }
+
+    // Other methods here...
     
 }
 ```
@@ -151,14 +161,15 @@ public void findAllEventHandlersInClass(Class<?> clazz) {
 The first line of the `findAllEventHandlersInClass` method finds all classes and its parent classes of the registered
 class and converts it to a set. That is if you registered `Sheep extends Animal` as an event handler to the method,
 both `Sheep` and `Animal` will be captured by the first line. The following lines will then examine all their methods
-(during runtime!) for the `Subscribe` annotation and register it so that it will receive the specified event when it 
-is fired. Of course this implementation leaves out a lot of details but you get the idea of how java reflections works.
+(during runtime!) for the `Subscribe` annotation and register the method so that it will receive the specified event
+when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how java reflections
+works.
 
-Another example of reflections might arise when you are trying to get a private field of another class. While this should
+Another example of reflections is to get a private field of another class. While this should
 optimally be solved by modifying the field visibility to `protected` or `public`, sometimes it is not possible to do so
 becuase you might not have any access to the code (for example codes in libraries or frameworks).
 
-For the sake of simplicity, let use the previous example of a `Animal`. The class definition can look like this.
+For the sake of simplicity, let us use the previous example of a `Animal`. The class definition can look like this.
 
 ```java
 
@@ -188,7 +199,7 @@ public class Animal {
 }
 ```
 
-And let us assume that you for some reason cannot modify this code. But you are interested in making a new class `Sheep`
+And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class `Sheep`
 that extends `Animal` and do something when his age reaches certain threshold. But the annoying thing is that somebody
 decided that it is a good idea to make the age value `private` instead of `protected` in a top-level class such as this!
 So you cannot access the age of your `Sheep` even though it is an `Animal`.
@@ -239,19 +250,20 @@ public class Sheep extends Animal {
 
 ### Disadvantages of reflections
 
-While Java reflections is powerful, you should not immediately jump on the reflections ship. This is because there are
+While Java reflections are powerful, you should not immediately jump on the reflections ship. This is because there are
 some drawbacks whenever you use reflections in your project. The following are some points you should consider before
 using Java reflections:
 
-* Reflections converts a compile-time error to a potentially destructive run-time error.
+* Reflections convert a compile-time error to a potentially destructive run-time error.
 
 Compile time errors are easy to catch. Whenever you compile your code, the compiler cleverly spots any error you
 missed and points it out (along with line number and other useful information) to you before quitting. But by using
-reflections, you are bypassing these checks because there is no way to check such errors during compile time. Runtime
-errors are errors that you get during the operation of your software. For example you might have come across this problem
-where your program crashed and you get a `NullPointerException` error in your crash log. As you might have experienced
-already, runtime errors are more troublesome in that they are harder to catch and debug. They might even bring your whole
-software under the water with it by crashing the whole thing.
+reflections, you are bypassing these checks because there is no way to check such errors during compile time. These 
+uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.
+For example you might have come across this problem where your program crashed and you get a `NullPointerException`
+error in your crash log. As you might have experienced already, runtime errors are more troublesome in that they
+are harder to catch and debug. They might even bring your whole software under the water with it by crashing
+the whole thing.
 
 * Reflections are harder to understand and harder to debug
 
@@ -266,8 +278,8 @@ but you might want to keep it in mind if you want to scale up.
 
 * Bad Security
 
-Remember at the beginning of the section, a part mentioned about accessing the private fields of a class using
-reflections? This should be very concerning if your software deals with sensitive information because 
+The second example demostrated a way to access the private fields of a class using reflections.
+This should be very concerning if your software deals with sensitive information because 
 other classes can access fields that they are not supposed to.
 
 ### Further Resources for reflections
