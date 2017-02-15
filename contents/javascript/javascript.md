@@ -112,5 +112,44 @@ var myApp = (function() {
 
 As demonstrated above, only `myApp` is declared in the global scope, and we can access its methods through the object notation, e.g. `myApp.next()`. This is also especially useful to declare private variables that be used among functions. `id` is not accessible outside of scope in this example.
 
+### Purity is worth persuing
+
+There are tons of literature about functional programming. I will heavily recommend reading the [Mostly adequate guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide). It explains functional concepts extremely well.
+
+The benefit of pure functions is simple, there is no need to keep track of state. Given an input, the output is guaranteed to be the same every time. This allows us to write extremely simple unit tests, instead of having to maintian the state while testing.
+
+```js
+var counter = 0;
+var todos = [];
+
+function getTodo() {
+    counter++;
+    if (counter < todos.length) {
+        return 'NIL';
+    }
+    return todos[counter];
+}
+...
+getTodo();
+```
+
+The above function `getTodo` is not stateless as it depends on counter's value. In order to write the tests, we would need to ensure counter is reset to the same value at the end of each test. A better way would be to do this:
+
+```js
+var counter = 0;
+var todos = [];
+
+function getTodo(counter, todos) {
+    if (counter < todos.length) {
+        return 'NIL';
+    }
+    return todos[counter + 1];
+}
+...
+getTodo(counter, todos);
+```
+
+Now, not only that the person who writes the unit test can write in fewer lines of code, you can also use the function for some other state other than the global values.
+
 ## References
 [Namespacing in Javascript](https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/)
