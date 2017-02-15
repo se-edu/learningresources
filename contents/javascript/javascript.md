@@ -1,6 +1,6 @@
 # Writing Testable Javascript
 
-JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing. 
+JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing.
 
 That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.
 
@@ -48,7 +48,7 @@ $.ajax({
 });
 ```
 
-It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places. 
+It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places.
 
 ```js
 function setLoadingImage(selector) {
@@ -95,18 +95,18 @@ Of course, this may be a problem if two Javascript functions have the same name,
 
 ```js
 var myApp = (function() {
- 
+
     var id= 0;
- 
+
     return {
         next: function() {
-            return id++;    
+            return id++;
         },
- 
+
         reset: function() {
-            id = 0;     
+            id = 0;
         }
-    };  
+    };
 })();
 ```
 
@@ -192,6 +192,16 @@ By using an object, the user would just need to fill in what parameter they want
 ```js
 createPopUp('Warning', 'This will delete everything!', dangerStatus, { bodyColor: 'red' });
 ```
+
+## Resources
+[Clean Code Javascript](https://github.com/ryanmcdermott/clean-code-javascript)
+Apparently most of what I wrote appears in this huge guide in some form. It's an amazing resource and also explains SOLID clearly near the bottom.
+
+[Airbnb Javascript Style](https://github.com/airbnb/javascript)
+It is one thing to follow the style guide, and another to understand why it is that way. Understanding why Airbnb chose certain constructs and syntax reveals ways to write code that is clean, understandable and maintainable.
+
+[JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+The title says it all. From the most common to obscure patterns, this book covers design patterns and explains trade offs. Although it specifically caters to Javascript, it's recommended reading for all prospective software engineers.
 
 ## References
 [Namespacing in Javascript](https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/)
