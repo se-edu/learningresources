@@ -73,12 +73,14 @@ elements to be used (e.g. whitelisting only `<b>` and `<i>`).
 ## Resources
 
 References:
+
 1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 32 & 33)
 (Basic description of the XSS attack taken from here)
 1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks
 (Description of the two types of XSS attack taken from here)
 
 Additional Reading Resources:
+
 1. https://www.owasp.org/index.php/Testing_for_Cross_site_scripting
 (How to test your website for XSS attacks)
 1. https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet
@@ -91,6 +93,7 @@ Additional Reading Resources:
 (Comprehensive coverage of *all* aspects of XSS)
 
 Additional Resources:
+
 1. https://github.com/OWASP/java-html-sanitizer (Java Sanitization framework)
 (Implementation of HTML sanitization in Java)
 1. https://github.com/rails/rails_xss
