@@ -151,5 +151,47 @@ getTodo(counter, todos);
 
 Now, not only that the person who writes the unit test can write in fewer lines of code, you can also use the function for some other state other than the global values.
 
+## Writing reusable javascript
+
+### Optional parameters
+
+When writing certain functions, there would be certain situations where we want to have optional parameters. The easiest way would be to put optional parameters at the end of the parameter calls, like such:
+
+```js
+// es5 syntax
+function createPopUp(title, content, status, headerColor, bodyColor) {
+    var headerColor = headerColor || 'default';
+    var bodyColor = bodyColor || 'default';
+    ...
+}
+
+// es6 syntax default parameters
+function createPopUp(title, content, status, headerColor = 'default', bodyColor = 'default') {
+    ...
+}
+```
+
+ This is relatively simple and easy to understand. However, in order to specify body color, the user would have to know and fill in the default header color.
+
+```js
+// es5 syntax
+function createPopUp(title, content, status, optionals) {
+    var headerColor = optionals.headerColor || 'default';
+    var bodyColor = optionals.bodyColor || 'default';
+    ...
+}
+// es6 syntax with destructuring and default parameters
+function createPopUp(title, content, status, optionals) {
+    const { headerColor = 'default', bodyColor = 'default' } = optionals;
+    ...
+}
+```
+
+By using an object, the user would just need to fill in what parameter they want to be changed. In large functions, this would result in better readability as well.
+
+```js
+createPopUp('Warning', 'This will delete everything!', dangerStatus, { bodyColor: 'red' });
+```
+
 ## References
 [Namespacing in Javascript](https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/)
