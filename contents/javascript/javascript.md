@@ -1,6 +1,8 @@
 # Writing Testable Javascript
 
-JavaScript is a powerful language, and because it is powerful, there are multiple ways to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing. That is why there is need for a standard to writing JavaScript code, especially on the front end.
+JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing. 
+
+That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.
 
 Good JavaScript code should be testable, composable and reusable.
 
@@ -46,7 +48,7 @@ $.ajax({
 });
 ```
 
-It order to test such a function, we would now have to has both logic and also the mock-up generated. Splitting the logic and markup in two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places. 
+It order to test such a function, we would now have to incooperate both logic and also the mock-up generated. Splitting the logic and markup in two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places. 
 
 ```js
 function setLoadingImage(selector) {
@@ -70,7 +72,7 @@ $.ajax({
 });
 ```
 
-Already, we are seeing something traces leading to the MVC, albeit in a very small scale.
+Already, we are seeing some of pattern, leading to the MVC, albeit in a very small scale.
 
 ### Avoiding big anonymous functions
 
@@ -108,7 +110,7 @@ var myApp = (function() {
 })();
 ```
 
-In the above, only `myApp` is declared in the global scope, and we can access its methods through the object notation, e.g. `myApp.next()`. This is also especially useful to declare private variables that be used among functions. `id` is not accessible outside of scope in this example.
+As demonstrated above, only `myApp` is declared in the global scope, and we can access its methods through the object notation, e.g. `myApp.next()`. This is also especially useful to declare private variables that be used among functions. `id` is not accessible outside of scope in this example.
 
 ## References
 [Namespacing in Javascript](https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/)
