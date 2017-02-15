@@ -20,7 +20,7 @@ function populateStatusMessageDiv(message, status) {
 }
 ```
 
-In this piece of code we see that the selector is intrinsically tied to the function. This means that the function is tightly tied with the selector and is not easily testable as the test code has to generate the same markup in the test suite for the function to hook up to. In order to prevent such tight coupling, it is advised to leave the selector as a parameter, or sometimes, simply pass in the element itself.
+In this piece of code, we see that the selector is intrinsically tied to the function. This means that the function is tightly tied with the selector and is not easily testable as the test code has to generate the same markup in the test suite for the function to hook up to. In order to prevent such tight coupling, it is advised to leave the selector as a parameter, or sometimes, simply pass in the element itself.
 
 ```js
 function populateStatusMessage(selector, message, status) {
@@ -48,7 +48,7 @@ $.ajax({
 });
 ```
 
-It order to test such a function, we would now have to incooperate both logic and also the mock-up generated. Splitting the logic and markup in two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places. 
+It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places. 
 
 ```js
 function setLoadingImage(selector) {
@@ -72,11 +72,11 @@ $.ajax({
 });
 ```
 
-Already, we are seeing some of pattern, leading to the MVC, albeit in a very small scale.
+Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.
 
 ### Avoiding big anonymous functions
 
-Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace make them impossible to test. This is common, and tempting when the code starts off in a `document.ready()` or `$.ajax()`.
+Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off in a `document.ready()` or `$.ajax()`.
 
 The testable way of writing such function is to simply give the function a name, which allows it to be tested.
 
@@ -112,11 +112,11 @@ var myApp = (function() {
 
 As demonstrated above, only `myApp` is declared in the global scope, and we can access its methods through the object notation, e.g. `myApp.next()`. This is also especially useful to declare private variables that be used among functions. `id` is not accessible outside of scope in this example.
 
-### Purity is worth persuing
+### Purity is worth pursuing
 
-There are tons of literature about functional programming. I will heavily recommend reading the [Mostly adequate guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide). It explains functional concepts extremely well.
+There are tonnes of literature about functional programming. I will heavily recommend reading the [Mostly adequate guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide). It explains functional concepts extremely well.
 
-The benefit of pure functions is simple, there is no need to keep track of state. Given an input, the output is guaranteed to be the same every time. This allows us to write extremely simple unit tests, instead of having to maintian the state while testing.
+The benefit of pure functions is simple, there is no need to keep track of state. Given an input, the output is guaranteed to be the same every time. This allows us to write extremely simple unit tests, instead of having to maintain the state while testing.
 
 ```js
 var counter = 0;
