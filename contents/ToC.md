@@ -23,7 +23,7 @@
 * Security
 * Scalability
 * Testing
-* UIX
+* [UI/UX](https://github.com/AngShiYa/learningresources/blob/uix/contents/uix/uix.md)
 
 ## Other Tools/Technologies
 
