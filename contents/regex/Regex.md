@@ -193,8 +193,6 @@ Finally, we get a match and see that both strings match.
 
 ## So, what does this mean?
 
-## Helpful links
-
 [The Regex Engine](http://www.regular-expressions.info/engine.html)<br>
 [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
 
