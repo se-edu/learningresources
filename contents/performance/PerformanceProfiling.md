@@ -42,7 +42,7 @@ tools on your own project. The following tutorials are available in this article
 
 # Profiling a Desktop Application In Visual Studio 2015
 
-> This tutorial demonstrates using the profiler included in [Visual Studio 2015](https://www.visualstudio.com/downloads/). 
+This tutorial demonstrates using the profiler included in [Visual Studio 2015](https://www.visualstudio.com/downloads/). 
 
 ## 1. Run a performance profiling session
 
