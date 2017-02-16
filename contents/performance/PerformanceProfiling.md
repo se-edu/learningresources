@@ -82,8 +82,8 @@ to experience how to identify performance problems and optimize your code.
 
 You have identified the problem, and may now want to optimize the code in the 
 function body. But before that, here's a final tip: It is sometimes easier 
-(and better) to optimize by **reducing the number of calls to that function 
-in its calling functions.** 
+(and better) to optimize by 
+**reducing the number of calls to that function in its calling functions.** 
 
 ### Resources used:
 
@@ -94,7 +94,7 @@ in its calling functions.**
 ## Sampling Interval
 
 CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many 
-profilers offer the option to set a custom interval or perform sampling based on events, 
+profilers offer the option to **set a custom interval or perform sampling based on events**, 
 such as page faults or system calls, in the sampling settings.
 
 * For Visual Studio 2015: [How to: Choose Sampling Events](https://msdn.microsoft.com/en-us/library/ms182376.aspx)<br>
@@ -104,7 +104,7 @@ such as page faults or system calls, in the sampling settings.
 
 Instrumentation profiling incurs a substantial overhead, which is an increase in file size 
 and execution time of the program. This makes it unsuitable for large projects. In such 
-cases, it is recommended to limit instrumentation to a specific portion of your project. 
+cases, it is recommended to **limit instrumentation to a specific portion of your project**. 
 
 * For Visual Studio 2015: [How to: Limit Instrumentation to Specific Functions](https://msdn.microsoft.com/en-us/library/cc470663.aspx) 
 or [Specific DLLs](https://msdn.microsoft.com/en-us/library/bb385752.aspx)
@@ -113,9 +113,9 @@ To reduce instrumentation overhead, some profilers may exclude *small functions*
 are short functions that do not make any function calls, and treat the time as being 
 spent in their calling functions.
 
-This behavior is usually enabled by default, which may be undesirable when you want to 
-examine *small functions* carefully. Most profilers offer the option to change this 
-behavior.
+This behavior is usually enabled by default, which may be undesirable when you 
+want to **examine *small functions* carefully**. Most profilers offer the option 
+to change this behavior.
 
 * For Visual Studio 2015: [How to: Exclude or Include Short Functions from Instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx)
 
