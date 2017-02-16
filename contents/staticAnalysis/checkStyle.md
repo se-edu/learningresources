@@ -1,5 +1,5 @@
 ## CheckStyle
-CheckStyle is a static analyser for **Java**. It can be used to assist developers in static analysis process.
+CheckStyle is a static analyser for **Java**. It can be used to assist developers in [static analysis](intro.md) process.
 
 ### Features
 According to the [checks list](http://checkstyle.sourceforge.net/checks.html) provided by CheckStyle, the checks(rules) can be divided into 14 sections.
@@ -20,16 +20,24 @@ According to the [checks list](http://checkstyle.sourceforge.net/checks.html) pr
 - Whitespace
 
 ### Limitation
-As described in [here](http://checkstyle.sourceforge.net/writingchecks.html#Limitations), there are several limitations in CheckStyle.
+As described [here](http://checkstyle.sourceforge.net/writingchecks.html#Limitations), there are several limitations in CheckStyle.
 
 - The code must be written in ASCII characters only.
-- The examined code have to be compilable. The reason is described in [How does it work](#how-does-it-work) section.
-- File will be examined one by one, there is no check to check multiple files at the same time (e.g. you cannot determine the full inheritance hierarchy of a class)
+- The examined code has to be compilable. The reason is described in [How does it work](#how-does-it-work) section.
+- Files will be examined one by one. Therefore, there is no way to check multiple files at the same time. For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.
 
 ### How to use it
 
 #### Configuration
-CheckStyle use a [configuration file](http://checkstyle.sourceforge.net/config.html) to know all the checks that it supposed to check.
+CheckStyle uses a [configuration file](http://checkstyle.sourceforge.net/config.html) to know all the rules that it supposed to check.
+
+#### Suppress Warnings
+CheckStyle supports suppressing warning in four ways:
+
+- [Using Annotations](http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter)
+- [Using Comments](http://checkstyle.sourceforge.net/config_filters.html#SuppressionCommentFilter)
+- [Using File Filter](http://checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter)
+- [Using Configuration File](http://checkstyle.sourceforge.net/config_filters.html#SuppressionFilter)
 
 #### Running
 There are several ways to run CheckStyle.
@@ -40,10 +48,10 @@ There are several ways to run CheckStyle.
 - [IntelliJ Integration](https://plugins.jetbrains.com/idea/plugin/1065-checkstyle-idea)
 
 ### Available Configurations (Pre-defined Rule Sets)
-There are two widely used configurations: [Sun Code Conversions](http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html) and [Google Java Style](http://checkstyle.sourceforge.net/reports/google-java-style.html). They have already included common checks.
+There are two widely used configurations: [Sun Code Conversions](http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html) and [Google Java Style](http://checkstyle.sourceforge.net/reports/google-java-style.html). Some common rules are already included in these configurations.
 
 ### How does it work
-CheckStyle will use [ANTLR](http://www.antlr.org) to parse your code into a [AST(Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and visit it in a [DFS(Depth First Search)](https://en.wikipedia.org/wiki/Depth-first_search) patter to check violations. You can view the syntax tree using [CheckStyle Grammar Tree Viewer](http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui)
+CheckStyle will use [ANTLR](http://www.antlr.org) to parse your code into a [AST(Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and visit it in a [DFS(Depth First Search)](https://en.wikipedia.org/wiki/Depth-first_search) pattern to check violations. Thus, it is necessary to make the code compilable in order for the ANTLR to work.  You can view the syntax tree using [CheckStyle Grammar Tree Viewer](http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui)
 
 ### Developer (Customisation)
 - [Writing Checks](http://checkstyle.sourceforge.net/writingchecks.html) (I want to write my own check for Java code.)
