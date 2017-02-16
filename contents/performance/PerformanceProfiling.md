@@ -81,10 +81,9 @@ to experience how to identify performance problems and optimize your code.
 ## 4. Identify areas for improvements upwards
 
 You have identified the problem, and may now want to optimize the code in the 
-function body. But before that, here's a final tip: 
-
-> It is sometimes easier (and better) to optimize by **reducing the number of calls to 
-that function in its calling functions.** 
+function body. But before that, here's a final tip: It is sometimes easier 
+(and better) to optimize by **reducing the number of calls to that function 
+in its calling functions.** 
 
 ### Resources used:
 
