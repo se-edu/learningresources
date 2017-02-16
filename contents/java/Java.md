@@ -100,7 +100,7 @@ An example implementation (not the actual) of the `Subscribe` annotation might b
 public @interface Subscribe { }
 ```
 
-And that is it! Important parts of the code to note are the first and second line before the declaration. The first line
+And that is it! Important parts of the code to note are the first two lines before the declaration. The first line
 tells Java that this annotation must not be discarded during compile time so it will be available during runtime. The
 retention poilcy is there because some annotation do not mean anything after compilation (such as `Override` and
 `SuppressWarnings`), so it does not make sense to keep the annotation after compiling.
