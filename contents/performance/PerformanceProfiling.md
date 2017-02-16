@@ -15,6 +15,7 @@ Learn [which profiling method to use for your program](https://blogs.msdn.micros
 when choosing between CPU sampling and instrumentation.
 
 ### Resources used:
+
 1. What is a software profiler?: [Profiling Overview](https://msdn.microsoft.com/en-us/library/bb384493(v=vs.110).aspx)
 1. Common performance profiling methods: [Understanding Performance Collection Methods](https://msdn.microsoft.com/en-us/library/dd264994.aspx)
 
@@ -23,6 +24,7 @@ when choosing between CPU sampling and instrumentation.
 This article provides resources to help you identify the performance issues as you 
 perform profiling on your program for the first time. The general steps in profiling a 
 program for the first time are:
+
 1. Run a performance profiling session 
 1. View the performance report 
 1. Trace down to the problem 
@@ -35,6 +37,7 @@ tools on your own project. The following tutorials are available in this article
 * [Profiling a Desktop Application In Visual Studio 2015](#profiling-a-desktop-application-in-visual-studio-2015)
 
 ### Recommended resources:
+
 1. Learn the best practices in profiling: [Advanced Profiling: Theory in Practice with NetBeans IDE](https://netbeans.org/community/magazine/html/04/profiler.html)
 
 # Profiling a Desktop Application In Visual Studio 2015
@@ -84,6 +87,7 @@ function body. But before that, here's a final tip:
 that function in its calling functions.** 
 
 ### Resources used:
+
 1. The general steps in profiling your program: [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/en-us/library/ms182372.aspx)
 
 # Advanced Topics
@@ -117,6 +121,7 @@ behavior.
 * For Visual Studio 2015: [How to: Exclude or Include Short Functions from Instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx)
 
 ### Recommended resources:
+
 1. Why do profilers exclude small functions from instrumentation by default?: [Excluding Small Functions From Instrumentation](https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/)
 
 # Profiling Other Types Of Data
@@ -125,6 +130,7 @@ Other than collecting performance statistics and timing data, profilers are also
 to collect other information such as memory allocation and GPU usage. 
 
 For Visual Studio 2015: 
+
 1. List of [Profiling Tools](https://msdn.microsoft.com/en-us/library/mt210448.aspx) (A [table](https://msdn.microsoft.com/en-us/library/mt210448.aspx#Anchor_10) which shows the most suitable tool for each project)
 1. [How to: Collect Performance Data for a Web Site](https://msdn.microsoft.com/en-us/library/2s0xxa1d.aspx) (ASP.NET and JavaScript)
 1. [Collecting .NET Memory Allocation and Lifetime Data](https://msdn.microsoft.com/en-us/library/dd264934.aspx)
