@@ -97,6 +97,8 @@ Using this, we can construct our regex as follows:
 > 24/02/2017 Presentation at work <br>
 > 25/02/2017 Workshop
 
+-More examples-
+
 ## Helpful links
 
 [Try it out online](https://regex101.com/)<br>
@@ -193,11 +195,15 @@ Finally, we get a match and see that both strings match.
 
 ## So, what does this mean?
 
+-Discuss Performance-
+-Discuss Regex Backtracking-
+
 [The Regex Engine](http://www.regular-expressions.info/engine.html)<br>
 [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
 
 ## When NOT to use Regex
 
+-More Examples-
 
 ## Reflection
 
