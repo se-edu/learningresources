@@ -2,7 +2,7 @@
 
 Authors: [Syed Abdullah](https://github.com/Skaty)
 
-## Databases and DBMS
+## Introduction
 
 ![DB-DBMS Relationship](images/db-dbms-relation.png)
 
