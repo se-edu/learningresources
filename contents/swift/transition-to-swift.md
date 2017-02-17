@@ -53,31 +53,43 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
 
 ## [The Absolute Basics](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html)
 
-Things to note:
+### Differences between Java and Swift:
 
-Constant and variable names can contain almost any character, including Unicode characters
+- let is similiar to final in Java
 
-There is the idea of mutability of variables. If a variable should not be immutable, use let to declare it as a immutable constant. (let is similiar to final in Java)
+- Unlike Java, it is not compulsory to annotate the type of a variable.
 
-```
-let a = 2
-var b = 3
-```
+  ```
+  var c: Int
+  var d //this is legal
+  ```
 
-Unlike Java, it is not compulsory to annotate the type of a variable, but once the type of a variable is decided, it cannot be changed.
+- Instead of `for(int i = 0; i<100; i++) {` in Java, you would do `for i in 0..<100 {`.
 
-```
-var c: Int
-var d //this is legal
-```
+- nil in Swift is the same as null in Java
 
-nil in Swift is the same as null in Java
+### Things to note:
 
-There will be more readings on Error-Handling and Optionals
+- Constant and variable names can contain almost any character, including Unicode characters
+
+- There is the idea of mutability of variables. If a variable should not be immutable, use let to declare it as a immutable constant.
+
+  ```
+  let a = 2
+  var b = 3
+  ```
+
+- Once the type of a variable is decided, it cannot be changed.
+
+  ```
+  var c: Int
+  ```
+
+- There will be more readings on Error-Handling and Optionals.
 
 ## [Basic Operators](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html)
 
-Things to note:
+### Things to note:
 
 - Range Operators (Can be used to access arrays, mostly used in for-loops)
 
@@ -93,7 +105,7 @@ Things to note:
 
 ## [Strings and Characters](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285)
 
-Things to note:
+### Things to note:
 
 - The escaped special characters \0 (null character), \\ (backslash), \t (horizontal tab), \n (line feed), \r (carriage return), \" (double quote) and \' (single quote).
 
@@ -108,12 +120,12 @@ Things to note:
 
 ## [Collection Types](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html)
 
-Things to note:
+### Things to note:
 
 - A dictionary is similar to HashMap in other languages.
 
 
-Other references:
+### Other references:
 
 - Lesser-known Foundation Data Structures: https://www.raywenderlich.com/123100/collection-data-structures-swift-2
 
@@ -122,10 +134,14 @@ Other references:
 
 ## [Control Flow](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html)
 
-Things to note:
+### Things to note:
 
 - For loop example:<br>
-Instead of `for(int i = 0; i<100; i++) {` in Java, you would do `for i in 0..<100 {`.
+  ```
+  for i in 0...100 {
+    print(i)
+  }
+  ```
 
 - Repeat-While is the equivalent of Do-While in other languages.
 
@@ -151,7 +167,7 @@ Instead of `for(int i = 0; i<100; i++) {` in Java, you would do `for i in 0..<10
 
 ## [Functions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html)
 
-Things to note:
+### Things to note:
 
 - An example of a function:
 
@@ -187,7 +203,7 @@ Things to note:
   print(a) //a is now 11
   ```
 
-Cheatsheet for functions(less wordy than the docs):
+### Cheatsheet for functions(less wordy than the docs):
 http://limlab.io/swift/2016/02/12/swift-functions-cheatsheet.html
 
 
