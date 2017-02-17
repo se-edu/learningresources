@@ -10,9 +10,12 @@ Java reflections allow the inspection of classes, methods and fields during runt
 during compile time. It is also possible to create new instance of existing objects, invoke methods and change values 
 of fields of existing objects. Hence the name reflection because Java is in a way looking at itself during runtime!
 
+With reflections, it is possible to access private fields and/or methods of a class without having to modify the class
+itself. This is very useful if you are interested to implement tests cases to test the class.
+
 ### The Basics of Reflections
 
-Before getting started with reflections in Java, it is important to realise that classes themselves is an object. Every
+Before getting started with reflections in Java, it is important to realize that classes themselves is an object. Every
 unique `Object` is assigned an immutable `Class` object by the JVM. This immutable `Class` object is fundamentally 
 different from *instances* of a class. The class object itself holds information about its name, the package it resides 
 in and other important information while an instance of a class holds the instanced values and methods as defined
@@ -31,13 +34,7 @@ public class Student {
 		this.gender = gender;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getGender() {
-		return gender;
-	}
+    // Other methods here...
 }
 ```
 
@@ -72,11 +69,95 @@ make your life easier.
 
 ### Applications
 
+#### Accessing private fields
+
+A good example of reflections is to get a private field of another class. While this should
+optimally be solved by modifying the field visibility to `protected` or `public`, sometimes it is not possible to do so
+becuase you might not have any access to the code (for example codes in libraries or frameworks).
+
+For the sake of simplicity, let us use the previous example of a `Animal`. The class definition can look like this.
+
+```java
+
+public class Animal {
+
+    private int age;
+    private boolean isAlive;
+    public final String name;
+
+    public Animal(String nameOfAnimal) {
+        name = nameOfAnimal;
+        age = 0;
+        isAlive = true;
+    }
+
+    public void onUpdate() {
+        age++;
+
+        if (age > 100) {
+            setDead();
+        }
+    }
+
+    private void setDead() {
+        isAlive = false;
+    }
+}
+```
+
+And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class `Sheep`
+that extends `Animal` and do something when his age reaches certain threshold. But the annoying thing is that somebody
+decided that it is a good idea to make the age value `private` instead of `protected` in a top-level class such as this!
+So you cannot access the age of your `Sheep` even though it is an `Animal`.
+
+This of course can be solved by reflections as follows:
+
+```java
+
+public class Sheep extends Animal {
+    private boolean hasWool;
+
+    public Sheep(String animalName) {
+        super(animalName);
+        hasWool = false;
+    }
+
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+
+        int age = getPrivateAge();
+
+        if (age > 20) {
+            setHasWool();
+        }
+    }
+
+    private int getPrivateAge() {
+        // Since class is a reserved keyword, we use clazz in variable names
+        Class<Animal> animalClazz = Animal.class;
+
+        try {
+            Field f = animalClazz.getDeclaredField("age");
+            f.setAccessible(true);
+            return (int) f.get(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    // Other methods here...
+}
+```
+
+#### A More advanced application
+
 You might have learnt from your Software Engineering module that the observer pattern can be used for objects that are
 interested to get notified if the state of another object is changed. The observer pattern is useful because you can
 avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other
 while allowing the objects to be notified of any changes in another object.
-
 
 One prime example of the implementation of the observer pattern is the Google Events bus used in [AddressBook Level 4](https://github.com/se-edu/addressbook-level4/)
 .The event bus uses reflections to observe all registered objects via `register` method for methods annotated with the
@@ -154,89 +235,6 @@ both `Sheep` and `Animal` will be captured by the first line. The following line
 (during runtime!) for the `Subscribe` annotation and register the method so that it will receive the specified event
 when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how java reflections
 works.
-
-Another example of reflections is to get a private field of another class. While this should
-optimally be solved by modifying the field visibility to `protected` or `public`, sometimes it is not possible to do so
-becuase you might not have any access to the code (for example codes in libraries or frameworks).
-
-For the sake of simplicity, let us use the previous example of a `Animal`. The class definition can look like this.
-
-```java
-
-public class Animal {
-
-    private int age;
-    private boolean isAlive;
-    public final String name;
-
-    public Animal(String nameOfAnimal) {
-        name = nameOfAnimal;
-        age = 0;
-        isAlive = true;
-    }
-
-    public void onUpdate() {
-        age++;
-
-        if (age > 100) {
-            setDead();
-        }
-    }
-
-    private void setDead() {
-        isAlive = false;
-    }
-}
-```
-
-And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class `Sheep`
-that extends `Animal` and do something when his age reaches certain threshold. But the annoying thing is that somebody
-decided that it is a good idea to make the age value `private` instead of `protected` in a top-level class such as this!
-So you cannot access the age of your `Sheep` even though it is an `Animal`.
-
-This of course can be solved by reflections as follows:
-
-```java
-
-public class Sheep extends Animal {
-    private boolean hasWool;
-
-    public Sheep(String animalName) {
-        super(animalName);
-        hasWool = false;
-    }
-
-    @Override
-    public void onUpdate() {
-        super.onUpdate();
-
-        int age = getPrivateAge();
-
-        if (age > 20) {
-            setHasWool();
-        }
-    }
-
-    private void setHasWool() {
-        hasWool = true;
-    }
-
-    private int getPrivateAge() {
-        // Since class is a reserved keyword, we use clazz in variable names
-        Class<Animal> animalClazz = Animal.class;
-
-        try {
-            Field f = animalClazz.getDeclaredField("age");
-            f.setAccessible(true);
-            return (int) f.get(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return 0;
-    }
-}
-```
 
 ### Disadvantages of reflections
 
