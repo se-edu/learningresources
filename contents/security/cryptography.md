@@ -16,7 +16,7 @@ Modern cryptography involves developing methods to achieve the following:
 
 # Encryption
 
-Encryption is the process of encoding messages so that it is readable only by the intended recipient. The message being encrypted is called the plaintext. The encryption algorithm, or cipher, "scrambles" the message, producing ciphertext, which should only be readable by the recipient.
+Encryption is the process of encoding messages so that it is readable only by the intended recipient. The message being encrypted is called the plaintext. The encryption algorithm, or cipher, "scrambles" the message, producing ciphertext, which should only be readable by the recipient. Decryption is the reverse process of recovering the plaintext from the ciphertext.
 
 One of the earliest encryption algorithms or ciphers is the substitution cipher, which encrypts text by substituting each letter of the message with another letter. This page introduces the [Caesar cipher](http://www.cs.trincoll.edu/~crypto/historical/caesar.html), a substitution cipher, and how it can be defeated using statistical analysis. 
 Modern ciphers today operate on bits rather than letters.
@@ -36,12 +36,29 @@ Unfortunately, Shannon proved that any cipher that achieves perfect secrecy has 
 * The key must be truely random, not pseudorandomly generated, and must never be reused.
 * The key must be securely distributed, and be at least as long as the message being generated. For example, to send a 10gb file to someone encrypted with the one-time pad requires sending 10gb of key material + 10gb of ciphertext = 20gb.
 
-Hence, modern ciphers aim to be secure against attackers with limited computational power, which is a more realistic scenario.
+Hence, modern ciphers aim to be more practical to use, and to be secure against attackers with limited computational power, ,a more realistic scenario.
 
 Stream ciphers approximate the operation of a one-time pad, using a much shorter key (e.g, 256 bits). 
 The initial key is used as the seed of a [cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator), which is used to generate the keystream, a stream of bits. 
-Like in the one-time pad, plaintext bits are combined (usually xored) with bits of the keystream to produce the ciphertext. 
+Like in the one-time pad, plaintext bits are combined (usually xored) with bits of the keystream, one bit at a time, to produce the ciphertext.
+During decryption, the same key is used to regenerate the keystream, and each ciphertext bit is xored with corresponding ciphertext bits to recover the plaintext. Notice that encryption and decryption are the same operation; this is possible because xoring a bit with another bit twice recovers the original bit.
+
 They are used for efficiency, ease of implementation in hardware, and when the length of the plaintext is unpredictable. 
-However, block ciphers are more popular than stream ciphers for symmetric encryption, as they can be used as stream ciphers when in counter mode (to be explained in future section), which reduces the need for dedicated stream ciphers.
+However, block ciphers are more widely used than stream ciphers as they can be used as stream ciphers when in counter mode (to be explained in future section), which reduces the need for dedicated stream ciphers.
 
 [RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged. 
+
+### Block Ciphers
+
+Unlike stream ciphers, which operate on individual bits, block ciphers operate on an entire block of bits at a time. In practice, the size of each block is 64 or 128 bits. The plaintext is padded if it is not an even multiple of the block size.
+
+Shannon introduced 2 primitives, which modern block ciphers are built on.
+
+* Confusion: an operation wwhich obscures the relationship between key and ciphertext. This is usually done by substitution, like that in the Caesar cipher.
+* Diffusion: an operation which hides statistical properties in the plaintext by spreading the influence of a plaintext bit over many ciphertext bits. For example, the DES cipher achieves this by bit Permutations.
+
+Ciphers that use only one of these operations are insecure. For example, the insecure Caesar cipher only uses confusion. But strong ciphers can be built by using both confusion and diffusion - these are called product ciphers. 
+
+* This [article](https://graquantum.com/blog/deciphering-encryption-des-block-cipher/) explains how the  DES cipher works, Feistel networks, and s-boxes and p-boxes. Though DES is no longer secure, its design has inspired many ciphers. A still secure variant, triple DES, is popular in legacy applications.
+* The Advanced Encryption Standard (AES) is the most popular symmetric cipher today. It is used by the US government, many protocols such as TLS, WPA2-AES and SSH. This [article](https://graquantum.com/blog/deciphering-encryption-aes-block-cipher/) explains how AES works without going too much into the mathematical details.
+
