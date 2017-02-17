@@ -197,7 +197,7 @@ Finally, we get a match and see that both strings match.
 
 Bad use of greedy operators (`.*`, `.+`) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:
 
-Match a person's full name: `(Anderson.*Cooper)`
+Match a person's full name: `(Anderson.*Cooper)`  <br>
 Text: `Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)`
 
 This looks like a simple matching at first glance, but look at what happens:
@@ -212,9 +212,13 @@ Every character after `Anderson` matches `.*`, resulting in scanning the entire 
 
 ## Catastrophic Backtracking
 
-This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when strings are repeated within a group, or when the string group matches the delimiter. This results in the engine having to backtrack after each step, resulting in O(2<sup>n</sup>) in some cases! We can see how this happens by analyzing a few examples:
+This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when multiple greedy operators are chained. If a match can't be found, each operator will be backtracked individually, which results in a lot of computation, even up to O(2<sup>n</sup>) in some cases! Let's look at one case in detail.
 
-Match 10 comma separated values in an array: `\[(.+,){9}(.+)\]`
+### Matching Delimiters
+
+One common reason this happens is when delimited data is carelessly matched. This is when the Regex group you are using to match the data also matches the delimiter. Consider the following example:
+
+Match 10 comma separated values in an array: `\[(.+,){9}(.+)\]`<br>
 E.g.: `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`
 
 This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?
@@ -266,7 +270,25 @@ This problem can be exacerbated by the one mentioned previously. Imagine if your
 
 The extra parts of the string will be matched each time, and we can only imagine how long that will take.
 
--Preventing-
+So, how do we prevent this?
+
+* Explicitly exclude the delimter.
+
+> Match 10 comma separated values in an array: `\[([^,]+,){9}([^,]+)\]` instead of `\[(.+,){9}(.+)\]`<br>
+
+Here, instead of matching all characters (`.`), we match all characters except a certain character (`[^,]`). This allows the regex to capture in one parse successfully. Some other common examples are HTML/XML tags (`<[^>]*>` instead of `<.+>`) and bracketed expressions (`\([^\)]+\)` instead of `\(.+\)`).
+
+* Always narrow the scope as much as possible.
+
+> Matching a name: `[A-z]+ [A-z]+` instead of `.+ .+`<br>
+
+A great tip for improving Regex performance is to specify your match as clearly as possible. This reduces the potential of unwanted matchings and unnecessary backtracking.
+
+* Avoid greedy operators if possible.
+
+> Matching a date: `\d{1,2}-\d{1,2}-\d{2,4}` instead of `.*-.*-.*`<br>
+
+If you know your data will only be a few characters long, try your best to avoid using `*` or `+`. Limiting to a number of characters would reduce the amount of backtracking if any.
 
 [The Regex Engine](http://www.regular-expressions.info/engine.html)<br>
 [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
