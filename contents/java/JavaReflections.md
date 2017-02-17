@@ -6,9 +6,11 @@ Authors: [Jeremy Goh](https://github.com/MightyCupcakes)
 
 ### What is Java reflections
 
-Java reflections allow the inspection of classes, methods and fields during runtime, without having any knowledge of it
-during compile time. It is also possible to create new instance of existing objects, invoke methods and change values 
-of fields of existing objects. Hence the name reflection because Java is in a way looking at itself during runtime!
+Reflection is the ability of a computer program to examine, inspect and modify its own behaviour at runtime.
+In particular, reflections in Java allows the inspection of classes, methods and fields during runtime, without 
+having any knowledge of it during compile time. It is also possible to create new instance of existing objects,
+invoke methods and change values of fields of existing objects. Hence the name reflection because Java is in a 
+way looking at itself during runtime!
 
 With reflections, it is possible to access private fields and/or methods of a class without having to modify the class
 itself. This is very useful if you are interested to implement tests cases to test the class.
@@ -73,9 +75,9 @@ make your life easier.
 
 A good example of reflections is to get a private field of another class. While this should
 optimally be solved by modifying the field visibility to `protected` or `public`, sometimes it is not possible to do so
-becuase you might not have any access to the code (for example codes in libraries or frameworks).
+because you might not have any access to the code (for example codes in libraries or frameworks).
 
-For the sake of simplicity, let us use the previous example of a `Animal`. The class definition can look like this.
+For the sake of simplicity, let us use a example of a simple `Animal` class. The class definition can look like this.
 
 ```java
 
@@ -154,6 +156,11 @@ And there you have it! What `Sheep` is really doing is to examine itself at runt
 inherited from `Animal`. If it cannot, it assumes its `age` is zero. This technique can be used in test cases to
 access private fields and methods in the class under test without modifying the behaviour of the class itself.
 
+You may notice that the `Sheep#getPrivateAge()` method sets the age `Field` object to be accessible and might wonder
+the implications. Fret not! The `Field#getDeclaredField()` actually returns a new `Field` instance - so you're just
+setting that particular local `Field` instance to be accessible, not the actual `age` field itself. You can read more
+about it in this [StackOverflow question](http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue).
+
 #### A More advanced application
 
 You might have learnt from your Software Engineering module that the observer pattern can be used for objects that are
@@ -175,7 +182,7 @@ public @interface Subscribe { }
 
 And that is it! Important parts of the code to note are the first two lines before the declaration. The first line
 tells Java that this annotation must not be discarded during compile time so it will be available during runtime. The
-retention poilcy is there because some annotation do not mean anything after compilation (such as `Override` and
+retention policy is there because some annotation do not mean anything after compilation (such as `Override` and
 `SuppressWarnings`), so it does not make sense to keep the annotation after compiling.
 
 The second line just means that this annotation can be applied to methods only.
