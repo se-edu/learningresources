@@ -167,7 +167,7 @@ ba
 
 Although a suitable match (`ba`) has already been found, the engine sees that it can match against a longer string of `a`s. It will instead return the match `baaaaaaaaa`, matching the entire string.
 
-But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex `c.*ed` against the string `contested`.
+But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex `c.*ed` against the string `contested` (Let `.....` represent `.*`).
 
 ```
 contested
@@ -193,10 +193,80 @@ c......ed
 
 Finally, we get a match and see that both strings match.
 
-## So, what does this mean?
+## Effect on performance
 
--Discuss Performance-
--Discuss Regex Backtracking-
+Bad use of greedy operators (`.*`, `.+`) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:
+
+Match a person's full name: `(Anderson.*Cooper)`
+Text: `Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)`
+
+This looks like a simple matching at first glance, but look at what happens:
+
+```
+Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)
+               ^
+               Anderson..............................................
+```
+
+Every character after `Anderson` matches `.*`, resulting in scanning the entire string! Ant not only that, the Regex also has to backtrack one character at a time, until it reaches `Anderson Pearson ` and `Cooper` can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.
+
+## Catastrophic Backtracking
+
+This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when strings are repeated within a group, or when the string group matches the delimiter. This results in the engine having to backtrack after each step, resulting in O(2<sup>n</sup>) in some cases! We can see how this happens by analyzing a few examples:
+
+Match 10 comma separated values in an array: `\[(.+,){9}(.+)\]`
+E.g.: `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`
+
+This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?
+
+The problem occurs because `.` matches any character. This also includes the comma separating the group. This is what happens when the first set of `(.+,)` is parsed:
+
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+^
+[.........................,
+[.+                       ,
+```
+
+The first group keeps everything as its data group. Now, it tries to find the second `(.+,)` in ` 10]`, but fails, so it backtracks:
+
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+^
+[......................,..,
+[.+                    ,.+,
+```
+
+This time the first and second groups are matched. Now, it tries to find the **third** `(.+,)` in ` 10]`, but fails, so it backtracks yet again. So we move the first `(.+,)` back:
+
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+^
+[...................,
+[.+                 ,
+```
+
+Now, what happens? Well, the second `(.+,)` is greedy, so it actually matches the last comma instead!
+
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+^
+[...................,.....,
+[.+                 ,.+   ,
+```
+
+As we can see, by chaining repeated groups, it actually causes cascading levels of backtracking, which leads to very poor performance, even with short strings. For this case, we can observe that each comma is either included in the regex or not included in the match, and every possible combination of included and not included combinations will appear at least once. That means the complexity is equal to the number of possible ways n commas can be either included or not included, or O(2<sup>n</sup>). This is a Very Bad Thing™!
+
+This problem can be exacerbated by the one mentioned previously. Imagine if your text looked like this:
+
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)
+[...................................................,
+```
+
+The extra parts of the string will be matched each time, and we can only imagine how long that will take.
+
+-Preventing-
 
 [The Regex Engine](http://www.regular-expressions.info/engine.html)<br>
 [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
