@@ -6,7 +6,7 @@ It is possible to do static analysis manually, but there are automated tools(sta
 ### Why Static Analysis?
 
 #### Analyse Thoroughly
-In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (Go to [Find Potential Bugs Early](#find-potential-bugs-early) section and see how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.
+In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs ([see](#find-potential-bugs-early) how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.
 
 #### Find Potential Bugs Early
 Static analysis can find bugs before the execution. For example, some programmers may forget to add `break` statement in `switch` statement.
@@ -63,7 +63,7 @@ return isConditionTrue();
 ### Limitation of Static Analysis
 
 #### False positives
-Since static analysis tools only reconsigned patterns, there might be false positives introduced.
+Since static analysis tools only recognize patterns, there might be false positives introduced.
 
 ``` java
 try {
@@ -87,11 +87,11 @@ Since static analysis is done without executing the programme. Some vulnerabilit
 ### How to Do Static Analysis (Static Analysis Tools)
 There are several static analysis tools that can be used to assist the process.
 
-- [List of tools for static code analysis](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis)
+- [List of tools for static code analysis - Wikipedia](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis)
 - [Codacy - Automated code reviews & code analytics](https://www.codacy.com/)
-- [Review of Java Static Analysis Tools] (https://blog.codacy.com/review-of-java-static-analysis-tools-5ad86cfc8ae2#.af3t0ev32)
+- [Review of Java Static Analysis Tools](https://blog.codacy.com/review-of-java-static-analysis-tools-5ad86cfc8ae2#.af3t0ev32)
 
-The detailed discussion of them is as below:
+Here, we will discuss several static analysis tools in detail.
 
 - [CheckStyle](checkStyle.md) (for Java only)
 - [PMD](PMD.md)

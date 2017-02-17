@@ -23,7 +23,7 @@
 * Security
 * Scalability
 * Testing
-* [Static Anlysis](staticAnalysis/intro.md)
+* [Static Analysis](staticAnalysis/intro.md)
 * UIX
 
 ## Other Tools/Technologies

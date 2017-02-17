@@ -2,6 +2,8 @@
 CheckStyle is a static analyser for **Java**. It can be used to assist developers in [static analysis](intro.md) process.
 
 ### Features
+CheckStyle will examine code based on different rules(or checks).
+
 According to the [checks list](http://checkstyle.sourceforge.net/checks.html) provided by CheckStyle, the checks(rules) can be divided into 14 sections.
 
 - Annotations
@@ -24,26 +26,37 @@ As described [here](http://checkstyle.sourceforge.net/writingchecks.html#Limitat
 
 - The code must be written in ASCII characters only.
 - The examined code has to be compilable. The reason is described in [How does it work](#how-does-it-work) section.
-- Files will be examined one by one. Therefore, there is no way to check multiple files at the same time. For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.
+- Files will be examined one by one, which means you cannot check multiple files at the same time.
+	- For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.
 
 ### How to use it
 
 #### Configuration
-CheckStyle uses a [configuration file](http://checkstyle.sourceforge.net/config.html) to know all the rules that it supposed to check.
+CheckStyle uses a [configuration file](http://checkstyle.sourceforge.net/config.html) to know all the rules that it is supposed to check.
 
 #### Suppress Warnings
-CheckStyle supports suppressing warning in four ways:
+CheckStyle supports suppressing warnings in four ways:
 
-- [Using Annotations](http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter)
-- [Using Comments](http://checkstyle.sourceforge.net/config_filters.html#SuppressionCommentFilter)
-- [Using File Filter](http://checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter)
-- [Using Configuration File](http://checkstyle.sourceforge.net/config_filters.html#SuppressionFilter)
+- [Annotations](http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter)
+- [Comments](http://checkstyle.sourceforge.net/config_filters.html#SuppressionCommentFilter)
+- [File Filter](http://checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter)
+- [Configuration File](http://checkstyle.sourceforge.net/config_filters.html#SuppressionFilter)
 
 #### Running
 There are several ways to run CheckStyle.
 
-- [Ant Task](http://checkstyle.sourceforge.net/anttask.html)
+Command Line:
+
 - [Command Line](http://checkstyle.sourceforge.net/cmdline.html)
+
+Build Automation Tools:
+
+- [Ant Task](http://checkstyle.sourceforge.net/anttask.html)
+- [Maven Checkstyle](https://maven.apache.org/plugins/maven-checkstyle-plugin/)
+- [Gradle Checkstyle](https://docs.gradle.org/current/userguide/checkstyle_plugin.html)
+
+IDE Integration:
+
 - [Eclipse Integration](http://eclipse-cs.sourceforge.net/#!/)
 - [IntelliJ Integration](https://plugins.jetbrains.com/idea/plugin/1065-checkstyle-idea)
 

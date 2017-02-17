@@ -1,7 +1,9 @@
 ## PMD
-PMD is a static analyser for Java, JavaScript, Salesforce.com Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)), which helps to find duplicated code is also included as an add-on in PMD.
+PMD is a static analyser for Java, JavaScript, Salesforce.com Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)), which helps to find duplicated code, is also included as an add-on in PMD.
 
 ### Features
+Rules in PMD represent patterns in code. PMD is supposed to check these rules(patterns) and signal violations to programmers. For example, the `OverrideBothEqualsAndHashcode` rule requires programmers to override both `public boolean Object.equals(Object other)`, and `public int Object.hashCode()`, or override neither. 
+
 PMD supports checking rules for the following languages.
 
 - [Java](https://pmd.github.io/pmd-5.5.3/pmd-java/index.html) (includes [JSP](https://pmd.github.io/pmd-5.5.3/pmd-java/index.html) with [limitations](https://pmd.github.io/pmd-5.5.3/pmd-jsp/index.html))
@@ -11,7 +13,7 @@ PMD supports checking rules for the following languages.
 - [Velocity](https://pmd.github.io/pmd-5.4.1/pmd-vm/index.html)
 - [XML and XSL](https://pmd.github.io/pmd-5.5.3/pmd-xml/index.html)
 
-PMD doesn't support checking rules sets for the following languages. Only Copy/Paste Detector ([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)) is supported for them.
+PMD doesn't support checking rules for the following languages. Only Copy/Paste Detector ([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)) is supported for them.
 
 - [C++](https://pmd.github.io/pmd-5.5.3/pmd-cs/index.html)
 - [C#](https://pmd.github.io/pmd-5.5.3/pmd-cpp/index.html)
@@ -31,7 +33,8 @@ PMD doesn't support checking rules sets for the following languages. Only Copy/P
 Limitations are almost the same as [CheckStyle](checkStyle.md).
 
 - The examined code has to be compilable. The reason is described in [How does it work](#how-does-it-work) section.
-- Files will be examined one by one. Therefore, there is no way to check multiple files at the same time. For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.
+- Files will be examined one by one, which means you cannot check multiple files at the same time. 
+	- For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.
 
 ### How to use it
 
@@ -42,12 +45,12 @@ PMD can be run on both Windows and Linux/Unix operating system with the help of 
 You can configure PMD to only include the rules that your want (see [How to make a new rule set](https://pmd.github.io/pmd-5.5.3/customizing/howtomakearuleset.html)).
 
 #### Suppress Warnings
-PMD supports suppressing warning in four ways:
+PMD supports suppressing warnings in four ways:
 
-- Using Annotations
-- Using Comments
-- Using Violation Suppress Regex
-- Using Violation Suppress XPath
+- Annotations
+- Comments
+- Violation Suppress Regex
+- Violation Suppress XPath
 
 The details are described [here](https://pmd.github.io/pmd-5.5.3/usage/suppressing.html).
 
