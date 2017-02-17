@@ -11,7 +11,7 @@ Modern cryptography involves developing methods to achieve the following:
 
 * Confidentiality: ensuring that a message can only be read by its intended recipient. For example, websites use encryption in the Transport Layer Security (TLS) protocol to prevent interception of sensitive information such as credit card numbers and passwords.
 * Integrity: ensuring a message has not been changed. For example, hash functions are used in the BitTorrent protocol to ensure files received have not been modified by malicious peers.
-* Authentication: the recipient should be able to verify the sender of a message. For example, <TODO: add https example>
+* Authentication: the recipient should be able to verify the sender of a message. For example, iPhones need to verify that the software updates received really came from Apple, not a malicious attacker.
 * Non-repudiation: the sender should not be able to deny sending a message after doing so. For example, the parties of a digital contract should not be able to deny signing the contract in a legal dispute.
 
 # Encryption
@@ -28,12 +28,12 @@ The parties wishing to communicate securely share the same key. For example, in 
 
 ### Stream ciphers
 
-The ciphertext, keystream and  plaintext are sequences or streams of bits. 
-During encryption, each plaintext bit is combined (usually xored) with the corresponding keystream bit to produce the ciphertext bits.
+The ciphertext, keystream and  plaintext are sequences or streams of bits of equal length. 
+During encryption, each plaintext bit is combined (usually xored) with the corresponding keystream bit to produce the ciphertext bits. For example, the 1st plaintext bit is xored with the 1st keystream bit, 2nd plaintext bit with 2nd keystream bit and so on.
 During decryption, each ciphertext bit is xored with the corresponding keystream bit to produce the plaintext.
 Notice that encryption and decryption are the same operation; this is possible since xoring a bit x with another bit y twice recovers the original bit; (x xor y) xor y = x.
 
-The simplest stream cipher is the [one-time pad,](https://en.wikipedia.org/wiki/One-time_pad). In this cipher, the keystream used is from a truly random source. 
+The simplest stream cipher is the [one-time pad,](https://en.wikipedia.org/wiki/One-time_pad). In this cipher, the keystream used is from a truly random source. The keystream is also the key.
 It is the only known cipher that cannot be cracked, even if the attacker has infinite computing power.
 This property is known as [perfect secrecy](https://crypto.stackexchange.com/questions/3896/simply-put-what-does-perfect-secrecy-mean); the ciphertext gives no additional information about the plaintext, so knowing the ciphertext does not provide any advantage to the attacker trying to recover the plaintext.
 Unfortunately, Shannon proved that any cipher that achieves perfect secrecy has the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
@@ -54,7 +54,7 @@ However, block ciphers are more widely used than stream ciphers. In some modes o
 
 ### Block Ciphers
 
-Unlike stream ciphers, which operate on individual bits, block ciphers operate on an entire block of bits at a time. In practice, the size of each block is 64 or 128 bits. The plaintext is padded if it is not an even multiple of the block size.
+Unlike stream ciphers, which operate on individual bits, block ciphers operate on an entire block of bits at a time. In practice, the size of each block is 64 or 128 bits.
 
 Shannon introduced 2 primitives, which modern block ciphers are built on.
 
@@ -70,5 +70,12 @@ Ciphers that use only one of these operations are insecure. For example, the ins
 
 Block ciphers alone aren't very useful, because they only provide a secure way of encrypting one block of data. 
 Modes of operation are ways of using block ciphers to securely encrypt multiple blocks. 
-Block ciphers can provide additional services such as integrity, depending on the mode used, which makes them vercitile. 
+The plaintext is padded if it is not an even multiple of the block size.
+Block ciphers can also provide additional services such as integrity, depending on the mode used, which makes them vercitile. 
 This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) provides a nice overview of common modes.
+
+# Other Resources
+
+* [Understanding Cryptography: A Textbook for Students and Practitioners](https://www.amazon.com/Understanding-Cryptography-Textbook-Students-Practitioners/dp/3642041000) is an outstanding introductory text. Explanations are excellent, and no knowledge of number theory is assumed. An electronic copy can be freely downloaded from the NUS library. It was used as reference material for this document.
+* [Awesome Cryptography](https://github.com/sobolevn/awesome-cryptography) is a curated list of resources - books and articles on cryptography, libraries, blogs and more.
+* [Security Now](https://grc.com/sn) is a weekly podcast on security. Though it does not go into much detail about the underlying mathematics, there are many episodes on cryptography that provide a working knowledge of the subject. It also discusses security headlines, which emphasize the practical aspect of cryptography; while the math may be sound, implementation mistakes or side-channel attacks often cause vulnerabilities in practice.
