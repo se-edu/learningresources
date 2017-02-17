@@ -99,9 +99,7 @@ public class Animal {
         }
     }
 
-    private void setDead() {
-        isAlive = false;
-    }
+    // Other methods here...
 }
 ```
 
@@ -151,6 +149,10 @@ public class Sheep extends Animal {
     // Other methods here...
 }
 ```
+
+And there you have it! What `Sheep` is really doing is to examine itself at runtime in order to obtain the `age` field
+inherited from `Animal`. If it cannot, it assumes its `age` is zero. This technique can be used in test cases to
+access private fields and methods in the class under test without modifying the behaviour of the class itself.
 
 #### A More advanced application
 
