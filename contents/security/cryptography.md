@@ -33,7 +33,7 @@ During encryption, each plaintext bit is combined (usually xored) with the corre
 During decryption, each ciphertext bit is xored with the corresponding keystream bit to produce the plaintext.
 Notice that encryption and decryption are the same operation; this is possible since xoring a bit x with another bit y twice recovers the original bit; (x xor y) xor y = x.
 
-The simplest stream cipher is the [one-time pad,](https://en.wikipedia.org/wiki/One-time_pad). In this cipher, the keystream used is from a truly random source. The keystream is also the key.
+The simplest stream cipher is the [one-time pad](https://en.wikipedia.org/wiki/One-time_pad). In this cipher, the keystream used is bits from a truly random source, and is also the key.
 It is the only known cipher that cannot be cracked, even if the attacker has infinite computing power.
 This property is known as [perfect secrecy](https://crypto.stackexchange.com/questions/3896/simply-put-what-does-perfect-secrecy-mean); the ciphertext gives no additional information about the plaintext, so knowing the ciphertext does not provide any advantage to the attacker trying to recover the plaintext.
 Unfortunately, Shannon proved that any cipher that achieves perfect secrecy has the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
@@ -63,7 +63,7 @@ Shannon introduced 2 primitives, which modern block ciphers are built on.
 
 Ciphers that use only one of these operations are insecure. For example, the insecure Caesar cipher only uses confusion. But strong ciphers can be built by using both confusion and diffusion - these are called product ciphers.
 
-* This [article](https://graquantum.com/blog/deciphering-encryption-des-block-cipher/) explains how the  DES cipher works, Feistel networks, and s-boxes and p-boxes. Though DES is no longer secure, its design has inspired many ciphers. A still secure variant, triple DES, is popular in legacy applications.
+* This [article](https://graquantum.com/blog/deciphering-encryption-des-block-cipher/) explains how the  DES cipher works, Feistel networks, s-boxes and p-boxes. Though DES is no longer secure, its design has inspired many ciphers. A still secure variant, triple DES, is popular in legacy applications.
 * The Advanced Encryption Standard (AES) is the most popular symmetric cipher today. It is used by the US government, many protocols such as TLS, WPA2-AES and SSH. This [article](https://graquantum.com/blog/deciphering-encryption-aes-block-cipher/) explains how AES works without going too much into the mathematical details.
 
 #### Modes of Operation
@@ -77,5 +77,5 @@ This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) 
 # Other Resources
 
 * [Understanding Cryptography: A Textbook for Students and Practitioners](https://www.amazon.com/Understanding-Cryptography-Textbook-Students-Practitioners/dp/3642041000) is an outstanding introductory text. Explanations are excellent, and no knowledge of number theory is assumed. An electronic copy can be freely downloaded from the NUS library. It was used as reference material for this document.
-* [Awesome Cryptography](https://github.com/sobolevn/awesome-cryptography) is a curated list of resources - books and articles on cryptography, libraries, blogs and more.
+* [Awesome Cryptography](https://github.com/sobolevn/awesome-cryptography) is a curated list of resources - articles, blogs, books, libraries and more.
 * [Security Now](https://grc.com/sn) is a weekly podcast on security. Though it does not go into much detail about the underlying mathematics, there are many episodes on cryptography that provide a working knowledge of the subject. It also discusses security headlines, which emphasize the practical aspect of cryptography; while the math may be sound, implementation mistakes or side-channel attacks often cause vulnerabilities in practice.
