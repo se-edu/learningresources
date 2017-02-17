@@ -248,6 +248,7 @@ Compile time errors are easy to catch. Whenever you compile your code, the compi
 missed and points it out (along with line number and other useful information) to you before quitting. But by using
 reflections, you are bypassing these checks because there is no way to check such errors during compile time. These 
 uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.
+
 For example you might have come across this problem where your program crashed and you get a `NullPointerException`
 error in your crash log. As you might have experienced already, runtime errors are more troublesome in that they
 are harder to catch and debug. They might even bring your whole software under the water with it by crashing
