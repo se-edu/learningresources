@@ -14,7 +14,7 @@ Ruby boasts high programmer productivity with its concise, elegant, and human-re
 > 
 > *Yukihiro Matsumoto, creator of Ruby language* 
 
-Popular websites running on Ruby (or its framework): GitHub, Airbnb, Twitter, Shopify.
+Popular websites running on Ruby: GitHub, Airbnb, Twitter, Shopify.
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ We will explore some of the more prominent language features of Ruby.
 
 ### Everything is an object
 
-Ruby has no concept of "primitives". Anything that can be assigned to a variable is an object. Even numbers and boolean values `true` and `false`.
+Ruby has no concept of "primitives". Anything that can be assigned to a variable is an object. Even numbers and boolean values `true` and `false` are objects.
 
 ```rb
 5.times do
@@ -42,7 +42,7 @@ end
 # Hello world!
 ```
 
-as such it becomes very easy to introduce new functions to those "primitives":
+As such, it becomes very easy to introduce new functions to those "primitives":
 
 ```rb
 class Fixnum # integers in Ruby belong to this class
@@ -61,7 +61,7 @@ end
 > 
 > *Yukihiro Matsumoto*
 
-Many languages attempt to make their codes as close to pseudocode as possible, but Ruby takes it to another level: Ruby code flows almost as smoothly as an English literary text.
+Some languages attempt to make their codes as close to pseudocode as possible, but Ruby takes it to another level: Ruby code flows almost as smoothly as an English literary text.
 
 ```rb
 for num in 0..5
@@ -81,17 +81,20 @@ end
 
 ### Functional programming is encouraged
 
-Ruby supports **map**, **filter**, and **fold-left**.
+For those familiar with [higher-order functions](http://www.cse.unsw.edu.au/~en1000/haskell/hof.html), Ruby supports *map*, *fold-left*, and *filter*.
 
 ```rb
+# Map
 [1, 2, 3, 4, 5].map { |n| n * n }
 #  => [1, 4, 9, 16, 25]
 
-[1, 2, 3, 4, 5].select { |n| n.even? }
-#  => [2, 4]
-
+# Fold-left
 [1, 2, 3, 4, 5].inject(0) { |sum, n| sum + n }
 #  => 15
+
+# Filter
+[1, 2, 3, 4, 5].select { |n| n.even? }
+#  => [2, 4]
 ```
 
 Joel McCracken makes an [excellent short presentation](http://joelmccracken.github.io/functional-programming-in-ruby/#/) on how functions are treated in Ruby.
@@ -122,21 +125,23 @@ More on this in [Object-oriented Ruby tutorial](https://www.tutorialspoint.com/r
 
 ## Advanced Topics
 
+- [Blocks in Ruby](https://www.tutorialspoint.com/ruby/ruby_blocks.htm) - ever imagine that a method invocation can be another method's parameter?
 - [Modules and mixins in Ruby](https://www.tutorialspoint.com/ruby/ruby_modules.htm) - provides namespacing, and makes multiple inheritance (or a variant of it, technically) possible.
 - [Threads and fibers in Ruby](http://pltconfusion.com/concurrency_primitives_and_abstractions_in_ruby/) - dealing with concurrencies.
 - [Metaprogramming in Ruby](https://www.toptal.com/ruby/ruby-metaprogramming-cooler-than-it-sounds) - when your Ruby code *writes* Ruby code at runtime.
+- [Domain-Specific Languages (DSLs) in Ruby](https://www.leighhalliday.com/creating-ruby-dsl) - Ruby's amazing support for blocks and metaprogramming makes it a first choice for many developers to write a DSL.
 - [Ruby style guide](https://github.com/bbatsov/ruby-style-guide) - as agreed by the community at large.
 - [21 Ruby tricks](http://www.rubyinside.com/21-ruby-tricks-902.html) - making good use of Ruby's language features.
-- [Ruby best practices](http://www.reedbushey.com/119Ruby%20Best%20Practices.pdf) - book by a Ruby expert, foreword provided by Yukihiro Matsumoto himself.
+- [Ruby best practices](http://www.reedbushey.com/119Ruby%20Best%20Practices.pdf) - a book written by a Ruby expert with foreword provided by Yukihiro Matsumoto himself.
 
 ## Ruby Frameworks and DevOps
 
 As with most other languages, tools and frameworks exist for serious Ruby developers and project managers to assist many of their tasks.
 
-- **Framework:** [Ruby on Rails](http://rubyonrails.org) is by far the most popular web application framework for Ruby. Another popular framework is [Sinatra](http://www.sinatrarb.com).
+- **Frameworks:** [Ruby on Rails](http://rubyonrails.org) is by far the most popular web application framework for Ruby. Another popular framework is [Sinatra](http://www.sinatrarb.com).
 - **Libraries:** Ruby libraries come in form of *gems*. The complete registry can be found on [this website](https://rubygems.org).
 - **IDE:** [Aptana Studio](http://www.aptana.com/products/studio3.html) is the favourite IDE for Rails developers. Other alternatives are [RubyMine](https://www.jetbrains.com/ruby/) (commercial) and Eclipse with [RDT plugin](https://sourceforge.net/projects/rubyeclipse/).
-- **Task automation:** [Rake](http://docs.seattlerb.org/rake/) is the most commonly used automation tool.
+- **Task Automation:** [Rake](http://docs.seattlerb.org/rake/) is the most commonly used automation tool.
 - **Static Analysis:** [RuboCop](http://batsov.com/rubocop/) is the sole leading static analysis tool for Ruby language.
 
 [This repository](https://github.com/markets/awesome-ruby) lists down a large collection of Ruby libraries, tools, frameworks, and software.
