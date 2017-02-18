@@ -18,6 +18,7 @@
 * OOP
 * Performance
 * Project management
+    * [Documentation](projectManagement/documentation.md)
 * Requirements
 * Revision control
 * Security
