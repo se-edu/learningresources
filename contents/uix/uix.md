@@ -4,9 +4,9 @@ Author: [Ang Shi Ya](https://github.com/AngShiYa)
 
 ## Overview
 
-User Interface (UI) and User Experience (UX) are terms often used interchangeably. In fact, These two terms are quickly becoming dangerous buzzwords that are used inaccurately, creating massive confusion in the industry. A simple google search will show that UI Designer and UX Designer jobs are listed under similar titles and descriptions. 
+User Interface (UI) and User Experience (UX) are terms often used interchangeably. In fact, these two terms are quickly becoming dangerous buzzwords that are used inaccurately, creating massive confusion in the industry. A simple google search will show that UI Designer and UX Designer jobs are listed under similar titles and descriptions. 
 
-Learning the key differences between UI and UX can not only help us identify and settle down for the correct job role, but can also help us apply each of these concepts appropriately to our own applications. This document will address the difference between UI and UX as well as some of the techniques used in UI Design and UX Design.
+In addition to helping us to identify and apply for the right role, understanding the key differences between UI and UX helps us in using the right concept in our own applications. This document will address the difference between UI and UX as well as some of the techniques used in UI Design and UX Design.
 
 ## User Interface vs User Experience
 
@@ -14,9 +14,9 @@ UI is about the design of the buttons, the layout of the website and the respons
 
 Due to the overlapping nature of UI and UX, you might still have some questions such as *'Doesn't improving the UI also improve the UX?'* Indeed, it does. In fact, UI **can** be part of UX.
 
-> Note that I used **can** because UI is not longer a necessity to UX due to the emergence of [zero UI](http://blog.careerfoundry.com/ui-design/what-is-zero-ui), which won't be covered here.
+> Note that I used **can** because UI is no longer a necessity to UX due to the emergence of [zero UI](http://blog.careerfoundry.com/ui-design/what-is-zero-ui), which won't be covered here.
 
-To achieve a better understanding, let's look at real life examples of good UI but bad UX. A prime example would be the [Mystery Meat Navigation](https://www.techinasia.com/talk/material-design-mystery-meat-navigation-problem) problem. It refers to buttons and links that do not explain themselves; users have to click on them to find out where it leads. In essence, the pursuit of clean and neat UI has resulted in omission of details that provide clarity for the user. This results in bad UX because people do not like to puzzle over how things work. A good UX should never make the user think.
+To gain a better understanding, let's look at real life examples of good UI but bad UX. A prime example would be the [Mystery Meat Navigation](https://www.techinasia.com/talk/material-design-mystery-meat-navigation-problem) problem. It refers to buttons and links that do not explain themselves; users have to click on them to find out where it leads. In essence, the pursuit of clean and neat UI has resulted in omission of details that provide clarity for the user. This results in bad UX because people do not like to puzzle over how things work. A good UX should never make the user think.
 
 If you would like to read more about the differences between UI and UX, here are a few articles:
 
@@ -28,7 +28,7 @@ If you would like to read more about the differences between UI and UX, here are
 
 UI Design is highly dependent on your sense of visual design, but thanks to the rise of flat and minimalist design you don't have to be a photoshop expert to get started on UI design. 
 
-A good way to start is by observing existing designs. Use existing UI Designs as reference and try to apply the design patterns on your own application. Using a [UI design guidelines](http://www.goodui.org/) can help to highlight and avoid common mistakes. Online lessons like [Hack Design](https://hackdesign.org/lessons#graphic-design-principles) also provides a variety of materials covering the basics of UI design. The best thing is that it is free!
+A good way to start is by observing existing designs. Use existing UI Designs as references and try to apply the design patterns in your own application. Using [UI design guidelines](http://www.goodui.org/) can help to highlight and avoid common mistakes. Online lessons like [Hack Design](https://hackdesign.org/lessons#graphic-design-principles) also provide a variety of materials covering the basics of UI design. The best thing is that they are free!
 
 Here is a non-exhaustive list of UI design concepts you can choose to dive into if you are interested:
 * Color Theory
@@ -40,7 +40,7 @@ Here is a non-exhaustive list of UI design concepts you can choose to dive into 
 
 ## UX Design
 
-Just like Software Development, UX Design is an iterative process. It involves many steps like researching, planning, testing, and within these steps are many different techniques that you could use. A good place to find these techniques would be the [UX Project Checklist](https://uxchecklist.github.io/) created by Andrea Soverini.
+Just like Software Development, UX Design is an iterative process. It involves many stages like researching, planning, testing, and at each stage are many different techniques that you could use. A good place to find these techniques would be the [UX Project Checklist](https://uxchecklist.github.io/) created by Andrea Soverini.
 
 ## Which is more important?
 
