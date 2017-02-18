@@ -2,7 +2,7 @@
 
 Authors: Dickson Tan
 
-# Overview
+## Overview
 
 Cryptography is the discipline of developing methods for secure communication. 
 Understanding cryptography wwill enable you to correctly use cryptography libraries and combine cryptographic primitives to match the security needs of your application.
@@ -14,19 +14,19 @@ Modern cryptography involves developing methods to achieve the following:
 * Authentication: the recipient should be able to verify the sender of a message. For example, iPhones need to verify that the software updates received really came from Apple, not a malicious attacker.
 * Non-repudiation: the sender should not be able to deny sending a message after doing so. For example, the parties of a digital contract should not be able to deny signing the contract in a legal dispute.
 
-# Encryption
+## Encryption
 
 Encryption is the process of encoding messages so that it is readable only by the intended recipient. The message being encrypted is called the plaintext. The encryption algorithm, or cipher, "scrambles" the message, producing ciphertext, which should only be readable by the recipient. Decryption is the reverse process of recovering the plaintext from the ciphertext.
 
 One of the earliest encryption algorithms or ciphers is the substitution cipher, which encrypts text by substituting each letter of the message with another letter. This page introduces the [Caesar cipher](http://www.cs.trincoll.edu/~crypto/historical/caesar.html), a substitution cipher, and how it can be defeated using statistical analysis. 
 Modern ciphers today operate on bits rather than letters.
 
-## Symmetric Key Ciphers
+### Symmetric Key Ciphers
 
 In a symmetric key cipher, the same key, a shared secret, is used for both encryption and decryption.
 The parties wishing to communicate securely share the same key. For example, in the substitution cipher, the same key (the substitution table) is used for both encryption and decryption.
 
-### Stream ciphers
+#### Stream ciphers
 
 The ciphertext, keystream and  plaintext are sequences or streams of bits of equal length. 
 During encryption, each plaintext bit is combined (usually xored) with the corresponding keystream bit to produce the ciphertext bits. For example, the 1st plaintext bit is xored with the 1st keystream bit, 2nd plaintext bit with 2nd keystream bit and so on.
@@ -52,7 +52,7 @@ However, block ciphers are more widely used than stream ciphers. In some modes o
 
 [RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged. The [eSTREAM project](http://www.ecrypt.eu.org/stream/) is a research effort to develop state-of-the-art stream ciphers.
 
-### Block Ciphers
+#### Block Ciphers
 
 Unlike stream ciphers, which operate on individual bits, block ciphers operate on an entire block of bits at a time. In practice, the size of each block is 64 or 128 bits.
 
@@ -66,7 +66,7 @@ Ciphers that use only one of these operations are insecure. For example, the ins
 * This [article](https://graquantum.com/blog/deciphering-encryption-des-block-cipher/) explains how the  DES cipher works, Feistel networks, s-boxes and p-boxes. Though DES is no longer secure, its design has inspired many ciphers. A still secure variant, triple DES, is popular in legacy applications.
 * The Advanced Encryption Standard (AES) is the most popular symmetric cipher today. It is used by the US government, many protocols such as TLS, WPA2-AES and SSH. This [article](https://graquantum.com/blog/deciphering-encryption-aes-block-cipher/) explains how AES works without going too much into the mathematical details.
 
-#### Modes of Operation
+##### Modes of Operation
 
 Block ciphers alone aren't very useful, because they only provide a secure way of encrypting one block of data. 
 Modes of operation are ways of using block ciphers to securely encrypt multiple blocks. 
@@ -74,7 +74,7 @@ The plaintext is padded if it is not an even multiple of the block size.
 Block ciphers can also provide additional services such as integrity, depending on the mode used, which makes them vercitile. 
 This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) provides a nice overview of common modes.
 
-# Other Resources
+## Other Resources
 
 * [Understanding Cryptography: A Textbook for Students and Practitioners](https://www.amazon.com/Understanding-Cryptography-Textbook-Students-Practitioners/dp/3642041000) is an outstanding introductory text. Explanations are excellent, and no knowledge of number theory is assumed. An electronic copy can be freely downloaded from the NUS library. It was used as reference material for this document.
 * [Awesome Cryptography](https://github.com/sobolevn/awesome-cryptography) is a curated list of resources - articles, blogs, books, libraries and more.
