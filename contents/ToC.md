@@ -12,6 +12,7 @@
 
 * Code quality
 * Data
+* [DevOps](devops/DevOps.md)
 * Functional programming
 * Maintenance
 * Multi-threading
