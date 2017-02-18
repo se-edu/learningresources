@@ -5,9 +5,9 @@ Authors: Dickson Tan
 ## Overview
 
 Cryptography is the discipline of developing methods for secure communication. 
-Understanding cryptography wwill enable you to correctly use cryptography libraries and combine cryptographic primitives to match the security needs of your application.
+Understanding cryptography will enable you to correctly use cryptography libraries and combine cryptographic primitives to match the security needs of your application.
 
-Modern cryptography involves developing methods to achieve the following:
+Modern cryptography involves developing techniques to achieve the following objectives:
 
 * Confidentiality: ensuring that a message can only be read by its intended recipient. For example, websites use encryption in the Transport Layer Security (TLS) protocol to prevent interception of sensitive information such as credit card numbers and passwords.
 * Integrity: ensuring a message has not been changed. For example, hash functions are used in the BitTorrent protocol to ensure files received have not been modified by malicious peers.
@@ -36,7 +36,7 @@ Notice that encryption and decryption are the same operation; this is possible s
 The simplest stream cipher is the [one-time pad](https://en.wikipedia.org/wiki/One-time_pad). In this cipher, the keystream used is bits from a truly random source, and is also the key.
 It is the only known cipher that cannot be cracked, even if the attacker has infinite computing power.
 This property is known as [perfect secrecy](https://crypto.stackexchange.com/questions/3896/simply-put-what-does-perfect-secrecy-mean); the ciphertext gives no additional information about the plaintext, so knowing the ciphertext does not provide any advantage to the attacker trying to recover the plaintext.
-Unfortunately, Shannon proved that any cipher that achieves perfect secrecy has the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
+Unfortunately, [Shannon](https://www.scientificamerican.com/article/claude-e-shannon-founder/) proved that any cipher that achieves perfect secrecy has the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
 
 * The key must be truely random, not pseudorandomly generated, and must never be reused.
 * The key must be securely distributed, and be at least as long as the message being generated. For example, to send a 10gb file to someone encrypted with the one-time pad requires sending 10gb of key material + 10gb of ciphertext = 20gb.
@@ -58,9 +58,9 @@ However, block ciphers are more widely used than stream ciphers. In some modes o
 
 Unlike stream ciphers, which operate on individual bits, block ciphers operate on an entire block of bits at a time. In practice, the size of each block is 64 or 128 bits.
 
-Shannon introduced 2 primitives, which modern block ciphers are built on.
+[Shannon](https://www.scientificamerican.com/article/claude-e-shannon-founder/) introduced 2 primitives, which modern block ciphers are built on.
 
-* Confusion: an operation wwhich obscures the relationship between key and ciphertext. This is usually done by substitution.
+* Confusion: an operation which obscures the relationship between key and ciphertext. This is usually done by substitution.
 * Diffusion: an operation which hides statistical properties in the plaintext by spreading the influence of a plaintext bit over many ciphertext bits. For example, the DES cipher achieves this by bit Permutations.
 
 Ciphers that use only one of these operations are insecure. For example, the insecure Caesar cipher only uses confusion. But strong ciphers can be built by using both confusion and diffusion - these are called product ciphers.
