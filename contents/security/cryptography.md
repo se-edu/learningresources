@@ -36,7 +36,7 @@ Notice that encryption and decryption are the same operation; this is possible s
 The simplest stream cipher is the [one-time pad](https://en.wikipedia.org/wiki/One-time_pad). In this cipher, the keystream used is bits from a truly random source, and is also the key.
 It is the only known cipher that cannot be cracked, even if the attacker has infinite computing power.
 This property is known as [perfect secrecy](https://crypto.stackexchange.com/questions/3896/simply-put-what-does-perfect-secrecy-mean); the ciphertext gives no additional information about the plaintext, so knowing the ciphertext does not provide any advantage to the attacker trying to recover the plaintext.
-Unfortunately, [Shannon](https://www.scientificamerican.com/article/claude-e-shannon-founder/), renowned cryptographer and founder of information theory, proved that any cipher that achieves perfect secrecy has the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
+Unfortunately, [Shannon](https://www.scientificamerican.com/article/claude-e-shannon-founder/), renowned cryptographer and founder of Information Theory, proved that any cipher that achieves perfect secrecy has the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
 
 * The key must be truely random, not pseudorandomly generated, and must never be reused.
 * The key must be securely distributed, and be at least as long as the message being generated. For example, to send a 10gb file to someone encrypted with the one-time pad requires sending 10gb of key material + 10gb of ciphertext = 20gb.
