@@ -36,7 +36,7 @@ Notice that encryption and decryption are the same operation; this is possible s
 The simplest stream cipher is the [one-time pad](https://en.wikipedia.org/wiki/One-time_pad). In this cipher, the keystream used is bits from a truly random source, and is also the key.
 It is the only known cipher that cannot be cracked, even if the attacker has infinite computing power.
 This property is known as [perfect secrecy](https://crypto.stackexchange.com/questions/3896/simply-put-what-does-perfect-secrecy-mean); the ciphertext gives no additional information about the plaintext, so knowing the ciphertext does not provide any advantage to the attacker trying to recover the plaintext.
-Unfortunately, [Shannon](https://www.scientificamerican.com/article/claude-e-shannon-founder/), renowned cryptographer and founder of Information Theory, proved that any cipher that achieves perfect secrecy has the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
+Unfortunately, [Shannon](https://www.scientificamerican.com/article/claude-e-shannon-founder/), renowned cryptographer and founder of Information Theory, proved that any cipher that achieves perfect secrecy must have the following limitations, making them [impractical](https://www.schneier.com/crypto-gram/archives/2002/1015.html#7).
 
 * The key must be truely random, not pseudorandomly generated, and must never be reused.
 * The key must be securely distributed, and be at least as long as the message being generated. For example, to send a 10gb file to someone encrypted with the one-time pad requires sending 10gb of key material + 10gb of ciphertext = 20gb.
@@ -47,12 +47,12 @@ Modern stream ciphers approximate the operation of the one-time pad.
 A short key (say 256 bits) is used to seed a [cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator), which is used to generate the keystream for both encryption and decryption.
 They are more practical, as the key the communicating parties need to share is much shorter.
 
-Keys must never be reused in stream ciphers. Doing so causes the same keystream, k, to be generated, and 2 plaintexts, p and q, to be encrypted with the same key. If we xor both ciphertexts, we get (p xor k) xor (q xor k) = (p xor q) xor (k xor k) = p xor q. Here is a [visual illustration of this attack](https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse), and [an example of this happening in practice](https://www.schneier.com/blog/archives/2005/01/microsoft_rc4_f.html).
+Keys must never be reused in stream ciphers. Doing so causes the same keystream, k, to be generated, and 2 plaintexts, p and q, to be encrypted with the same keystream. If we xor the ciphertexts for p and q, we get (p xor k) xor (q xor k) = (p xor q) xor (k xor k) = p xor q. Here is a [visual illustration of this attack](https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse), and [an example of this happening in practice](https://www.schneier.com/blog/archives/2005/01/microsoft_rc4_f.html).
 
 Stream ciphers are used for their efficiency, ease of implementation in hardware, and when the length of the plaintext is unpredictable.
 However, block ciphers are more widely used than stream ciphers. In some modes of operation, they can be used like stream ciphers, reducing the need for dedicated stream ciphers.
 
-[RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged due the known vulnerabilities. The [eSTREAM project](http://www.ecrypt.eu.org/stream/) is a research effort to develop state-of-the-art stream ciphers.
+[RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged due to known vulnerabilities. The [eSTREAM project](http://www.ecrypt.eu.org/stream/) is a research effort to develop state-of-the-art stream ciphers.
 
 #### Block Ciphers
 
@@ -76,7 +76,7 @@ The plaintext is padded if it is not an even multiple of the block size.
 Block ciphers can also provide additional services such as integrity, depending on the mode used, which makes them vercitile. 
 This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) provides a nice overview of common modes. 
 Most modes require a random value called an initialization vector (IV) so that encrypting the same message twice doesn't produce the same ciphertext, which leaks information. 
-It is critical that the IV be [random, used only once and unpredictable](https://defuse.ca/cbcmodeiv.htm). Not doing so has caused several vulnerabilities such as the [BEAST Attack on TLS](http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html) and [key recovery of WEP](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy).
+It is critical that the IV be [random, used only once and unpredictable](https://defuse.ca/cbcmodeiv.htm). Not doing so has caused several vulnerabilities such as the [BEAST Attack on TLS](http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html) and [the recovery of WEP keys](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy).
 
 ## Other Resources
 
