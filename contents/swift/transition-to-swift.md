@@ -4,7 +4,7 @@ Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin
 
 # Overview
 
-Introduced in 2014, Swift is a fast, modern, safe and interactive programming language. If you have ever thought of building an app for your MacBook or iPhone (or any other Apple Product), Swift is the language for you. With its syntactic sugar, it is much more readable compared to it's "predecessor" Objective-C(ObjC). Together with its Playground feature, you can run your code easily, making Swift easy to learn.
+Introduced in 2014, Swift is a fast, modern, safe and interactive programming language. If you have ever thought of building an app for your MacBook or iPhone (or any other Apple Product), Swift is the language for you. With its [syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar), it is much more readable compared to it's "predecessor" [Objective-C(ObjC)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html). Together with its [Playground feature](https://developer.apple.com/swift/blog/?id=35), you can run your code easily, making Swift easy to learn.
 
 <!--
 If you have decided to build an app for your MacBook or iPhone (or any other Apple Product) or transitioning from another language to Swift, I am here to make your life easier. The common solutions to "How to learn Swift" from Quora and StackOverflow are to
@@ -51,15 +51,17 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
 
 # Swift Basics
 
+You can click on the headers of each section to read the official documentation.
+
 ## [The Absolute Basics](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html)
 
-### Differences between Java and Swift:
+### Some Syntax Differences between Java and Swift:
 
-- let is similiar to final in Java
+- let is similar to final in Java
 
 - Unlike Java, it is not compulsory to annotate the type of a variable.
 
-  ```
+  ```s
   var c: Int
   var d //this is legal
   ```
@@ -68,6 +70,8 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
 
 - nil in Swift is the same as null in Java
 
+- [more syntax differences](http://blog.novatec-gmbh.de/swift-2-introduction-comparison/)
+
 ### Things to note:
 
 - Constant and variable names can contain almost any character, including Unicode characters
@@ -75,8 +79,8 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
 - There is the idea of mutability of variables. If a variable should not be immutable, use let to declare it as a immutable constant.
 
   ```
-  let a = 2
-  var b = 3
+  let a = 2 //immutable
+  var b = 3 //mutable
   ```
 
 - Once the type of a variable is decided, it cannot be changed.
@@ -85,7 +89,7 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
   var c: Int
   ```
 
-- There will be more readings on Error-Handling and Optionals.
+<!-- - There will be more readings on Error-Handling and Optionals.-->
 
 ## [Basic Operators](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html)
 
@@ -101,7 +105,7 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
 
   - Half-Open Range Operator
 
-   The half-open range operator (a..<b) defines a range that runs from a to b, but does not include b. It is said to be half-open because it contains its first value, but not its final value. As with the closed range operator, the value of a must not be greater than b. If the value of a is equal to b, then the resulting range will be empty.
+     The half-open range operator (a..<b) defines a range that runs from a to b, but does not include b. It is said to be half-open because it contains its first value, but not its final value. As with the closed range operator, the value of a must not be greater than b. If the value of a is equal to b, then the resulting range will be empty.
 
 ## [Strings and Characters](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285)
 
@@ -145,7 +149,7 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
 
 - Repeat-While is the equivalent of Do-While in other languages.
 
-- Switch does not require an explicit break for each case as switch statements in Swift do not fall through the bottom of each case and into the next one by default.
+- Switch does not require an explicit break for each case as switch statements in Swift do not fall through the bottom of each case and into the next one by default. If you wish for such fall through behaviour, you can use `fallthrough` as shown in the example below.
 
   ```
   let integerToDescribe = 5
@@ -163,7 +167,69 @@ https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html
 
   There are many other subtle differences in switch-case for Swift, such as interval matching, testing multiple values in one statement using tuples, able to bind values in switch-cases to constants and variables, and using `where` to check for additional conditions.
 
-- The term `guard` is similar to an `if` statement, but it always has an `else` clause. It is generally used in the case of error handling, to guard against invalid(`nil`) variables that are used in the later part of the code. When the `guard` statement test fails, the `else` clause is used to exit the current method or loop, so that the invalid variable is not accessed. This will be covered more in Error-Handling.
+- You can check if an optional variable is `nil` or not using `if let`.
+  For example:
+  ```
+  var a:Int? = nil
+  var b:Int? = 100
+
+  if let c = a {
+    print("not nil")
+  } else {
+    print("nil") //this is printed
+  }
+
+  if let c = b {
+    print("not nil") //this is printed
+  } else {
+    print("nil")
+  }
+
+  ```
+
+- The term `guard` is similar to an `if` statement, but it always has an `else` clause. It is generally used in the case of error     handling, to guard against invalid(`nil`) variables that are used in the later part of the code. When the `guard` statement test fails, the `else` clause is used to exit the current method or loop, so that the invalid variable is not accessed.
+  For example:
+  ```
+  func submit() {
+      guard let name = nameField.text else {
+          show("No name to submit")
+          return
+      }
+
+      guard let address = addressField.text else {
+          show("No address to submit")
+          return
+      }
+
+      guard let phone = phoneField.text else {
+          show("No phone to submit")
+          return
+      }
+
+      sendToServer(name, address: address, phone: phone)
+  }
+  ```
+  Compare this with the [pyramid of doom](http://blog.scottlogic.com/2014/12/08/swift-optional-pyramids-of-doom.html) using `if let`s:
+  ```
+  func nonguardSubmit() {
+      if let name = nameField.text {
+          if let address = addressField.text {
+              if let phone = phoneField.text {
+                  sendToServer(name, address: address, phone: phone)
+              } else {
+                  show("no phone to submit")
+              }
+          } else {
+              show("no address to submit")
+          }
+      } else {
+          show("no name to submit")
+      }
+  }
+  ```
+  More readings on guard:<br>
+  https://thatthinginswift.com/guard-statement-swift/
+  http://radex.io/swift/guard/
 
 ## [Functions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html)
 
@@ -211,6 +277,11 @@ http://limlab.io/swift/2016/02/12/swift-functions-cheatsheet.html
 
 ### Introduction to Closures
 Closures are similar to lambdas in other languages. They can be written in a lightweight syntax that can capture values from their surrounding context.
+
+Quick cheatsheet of functions and closures: http://fuckingswiftblocksyntax.com/
+
+In-depth cheatsheet of closures:
+http://limlab.io/swift/2016/02/13/swift-closures-cheatsheet.html
 
 ### Closure Optimizations
 Swift’s closure expressions have a clean, clear style, with optimizations that encourage brief, clutter-free syntax in common scenarios. These optimizations include:
@@ -283,11 +354,6 @@ An autoclosure is a closure that is automatically created to wrap an expression 
 
 Examples of autoclosures:
 https://cocoacasts.com/how-to-use-autoclosures-and-autoclosure-in-swift-3/
-
-Quick cheatsheet of functions and closures: http://fuckingswiftblocksyntax.com/
-
-In-depth cheatsheet of closures:
-http://limlab.io/swift/2016/02/13/swift-closures-cheatsheet.html
 
 
 # Others
