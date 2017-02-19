@@ -6,7 +6,7 @@ Author: [Ang Shi Ya](https://github.com/AngShiYa)
 
 User Interface (UI) and User Experience (UX) are terms often used interchangeably. In fact, these two terms are quickly becoming dangerous buzzwords that are used inaccurately, creating massive confusion in the industry. A simple google search will show that UI Designer and UX Designer jobs are listed under similar titles and descriptions. 
 
-In addition to helping us to identify and apply for the right role, understanding the key differences between UI and UX helps us in using the right concept in our own applications. This document will address the difference between UI and UX as well as some of the techniques used in UI Design and UX Design.
+In addition to helping us identify and apply for the right role, understanding the key differences between UI and UX helps us in using the right concept in our own applications. This document will address the difference between UI and UX as well as some of the techniques used in UI Design and UX Design.
 
 ## User Interface vs User Experience
 
