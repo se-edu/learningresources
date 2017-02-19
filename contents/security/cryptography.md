@@ -48,7 +48,8 @@ Modern stream ciphers approximate the operation of the one-time pad.
 A short key (say 256 bits) is used to seed a [cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator), which is used to generate the keystream for both encryption and decryption.
 They are more practical, as the key the communicating parties need to share is much shorter.
 
-Keys must never be reused in stream ciphers. Doing so causes the same keystream, k, to be generated, and 2 plaintexts, p and q, to be encrypted with the same keystream. If we xor the ciphertexts for p and q, we get (p xor k) xor (q xor k) = (p xor q) xor (k xor k) = p xor q. Here is a [visual illustration of this attack](https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse), and [an example of this happening in practice](https://www.schneier.com/blog/archives/2005/01/microsoft_rc4_f.html).
+Keys must never be reused in stream ciphers. Doing so causes the same keystream, k, to be generated, and 2 plaintexts, p and q, to be encrypted with the same keystream. If we xor the ciphertexts for p and q, we get (p xor k) xor (q xor k) = (p xor q) xor (k xor k) = p xor q. This exposes information about the plaintexts, which may lead to the recovery of both. 
+Here is a [visual illustration of this attack](https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse), and [an example of this happening in practice](https://www.schneier.com/blog/archives/2005/01/microsoft_rc4_f.html).
 
 Stream ciphers are used for their efficiency, ease of implementation in hardware, and when the length of the plaintext is unpredictable.
 However, block ciphers are more widely used than stream ciphers. In some modes of operation, they can be used like stream ciphers, reducing the need for dedicated stream ciphers.
