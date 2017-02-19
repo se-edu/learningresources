@@ -57,7 +57,7 @@ You can click on the headers of each section to read the official documentation.
 
 ### Some Syntax Differences between Java and Swift:
 
-- let is similar to final in Java
+- `let` is similar to `final` in Java
 
 - Unlike Java, it is not compulsory to annotate the type of a variable.
 
@@ -76,7 +76,7 @@ You can click on the headers of each section to read the official documentation.
 
 - Constant and variable names can contain almost any character, including Unicode characters
 
-- There is the idea of mutability of variables. If a variable should not be immutable, use let to declare it as a immutable constant.
+- There is the idea of mutability of variables. If a variable should not be immutable, use `let` to declare it as a immutable constant.
 
   ```
   let a = 2 //immutable
@@ -101,19 +101,19 @@ You can click on the headers of each section to read the official documentation.
 
   - Closed Range Operator
 
-    The closed range operator (a...b) defines a range that runs from a to b, and includes the values a and b. The value of a must not be greater than b.
+    The closed range operator `(a...b)` defines a range that runs from `a` to `b`, and includes the values `a` and `b`. The value of `a` must not be greater than `b`.
 
   - Half-Open Range Operator
 
-     The half-open range operator (a..<b) defines a range that runs from a to b, but does not include b. It is said to be half-open because it contains its first value, but not its final value. As with the closed range operator, the value of a must not be greater than b. If the value of a is equal to b, then the resulting range will be empty.
+     The half-open range operator `(a..<b)` defines a range that runs from `a` to `b`, but does not include `b.` It is said to be half-open because it contains its first value, but not its final value. As with the closed range operator, the value of `a` must not be greater than `b`. If the value of `a` is equal to `b`, then the resulting range will be empty.
 
 ## [Strings and Characters](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285)
 
 ### Things to note:
 
-- The escaped special characters \0 (null character), \\ (backslash), \t (horizontal tab), \n (line feed), \r (carriage return), \" (double quote) and \' (single quote).
+- The escaped special characters `\0` (null character), `\\` (backslash), `\t` (horizontal tab), `\n` (line feed), `\r` (carriage return), `\"` (double quote) and `\'` (single quote).
 
-- You can use + to concatenate Strings and use indexes directly on Strings.
+- You can use `+` to concatenate Strings and use indexes directly on Strings.
 
   ```
   var str1 = "This is the first part "
@@ -321,7 +321,7 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 ```
 
 #### Shorthand argument names:
-Omit argument list, use $0 and $1 refer to the closure’s first and second String arguments.
+Omit argument list, use `$0` and `$1` refer to the closure’s first and second String arguments.
 ```
 reversedNames = names.sorted(by: { $0 > $1 } )
 ```
@@ -331,7 +331,7 @@ Trailing closures are most useful when the closure is sufficiently long that it 
 ```
 reversedNames = names.sorted() { $0 > $1 }
 ```
-If the closure expression is the only argument, you can also discard the () following the function’s name
+If the closure expression is the only argument, you can also discard the `()` following the function’s name
 ```
 reversedNames = names.sorted { $0 > $1 }
 ```
