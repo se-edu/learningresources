@@ -78,6 +78,7 @@ Modes of operation are ways of using block ciphers to securely encrypt multiple 
 The plaintext is padded if it is not an even multiple of the block size.
 Block ciphers can also provide additional services such as integrity, depending on the mode used, which makes them vercitile. 
 This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) provides a nice overview of common modes. 
+
 Most modes require a random value called an initialization vector (IV) so that encrypting the same message twice doesn't produce the same ciphertext, which leaks information. 
 It is critical that the IV be [random, used only once and unpredictable](https://defuse.ca/cbcmodeiv.htm). Not doing so has caused several vulnerabilities such as the [BEAST Attack on TLS](http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html) and [the recovery of WEP keys](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy).
 
