@@ -12,16 +12,27 @@ Both newbies and experienced programmers can also benefit from [The Python Tutor
 
 ## Iterables
 
-Strings, lists, and dictionaries belong to a type of class known as `Iterables`. An `Iterable` is defined by Python to be "an object capable of returning its members one at a time". If you'd like to delve into the inner workings of `Iterable` classes, check out [Iterables, Iterators and Generators](https://excess.org/article/2013/02/itergen1/) by Ian Ward. He begins by explaining the `Iterable` class, then goes into the `Iterator` and `Generator` classes, both of which are powerful tools in Python.
+Strings, lists, and dictionaries belong to a type of class known as `Iterables`. An `Iterable` is defined by Python to be "an object capable of returning its members one at a time".
+
+Due to their versatility you'll often find that strings, lists, and dictionaries are all you'll ever need. However, there may come a time when you'll need to create your own `Iterable` data structure. If that's the case, you may want to delve into the inner workings of `Iterable` classes, check out [Iterables, Iterators and Generators](https://excess.org/article/2013/02/itergen1/) by Ian Ward. He begins by explaining the `Iterable` class, then goes into the `Iterator` and `Generator` classes, both of which are powerful tools in Python.
 
 ## Indexing and Slicing
 
-Accessing an element in a list using its index is known as indexing, e.g. `my_list[0]` returns the first element of my_list (Iterables are zero-indexed; this means that the first index is 0). Slicing, on the other hand, allows us to access a range of elements in a list. Extended slicing extends this functionality by introducing a step parameter, allowing us to do things like access every other element. Read more about this inn my blog post on [indexing and slicing](https://samsontmr.github.io/Slicing-and-Dicing/) in Python,
+Accessing an element in a list using its index is known as indexing, e.g. `my_list[0]` returns the first element of my_list (Iterables are zero-indexed—their first index is 0). Slicing, on the other hand, allows us to access a range of elements in a list. Extended slicing extends this functionality by introducing a step parameter, enabling operations like accessing every other element. Read more about this in my blog post on [indexing and slicing](https://samsontmr.github.io/Slicing-and-Dicing/) in Python! There, I also explain the basics of list comprehension, a type of syntactic sugar for transforming lists. Trey Hunner gives an in-depth explanation [here](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/) using the for-loops we all know and love.
 
 ## Object Oriented Programming in Python
 
-While Python is really useful for writing small scripts, often we want to use it to write whole applications. When this happens, having everything in one script (we call this procedural programming) results in major readability and maintenance issues, especially when your code starts breaking and you're trying to figure out why! This is where Object Oriented Programming comes in, offering a way to think about your program and organizing it into readable chunks. Jeff Knupp gives an introduction to [Python Classes and OOP](https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/) here, introducing concepts like static vs instance attributes, inheritance, abstract classes, and the Liskov Substitution Principle.
+While Python is really useful for cranking out small scripts, we often want to use it to build fully fledged applications too. When this happens, having everything in one script (we call this procedural programming) results in major readability and maintenance issues—especially when your code starts breaking and you're trying to figure out why!
 
+This is where Object Oriented Programming comes in, offering a way to think about your program and organizing it into readable chunks. Jeff Knupp gives an introduction to [Python Classes and OOP](https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/) here, introducing concepts like static vs instance attributes, inheritance, abstract classes, and the Liskov Substitution Principle.
+
+## Functional Programming
+
+In addition to scripting and OOP, Python also supports [functional programming](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536#.70kgem2gc), a completely different paradigm from OOP and imperative programming. Where imperative programming and OOP makes heavy use of states, functional programming eschews them completely. In this paradigm, the result of a function is wholly dependent on its arguments.
+
+*"Why would I want to relearn how to code?!"*, you may ask. Big Data's increasing relevance has thrown the spotlight on distributed systems and concurrency techniques. No prizes for guessing which programming paradigm is most amenable to the implementation of these systems. [Here](http://www.python-course.eu/python3_lambda.php) is a great introduction to the tools at the heart of functional programming in Python 3: `map`, `filter`, `reduce`, and `lambda`.
+
+An alternative way of doing functional programming in Python using list comprehensions to replace the `map`, `filter`, and `reduce` functions. [Here](http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html) is a comparison of both methods, complete with examples!
 
 ## Python for Data Science
 
@@ -29,5 +40,4 @@ Data Science seems to be all the rage recently, so you'll be glad to know that P
 
 ### Tutorials
 
-To get started, take a look at my [introduction to pandas](https://samsontmr.github.io/Sentimental-Pandas/), the [numpy Quickstart](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html) guide, [matplotlib tutorials](http://matplotlib.org/users/tutorials.html#introductory) or
-[scikit-learn basics](http://scikit-learn.org/stable/tutorial/basic/tutorial.html). scikit-learn also has a number of machine learning focused [tutorials](http://scikit-learn.org/stable/tutorial/index.html) available for those looking to pick up machine learning.
+To get started, take a look at my [introduction to pandas](https://samsontmr.github.io/Sentimental-Pandas/), the [numpy Quickstart](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html) guide, [matplotlib tutorials](http://matplotlib.org/users/tutorials.html#introductory) or [scikit-learn basics](http://scikit-learn.org/stable/tutorial/basic/tutorial.html). scikit-learn also has a number of machine learning focused [tutorials](http://scikit-learn.org/stable/tutorial/index.html) available for those looking to pick up machine learning. If you learn best by working on projects, fret not! [Kaggle](http://kaggle.com) is a treasure trove of real-world datasets that you can hone your data science skills on.
