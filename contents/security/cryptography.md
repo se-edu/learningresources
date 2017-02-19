@@ -25,6 +25,7 @@ Modern ciphers today operate on bits rather than letters.
 
 In a symmetric key cipher, the same key, a shared secret, is used for both encryption and decryption.
 The parties wishing to communicate securely share the same key. For example, in the substitution cipher, the same key (the substitution table) is used for both encryption and decryption.
+There are 2 types of symmetric ciphers: stream and block ciphers.
 
 #### Stream ciphers
 
