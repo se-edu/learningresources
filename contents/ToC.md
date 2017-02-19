@@ -21,6 +21,7 @@
 * Requirements
 * Revision control
 * Security
+    * [Cryptography](security/cryptography.md)
 * Scalability
 * Testing
 * UIX
