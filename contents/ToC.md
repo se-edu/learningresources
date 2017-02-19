@@ -7,6 +7,7 @@
 * Python
 * Ruby
 * Swift
+* [Haskell](haskell/Haskell.md)
 
 ## SE Topics
 
