@@ -54,7 +54,8 @@ Here is a [visual illustration of this attack](https://crypto.stackexchange.com/
 Stream ciphers are used for their efficiency, ease of implementation in hardware, and when the length of the plaintext is unpredictable.
 However, block ciphers are more widely used than stream ciphers. In some modes of operation, they can be used like stream ciphers, reducing the need for dedicated stream ciphers.
 
-[RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged due to known vulnerabilities. The [eSTREAM project](http://www.ecrypt.eu.org/stream/) is a research effort to develop state-of-the-art stream ciphers.
+[RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged due to known vulnerabilities. 
+The [eSTREAM project](http://www.ecrypt.eu.org/stream/), a research effort to develop state-of-the-art stream ciphers, has identified several ciphers suitable for widespread adoption. However, being relatively new, they have not been analyzed as extensively by cryptographers.
 
 #### Block Ciphers
 
