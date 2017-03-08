@@ -53,7 +53,7 @@ Firstly, the phone number may start with a country code 65. This criterion is em
 
 Secondly, a phone number must have 8 digits. This is specified by `[\d]{8}`. `[\d]` matches a single digit from 0-9, and `{8}` means that `[\d]` is repeated 8 times. Putting them together, `[\d]{8}` matches an string of 8 digits.
 
-As we can see, the pattern `(65)?[\d]{8}` when translated to simple terms, means 'Look for a string of 8 numerical digits, that may have an extra `65` in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:
+As we can see, the pattern `(65)?[\d]{8}` when translated to simple english, means 'Look for a string of 8 numerical digits, that may have an extra `65` in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:
 
 ```
 6591234567
@@ -114,6 +114,12 @@ In the replace field, `\1` represents the group matched in the string. For examp
 > * 20-02-2017 Paul's Birthday <br>
 > * 24-02-2017 Presentation at work <br>
 > * 25-02-2017 Workshop
+
+## Further exploration
+
+These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. Many languages implement it differently, for example Python uses the [`re`](https://docs.python.org/2/library/re.html) library, Java uses [`Pattern`](http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) and Javascript has regex built into the language using [`/` notation](https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions). You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.
+
+For more examples of what Regex can do, you can refer to the tutorial links in the appendix.
 
 ## Quick Reference
 
