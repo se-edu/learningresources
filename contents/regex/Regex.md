@@ -135,9 +135,10 @@ For a full list of possible operators, refer to this quick start guide:
 
 ## Helpful links
 
-[Try it out online](https://regex101.com/)<br>
-[Regex Examples](http://www.regular-expressions.info/examples.html)<br>
-[Regex Course](https://regexone.com/)
+* [Try it out online](https://regex101.com/)
+* [Regex Examples](http://www.regular-expressions.info/examples.html)
+* [Regex Course](https://regexone.com/)
+* [Comprehensive Regex Tutorial](http://www.rexegg.com)
 
 # Advanced topics
 
@@ -243,7 +244,7 @@ Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 word
                Anderson..............................................
 ```
 
-Every character after `Anderson` matches `.*`, resulting in scanning the entire string! Ant not only that, the Regex also has to backtrack one character at a time, until it reaches `Anderson Pearson ` and `Cooper` can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.
+Every character after `Anderson` matches `.*`, resulting in scanning the entire string! And not only that, the Regex also has to backtrack one character at a time, until it reaches `Anderson Pearson ` and `Cooper` can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.
 
 ### Catastrophic Backtracking
 
