@@ -12,15 +12,15 @@ Imagine you're a witness of a robbery. How might you describe the robber to the 
 
 ## Why should I learn Regex?
 
-* **Regex is everywhere** - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost any commonly used language, like Java, C++ or Python supports Regex is some fashion (A full list is available [here](http://www.regular-expressions.info/tools.html)). Even most decent IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers to benefit from Regex.
+* **Regex is everywhere** - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion (A full list is available [here](http://www.regular-expressions.info/tools.html)). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers to benefit from Regex.
 * **Regex is portable** - People often complain that switching to a new language usually means having to learn a new API and syntax. Regex however is implemented almost the same way on every single language, so you can just learn it once and use it everywhere.
 * **Regex is useful** - Although Regex doesn't have a specific use, it is a general use library with many different applications. It can be used automate many different common programming tasks such as validating user input, parsing data from text, and string manipulation, all of which are commonly done in any programming project.
-* **Regex is convenient** - Having struggled with many different string handling libraries over the years, I know that string processing is usually a mundane and tedious task. Regex offers a simple and painless way of dealing with them.
+* **Regex is convenient** - "Regex offers a simple and painless way of dealing some with them" because not all string processing are regex-related.
 
 
 # Getting Started
 
-## The basics
+## Introduction
 
 The power of regex revolves around the idea that most data comes in a regular, predictable format (e.g. serial numbers, collected data, statistics). Some everyday examples are as follows:
 
@@ -31,33 +31,49 @@ The power of regex revolves around the idea that most data comes in a regular, p
 
 Regex exploits these simlarities and provides a way of specifying patterns that can fit almost any use case. Some of the basic functionalities are as follows:
 
-Name | Regex | Use | Example
---- | --- | --- | ---
-Literal characters | Any character(s) | Matches any substring | `cat` matches `category`
-Escape characters | `\t`, `\n`, `\d`... | Matches [special characters](http://www.regular-expressions.info/refcharacters.html). | `\t` matches a tab character
-Anchors | `^`, `$` | Matches start and end of string | `^ant` matches `antics` but not `pant`
-Charcter classes | `[abc]` | Matches any character in the class | `l[ai]st` matches `last` and `list`
-Quantifiers | `+` | Matches one or more of the previous character | `no+` matches `nooooooo` but not `n`
- | `?` | Matches zero or one of the previous character | `colou?r` matches `color` and `colour`
- | `*` | Matches zero or more of the previous character | `ba*` matches `b`, `ba` and `baaa`
- | `{1, 3}` | Matches the previous character a specified number of times | `a{1, 3}` matches `a`, `aa` and `aaa`
-Groups | `(...)` | Groups a pattern of data | `Used for extracting data, see below
+Let's take a look at some simple examples without code. For this guide, you can use any text editor that supports Regex functionality (e.g. [Notepad++](https://notepad-plus-plus.org/download/v7.3.1.html), [Sublimetext](https://www.sublimetext.com/)).
 
+## Search Text
 
-For a full list of possible operators, refer to this quick start guide:
-[Quick Start Guide](http://www.regular-expressions.info/quickstart.html)<br>
+The most basic use of Regex is searching a length of text. Say you have want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example:
+
+> * Find all phone numbers in a chat log
+> * Find all email addresses in a saved email
+> * Find all web URLs on a web page
+
+This can't be done with your traditional Ctrl-F search, as you aren't looking for a specific string. Rather, what you're looking for is a **pattern** - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular **Regular Expression**. These patterns encapsulate properties about the string you're looking for.
+
+### Example
+
+Say you're looking for phone numbers in a text. You know that a string representing a phone number must satisfy two criteria: It consists of 8 digits, and may have a country code `65` in front of it. This is what the equivalent pattern for such a string might look like:
+
+`(65)?[\d]{8}`
+
+Firstly, the phone number may start with a country code 65. This criterion is embedded in `(65)?`. The first part, `(65)`, matches the country code. The question mark `?` means that the `(65)` that comes before it is optional.
+
+Secondly, a phone number must have 8 digits. This is specified by `[\d]{8}`. `[\d]` matches a single digit from 0-9, and `{8}` means that `[\d]` is repeated 8 times. Putting them together, `[\d]{8}` matches an string of 8 digits.
+
+As we can see, the pattern `(65)?[\d]{8}` when translated to simple terms, means 'Look for a string of 8 numerical digits, that may have an extra `65` in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:
+
+```
+6591234567
+87775555
+67777188
+```
+
+Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.
 
 ## Search and Replace
 
-Let's take a look at some simple examples without code. For this guide, you can use any text editor that supports Regex functionality (e.g. [Notepad++](https://notepad-plus-plus.org/download/v7.3.1.html), [Sublimetext](https://www.sublimetext.com/)).
+Regex can also be used to search and replace strings.
 
 Say you have a passage of text which contains NRICs to be censored.
 
 ### Example
 
-> John - S1234567A <br>
-> Mary - S8192853B <br>
-> David - S1235326C
+> * John - S1234567A
+> * Mary - S8192853B
+> * David - S1235326C
 
 This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct a Reges:
 
@@ -68,36 +84,54 @@ As we can see, the `S` matches the very first S, [\d]{7} matches a string of 7 d
 
 ### Result
 
-> John - SXXXXXXXX <br>
-> Mary - SXXXXXXXX <br>
-> David - SXXXXXXXX
+> * John - SXXXXXXXX
+> * Mary - SXXXXXXXX
+> * David - SXXXXXXXX
 
 ## Capturing groups
 
-Now, imagine you have a section of text with many dates written in the US Date Format (MM/DD/YYYY).
+Now, imagine you have a section of text with many dates written in the US Date Format (MM-DD-YYYY).
 
-> Calendar <br>
-> 02/20/2017 Paul's Birthday <br>
-> 02/24/2017 Presentation at work <br>
-> 02/25/2017 Workshop
+> Calendar
+> * 02-20-2017 Paul's Birthday
+> * 02-24-2017 Presentation at work
+> * 02-25-2017 Workshop
 
-However, you want them to be written in (DD/MM/YYYY) instead. As we can see, this isn't as simple as just finding and replacing text, we must also maintain the data in the search string (e.g. `02/20` becomes `20/02`). This can be done using a **capturing group**. A capturing group is a part of a Regex surrounded by brackets `()`. They are numbered `1`, `2`, `3`, from left to right and are used to hold captured data. For example:
+However, you want them to be written in (DD-MM-YYYY) instead. As we can see, this isn't as simple as just finding and replacing text, we must also maintain the data in the search string (e.g. `02-20` becomes `20-02`). This can be done using a **capturing group**. A capturing group is a part of a Regex surrounded by brackets `()`. They are numbered `1`, `2`, `3`, from left to right and are used to hold captured data. For example:
 
-`(\d\d)/(\d\d)/(\d\d\d\d)` against `02/20/2017` will result in group 1 : `02`, group 2 : `20`, and group 3 : `2017`.
+`(\d\d)-(\d\d)-(\d\d\d\d)` against `02/20/2017` will result in group 1 : `02`, group 2 : `20`, and group 3 : `2017`.
 
 Using this, we can construct our regex as follows:
 
-* Find: `(\d\d)/(\d\d)/(\d\d\d\d)`
-* Replace: `\2/\1/\3`
+* Find: `(\d\d)-(\d\d)-(\d\d\d\d)`
+* Replace: `\2-\1-\3`
+
+In the replace field, `\1` represents the group matched in the string. For example, `\1` corresponds to `02`, `\2` corresponds to `20` and so on. As you can see, we are swapping group 1 (the month) and group 2 (the day) to get the desired result.
 
 ### Result
 
 > Calendar <br>
-> 20/02/2017 Paul's Birthday <br>
-> 24/02/2017 Presentation at work <br>
-> 25/02/2017 Workshop
+> * 20-02-2017 Paul's Birthday <br>
+> * 24-02-2017 Presentation at work <br>
+> * 25-02-2017 Workshop
 
--More examples-
+## Quick Reference
+
+Name | Regex | Use | Example
+--- | --- | --- | ---
+Literal characters | Any character(s) | Matches any substring | `cat` matches `category`
+Escape characters | `\t`, `\n`, `\d`... | Matches [special characters](http://www.regular-expressions.info/refcharacters.html). | `\t` matches a tab character
+Anchors | `^`, `$` | Matches start and end of string | `^ant` matches `antics` but not `pant`
+Charcter classes | `[abc]` | Matches any character in the character class | `l[ai]st` matches `last` and `list`
+Quantifiers | `+` | Matches one or more of the previous character | `no+` matches `nooooooo` but not `n`
+ | `?` | Matches zero or one of the previous character | `colou?r` matches `color` and `colour`
+ | `*` | Matches zero or more of the previous character | `ba*` matches `b`, `ba` and `baaa`
+ | `{1, 3}` or `{2}` | Matches the previous character a specified number of times | `a{1, 3}` matches `a`, `aa` and `aaa`, `a{2}` matches `aa`
+Groups | `(...)` | Groups a pattern of data | `Used for extracting data, see below`
+
+
+For a full list of possible operators, refer to this quick start guide:
+[Quick Start Guide](http://www.regular-expressions.info/quickstart.html)<br>
 
 ## Helpful links
 
@@ -109,15 +143,16 @@ Using this, we can construct our regex as follows:
 
 ## The Regex Engine
 
-So, how does Regex work exactly?
+So, how exactly does Regex work?
 
 Regex works similarly to most brute force searches. A simplified Regex engine would look something like this:
 
 1. Start from the start of the text and the start of the regex.
-2. Check if the first character matches.
-3. If it does check the second character of both strings and so on.
-4. If any character doesn't match, start from the second character of the text.
-5. Return when a match is found, or if no match is found.
+1. Check if the first character matches.
+1. If it does, check the second character of both strings.
+1. If it does, check the third character of both strings, and so on.
+1. If any character doesn't match, start from the second character of the text.
+1. Return when a match is found, or if no match is found.
 
 For example, for the regex `light` against the sentence `He likes light lightbulbs.`:
 
@@ -167,7 +202,7 @@ ba
 
 Although a suitable match (`ba`) has already been found, the engine sees that it can match against a longer string of `a`s. It will instead return the match `baaaaaaaaa`, matching the entire string.
 
-But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex `c.*ed` against the string `contested` (Let `.....` represent `.*`).
+But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex `c.*ed` against the string `contested` (Let `.....` represent `.+`).
 
 ```
 contested
@@ -193,7 +228,7 @@ c......ed
 
 Finally, we get a match and see that both strings match.
 
-## Effect on performance
+### Effect on performance
 
 Bad use of greedy operators (`.*`, `.+`) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:
 
@@ -210,7 +245,7 @@ Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 word
 
 Every character after `Anderson` matches `.*`, resulting in scanning the entire string! Ant not only that, the Regex also has to backtrack one character at a time, until it reaches `Anderson Pearson ` and `Cooper` can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.
 
-## Catastrophic Backtracking
+### Catastrophic Backtracking
 
 This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when multiple greedy operators are chained. If a match can't be found, each operator will be backtracked individually, which results in a lot of computation, even up to O(2<sup>n</sup>) in some cases! Let's look at one case in detail.
 
@@ -290,27 +325,37 @@ A great tip for improving Regex performance is to specify your match as clearly 
 
 If you know your data will only be a few characters long, try your best to avoid using `*` or `+`. Limiting to a number of characters would reduce the amount of backtracking if any.
 
-[The Regex Engine](http://www.regular-expressions.info/engine.html)<br>
-[Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
+* Use Lazy Quantifiers
 
-## When NOT to use Regex
+> Use `.+?` or `.*?` instead of `.+` and `.?`
 
--More Examples-
+A greedy quantifier `+` or `*` can be turned into a lazy quantifier by adding an extra `?` behind it, i.e. (`.+?` or `.*?` instead of `.+` and `.?`). A lazy quantifier works similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our `contested` example, if we replaced `c.+d` with `c.+?d`, the engine would stop matching the `.+` here:
 
-## Reflection
+```
+contested
+  ^
+c.ed
+```
 
-// Reflection overview
+Since `o` is a suitable match for `.+`, the engine accepts it and tries to match the `ed`. If no match is found, the engine would bactrack and match `c..ed`, and so on. We can see a clear advantage here for matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.
+
+>
+
+## Related links
+
+* [The Regex Engine](http://www.regular-expressions.info/engine.html)
+* [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
 
 ## Learning resources
 
-[Cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)<br>
-[Comprehensive Regex Knowledge Base](http://www.regular-expressions.info/)
+* [Cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
+* [Comprehensive Regex Knowledge Base](http://www.regular-expressions.info/)
 
 ### Fun Stuff
-[Regex Golf - Test your Regex skills!](https://alf.nu/RegexGolf)<br>
-[Regex Crossword - Crosswords, but with Regex](https://regexcrossword.com/)
+* [Regex Golf - Test your Regex skills!](https://alf.nu/RegexGolf)
+* [Regex Crossword - Crosswords, but with Regex](https://regexcrossword.com/)
 
 ### Further Reading
-Regular Expressions Cookbook - *Jan Goyvaerts, Steven Levithan*
-Teach Yourself Regular Expressions in 10 Minutes - *Ben Forta*
-Mastering Regular Expressions - *Jeffrey Friedl*
+* Regular Expressions Cookbook - *Jan Goyvaerts, Steven Levithan*
+* Teach Yourself Regular Expressions in 10 Minutes - *Ben Forta*
+* Mastering Regular Expressions - *Jeffrey Friedl*

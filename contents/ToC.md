@@ -28,4 +28,4 @@
 ## Other Tools/Technologies
 
 * AI
-* [Regex](regex/Regex.md)
+* [Regular Expressions](regex/Regex.md)
