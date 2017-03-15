@@ -20,7 +20,8 @@
 * Project management
 * Requirements
 * Revision control
-* [Security-https](security/Https.md)
+* Security
+  * [HTTPS](security/Https.md)
 * Scalability
 * Testing
 * UIX
