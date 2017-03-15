@@ -8,17 +8,17 @@ Software documentation refers to information that explains the code in a softwar
 Many developers neglect writing documentation because they find it boring or troublesome, which is a pity because documentation communicates what you have done to the world - without documentation, people won't know about your awesome code or cool features.
 
 > The difference between a tolerable programmer and a great programmer is not how many programming languages they know, and it’s not whether they prefer Python or Java. It’s whether they can communicate their ideas. By persuading other people, they get leverage. By writing clear comments and technical specs, they let other programmers understand their code, which means other programmers can use and work with their code instead of rewriting it. Absent this, their code is worthless. By writing clear technical documentation for end users, they allow people to figure out what their code is supposed to do, which is the only way those users can see the value in their code. There’s a lot of wonderful, useful code buried on sourceforge somewhere that nobody uses because it was created by programmers who don’t write very well (or don’t write at all), and so nobody knows what they’ve done and their brilliant code languishes.
-
+>
 > [Advice for Computer Science College Students](https://www.joelonsoftware.com/2005/01/02/advice-for-computer-science-college-students/), by Joel Spolsky
 
 ## Why Write Documentation
 
 There are many benefits to writing good documentation, such as the following:
 
-* Make things easier for yourself: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find yourself confused by your own work
-* Improve your code: documentation forces you to think carefully about what you are trying to do and why you have chosen to implement it in a particular way
-* Encourage others to contribute to your software: by documenting how to contribute, it makes easier for others to do so, so they are more likely to help out
-* Encourage others to use your software: ["If it isn't documented, it doesn't exist."](http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680)
+* **Make things easier for yourself**: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find yourself confused by your own work
+* **Improve your code**: documentation forces you to think carefully about what you are trying to do and why you have chosen to implement it in a particular way
+* **Encourage others to contribute to your software**: by documenting how to contribute, it makes easier for others to do so, so they are more likely to help out
+* **Encourage others to use your software**: ["If it isn't documented, it doesn't exist."](http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680)
 
 ## Writing Good Documentation
 
@@ -41,7 +41,7 @@ In general, written documentation should use:
 
 Futhermore, you should always:
 
-* [test](http://idratherbewriting.com/2015/07/07/testing-your-instructions/) your instructions
+* [test your instructions](http://idratherbewriting.com/2015/07/07/testing-your-instructions/)
 * find *someone else* to test your instructions
 * [revise, revise and revise!](https://jacobian.org/writing/editors/)
 
@@ -50,16 +50,19 @@ Futhermore, you should always:
 
 #### README
 
-A README serves as an introduction to your project, and is often the first thing people see when encountering your project.
+A README serves as an introduction to your project, and is often the first thing people see when encountering your project.<br>
 A good README should convince users to use your product or contribute to your code, by providing enough information to make it easy for them to get started.
+
 For a good guide on how to write a README, check out [this guide](http://www.writethedocs.org/guide/writing/beginners-guide-to-docs/).
-Some suggest that READMEs should be written before you start coding, as it gives you an overview of your project and what you need to do.
+
+* Some suggest that READMEs should be written before you start coding, as it gives you an overview of your project and what you need to do.
 This is known as [Readme Driven Development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html).
 
 #### User Guide
 
 A user guide teaches users how to use your software.
 User guides can include quickstart guides, reference materials, tutorials, cookbooks/recipes and more.
+
 [Here](https://jacobian.org/writing/what-to-write/) is a useful guide on how to tackle different types of user documentation.
 [This](http://stevelosh.com/blog/2013/09/teach-dont-tell/) points out the problems with common approaches to documentation and builds on the previous article.
 
@@ -67,6 +70,7 @@ User guides can include quickstart guides, reference materials, tutorials, cookb
 
 Developer guides teach new developers how to contribute to the code base.
 They should give an overview of the code and an explanation of the design, as well as include instructions for setting up, making changes and deploying.
+
 See [this](https://www.petrikainulainen.net/software-development/processes/writing-just-enough-documentation/) to learn more about what to include in a developer guide.
 
 ### Code Documentation
@@ -79,9 +83,9 @@ Note that such documentation should always be updated together with the code.
 
 Comments are a well-known form of documentation.
 They [complement the code](http://softwareengineering.stackexchange.com/a/285789) and are intended for developers who use and work on the code.
-They include variable, method and class comments, as well as inline comments. 
+They include API documentation for variables, methods, classes, and packages, as well as inline comments.
 
-API documentation for variables, methods and classes explain what they do.
+API documentation for variables, methods, classes, and packages explain what they do.
 Good API documentation should enable users to use the API without having to guess how to use it or be confronted with unexpected behavior.
 Thus, comments for methods should include the input and output, assumptions, edge cases and possible exceptions or errors thrown by the method.
 
@@ -117,6 +121,7 @@ Tests are another form of documentation as they make the expected behavior of th
 Version control is also a form of documentation.
 Having access to how the code base was changed over time can shows how, when and why a piece of code was written or changed. 
 For this to work well, it is important to write good commit messages and follow good commit practices.
+
 [This](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message) explains what to include in commit messages while
 [this article](http://mislav.net/2014/02/hidden-documentation/) explains how to use Git to make full use of your code's version control history.
 For more resources on commit messages, check out [this Stack Overflow thread](https://stackoverflow.com/questions/15324900/standard-to-follow-when-writing-git-commit-messages).
