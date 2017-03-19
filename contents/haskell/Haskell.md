@@ -6,10 +6,7 @@ Authors: Thenaesh Elango
 # Overview
 
 Haskell is a purely functional programming language with strong, static,
-inferred typing. It is one of the languages that feature the
-[second-order lambda calculus](https://en.wikipedia.org/wiki/System_F)
-(the other being the ML family of languages), which lends the language much of
-its expressive power.
+inferred typing.
 
 While Haskell has its roots in academia, its emphasis on purity and
 side-effect-free computation makes it a valuable asset in software engineering
@@ -59,6 +56,13 @@ in a variety of systems. A comprehensive list may be found
 
 ## Installation
 
+**This tutorial, in general, assumes a _system-wide installation_ of the Haskell
+Platform.** This is primarily for simplicity. It is perfectly acceptable to write
+small programs or code not intended for production in this manner.
+
+When using Haskell in an actual project, however, it is **strongly-recommended**
+to use Stack. Not doing so may cause dependency management to become a nightmare.
+
 ### System-Wide Installation
 
 For new users, Haskell may be quickly and easily installed by downloading the
@@ -66,21 +70,8 @@ For new users, Haskell may be quickly and easily installed by downloading the
 operating systems. The Haskell Platform contains many common and important
 Haskell libraries, in addition to the Glasgow Haskell Compiler (GHC).
 
-At the time of writing, the Haskell Platform has binaries available for the
-following operating systems:
-
-* Linux
-  * Debian
-  * Ubuntu
-  * Mint
-  * Red Hat
-  * Fedora
-  * Gentoo
-  * a generic binary package
-* MacOS
-  * Homebrew
-  * ordinary installer
-* Windows
+At the time of writing, the Haskell Platform has binaries available for all
+common operating systems, and many uncommon ones as well.
 
 ### Stack Installation
 
@@ -133,8 +124,6 @@ name is configurable in `Project.cabal`.
 The rest of the Stack documentation may be found in the
 [official guide](https://docs.haskellstack.org/en/stable/GUIDE/).
 
-**The rest of this tutorial assumes a _system-wide installation_ of the Haskell
-Platform.** If using Stack, the commands will need to be modified accordingly.
 
 ## Usage
 
@@ -145,9 +134,9 @@ tool when first learning Haskell, and also when debugging code that fails to
 compile.
 
 The command `ghc` may be used to compile Haskell code down to machine code. The
-invocation of `ghc` is very similar to that of `gcc`. It is preferred to use
-Stack for build management in production software, rather than handling
-compilation in this manner.
+invocation of `ghc` is very similar to that of `gcc`.
+
+When using Stack, simply prefix the commands with `stack`.
 
 
 # Whirlwind Tour
