@@ -2,7 +2,8 @@
 
 * C#
 * C++
-* [Java](java/Java.md)
+* Java
+  * [Synchronization](java/JavaSynchronization.md)
 * JavaScript
 * Python
 * Ruby
