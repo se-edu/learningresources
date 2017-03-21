@@ -58,5 +58,5 @@ During the [cipher suites](https://en.wikipedia.org/wiki/Cipher_suite) process o
 Some websites use HTTPS only on the login page to encrypt the login credentials of users. However, this is vulnerable to [session hijacking](https://en.wikipedia.org/wiki/Session_hijacking) attack. Most websites use cookie and session token to maintain a stateful connection with its users, and the session token is embedded into each packet to authenticate the identity of users. Without using HTTPS in all the websites in the domain, the packets containing session token is transmitted in plaintext and sniffers can easily obtain the session token to impersonate the victim. A demonstration of this attack on Qoo10.com user can be found [here](https://www.youtube.com/watch?v=BjTwNzoMUuk
 )
 
-## Reflection
+## Conclusion
 HTTPS provides security to a web application.  If the web application requires secure network traffic(e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional layer of encryption and decryption adds overhead to network traffic(though the impact is not significant). If secure network traffic is not required(e.g. University home page), HTTPS may not be implemented.
