@@ -13,7 +13,7 @@ HTTPS is the end to end encryption on data on top of HTTP to prevent network sni
 
 ## Why do we need HTTPS
 
-The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packet in plain text and if network is sniffed, the sniffer can see confidential information in the data packet such as password or [session token](http://searchsoftwarequality.techtarget.com/definition/session-ID). Here are some examples on how a plain text could be sniffed.
+The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if network is sniffed, the sniffer can see confidential information in the data packets such as password or [session token](http://searchsoftwarequality.techtarget.com/definition/session-ID). Here are some examples on how a plain text could be sniffed.
 
 - On a public free wifi, a Wifi adapter with monitor mode would be able to capture all the ongoing packets to and from the wifi access point, regardless of its destination. If the traffic is transmitted over HTTP, the data sent over wifi is in plain text and the session token and password can be stolen. One famous example would be [Firesheep](https://github.com/codebutler/firesheep) , a Firefox plugin to sniff session token used in websites such as Facebook. This has made Facebook [change its default protocol from http to https](https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920/)
 
