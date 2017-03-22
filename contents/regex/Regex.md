@@ -51,7 +51,7 @@ Say you're looking for phone numbers in a text. You know that a string represent
 
 Firstly, the phone number may start with a country code 65. This criterion is embedded in `(65)?`. The first part, `(65)`, matches the country code. The question mark `?` means that the `(65)` that comes before it is optional.
 
-Secondly, a phone number must have 8 digits. This is specified by `[\d]{8}`. `[\d]` matches a single digit from 0-9, and `{8}` means that `[\d]` is repeated 8 times. Putting them together, `[\d]{8}` matches an string of 8 digits.
+Secondly, a phone number must have 8 digits. This is specified by `[\d]{8}`. `[\d]` matches a single digit from 0-9, and `{8}` means that `[\d]` is repeated 8 times. Putting them together, `[\d]{8}` matches a string of 8 digits.
 
 As we can see, the pattern `(65)?[\d]{8}` when translated to simple english, means 'Look for a string of 8 numerical digits, that may have an extra `65` in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:
 
@@ -128,12 +128,12 @@ Name | Regex | Use | Example
 Literal characters | Any character(s) | Matches any substring | `cat` matches `category`
 Escape characters | `\t`, `\n`, `\d`... | Matches [special characters](http://www.regular-expressions.info/refcharacters.html). | `\t` matches a tab character
 Anchors | `^`, `$` | Matches start and end of string | `^ant` matches `antics` but not `pant`
-Charcter classes | `[abc]` | Matches any character in the character class | `l[ai]st` matches `last` and `list`
+Character classes | `[abc]` | Matches any character in the character class | `l[ai]st` matches `last` and `list`
 Quantifiers | `+` | Matches one or more of the previous character | `no+` matches `nooooooo` but not `n`
  | `?` | Matches zero or one of the previous character | `colou?r` matches `color` and `colour`
  | `*` | Matches zero or more of the previous character | `ba*` matches `b`, `ba` and `baaa`
  | `{1, 3}` or `{2}` | Matches the previous character a specified number of times | `a{1, 3}` matches `a`, `aa` and `aaa`, `a{2}` matches `aa`
-Groups | `(...)` | Groups a pattern of data | `Used for extracting data, see below`
+Groups | `(...)` | Groups a pattern of data | `Used for extracting data, see above`
 
 
 For a full list of possible operators, refer to this quick start guide:
@@ -334,9 +334,9 @@ If you know your data will only be a few characters long, try your best to avoid
 
 * Use Lazy Quantifiers
 
-> Use `.+?` or `.*?` instead of `.+` and `.?`
+> Use `.+?` or `.*?` instead of `.+` and `.*`
 
-A greedy quantifier `+` or `*` can be turned into a lazy quantifier by adding an extra `?` behind it, i.e. (`.+?` or `.*?` instead of `.+` and `.?`). A lazy quantifier works similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our `contested` example, if we replaced `c.+d` with `c.+?d`, the engine would stop matching the `.+` here:
+A greedy quantifier `+` or `*` can be turned into a lazy quantifier by adding an extra `?` behind it, i.e. (`.+?` or `.*?` instead of `.+` and `.*`). A lazy quantifier works similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our `contested` example, if we replaced `c.+d` with `c.+?d`, the engine would stop matching the `.+` here:
 
 ```
 contested
@@ -346,7 +346,6 @@ c.ed
 
 Since `o` is a suitable match for `.+`, the engine accepts it and tries to match the `ed`. If no match is found, the engine would bactrack and match `c..ed`, and so on. We can see a clear advantage here for matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.
 
->
 
 ## Related links
 
