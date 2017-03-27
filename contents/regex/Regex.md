@@ -6,9 +6,9 @@ Authors: Jamos Tay
 
 ## What are Regular Expressions?
 
-A Regular Expression (or Regex for short) is a string of characters that define a search pattern. You can think of a regular expression as a list of descriptions that describe a string. These strings can be tested against other text formatted data to find, match and extract data.
+A Regular Expression (or Regex for short) is a string of characters that define a search pattern. You can think of a regular expression as a list of descriptions that describe a string. These strings can be tested against other text formatted data to find, match, and extract data.
 
-Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with 'C', ends with a `S`, and only consists of letters: `C[A-z]+S`) and regex searches a section of text for you, finding all the possible matches.
+Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with `C`, ends with a `S`, and only consists of letters: `C[A-z]+S`) and the section of text is searched, finding all the possible matches.
 
 ## Why should I learn Regex?
 
@@ -22,7 +22,7 @@ Imagine you're a witness of a robbery. How might you describe the robber to the 
 
 ## Introduction
 
-The power of regex revolves around the idea that most data comes in a regular, predictable format (e.g. serial numbers, collected data, statistics). Some everyday examples are as follows:
+The power of regex revolves around the idea that most data comes in a regular, predictable format. Some everyday examples are as follows:
 
 * Phone numbers: +65 65162727
 * Passwords: Contains lower/upper case, symbol…
@@ -31,21 +31,17 @@ The power of regex revolves around the idea that most data comes in a regular, p
 
 Regex exploits these simlarities and provides a way of specifying patterns that can fit almost any use case. Some of the basic functionalities are as follows:
 
-Let's take a look at some simple examples without code. For this guide, you can use any text editor that supports Regex functionality (e.g. [Notepad++](https://notepad-plus-plus.org/download/v7.3.1.html), [Sublimetext](https://www.sublimetext.com/)).
+Let's take a look at some simple examples without code. For this article, you can use any text editor that supports Regex functionality (e.g. [Notepad++](https://notepad-plus-plus.org/download/v7.3.1.html), [Sublimetext](https://www.sublimetext.com/)).
 
 ## Search Text
 
-The most basic use of Regex is searching a length of text. Say you have want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example:
+The most basic use of Regex is searching a section of text. Say you want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example, if you're looking for phone numbers (represented simply as a 8 digit number) in a chat log, you don't want a specific 8 digit number, you want to find all possible 8 digit numbers. This can't be done with your traditional Ctrl-F search.
 
-> * Find all phone numbers in a chat log
-> * Find all email addresses in a saved email
-> * Find all web URLs on a web page
-
-This can't be done with your traditional Ctrl-F search, as you aren't looking for a specific string. Rather, what you're looking for is a **pattern** - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular **Regular Expression**. These patterns encapsulate properties about the string you're looking for.
+Rather, what you're looking for is a **pattern** - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular **Regular Expression**. These patterns encapsulate properties about the string you're looking for.
 
 ### Example
 
-Say you're looking for phone numbers in a text. You know that a string representing a phone number must satisfy two criteria: It consists of 8 digits, and may have a country code `65` in front of it. This is what the equivalent pattern for such a string might look like:
+Let's go back to our example of finding phone numbers in a text. You know that a string representing a phone number must satisfy two criteria: It consists of 8 digits, and may have a country code `65` in front of it. This is what the equivalent pattern for such a string might look like:
 
 `(65)?[\d]{8}`
 
@@ -53,7 +49,7 @@ Firstly, the phone number may start with a country code 65. This criterion is em
 
 Secondly, a phone number must have 8 digits. This is specified by `[\d]{8}`. `[\d]` matches a single digit from 0-9, and `{8}` means that `[\d]` is repeated 8 times. Putting them together, `[\d]{8}` matches a string of 8 digits.
 
-As we can see, the pattern `(65)?[\d]{8}` when translated to simple english, means 'Look for a string of 8 numerical digits, that may have an extra `65` in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:
+As we can see, the pattern `(65)?[\d]{8}` when translated to simple English, means 'Look for a string of 8 numerical digits, that may have an extra `65` in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:
 
 ```
 6591234567
@@ -61,21 +57,19 @@ As we can see, the pattern `(65)?[\d]{8}` when translated to simple english, mea
 67777188
 ```
 
-Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.
-
 ## Search and Replace
+
+Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.
 
 Regex can also be used to search and replace strings.
 
 Say you have a passage of text which contains NRICs to be censored.
 
-### Example
-
 > * John - S1234567A
 > * Mary - S8192853B
 > * David - S1235326C
 
-This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct a Reges:
+This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct a Regex:
 
 * Find: `S[\d]{7}[A-Z]`
 * Replace: `SXXXXXXXX`
@@ -117,7 +111,7 @@ In the replace field, `\1` represents the group matched in the string. For examp
 
 ## Further exploration
 
-These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. Many languages implement it differently, for example Python uses the [`re`](https://docs.python.org/2/library/re.html) library, Java uses [`Pattern`](http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) and Javascript has regex built into the language using [`/` notation](https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions). You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.
+These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language (for example, Python uses the [`re`](https://docs.python.org/2/library/re.html) library, Java uses [`Pattern`](http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) and Javascript has regex built into the language using [`/` notation](https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions)), but the functionality is consistent so it's not difficult to port Regex from one language to another. You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.
 
 For more examples of what Regex can do, you can refer to the tutorial links in the appendix.
 
@@ -136,15 +130,15 @@ Quantifiers | `+` | Matches one or more of the previous character | `no+` matche
 Groups | `(...)` | Groups a pattern of data | `Used for extracting data, see above`
 
 
-For a full list of possible operators, refer to this quick start guide:
-[Quick Start Guide](http://www.regular-expressions.info/quickstart.html)<br>
+For a full list of possible operators, refer to this cheat sheet:
+[Regex cheat sheet](http://www.rexegg.com/regex-quickstart.html)<br>
 
 ## Helpful links
 
-* [Try it out online](https://regex101.com/)
-* [Regex Examples](http://www.regular-expressions.info/examples.html)
-* [Regex Course](https://regexone.com/)
-* [Comprehensive Regex Tutorial](http://www.rexegg.com)
+* [Regex101](https://regex101.com/) - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.
+* [Regular-Expressions](http://www.regular-expressions.info/examples.html) - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.
+* [Regexone](https://regexone.com/) - A free online course that teaches the many features of Regex interactively.
+* [Rexegg](http://www.rexegg.com) - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.
 
 # Advanced topics
 
@@ -354,7 +348,7 @@ Since `o` is a suitable match for `.+`, the engine accepts it and tries to match
 
 ## Learning resources
 
-* [Cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
+* [Printable cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
 * [Comprehensive Regex Knowledge Base](http://www.regular-expressions.info/)
 
 ### Fun Stuff
@@ -362,6 +356,6 @@ Since `o` is a suitable match for `.+`, the engine accepts it and tries to match
 * [Regex Crossword - Crosswords, but with Regex](https://regexcrossword.com/)
 
 ### Further Reading
-* Regular Expressions Cookbook - *Jan Goyvaerts, Steven Levithan*
-* Teach Yourself Regular Expressions in 10 Minutes - *Ben Forta*
-* Mastering Regular Expressions - *Jeffrey Friedl*
+* [Regular Expressions Cookbook](https://www.amazon.com/Regular-Expressions-Cookbook-Solutions-Programming/dp/1449319432) - *Jan Goyvaerts, Steven Levithan*
+* [Teach Yourself Regular Expressions in 10 Minutes](https://www.amazon.com/exec/obidos/ASIN/0672325667/jgsbookselection) - *Ben Forta*
+* [Mastering Regular Expressions](https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124) - *Jeffrey Friedl*
