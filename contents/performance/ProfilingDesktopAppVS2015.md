@@ -2,6 +2,8 @@
 
 Author: [Ong Heng Le](https://github.com/initialshl)
 
+## Overview
+
 This tutorial demonstrates how to get an overview of your desktop application's performance
 using the profiler included in [Visual Studio 2015](https://www.visualstudio.com/downloads/). 
 
