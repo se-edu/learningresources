@@ -35,7 +35,7 @@ Let's take a look at some simple examples without code. For this article, you ca
 
 ## Search Text
 
-The most basic use of Regex is searching a section of text. Say you want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example, if you're looking for phone numbers (represented simply as a 8 digit number) in a chat log, you don't want a specific 8 digit number, you want to find all possible 8 digit numbers. This can't be done with your traditional Ctrl-F search.
+The most basic use of Regex is searching a section of text. Say you want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example, if you're looking for phone numbers (represented simply as an 8 digit number) in a chat log, you don't want a specific 8 digit number, you want to find all possible 8 digit numbers. This can't be done with your traditional Ctrl-F search.
 
 Rather, what you're looking for is a **pattern** - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular **Regular Expression**. These patterns encapsulate properties about the string you're looking for.
 
