@@ -12,12 +12,12 @@ having any knowledge of it during compile time. It is also possible to create ne
 invoke methods and change values of fields of existing objects. Hence the name reflection because Java is in a 
 way looking at itself during runtime!
 
-With reflections, it is possible to access private fields and/or methods of a class without having to modify the class
-itself. This is very useful if you are interested to implement tests cases to test the class.
+For example, you can use Java reflection to access private fields and/or methods of a class without having to modify the
+class itself. This is very useful if you are interested to implement test cases to test the class.
 
 ### The Basics of Reflections
 
-Before getting started with reflections in Java, it is important to realize that classes themselves is an object. Every
+Before getting started with reflections in Java, it is important to realize that classes is also an object. Every
 unique `Object` is assigned an immutable `Class` object by the JVM. This immutable `Class` object is fundamentally 
 different from *instances* of a class. The class object itself holds information about its name, the package it resides 
 in and other important information while an instance of a class holds the instanced values and methods as defined
@@ -61,11 +61,8 @@ public/private fields - the possibilities are endless!
 There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is
 being made readily available on the web. One good place to start is [http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html](http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html)
 
-What this page will do instead is to give some examples to demonstrate what reflections can do and give you some
-ideas on how you can use reflections in your project.
-
-One important point is that while Java reflections are powerful, its implementations are anything but. There are however
-some libraries out there to make life easier such as the [Google's Guava
+One important point is that while Java reflections are powerful, its implementations are not very straightforward.
+There are however some libraries out there to make life easier such as the [Google's Guava
 library](https://github.com/google/guava/wiki/ReflectionExplained) which contains many utility methods and classes to
 make your life easier.
 
@@ -161,14 +158,14 @@ the implications. Fret not! The `Field#getDeclaredField()` actually returns a ne
 setting that particular local `Field` instance to be accessible, not the actual `age` field itself. You can read more
 about it in this [StackOverflow question](http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue).
 
-#### A More advanced application
+#### A more advanced application
 
-You might have learnt from your Software Engineering module that the observer pattern can be used for objects that are
-interested to get notified if the state of another object is changed. The observer pattern is useful because you can
+You might have learnt from your Software Engineering module that the Observer pattern can be used for objects that are
+interested to get notified if the state of another object is changed. The Observer pattern is useful because you can
 avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other
 while allowing the objects to be notified of any changes in another object.
 
-One prime example of the implementation of the observer pattern is the Google Events bus used in [AddressBook Level 4](https://github.com/se-edu/addressbook-level4/)
+One prime example of the implementation of the Observer pattern is the Google Events bus used in [AddressBook Level 4](https://github.com/se-edu/addressbook-level4/)
 .The event bus uses reflections to observe all registered objects via `register` method for methods annotated with the
 `Subscribe` annotation.
 
@@ -253,46 +250,46 @@ using Java reflections:
 
 * Reflections convert a compile-time error to a potentially destructive run-time error.
 
-Compile time errors are easy to catch. Whenever you compile your code, the compiler cleverly spots any error you
-missed and points it out (along with line number and other useful information) to you before quitting. But by using
-reflections, you are bypassing these checks because there is no way to check such errors during compile time. These 
-uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.
+  Compile time errors are easy to catch. Whenever you compile your code, the compiler cleverly spots any error you
+  missed and points it out (along with line number and other useful information) to you before quitting. But by using
+  reflections, you are bypassing these checks because there is no way to check such errors during compile time. These 
+  uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.
 
-For example you might have come across this problem where your program crashed and you get a `NullPointerException`
-error in your crash log. As you might have experienced already, runtime errors are more troublesome in that they
-are harder to catch and debug. They might even bring your whole software under the water with it by crashing
-the whole thing.
+  For example you might have come across this problem where your program crashed and you get a `NullPointerException`
+  error in your crash log. As you might have experienced already, runtime errors are more troublesome in that they
+  are harder to catch and debug. They might even bring your whole software under the water with it by crashing
+  the whole thing.
 
 * Reflections are harder to understand and harder to debug
 
-There is a reason why the topic of reflections is placed under the advanced section. Codes using reflections are 
-fundamentally harder to understand. As mentioned above, it is also harder to debug when the classes might not even be 
-there during compile time. This makes your code very hard to maintain.
+  There is a reason why the topic of reflections is placed under the advanced section. Codes using reflections are 
+  fundamentally harder to understand. As mentioned above, it is also harder to debug when the classes might not even be 
+  there during compile time. This makes your code very hard to maintain.
 
 * Poor performance
 
-Since reflections resolve types dynamically, performance suffers. This is usually not an issue with small software
-but you might want to keep it in mind if you want to scale up.
+  Since reflections resolve types dynamically, performance suffers. This is usually not an issue with small software
+  but you might want to keep it in mind if you want to scale up.
 
 * Bad Security
 
-The second example demostrated a way to access the private fields of a class using reflections.
-This should be very concerning if your software deals with sensitive information because 
-other classes can access fields that they are not supposed to.
+  The second example demostrated a way to access the private fields of a class using reflections.
+  This should be very concerning if your software deals with sensitive information because 
+  other classes can access fields that they are not supposed to.
 
 ### Further Resources for reflections
 
 * Introductions to Java reflections with some explanation
 
-[http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html](http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html)
-[http://www.journaldev.com/1789/java-reflection-example-tutorial](http://www.journaldev.com/1789/java-reflection-example-tutorial)
+  [http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html](http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html)
+  [http://www.journaldev.com/1789/java-reflection-example-tutorial](http://www.journaldev.com/1789/java-reflection-example-tutorial)
 
 * A short but precise overview of Java reflections
 
-[http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html](http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html)
+  [http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html](http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html)
 
 * Google's Guava reflection library provides some utility methods and classes 
 
-[https://github.com/google/guava/wiki/ReflectionExplained](https://github.com/google/guava/wiki/ReflectionExplained)
+  [https://github.com/google/guava/wiki/ReflectionExplained](https://github.com/google/guava/wiki/ReflectionExplained)
 
 

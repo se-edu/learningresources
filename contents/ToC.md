@@ -3,7 +3,7 @@
 * C#
 * C++
 * [Java](java/Java.md)
-    * [Java Reflections](java/JavaReflections.md)
+    * [Java Reflection](java/JavaReflections.md)
 * JavaScript
 * Python
 * Ruby
