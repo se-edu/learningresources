@@ -37,8 +37,9 @@ However, the browser is **actually executing the script**, without the visitor e
 
 This means that any malicious users (i.e. hackers) can write a script on their comments, such that everyone that visits the website will have the script executed. The script can be malicious in nature (in our example, the script sends the cookie of the visitor to the hacker).
 
-Therefore, the hacker has managed to add additional malicious "functionality" to
-the website, that is not intended by the original website developer.
+Therefore, the hacker has managed to add additional malicious "functionality" to the website, that is not intended by the original website developer.
+
+> Trivia: The term "Cross Site Scripting" is actually an old term. It originally describe an attack whereby hackers write malicious JavaScript scripts on a separate website, and injects it into the victim's website, in order to steal data from the victim's website/deface the page (hence "Cross Site"). Such attacks are no longer possible today, and the modern definition of "Cross Site Scripting" includes attacks that do not need to be on a separate website to work.
 
 ## Types of Cross Site Scripting
 
@@ -78,6 +79,8 @@ References:
 (Basic description of the XSS attack taken from here)
 1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks
 (Description of the two types of XSS attack taken from here)
+1. http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html
+(Origin of the name "Cross Site Scripting")
 
 Additional Reading Resources:
 
