@@ -53,7 +53,13 @@ webpage will retrieve the comment from the database, resulting in execution.
 
 * Non-persistent XSS (also known as reflected XSS) - The JavaScript code is
 inserted in URL/links of website that accepts URL parameters as input. The input
-is therefore not stored in a database. For example:
+is therefore not stored in a database.
+
+An example of a non-persistent XSS attack would be an e-card website that displays an e-card to a visitor of the website. The e-card can be customised by modifying the `content` parameter of the URL:
+
+`https://www.ecard.com/view-ecard.php?content=Happy%20Holidays`
+
+However, that also means that hackers are able to also include scripts in their e-card content. They can send this URL to victims, hoping that they will click on them, resulting in the scripts being executed:
 
 `https://www.ecard.com/view-ecard.php?content=Happy%20Holidays<script>...</script>`
 
