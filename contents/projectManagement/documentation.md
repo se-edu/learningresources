@@ -15,10 +15,10 @@ Many developers neglect writing documentation because they find it boring or tro
 
 There are many benefits to writing good documentation, such as the following:
 
-* **Make things easier for yourself**: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find yourself confused by your own work
-* **Improve your code**: documentation forces you to think carefully about what you are trying to do and why you have chosen to implement it in a particular way
-* **Encourage others to contribute to your software**: by documenting how to contribute, it makes easier for others to do so, so they are more likely to help out
-* **Encourage others to use your software**: ["If it isn't documented, it doesn't exist."](http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680)
+* **Makes things easier for yourself**: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find yourself confused by your own work
+* **Improves your code**: documentation forces you to think carefully about what you are trying to do and why you have chosen to implement it in a particular way
+* **Encourages others to contribute to your software**: by documenting how to contribute, it makes easier for others to do so, so they are more likely to help out
+* **Encourages others to use your software**: ["If it isn't documented, it doesn't exist."](http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680)
 
 ## Writing Good Documentation
 
@@ -136,7 +136,7 @@ For more resources on commit messages, check out [this Stack Overflow thread](ht
 
 ## Acknowledgements
 
-In addition to the links mentioned above, here are the links used in the writing of this book chapter:
+In addition to the links mentioned above, here are the links used in the writing of this article:
 
 * https://opensource.com/business/15/5/write-better-docs
 * http://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm
