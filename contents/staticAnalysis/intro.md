@@ -98,9 +98,9 @@ There are several static analysis tools that can be used to assist the process.
 Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.
 
 - Java
-	- [CheckStyle](checkStyle.md)
+	- [CheckStyle](CheckStyle.md)
 	- [PMD](PMD.md)
-	- FindBugs
+	- [FindBugs](FindBugs.md)
 
 - JavaScript
 	- eslint
