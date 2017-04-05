@@ -1,14 +1,19 @@
-## Static Analysis
+# Static Analysis
+
+Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
+
+## Overview
+
 Static analysis is the process of analysing computer programme **without** executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).
 
 It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process. 
 
-### Why Static Analysis?
+## Why Static Analysis?
 
-#### Analyse Thoroughly
+### Analyse Thoroughly
 In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs ([see](#find-potential-bugs-early) how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.
 
-#### Find Potential Bugs Early
+### Find Potential Bugs Early
 Static analysis can find bugs before the execution. For example, some programmers may forget to add `break` statement in `switch` statement.
 
 ``` java
@@ -21,7 +26,7 @@ case 'green':
 ```
 Static analysis tools will automatically alert the programmers about the potential problems/bugs.
 
-#### Enforce a Standard in Project
+### Enforce a Standard in Project
 Many projects enforce certain coding standards. For example, some project require the following format for `if` statement.
 
 ``` java
@@ -44,7 +49,7 @@ else {
 ```
 Such standards can be configured in static analysis tools and the tools will help you enforce the standards.
 
-#### Improve Code Quality
+### Improve Code Quality
 Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:
 
 ``` java
@@ -60,9 +65,9 @@ Majority of static analysis tools will point out that this can be simplified to:
 return isConditionTrue();
 ```
 
-### Limitation of Static Analysis
+## Limitation of Static Analysis
 
-#### False positives
+### False positives
 Since static analysis tools only recognize patterns, there might be false positives introduced.
 
 ``` java
@@ -81,23 +86,25 @@ For example, the above code will catch any `Throwable` object and alert users th
 ```
 is the correct way to suppress warnings.
 
-#### Cannot Catch Error Introduced in Runtime Environment
+### Cannot Catch Error Introduced in Runtime Environment
 Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should **not** merely depend on static analysis tools to find bugs. Comprehensive test cases are also needed to verify the functionalities in logic, UI and etc.
 
-### How to Do Static Analysis (Static Analysis Tools)
+## How to Do Static Analysis (Static Analysis Tools)
 There are several static analysis tools that can be used to assist the process.
 
-- [List of tools for static code analysis - Wikipedia](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis)
-- [Codacy - Automated code reviews & code analytics](https://www.codacy.com/)
-- [Review of Java Static Analysis Tools](https://blog.codacy.com/review-of-java-static-analysis-tools-5ad86cfc8ae2#.af3t0ev32)
+- [List of tools for static code analysis - Wikipedia](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis): You can find static analysis tools that supports the language you use.
+- [Codacy - Automated code reviews & code analytics](https://www.codacy.com/): A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each commit.
 
-Here, we will discuss several static analysis tools in detail.
+Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.
 
-- [CheckStyle](checkStyle.md) (for Java only)
-- [PMD](PMD.md)
-- findBugs
-- eslint
+- Java
+	- [CheckStyle](checkStyle.md)
+	- [PMD](PMD.md)
+	- FindBugs
 
-### References
+- JavaScript
+	- eslint
+
+## References
 
 - [Why Static Code Analysis is Important?](http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html)
