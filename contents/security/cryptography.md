@@ -102,8 +102,8 @@ For this to be secure, it must be computationally infeasible to obtain the priva
 #### The RSA Cryptosystem
 
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is one of the earliest and most widely used public key cryposystems. 
-It is based off the integer factorization problem; Given 2 large primes `p` and `q`, it is easy to compute the product `pq`, but difficult to factor `pq`. 
-The [first article of this 2-part series  ](http://doctrina.org/How-RSA-Works-With-Examples.html) explains how RSA works, as well as the minimal number theory required. The [follow-up article](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html) explains why RSA works by introducing some important theorems in number theory.
+Its one-way function is the integer factorization problem; Given 2 large primes `p` and `q`, it is easy to compute the product `pq`, but difficult to factor `pq`. 
+The [first article of this 2-part series  ](http://doctrina.org/How-RSA-Works-With-Examples.html) explains how RSA works, as well as the minimal number theory required. The [follow-up article](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html) explains why RSA works by introducing some important results in number theory.
 
 ## Other Resources
 
