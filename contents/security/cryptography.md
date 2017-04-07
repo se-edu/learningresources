@@ -82,6 +82,28 @@ This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) 
 Most modes require a random value called an initialization vector (IV) so that encrypting the same message twice doesn't produce the same ciphertext, which leaks information. 
 It is critical that the IV be [random, used only once and unpredictable](https://defuse.ca/cbcmodeiv.htm). Not doing so has caused several vulnerabilities such as the [BEAST Attack on TLS](http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html) and [the recovery of WEP keys](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy).
 
+### Asymmetric Key Ciphers
+
+Symmetric cryptography is not practical for the following situations, which motivates the development of asymmetric or public key cryptography:
+
+* Key agreement: the communicating parties must securely establish a shared secret key, since the communication channel for the message is insecure, other methods must be used.
+* Large number of keys: for each user in a group of `n` users to securely communicate to every other user, each user must securely store `n-1` keys , which is impractical.
+* No non-repudiation: since each party has the same capability by possessing the shared key, symmetric cryptography cannot be used when non-repudiation is required. For instance, if an online store, Bob, needs to prove Alice purchased an item where symmetric encryption is used for the transaction message, Alice can claim Bob falsely generated the transaction, as they both share the same key.
+
+In asymmetric cryptography, there are 2 separate keys; one for encryption, and the other for decryption. The key used for encryption is published so that anyone can securely send messages to Alice. Hence, it is called a public key. Alice has the corresponding decryption key, or private key, which is kept secret. Hence, messages encrypted with the public key can only be decrypted by Alice.
+
+Public key cryptography has many uses beyond sending encrypted messages, such as key agreement and non-repudiation, which will be covered in future sections.
+
+For this to be secure, it must be computationally infeasible to obtain the private key from the public key. This is achieved using one-way functions, which have the following properties:
+
+* It must be easy to compute y = f(x) so that encryption is not too slow.
+* It is computationally infeasible to compute x = f^{-1}(y).
+
+#### The RSA Cryptosystem
+
+[RSA(https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is one of the earliest and most widely used public key cryposystems. 
+It is based off the integer factorization problem; Given 2 large primes `p` and `q`, it is easy to compute the product `pq`, but difficult to factor `pq`. 
+The [first article of this 2-part series  ](http://doctrina.org/How-RSA-Works-With-Examples.html) explains how RSA works, as well as the minimal number theory required. The [follow-up article](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html) explains why RSA works by introducing some important theorems in number theory.
 
 ## Other Resources
 
