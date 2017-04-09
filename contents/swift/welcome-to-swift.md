@@ -11,9 +11,9 @@ Welcome to Swift, THE preferred language to do iOS programming. Introduced in 20
 
 Reading the [Language Guide in the official documentation](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/) is definitely recommended, since it explains everything quite clearly, albeit quite verbose.
 
-If the you're just looking to take a dip into Swift, here are the [basics](https://guides.codepath.com/ios/Swift-Basics) you'll need to understand.
+If you're just looking to take a dip into Swift, here are the [basics](https://guides.codepath.com/ios/Swift-Basics) you'll need to understand.
 
-And if you are really pressed for time, here are a [bunch](https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html) of [cheatsheets](https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf).
+And if you are really pressed for time, here's a [couple](https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html) of [cheatsheets](https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf).
 
 
 # Cool Features
@@ -48,7 +48,6 @@ func yearAlbumReleased(name: String) -> Int? {
     case "1989": return 2014
     default:
         return nil
-}
 }
 ```
 
@@ -119,7 +118,7 @@ protocol Bird {
 protocol Flyable {
   var airspeedVelocity: Double { get }
 }
-``` swift
+```
 
 Next, we introduce the structs that conform to the protocols above.
 
@@ -142,11 +141,15 @@ struct Eagle: Bird, Flyable {
 
 And if you haven't noticed, protocols are extremely similar to interfaces in Java. 
 
-To understand more about POP, I highly recommend watching this [WWDC 2015 talk](https://www.youtube.com/watch?v=g2LwFZatfTI).
+To understand more about POP, watching this [WWDC 2015 talk](https://www.youtube.com/watch?v=g2LwFZatfTI) is highly recommended.
 
 ## Automatic Reference Counter
 
-A few keywords unique to Swift are `strong`, `weak` and `unowned`, which have to do with Swift's way of memory management, [Automatic Reference Counting (ARC)](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html). Essentially, when an instance of a class is created, a chunk of memory is allocated to it until it is no longer strongly referenced by anything. References are strong by default. Thus, if we have an Object A (a `UIViewController`) that creates an Object B (a `UIAlertController`), B would be strongly referenced by A. However, B might also need access to a variable in A, such that A may be strongly referenced by B, resulting in a reference cycle. Reference cycles are bad, because they cause memory leaks. Even though A and B are no longer needed eventually, A and B will still sit in memory since they are both strongly referenced by each other. This is why we need the `strong`, `weak` and `unowned` keywords, to resolve reference cycles. 
+A few keywords unique to Swift are `strong`, `weak` and `unowned`, which have to do with Swift's way of memory management, [Automatic Reference Counting (ARC)](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html). 
+
+Essentially, when an instance of a class is created, a chunk of memory is allocated to it until it is no longer strongly referenced by anything. References are strong by default. Thus, if we have an Object A (a `UIViewController`) that creates an Object B (a `UIAlertController`), B would be strongly referenced by A. However, B might also need access to a variable in A, such that A may be strongly referenced by B, resulting in a reference cycle.
+ 
+Reference cycles are bad, because they cause memory leaks. Even though A and B are no longer needed eventually, A and B will still sit in memory since they are both strongly referenced by each other. This is why we need the `strong`, `weak` and `unowned` keywords, to resolve reference cycles. 
 
 [Here is an article](https://krakendev.io/blog/weak-and-unowned-references-in-swift) with greater in-depth explanation and examples.
 
