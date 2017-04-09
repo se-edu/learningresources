@@ -12,7 +12,10 @@ Reading the [Language Guide in the official documentation](https://developer.app
 
 If you're just looking to take a dip into Swift, here are the [basics](https://guides.codepath.com/ios/Swift-Basics) you'll need to understand.
 
-And if you are really pressed for time, here's a [cheatsheet with the essential code examples](https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html).
+And if you are really pressed for time, here's a couple of cheatsheets with code examples:
+
+- [Swift Cheat Sheet](https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html) (web-friendly)
+- [Swift 3.0 Cheat Sheet and Quick Reference](https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf) (print-friendly)
 
 # Cool Features
 
