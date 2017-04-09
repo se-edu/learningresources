@@ -6,7 +6,7 @@
 * JavaScript
 * Python
 * Ruby
-* [Swift](swift/transition-to-swift.md)
+* [Swift](swift/welcome-to-swift.md)
 
 ## SE Topics
 
