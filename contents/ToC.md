@@ -3,7 +3,7 @@
 * C#
 * C++
 * [Java](java/Java.md)
-* JavaScript
+* [JavaScript](javascript/Javascript.md)
 * Python
 * Ruby
 * Swift
