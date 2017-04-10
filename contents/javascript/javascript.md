@@ -4,7 +4,7 @@ JavaScript is a powerful language. However, its flexibility leads to multiple wa
 
 That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.
 
-Good JavaScript code should be testable, composable and reusable.
+Good JavaScript code should be testable and reusable.
 
 ## Writing testable JavaScript
 
@@ -74,7 +74,7 @@ $.ajax({
 
 Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.
 
-### Avoiding big anonymous functions
+### Avoid big anonymous functions
 
 Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off in a `document.ready()` or `$.ajax()`.
 
@@ -231,30 +231,9 @@ Not only is the method chaining much shorter, it also makes the code more mainta
 
 However, like any design pattern, this is not to be abused. Only use method chaining when methods are related to the object at hand.
 
-### Don't reinvent the wheel
+### Addendum
 
-The limitation to Javascript is its limited utility library. That is why libraries like [lodash](https://lodash.com/) is such a popular module. There are a lot of functions being provided, which would help a lot in making shorter, more coherent syntax. Lodash reduces the need to write and maintain your own `_.assign` or `_.range` and even provides powerful functions such as `_.merge` and `_.groupBy`.
-
-As a beginner, there may be some hesistation to use lodash or external utility libraries. The big advantage is the amount of benefit it brings to the team. Whether its the overhead of having to load the `lodash` library, or having to learn a large library's syntax, not having to maintain your own utility functions makes the project more manageable, maintainable and that alone makes it worth its cost.
-
-## Testing Libraries
-
-There are a large amount of Javascript testing libraries. The below is a non-exhaustive list.
-
-- [Mocha](https://mochajs.org/)
-- [Jasmine](https://jasmine.github.io/)
-- [QUnitJs](https://qunitjs.com)
-- [Jest](https://facebook.github.io/jest/)
-- [AVA](https://github.com/avajs/ava)
-- [Tape](https://github.com/substack/tape)
-
-So which one do you choose? Among the above, I have had the opportunity of write in all of the above except Tape. 
-
-My general advice is to go for Mocha if you are new, due to its [large community](http://stateofjs.com/2016/testing/) and therefore overall amount of help available. When you are familiar with Mocha and understand its pitfalls (speed and organisation), you can explore other libraries such as Jest.
-
-Jest, due to its speed, support for React.js, support for asynchronous testing and helpful terminal outputs, seems to be the upcoming major player. The fact that it is being made by Facebook is icing to the cake.
-
-The odd test framework in the list above is QUnit, which is a test framework that runs on the browser instead of node.js like the others. QUnit has been around longer. Unless you are running JQuery and need to test for browser or UI related bugs like in [TEAMMATES](https://github.com/TEAMMATES/teammates/), it is no longer a conventional choice.
+As with all guides, this list of good practices and advices are not exhausive. Good code takes practice and finese, and if you discover ways to make code better, feel free to contribute and add them to this document! 
 
 ## Resources
 [Clean Code Javascript](https://github.com/ryanmcdermott/clean-code-javascript)
