@@ -1,5 +1,7 @@
 # Writing Testable Javascript
 
+Authors: Li Kai
+
 JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing.
 
 That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.

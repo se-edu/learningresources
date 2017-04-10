@@ -1,5 +1,7 @@
 # Libraries
 
+Authors: Li Kai
+
 As a beginner, there may be some hesistation in using libraries. The big advantage is the amount of benefit it brings to the team. Whether its the overhead of having to load the library, or having to learn a large library's syntax, not having to maintain more code makes the project more manageable, maintainable and that alone makes it worth its cost.
 
 ## Utility Libraries
