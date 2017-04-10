@@ -91,7 +91,7 @@ function bindStudentPhotoLink(selector) {
 }
 ```
 
-Of course, this may be a problem if two Javascript functions have the same name, as they are all in the global scope. This is where the module pattern can be used.
+Of course, this may be a problem if two Javascript functions have the same name, as they are all in the global scope. This is where the module pattern (see: [Namespacing in Javascript]()) can be used.
 
 ```js
 var myApp = (function() {
@@ -195,7 +195,7 @@ createPopUp('Warning', 'This will delete everything!', dangerStatus, { bodyColor
 
 ### Understand method chaining
 
-Method chaining is syntax such as `array.concat([1, 2]).push(1).filter(isEven)`. It is also sometimes referred to as the fluent interface.
+Method chaining is syntax such as `array.concat([1, 2]).push(1).filter(isEven)`. It is also sometimes referred to as the fluent interface. (see: [Method Chaining in JavaScript]())
 
 It is achieved by returning the object itself in the call.
 ```js
@@ -248,4 +248,4 @@ The title says it all. From the most common to obscure patterns, this book cover
 ## References
 [Namespacing in Javascript](https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/)
 
-[MMethod Chaining in JavaScript](https://schier.co/blog/2013/11/14/method-chaining-in-javascript.html)
+[Method Chaining in JavaScript](https://schier.co/blog/2013/11/14/method-chaining-in-javascript.html)
