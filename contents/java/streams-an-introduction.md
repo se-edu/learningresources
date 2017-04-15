@@ -55,10 +55,15 @@ So how can you provide a method reference? The syntax is simple : `<class/object
 The method could be
 * a static method of a class (`MyClass::staticMethodName`),
 * an instance method of an object (`myObject::methodName`),
-* an instance method of an object of some type (`MyObjectType::methodName`) or
-* a constructor (`MyClass::new`)
+* a constructor (`MyClass::new`) or
+* an instance method of an object of some type (`MyObjectType::methodName`)
 
-For more information, you should take a look at [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html), which provides clear examples to illustrate the different kinds of method references and how it can be used.
+In all 4 cases, the return type of the referenced method should match the return type of the required functional interface. In the first 3 cases, the parameters of the two methods would also need to match.
+
+However, for the last case, the parameters required by the two methods would be different. Suppose the parameter required by the abstract method of the functional interface is `(SomeClass object)` and `SomeClass::doSomething` is given as the required functional interface. This would translate to running `object.doSomething()` in the implemented method.  
+If the parameters required by the abstract method are `(SomeClass object, SomeArgument arg)`, the implemented method would run `object.doSomething(arg)`. The implemented method runs the referenced method of the first parameter, with the remaining parameters supplied to the referenced method as arguments.
+
+For more information, you should take a look at [this guide written by Esteban Herrera](https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx), who has more than 12 years of experience in Java. The guide provides clear examples to illustrate the different kinds of method references and how it can be used.
 
 #### Lambda Expressions
 
@@ -129,26 +134,26 @@ result = futures.stream()
                     return failureOrResult.either(
                             failure -> {
                                 log.warn(failure.getMessage());
-                                return emptyResult;
+                                return EMPTY_RESULT;
                             },
                             result -> {
                                 return result;
                             });
                 })
-                .reduce(emptyResult, Result::union);
+                .reduce(EMPTY_RESULT, Result::union);
 ```
 
 (adapted from https://www.reddit.com/r/java/comments/2x47wy/java_8_code_style/)
 
 Such code is not only hard to read but also hard to maintain. The general guideline is that __lambda expressions should only be one line long__. If it cannot fit within a single line, the lambda expression is probably not easy to read for people who aren't the author. The code will be much more readable if such lambdas are extracted as methods and this extraction can be easily done with a few clicks in many IDEs such as Eclipse or IntelliJ.
 
-With the lambda expressions extracted as `getFailureOrResult` and `getEmptyResultIfFailure`, the earlier code example can be simplified to look like this:
+With the lambda expressions extracted as methods `getFailureOrResult` and `getEmptyResultIfFailure`, the earlier code example can be simplified to look like this:
 ```java
 result = futures.stream()
                 .map(HttpService::getFutureValue)
                 .map(this::getFailureOrResult)
                 .map(this::getEmptyResultIfFailure)
-                .reduce(emptyResult, Result::union);
+                .reduce(EMPTY_RESULT, Result::union);
 
 ```
 With good method names given to the extracted lambda expressions, the code for the stream operation becomes self-documenting again.
