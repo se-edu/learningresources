@@ -14,7 +14,7 @@ This notion of structuring data and providing an easy to use abstraction for acc
 
 ![DB-DBMS Relationship](images/db-dbms-relation.png)
 
-A **database** is a collection of data. While any data in a medium can theoretically be a database (for instance, scribbling on a piece of paper), databases in the context of this guide typically involve data that are organised in some manner.
+A **database** is a collection of data. While any data in a medium can theoretically be a database (for instance, scribbling on a piece of paper), databases in the context of this chapter typically involve data that are organised in some manner.
 
 Programs generally do not access the raw data directly. Instead, a  **database management system (DBMS)** is used, which will handle the storage, retrieval and updating of the data.
 
@@ -30,7 +30,10 @@ There are many types of database models. Some examples are:
 
 - [**Relational model**](https://en.wikipedia.org/wiki/Relational_model) - the most widely used database model, usually modeled using a table format. The data structure is defined by a set of relations and domains (types) that dictates the constraints. Constraints are also established for the type of operations that can be done.
 - [**Document-oriented**](https://en.wikipedia.org/wiki/Document-oriented_database) - data is stored in documents, that encapsulates the data. This data is normally stored in a semi-structured manner.
+- [**Key-value**](https://en.wikipedia.org/wiki/Key-value_database) - utilises a dictionary-like structure
+- [**Graph database**](https://en.wikipedia.org/wiki/Graph_database) - utilises graph structures to store data
 - [**Flat**](https://en.wikipedia.org/wiki/Flat_file_database) - data stored as files, without any structure
+- [**Multi-model**](https://en.wikipedia.org/wiki/Multi-model_database) - DBMS that supports multiple database models
 
 [Click here](https://en.wikipedia.org/wiki/Database_model) to learn more about the different database models.
 
@@ -44,7 +47,15 @@ However, having such a rigid structure would mean that there's a limitation on h
 
 For the purposes of introduction, we would mainly cover on aspects that are used in the relational and/or document-oriented database models.
 
-## Relation
+### Examples of DBMS implementations
+
+- [MongoDB](https://www.mongodb.com/) (document-oriented)
+- [MySQL](https://www.mysql.com/) (relational)
+- [PostgreSQL](https://www.postgresql.org/) (relational)
+- [ArrangoDB](https://www.arangodb.com/) (document, graph, key-value - multi-model)
+- [Redis](https://redis.io/) (key-value database)
+
+## Relations
 
 The most popular database model, relational model, makes use of relations. This model assumes that the data to be stored follow a certain 'pattern'. For instance, a database that stores products sold by a shop would contain data such as: name, description, price and current stock levels. A visualisation of the database and data can be seen below:
 
@@ -75,7 +86,7 @@ Take for instance, a program that transfers money from one bank account to anoth
 
 A problem arises if another action takes place in between any of the steps (e.g. another transfer from the same sender), or if any of the steps fails (e.g. due to a program crash). As a result, it may cause the data to be manipulated in an undesired manner (e.g. money not credited to receiver).
 
-Thus, **transactions** allow us to guard against these problems. A **transaction** symbolises a logical unit of work, which consists of multiple database actions, performed on a set of databases. [[Source]](https://en.wikipedia.org/wiki/Database_transaction) Properties of a database transaction ensures that these actions are done in a predictable and reliable manner.
+Thus, **transactions** allow us to guard against these problems. A **transaction** symbolises a logical unit of work, which consists of multiple database actions, performed on a set of databases. [[Source]](https://en.wikipedia.org/wiki/Database_transaction) Properties of a database transaction ensures that these actions are done in a predictable (i.e. in the particular order) and reliable (i.e. all actions must be performed correctly) manner.
 
 Thus, the transaction that would be implemented in the program could be something like this:
 
@@ -96,20 +107,58 @@ This principle states that a **transaction** must contain these characteristics:
 - Isolation - if multiple transactions runs at the same time, the result should be the same as though these transactions are run sequentially
 - Durability - transactions and its results should remain persistent (i.e. power loss or reboot should not affect results)
 
-## Topics for Further Exploration
+## Distributed Databases
 
-As this chapter serves to introduce readers to the basics of databases, there are a lot of concepts that are not covered in this chapter.
+The above section demonstrates how data can be related to each other. However, this demonstration assumes one thing: there is only one record of the data that is stored. What if there is a need to scale the database in such a way that the data is distributed across several servers?
 
-Now that you know the purpose and characteristics of databases and DBMS, why not go deeper? Here are some topics relating to databases for further exploration by the reader.
+Relational model DBMSes usually do not scale as well, as the **ACID principle**, more specifically, durability, forces the database to propagate any changes to the data across all servers. One famous theorem, the **CAP theorem**, states the a distributed computer system can only fulfil two out of three guarantees.
 
-- Relational algebra \& calculus
-  - [Relational algebra](https://www.tutorialspoint.com/dbms/relational_algebra.htm)
-- Domain-specific languages
-  - [SQL](https://www.w3schools.com/sql/)
-- Specific DBMS implementations
-  - [MongoDB](https://www.mongodb.com/)
-  - [MySQL](https://www.mysql.com/)
-  - [PostgreSQL](https://www.postgresql.org/)
-- Abstraction of databases
-  - [PHP Data Objects (PDO)](https://secure.php.net/manual/en/book.pdo.php)
-  - [Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
+|      Guarantee      |                          Description                         |
+|:-------------------:|:------------------------------------------------------------:|
+| Consistency         |               Read should receive latest write               |
+| Availability        |         Every request receives a response (non-error)        |
+| Partition tolerance | System works even though there are some communication errors |
+
+A relational model DBMS trades off availability for consistency. As the changes are propagated across the network, subsequent requests might be dropped by the DBMS as the current state of the database violates ACID.
+
+However, in other DBMSes, like MongoDB, consistency is the trade off. This allows the database system to scale up to multiple nodes, as all requests are served, but the requests may result in incorrect or out of date data.
+
+As such, these DBMSes follow the **BASE philosophy**:
+
+- Basically Available - data is guaranteed available, but data may not be retrieved correctly (i.e. unable to retrieve or incorrect/out of date data)
+- Soft state - state of system changes even though there might not be any user input, as it needs to ensure 'eventual consistency'
+- Eventual consistency - the consistency of the system eventually occurs, but changes to data are still accepted in the meantime
+
+## Database Abstractions and Languages
+
+### Relational Algebra
+
+A formal method of modelling the relations that have been demonstrated in this chapter is through the use of **relational algebra**. This is a formal method for modelling the data and actions performed on a relational database.
+
+#### Further exploration
+
+- [Relational algebra](https://www.tutorialspoint.com/dbms/relational_algebra.htm)
+
+### Query Language and Abstractions
+
+We have seen how databases are structured and how the underlying DBMS ensures that a certain set of characteristics, with regards to the system, hold true.
+
+Now, the data consumer (for instance, an application or an actual human) would preferably want to access the data in a manner that is not DBMS specific. The DBMS implementation should have very little effect on the actual method of accessing the data. If there's a need to switch over to a different DBMS that has the same set of features as the previous DBMS, the application should preferably not have to change its method of accessing the data.
+
+**Query languages** solves that issue, as some of them are designed to be platform-independent. As such, the query language can be seen as an abstraction of the possible actions that can be performed on a specific set of DBMSes. However, be forewarned that query languages are not totally platform-independent, as certain DBMSes may implement features that are unique to the certain DBMS.
+
+Take for instance SQL, which is one of the most popular query languages for relational DBMSes. While most features in the language are supported by relational DBMSes that uses SQL, certain features, for instance `SAMPLE` (which allows the consumer to pick a random set of data) are not available on all of the DBMses that supports SQL.
+
+Another level of abstraction is the **database abstraction layer**. This is usually an API level solution, as the programmer does not even need to know about a specific query language. Some abstractions are DBMS agnostic and as such, can be used to access data from any kind of DBMS, regardless of its features.
+
+#### Further exploration
+
+##### Query languages
+
+- [SQL](https://www.w3schools.com/sql/)
+- [XPath](https://www.w3schools.com/xml/xpath_intro.asp)
+
+##### Database abstractions
+
+- [PHP Data Objects](https://secure.php.net/manual/en/book.pdo.php)
+- [Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
