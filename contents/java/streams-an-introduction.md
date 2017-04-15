@@ -32,7 +32,7 @@ double meanMaleHeight = students.toStream()
 
 Not only is the numbers of lines reduced by almost half, the code utilising streams is also rather intuitive. First, we filter the students who are male, using a lambda expression (`student -> student.isMale()`). Then, we get the heights of these students and followed by the average value of these heights. If the average value does not exist (which can happen when there are no male students), we store NaN in `meanMaleHeight` instead. The code is declarative and self-documentating, it's easy to understand what the original author was trying to achieve. This reduces the need for code comments, which we often see in loops since they can be harder to understand at a glance.
 
-Besides its brevity, another cool feature of streams is that code can be executed in parallel using your multicore processor. Multiple students can be processed simultaneously, compared to processing only one student at a time with a normal loop. This can help to imrpove the performance of the operation significantly. And the best part is this can be done just by adding a simple method call in the Stream API, so you don't have implement multithreading or worry about how to go about splitting the work for it to work in parallel.
+Besides its brevity, another cool feature of streams is that code can be executed in parallel using your multicore processor. Multiple students can be processed simultaneously, compared to processing only one student at a time with a normal loop. This can help to improve the performance of the operation significantly. And the best part is this can be done just by adding a simple method call in the Stream API, so you don't have implement multithreading or worry about how to go about splitting the work for it to work in parallel.
 
 It's okay if you have no experience in writing lambda expressions! This guide will step you through the basics of both lambda expressions and streams so that you can start utilising them.
 
@@ -53,21 +53,54 @@ As these interfaces only have a single abstract method, when you provide a metho
 
 So how can you provide a method reference? The syntax is simple : `<class/object/interface>::<method name>`.  
 The method could be
-* a static method of a class (`MyClass::staticMethodName`),
-* an instance method of an object (`myObject::methodName`),
-* a constructor (`MyClass::new`) or
-* an instance method of an object of some type (`MyObjectType::methodName`)
+1. a static method of a class (`MyClass::staticMethodName`),
+1. an instance method of some object (`myObject::methodName`),
+1. a constructor (`MyClass::new`) or
+1. an instance method of an object of some type (`MyObjectType::methodName`)
 
-In all 4 cases, the return type of the referenced method should match the return type of the required functional interface. In the first 3 cases, the parameters of the two methods would also need to match.
+In all four cases, the return type of the referenced method should match the return type of the required functional interface (unless this is `void`). In the first three cases, the parameters of the two methods would also need to match.
 
-However, for the last case, the parameters required by the two methods would be different. Suppose the parameter required by the abstract method of the functional interface is `(SomeClass object)` and `SomeClass::doSomething` is given as the required functional interface. This would translate to running `object.doSomething()` in the implemented method.  
+Suppose the parameter required is `(SomeClass object)`, then the implemented method of the functional interface object created would run `MyClass.staticMethodName(object)`, `myObject.methodName(object)` or `new MyClass(object)`.
+
+However, for the last case, the parameters required by the two methods would be different. Suppose the parameter required by the abstract method of the functional interface is `(SomeClass object)` and `SomeClass::doSomething` is given as the required functional interface. This would translate to running `object.doSomething()` in the implemented method.
+
 If the parameters required by the abstract method are `(SomeClass object, SomeArgument arg)`, the implemented method would run `object.doSomething(arg)`. The implemented method runs the referenced method of the first parameter, with the remaining parameters supplied to the referenced method as arguments.
 
 For more information, you should take a look at [this guide written by Esteban Herrera](https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx), who has more than 12 years of experience in Java. The guide provides clear examples to illustrate the different kinds of method references and how it can be used.
 
 #### Lambda Expressions
 
-Moving on to lambda expressions, the syntax is ``
+Moving on to lambda expressions! Lambda expressions are simply a clear and concise way to instantiate an object that implements a functional interface. The expression itself, however, does not contain information about which functional interface it implements, this is deduced by the compiler through the context where it is used.
+
+The structure of a lambda expression is as such : `(parameters) -> <body>`, where the `<body>` can be a block of statement(s),
+```java
+(int x, int y) -> { return x + y; }
+```
+or an expression,
+```java
+(x, y) -> x + y
+```
+If used in the same context, these two lambda expressions are actually equivalent!
+
+The parameters types of lambda expressions can be inferred by the compiler and are optional. It is actually recommended that parameters types are omitted when writing lambda expressions so as to keep the code concise.
+
+When an expression is used for the `<body>`, the result of the expression is returned. The expression can also result in nothing (eg. `(String s) -> System.out.println(s)`), which means that the method expressed by the lambda returns `void`.
+
+When a block is used for the `<body>`, the same rules for using or omitting the `return` statement for a normal method applies.
+
+When the lambda has a single parameter, the parentheses surrounding the parameter can also be removed,
+```java
+x -> x + 10
+```
+
+For a lambda expression to be compatible with the required functional interface, the lambda expression must have __the same parameters types__ and __a compatible return type__ as the required functional interface.
+
+Although lambda expressions can be expressed in a block, it does not introduce a new level of scoping. Names in the body of the lambda are interpreted in the same way as its enclosing scope, with the addition of the names of its parameters. `this` and `super` can also be used in the lambda body to refer to the enclosing object and the parent class of the enclosing object.
+
+This also means that lambda expressions are able to access local variables of the enclosing scope as well. However, any local variables accessed by a lambda expression must be final or effectively final (ie. cannot be reassigned another value).
+
+To understand more about lambda expressions, take a look at http://www.lambdafaq.org/ ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html).
+
 
 #### An Example
 
@@ -90,8 +123,6 @@ In Java 8, this interface has become a functional interface (surprise, surprise)
 students.sort((s1, s2) -> Double.compare(s1.getHeight(), s2.getHeight()));
 ```
 The compiler is able to infer that a object of type `Comparator<Student>` is expected and that the lambda expression fits into the definition for `compare` (the single abstract method), thus creating an instance of type `Comparator<Student>` with the lambda expression implemented as the `compare` method.
-
-To learn more about functional interface, you can visit https://dzone.com/articles/introduction-functional-1
 
 ### The Stream API
 
@@ -166,3 +197,16 @@ With good method names given to the extracted lambda expressions, the code for t
     // an issue if performance-critical
 //
 ## Resources
+
+#### Functional Interfaces
+* https://dzone.com/articles/introduction-functional-1
+
+#### Method References
+* https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+* https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx
+
+#### Lambda Expressions
+* http://www.lambdafaq.org/
+* https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
+* http://www.lambdafaq.org/
+* http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7
