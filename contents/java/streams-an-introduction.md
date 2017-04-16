@@ -1,7 +1,28 @@
 # Java 8 Streams - An Introduction
 
-Authors: Lee Yi Min
+Author: Lee Yi Min
 
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+	- [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions)
+		- [Functional Interface](#functional-interface)
+		- [Method Reference](#method-reference)
+		- [Lambda Expressions](#lambda-expressions)
+		- [An Example](#an-example)
+	- [What is a stream?](#what-is-a-stream)
+- [Using Java 8 Streams](#using-java-8-streams)
+	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
+		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
+- [Resources](#resources)
+	- [Functional Interfaces](#functional-interfaces)
+	- [Method References](#method-references)
+	- [Lambda Expressions](#lambda-expressions)
+	- [Stream](#stream)
+
+<!-- /TOC -->
 ## Overview
 
 In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with lambda expressions and stream operations.
@@ -137,17 +158,32 @@ And you can use a method reference as the functional interface instead.
 // trying to sort students by height
 students.sort(Student::compareToByHeight);
 ```
-Notice that the code is very easy to understand at a high level and what the author is trying to achieve can be easily read through the code.
+Notice that the code is very easy to understand at a high level and what the intentions of the author can be understood from the code, reducing the need for further documentation. This also makes code more maintainable.
 
-### The Stream API
+### What is a stream?
 
-// source of elements
+Now that we have the basics nailed, let's get started on Streams. Streams are basically sequences of elements. However, when dealing with streams, we are not so interested in where the data of elements is stored, what is currently stored in each element, but rather __what we can do with the elements__.
 
-// intermediate operations
+To use a stream, we need to first construct one. A stream can be obtained from an existing source of elements, such as a collection or an array. We will get into the details of how to do so in the next section.
 
-// terminal operations
+The methods described in the [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) allows us to perform operations on the elements. The stream operations can be categorised into two kinds: intermediate or terminal.
 
-// optional
+Intermediate operations are operations which returns a stream. They can be stateless, operating on each element independently, or stateful, where the result of the operation performed on an element depends on other elements in the stream. The intermediate operations can
+* reduce the number of elements in the returned stream (eg. `filter`),
+* transform the type of the elements in the returned stream (eg. `map`) or
+* change the order of the elements in the returned stream (eg. `sorted`)
+
+As a stream is returned from an intermediate operation, you can chain many of these intermediates operations in a single statement. However, intermediate operations are *lazy* and no processing is actually done when an intermediate operation is invoked.
+
+To get any tangible output and to start the processing the operations on the stream, you will need to add a terminal operation. A terminal operation will consume each element in the stream to produce the desired output. Once a stream object is consumed by a terminal operation, it cannot be reused. You would have to construct a new stream object if you want to perform another terminal operation on the stream.
+
+By putting these 3 kind of operations together, we get a stream pipeline, which has some source of elements, performs multiple operations on the elements in the stream, then utilises the elements to get the desired output.
+
+A general guideline is that streams operations should not modify its original data source or be unnecessarily stateful (ie. depending on some variable which may change during the execution of the stream pipeline). Going against this rule can lead to exceptions or unexpected, incorrect behaviour when processing the stream pipeline.
+
+The terminal operations of Streams may also return an [`Optional` object](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html), which is just an container for your desired output. In the case where the stream is empty, the terminal operation will produce an empty optional. This allows developers to differentiate between the case of the terminal operation producing a legitimate `null` result and the case where there is no result due to the absence of elements.
+
+To understand more about Streams, you can read up on the [documentation of the Stream package](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html). They provide clear explanations on how streams work and how you should make use of them.
 
 ## Using Java 8 Streams
 
@@ -212,15 +248,22 @@ With good method names given to the extracted lambda expressions, the code for t
 //
 ## Resources
 
-#### Functional Interfaces
+### Functional Interfaces
+
 * https://dzone.com/articles/introduction-functional-1
 
-#### Method References
+### Method References
+
 * https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
 * https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx
 
-#### Lambda Expressions
+### Lambda Expressions
+
 * http://www.lambdafaq.org/
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
 * http://www.lambdafaq.org/
 * http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7
+
+### Stream
+
+* https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
