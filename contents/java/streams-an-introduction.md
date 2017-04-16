@@ -285,7 +285,7 @@ The `supplier` is a factory function that produces empty results of type `R`. Th
 * by using `collect(Collector<? super T,A,R> collector)`  
 The [`Collector<T,A,R>`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html) is specified by a `supplier`, `accumulator`, `combiner` and an optional `finisher`, which can transform the final result from accumulation and combining to a possibly different desired type.
 
-One can easily do a `collect` operation by making use of the [`Collectors`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html) class, which contains many methods which help to generator a `Collector<T, A, R>`.
+One can easily do a `collect` operation by making use of the [`Collectors`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html) class, which contains many methods which help to generate a `Collector<T, A, R>`.
 
 Suppose you want a list of names of all students. You can use the `Collectors.toList()` as the collector.
 ```java
@@ -300,7 +300,7 @@ List<String> averageCap = students.stream()
                                   .collect(Collectors.averagingDouble(Student::getCap));
 ```
 
-Suppose you want lists of students according to their current year of study. You can use `Collectors.groupingBy(Function<? super T,? extends K> classifier)` and provide the classifier which returns the year of student given a student. This returns a `Map<Integer, List<Student>>` object where the result of the classifier for an element would be one of the key values.
+Suppose you want lists of students according to their current year of study. You can use `Collectors.groupingBy(Function<? super T,? extends K> classifier)` and provide the classifier which returns the year of study of a student. This returns a `Map<Integer, List<Student>>` object where the result of the classifier for an element would be one of the key values of the `Map`.
 ```java
 Map<Integer, List<Student>> studentsByYear = students.stream()
                                             .collect(Collectors.groupingBy(Student::getYear));
@@ -355,7 +355,7 @@ Performance is undeniably an important aspect in programming. So you might wonde
 
 Loops are one of the most common control flow structures we use and many of us would probably have a relatively good idea of what are the things you should avoid in loops to achieve good performance. However, this is not the case with streams. As streams have a more high-level abstraction, it is more difficult to understand what is going on beneath our code. Streams are fairly new compared to loops and the unfamiliarity with streams is also another factor which adds on to the difficulty in optimising stream performance.
 
-Oftentimes, __using streams better readability and reduced development time while compromising some performance is a reasonable bargain__. We don't spend our time optimising each line of code for a small improvement in performance when we can be doing more productive things.
+Oftentimes, __using streams to give us better readability and reduced development time while compromising some performance is a reasonable bargain__. We don't spend our time optimising each line of code for a small improvement in performance when we can be doing more productive things.
 
 However, when the application is __performance-critical__, knowing that streams can possibly run much slower than a traditional loop, it is good to __benchmark and test the performance of the stream code__. To understand more about how streams are processed and how one can optimise a stream pipeline, you may want to look at [third](https://www.ibm.com/developerworks/library/j-java-streams-3-brian-goetz/index.html), [fourth](https://www.ibm.com/developerworks/java/library/j-java-streams-4-brian-goetz/index.html) and [fifth](https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html) part of Brian Goetz's tutorial.
 
