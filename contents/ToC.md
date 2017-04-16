@@ -15,6 +15,7 @@
 * Functional programming
 * Maintenance
 * Multi-threading
+    * [GPGPU](gpgpu/gpgpu.md)
 * OOP
 * Performance
 * Project management
