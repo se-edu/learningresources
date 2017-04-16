@@ -1,6 +1,6 @@
 # Introduction to Cryptography
 
-Authors: Dickson Tan
+Authors: [Dickson Tan](https://github.com/neurrone)
 
 ## Overview
 
