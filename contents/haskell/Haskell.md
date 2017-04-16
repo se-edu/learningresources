@@ -1,6 +1,24 @@
 # Introduction to Haskell
 
-Authors: Thenaesh Elango
+Author: Thenaesh Elango
+
+**Table of Contents**
+
+* [Overview](#overview)
+* [Getting Started](#getting-started)
+  * [Installation](#installation)
+  * [System-Wide Installation](#system-wide-installation)
+  * [Stack Installation](#stack-installation)
+  * [Usage](#usage)
+* [Whirlwind Tour](#whirlwind-tour)
+  * [Types](#types)
+  * [General Functional Programming](#general-functional-programming)
+  * [Typeclasses](#typeclasses)
+* [Common Haskell Idioms](#common-haskell-idioms)
+  * [Functors](#functors)
+  * [Applicative Functors](#applicative-functors)
+  * [Monads](#monads)
+* [Guides](#guides)
 
 
 # Overview
@@ -177,6 +195,8 @@ in Haskell to specify types for toplevel functions, as a form of documentation,
 even though the compiler is likely able to infer types.
 
 ```haskell
+    -- input:      x of type Double
+    -- output: x * x of type Double
     square :: Double -> Double
     square x = x * x
 
@@ -184,6 +204,11 @@ even though the compiler is likely able to infer types.
     hypotenuse :: Double -> Double -> Double
     hypotenuse adj opp = sqrt (square adj + square opp)
 ```
+
+If the above syntax is confusing and the comments insufficient, the reader may
+wish to consult the detailed introduction to Haskell syntax
+[here](http://learnyouahaskell.com/starting-out).
+
 The type definition for `square` is rather obvious. But the type definition of
 `hypotenuse` is a little strange. One would expect `(Double, Double) -> Double)`
 instead of `Double -> Double -> Double`. The reason is that functions in Haskell
@@ -418,20 +443,578 @@ We are now poised to enter the world of actual functional programming in Haskell
 * [Pattern Matching](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)
 * [More on Datatypes](https://en.wikibooks.org/wiki/Haskell/More_on_datatypes)
 
-## Basic Functional Programming
+## General Functional Programming
+
+### Functions
+
+A function may be defined in one of several ways. We illustrate the various
+syntaxes for defining a function below, with more details
+[here](http://learnyouahaskell.com/syntax-in-functions) if needed:
+
+```haskell
+    sumOfSquares :: Double -> Double -> Double
+    -- standard definition
+    sumOfSquares x y  = (x * x) + (y * y)
+     -- lambda function
+    sumOfSquares = \x y -> (x * x) + (y * y)
+
+    fizzBuzz :: Int -> Either String Int
+    -- the horrible, disgusting, but still perfectly correct way
+    fizzBuzz x = case x `mod` 15 == 0 of
+                    True -> Left "fizzbuzz"
+                    False -> case x `mod` 3 == 0 of
+                        True -> Left "fizz"
+                        False -> case x `mod` 5 == 0 of
+                            True -> Left "buzz"
+                            False -> Right x
+    -- far more elegant way using guard patterns
+    fizzBuzz x
+        | x `mod` 15 = Left "fizzbuzz"
+        | x `mod` 3 = Left "fizz"
+        | x `mod` 5 = Left "buzz"
+        | otherwise = Right x
+```
+
+### Recursion
+
+Recursion is one of the fundamental themes of functional programming. It is the
+ability of a function to call itself.
+
+```haskell
+    -- Time: O(n)
+    -- Space: O(n)
+    factorial :: Integer -> Integer
+    factorial 0 = 1
+    factorial n = n * factorial (n - 1)
+
+    -- Time: O(2^n)
+    -- Space: O(n), may vary due to lazy evaluation
+    fibonacci :: Integer -> Integer
+    fibonacci 0 = 0
+    fibonacci 1 = 1
+    fibonacci n = fibonacci (n - 2) + fibonacci (n - 1)
+```
+
+While Haskell has no primitive loop structures, looping can be simulated by
+recursion. While attempting this in languages in C may cause a stack overflow,
+Haskell avoids this via [tail-call optimisation](https://en.wikipedia.org/wiki/Tail_call),
+which can be applied to recursive calls that meet certain requirements.
+
+```Haskell
+    -- Time: O(n)
+    -- Space: O(1)
+    factorial :: Integer -> Integer
+    factorial = factorial' 1 where
+        factorial' p 0 = p
+        factorial' p n = factorial' (p * n) (n - 1)
+
+    -- Time: O(n)
+    -- Space: O(1)
+    fibonacci :: Integer -> Integer
+    fibonacci 0 = 0
+    fibonacci 1 = 1
+    fibonacci n = fibonacci' 0 1 n where
+        fibonacci a _ 0 = a
+        fibonacci' a b n = fibonacci' b (a + b) (n - 1)
+```
+
+We can safely omit the types in the inner function definitions due to type
+inference. Also note how we freely use currying in the `factorial` definition.
+
+### Lists
+
+As described earlier, a list is an inductive data type, defined as either the
+empty list or an element concatenated with the rest of the list. The actual list
+data type is
+```haskell
+    data [] t = [] | (:) t ([] t)
+```
+where `:` is an infix value constructor.
+
+> **IMPORTANT: Infix Functions**
+>
+> Any function (a value constructor is really just a function) that takes in two parameters
+> whose name consists of nothing but symbols is infix by default.
+>
+> An infix function like `+` may be used in prefix form by enclosing in parentheses.
+> For instance, `1 + 1` is the same as `(+) 1 1`.<br>
+> In the type definition, the prefix form must be used i.e. `(+) :: Int -> Int -> Int`.<br>
+> In the function definition, either is acceptable.
+>
+> [Find out more.](https://wiki.haskell.org/Infix_operator)
+>
+> We will use this concept freely from now on.
+
+Here are several ways to define a list `xs :: [Int]` containing 2,4,6,8 in that order:
+
+```haskell
+    -- the crazy way, using prefix notation directly from the list definition
+    xs = (:) 2 ((:) 4 ((:) 6 ((:) 8 [])))
+
+    -- using infix syntax for (:), still annoying to write
+    xs = 2:(4:(6:(8:[])))
+
+    -- taking advantage of binding rules for (:), noiseless and easier to understand at a glance
+    xs = 2:4:6:8:[]
+
+    -- using varying amounts of list syntactic sugar provided by the compiler
+    xs = 2:4:6:[8]
+    xs = 2:4:[6,8]
+    xs = 2:[4,6,8]
+    xs = [2,4,6,8]
+```
+
+The last representation is most commonly used, while the second last is often
+used when pattern matching on lists. The rest are almost never seen in practice.
+However, it is hoped that this pedantic exercise helps the reader understand
+the true nature of lists: an ordinary inductive data type with some compiler
+syntactic sugar tacked on.
+
+### List Processing - Fold
+
+List processing is a very important part of elementary functional programming.
+This is due to the fact that lists can store large amounts of data, and it is
+very easy to define powerful abstractions to slice and dice that data in ways
+typically unknown in imperative programming.
+
+One common idiom is to loop over a list and aggregate their values.
+
+It is possible to run over a list and sum their values recursively like so:
+
+```haskell
+    sumList :: [Int] -> Int
+    sumList [] = 0
+    sumList (x:xs) = x + sumList xs
+```
+
+Note the infix pattern match `(x:xs)` as opposed to `((:) x xs)`. What if we wish
+to take the product of the elements instead of a sum? Then we would write:
+
+```haskell
+    prodList :: [Int] -> Int
+    prodList [] = 1
+    prodList (x:xs) = x * prodList xs
+```
+
+It is clear that some abstraction is in order here. The functions are almost
+identical except for the aggregating function used and the initial value (0 for
+sum, 1 for product). We can write a generalised aggregating function:
+
+```haskell
+    -- 1st parameter is the aggregating function (e.g. (+) or (*))
+    -- 2nd parameter is the initial value
+    -- 3rd parameter is the list to aggregate
+    aggregate :: (Int -> Int -> Int) -> Int -> [Int] -> Int
+    aggregate _ initial [] = initial
+    aggregate op initial (x:xs) = op x (aggregate op initial xs)
+```
+
+This is better, but perhaps we could generalise this even further beyond `Int`.
+We then arrive at the following, by simply changing the type signature:
+
+```haskell
+    -- 1st parameter is the aggregating function (e.g. (+) or (*))
+    -- 2nd parameter is the initial value
+    -- 3rd parameter is the list to aggregate
+    aggregate :: (a -> b -> b) -> b -> [a] -> b
+    aggregate _ initial [] = initial
+    aggregate op initial (x:xs) = op x (aggregate op initial xs)
+```
+
+This function is known as `foldl` in the Haskell prelude library, and there is
+also a variant called `foldr` that does the aggregation from the right instead.
+
+### List Processing - Map & Filter
+
+One may wish to take in a list, transform every element in the list, and output
+the resulting list. This is known as a map, and may be defined as:
+
+```haskell
+    map :: (a -> b) -> [a] -> [b]
+    map _ [] = []
+    map f (x:xs) = (f x):(map f xs)
+```
+
+The type definition itself contains a wealth of information. The `map` function
+takes in a "transformer", the list to be transformed, and return the transformed
+list. An example of its usage would be:
+
+```haskell
+    -- xs is [1,4,9,16]
+    xs = map (\x -> x * x) [1,2,3,4]
+```
+
+One may also wish to remove certain elements, that fail some predicate, from a
+given list. This is known as a filter:
+
+```haskell
+    filter :: (t -> Bool) -> [t] -> [t]
+    filter _ [] = []
+    filter predicate (x:xs)
+        | predicate x == True = x:xs
+        | otherwise = xs
+```
+
+This example uses guard patterns. An example of using filter would be:
+
+```haskell
+    -- xs is [2,4]
+    xs = filter (\x -> x `mod` 2 == 0) [1,2,3,4]
+```
+
+It is left as an exercise for the reader to implement `map` and `filter`
+in terms of `foldl` (or `aggregate` as defined above, which is the same).
+
+### Programming with Other Inductive Data Types
+
+Recursion is a natural fit with inductive data types other than lists. One
+example would be finding an element in a binary tree:
+
+```haskell
+    find :: Tree Int -> Int -> Bool
+    find EmptyTree _ = False
+    find (Node x left right) target
+        | x == target = True
+        | x < target = find left target
+        | x > target = find right target
+```
+
+The above runs in O(log n) as long as the tree is balanced.
+
+### Further Reading
+
+* [Function Syntax](http://learnyouahaskell.com/syntax-in-functions)
+* [Higher-Order Functions](http://learnyouahaskell.com/higher-order-functions)
+
 
 ## Typeclasses
 
-## Functors and Applicative Functors
+Typeclasses are essentially contracts/constraints imposed on types. They are
+similar to how Java interfaces are constraints imposed on Java classes. When
+used properly, they are an extremely powerful tool in helping to structure code.
+
+### Defining and Instantiating Typeclasses
+
+```haskell
+    -- "class" here has nothing to do with OOP
+    class Eq t where
+        (==) :: t -> t -> Bool
+        (!==) :: t -> t -> Bool
+        -- this ensures that we don't have to define (!==) separately
+        a != b = not (a == b)
+```
+
+We have just defined a typeclass called `Eq`. As its name probably suggests,
+this typeclass is used when we wish to define the meaning of equality on types.
+We then _instantiate_ the typeclass with the `TrafficSignal` type, like so:
+
+```haskell
+    instance Eq TrafficSignal where
+        -- note that these are infix function DEFINITIONS
+        -- we can define infix operators directly in infix notation
+        Red == Red
+        Amber == Amber
+        Green == Green
+```
+
+We have thus defined `(==)` completely for `TrafficSignal`. Note that `(!=)`
+now comes for free, since we have defined it in terms of `(==)` in the typeclass
+itself.
+
+Here's another example:
+
+```haskell
+    instance Eq (List t) where
+        EmptyList == EmptyList
+        (Element x xs) == (Element y ys) = (x == y) && (xs == ys)
+```
+
+Here, we define the equality of a list in terms of its underlying elements.
+This seems reasonable. However, running this program will give an error. This
+is because we are attempting to compare the underlying elements (of type `t`)
+using `(==)`, which is not guaranteed to be defined on `t`.
+
+The solution, in this case, is to enforce a typeclass constraint prerequisite
+on `t` by writing:
+
+```haskell
+    instance (Eq t) => Eq (List t) where
+        -- as before
+```
+
+Here is an example of `Eq` being defined on `Tree`s:
+
+```haskell
+    instance (Eq t) => Eq (Tree t) where
+        EmptyTree == EmptyTree
+        (Node x left right) == (Node x' left' right') = (x == x') && (left == left') && (right == right')
+
+    tree1 = Node 1 (Node 2 EmptyTree) (Node 3 EmptyTree)
+    tree2 = Node 1 (Node 2 EmptyTree) EmptyTree
+    tree3 = Node 1 (Node 2 EmptyTree) EmptyTree
+
+    -- some experiments
+    tree1 == tree2 -- False
+    tree2 == tree3 -- True
+    tree3 != tree1 -- True
+```
+
+We present another common typeclass called `Ord`, which defines order for a type:
+
+```haskell
+    -- anything that instantiates Ord must also instantiate Eq
+    -- this makes the typeclass definitions simpler as (==) is already provided and can be used
+    class (Eq t) => Ord t where
+        -- the only one we actually need to implement when instantiating
+        (<) :: t -> t -> Bool
+
+        -- we predefine these and can then get them all for free
+        (>) :: t -> t -> Bool
+        a > b = not ((a < b) || (a == b))
+
+        (<=) :: t -> t -> Bool
+        a <= b == (a < b) || (a == b)
+
+        (>=) :: t -> t -> Bool
+        a >= b = not (a < b)
+```
+
+### Adding Typeclass Constraints to Functions
+
+Consider the following function to check if the elements in the following list
+are all in ascending order:
+
+```haskell
+    isAscending :: [t] -> Bool
+    isAscending [] = True -- handle 0-element lists
+    isAscending (x:[]) = True -- handle 1-element lists
+    isAscending (x:y:xs) = (x < y) && isAscending (y:xs) -- recursive case
+```
+
+This function seems reasonable, except for one minor detail: we (and the compiler)
+are not sure if `t` can be compared using `(<)`!. To remedy this, we need to
+explicitly state that `t` instantiates `Ord`, thereby allowing the use of `(<)`.
+We do this by adding the constraint in the function type definition:
+
+```haskell
+    isAscending :: (Ord t) => [t] -> Bool
+```
+
+We can now try out the `isAscending` function:
+
+```haskell
+    isAscending [1,2,4,3] -- False
+    isAscending [1,2,3,4,5] -- True
+    isAscending [] -- True
+```
+
+### Instantiating Typeclasses with Parameterized Type Constructors
+
+Up to this point, we have been instantiating typeclasses with concrete types,
+such as `TrafficSignal` and `Tree t`. It is also possible to instantiate
+typeclasses with **parameterized** type constructors like `Tree` and `List`.
+
+Consider the following typeclass `Container` that is instantiated by types that
+have some notion of constituent elements and size. For instance, a `List` has a
+length and contains elements of some type. A `Tree` has nodes and a size (number
+of nodes). The length is independent of type of element contained within.
+
+```haskell
+    class Container s where
+        -- t is an arbitrary unconstrained type
+        size :: s t -> Int
+```
+
+We can instantiate `Container` with `Tree` and `List`. These are parameterized
+type constructors, not concrete types. We can even instantiate with `Maybe`.
+
+```haskell
+    instance Container Tree where
+        size EmptyTree = 0
+        size (Node _ left right) = 1 + size left + size right
+
+    instance Container List where
+        size EmptyList = 0
+        size (Element _ restOfList) = 1 + size restOfList
+
+    instance Container Maybe where
+        size Nothing = 0
+        size (Just _) = 1
+```
+
+As an exercise, the reader may wish to redefine the size of a `Tree` to mean
+"height of tree" rather than "number of nodes". It is necessary to instantiate
+`Container` with `Tree` differently to achieve this. The function
+`max :: (Ord a) => a -> a -> a` may come in handy (`Int` is an instance of `Ord`).
+
+### Further Reading
+
+* [More on Creating Typeclasses](http://learnyouahaskell.com/making-our-own-types-and-typeclasses)
+* [Collection and Relationship between Standard Typeclasses](https://wiki.haskell.org/Typeclassopedia)
+
+
+# Common Haskell Idioms
+
+## Functors
+
+Consider the `map` function previously defined. The type
+of `map` is `(a -> b) -> [a] -> [b]`, which means that it operates only on lists.
+We may imagine extending maps to `Tree`s and `Maybe`s in the following manner:
+
+```haskell
+    map :: (a -> b) -> Tree a -> Tree b
+    map :: (a -> b) -> Maybe a -> Maybe b
+```
+
+The two type definitions above look very similar and suggest a generalization:
+types that can be mapped over. We call such types _functors_, and can represent
+their behaviour with a typeclass.
+
+```haskell
+    class Functor f where
+        -- f is a type constructor that takes in one type parameter
+        fmap :: (a -> b) -> f a -> f b
+
+
+    instance Functor Tree where
+        fmap _ EmptyTree = EmptyTree
+        fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
+
+    instance Functor Maybe where
+        fmap _ Nothing = Nothing
+        fmap f (Just x) = Just (f x)
+```
+
+We can then map over values of any functor:
+
+```haskell
+    sq x = x * x
+
+    fmap sq (Just 5) -- returns Just 25
+    fmap sq Nothing -- returns Nothing
+
+    fmap sq (Node 1 (Node 2 EmptyTree) (Node 3 (Node 4 EmptyTree) EmptyTree))
+    -- returns (Node 1 (Node 4 EmptyTree) (Node 9 (Node 16 EmptyTree) EmptyTree))
+```
+
+More information about functors, including the functor laws,
+may be found [here](https://en.wikibooks.org/wiki/Haskell/The_Functor_class).
+
+## Applicative Functors
+
+An _applicative functor_ is a functor that allows for a more advanced type of
+mapping. We shall jump straight into the (abridged) typeclass definition and the
+example of `Maybe` as an applicative functor:
+
+```haskell
+    class (Functor f) => Applicative f where
+        pure :: a -> f a
+        (<*>) :: f (a -> b) -> f a -> f b -- generalized map function
+
+    instance Applicative Maybe where
+        pure x = Just x
+        Nothing <*> _ = Nothing
+        _ <*> Nothing = Nothing
+        Just f <*> Just x = Just (f x)
+```
+
+Applicative functors have the concept of _lifting_, embodied in `pure`, where
+a value is taken and placed in the context of a functor. For instance, in the
+context of `Maybe`, `pure 5` returns the value
+`Just 5`.
+
+Applicative functors allow a more general form of mapping, where it is possible
+to use an N-parameter function to map over N functors. To understand the value
+of this, consider the following code:
+
+```haskell
+    euclideanDistance :: Double -> Double -> Double -> Double
+    euclideanDistance x y z = sqrt ((x * x) + (y * y) + (z * z))
+
+    (pure euclideanDistance) <*> Just 1 <*> Just 2 <*> Just 3
+    -- returns Just 3.7416573867739413
+```
+
+The above code can be written with just `fmap` in the ordinary `Functor` class,
+but will involve incredible contortions.
+
+More information about applicative functors can be found
+[here](https://en.wikibooks.org/wiki/Haskell/Applicative_functors). There is a
+lot of additional functionality available in the `Applicative` typeclass. We
+have barely scratched the surface.
 
 ## Monads
 
+No Haskell tutorial will be complete without an introduction to the fabled
+monad. Monads have been described with various analogies, as well as with
+notorious phrases from category theory like "a monad is a monoid in the category
+of endofunctors".
 
-# Advanced topics
+None of these are useful for the software engineer, so we dispense with them and
+opt for just showing the code:
 
-## Monad Transformers
+```haskell
+    class (Applicative m) => Monad m where
+        -- this function, called "bind", is at the heart of the monad
+        (>>=) :: m a -> (a -> m b) -> m b
 
-## Lenses
+        -- we could actually just use pure, but return is here for historical reasons
+        return :: a -> m a
+        return = pure
+```
+
+A monad is essentially an applicative functor that allows for operations to be
+chained together with a value carried in the background. To consider this, let
+us consider the familiar case of `Maybe`, which is a monad.
+
+```haskell
+    instance Monad Maybe where
+        Nothing >>= _ = Nothing
+        (Just x) >>= f = Just (f x)
+
+    -- maybeSomeValue is Just 50
+    maybeSomeValue = Just 5 >>= (\x -> Just (x * x) >>= (\x -> Just (x + x)))
+```
+
+Essentially, the bind function allows for values carried inside the monad (which
+is ultimately just a functor) to be extracted and passed into another computation.
+This explanation may seem obtuse, but consider the same code, with some extracted
+whitespace added and the `return` function used:
+
+```haskell
+    maybeSomeValue = Just 5 >>= (\x ->
+                     Just (x * x) >>= (\x ->
+                     return (x + x)))
+```
+
+If the reader squints hard enough, this looks like an imperative program! It
+looks like the following is being done:
+
+```haskell
+    maybeSomeValue = do
+        x <- Just 5
+        x <- Just (x * x)
+        return (x + x)
+```
+
+The result of the imperative-looking code is exactly the same as that of the
+original computation, if traced through. Using monads to provide an imperative
+interface in a functional program is such a common pattern that the `do` notation
+was conceived as syntactic sugar to make writing such a pattern easier. That means
+that the imperative-looking code is actually valid Haskell!
+
+In addition to `Maybe`, there are several other monads. A major example is the
+IO monad, which allows external state to be encapsulated in the monad an interfaced
+with in a manner familiar to imperative programmers.
+
+Monads are a big topic, and additional resources are available:
+
+* [Monads](http://learnyouahaskell.com/a-fistful-of-monads)
+* [Monad Laws](https://en.wikibooks.org/wiki/Haskell/Understanding_monads#Monad_Laws) that every monad should obey
+* [IO Monad](http://learnyouahaskell.com/input-and-output)
+* [State Monad](https://en.wikibooks.org/wiki/Haskell/Understanding_monads/State), allows state to be carried in a monadic context, allowing imperative-style computation
+* [ST Monad](https://en.wikibooks.org/wiki/Haskell/Mutable_objects), allows mutable state to be carried in a monadic context, useful for implementing inherently destructive algorithms
+* [Arrays](https://wiki.haskell.org/Arrays), allows constant-time access to elements like a C array, with mutable variants in the `IO` and `ST` monads provided
 
 
 
