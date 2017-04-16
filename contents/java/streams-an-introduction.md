@@ -16,6 +16,8 @@ Author: Lee Yi Min
 - [Building a Stream Pipeline](#building-a-stream-pipeline)
 	- [Constructing Streams](#constructing-streams)
 	- [Intermediate Operations](#intermediate-operations)
+		- [Filter](#filter)
+		- [Map](#map)
 	- [Terminal Operations](#terminal-operations)
 	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
 		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
@@ -47,7 +49,7 @@ double meanMaleHeight = totalMaleHeight / noOfMales;
 However, with the power of the Stream API, you can write this instead!
 
 ```java
-double meanMaleHeight = students.toStream()
+double meanMaleHeight = students.stream()
                                 .filter(student -> student.isMale())
                                 .mapToDouble(student -> student.getHeight())
                                 .average()
@@ -228,10 +230,45 @@ Stream<String> nameStream = names.stream();
 There are many other ways of constructing a stream, such as using the `Stream.iterate` method or `BufferedReader.lines()`. A nice summary of these different ways are provided in the [tutorial by Brian Goetz](https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html)
 
 ### Intermediate Operations
-  // filter
-  // map
+
+There are many intermediate operations one can apply to their streams, but this guide will just focus on 2 of the most commonly used intermediate operations, `filter` and `map`.
+
+#### Filter
+
+The `filter` method takes in one parameter, a [`Predicate<T>`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html) object, where `T` is the type of the elements in the stream. The functional method of this interface is `test`, which takes in a parameter of type `T` and returns a `boolean` value. Only elements which returns `true` when tested with the  `Predicate<T>` parameter are kept in the returned stream. The elements which returns `false` are filtered out.
+
+As mentioned in [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions), you can provide the `Predicate<T>` object using lambda expressions or method references.
+
+Suppose you want a stream of male students. You can filter the male students from a stream of all students by using an lambda that operates on objects of type `T` and returns a boolean value
+```java
+Stream<Student> maleStudents = students.stream()
+                                       .filter(x -> x.isMale());
+```
+or by using a method reference.
+```java
+Stream<Student> maleStudents = students.stream()
+                                       .filter(Student::isMale);
+```
+
+#### Map
+
+The `map` method takes in a [`Function<T, R>`](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) parameter. The functional method `apply` takes in a type `T` object and returns a type `R` object, where `R` is the desired return type. These `T` and `R` are usually inferred by the compiler and you do not have to specify them in your lambda or method reference.
+
+The `map` method performs the `apply` of the `Function<T, R>` object you provide on the elements and the returned objects from the `apply` operations are put into the returned stream. Each `T` element is mapped to its corresponding `R` object according to the provided `Function<T, R>` object and a `Stream<R>` object is returned.
+
+Suppose you want a stream of names of all students. Similarly, you can use a lambda expression
+```java
+Stream<String> names = students.stream() // Stream<Student> here
+                               .map(x -> x.getName()); // Stream<String> here
+```
+or a method reference.
+```java
+Stream<String> names = students.stream() // Stream<Student> here
+                               .map(Student::getName); // Stream<String> here
+```
 
 ### Terminal Operations
+
   // collect
   // reduce
 
