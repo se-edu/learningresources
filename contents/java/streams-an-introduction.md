@@ -19,6 +19,7 @@ Author: Lee Yi Min
 		- [Filter](#filter)
 		- [Map](#map)
 	- [Terminal Operations](#terminal-operations)
+		- [Collect](#collect)
 	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
 		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
 - [Resources](#resources)
@@ -231,7 +232,7 @@ There are many other ways of constructing a stream, such as using the `Stream.it
 
 ### Intermediate Operations
 
-There are many intermediate operations one can apply to their streams, but this guide will just focus on 2 of the most commonly used intermediate operations, `filter` and `map`.
+There are many intermediate operations one can apply to their streams, but this guide will just focus on two of the most commonly used intermediate operations, `filter` and `map`.
 
 #### Filter
 
@@ -269,8 +270,40 @@ Stream<String> names = students.stream() // Stream<Student> here
 
 ### Terminal Operations
 
-  // collect
-  // reduce
+Two commonly used terminal operations are `reduce` and `collect`. `reduce` typically takes in a [`BinaryOperator<T>`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html), which is used to operate on all elements in the stream, resulting in a single final result. To find out how `reduce` works and how you can use it, you can look at [Part 2 of Brian Goetz's tutorial](https://www.ibm.com/developerworks/library/j-java-streams-2-brian-goetz/index.html).
+
+In this guide, we will look more closely at `collect`.
+
+#### Collect
+
+`collect` can be used to transfer the elements in a stream into a collection-like data structure easily. There are two ways of using `collect`:
+* by using `collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)`  
+The `supplier` is a factory function that produces empty results of type `R`. The `accumulator` is then applied on the a empty or partial result with the elements, resulting in one or more results. The `combiner` then combines the possibly multiple results into one single result object, which is returned by the terminal operation.
+
+* by using `collect(Collector<? super T,A,R> collector)`  
+The [`Collector<T,A,R>`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html) is specified by a `supplier`, `accumulator`, `combiner` and an optional `finisher`, which can transform the final result from accumulation and combining to a possibly different desired type.
+
+One can easily do a `collect` operation by making use of the [`Collectors`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html) class.
+
+Suppose you want a list of names of all students. You can use the `Collectors.toList()` as the collector.
+```java
+List<String> names = students.stream()
+                             .map(Student::getName)
+                             .collect(Collectors.toList());
+```
+
+Suppose you want the average CAP score of all students. You can use  	`Collectors.averagingDouble(ToDoubleFunction<? super T> mapper)` and provide the mapper to transform the current student elements into their CAP scores.
+```java
+List<String> averageCap = students.stream()
+                                  .collect(Collectors.averagingDouble(Student::getCap));
+```
+
+Suppose you want lists of students according to their current year of study. You can use `Collectors.groupingBy(Function<? super T,? extends K> classifier)` and provide the classifer which returns the year of student given a student. This returns a `Map<Integer, List<Student>>` object where the result of the classifier for an element would be one of the key values.
+```java
+Map<Integer, List<Student>> studentsByYear = students.stream()
+                                            .collect(Collectors.groupingBy(Student::getYear));
+List<Student> firstYears = studentsByYear.get(1);
+```
 
 ### Drawbacks and Pitfalls
 
