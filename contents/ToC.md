@@ -29,3 +29,4 @@
 ## Other Tools/Technologies
 
 * AI
+* [CUDA](gpgpu/cuda.md)

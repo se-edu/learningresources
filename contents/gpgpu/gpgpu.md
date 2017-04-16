@@ -53,6 +53,7 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 - [Official CUDA C programming guide: What GPUs excel at processing, and why](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
 - [Official CUDA C programming guide: Architecture of NVIDIA GPUs](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture)
 - [Lightning talk slides: An Introduction to GPGPU](https://github.com/nus-oss/lightningtalks/issues/10)
+- [se-edu's learning resource on CUDA](cuda.md)
 
 ## § 3. References
 
