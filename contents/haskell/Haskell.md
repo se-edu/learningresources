@@ -1025,9 +1025,10 @@ Monads are a big topic, and additional resources are available:
 for learning Haskell. It does not have much real-world examples, but does quite
 a good job in explaining difficult theoretical concepts (e.g. functors,
 applicative functors and monads) well. It is recommended to read  the material
-in 3 chunks:
+in 4 chunks:
     * 1-6: basic functional programming
-    * 7-10: details of the type-system
+    * 7: modules (very important for large codebases)
+    * 8-10: details of the type-system
     * 11-14: monads
 * [Real World Haskell](http://book.realworldhaskell.org/) is a rather old text
 which is possibly outdated. Still, it shows plenty of examples of how Haskell
