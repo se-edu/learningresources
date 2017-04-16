@@ -4,7 +4,7 @@ Authors: [Dickson Tan](https://github.com/neurrone)
 
 ## Overview
 
-Cryptography is the discipline of developing methods for secure communication. 
+Cryptography is the science of developing methods for secure communication, while Cryptanalysis is the discipline of breaking such methods.
 Understanding cryptography will enable you to correctly use cryptography libraries and combine cryptographic primitives to match the security needs of your application.
 
 Modern cryptography involves developing techniques to achieve the following objectives:
@@ -14,11 +14,18 @@ Modern cryptography involves developing techniques to achieve the following obje
 * Authentication: the recipient should be able to verify the sender of a message. For example, iPhones need to verify that the software updates received really came from Apple, not a malicious attacker.
 * Non-repudiation: the sender should not be able to deny sending a message after doing so. For example, the parties of a digital contract should not be able to deny signing the contract in a legal dispute.
 
+In Cryptanalysis, the objective is to exploit weaknesses in cryptographic algorithms - for example, attempting to recover the original message from its encrypted form. The security of cryptographic algorithms is evaluated based on their resistance to [these attacks](https://en.wikipedia.org/wiki/Cryptanalysis#Amount_of_information_available_to_the_attacker).
+
 ## Encryption
 
-Encryption is the process of encoding messages so that it is readable only by the intended recipient. The message being encrypted is called the plaintext. The encryption algorithm, or cipher, "scrambles" the message, producing ciphertext, which should only be readable by the recipient. Decryption is the reverse process of recovering the plaintext from the ciphertext.
+Encryption is the process of encoding messages so that it is readable only by the intended recipient. The message being encrypted is called the plaintext. The encryption algorithm "scrambles" the message, producing ciphertext, which should only be readable by the recipient. Decryption is the reverse process of recovering the plaintext from the ciphertext.
 
-One of the earliest encryption algorithms or ciphers is the substitution cipher, which encrypts text by substituting each letter of the message with another letter. This page introduces the [Caesar cipher](http://www.cs.trincoll.edu/~crypto/historical/caesar.html), a substitution cipher, and how it can be defeated using statistical analysis. 
+A cipher refers to a pair of algorithms - one for encryption and decryption, and is used to refer to symmetric key techniques. A cryptosystem consists of 3 algorithms - a cipher and a key generation algorithm. Though cryptosystems usually refer to asymmetric key techniques, it may also be used to refer to symmetric key techniques.
+
+The key is a parameter, or a piece of secret information, that determines the output of cryptographic algorithms. According to [Kerckhoffs' principle](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle), a cryptosystem should be secure even if the attacker knows everything about the cryptosystem, except the key. 
+This means that the attacker knows the algorithms used for encryption and decryption. Although it is tempting to design secure systems by employing ["security by obscurity"](https://en.wikipedia.org/wiki/Security_through_obscurity) to keep their details hidden, they are usually easily broken once their design is known. The [CSS copy-protection system for DVDs](https://en.wikipedia.org/wiki/Content_Scramble_System) is one such example.
+
+One of the earliest encryption algorithms or ciphers is the substitution cipher, which encrypts text by substituting each letter of the message with another letter. This page introduces the [Caesar substitution cipher](http://www.cs.trincoll.edu/~crypto/historical/caesar.html), and how it can be defeated using statistical analysis, a [ciphertext-only attack](https://en.wikipedia.org/wiki/Ciphertext-only_attack).
 Modern ciphers today operate on bits rather than letters.
 
 ### Symmetric Key Ciphers
@@ -82,7 +89,7 @@ This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) 
 Most modes require a random value called an initialization vector (IV) so that encrypting the same message twice doesn't produce the same ciphertext, which leaks information. 
 It is critical that the IV be [random, used only once and unpredictable](https://defuse.ca/cbcmodeiv.htm). Not doing so has caused several vulnerabilities such as the [BEAST Attack on TLS](http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html) and [the recovery of WEP keys](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy).
 
-### Asymmetric Key Ciphers
+### Asymmetric Key Cryptosystems
 
 Symmetric cryptography is not practical for the following situations, which motivates the development of asymmetric or public key cryptography:
 
@@ -90,7 +97,7 @@ Symmetric cryptography is not practical for the following situations, which moti
 * Large number of keys: for each user in a group of `n` users to securely communicate to every other user, each user must securely store `n-1` keys , which is impractical.
 * No non-repudiation: since each party has the same capability by possessing the shared key, symmetric cryptography cannot be used when non-repudiation is required. For instance, if an online store, Bob, needs to prove Alice purchased an item where symmetric encryption is used for the transaction message, Alice can claim Bob falsely generated the transaction, as they both share the same key.
 
-In asymmetric cryptography, there are 2 separate keys; one for encryption, and the other for decryption. The key used for encryption is published so that anyone can securely send messages to Alice. Hence, it is called a public key. Alice has the corresponding decryption key, or private key, which is kept secret. Hence, messages encrypted with the public key can only be decrypted by Alice.
+In asymmetric cryptography, there are 2 separate keys; one for encryption, and the other for decryption. The key used for encryption is published so that anyone can securely send messages to Alice. Hence, it is called a public key. Alice has the corresponding decryption key, or private key, which is kept secret. Hence, messages encrypted with the public key can only be decrypted by Alice. In contrast, there is a single shared key which must be kept secret in symmetric ciphers.
 
 Public key cryptography has many uses beyond sending encrypted messages, such as key agreement and non-repudiation, which will be covered in future sections.
 
