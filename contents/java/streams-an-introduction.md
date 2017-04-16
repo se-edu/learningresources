@@ -22,12 +22,13 @@ Author: Lee Yi Min
 		- [Collect](#collect)
 	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
 		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
-		- [Difficulty in Optimising Stream Performance](#difficulty-in-optimising-stream-performance)
+		- [Difficulty in optimising stream performance](#difficulty-in-optimising-stream-performance)
 - [Resources](#resources)
 	- [Functional Interfaces](#functional-interfaces)
 	- [Method References](#method-references)
 	- [Lambda Expressions](#lambda-expressions)
 	- [Stream](#stream)
+		- [Common pitfalls](#common-pitfalls)
 
 <!-- /TOC -->
 ## Overview
@@ -348,7 +349,7 @@ result = futures.stream()
 ```
 With good method names given to the extracted lambda expressions, the code for the stream operation becomes self-documenting again.
 
-#### Difficulty in Optimising Stream Performance
+#### Difficulty in optimising stream performance
 
 Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to [this blog post](http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/), an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance between loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.
 
@@ -364,20 +365,41 @@ Hopefully through this guide, you are able to get a good understanding on what a
 
 ### Functional Interfaces
 
-* https://dzone.com/articles/introduction-functional-1
+* https://dzone.com/articles/introduction-functional-1  
+The article provides the background understanding of functional interfaces and links to other blog posts to understand more about functional interfaces.
 
 ### Method References
 
-* https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
-* https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx
+* https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html   
+Provides a good summary and short examples of how each kind of method reference can be used.
+
+* https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx  
+Read this to get a good understanding of how each method reference is translated to a functional interface object.
 
 ### Lambda Expressions
 
-* http://www.lambdafaq.org/
-* https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
-* http://www.lambdafaq.org/
-* http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7
+* http://www.lambdafaq.org/  
+A helpful reference and tutorial on functional-style programming in Java. Explanations given are concise and easy to understand.
+
+* https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html  
+Read this to understand more about the use cases for lambda expressions.
+
+* http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7  
+The article is from a book, Core Java for the Impatient, and talks about the scoping of lambda expressions and what you can or cannot do with variables belonging to the enclosing scope.
 
 ### Stream
 
-* https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
+* https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html  
+Gives a good overview on Streams and how it should be used.
+
+
+* https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html
+* https://www.ibm.com/developerworks/library/j-java-streams-2-brian-goetz/index.html
+* https://www.ibm.com/developerworks/library/j-java-streams-3-brian-goetz/index.html
+* https://www.ibm.com/developerworks/java/library/j-java-streams-4-brian-goetz/index.html
+* https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html  
+The five-part tutorial by Brian Goetz gives a complete guide on how to work with Stream, with the basic operations in the first part, reducing and collecting in the second part, understanding how streams are processed in the third part, and how to optimize parallel operations in the fourth and fifth part.
+
+#### Common pitfalls
+* https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/  
+The article gives a list of other common mistakes one may make when using streams.
