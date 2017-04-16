@@ -3,6 +3,7 @@
 * C#
 * C++
 * [Java](java/Java.md)
+  * [Java Streams](java/streams-an-introduction.md)
 * JavaScript
 * Python
 * Ruby

@@ -59,7 +59,7 @@ double meanMaleHeight = students.stream()
                                 .orElse(Double.NaN);
 ```
 
-Not only is the numbers of lines reduced by almost half, the code utilising streams is also rather intuitive. First, we filter the students who are male, using a lambda expression (`student -> student.isMale()`). Then, we get the heights of these students and followed by the average value of these heights. If the average value does not exist (which can happen when there are no male students), we store NaN in `meanMaleHeight` instead. The code is declarative and self-documentating, it's easy to understand what the original author was trying to achieve. This reduces the need for code comments, which we often see in loops since they can be harder to understand at a glance.
+Not only is the numbers of lines reduced by almost half, the code utilising streams is also rather intuitive. First, we filter the students who are male, using a lambda expression (`student -> student.isMale()`). Then, we get the heights of these students and followed by the average value of these heights. If the average value does not exist (which can happen when there are no male students), we store NaN in `meanMaleHeight` instead. The code is declarative and self-documenting, it's easy to understand what the original author was trying to achieve. This reduces the need for code comments, which we often see in loops since they can be harder to understand at a glance.
 
 Besides its brevity, another cool feature of streams is that code can be executed in parallel using your multicore processor. Multiple students can be processed simultaneously, compared to processing only one student at a time with a normal loop. This can help to improve the performance of the operation significantly. And the best part is this can be done just by adding a simple method call in the Stream API, so you don't have implement multithreading or worry about how to go about splitting the work for it to work in parallel.
 
@@ -151,7 +151,7 @@ In Java 8, this interface has become a functional interface (surprise, surprise)
 // trying to sort students by height
 students.sort((s1, s2) -> Double.compare(s1.getHeight(), s2.getHeight()));
 ```
-The compiler is able to infer that an object of type `Comparator<Student>` is expected and that the lambda expression fits into the definition for `compare` (the single abstract method), thus creating an instance of type `Comparator<Student>` with the `Double.compare(s1.getHeight(), s2.getHeight())` returned in the implemeneted `compare` method.
+The compiler is able to infer that an object of type `Comparator<Student>` is expected and that the lambda expression fits into the definition for `compare` (the single abstract method), thus creating an instance of type `Comparator<Student>` with the `Double.compare(s1.getHeight(), s2.getHeight())` returned in the implemented `compare` method.
 
 By using an lambda expression, the code is much more simplified, and can be now written on a single line. However, the expression in the body is slightly complicated and it may not be easily understood by everyone.
 
@@ -242,7 +242,7 @@ The `filter` method takes in one parameter, a [`Predicate<T>`](https://docs.orac
 
 As mentioned in [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions), you can provide the `Predicate<T>` object using lambda expressions or method references.
 
-Suppose you want a stream of male students. You can filter the male students from a stream of all students by using an lambda that operates on objects of type `T` and returns a boolean value
+Suppose you want a stream of male students. You can filter the male students from a stream of all students by using an lambda that operates on objects of type `T` and returns a `boolean` value
 ```java
 Stream<Student> maleStudents = students.stream()
                                        .filter(x -> x.isMale());
@@ -300,7 +300,7 @@ List<String> averageCap = students.stream()
                                   .collect(Collectors.averagingDouble(Student::getCap));
 ```
 
-Suppose you want lists of students according to their current year of study. You can use `Collectors.groupingBy(Function<? super T,? extends K> classifier)` and provide the classifer which returns the year of student given a student. This returns a `Map<Integer, List<Student>>` object where the result of the classifier for an element would be one of the key values.
+Suppose you want lists of students according to their current year of study. You can use `Collectors.groupingBy(Function<? super T,? extends K> classifier)` and provide the classifier which returns the year of student given a student. This returns a `Map<Integer, List<Student>>` object where the result of the classifier for an element would be one of the key values.
 ```java
 Map<Integer, List<Student>> studentsByYear = students.stream()
                                             .collect(Collectors.groupingBy(Student::getYear));
