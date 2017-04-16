@@ -84,9 +84,9 @@ If used in the same context, these two lambda expressions are actually equivalen
 
 The parameters types of lambda expressions can be inferred by the compiler and are optional. It is actually recommended that parameters types are omitted when writing lambda expressions so as to keep the code concise.
 
-When an expression is used for the `<body>`, the result of the expression is returned. The expression can also result in nothing (eg. `(String s) -> System.out.println(s)`), which means that the method expressed by the lambda returns `void`.
+When an expression is used for the body, the result of the expression is returned. The expression can also result in nothing (eg. `(String s) -> System.out.println(s)`), which means that the method expressed by the lambda returns `void`.
 
-When a block is used for the `<body>`, the same rules for using or omitting the `return` statement for a normal method applies.
+When a block is used for the body, the same rules for using or omitting the `return` statement for a normal method applies.
 
 When the lambda has a single parameter, the parentheses surrounding the parameter can also be removed,
 ```java
@@ -117,12 +117,27 @@ students.sort(new Comparator<Student>() {
 ```
 Let's face it. Declaring classes (anonymous or not) is quite a pain. Declaring a named class adds to the number of classes you need to maintain while the syntax of a anonymous class is quite an eyesore.
 
-In Java 8, this interface has become a functional interface (surprise, surprise), which allows you to write the code like this instead!
+In Java 8, this interface has become a functional interface (surprise, surprise), so you can write a comparator with a lambda expression.
 ```java
 // trying to sort students by height
 students.sort((s1, s2) -> Double.compare(s1.getHeight(), s2.getHeight()));
 ```
-The compiler is able to infer that a object of type `Comparator<Student>` is expected and that the lambda expression fits into the definition for `compare` (the single abstract method), thus creating an instance of type `Comparator<Student>` with the lambda expression implemented as the `compare` method.
+The compiler is able to infer that an object of type `Comparator<Student>` is expected and that the lambda expression fits into the definition for `compare` (the single abstract method), thus creating an instance of type `Comparator<Student>` with the `Double.compare(s1.getHeight(), s2.getHeight())` returned in the implemeneted `compare` method.
+
+By using an lambda expression, the code is much more simplified, and can be now written on a single line. However, the expression in the body is slightly complicated and it may not be easily understood by everyone.
+
+Suppose this comparison is used over and over again in the code. To improve cohesion in the code, you may want to add instance method `compareToByHeight(Student other)` in the `Student` class.
+```java
+public int compareToByHeight(Student other){
+    return Double.compare(height, other.height);
+}
+```
+And you can use a method reference as the functional interface instead.
+```java
+// trying to sort students by height
+students.sort(Student::compareToByHeight);
+```
+Notice that the code is very easy to understand at a high level and what the author is trying to achieve can be easily read through the code.
 
 ### The Stream API
 
@@ -141,7 +156,6 @@ The compiler is able to infer that a object of type `Comparator<Student>` is exp
 // intermediate operations
   // filter
   // map
-  // flat map
 
 // terminal operations
   // collect
