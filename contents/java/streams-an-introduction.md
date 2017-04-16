@@ -22,6 +22,7 @@ Author: Lee Yi Min
 		- [Collect](#collect)
 	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
 		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
+		- [Difficulty in Optimising Stream Performance](#difficulty-in-optimising-stream-performance)
 - [Resources](#resources)
 	- [Functional Interfaces](#functional-interfaces)
 	- [Method References](#method-references)
@@ -191,7 +192,7 @@ The terminal operations of Streams may also return an [`Optional` object](https:
 
 To understand more about Streams, you can read up on the [documentation of the Stream package](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html). They provide clear explanations on how streams work and how you should make use of them.
 
-This [tutorial by Brian Goetz](https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html), a Java Language Architect at Oracle, also provides a good overview of Streams. The whole 5-part tutorial does go pretty in-depth, so you may want to take your time to go through it.
+This [tutorial by Brian Goetz](https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html), a Java Language Architect at Oracle, also provides a good overview of Streams. The whole five-part tutorial does go pretty in-depth, so you may want to take your time to go through it.
 
 ## Building a Stream Pipeline
 
@@ -270,7 +271,7 @@ Stream<String> names = students.stream() // Stream<Student> here
 
 ### Terminal Operations
 
-Two commonly used terminal operations are `reduce` and `collect`. `reduce` typically takes in a [`BinaryOperator<T>`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html), which is used to operate on all elements in the stream, resulting in a single final result. To find out how `reduce` works and how you can use it, you can look at [Part 2 of Brian Goetz's tutorial](https://www.ibm.com/developerworks/library/j-java-streams-2-brian-goetz/index.html).
+Two commonly used terminal operations are `reduce` and `collect`. `reduce` typically takes in a [`BinaryOperator<T>`](https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html), which is used to operate on all elements in the stream, resulting in a single final result. To find out how `reduce` works and how you can use it, you can look at [second part of Brian Goetz's tutorial](https://www.ibm.com/developerworks/library/j-java-streams-2-brian-goetz/index.html).
 
 In this guide, we will look more closely at `collect`.
 
@@ -283,7 +284,7 @@ The `supplier` is a factory function that produces empty results of type `R`. Th
 * by using `collect(Collector<? super T,A,R> collector)`  
 The [`Collector<T,A,R>`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html) is specified by a `supplier`, `accumulator`, `combiner` and an optional `finisher`, which can transform the final result from accumulation and combining to a possibly different desired type.
 
-One can easily do a `collect` operation by making use of the [`Collectors`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html) class.
+One can easily do a `collect` operation by making use of the [`Collectors`](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html) class, which contains many methods which help to generator a `Collector<T, A, R>`.
 
 Suppose you want a list of names of all students. You can use the `Collectors.toList()` as the collector.
 ```java
@@ -307,7 +308,7 @@ List<Student> firstYears = studentsByYear.get(1);
 
 ### Drawbacks and Pitfalls
 
-In order to effectively utilise streams, one would also need to know the common drawbacks and pitfalls associated with streams. In this section, we will talk about three common pitfalls and how you can avoid them.
+In order to effectively utilise streams, one would also need to know the common drawbacks and pitfalls associated with streams. In this section, we will talk about two common pitfalls and how you can avoid them.
 
 #### Long, complicated lambda expressions
 
@@ -347,14 +348,19 @@ result = futures.stream()
 ```
 With good method names given to the extracted lambda expressions, the code for the stream operation becomes self-documenting again.
 
+#### Difficulty in Optimising Stream Performance
 
-// slow stream performance
-    // high-level, harder to optimise
-    // developers and compiler are not as good as optimising stream compared to traditional loops
-    // parallel streams may spend more time on splitting and merging the work between and from multiple threads, making its performance slower.
-    // an issue if performance-critical
-//
+Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to [this blog post](http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/), an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance between loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.
+
+Loops are one of the most common control flow structures we use and many of us would probably have a relatively good idea of what are the things you should avoid in loops to achieve good performance. However, this is not the case with streams. As streams have a more high-level abstraction, it is more difficult to understand what is going on beneath our code. Streams are fairly new compared to loops and the unfamiliarity with streams is also another factor which adds on to the difficulty in optimising stream performance.
+
+Oftentimes, __using streams better readability and reduced development time while compromising some performance is a reasonable bargain__. We don't spend our time optimising each line of code for a small improvement in performance when we can be doing more productive things.
+
+However, when the application is __performance-critical__, knowing that streams can possibly run much slower than a traditional loop, it is good to __benchmark and test the performance of the stream code__. To understand more about how streams are processed and how one can optimise a stream pipeline, you may want to look at [third](https://www.ibm.com/developerworks/library/j-java-streams-3-brian-goetz/index.html), [fourth](https://www.ibm.com/developerworks/java/library/j-java-streams-4-brian-goetz/index.html) and [fifth](https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html) part of Brian Goetz's tutorial.
+
 ## Resources
+
+Hopefully through this guide, you are able to get a good understanding on what are streams and how you can use it. Below are resources you may want to look at to learn more about each respective topic.
 
 ### Functional Interfaces
 
