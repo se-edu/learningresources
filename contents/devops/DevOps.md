@@ -32,30 +32,54 @@ This includes using version control tools, following a process when developing, 
 
 #### Relevant Tools
 
-- Git
-- GitHub
+Version Control Software (VCS)
+
+- [Git](https://git-scm.com/)
+- [Mercurial](https://www.mercurial-scm.org/)
+
+Web-based Hosted VCS
+
+- [GitHub](https://github.com/)
+- [GitLab](https://about.gitlab.com/)
+- [BitBucket](https://bitbucket.org/)
 
 ### Build & Test Automation
 
-Involves using continuous integration tools that automatically build and test your software upon every push, so you don't have to do it yourself.
+Involves using continuous integration tools that automatically build and test your software upon every push to a code repository (Git, Mercurial, etc.), so you don't have to do it yourself. They can also be configured to run on specific branches or pull requests.
 
 #### Relevant Tools
 
-- Gradle
-- Travis CI
-- Jenkins
+Local Build Tools
+> In addition to automating builds, these also manage dependencies
+
+- [Gradle](https://gradle.org/)
+- [Ant](http://ant.apache.org/)
+- [Maven](https://maven.apache.org/)
+
+Hosted CI Tools
+> These integrate with hosted VCS solutions like GitHub
+
+- [Travis CI](https://travis-ci.org/)
+- [Circle CI](https://circleci.com/)
+- [Jenkins](https://jenkins.io/) (self-hosted)
 
 ### Deployment & Infrastructure
 
-This is about getting your software to run in a live server environment so that it is publicly accessible to end users. Also involves packaging your app such that it can be deployed in different environments.
+This is about getting your software to run in a live server environment so that it is publicly accessible to end users. It also involves packaging your app such that it can be deployed in different environments.
 
 #### Relevant Tools
 
-- DigitalOcean
-- Vagrant
-- Docker
-- Ansible
-- Puppet
+Infrastructure Management Tools
+
+- [Vagrant](https://www.vagrantup.com/) - portable virtual development environments
+- [Docker](https://www.docker.com/) - deployment of applications inside software containers
+- [Ansible](https://www.ansible.com/) - automated software provisioning, configuration management and deployment
+- [Puppet](https://puppet.com/) - configure infrastructure with declarative code
+
+Cloud Infrastructure
+
+- [DigitalOcean](https://www.digitalocean.com/) - cloud computing for developers
+- [Amazon Web Services](https://aws.amazon.com/) - scalable cloud computing services
 
 ### Monitoring
 
@@ -63,9 +87,9 @@ After deployment, monitoring the system for any defects or potential defects is 
 
 #### Relevant Tools
 
-- Icinga
-- Monit
-- ELK - Elasticsearch, Logstash, Kibana
+- [Icinga](https://www.icinga.com/) - open source system and network monitoring [[install guide]](https://www.digitalocean.com/community/tutorials/how-to-use-icinga-to-monitor-your-servers-and-services-on-ubuntu-14-04)
+- [Monit](https://mmonit.com/monit/) - open source monitoring utility that also does auto recovery of services [[install guide]](https://www.digitalocean.com/community/tutorials/lemp-stack-monitoring-with-monit-on-ubuntu-14-04)
+- [ELK (Elasticsearch, Logstash, Kibana)](https://www.elastic.co/products) - analytics tools that work well together [[install guide]](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04)
 
 ## Getting Started
 
@@ -87,3 +111,4 @@ As a software engineering student, the best way to get started is to gain some p
 - [Best Guide to Getting Started In DevOps](https://blog.xebialabs.com/2015/04/23/best-guide-to-getting-started-in-devops/) - recommends various places you can read up more on the topic
 - [9½ Simple Steps On How To Start With DevOps Today](https://devops.com/9%C2%BD-simple-steps-start-devops-today/) - includes practical suggestions like using a code static analysis tool
 - [A Pragmatic Guide to Getting Started with DevOps](http://www.ca.com/us/lpg/~/media/Files/eBooks/a-pragmatic-guide-to-getting-started-with-devops.pdf) - more of a management point of view but interesting
+- [The DevOps Handbook: How to Create World-Class Speed, Reliability, and Security in Technology Organizations](https://books.google.com.sg/books/about/The_Devops_Handbook.html?id=XrQcrgEACAAJ) - about managing tech organisations, written by a CTO
