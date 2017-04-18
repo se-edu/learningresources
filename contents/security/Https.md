@@ -4,7 +4,7 @@ Author: [Boxin](https://github.com/boxin-yang)
 
 ## Overview
 
-HTTPS is the end to end encryption on data on top of HTTP to prevent network sniffing(eavesdropping data packets). In this tutorial, we will cover four questions to have a better understanding of https. The questions are:
+HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sniffing (eavesdropping data packets). In this tutorial, we will cover four questions to have a better understanding of https. The questions are:
 
 - [Why do we need HTTPS](#why-do-we-need-https)
 - [Why HTTPS is secure](#why-https-is-secure)
@@ -26,7 +26,7 @@ All in all, the Internet architecture that we rely on for network transmission i
 
 ### Why HTTPS is secure
 
-As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTPS with the addition of [SSL](https://www.digicert.com/ssl.htm) to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets. 
+As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of [SSL](https://www.digicert.com/ssl.htm) to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets. 
 
 There are mainly 3 encryption algorithms used in HTTPS, namely RSA, Diffie Hellman and Elliptic Curve Algorithm. They are more thoroughly explained in [Introduction to Cryptography](../security/cryptography.md) section. These algorithms prevent sniffers from decrypting packets without knowing the keys used because the best attack algorithms known at the moment run in [sub-exponential](https://en.wikipedia.org/wiki/Time_complexity#Sub-exponential_time) time. Therefore, the attack is believed to be computationally infeasible when the keysize is large enough(e.g. 2048 bits for RSA), though it is not mathematically proven.
 
@@ -59,4 +59,4 @@ Some websites use HTTPS only on the login page to encrypt the login credentials 
 )
 
 ## Conclusion
-HTTPS provides security to a web application.  If the web application requires secure network traffic(e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional layer of encryption and decryption adds overhead to network traffic(though the impact is not significant). If secure network traffic is not required(e.g. University home page), HTTPS may not be implemented.
+HTTPS provides security to a web application.  If the web application requires secure network traffic (e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional layer of encryption and decryption adds overhead to network traffic (though the impact is not significant). If secure network traffic is not required (e.g. University home page), HTTPS may not be implemented.
