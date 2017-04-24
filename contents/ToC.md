@@ -21,6 +21,7 @@
 * Functional programming
 * Maintenance
 * Multi-threading
+    * [GPGPU](gpgpu/gpgpu.md)
 * OOP
 * [Performance](performance/Performance.md)
     * [Performance Profiling](performance/PerformanceProfiling.md)
@@ -40,7 +41,8 @@
 ## Other Tools/Technologies
 
 * AI
+* GPGPU
+  * [CUDA](gpgpu/cuda.md)
 * [CheckStyle](staticAnalysis/checkStyle.md)
 * [PMD](staticAnalysis/PMD.md)
 * [Regular Expressions](regex/Regex.md)
-
