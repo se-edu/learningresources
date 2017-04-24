@@ -7,7 +7,7 @@
   * [Java Streams](java/streams-an-introduction.md)
   * [Java Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
-* [JavaScript](javascript/Javascript.md)
+* [JavaScript](javascript/javascript.md)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
 * [Swift](swift/welcome-to-swift.md)
