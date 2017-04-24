@@ -4,7 +4,7 @@
 * C++
 * [Java](java/Java.md)
 * [JavaScript](javascript/Javascript.md)
-* Python
+* [Python](python/introduction-to-python.md)
 * Ruby
 * Swift
 
