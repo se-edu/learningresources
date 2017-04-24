@@ -32,6 +32,7 @@
 * Revision control
 * Security
   * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
+  * [Cryptography](security/cryptography.md)
   * [HTTPS](security/Https.md)
 * Scalability
 * [Static Analysis](staticAnalysis/intro.md)
