@@ -23,8 +23,11 @@
 * Security
 * Scalability
 * Testing
+* [Static Analysis](staticAnalysis/intro.md)
 * UIX
 
 ## Other Tools/Technologies
 
+* [CheckStyle](staticAnalysis/checkStyle.md)
+* [PMD](staticAnalysis/PMD.md)
 * AI
