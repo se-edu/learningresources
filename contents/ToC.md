@@ -5,6 +5,7 @@
 * [Haskell](haskell/Haskell.md)
 * [Java](java/Java.md)
   * [Java Streams](java/streams-an-introduction.md)
+  * [Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
 * [JavaScript](javascript/Javascript.md)
 * [Python](python/introduction-to-python.md)
