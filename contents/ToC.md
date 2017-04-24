@@ -20,7 +20,7 @@
 * Maintenance
 * Multi-threading
 * OOP
-* Performance
+* [Performance](performance/Performance.md)
     * [Performance Profiling](performance/PerformanceProfiling.md)
 * Project management
 * Requirements
