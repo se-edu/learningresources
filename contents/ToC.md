@@ -5,7 +5,7 @@
 * [Haskell](haskell/Haskell.md)
 * [Java](java/Java.md)
   * [Java Streams](java/streams-an-introduction.md)
-  * [Synchronization](java/JavaSynchronization.md)
+  * [Java Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
 * [JavaScript](javascript/Javascript.md)
 * [Python](python/introduction-to-python.md)
@@ -14,37 +14,36 @@
 
 ## SE Topics
 
-* Code quality
-  * [Code quality metrics](codeQuality/CodeQualityMetrics.md)
-* Data
+* Code Quality
+  * [Code Quality Metrics](codeQuality/CodeQualityMetrics.md)
 * [DevOps](devops/DevOps.md)
-* [Databases](data/databases.md)
-* Functional programming
+* [Documentation](projectManagement/documentation.md)
+* Functional Programming
 * Maintenance
-* Multi-threading
-    * [GPGPU](gpgpu/gpgpu.md)
 * OOP
 * [Performance](performance/Performance.md)
-    * [Performance Profiling](performance/PerformanceProfiling.md)
-* Project management
-    * [Documentation](projectManagement/documentation.md)
+  * [Performance Profiling](performance/PerformanceProfiling.md)
+* Project Management
 * Requirements
-* Revision control
+* Revision Control
+* [Scalability](scalability/scalable-development.md)
+* [Static Analysis](staticAnalysis/intro.md)
+  * [CheckStyle](staticAnalysis/checkStyle.md)
+  * [PMD](staticAnalysis/PMD.md)
+* Testing
+  * [Writing Testable Code](testing/writing-testable-code.md)
+* [UI/UX](https://github.com/AngShiYa/learningresources/blob/uix/contents/uix/uix.md)
+
+## Other Topics
+
+* AI
+* Data
+  * [Databases](data/databases.md)
+* [Regular Expressions](regex/Regex.md)
 * Security
   * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
   * [Cryptography](security/cryptography.md)
   * [HTTPS](security/Https.md)
-* Scalability
-* [Static Analysis](staticAnalysis/intro.md)
-* Testing
-    * [Writing Testable Code](testing/writing-testable-code.md)
-* [UI/UX](https://github.com/AngShiYa/learningresources/blob/uix/contents/uix/uix.md)
-
-## Other Tools/Technologies
-
-* AI
-* GPGPU
+* Multi-Threading
+  * [GPGPU](gpgpu/gpgpu.md)
   * [CUDA](gpgpu/cuda.md)
-* [CheckStyle](staticAnalysis/checkStyle.md)
-* [PMD](staticAnalysis/PMD.md)
-* [Regular Expressions](regex/Regex.md)
