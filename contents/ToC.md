@@ -35,6 +35,8 @@
 
 ## Other Tools/Technologies
 
+* AI
 * [CheckStyle](staticAnalysis/checkStyle.md)
 * [PMD](staticAnalysis/PMD.md)
-* AI
+* [Regular Expressions](regex/Regex.md)
+
