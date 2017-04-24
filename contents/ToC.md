@@ -15,6 +15,7 @@
 * Code quality
   * [Code quality metrics](codeQuality/CodeQualityMetrics.md)
 * Data
+  * [Databases](data/databases.md)
 * Functional programming
 * Maintenance
 * Multi-threading
