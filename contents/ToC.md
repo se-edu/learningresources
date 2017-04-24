@@ -2,6 +2,7 @@
 
 * C#
 * C++
+* [Haskell](haskell/Haskell.md)
 * [Java](java/Java.md)
   * [Java Streams](java/streams-an-introduction.md)
   * [Java Reflection](java/JavaReflections.md)
