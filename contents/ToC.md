@@ -8,7 +8,7 @@
 * [JavaScript](javascript/Javascript.md)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
-* Swift
+* [Swift](swift/welcome-to-swift.md)
 
 ## SE Topics
 
