@@ -7,7 +7,7 @@
   * [Java Reflection](java/JavaReflections.md)
 * [JavaScript](javascript/Javascript.md)
 * [Python](python/introduction-to-python.md)
-* Ruby
+* [Ruby](ruby/Ruby.md)
 * Swift
 
 ## SE Topics
