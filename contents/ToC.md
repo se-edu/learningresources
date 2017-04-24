@@ -3,7 +3,7 @@
 * C#
 * C++
 * [Java](java/Java.md)
-* JavaScript
+* [JavaScript](javascript/Javascript.md)
 * [Python](python/introduction-to-python.md)
 * Ruby
 * Swift
@@ -21,10 +21,14 @@
 * Requirements
 * Revision control
 * Security
+    * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
 * Scalability
 * Testing
+* [Static Analysis](staticAnalysis/intro.md)
 * UIX
 
 ## Other Tools/Technologies
 
+* [CheckStyle](staticAnalysis/checkStyle.md)
+* [PMD](staticAnalysis/PMD.md)
 * AI
