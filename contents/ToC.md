@@ -26,7 +26,8 @@
 * Requirements
 * Revision control
 * Security
-    * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
+  * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
+  * [HTTPS](security/Https.md)
 * Scalability
 * [Static Analysis](staticAnalysis/intro.md)
 * Testing
