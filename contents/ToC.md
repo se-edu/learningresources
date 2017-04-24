@@ -28,10 +28,10 @@
 * Security
     * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
 * Scalability
+* [Static Analysis](staticAnalysis/intro.md)
 * Testing
     * [Writing Testable Code](testing/writing-testable-code.md)
-* [Static Analysis](staticAnalysis/intro.md)
-* UIX
+* [UI/UX](https://github.com/AngShiYa/learningresources/blob/uix/contents/uix/uix.md)
 
 ## Other Tools/Technologies
 
