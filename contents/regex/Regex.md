@@ -8,7 +8,7 @@ Authors: Jamos Tay
 
 A Regular Expression (or Regex for short) is a string of characters that define a search pattern. You can think of a regular expression as a list of descriptions that describe a string. These strings can be tested against other text formatted data to find, match, and extract data.
 
-Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with `C`, ends with a `S`, and only consists of letters: `C[A-z]+S`) and the section of text is searched, finding all possible matches.
+Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with `C`, ends with a `S`, and only consists of letters: `C[A-z]+S`) and the section of text is searched, finding all the possible matches.
 
 ## Why should I learn Regex?
 
