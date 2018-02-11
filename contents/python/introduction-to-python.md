@@ -1,6 +1,6 @@
 # An Introduction to Python
 
-Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/)
+Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang Chun Rong](https://www.github.com/Crphang)
 
 Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.
 
@@ -11,6 +11,15 @@ If you're a programmer looking to get in on the Python action, check out [Google
 For absolute beginners, check out [this video](https://www.youtube.com/watch?v=N4mEzFDjqtA) by Derek Banas where he covers everything from installing Python and the basics to more advanced concepts like Inheritance and Polymorphism in under an hour! If you'd prefer to read, check out [Python Guru](http://thepythonguru.com/) which has plenty of code samples to help you along.
 
 Both newbies and experienced programmers can also benefit from [The Python Tutorial](https://docs.python.org/3/tutorial/index.html), which aims to introduce readers to Python's unique features and style.
+
+## Virtual Environment
+
+When starting out Python projects, you will be recommended to install dependencies using [virtual environment](https://docs.python.org/3/tutorial/venv.html) to remove the possibility of dependencies conflict. This is especially a good practice when managing dependencies from different projects which relies on different python versions and packages.
+
+The [official python documentation](https://docs.python.org/3/tutorial/venv.html) gives a standard way of creating a virtual environment - defining a directory location and activating it. However, you can consider using other libraries than can make this process smoother. Some of the most popular ones are:
+
+* [virtualenvwrapper](http://virtualenvwrapper.readthedocs.io/en/latest/install.html) - Allows you to define all environments in a single place instead of having to manage the different environments in your local system.
+* [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv). `pyenv` allows easy management of different python versions and `pyenv-virtualenv` allows managing virtualenv associated to the python versions managed by `pyenv`.
 
 ## Common Data Structures
 
