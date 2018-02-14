@@ -1,16 +1,73 @@
 # FindBugs
 
-Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
+Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html), [Shradheya Thakre](https://github.com/tshradheya)
 
 ## Overview
 
-FindBugs is a static analysis tool to find "bugs" in **Java** programme. It looks for "bug patterns" in the code and signals possible violations. For example, the bug "null pointer dereference" has the pattern — A programme declares a non-nullable variable but assigns `null` to the variable somewhere and uses it later.
+FindBugs is a static analysis tool to find "bugs" in **Java** programme. It looks for "bug patterns" in the code and signals possible violations. Potential errors are classified in four ranks:
+1. scariest,
+1. scary,
+1. troubling,
+1. of concern.
+
+This is a hint to the developer about their possible impact or severity For example, the bug "null pointer dereference" has the pattern — A programme declares a non-nullable variable but assigns `null` to the variable somewhere and uses it later.
 
 ## Features
 
 The "bug patterns" can be divided into nine groups: Bad practice, Correctness, Experimental, Internationalization, Malicious code vulnerability, Multithreaded correctness, Performance, Security and Dodgy code. [A comprehensive list](http://findbugs.sourceforge.net/bugDescriptions.html) of bugs is provided to explain the meaning of each bug.
 
 FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. These features overcome some limitations in [CheckStyle](CheckStyle.md) and [PMD](PMD.md) (The two tools can only check files one by one and analyse Java source code). Therefore, FindBugs can spot some errors that CheckStyle and PMD cannot find. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
+
+## Examples of Bugs that can be found using FindBugs
+
+### Find hash-equals mismatch
+
+Consider the following code:
+
+``` java
+class Foo {
+    //... data members ...
+    //... methods ...
+
+    //Overriding equals method - the wrong way
+    public boolean equals(Foo foo) {
+        //... logic ...
+    }
+}
+
+```
+
+1.  In the above code, if `foo.equals()` method is called, the `equals()` method of `Object` class rather than `Foo` class will be called. This is due to the way the Java code resolves overloaded methods at compile-time. FindBugs warns the developer of possible cases when a class defines a co-variant version of the `equals()` or `compareTo()` method.
+
+1. The hashCode() and equals() method are called by many `Collection` based classes like - List, Maps, Sets, etc. FindBugs helps in finding problems when a class **overrides the `equals()` but not the `hashCode()` method or vice-versa**. Overriding only one of the `equals()` or `hashCode()` method can cause methods of Collection based classes to fail and hence FindBugs helps in reporting these errors at an early stage
+
+### Return value of method ignored
+
+* FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been
+
+* ``` Java
+    1 String s = "bob";
+    2 s.replace('b', 'p');
+    3 boolean isCorrect = s.equals("pop"); //isCorrect is `false`
+    ```
+    In the above examples, one would assume that the variable `isCorrect` is assigned `true` because the `line 2` replaces `b` with `p`. However since strings are immutable, the `replace()` function actually returns a new string with updated value rather than updating the string the method is called on.
+    Hence, `line 2` should be `String newString  = s.replace('b', 'p'); //newString ="pop"`
+
+### Null pointer dereference
+
+* FindBugs looks for cases where a code path will or could cause a null pointer exception.
+
+* ``` Java
+
+    1  Person person = aMap.get("bob");
+    2  if (person != null) {
+    3      person.updateAccessTime();
+    4  }
+    5  String name = person.getName();
+    ```
+
+    In the above example, the `aMap` may or may not contain "bob", so FindBugs will report **possible** `NullPointerException` at `line 5`
+
 
 ## How to use it
 
@@ -47,6 +104,12 @@ IDE Integration:
 - [Eclipse Integration](http://findbugs.sourceforge.net/manual/eclipse.html)
 - [IntelliJ Integration](https://plugins.jetbrains.com/plugin/3847-findbugs-idea)
 - [NetBeans Integration](https://netbeans.org/kb/docs/java/code-inspect.html)
+
+## SpotBugs - The successor of Findbugs
+
+On November 2016, FindBugs was [declared dead](https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2016-November/004321.html) and [SpotBugs](https://spotbugs.github.io/) was [declared as its successor](https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2017-September/004383.html) in September 2017.
+
+The current projects using `FindBugs` can make a shift to `SpotBugs` by following the [migration manual](http://spotbugs.readthedocs.io/en/latest/migration.html)
 
 ## Advanced Topic
 
