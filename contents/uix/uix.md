@@ -1,6 +1,7 @@
 # UI/UX
 
 Author: [Ang Shi Ya](https://github.com/AngShiYa)
+
 Author: [Tan Jun Kiat](https://github.com/junkiattan)
 
 ## Overview
@@ -82,8 +83,8 @@ Prototyping stage is where you:
   
 ### User Testing
 User Testing stage is where you:
-  * Use a low or high fidelity prototype to [test with users](http://www.uxbooth.com/articles/usability-testing-dont-guess-test/), to determine the effectiveness of product
   * Should have a clear sense of the user goals at this stage
+  * Use a low or high fidelity prototype to [test with users](http://www.uxbooth.com/articles/usability-testing-dont-guess-test/), to determine the effectiveness of product
   * Be prepared to [re-prototype](https://www.interaction-design.org/literature/article/design-iteration-brings-powerful-results-so-do-it-again-designer) again after gathering user feedback
   
 #### Deliverables (before testing):
