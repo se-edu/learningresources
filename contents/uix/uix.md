@@ -45,3 +45,25 @@ Just like Software Development, UX Design is an iterative process. It involves m
 ## Which is more important?
 
 The metaphor of building a house by Clayton Yan (UX Designer at UserTesting) illustrates this aptly. UX is the structure (i.e. the number of rooms, one-storey or two-storey and where the front door leads). Meanwhile, UI is about the visual (i.e. whether the same wallpaper or vases is used). A good UX with bad UI is like an ugly house with nice structure. A good UI with bad UX is like a beautiful house with the front door leading straight to the bathroom. To sum it up, UI and UX are **equally** important in creating an awesome experience for the users. 
+
+## The Process of UX Design
+
+As stated above, UX is a highly iterative process to find the right balance for the target audience. There are a few stages of UX Design are as listed.
+1. Preliminary Research
+2. Prototyping
+3. User Testing
+4. Maintenance
+
+### Preliminary Research
+Preliminary research is the stage where you:
+  * Understand your target audience through Contextual Inquiry, which involves interviewing users to find out about their wants, needs and pain-points, in the setting of them using the actual product and/or products from competitors
+  * Gather the tools needed for the project such as prototyping tools or wireframing tools for creating low to high fidelity prototypes
+  * Depending on whether the project is hypothetical (taking a known product and re-designing it) or client-based (working for businesses or non-profits), discuss and create a project plan with stakeholders
+
+Deliverables:
+  * Personas - Profiles of users that are representative of the target audiences
+  * User Stories - Representation of the most important user actions or motivations for each persona
+  * User Scenarios - Case studies of how users use the products, supplementing User Stories to allow you to better empathize with the users
+  * User Flows - Depiction of how users navigate through the product for each scenario
+
+  
