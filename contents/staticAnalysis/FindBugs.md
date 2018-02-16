@@ -16,7 +16,7 @@ This is a hint to the developer about their possible impact or severity For exam
 
 The "bug patterns" can be divided into nine groups: Bad practice, Correctness, Experimental, Internationalization, Malicious code vulnerability, Multithreaded correctness, Performance, Security and Dodgy code. [A comprehensive list](http://findbugs.sourceforge.net/bugDescriptions.html) of bugs is provided to explain the meaning of each bug.
 
-FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. These features overcome some limitations in [CheckStyle](CheckStyle.md) and [PMD](PMD.md) (The two tools can only check files one by one and analyse Java source code). Therefore, FindBugs can spot some errors that CheckStyle and PMD cannot find. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
+FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. These features overcome some limitations in [CheckStyle](checkStyle.md) and [PMD](PMD.md) (The two tools can only check files one by one and analyse Java source code). Therefore, FindBugs can spot some errors that CheckStyle and PMD cannot find. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
 
 ## Examples of Bugs that can be found using FindBugs
 
