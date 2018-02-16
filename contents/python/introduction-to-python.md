@@ -14,7 +14,7 @@ Both newbies and experienced programmers can also benefit from [The Python Tutor
 
 ## Virtual Environment
 
-When starting out Python projects, you will be recommended to install dependencies using [virtual environment](https://docs.python.org/3/tutorial/venv.html) to remove the possibility of dependencies conflict. This is especially a good practice when managing dependencies from different projects which relies on different python versions and packages.
+When starting new projects or hopping on existing Python repositories, you will be recommended to install dependencies using [virtual environment](https://docs.python.org/3/tutorial/venv.html) to remove the possibility of dependencies conflict. This is a good practice especially when managing dependencies from different projects which relies on different python versions and packages.
 
 The [official python documentation](https://docs.python.org/3/tutorial/venv.html) gives a standard way of creating a virtual environment - defining a directory location and activating it. However, you can consider using other libraries than can make this process smoother. Some of the most popular ones are:
 
