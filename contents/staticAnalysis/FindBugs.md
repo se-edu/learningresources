@@ -34,7 +34,6 @@ class Foo {
         //... logic ...
     }
 }
-
 ```
 
 1.  In the above code, if `foo.equals()` method is called, the `equals()` method of `Object` class rather than `Foo` class will be called. This is due to the way the Java code resolves overloaded methods at compile-time. FindBugs warns the developer of possible cases when a class defines a co-variant version of the `equals()` or `compareTo()` method.
@@ -45,20 +44,20 @@ class Foo {
 
 * FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been
 
-* ``` Java
+* ``` java
     1 String s = "bob";
     2 s.replace('b', 'p');
     3 boolean isCorrect = s.equals("pop"); //isCorrect is `false`
     ```
     In the above examples, one would assume that the variable `isCorrect` is assigned `true` because the `line 2` replaces `b` with `p`. However since strings are immutable, the `replace()` function actually returns a new string with updated value rather than updating the string the method is called on.
+
     Hence, `line 2` should be `String newString  = s.replace('b', 'p'); //newString ="pop"`
 
 ### Null pointer dereference
 
 * FindBugs looks for cases where a code path will or could cause a null pointer exception.
 
-* ``` Java
-
+* ``` java
     1  Person person = aMap.get("bob");
     2  if (person != null) {
     3      person.updateAccessTime();
@@ -66,8 +65,7 @@ class Foo {
     5  String name = person.getName();
     ```
 
-    In the above example, the `aMap` may or may not contain "bob", so FindBugs will report **possible** `NullPointerException` at `line 5`
-
+    In the above example, the `aMap` may or may not contain "bob", so FindBugs will report *possible* `NullPointerException` at `line 5`
 
 ## How to use it
 
