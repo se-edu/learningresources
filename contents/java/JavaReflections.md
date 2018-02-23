@@ -133,49 +133,43 @@ The second line just means that this annotation can be applied to methods only.
 And the more important part is how the subscriber registry finds all its subscribing methods. The first step is to register a class as an event handler and an example of the code is like so:
 
 ```java
-
 public class Sheep extends Animal {
 
-    private static final EventsCenter EVENTS_BUS = EventsCenter.getInstance();
+  private static final EventsCenter EVENTS_BUS = EventsCenter.getInstance();
+  
+  public Sheep() {
+    super();
+    EVENTS_BUS.register(this);
+  }
 
-    public final String name;
-
-    public Sheep(String nameOfSheep) {
-        name = nameOfSheep;
-        EVENTS_BUS.register(this);
+  @Subscribe
+  public void handleWeatherChangeEvent(WeatherChangeEvent event) {
+    if (event.weather == Weather.RAIN) {
+      hide();
     }
-
-    @Subscribe
-    public void handleWeatherChangeEvent(WeatherChangeEvent event) {
-        if (event.weather == Weather.RAIN) {
-            hide();
-        }
-    }
-
-    // Other methods here...
-    
+  }
+  ...
 }
 ```
 
 An example implementation of the `EventsCenter` (with a lot of details left out for simplicity) is like so:
 
 ```java
-
 public void register(Class<?> clazz) {
-    findAllEventHandlersInClass(clazz);
+  findAllEventHandlersInClass(clazz);
 }
 
 public void findAllEventHandlersInClass(Class<?> clazz) {
-    // TypeToken class is provided by Google Guava reflection library
-    Set<? extends Class<?>> supertypes = TypeToken.of(clazz).getTypes().rawTypes();
+  // TypeToken class is provided by Google Guava reflection library
+  Set<? extends Class<?>> supertypes = TypeToken.of(clazz).getTypes().rawTypes();
 
-    for (Class<?> supertype : supertypes) {
-          for (Method method : supertype.getDeclaredMethods()) {
-            if (method.isAnnotationPresent(Subscribe.class) {
-                registerSubscriber(method);
-            }
-        }
+  for (Class<?> supertype : supertypes) {
+    for (Method method : supertype.getDeclaredMethods()) {
+      if (method.isAnnotationPresent(Subscribe.class) {
+        registerSubscriber(method);
+      }
     }
+  }
 }
 
 ```
