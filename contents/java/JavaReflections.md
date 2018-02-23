@@ -62,78 +62,55 @@ A good example of reflections is to get a private field of another class. While 
 For the sake of simplicity, let us use a example of a simple `Animal` class. The class definition can look like this.
 
 ```java
-
 public class Animal {
 
-    private int age;
-    private boolean isAlive;
-    public final String name;
+  private int age;
 
-    public Animal(String nameOfAnimal) {
-        name = nameOfAnimal;
-        age = 0;
-        isAlive = true;
-    }
-
-    public void onUpdate() {
-        age++;
-
-        if (age > 100) {
-            setDead();
-        }
-    }
-
-    // Other methods here...
+  public Animal() {
+    age = 0;
+  }
 }
 ```
 
 And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class `Sheep` that extends `Animal` and do something when his age reaches certain threshold. But the annoying thing is that somebody decided that it is a good idea to make the age value `private` instead of `protected` in a top-level class such as this! So you cannot access the age of your `Sheep` even though it is an `Animal`.
 
-This of course can be solved by reflections as follows:
+This of course can be solved by Reflection as follows:
 
 ```java
-
 public class Sheep extends Animal {
-    private boolean hasWool;
+  public Sheep() {
+    super();
+  }
 
-    public Sheep(String animalName) {
-        super(animalName);
-        hasWool = false;
+  /**
+   * A sheep begins to produce wool after it's a year old!
+   */
+  public boolean isProducingWool() {
+    return getAge() > 1;
+  }
+
+  private int getAge() {
+    // Since class is a reserved keyword, we use clazz in variable names
+    Class<Animal> animalClazz = Animal.class;
+
+    try {
+      Field f = animalClazz.getDeclaredField("age");
+      f.setAccessible(true);
+      return (int) f.get(this);
+    } catch (IllegalAccessException | NoSuchFieldException e) {
+      // perform error handling
     }
-
-    @Override
-    public void onUpdate() {
-        super.onUpdate();
-
-        int age = getPrivateAge();
-
-        if (age > 20) {
-            setHasWool();
-        }
-    }
-
-    private int getPrivateAge() {
-        // Since class is a reserved keyword, we use clazz in variable names
-        Class<Animal> animalClazz = Animal.class;
-
-        try {
-            Field f = animalClazz.getDeclaredField("age");
-            f.setAccessible(true);
-            return (int) f.get(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return 0;
-    }
-
-    // Other methods here...
+  }
 }
 ```
 
-And there you have it! What `Sheep` is really doing is to examine itself at runtime in order to obtain the `age` field inherited from `Animal`. If it cannot, it assumes its `age` is zero. This technique can be used in test cases to access private fields and methods in the class under test without modifying the behaviour of the class itself.
+And there you have it! What `Sheep` is really doing is to examine itself at runtime in order to obtain the `age` field inherited from `Animal`. This technique can be used in test cases to access private fields and methods in the class under test without modifying the visibility modifiers of the fields and methods in the class itself.
 
-You may notice that the `Sheep#getPrivateAge()` method sets the age `Field` object to be accessible and might wonder the implications. Fret not! The `Field#getDeclaredField()` actually returns a new `Field` instance - so you're just setting that particular local `Field` instance to be accessible, not the actual `age` field itself. You can read more about it in this [StackOverflow question](http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue).
+You may notice that the `Sheep#getAge()` method sets the age `Field` object to be accessible and might wonder the implications. Fret not! The `Field#getDeclaredField()` actually returns a new `Field` instance - so you're just setting that particular local `Field` instance to be accessible, not the actual `age` field itself. You can read more about it in this [StackOverflow question](http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue).
+
+Do take note that two exceptions need to be handled when accessing private fields: 
+1. `IllegalAccessException`, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. `f.setAccessible(true)`).
+1. `NoSuchFieldException`, which occurs if the field with the specified name (e.g. `age`) does not exist.
 
 #### A more advanced application
 
