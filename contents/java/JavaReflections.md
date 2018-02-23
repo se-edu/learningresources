@@ -14,38 +14,38 @@ With Java reflections, you can:
 
 ### The Basics of Reflections
 
-Before getting started with reflections in Java, it is important to realize that classes is also an object. Every unique `Object` is assigned an immutable `Class` object by the JVM. This immutable `Class` object is fundamentally different from *instances* of a class. The class object itself holds information about its name, the package it resides in and other important information while an instance of a class holds the instanced values and methods as defined in the class.
+Before getting started with reflections in Java, it is important to realize that a class is also an object. From the [Java Class API](https://docs.oracle.com/javase/9/docs/api/java/lang/Class.html), we see that `Class` is a subclass of `Object`. Every unique `Object` is assigned an immutable `Class` object by the JVM. This immutable `Class` object is fundamentally different from *instances* of a class. The class object itself holds information such as its name and the package it resides in while an instance of a class holds the instanced values and methods as defined in the class.
 
 Take for example the following class:
 
 ```java
 public class Student {
 
-	private final String name;
-	private final String gender;
+  private final String name;
+  private final String gender;
 
-	public Student(String name, String gender) {
-		this.name = name;
-		this.gender = gender;
-	}
+  public Student(String name, String gender) {
+    this.name = name;
+    this.gender = gender;
+  }
 
-    // Other methods here...
+  // Other methods here...
 }
 ```
 
-An instance of a class can be created as usual using the `new` keyword
+An instance of `Student` class can be created as usual using the `new` keyword:
 
 ```java
 Student john = new Student("John Doe", "Male");
 ```
 
-However, it is also possible to get information about the class itself because the class itself is an `Object` like so:
+However, it is also possible to get information about the `Student` class itself because the class itself is an `Object`:
 
 ```java
 Class<Student> studentClass = Student.class;
 ```
 
-It also means that you can store any `Class` object in any data structure for future retrieval. This is the main entry point for Java's reflections. You can now get the name of the class, create new instances of the class, observe its public/private fields - the possibilities are endless!
+This means that you can store any `Class` object in any data structure for future retrieval. This is the main entry point for Java's reflections. You can now get the name of the class, create new instances of the class, observe its public/private fields - the possibilities are endless!
 
 ### Getting Started
 
