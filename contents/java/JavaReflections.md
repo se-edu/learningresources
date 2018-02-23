@@ -112,6 +112,47 @@ Do take note that two exceptions need to be handled when accessing private field
 1. `IllegalAccessException`, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. `f.setAccessible(true)`).
 1. `NoSuchFieldException`, which occurs if the field with the specified name (e.g. `age`) does not exist.
 
+#### Updating private fields
+
+Suppose that you need to write tests for `Sheep`. As part of setting up the test, you need to create a sheep with age = 20. Suppose that the age of the sheep is updated automatically as time passes, whereby the age increases by 1 after every minute. A naive way of creating a sheep with age = 20 is to simply wait for 20minutes before performing the test:
+
+```java
+@Test
+public void foo() throws Exception {
+  Sheep sheep = new Sheep();
+  TimeUnit.MINUTES.sleep(20);
+  // perform test
+}
+```
+
+Alternatively, a much simpler and efficient way to perform this test is to set a value to the private field using Reflection:
+
+```java
+@Test
+public void foo() throws Exception {
+  Sheep sheep = new Sheep();
+  Field field = Sheep.class.getDeclaredField("age");
+  field.setAccessible(true);
+  field.set(sheep, 20);
+  // perform test
+}
+```
+
+#### Testing private methods
+
+Suppose you want to perform a unit test for the method `getAge()`. However, you are only able to indirectly do so by testing `isProducingWool()`. This is not good as we are not able to directly verify the age of a sheep. However, with the help of Reflection, we can now test private methods.
+
+```java
+@Test
+public void foo() throws Exception {
+  Sheep sheep = new Sheep();
+  Method method = Sheep.class.getDeclaredMethod("getAge");
+  method.setAccessible(true);
+  int age = (int) method.invoke(sheep);
+  // verify age
+}
+```
+
 #### A more advanced application
 
 You might have learnt from your Software Engineering module that the Observer pattern can be used for objects that are interested to get notified if the state of another object is changed. The Observer pattern is useful because you can avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other while allowing the objects to be notified of any changes in another object.
@@ -197,6 +238,10 @@ While Java reflections are powerful, you should not immediately jump on the refl
 * Bad Security
 
   The second example demostrated a way to access the private fields of a class using reflections. This should be very concerning if your software deals with sensitive information because other classes can access fields that they are not supposed to.
+
+* Indication of bad class design
+
+  Having to use reflection in order to bypass a class' encapsulation is usually indicative of an API design problem. We can remove the the usage of Reflection in the examples given [above](#accessing-private-fields) by adding a getter and setter method for `age`. See this [post](https://stackoverflow.com/questions/34571/how-do-i-test-a-private-function-or-a-class-that-has-private-methods-fields-or/34658#34658) for further discussion.
 
 ### Further Resources for reflections
 
