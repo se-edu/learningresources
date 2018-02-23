@@ -6,9 +6,11 @@ Authors: [Jeremy Goh](https://github.com/MightyCupcakes)
 
 ### What is Java reflections
 
-Reflection is the ability of a computer program to examine, inspect and modify its own behaviour at runtime. In particular, reflections in Java allows the inspection of classes, methods and fields during runtime, without having any knowledge of it during compile time. It is also possible to create new instance of existing objects, invoke methods and change values of fields of existing objects. Hence the name reflection because Java is in a way looking at itself during runtime!
+Reflection is the ability of a computer program to examine, inspect and modify its own behaviour at runtime. In particular, reflections in Java allows the inspection of classes, methods and fields during runtime, without having any knowledge of it during compile time.
 
-For example, you can use Java reflection to access private fields and/or methods of a class without having to modify the class itself. This is very useful if you are interested to implement test cases to test the class.
+With Java reflections, you can:
+1. Access private fields and methods of a class without having to modify the visibility modifier of the class itself. This is very useful if you are interested to implement test cases for private methods.
+1. Create new instance of existing objects, invoke methods and change values of fields of existing objects.
 
 ### The Basics of Reflections
 
