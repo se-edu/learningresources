@@ -1,6 +1,6 @@
 # Advanced Java: Reflections
 
-Authors: [Jeremy Goh](https://github.com/MightyCupcakes)
+Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)
 
 ## Reflection
 
