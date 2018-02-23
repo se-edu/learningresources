@@ -49,9 +49,9 @@ This means that you can store any `Class` object in any data structure for futur
 
 ### Getting Started
 
-There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is [http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html](http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html)
+There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is this [article by JavaWorld](http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html).
 
-One important point is that while Java reflections are powerful, its implementations are not very straightforward. There are however some libraries out there to make life easier such as the [Google's Guava library](https://github.com/google/guava/wiki/ReflectionExplained) which contains many utility methods and classes to make your life easier.
+One important point is that while Java reflections are powerful, its implementations are not very straightforward. There are however some libraries out there such as the [Google's Guava library](https://github.com/google/guava/wiki/ReflectionExplained) which contains many utility methods and classes that makes our life easier.
 
 ### Applications
 
