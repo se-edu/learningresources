@@ -151,6 +151,35 @@ You can think of Structs as a way to create instances that have their own unique
 
 If you wish to find out more, here is an [article](https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2) that explains the difference between the 2 types, as well as the benefits of value types and when to use them.
 
+## Enum
+
+Swift's enums can have associated values. This enables you to store additional custom information along with the case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum `Barcode` with case values `upc` and `qrCode`. We want to be able to distinguish within each value as each `upc` and `qrCode` can take on different values:
+
+```swift
+enum Barcode {
+    case upc(Int, Int, Int, Int)
+    case qrCode(String)
+    
+    func printCode() {
+        switch self {
+        case let .upc(numberSystem, manufacturer, product, check):
+            print("UPC : \(numberSystem), \(manufacturer), \(product), \(check).")
+        case let .qrCode(productCode):
+            print("QR code: \(productCode).")
+        }
+    }
+}
+
+let barcode1 = Barcode.qrCode("foo")
+let barcode2 = Barcode.qrCode("bar")
+barcode1.printCode() // prints "QR code: foo."
+barcode2.printCode() // prints "QR code: bar."
+```
+
+Do note that every `switch` statement must be exhaustive; all possible values must be matched by one of the `switch` cases. Otherwise, you have to define a `default` case to handle any values that are unmatched. Also, notice that no `break` statement is required in between each `switch` case as Swift does not support implicit fallthrough. Take a look at [Swift's documentation on Control Flow](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html) to find out more.
+
+Also, enums with associated values is not supported in languages such as [Java](https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum), and using a workaround to implement enums with associated values results in code verbosity. Take a look at [Swift's documentation on Enums](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html) for more information about enums.
+
 ## Protocol Oriented Programming
 
 The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html). If you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.
