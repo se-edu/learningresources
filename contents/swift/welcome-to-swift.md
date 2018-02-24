@@ -190,7 +190,6 @@ First, we first introduce our protocols.
 
 ```swift
 protocol Bird {
-  var name: String { get }
   var canFly: Bool { get }
 }
  
@@ -204,17 +203,12 @@ Next, we introduce the structs that conform to the protocols above.
 ```swift
 // Penguins can't fly ):
 struct Penguin: Bird {
-    let name: String
     let canFly = false
 }
 
 struct Eagle: Bird, Flyable {
-    let name: String
     let canFly = true
- 
-    var airspeedVelocity: Double {
-        return 160.0
-  }
+    let airspeedVelocity = 160.0
 }
 ```
 
