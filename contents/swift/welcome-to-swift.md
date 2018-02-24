@@ -216,6 +216,55 @@ And if you haven't noticed, protocols are extremely similar to interfaces in Jav
 
 To understand more about POP, watching this [WWDC 2015 talk](https://www.youtube.com/watch?v=g2LwFZatfTI) is highly recommended.
 
+## Extensions
+
+Extensions allow us to add new functionalities to an existing class, structure, enumeration, or protocol type. Suppose we have an `Eagle` struct:
+
+```swift
+struct Eagle {
+    // some functionalities here
+}
+```
+
+As development progresses, you realize that you now want `Eagle` to conform to `Bird` and `Flyable` protocols. Instead of editing the code in `Eagle` struct directly, we can use extensions to implement each protocol separately. Do take note that you cannot add stored properties in extensions. As such, `canFly` and `airspeedVelocity` have to be computed properties (for more information, see [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html)):
+
+```swift
+struct Eagle {
+    // we can leave the existing code here untouched
+}
+
+extension Eagle: Bird {
+    var canFly: Bool {
+        return true
+    }
+}
+
+extension Eagle: Flyable {
+    var airspeedVelocity: Double {
+        return 160.0
+    }
+}
+```
+
+Extensions also allow us to define instance methods and type methods for types which you do not have access to the original source code. For example: 
+
+```swift
+extension String { // String belongs to Swift Standard Library which we have no access to
+    // This method is copied from: 
+    // https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/SwiftStdlib/StringExtensions.swift
+    func isAlphabetic() -> Bool {
+        let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
+        let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
+        return hasLetters && !hasNumbers
+    }
+}
+
+var foo: String = "a1"
+print(foo.isAlphabetic()) // prints "false"
+```
+
+To find out more about extensions, take a look at [Swift's documentation on Extensions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html)
+
 ## Automatic Reference Counting
 
 A few keywords unique to Swift are `strong`, `weak` and `unowned`, which have to do with Swift's way of memory management, [Automatic Reference Counting (ARC)](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html). 
