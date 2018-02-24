@@ -67,16 +67,14 @@ func yearAlbumReleased(name: String) -> Int? {
 
 And here is how you unwrap the Optional safely:
 
-``` swift
+```swift
 func timeTravel(album: String) {
-    let year = yearAlbumReleased(album) // type of year: Int?
-    if let past = year {
-        // past is a normal (non-optional) Int value
-        // equal to the value stored in year
-        travelTo(past)
-    } else {
-        // year did not hold a value
-        liveInPresent()
+    let year = yearAlbumReleased(album)
+    if let past = year { 
+        // year contains a non-nil value
+        // past is of type Int (not Int?) with the value stored in year
+    } else { 
+        // year contains a nil value
     }
 }
 ```
