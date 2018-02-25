@@ -1,6 +1,6 @@
 # Scalable Development - An Introduction
 
-Authors: Loh Jia Shun Kenneth
+Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan
 
 ## Scalable Development
 When Pokémon Go first launched in July 6, the heavy traffic from users caused its servers to crash. However, as of 2017, Google handles at least 3.5 billion searches daily, Whatsapp handles at least 10 billion messages a day, and Facebook hosts 1.2 billion daily active users. What makes these companies different?
@@ -36,6 +36,26 @@ There are many program profilers available that you can use to find the bottlene
 Performance bottlenecks ([resource](https://www.apicasystem.com/blog/5-common-performance-bottlenecks/))
 
 Non-Relational Database ([resource](http://www.jamesserra.com/archive/2015/08/relational-databases-vs-non-relational-databases/)) ([resource](https://www.pluralsight.com/blog/software-development/relational-non-relational-databases))
+
+### Caching
+When more and more data is fetched from the database, the response becomes slower. This is where caching comes in. A cache is a key-value store that resides between the application and the database. By retrieving data from the cache instead of the database in the back-end server, the response time reduces greatly.
+
+The next thing to consider is what to cache. The rule of thumb is to cache data that is frequently accessed and read-mostly, meaning that an entry is read more often than it is updated. With this, cache hits would be more often than cache misses and as a result, the speed increase would outweigh the cost of maintaining the cache.  
+
+Caching ([resource](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache))
+
+Scalability best practices ([resource](https://www.infoq.com/articles/ebay-scalability-best-practices))
+
+### Go Asynchronous 
+Unlike synchronous operations, which runs sequentially and waits for the previous operation to complete before moving on to the next, asynchronous operations don't wait for other operations to finish before proceeding. Instead, they continue and allow other operations to finish.
+
+By using asynchronous operations, components are less tightly coupled and can be scaled independently of one another. As a result, if one component is down, the other component can still move forward.
+
+In situations in which responding to request is crucial, asynchronous operations can reduce the latency experienced by the requester. This is done by prioritising the quickness of the response to the user over the speed in which other processes complete.
+
+High level overview of asynchronous processes ([resource](https://www.youtube.com/watch?time_continue=2&v=8aGhZQkoFbQ))
+
+Scalability best practices ([resource](https://www.infoq.com/articles/ebay-scalability-best-practices))  
 
 ### Get More Machines
 
