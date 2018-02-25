@@ -48,6 +48,18 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 - CUDA: [Official website](http://www.nvidia.com/object/cuda_home_new.html)
 - OpenCL: [Official website](https://www.khronos.org/opencl/)
 
+### § 1.6 GPGPU in action
+The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. NVIDIA's Jetson is a computation processor board that delivers the processing capability of the Tegra GPU unit in a compact and light package; the latest version - Jetson TX2, measures at only 50 mm x 87 mm - the size of a business card<sup>[[6]](#footnote6)</sup>.
+
+![NVIDIA's Jetson TX2](jetson_tx2.jpg "NVIDIA's Jetson TX2")
+
+Packed with a NVIDIA Pascal<sup>TM</sup> GPU with 256 CUDA cores at maximally 1300 MHz<sup>[[6]](#footnote6)</sup>, the TX2 is capable of parallel computing-intensive tasks such as real-time vision processing or deploying deep neural networks, allowing mobile platforms to overcome physical constraints and solve complex, real-world problems.
+
+![DRIVENet](drivenet.jpg "NVIDIA DRIVENet Demo")
+*[CES 2016: NVIDIA DRIVENet Demo - Visualizing a Self-Driving Future](https://www.youtube.com/watch?v=HJ58dbd5g8g)*
+
+Compatible with a range of components and large ecosystem products<sup>[[7]](#footnote7)</sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup>[[8]](#footnote8)</sup>.
+
 ## § 2. Further Readings
 - [How concurrency is the next big change in software development since OO](http://www.gotw.ca/publications/concurrency-ddj.htm)
 - [Official CUDA C programming guide: What GPUs excel at processing, and why](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
@@ -62,3 +74,6 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 <a name="footnote3">[3]</a>: http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf<br />
 <a name="footnote4">[4]</a>: https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/<br />
 <a name="footnote5">[5]</a>: http://www.gotw.ca/publications/concurrency-ddj.htm<br />
+<a name="footnote6">[6]</a>: https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/<br />
+<a name="footnote7">[7]</a>: https://elinux.org/Jetson_TX2#Ecosystem_Products<br />
+<a name="footnote8">[8]</a>: https://developer.nvidia.com/embedded/learn/success-stories<br />
