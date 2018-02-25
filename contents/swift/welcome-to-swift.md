@@ -21,6 +21,15 @@ And if you are really pressed for time, here's a couple of cheatsheets with code
 
 Here are some cool features that you might not be familiar with but would definitely be useful to you if you are new to Swift. 
 
+## Type Inference
+
+Swift supports type inference whereby the compiler automatically deduces the type of a variable during compilation by examining the values assigned to it.
+
+```swift
+let str1: String = "foo"
+let str2 = "foo" // compiler infers that str2 is of type String
+```
+
 ## Optionals
 
 Swift allows you the use of Optionals, so that you can choose to either return nil or a data value, instead of returning a special value to indicate the absence of a value.
