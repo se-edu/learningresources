@@ -33,9 +33,9 @@ There are a few common bottlenecks that can be avoided such as database querying
 
 There are many program profilers available that you can use to find the bottlenecks in your server. By finding out where the server spends most computational time in, you can potentially save huge amounts of time.
 
-Performance bottlenecks ([resource](https://www.apicasystem.com/blog/5-common-performance-bottlenecks/))
+Performance bottlenecks ([resource](https://www.apicasystem.com/blog/5-common-performance-bottlenecks))
 
-Non-Relational Database ([resource](http://www.jamesserra.com/archive/2015/08/relational-databases-vs-non-relational-databases/)) ([resource](https://www.pluralsight.com/blog/software-development/relational-non-relational-databases))
+Non-Relational Database ([resource](http://www.jamesserra.com/archive/2015/08/relational-databases-vs-non-relational-databases)) ([resource](https://www.pluralsight.com/blog/software-development/relational-non-relational-databases))
 
 ### Caching
 When more and more data is fetched from the database, the response becomes slower. This is where caching comes in. A cache is a key-value store that resides between the application and the database. By retrieving data from the cache instead of the database in the back-end server, the response time reduces greatly.
@@ -67,7 +67,7 @@ Here are some tips to get started with horizontal scaling:
 - Understand parallel computing and how to use it to speed up computation.
 - Learn how to utilize MapReduce on [Hadoop](https://www.tutorialspoint.com/hadoop/index.htm). The Hadoop ecosystem is so versatile and widely-used that there are companies offering Hadoop as a service, so you do not have to set up the server yourself
 - Host your server on [Google App Engine](https://cloud.google.com/appengine/docs). Despite being more expensive than Amazon Web Services and DigitalOcean, it offers very scalable infrastructure for your server.
-- Run a server with multiple nodes with MPI. [Open MPI](https://www.open-mpi.org/) is an open source message-passing library that can be used to send data between the nodes in your server. You might have to study [cloud computing infrastructure](http://whatiscloud.com/basic_concepts_and_terminology/it_resource) in order to make use of this.
+- Run a server with multiple nodes with MPI. [Open MPI](https://www.open-mpi.org) is an open source message-passing library that can be used to send data between the nodes in your server. You might have to study [cloud computing infrastructure](http://whatiscloud.com/basic_concepts_and_terminology/it_resource) in order to make use of this.
 - Study various scalable architecture for servers ([resource](http://srinathsview.blogspot.sg/2011/10/list-of-known-scalable-architecture.html)).
 
 ## But wait!
