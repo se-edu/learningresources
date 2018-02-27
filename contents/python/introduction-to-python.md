@@ -12,11 +12,17 @@ For absolute beginners, check out [this video](https://www.youtube.com/watch?v=N
 
 Both newbies and experienced programmers can also benefit from [The Python Tutorial](https://docs.python.org/3/tutorial/index.html), which aims to introduce readers to Python's unique features and style.
 
+## Python 2 vs Python 3
+
+Despite obvious similarities in two Python versions, Python 3 intentional backward incompatibility made choosing Python 3 over Python 2 a tough problem for both new and experienced Python programmers. Some concerns include the lack of popular Python 2 packages in Python 3 as well as changes in some Python built-in libraries that might break existing systems. One example is that a simple `print 'Hello World'` will cause runtime error in Python 3 but will run perfectly fine in Python 2.
+
+Read more in this Digital Ocean's [post](https://www.digitalocean.com/community/tutorials/python-2-vs-python-3-practical-considerations-2) to understand this conundrum of choosing between Python 2 and Python 3 better. If you are a new Python programmer, also take a look at these important [changes](https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/) to avoid gotchas due to version differences.
+
 ## Virtual Environment
 
-When starting new projects or hopping on existing Python repositories, you will be recommended to install dependencies using [virtual environment](https://docs.python.org/3/tutorial/venv.html) to remove the possibility of dependencies conflict. This is a good practice especially when managing dependencies from different projects which relies on different python versions and packages.
+When starting new projects or hopping onto existing Python repositories, you are recommended to install dependencies using a [virtual environment](https://docs.python.org/3/tutorial/venv.html) to avoid dependency conflicts. This is a good practice especially when managing dependencies from different projects which may rely on different Python versions and packages.
 
-The [official python documentation](https://docs.python.org/3/tutorial/venv.html) gives a standard way of creating a virtual environment - defining a directory location and activating it. However, you can consider using other libraries than can make this process smoother. Some of the most popular ones are:
+The [official python documentation](https://docs.python.org/3/tutorial/venv.html) gives instructions on the standard way of creating a virtual environment - defining a directory location and activating it. However, you can consider using other libraries than can make this process smoother. Some of the most popular ones are:
 
 * [virtualenvwrapper](http://virtualenvwrapper.readthedocs.io/en/latest/install.html) - Allows you to define all environments in a single place instead of having to manage the different environments in your local system.
 * [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv). `pyenv` allows easy management of different python versions and `pyenv-virtualenv` allows managing virtualenv associated to the python versions managed by `pyenv`.
@@ -58,3 +64,26 @@ To get started, take a look at:
 *   [scikit-learn Basics](http://scikit-learn.org/stable/tutorial/basic/tutorial.html)
 *   [scikit-learn Machine Learning tutorials](http://scikit-learn.org/stable/tutorial/index.html) are also available for those looking to pick up machine learning.
     *   If you learn best by working on projects, fret not! [Kaggle](http://kaggle.com) is a treasure trove of real-world datasets that you can hone your data science skills on.
+
+## Gotchas
+
+Like most other languages, Python has it's own set of common Gotchas that can really frustrate newbie Python programmers due to the unintended bugs. To motivate the interest to learn more about Python Gotchas, let's consider this most popular pitfall called that most Python programmers might make.
+
+```Python
+def append_to(element, to=[]):
+    to.append(element)
+    return to
+
+my_list = append_to(12)
+print(my_list) # [12]
+
+my_other_list = append_to(42)
+print(my_other_list) #[12,42]
+```
+
+Looking at the above example, one might think that `my_other_list` will be `[42]` but actually is `[12,42]`. The reason is because Python's default arguments, in this case `to = []`, are evaluated once when the function is defined.
+
+Learning how to avoid such pitfalls is one huge step towards being a productive Python programmers. Here are some other guides that states some common gotchas are how to avoid them:
+
+* [Top 10 Common Mistakes of Python Programmers](https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make)
+* [Common Python Gotchas](https://sopython.com/wiki/Common_Gotchas_In_Python)
