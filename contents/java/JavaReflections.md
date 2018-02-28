@@ -180,7 +180,7 @@ public class Sheep extends Animal {
   
   public Sheep() {
     super();
-    EVENTS_BUS.register(this);
+    EVENTS_BUS.register(this.getClass());
   }
 
   @Subscribe
