@@ -5,18 +5,29 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
 ## Overview
 
 FindBugs is a static analysis tool to find "bugs" in **Java** programme. It looks for "bug patterns" in the code and signals possible violations. Potential errors are classified in four ranks:
-1. scariest,
-1. scary,
-1. troubling,
-1. of concern.
+1. scariest
+1. scary
+1. troubling
+1. of concern
 
-This is a hint to the developer about their possible impact or severity For example, the bug "null pointer dereference" has the pattern — A programme declares a non-nullable variable but assigns `null` to the variable somewhere and uses it later.
+This is a hint to the developer about their possible impact or severity. For example, the bug "null pointer dereference" has the pattern — A programme declares a non-nullable variable but assigns `null` to the variable somewhere and uses it later.
 
 ## Features
 
-The "bug patterns" can be divided into nine groups: Bad practice, Correctness, Experimental, Internationalization, Malicious code vulnerability, Multithreaded correctness, Performance, Security and Dodgy code. [A comprehensive list](http://findbugs.sourceforge.net/bugDescriptions.html) of bugs is provided to explain the meaning of each bug.
+The "bug patterns" can be divided into nine groups:
+1. Bad practice
+1. Correctness
+1. Experimental
+1. Internationalization
+1. Malicious code vulnerability
+1. Multithreaded correctness
+1. Performance
+1. Security
+1. Dodgy code
 
-FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. These features overcome some limitations in [CheckStyle](checkStyle.md) and [PMD](PMD.md) (The two tools can only check files one by one and analyse Java source code). Therefore, FindBugs can spot some errors that CheckStyle and PMD cannot find. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
+[A comprehensive list](http://findbugs.sourceforge.net/bugDescriptions.html) of bugs is provided to explain the meaning of each bug.
+
+FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. This is unlike [CheckStyle](checkStyle.md) or [PMD](PMD.md) which can only check files one by one and analyse Java source code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
 
 ## Examples of Bugs that can be found using FindBugs
 
@@ -42,30 +53,31 @@ class Foo {
 
 ### Return value of method ignored
 
-* FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been
+FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been
 
-* ``` java
-    1 String s = "bob";
-    2 s.replace('b', 'p');
-    3 boolean isCorrect = s.equals("pop"); //isCorrect is `false`
-    ```
-    In the above examples, one would assume that the variable `isCorrect` is assigned `true` because the `line 2` replaces `b` with `p`. However since strings are immutable, the `replace()` function actually returns a new string with updated value rather than updating the string the method is called on.
+``` java
+1 String s = "bob";
+2 s.replace('b', 'p');
+3 boolean isCorrect = s.equals("pop"); //isCorrect is `false`
+```
 
-    Hence, `line 2` should be `String newString  = s.replace('b', 'p'); //newString ="pop"`
+In the above examples, one would assume that the variable `isCorrect` is assigned `true` because the `line 2` replaces `b` with `p`. However since strings are immutable, the `replace()` function actually returns a new string with updated value rather than updating the string the method is called on.
+
+Hence, `line 2` should be `String newString  = s.replace('b', 'p'); //newString ="pop"`
 
 ### Null pointer dereference
 
-* FindBugs looks for cases where a code path will or could cause a null pointer exception.
+FindBugs looks for cases where a code path will or could cause a null pointer exception.
 
-* ``` java
-    1  Person person = aMap.get("bob");
-    2  if (person != null) {
-    3      person.updateAccessTime();
-    4  }
-    5  String name = person.getName();
-    ```
+``` java
+1  Person person = aMap.get("bob");
+2  if (person != null) {
+3      person.updateAccessTime();
+4  }
+5  String name = person.getName();
+```
 
-    In the above example, the `aMap` may or may not contain "bob", so FindBugs will report *possible* `NullPointerException` at `line 5`
+In the above example, the `aMap` may or may not contain "bob", so FindBugs will report *possible* `NullPointerException` at `line 5`
 
 ## How to use it
 
