@@ -157,7 +157,7 @@ public void foo() throws Exception {
 
 You might have learnt from your Software Engineering module that the Observer pattern can be used for objects that are interested to get notified if the state of another object is changed. The Observer pattern is useful because you can avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other while allowing the objects to be notified of any changes in another object.
 
-One prime example of the implementation of the Observer pattern is the Google Events bus used in [AddressBook Level 4](https://github.com/se-edu/addressbook-level4/).The event bus uses reflections to observe all registered objects via `register` method for methods annotated with the `Subscribe` annotation.
+One prime example of the implementation of the Observer pattern is the Google Events bus used in [AddressBook Level 4](https://github.com/se-edu/addressbook-level4/). The event bus uses reflections to observe all registered objects via `register` method for methods annotated with the `Subscribe` annotation.
 
 An example implementation (not the actual) of the `Subscribe` annotation might be:
 
@@ -223,7 +223,7 @@ While Java reflections are powerful, you should not immediately jump on the refl
 
 * Reflections convert a compile-time error to a potentially destructive run-time error.
 
-  Compile time errors are easy to catch. Whenever you compile your code, the compiler cleverly spots any error you missed and points it out (along with line number and other useful information) to you before quitting. But by using reflections, you are bypassing these checks because there is no way to check such errors during compile time. These  uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.
+  Compile time errors are easy to catch. Whenever you compile your code, the compiler cleverly spots any error you missed and points it out (along with line number and other useful information) to you before quitting. But by using reflections, you are bypassing these checks because there is no way to check such errors during compile time. These uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.
 
   For example you might have come across this problem where your program crashed and you get a `NullPointerException` error in your crash log. As you might have experienced already, runtime errors are more troublesome in that they are harder to catch and debug. They might even bring your whole software under the water with it by crashing the whole thing.
 
