@@ -215,7 +215,7 @@ public void findAllEventHandlersInClass(Class<?> clazz) {
 
 ```
 
-The first line of the `findAllEventHandlersInClass` method finds all classes and its parent classes of the registered class and converts it to a set. That is if you registered `Sheep extends Animal` as an event handler to the method, both `Sheep` and `Animal` will be captured by the first line. The following lines will then examine all their methods (during runtime!) for the `Subscribe` annotation and register the method so that it will receive the specified event when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how java reflections works.
+The first line of the `findAllEventHandlersInClass` method finds all classes and its parent classes of the registered class and converts it to a set. That is if you registered `Sheep extends Animal` as an event handler to the method, both `Sheep` and `Animal` will be captured by the first line. The following lines will then examine all their methods (during runtime!) for the `Subscribe` annotation and register the method so that it will receive the specified event when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how Java reflections works.
 
 ### Disadvantages of reflections
 
