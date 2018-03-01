@@ -53,6 +53,7 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup>[[6]](#footnote6)</sup>. The Pascal architecture is used in many desktop computers, data centres, and supercomputers<sup>[[7]](#footnote7)</sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.
 
 ![NVIDIA's Jetson TX2](jetson_tx2.jpg "NVIDIA's Jetson TX2")
+*[NVIDIA Jetson TX2 embedded system-on-module with Thermal Transfer Plate (TTP)](https://devblogs.nvidia.com/jetson-tx2-delivers-twice-intelligence-edge/)*
 
 Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup>[[6]](#footnote6)</sup>, the TX2 is capable of intensive parallel computational tasks such as real-time vision processing or deploying deep neural networks, allowing mobile platforms to solve complex, real-world problems.
 
