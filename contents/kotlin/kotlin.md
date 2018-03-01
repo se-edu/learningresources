@@ -17,7 +17,7 @@ Author: [Shradheya Thakre](https://github.com/tshradheya)
 
 # Overview
 
-Kotlin is a general purpose, open source, statically typed “pragmatic” programming language for the JVM and Android that combines object-oriented and functional programming features.
+Kotlin is a general purpose, open source, statically typed programming language for the JVM and Android that combines object-oriented and functional programming features.
 
 # Why Kotlin?
 
@@ -72,7 +72,7 @@ fun onLoad() {
 
 ### Tool Friendly
 
-Hyperbolically, a programming language is only as good as what its tools can provide. This is why the advantage of using Kotlin is the built-in language support from IntelliJ. Any Java IDE for e.g. IntelliJ and Eclipse, can be used to write and compile Kotlin code. It also contains the aforementioned Java-to-Kotlin converter and code generators for Java and JavaScript from Kotlin code.
+Hyperbolically, a programming language is only as good as what its tools can provide. This is why the advantage of using Kotlin is the built-in language support from IntelliJ. Any Java IDE for e.g. IntelliJ, Eclipse and Android Studio, can be used to write and compile Kotlin code. It also contains the aforementioned Java-to-Kotlin converter and code generators for Java and JavaScript from Kotlin code.
 
 # Kotlin for Android Apps
 
