@@ -2,7 +2,7 @@
 
 Author: [Shradheya Thakre](https://github.com/tshradheya)
 
-**Table of Contents**
+**Chapter contents**
 
 * [Overview](#overview)
 * [Why Kotlin?](#why-kotlin)
