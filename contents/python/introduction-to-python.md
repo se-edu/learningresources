@@ -18,7 +18,7 @@ Despite obvious similarities in two Python versions, Python 3's intentional back
 
 Read more in this Digital Ocean's [post](https://www.digitalocean.com/community/tutorials/python-2-vs-python-3-practical-considerations-2) to understand this conundrum of choosing between Python 2 and Python 3 better. If you choose to learn both Python 2 and Python 3, take a look at some of these important [changes](https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/) to avoid gotchas due to version differences.
 
-Overall, it is recommended to learn Python 3 as a beginner today as it has been [10 years since Python 3 debutted](https://www.python.org/download/releases/3.0/). This stance is also [supported](http://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html#why-is-python-3-considered-a-better-language-to-teach-beginning-programmers) by core members of Python. Moreover, unlike the early days of Python 3's release, most of the popular packages from Python 2 is already supported in Python 3. Since Python 2 is a legacy language while Python 3 is in active development, it would be better to learn Python 3 today.
+Overall, it is recommended to learn Python 3 as a beginner today as it has been [10 years since Python 3 debuted](https://www.python.org/download/releases/3.0/). This stance is also [supported](http://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html#why-is-python-3-considered-a-better-language-to-teach-beginning-programmers) by core members of Python. Moreover, unlike the early days of Python 3's release, many popular packages from Python 2 now support Python 3 as well. Since Python 2 is a legacy language while Python 3 is in active development, it would be better to learn Python 3 today.
 
 ## Virtual Environment
 
@@ -69,7 +69,7 @@ To get started, take a look at:
 
 ## Gotchas
 
-Like most other languages, Python has its own set of common gotchas that can really frustrate newbie Python programmers due to the unintended bugs. Let's consider this common pitfall called that most Python programmers encounter.
+Like most other languages, Python has its own set of common gotchas that can really frustrate newbie Python programmers due to the unintended bugs. Let's consider this common pitfall that many Python programmers encounter.
 
 ```Python
 def append_to(element, to=[]):
@@ -85,7 +85,7 @@ print(my_other_list) # [12,42]
 
 Looking at the above example, one might think that `my_other_list` will be `[42]` but actually is `[12,42]`. The reason is because Python's default arguments, in this case `to = []`, are evaluated only once when the function is defined.
 
-Learning how to avoid such pitfalls is one huge step towards being a productive Python programmer. Here are some other guides that states some common gotchas and how to avoid them:
+Learning how to avoid such pitfalls is one huge step towards being a productive Python programmer. Here are some other guides that state some common gotchas and how to avoid them:
 
 * [Top 10 Common Mistakes of Python Programmers](https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make)
 * [Common Python Gotchas](https://sopython.com/wiki/Common_Gotchas_In_Python)
