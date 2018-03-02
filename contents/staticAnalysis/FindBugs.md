@@ -31,7 +31,7 @@ FindBugs analyses bytecode in compiled Java `.class` file and checks multiple fi
 
 ## Examples of Bugs that can be found using FindBugs
 
-### Find hash-equals mismatch
+### Incorrectly overriding methods
 
 Consider the following code:
 
@@ -47,9 +47,11 @@ class Foo {
 }
 ```
 
-1.  In the above code, if `foo.equals()` method is called, the `equals()` method of `Object` class rather than `Foo` class will be called. This is due to the way the Java code resolves overloaded methods at compile-time. FindBugs warns the developer of possible cases when a class defines a co-variant version of the `equals()` or `compareTo()` method.
+In the above code, if `foo.equals()` method is called, the `equals()` method of `Object` class rather than `Foo` class will be called. This is due to the way the Java code resolves overloaded methods at compile-time. FindBugs warns the developer of possible cases when a class defines a co-variant version of the `equals()` or `compareTo()` method.
 
-1. The hashCode() and equals() method are called by many `Collection` based classes like - List, Maps, Sets, etc. FindBugs helps in finding problems when a class **overrides the `equals()` but not the `hashCode()` method or vice-versa**. Overriding only one of the `equals()` or `hashCode()` method can cause methods of Collection based classes to fail and hence FindBugs helps in reporting these errors at an early stage
+### Find hash-equals mismatch
+
+The hashCode() and equals() method are called by many `Collection` based classes like - List, Maps, Sets, etc. FindBugs helps in finding problems when a class **overrides the `equals()` but not the `hashCode()` method or vice-versa**. Overriding only one of the `equals()` or `hashCode()` method can cause methods of Collection based classes to fail and hence FindBugs helps in reporting these errors at an early stage
 
 ### Return value of method ignored
 
