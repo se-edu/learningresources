@@ -42,6 +42,8 @@ Here is a non-exhaustive list of UI design concepts you can choose to dive into 
 
 ## UX Design
 
+At it's core, UX Design is about understanding both user and business goals, and tailoring a product that strikes a right balance between both goals within given constraints such as budget or time.
+
 Just like Software Development, UX Design is an iterative process. It involves many stages like researching, planning, testing, and at each stage are many different techniques that you could use. A good place to find these techniques would be the [UX Project Checklist](https://uxchecklist.github.io/) created by Andrea Soverini.
 
 ## Which is more important?
@@ -50,9 +52,9 @@ The metaphor of building a house by Clayton Yan (UX Designer at UserTesting) ill
 
 ## The Process of UX Design
 
-As stated above, UX is a highly iterative process to find the right balance for the target audience. Many times the functionality of a product is prioritised over the experience it gives, however this should not be the case when experience is the deciding factor in delighting or frustrating users.
+As stated above, UX is a highly iterative process to achieve a fine balance between meeting the needs of the target audience and achieving business goals. Many times the functionality of a product is prioritised over the experience it gives. However this should not be the case when experience is the deciding factor in delighting or frustrating users.
 
-Catering the right experiences for users does not have to be difficult. The stages of UX Design are logical and can be decomposed into four main stages as shown.
+Catering the right experiences for users does not have to be difficult. The stages of UX Design are logical and can be decomposed into four main stages as shown, with each section supplemented with what you would do during each stage, and the expected deliverables at the end of each stage.
 1. Preliminary Research
 1. Prototyping
 1. User Testing
@@ -74,7 +76,7 @@ The first stage is Preliminary Research. This is where you would:
 After Preliminary Research, the next stage is Prototyping. This is where you would:
   * [Test](https://usabilitygeek.com/usability-testing-prototypes/) whether the product flow you came up with is smooth
   * Create [prototypes](https://www.mockplus.com/blog/post/wireframe-mockup-prototype-selection-of-prototyping-tools), or Minimum Viable Product (MVP), for further testing and refinement
-  * Get a clear sense of how users would interact with the final product
+  * Use studies gathered from the previous stage to get a better sense of how users would interact with the final product, which would be further refined in the User Testing stage
   
 ```Deliverables```
   * [Wireframes](https://wireframesketcher.com/samples/YouTube.png) - Depicts a skeleton version of an application, meant to develop a unified vision of content structure instead of focusing on asthetics; may or may not be clickable
@@ -83,15 +85,15 @@ After Preliminary Research, the next stage is Prototyping. This is where you wou
   
 ### User Testing
 After Prototyping, the next stage is User Testing. This is where you would:
-  * Should have a clear sense of the user goals at this stage
+  * Have a clear sense of the user goals at this stage
   * Use a low or high fidelity prototype during [usability testing](http://www.uxbooth.com/articles/usability-testing-dont-guess-test/) to determine product effectiveness
   * Follow an [iterative design process](https://www.interaction-design.org/literature/article/design-iteration-brings-powerful-results-so-do-it-again-designer) to re-prototype after gathering user feedback
   
-```Deliverables (before testing)```
+```Deliverables (before actual testing with users)```
   * [Usability Test Plan](https://www.smileycat.com/wp-content/uploads/2016/05/usability-test-plan-dashboard.png) - Summary of background, goals, and test methodology
   * [User Testing Script](http://www.ariadne.ac.uk/images/issue62-loureiroKoechlin/CeciliaLoureiroKoechlin-03-small.gif) - What to say as the facilitator, encouraging users to think out loud during the test
   
-```Deliverables (after testing)```
+```Deliverables (after actual testing with users)```
   * [Usability Reports](https://image.slidesharecdn.com/january2012nhupa-120206210831-phpapp02/95/delivering-results-how-do-you-report-user-research-findings-18-728.jpg?cb=1374224669) - Thorough introduction to what aspects of the product was or was not effective and how to improve
   * [Journey Maps](https://cdn-images-1.medium.com/max/1600/1*jAfZXNWAx50fWEvoF-eWLw.png) - More detailed user flow based on how users are observed to use the product in actual testing conditions
   * [Refined Prototype](https://cdn-images-1.medium.com/max/1600/1*8qPOD1DG19Kj2sfJkTk3Eg.png) - A more refined prototype that is closer to meeting user expectations, each iteration should always be tested before moving to a higher fidelity
@@ -99,13 +101,13 @@ After Prototyping, the next stage is User Testing. This is where you would:
 ### Maintenance
 After User Testing and the launch of the final product, the next stage is Maintenance. This is where you would:
   * Follow-up with the product after the final product launch
-  * Should be prepared to recursively update, revise and maintain the content in the application
+  * Recursively update, revise and maintain the content in the application
   
 ```Deliverables```
   * [Sitemaps](http://www.kristenjoybaker.com/uploads/1/3/7/6/13760055/3563790_orig.jpg) - Depiction of how all pages of product interconnect
-  * [Taxonomies](http://blog.fuzzymath.com/wp-content/uploads/2015/09/UCAN_Taxonomy-1024x775.png) - List of vocabularies used in the content
+  * [Taxonomies](http://blog.fuzzymath.com/wp-content/uploads/2015/09/UCAN_Taxonomy-1024x775.png) - Organized depiction of how features or information in the product relate to one another
   * [Content Governance Plans](https://image.slidesharecdn.com/contentstrategyin2015-150706154016-lva1-app6891/95/slide-43-1024.jpg) - Complete strategy for updating, revising and maintaining all content within the product
   
 ### Ending Notes
-The clearly-stated objectives and deliverables of each stage cumulates to a well-defined target audience and a well-designed prototype needed to match the expectations of that audience. UX Design requires empathy in the users' shoes and effort to address their problems, however all that is worth it in the grand scheme of delighting or even impressing users when they use your applications.
+The clearly-stated objectives and deliverables of each stage culminate in a well-defined target audience and a well-designed prototype needed to match the expectations of that audience. UX Design requires empathy in the users' shoes and effort to address their problems, however all that is worth it in the grand scheme of delighting users when they use your applications.
   
