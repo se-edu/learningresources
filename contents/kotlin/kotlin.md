@@ -11,9 +11,8 @@ Author: [Shradheya Thakre](https://github.com/tshradheya)
     * [Interoperable](#interoperable)
     * [Tool Friendly](#tool-friendly)
 * [Kotlin for Android Apps](#kotlin-for-android-apps)
-    * [Advantages of Shifting to Kotlin](#advantage-kotlin)
-    * [Drawbacks of Shifting to Kotlin](#drawbacks-kotlin)
-
+    * [Advantages of Shifting to Kotlin](#advantages-of-shifting-to-kotlin)
+    * [Drawbacks of Shifting to Kotlin](#drawbacks-of-shifting-to-kotlin)
 
 # Overview
 
