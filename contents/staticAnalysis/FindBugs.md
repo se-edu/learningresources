@@ -4,13 +4,13 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
 
 ## Overview
 
-FindBugs is a static analysis tool to find "bugs" in **Java** programme. It looks for "bug patterns" in the code and signals possible violations. Potential errors are classified in four ranks:
+FindBugs is a static analysis tool to find bugs in **Java** programs. It looks for 'bug patterns' in the code and signals possible violations. Potential errors are classified in four ranks:
 1. scariest
 1. scary
 1. troubling
 1. of concern
 
-This is a hint to the developer about their possible impact or severity. For example, the bug "null pointer dereference" has the pattern — A programme declares a non-nullable variable but assigns `null` to the variable somewhere and uses it later.
+This is a hint to the developer about their possible impact or severity. For example, the bug 'null pointer dereference' has the pattern — A program declares a non-nullable variable but assigns `null` to the variable somewhere and uses it later.
 
 ## Features
 
@@ -25,7 +25,7 @@ The "bug patterns" can be divided into nine groups:
 1. Security
 1. Dodgy code
 
-[A comprehensive list](http://findbugs.sourceforge.net/bugDescriptions.html) of bugs is provided to explain the meaning of each bug.
+Refer to [FindBugs official documentation](http://findbugs.sourceforge.net/bugDescriptions.html) for a comprehensive list of bugs and the explanation of each bug.
 
 FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. This is unlike [CheckStyle](checkStyle.md) or [PMD](PMD.md) which can only check files one by one and analyse Java source code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
 
@@ -55,7 +55,7 @@ The hashCode() and equals() method are called by many `Collection` based classes
 
 ### Return value of method ignored
 
-FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been
+FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been.
 
 ``` java
 1 String s = "bob";
@@ -123,7 +123,7 @@ On November 2016, FindBugs was [declared dead](https://mailman.cs.umd.edu/piperm
 
 The current projects using `FindBugs` can make a shift to `SpotBugs` by following the [migration manual](http://spotbugs.readthedocs.io/en/latest/migration.html)
 
-## Advanced Topic
+## Advanced Topics
 
 - [Data mining of bugs with FindBugs](http://findbugs.sourceforge.net/manual/datamining.html): The data for each analysis will be collected and you can use these statistics for data mining.
 - [Configure Analysis Properties](http://findbugs.sourceforge.net/manual/analysisprops.html#analysisproptable): You can define properties to configure options for some checks. For example, you can define the assertion methods in your project so that null pointer dereference bug detector will not raise violations if assertion methods are used.
