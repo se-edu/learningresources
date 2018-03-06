@@ -14,7 +14,7 @@ Author(s): [Darren Wee](https://github.com/darrenwee)
         - [How to Hide the Sausage](#how-to-hide-the-sausage)
     - [Respect Published History](#respect-published-history)
     - [Keep Up To Date](#keep-up-to-date)
-        - [Use Remotes Effectively](#use-remotes-effectively)
+        - [Working with Remotes](#working-with-remotes)
         - [Rebase versus Merging](#rebase-versus-merging)
 - [Resources](#resources)
     - [Further Reading](#further-reading)
@@ -38,7 +38,20 @@ Good commit messages can help:
     - while figuring out why a piece of code that is five years old is that way,
 
 ### What Constitutes a Good Commit Message
-The easiest way to attain commit message discipline is to stop putting in one-liner descriptions using `git commit -m "Add some things to that."`. Instead, use `git commit` and write a proper message in an editor.
+The easiest way to attain commit message discipline is to stop putting in one-liner descriptions using `git commit -m "Add some things to that."`. Instead, write a proper commit message in an editor:
+
+```bash
+# opens your editor to write a commit message properly
+git add files-to-stage
+git commit
+
+# like above, but shows the diff of the currently staged files
+git add files-to-stage
+git commit --verbose
+
+# amend the most recent commit message
+git commit --amend HEAD^
+```
 
 A good commit message can be formatted the following way:
 ```
@@ -70,22 +83,30 @@ Further paragraphs come after blank lines.
 
 Source: [A Note About Git Commit Messages by Tim Pope.](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 
+As a litmus test, you can try to read your commit message summary in the following manner:
+> If applied, this commit will <your commit message here>
+
+Commit messages need to be wrapped to 72 characters or less so that the entire message can be shown without overflow on a standard, 80-column terminal while leaving room for indents/nested reply indicators if you pass `.patch` or `.diff` files via traditional mailing list ([source](https://stackoverflow.com/a/2120040/5399892)).
+
 **Some Examples**
+- [se-edu/addressbook-level4](https://github.com/se-edu/addressbook-level4/commits/master)
 - [torvalds/subsurfance-for-dirk](https://github.com/torvalds/subsurface-for-dirk/commits/master)
 - [torvalds/linux](https://github.com/torvalds/linux/commits/master)
 
 ### Set Up Your Editor for Commit Messages
 1. To use your editor of choice for `git`-related functionality, e.g. `vim`, do one of either in your terminal:
-```
+```bash
 git config --global core.editor "vim" # or you can do the following
-export GIT_EDITOR=vim # add to your .rc
+export GIT_EDITOR=vim # add to your .bashrc or equivalent
 ```
+
 2. Set your editor to wrap after 72 characters. In `vim`, you can do this by adding this to your `.vimrc`:
-```
-syntax on
+```bash
 autocmd Filetype gitcommit spell textwidth=72
 ```
+
 ---
+
 ## Always Commit Functional Code
 Merges to the following must always leave the project in a working state, i.e. it can be built and run on:
 - `master` branch, or equivalent,
@@ -98,7 +119,7 @@ Changes to your own branches that is used by others should obey always-functioni
 ### Stashing
 If you need to switch between branches while in the middle of developing a commit, you can use the `git stash` command. Stashing saves the uncommitted changes made in your current working directly. This allows you to save your progress without having to commit non-functioning code.
 
-```
+```bash
 # stash your work not committed to HEAD yet by pushing it onto the stash stack
 git stash
 git stash push # equivalent to git stash
@@ -183,20 +204,44 @@ Always avoid rewriting the published history unless you are very sure of what yo
     - you are rebasing the branch
     - you are [cleaning up the history of your branch](#hide-the-sausage-making)
 
+A failed `git push` usually means that your local branch is behind its remote counterpart, indicating that the local and remote branches have diverged.
+
+```bash
+$ git push origin my-branch
+To git@github.com:foo/foo.git
+ ! [rejected]        my-branch -> my-branch (non-fast-forward)
+error: failed to push some refs to 'git@github.com:foo/foo.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+Alternatively, you may also see this when a branch diversion has occurred when you run `git status`.
+
+```bash
+$ git status
+Your branch and 'origin/my-branch' have diverged,
+and have 3 and 5 different commit(s) each, respectively.
+```
+
+You can override this by [making a force push](https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files), i.e. `git push --force` but that would result in rewriting the published history or overwrite changes in the divergent remote commits. Observe the guidelines and ensure that the force push can be made in good faith with respect to your collaborators.
+
 Read more:
 - [Rewriting History - Atlassian](https://www.atlassian.com/git/tutorials/rewriting-history)
 - [Don't change public history.](https://sethrobertson.github.io/GitBestPractices/#pubonce)
+- [Force "git push" to overwrite remote files - StackOverflow](https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files)
 
 ---
 
 ## Keep Up To Date
-### Use Remotes Effectively
+### Working with Remotes
 _Remotes_ refer to versions of the project you are working on that are hosted elsewhere, usually on the Internet. Remotes are very handy for managing collaboration, e.g. if you have to keep your code in sync with the `upstream` branch of the project, or if you need to pull code from someone else which may not be merged yet.
 
 You can have as many remotes as you want, each possibly being read-only or with read/write privileges.
 
 Remotes are managed using the `git remote` command.
-```
+```bash
 # view all remotes
 git remote -v
 
@@ -206,6 +251,12 @@ git remote add upstream https://github.com/TEAMMATES/teammates
 # branch off from the master branch of the upstream repository
 git fetch upstream # get data from upstream repo
 git checkout -b your-fancy-branch upstream/master # makes a new branch off the head of upstream/master
+
+# change the URL for the upstream remote from HTTPS to SSH
+git remote set-url upstream git@github.com:TEAMMATES/teammates.git
+
+# remove a remote named "upstream"
+git remote remove upstream
 ```
 
 Read more:
@@ -213,7 +264,7 @@ Read more:
 
 ### Rebase versus Merging
 | You should... | When ... |
-|-------------|-|
+|---------------|----------|
 | merge | you created a branch to develop a feature, and now you want these changes to be inside `master` |
 | rebase | you created a branch from `master` to develop a feature, and someone else pushed a change to `master` before you finished |
 
@@ -222,7 +273,7 @@ It is generally considered good practice to rebase your feature branch onto what
     - makes backtracking easier
     - easy to follow history
     - reverting/rolling back is much simpler
-    - you can use `git bisect` to find regressions easily
+    - you can use `git bisect` to find regressions on your branch easily without involving unrelated changes from `master`
 - ensures your changes are compatible with the head of the branch you're patching
 - makes reviewing/testing easier by [not including irrelevant code by merging](https://lwn.net/Articles/328436/)
 
@@ -245,6 +296,7 @@ These are the resources used in the writing of this chapter, as well as any addi
 - [When is a version control commit too large?](https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large)
 - [Commit only part of a file in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git) _this is useful to use as a cheatsheet during interactive staging_
 - [When do you use git rebase instead of git merge - StackOverflow](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178)
+- [Force "git push" to overwrite remote files - StackOverflow](https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files)
 
 - [Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
 - [Git Basics - Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
@@ -256,3 +308,4 @@ These are the resources used in the writing of this chapter, as well as any addi
 ## Further Reading
 - [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
 - [Pro Git](https://git-scm.com/book/en/v2)
+- [The most useful git commands](https://orga.cat/posts/most-useful-git-commands)
