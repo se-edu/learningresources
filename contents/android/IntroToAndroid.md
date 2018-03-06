@@ -36,23 +36,23 @@ The official programming language for Android development is Java, however, Andr
 ### 2.2 App Components
 
 App components are building blocks of an Android app.
-1. Activities
+#### Activities
 An `Activity` represents a single screen with a user interface. For example, an event app could have an `Activity` to login, an `Activity` to view the event schedule and another `Activity` to search for locations.
 
-1. Layouts
+#### Layouts
 `Layouts` defines a user interface structure for an `Activity`. They specify how each child   `View` will be placed. For example, [ConstraintLayout](https://developer.android.com/training/constraint-layout/index.html) allows you to define constraints between views that will lead to a more responsive UI. Often, apps also need to display a scrolling list of elements and this is where [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview.html) comes in handy. You can build a `Layout` easily using [Android Layout Editor](https://developer.android.com/studio/write/layout-editor.html).
 For further information, Google I/O 2016 introduces `Layouts` in [this video](https://www.youtube.com/watch?v=sO9aX87hq9c&t=207s).
 
-1. Fragments
+#### Fragments
 `Fragments` are like 'mini-activities'. They are re-usable components that "sit" on top of an `Activity`, breaking down a huge `Activity` into smaller components. For example, a scrolling list on the left of a `Activity` can be a `Fragment` and a display box on the right of the same `Activity` can be another `Fragment`. Tablets and handsets can choose to display these fragments differently due to the difference in screen size. Learn more about `Fragments` in [this video from Google I/O 2016](https://www.youtube.com/watch?v=k3IT-IJ0J98&t=618s) which tries to clarify when a `Fragment` should be used over a `View`.
 
-1. Services
+#### Services
 A `Service` performs long-running operations in the foreground or background, and it does not provide a user interface. For example, a `Service` can play audio in the foreground or download data in the background. Read more at the [Services](https://developer.android.com/guide/components/services.html) page in the Android Developer Guides.
 
-1. Broadcast receivers
+#### Broadcast receivers
 A `Broadcast Receiver` allows the app to register for events sent by the System, events sent by another application or events sent within the same application. Even if the app is inactive, the app is able to respond to system-wide broadcast announcements. Read more at the [Broadcasts](https://developer.android.com/guide/components/broadcasts.html) page.
 
-1. Content providers
+#### Content providers
 A `Content provider` abstracts the data layer, encapsulating data and allowing for data security. Read more at the [Content providers](https://developer.android.com/guide/topics/providers/content-providers.html) page.
 
 ### 2.3 Activity Lifecycle
@@ -77,15 +77,26 @@ public class MainActivity extends Activity {
 ```
 
 ### 2.4 MVVM and Architecture Components
-At Google I/O 2017, [Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html) were introduced to help developers solve common issues by following best practices and implementing recommended architecture. Some examples of useful components for developers include the `LiveData` observable data holder class. Android apps usually use [RxJava](https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava) to do [reactive programming](https://blog.mindorks.com/rxjava-anatomy-what-is-rxjava-how-rxjava-is-designed-and-how-rxjava-works-d357b3aca586), which extends the `observable pattern` of Software Engineering. However, now with `LiveData`, we are able to create observables that are `lifecycle-aware`, only updating app components that are active. This prevents memory leaks and crashes. For more information, see the [LiveData page](https://developer.android.com/topic/libraries/architecture/livedata.html).
+At Google I/O 2017, [Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html) were introduced to help developers solve common issues by following best practices and implementing recommended architecture.
 
+#### LiveData
+Some examples of useful components for developers include the `LiveData` observable data holder class. Android apps usually use [RxJava](https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava) to do [reactive programming](https://blog.mindorks.com/rxjava-anatomy-what-is-rxjava-how-rxjava-is-designed-and-how-rxjava-works-d357b3aca586), which extends the `observable pattern` of Software Engineering. However, now with `LiveData`, we are able to create observables that are `lifecycle-aware`, only updating app components that are active. This prevents memory leaks and crashes. For more information, see the [LiveData page](https://developer.android.com/topic/libraries/architecture/livedata.html).
+
+#### ViewModel
 Another very useful component is the `ViewModel` component. It manages and store UI data in a `lifecycle-aware` way, allowing data to be retained during configuration changes such as screen rotations. Using normal UI controllers require data to be saved and then restored, but this is not practical for large amounts of data. For more information, see the [ViewModel page](https://developer.android.com/topic/libraries/architecture/viewmodel.html).
 
-Previously, Android apps were usually developed using the Model-View-Presenter (MVP) pattern, which is a derivative from the popular Model-View-Controller (MVC) pattern. However, this will change with the above `LiveData` and `ViewModel` components. Now, we can create apps that follow the `Model-View-ViewModel` (MVVM) architecture instead. The `ViewModel` component provided by Android serves as a good base for our ViewModel in the MVVM architecture. Our ViewModel in MVVM will interact with the Model and manages and store data to be observed by a View. The ViewModel is not aware about the View that is getting data from it to update the UI and thus it is decoupled from the View. This is very unlike the Presenter in the MVP pattern, which directly manipulates the View. To read more about the MVVM architecture in Android apps, see this [tutorial](https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1).
+#### How does this link to MVVM?
+Previously, Android apps were usually developed using the `Model-View-Presenter` (MVP) pattern, which is a derivative from the popular Model-View-Controller (MVC) pattern. However, this will change with the above `LiveData` and `ViewModel` components. Now, we can create apps that follow the `Model-View-ViewModel` (MVVM) architecture instead. The `ViewModel` component provided by Android serves as a good base for our ViewModel in the MVVM architecture. Our ViewModel in MVVM will interact with the Model and manages and store data to be observed by a View. The ViewModel is not aware about the View that is getting data from it to update the UI and thus it is decoupled from the View. This is very unlike the Presenter in the MVP pattern, which directly manipulates the View. To read more about the MVVM architecture in Android apps, see this [tutorial](https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1).
 
 
 ### 2.5 Testing
-Test-driven development was [encouraged](https://www.youtube.com/watch?v=pK7W5npkhho) by Google in their Google I/O 2017 due to the release of the `Android Testing Support Library`. You can read more about the library [here](https://developer.android.com/topic/libraries/testing-support-library/index.html). Unit testing is usually done using [Mockito](http://site.mockito.org/), a popular mocking library for unit tests in Java. Due to the difficulty of mocking the Android SDK to create unit tests, [Robolectric](http://robolectric.org/) was developed to solve this issue. Robolectric can still be used alongside Mockito and handles emulation UI code such that such tests that rely on the UI can be run on JVM rather than having to use an emulator. Integration testing and end-to-end testing is usually done using Espresso.
+Test-driven development was [encouraged](https://www.youtube.com/watch?v=pK7W5npkhho) by Google in their Google I/O 2017 due to the release of the `Android Testing Support Library`. You can read more about the library [here](https://developer.android.com/topic/libraries/testing-support-library/index.html).
+
+#### Unit Testing and Mocking
+Mocking is usually needed in unit testing to simulate the behaviour of real objects (that are dependencies) to verify the behaviour of the object that you are testing. In Android app development, [Mockito](http://site.mockito.org/), a popular mocking library for unit tests in Java, is often used. However, due to the difficulty of mocking the Android SDK to create unit tests, [Robolectric](http://robolectric.org/) was developed to solve this issue. Robolectric can still be used alongside Mockito. The benefit of Robolectric is that it handles emulation UI code such that tests that rely on the UI can be run on the Java Virtual Machine (JVM) rather than having to run them on an emulator. In other words, tests can be written and run faster.
+
+#### Integration Testing
+Integration testing and end-to-end testing is usually done using [Espresso](https://developer.android.com/training/testing/espresso/index.html). You can even record your own UI tests using the [Espresso Test Recorder](https://developer.android.com/studio/test/espresso-test-recorder.html) to save time! Be sure to check out the Espresso [cheatsheet](https://developer.android.com/training/testing/espresso/cheat-sheet.html) for easy writing of tests.
 
 
 ## 3. Further Readings
@@ -94,3 +105,4 @@ Going further, it will be useful to know about:
 *   [RxJava](https://medium.com/@kevalpatel2106/code-your-next-android-app-using-rxjava-d1db30ac9fcc)
 *   [Realm](https://realm.io/)
 *   [Android Debug Bridge](https://developer.android.com/studio/command-line/adb.html)
+*   [Advanced Android Expresso](https://academy.realm.io/posts/chiu-ki-chan-advanced-android-espresso-testing/)
