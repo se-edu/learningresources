@@ -24,6 +24,7 @@
 * [Performance](performance/Performance.md)
   * [Performance Profiling](performance/PerformanceProfiling.md)
 * Project Management
+  * [Agile Development](projectManagement/AgileDevelopment.md)
 * Requirements
 * Revision Control
 * [Scalability](scalability/scalable-development.md)
