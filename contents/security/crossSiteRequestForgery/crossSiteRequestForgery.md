@@ -68,7 +68,7 @@ From the example, we can see that a CSRF attack works by forging a valid request
 2. The victim is authenticated to the target website.
 3. The victim is tricked to visit an untrusted website by social engineering.
 
-*Note: [Social engineering](https://en.wikipedia.org/wiki/Social_engineering_%28security%29) refers to psychological manipulation of people into performing actions. In our example, Eve shares a link with a description that matches Alice's interest, which increases the chance that Alice will follow the link. Thus, this action is a formof social engineering.*
+*Note: [Social engineering](https://en.wikipedia.org/wiki/Social_engineering_%28security%29) refers to psychological manipulation of people into performing actions. In our example, Eve shares a link with a description that matches Alice's interest, which increases the chance that Alice will follow the link. Thus, this action is a form of social engineering.*
 
 ## Defense against CSRF attacks
 
