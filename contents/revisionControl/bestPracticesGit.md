@@ -84,7 +84,7 @@ Further paragraphs come after blank lines.
 Source: [A Note About Git Commit Messages by Tim Pope.](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 
 As a litmus test, you can try to read your commit message summary in the following manner:
-> If applied, this commit will <your commit message here>
+> If applied, this commit will `your commit message here`
 
 Commit messages need to be wrapped to 72 characters or less so that the entire message can be shown without overflow on a standard, 80-column terminal while leaving room for indents/nested reply indicators if you pass `.patch` or `.diff` files via traditional mailing list ([source](https://stackoverflow.com/a/2120040/5399892)).
 
