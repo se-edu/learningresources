@@ -51,6 +51,7 @@ if(playPercentage >= 0 && playPercentage <= 24) {
 ```
 
 ### Safe
+
 Kotlin protects you from mistakenly operating on nullable types
 - Get compilation error when you mistakenly try operating on nullable types
 ``` kotlin
