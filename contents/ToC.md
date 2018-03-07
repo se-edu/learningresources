@@ -8,6 +8,7 @@
   * [Java Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
 * [JavaScript](javascript/javascript.md)
+  * [VueJS](javascript/VueJs)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
 * [Swift](swift/welcome-to-swift.md)
