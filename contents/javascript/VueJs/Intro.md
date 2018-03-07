@@ -77,3 +77,9 @@ Remember, we can only use the vue data inside the component with id "root" as we
 Open the brower and we will see "Hello World" being displayed.
 
 More usages of VueJs please read the other documents in the other files of the current folder.
+
+## References
+
+- [Inversion of Control](http://martinfowler.com/bliki/InversionOfControl.html)
+- [Differences Between Library and Framework](http://www.c-sharpcorner.com/UploadFile/a85b23/framework-vs-library/)
+- [VueJS Official Website](https://vuejs.org/)
