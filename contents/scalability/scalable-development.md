@@ -3,7 +3,7 @@
 Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan
 
 ## Scalable Development
-When Pokémon Go first launched in 2016, the heavy traffic from users caused its servers to crash as the server was built to handle a expected maximum of five times the storage size instead of the reality which was fifty times the initial estimate. However, as of 2017, Google handles at least 3.5 billion searches daily, Whatsapp handles at least 10 billion messages a day, and Facebook hosts 1.2 billion daily active users. What makes these companies different?
+When Pokémon Go first launched in 2016, the heavy traffic from users caused its servers to crash as the server was built to handle an expected maximum of five times the storage size instead of the reality which was fifty times the initial estimate. However, as of 2017, Google handles at least 3.5 billion searches daily, Whatsapp handles at least 10 billion messages a day, and Facebook hosts 1.2 billion daily active users. What makes these companies different?
 
 The key difference is their server infrastructure. A scalable server allows a company to provide reliable service even as the user base increases. Even if your service might not have to cater to millions of users at the moment, designing scalable software now will reduce the need to restructure the entire backend when the need arises.
 
@@ -35,23 +35,34 @@ There are many program profilers available that you can use to find the bottlene
 
 1. More details on the common performance bottlenecks ([resource](https://www.apicasystem.com/blog/5-common-performance-bottlenecks))
 
-1. Non-Relational Database ([resource](http://www.jamesserra.com/archive/2015/08/relational-databases-vs-non-relational-databases)) ([resource](https://www.pluralsight.com/blog/software-development/relational-non-relational-databases))
+1. Relational vs Non-Relational Database ([resource](http://www.jamesserra.com/archive/2015/08/relational-databases-vs-non-relational-databases)) ([resource](https://www.pluralsight.com/blog/software-development/relational-non-relational-databases))
 
 ### Caching
-With an increasing user base, your server has to deal with a larger number of requests along with the bottlenecks mentioned previously such as network congestion and database querying. As a result, the response becomes slower. This is where caching comes inorder to meet this demand. A cache is a key-value store that resides between the application and the database which can either be in the browser or part of your server infrastructure itself. By retrieving data from the cache instead of the database, the response time reduces greatly.
+With an increasing user base, your server has to deal with a larger number of requests along with the bottlenecks mentioned previously such as network congestion and database querying. As a result, the response becomes slower. This is where caching comes in order to meet this demand. A cache is a key-value store that resides between the application and the database which can either be in the browser or part of your server infrastructure itself. By retrieving data from the cache instead of the database, the response time reduces greatly.
 
-The next thing to consider is what to cache. The rule of thumb is to cache data that is frequently accessed and read more often than it is updated. With this, cache hits would be more often than cache misses and as a result, the speed increase would outweigh the cost of maintaining the cache.  
+The next thing to consider is what to cache. The rule of thumb is to cache data that is frequently accessed and read more often than it is updated. With this, cache hits would be more often than cache misses and as a result, the time saved from faster accesses and reads outweighs the extra time taken to populate the cache.  
 
-1. A beginner's guide to scalability using caches which also describes in more detail on what to cache and how to do so ([resource](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache))
+1. Scalability using caches ([resource](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache))
 
 1. Scalability best practices ([resource](https://www.infoq.com/articles/ebay-scalability-best-practices))
 
+### Sharding 
+As your traffic increases your data increases as well and as a result, your database gets overloaded. One way to mitigate this is to scale your database by sharding. Sharding is a method of splitting and storing a single logical dataset in multiple databases. More specifically, it is the storing of data horizontally - storing rows of a same table in multiple database nodes instead of storing them in the usual vertical way - storing different tables & columns in a separate database.
+
+Sharding is essential when your dataset becomes too large to store in a single database. It reduces the number of rows in each table and as such improves search performance since the search is done on a smaller table. 
+
+Querying the databases containing only the relevant partitions becomes possible as well. For instance, if a database contains a column for age, then you can partition the rows according to an age group and store them in different databases. Whenever there is a need to access the data of a particular age group, instead of querying the whole database, you just need to query the partition that contains that age group. This allows your database to scale along with your data and traffic growth.
+
+1. How Sharding Works ([resource](https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6))
+
+1. A StackOverflow post on Sharding ([resource](https://stackoverflow.com/questions/992988/what-is-sharding-and-why-is-it-important))
+
 ### Go Asynchronous 
-Unlike synchronous operations, which runs sequentially and waits for the previous operation to complete before moving on to the next, asynchronous operations run in parallel, so they do not wait for prior operations to finish before running. Instead, they continue and allow other operations to finish.
+Unlike synchronous operations, which runs sequentially and waits for the previous operation to complete before moving on to the next, asynchronous operations are non-blocking and operate independently of each other instead. As a result other operations do not have to wait for asynchronous operations to finish.
 
-If one component A calls another component B synchronously, they are tightly coupled as both components depend on each other. As a result, to scale A, you must also scale B. By using asynchronous operations, components are decoupled and can be scaled independently of one another.
+If one component A calls another component B synchronously, they are tightly coupled. As a result, to scale A, you must also scale B. By using asynchronous operations, components are decoupled and can be scaled independently of one another.
 
-In situations in which responding to request is crucial, asynchronous operations can reduce the latency experienced by the requester. This is done by prioritising the quickness of the response to the user over the speed of other processes such as execution latency (how quickly we get everything done). For instance, rather than waiting for some processes such as tracking the user's activity for recommending products in the near future to finish, it's better to asynchronously update the user interface and then finish these processes. In this way, the user experiences lesser latency.
+In situations in which responding to request is crucial, asynchronous operations can reduce the latency experienced by the requester. This is done by prioritising the quickness of the response to the user over the speed of other processes such as execution latency (how quickly the request is processed). For instance, rather than waiting for some processes such as downloading the requested file to finish, it's better to asynchronously update the user interface and then finish these processes. In this way, the user experiences lesser latency since the user interface is updated instantly instead of appearing to have crashed due to waiting for the downloaded file.
 
 1. An overview of how asynchronous programming works with concepts such as event loops and callbacks, explained using Javascript  ([resource](https://www.youtube.com/watch?time_continue=2&v=8aGhZQkoFbQ))
 
