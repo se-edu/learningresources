@@ -3,7 +3,7 @@
 Author: [Pan Haozhe](https://github.com/Haozhe321)
 
 # Overview
-Another part of this book chapter gives an introduction to Kotlin. This particular piece aims to discuss the null safety feature in Kotlin, and what was previously missing in Java.
+Another part of this book chapter gives an introduction to Kotlin. This piece aims to discuss the null safety feature in Kotlin, and what was previously missing in Java.
 
 # The Billion Dollar Mistake
 “I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with **checking performed automatically by the compiler**. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”  
@@ -67,9 +67,9 @@ secondString = null //okay
 In the first case, we can safely call `firstString.length` without having to worry about a NPE because `firstString` can never be `null`. In the second case, `secondString` can potentially be `null`, so `secondString.length` will result in a compilation error as the compiler see the danger of such statement and blocks it early.
 
 # Operators in Kotlin
-Although non-nullable type is a strong feature in Kotlin, the interoperability with Java means that we have to use variables as nullable type sometimes. In the previous section, we seem to have hit a roadblock as the compiler blocks the call to `secondString.length`. In this section we look at two ways of overcoming this problem.
+Although non-nullable type is a strong feature in Kotlin, the interoperability with Java means that we have to use variables as nullable type sometimes. In the previous section, we seem to have hit an obstacle as the compiler blocks the call to `secondString.length`. In this section we look at some ways of overcoming this problem.
 ## Safe call operator
-Represented by `?.`, the safe call operator is used like this   
+Represented by `?.`, the safe call operator is used in this way  
 ```kotlin
 secondString?.length
 ```
@@ -81,17 +81,41 @@ bob?.department?.manager?.name
 ```
 This chain will return `null` if any of the variables inside the chain is `null`.
 
+## Elvis Operators
+Represented by `?:`, the Elvis operator is used in this way
+```kotlin
+val length = secondString?.length ?: -1
+```
+If the expression to the left of `?:` is not null, the Elvis operator will return it as it is; else it will return a default value supplied (-1 in this case).
+
+We also notice the use of safe call operator together with Elvis operator in the same statement.
+
+But the Elvis operator is more powerful than this. `return` and `throw` statements are legitimate default values on the right side of the Elvis operator. For example:
+```kotlin
+fun myFunc(node: Node): String? {
+    val parent = node.getParent() ?: return null
+    val name = node.getName() ?: throw IllegalArgumentException("Name expected")
+    // ...
+}
+```
+
+At this point you may ask, What if I still want my NPE?
+
+## Not-null assertion operator
+Represented by `!!`, the not-null assertion operator is used in this way
+```kotlin
+val stringLength = secondString!!.length
+```
+The operator converts any value to a non-null type and throws an exception if the value is null. In the above example, stringLength will be assigned the length of secondString if secondString is not `null`; if secondString is `null`, a NPE is thrown. In Kotlin, NPE are explicitly asked for.
 
 
+# Summary
+1. Kotlin makes your applications safer by allocating more work to the complier, instead of failing in the hands of the users. 
+2. If you expect your object to **not** take on a `null` value, make it a non-null type!
+3. Even if you make your object a nullable type, Kotlin handles it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier(with the help of Elvis operator).
 
 
-# Advanced topics
-
-## Reflection
-1. If you expect your object to **not** take on a `null` value, make it a non-null type!
-2. Even if you make your object a nullable type, Kotlin makes it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier.
-
-// Reflection overview
-
-
-// Learning resources
+# Learning resources
+* [Null Safety in Kotlin](https://kotlinlang.org/docs/reference/null-safety.html)
+* [Comprehensive Guide to Null Safety in Kotlin](http://www.baeldung.com/kotlin-null-safety)
+* [The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
