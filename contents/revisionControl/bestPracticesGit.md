@@ -31,11 +31,13 @@ Best practices are guidelines that are mostly sensible, but are still guidelines
 ---
 
 ## Write Good Commit Messages
-Good commit messages can help:
-- reviewers to understand the high-level changes in your pull request/patch
-- others to understand your reasoning behind the changes made by that commit,
-    - while reviewing your code,
-    - while figuring out why a piece of code that is five years old is that way,
+Good commit messages can help reviewers or other contributors to understand:
+- the high-level changes made by your pull request/patch
+- the reasoning behind the changes made by that commit while
+    - reviewing your code
+    - figuring out why a piece of code that is five years old is that way
+
+They also assist you in the development process if you forget what has been done, or if you need to cherry-pick commits for elsewhere.
 
 ### What Constitutes a Good Commit Message
 The easiest way to attain commit message discipline is to stop putting in one-liner descriptions using `git commit -m "Add some things to that."`. Instead, write a proper commit message in an editor:
