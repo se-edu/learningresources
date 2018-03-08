@@ -26,8 +26,15 @@ Here are some cool features that you might not be familiar with but would defini
 Swift supports type inference whereby the compiler automatically deduces the type of a variable during compilation by examining the values assigned to it.
 
 ```swift
-let str1: String = "foo"
-let str2 = "foo" // compiler infers that str2 is of type String
+var str1: String = "foo"
+var str2 = "foo" // compiler infers that str2 is of type String
+```
+
+Do note that variables in Swift are statically typed.
+
+```swift
+var str2 = "foo" // compiler infers that str2 is of type String
+str2 = 5 // compilation error
 ```
 
 ## Optionals
