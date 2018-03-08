@@ -158,9 +158,27 @@ You can think of Structs as a way to create instances that have their own unique
 
 If you wish to find out more, here is an [article](https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2) that explains the difference between the 2 types, as well as the benefits of value types and when to use them.
 
-## Enum
+## Enums
 
-Swift's enums can have associated values. This enables you to store additional custom information along with the case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum `Barcode` with case values `upc` and `qrCode`. We want to be able to distinguish within each value as each `upc` and `qrCode` can take on different values:
+An enum is a data type that represents of a set of values. For example, we can use `String` to represent the possible types of a barcode. However, this allows us to assign invalid values to it:
+
+```swift
+var barcode = "qzCode" // supposed to be "qrCode", but we accidentally assigned an invalid value
+```
+
+As such, we create an enum to restrict the values that we can assign to a barcode.
+
+```swift
+enum Barcode {
+    case upc
+    case qrCode
+}
+
+var barcode = Barcode.qrCode 
+barcode = Barcode.qzCode // compilation error
+```
+
+Swift's enums can have associated values. This enables you to store additional custom information along with each case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum `Barcode` with case values `upc` and `qrCode`. We want to be able to distinguish within each value as each `upc` and `qrCode` can take on different values:
 
 ```swift
 enum Barcode {
@@ -182,8 +200,6 @@ let barcode2 = Barcode.qrCode("bar")
 barcode1.printCode() // prints "QR code: foo."
 barcode2.printCode() // prints "QR code: bar."
 ```
-
-Do note that every `switch` statement must be exhaustive; all possible values must be matched by one of the `switch` cases. Otherwise, you have to define a `default` case to handle any values that are unmatched. Also, notice that no `break` statement is required in between each `switch` case as Swift does not support implicit fallthrough. Take a look at [Swift's documentation on Control Flow](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html) to find out more.
 
 Also, enums with associated values is not supported in languages such as [Java](https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum), and using a workaround to implement enums with associated values results in code verbosity. Take a look at [Swift's documentation on Enums](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html) for more information about enums.
 
