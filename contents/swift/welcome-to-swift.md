@@ -70,7 +70,7 @@ func yearAlbumReleased(name: String) -> Int? {
 }
 ```
 
-### Optional Binding
+## Optional Binding
 
 And here is how you unwrap the Optional safely:
 
