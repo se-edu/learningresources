@@ -1,0 +1,97 @@
+# Null Safety in Kotlin
+
+Author: [Pan Haozhe](https://github.com/Haozhe321)
+
+# Overview
+Another part of this book chapter gives an introduction to Kotlin. This particular piece aims to discuss the null safety feature in Kotlin, and what was previously missing in Java.
+
+# The Billion Dollar Mistake
+“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with **checking performed automatically by the compiler**. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”  
+-Tony Hoare  
+
+
+# NullPointerException
+As we know, Kotlin is now supported as the official language of Android applications. When developing Android applications in Java, NullPointerException(NPE) was a big problem. In fact, About one third of app crashes can be attributed to NPE. To see how it happens, let's take a look at the piece of Java code below:
+
+```java
+String a = null;
+if(a.length > 5) {
+    //do something
+}
+```
+When the above code is ran, a NPE will be thrown on line 2 because a `null` object has no methods. To prevent an object from taking on a `null` value, programmers resort to doing additional checks like this:
+```java
+String a = null;
+if(a != null) {
+    if(a.length > 5) {
+        //do something
+    }
+}
+```
+And of course, that's all fine, until we want to do something more complex. Say Bob belongs to a department, and we want to get the name of the department manager. That will look like this:
+```java
+String managerName = bob.department.manager.name;
+```
+
+Because each variable can be `null`, to prevent the NPE we put the code in the following code block:
+```java
+if(bob != null) {
+    Department department = bob.department;
+    if(department != null) {
+        Employee manager = department.manager;
+        if(manager != null) {
+            String name = manager.name;
+            if(name != null) {
+                //do something
+            }
+        }
+    }
+}
+```
+The deep-nested `if` statement adds to the verbosity of our code. Let's see how Kotlin deals with this issue.
+
+# Nullable and Non-nullable type
+In Kotlin, a type can be nullable or non-nullable, determined by the presence of a `?`. For example, an object of type `String` is non-nullable, while an object of type `String?` is nullable.  
+
+As the compiler catches `null` assignments to non-nullable object, the following would result in compilation error.
+```Kotlin
+var firstString: String = "hello world"
+firstString = null //compilation error
+```
+In comparison, the following assignment to a nullable type is allowed
+```Kotlin
+var secondString: String? = "hello world"
+secondString = null //okay
+```
+
+In the first case, we can safely call `firstString.length` without having to worry about a NPE because `firstString` can never be `null`. In the second case, `secondString` can potentially be `null`, so `secondString.length` will result in a compilation error as the compiler see the danger of such statement and blocks it early.
+
+# Operators in Kotlin
+Although non-nullable type is a strong feature in Kotlin, the interoperability with Java means that we have to use variables as nullable type sometimes. In the previous section, we seem to have hit a roadblock as the compiler blocks the call to `secondString.length`. In this section we look at two ways of overcoming this problem.
+## Safe call operator
+Represented by `?.`, the safe call operator is used like this   
+```kotlin
+secondString?.length
+```
+This returns the length of `secondString` if `secondString` is not `null`, and `null` otherwise.
+
+Now we can chain like this
+```Kotlin
+bob?.department?.manager?.name
+```
+This chain will return `null` if any of the variables inside the chain is `null`.
+
+
+
+
+
+# Advanced topics
+
+## Reflection
+1. If you expect your object to **not** take on a `null` value, make it a non-null type!
+2. Even if you make your object a nullable type, Kotlin makes it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier.
+
+// Reflection overview
+
+
+// Learning resources
