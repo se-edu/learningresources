@@ -2,106 +2,129 @@
 
 Author: Daniel Berzin Chua
 
-In Javascript, there are times where an operation may not resolve instantly and as such, the code may not run in the sequence that you would expect due this asynchronous nature. It can be especially confusing for beginners learning Javascript.
+## Why Promises?
 
-In Javascript, there are times where an operation is executed asynchronously and its result may not be obtained immediately, unlike synchronous functions with a return value. It can be especially confusing to trace the code as it may not run in the sequence that you would normally expect.
+In Javascript, there are times where an operation may not return a value immediately.
+It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.
 
-We'll use `setTimeout()` as an example of this behaviour. This is an asynchronous function takes in 2 parameters, a callback and a time (in milliseconds) to wait before the callback is executed. A callback is a function that is passed as a parameter to another function (call this A), and it will be executed after A finishes. 
+Think about making a HTTP request to a website: There's a round trip time that involves the time for request to be sent to the server you are querying, and the time for the server to send the response back to you. It may take varying amounts of time depending on your internet speed and location.
+This is known as an asynchronous operation, as the response isn't returned immediately. Compare this to a synchronous operation, where a value is returned near instantly after the operation is called.
 
-The following code snippet logs `Hello World` after 1 second has elapsed. The function that encapsulates the `console.log()` is the callback function.
+Asynchronous operations such as the above can cause programming and debugging to be difficult, because you would need some sort of way to know when the operation has finished, or in the case of debugging, when exactly the operation is called.
+
+To illustrate this problem in code, we'll use `setTimeout()` as an example. This is an asynchronous function takes in 2 parameters, a callback and a time (in milliseconds) to wait before the callback is executed. A callback is a function that is passed as a parameter to another function (call this A), and it will be executed after A finishes.
+
+In the following code snippet, you would probably expect `console.log(x)` to print `I have been updated`. Unfortunately, it prints `I have not been updated.` Give it a try in Google Chrome's developer console.
 
 ```javascript
 
+var x = "I have not been updated";
+
 setTimeout(function (){
-	console.log("Hello World");
+    x = "I have been updated";
+}, 1000);
+
+console.log(x);
+
+```
+
+To fix this, we can simply shift the `console.log(x)` into the callback to get the expected result. It will now print the correct value.
+
+```javascript
+
+var x = "I have not been updated";
+
+setTimeout(function (){
+    x = "I have been updated";
+    console.log(x);
 }, 1000);
 
 ```
 
-Javascript is at its core, a synchronous and single-threaded language but it is able to provide the illusion of asynchronicity through a construct known as the Event Loop. This is a loop that allows asynchronous functions to be queued for execution later on. Further information about the Event Loop can be found at [Mozilla's Event Loop documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop).
+However, this fix will only go so far. If we had another `setTimeout()` that depended on the result of the earlier `setTimeout()`, we would have to nest the functions within each other which would make for unreadable code if the nesting is too deep. An extreme example of this is known as callback hell, which is elaborated on in the Benefits section of this chapter.
 
-Another pertinent example of asynchronicity is HTTP requests. When making a HTTP request, the information from the server is not instantly returned as there is a round trip time that involves the time taken for the request to be sent, and for the response from the server to be sent back to the client. In this time, Javascript would not necessarily wait for the response to be received, but instead execute other functions first, even if those functions depend on the result of that HTTP response.
+We can instead use Promises for cleaner code that would be easier to write and debug.
 
-In the code snippet below, `console.log(price)` would return undefined as the asynchronous `retrievePrice()` function has not finished executing.
+## What is a Promise?
+Promises in Javascript behave the same way as Promises do in real life. Imagine that your friend promises to return you money that you have lent him. At the time this promise was made, you would not know if your friend would really return your money. Your friend could either return your money on time, or he could just not do it.
+These situations correspond to the 3 states of Promises in Javascript.
 
-```javascript
-var price;
-price = retrievePrice("https://www.amazon.com/gp/product/B009S331VU/");
-console.log(price);
-
-```
-
-Actual Execution Flow:
-![Image](asyncRequestSequence.png)
-
-Since `retrivePrice()` is a non-blocking function and it's only handled after the `console.log()` has executed, there must be a way to ensure that these functions are executed in the sequence that's desired.
-
-This is where Promises come in handy.
+| State | Description |
+| ------ | ----------- |
+|Pending | You don't know if he would return your money. |
+|Fulfilled | He returned your money. |
+|Rejected | He refused to return your money. |
 
 
-## Introduction
-Promises in Javscript behave the same way as Promises do in real life. It is a proxy for a value that is not known at the time of Promise creation. It has 3 states: pending, fulfilled and rejected. Promises provide the power to control the execution flow of your program by allowing the user to wait for a promise to be resolved before carrying on with the rest of the program execution.
+Promises provide the power to control the execution flow of your program by allowing  to wait for a promise to be resolved before carrying on with the rest of the program execution.
 
-## How to use Promises
+## How Promises are used
 
-The Promise API is only supported natively from ES6 onwards, which is the version that modern browsers support. The code below will thus work in any modern browser and also in Node.js (from version 6). 
+There are many interesting ways to use Promises. The following examples are written with Node.js.
 
+### HTTP Requests
 
-Promises are created in Javascript by using the `new` constructor as follows:
+Earlier in this chapter, I mentioned how HTTP requests are asynchronous operations. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for the response to be returned.
+
+The following code sends a request to an Amazon product URL and retrieves the price of the product using Promises.
 
 ```javascript
 
-var myFirstPromise = new Promise(function(resolve, reject) {
-    // insert stuff to do here
-    // The promise is currently 'pending'
-})
+const request = require('request');
+const cheerio = require('cheerio');
+
+function getPriceFromUrl(prodLink) {
+    return new Promise(function(resolve, reject) {
+        request(
+            {
+                url: prodLink,
+                method: 'get',
+            },
+            function (err, res, body) {
+                const $ = cheerio.load(body);
+                let price = $('#priceblock_ourprice').text().trim();
+                if (price === '') {
+                    reject('Failed to retrieve data');
+                }
+                else resolve(price);
+            }
+        );
+    });
+}
+
+getPriceFromUrl()
+    .then(price => console.log(price))
+    .catch(errorMsg => console.log(errorMsg));
 
 ```
 
-The Promise constructor takes function that has two parameters: resolve and reject. These two parameters are functions which will change the state of the promise. They can be called with or without a parameter as follows:
+### Disk I/O
+
+Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.
 
 ```javascript
 
-resolve(someValue);
-reject(someValue);
-resolve();
-reject();
+const fs = require('fs');
+
+function readFileWithPromise(filePath) {
+    return new Promise(function(resolve, reject) {
+        fs.readFile(filePath, 'utf8', function(err, data) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    })
+
+};
+
+readFileWithPromise('path/to/file')
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
 
 ```
 
-## Handling results from Promises
-
-As promises have 2 completed states, there are 2 functions available to deal with these 2 scenarios. 
-
-### .then
-
-`.then` is used to deal with a Promise after it has been resolved. It takes in a function with 1 parameter, which is the result of the Promise that has just been resolved.
-
-### .catch
-
-`.catch` is used to deal with a Promise after it has been rejected. Like `.then`, it also takes in a function with 1 parameter.
-
-Whenever you want to act on a result from a Promise, it is good practice to use the above 2 functions to ensure certainty and code readability.
-
-An example would be as follows:
-
-```javascript
-
-var isSuccessful = false;
-
-var myFirstPromise = new Promise(function(resolve, reject) {
-    if (isSuccessful) {
-        resolve('Success');
-    }
-    else
-        reject('Failure');
-}).then(function(result) {
-    console.log(result);    // prints 'Success'
-}).catch(function(result) {
-    console.log(result);    // prints 'Failure'
-});
-
-```
 
 ## Benefits
 
@@ -110,7 +133,7 @@ var myFirstPromise = new Promise(function(resolve, reject) {
 ![Callback Hell](callbackhell.png)
 (Credit: [Brett McLain](http://blog.mclain.ca/))
 
-In Javascript, callback functions are usually used to perform some action on a value returned from another function. However, this may result in deeply nested code as shown above, especially if there are many asynchronous method calls. When using promises, the nesting is kept at a minimum and results in cleaner and readable code as shown below. 
+In Javascript, callback functions are usually used to perform some action on a value returned from another function. However, this may result in deeply nested code as shown above, especially if there are many asynchronous method calls. When using promises, the nesting is kept at a minimum and results in cleaner and more readable code.
 
 - Chain multiple asynchronous methods
 
@@ -127,3 +150,10 @@ Sometimes multiple promises may have to be used at a time, and Javascript provid
 There is an excellent write up on these methods [here](https://davidwalsh.name/promises), which will allow you to use Promises even more efficiently.
 
 In addition, there are other libraries such as [Bluebird](http://bluebirdjs.com/docs/getting-started.html) and [Q](https://github.com/kriskowal/q) which offer even more functionality such as Promise monitoring and synchronous inspection of Promises.
+
+## Further Reading
+
+You may read more about Promises, and how to use them at the following 2 websites for a fuller picture.
+
+[JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/primers/promises)
+[JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
