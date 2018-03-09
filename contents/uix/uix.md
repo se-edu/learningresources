@@ -1,8 +1,6 @@
 # UI/UX
 
-Author: [Ang Shi Ya](https://github.com/AngShiYa)
-
-Author: [Tan Jun Kiat](https://github.com/junkiattan)
+Authors: [Ang Shi Ya](https://github.com/AngShiYa), [Tan Jun Kiat](https://github.com/junkiattan)
 
 ## Overview
 
@@ -64,9 +62,9 @@ Catering the right experiences for users does not have to be difficult. The stag
 The first stage is Preliminary Research. This is where you would:
   * Understand your target audience through [Contextual Inquiry](http://www.usabilitybok.org/contextual-inquiry), which involves interviewing users to find out about their wants, needs and pain-points, in the setting of them using the actual product and/or products from competitors
   * Gather the tools needed for the project such as wireframing or prototyping [tools](https://medium.com/@Mockplus/the-10-best-wireframing-and-prototyping-tools-for-designers-a808e81ecadf) for creating low to high fidelity products for testing
-  * Depending on whether the project is hypothetical (taking a known product and re-designing it) or client-based (working for businesses or non-profits), discuss and create a project plan with stakeholders
+  * Depending on whether the project is self-initiated (taking a known product and re-designing it) or client-based (working for businesses or non-profits), discuss and create a project plan with stakeholders
 
-```Deliverables```
+#### Deliverables
   * [Personas](https://static1.squarespace.com/static/519deddfe4b07b846eef9842/55915575e4b0a919cf5a0da5/55a5b693e4b0576c4f936a78/1436923548676/11_all_with_eps_brands.jpg?format=750w) - User profiles that are representative of the target audiences
   * [User Stories](https://i.pinimg.com/originals/00/ac/37/00ac379ca5b9c28de3d56bdea4580e2e.jpg) - Representation of the most important user actions or motivations for each persona
   * [User Scenarios](http://www.davedoyle.com/prof/portfolio/images/large/petcare_scenario.gif) - Case studies of how users use the products, supplementing User Stories to allow you to better empathize with the users
@@ -78,7 +76,7 @@ After Preliminary Research, the next stage is Prototyping. This is where you wou
   * Create [prototypes](https://www.mockplus.com/blog/post/wireframe-mockup-prototype-selection-of-prototyping-tools), or Minimum Viable Product (MVP), for further testing and refinement
   * Use studies gathered from the previous stage to get a better sense of how users would interact with the final product, which would be further refined in the User Testing stage
   
-```Deliverables```
+#### Deliverables
   * [Wireframes](https://wireframesketcher.com/samples/YouTube.png) - Depicts a skeleton version of an application, meant to develop a unified vision of content structure instead of focusing on asthetics; may or may not be clickable
   * [UI Elements](https://thumbs.dreamstime.com/z/flat-ui-design-elements-set-icons-buttons-progress-bars-vector-illustration-light-colors-33417705.jpg) - Basic visual components, which can start out basic and increase in quantity/quality with the fidelity of MVP
   * [Mockups](https://i0.wp.com/brandhorse.com/wp-content/uploads/2016/01/EZ-Frabic-Mobile-App-UX-UI-Design.jpg?resize=960%2C750) - Built upon an agreed version of wireframe with higher fidelity and asthetics
@@ -89,11 +87,11 @@ After Prototyping, the next stage is User Testing. This is where you would:
   * Use a low or high fidelity prototype during [usability testing](http://www.uxbooth.com/articles/usability-testing-dont-guess-test/) to determine product effectiveness
   * Follow an [iterative design process](https://www.interaction-design.org/literature/article/design-iteration-brings-powerful-results-so-do-it-again-designer) to re-prototype after gathering user feedback
   
-```Deliverables (before actual testing with users)```
+#### Deliverables (before actual testing with users)
   * [Usability Test Plan](https://www.smileycat.com/wp-content/uploads/2016/05/usability-test-plan-dashboard.png) - Summary of background, goals, and test methodology
   * [User Testing Script](http://www.ariadne.ac.uk/images/issue62-loureiroKoechlin/CeciliaLoureiroKoechlin-03-small.gif) - What to say as the facilitator, encouraging users to think out loud during the test
   
-```Deliverables (after actual testing with users)```
+#### Deliverables (after actual testing with users)
   * [Usability Reports](https://image.slidesharecdn.com/january2012nhupa-120206210831-phpapp02/95/delivering-results-how-do-you-report-user-research-findings-18-728.jpg?cb=1374224669) - Thorough introduction to what aspects of the product was or was not effective and how to improve
   * [Journey Maps](https://cdn-images-1.medium.com/max/1600/1*jAfZXNWAx50fWEvoF-eWLw.png) - More detailed user flow based on how users are observed to use the product in actual testing conditions
   * [Refined Prototype](https://cdn-images-1.medium.com/max/1600/1*8qPOD1DG19Kj2sfJkTk3Eg.png) - A more refined prototype that is closer to meeting user expectations, each iteration should always be tested before moving to a higher fidelity
@@ -103,7 +101,7 @@ After User Testing and the launch of the final product, the next stage is Mainte
   * Follow-up with the product after the final product launch
   * Recursively update, revise and maintain the content in the application
   
-```Deliverables```
+#### Deliverables
   * [Sitemaps](http://www.kristenjoybaker.com/uploads/1/3/7/6/13760055/3563790_orig.jpg) - Depiction of how all pages of the product interconnect
   * [Taxonomies](http://blog.fuzzymath.com/wp-content/uploads/2015/09/UCAN_Taxonomy-1024x775.png) - Organized depiction of how features or information in the product relate to one another
   * [Content Governance Plans](https://image.slidesharecdn.com/contentstrategyin2015-150706154016-lva1-app6891/95/slide-43-1024.jpg) - Complete strategy for updating, revising and maintaining all content within the product
