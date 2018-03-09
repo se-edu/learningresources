@@ -10,11 +10,11 @@ In 2015, Forbes published an article boldly titled [Agile: The World's Most Popu
 
 Popularised in 2001 by the [*Manifesto for Agile Software Development*](http://agilemanifesto.org/), agile development is essentially a software development approach that can be adopted to manage a software project.
 
-Yet, you should not mistake agile development for any single method or framework (e.g. [Scrum](https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMI2Y-34IDX2QIVwZWPCh3aUg7tEAAYASAAEgLPKvD_BwE)). Rather, you should see agile development as an overarching approach possessing several distinguishing characteristics as consolidated in the *Manifesto*. To further simplify these characteristics, agile development can be described as an approach that is flexible, iterative and people-centric.
+Yet, you should not mistake agile development for any single method or framework (e.g. [Scrum](https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMI2Y-34IDX2QIVwZWPCh3aUg7tEAAYASAAEgLPKvD_BwE)). Rather, you should see agile development as an overarching approach possessing several distinguishing characteristics as consolidated in the *Manifesto*. To further simplify these characteristics, agile development can essentially be described as an approach that is flexible, iterative and people-centric.
 
 But what does "flexible, iterative and people-centric" really mean? To comprehend this, let us examine each characteristic individually.
 
-#### Agile development is "flexible"
+#### 1. Agile development is "flexible"
 
 For a start, agile development is "flexible" because it gives a project more room to evolve over time. This is possible as agile development utilises a form of planning known as [adaptive planning](https://www.projectmanager.com/blog/how-to-plan-in-an-agile-environment), which means that planning is done continuously throughout a project rather than sticking rigidly to a fixed plan established at the start. As a result, planning can take into consideration the project's current progress, and change accordingly to allow the project's priorities and scope to evolve.
 
@@ -24,13 +24,13 @@ To visualise this, let us consider adaptive planning in a game below:
 >
 >-- from [An agile, adaptive business strategy](http://agileforeveryone.com/2015/04/24/agile-adaptive-business-strategy-with-scrum/) by Edwin Dando
 
-#### Agile development is "iterative"
+#### 2. Agile development is "iterative"
 
 Secondly, agile development is "iterative" because it breaks product development work down into short cycles known as [iterations](https://www.agilealliance.org/glossary/iteration/). Each iteration involves going through planning, designing, coding and testing to result in a working product at the end of an iteration. However, a single iteration may not have added enough functionality to warrant a new release, so in reality multiple iterations are often required to release a new product or feature. Here is a diagram to illustrate this concept:
 
 ![Agile Development - Iterations](images/projectManagement-agileDev-iterations.jpg)
 
-#### Agile development is "people-centric"
+#### 3. Agile development is "people-centric"
 
 Thirdly, agile development is "people-centric" because it focuses heavily on collaboration and effective communication. In fact, there are many recommendations on how to form a good agile team. While the specifics vary in accordance with the framework that you choose, the general consensus remains that agile development involves several crucial team roles that work in close relation with each other.
 
@@ -108,7 +108,7 @@ By now, you should have gained a healthy understanding of agile development: **w
 >
 > -- from [Can big organizations be agile?](https://www.forbes.com/sites/stevedenning/2016/11/26/can-big-organizations-be-agile/#316f8d6238e7) by Steve Denning
 
-[Having been agile (albeit under the Scrum framework then) since its inception in 2008](https://medium.com/project-management-learnings/spotify-squad-framework-part-i-8f74bcfcd761), Spotify has made full use of the fact that agile development is flexible, iterative and people-oriented to push out their new ideas efficiently. In this case, Spotify could steer the firm's strategy in a novel direction after sudden inspiration ("flexible"), and implemented the new feature in steps by "carry[ing] out a series of tests" ("iterative") while working together in a small group known as the *Discover Weekly* team ("people-oriented").
+[Having been agile since its inception in 2008](https://medium.com/project-management-learnings/spotify-squad-framework-part-i-8f74bcfcd761), Spotify has made full use of the fact that agile development is flexible, iterative and people-oriented to push out their new ideas efficiently. In this case, Spotify could steer the firm's strategy in a novel direction after sudden inspiration ("flexible"), and implemented the new feature in steps by "carry[ing] out a series of tests" ("iterative") while working together in a small group known as the *Discover Weekly* team ("people-oriented").
 
 [And Spotify is not the only company to have benefitted from agile development](https://www.forbes.com/sites/stevedenning/2016/11/26/can-big-organizations-be-agile/#316f8d6238e7). Evidently, agile development has the potential to do much for your project and organization - but only after you learn how to unleash this potential proper.
 
