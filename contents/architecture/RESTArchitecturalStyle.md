@@ -33,7 +33,8 @@ The table below describes the REST architectural constraints and the architectur
 	</tr>
 	<tr>
 		<td>
-			Client-Server(Extensibility)
+			<p>Client-Server</p>
+			<p>(Extensibility)</p>
 		</td>
 		<td>
 			Separation of concerns: separate the user interface concern from the data storage concern  
@@ -54,7 +55,8 @@ The table below describes the REST architectural constraints and the architectur
 	</tr>
 	<tr>
 		<td>
-			Stateless(Internet Scale)
+			<p>Stateless</p>
+			<p>(Internet Scale)</p>
 		</td>
 		<td>
 			Communications must be stateless: all the messages must be self-sufficient, containing all the necessary information to understand the message without referring to information outside the message
@@ -72,7 +74,8 @@ The table below describes the REST architectural constraints and the architectur
 	</tr>
 	<tr>
 		<td>
-			Cache(Distributed Hypermedia)
+			<p>Cache</p>
+			<p>(Distributed Hypermedia)</p>
 		</td>
 		<td>
 			Data within the response has to be indicated if it is cacheable. If cacheable, the cache will store the data and reuse if for identical requests later.
@@ -90,7 +93,8 @@ The table below describes the REST architectural constraints and the architectur
 	</tr>
 	<tr>
 		<td>
-			Layered System(Internet Scale)
+			<p>Layered System</p>
+			<p>(Internet Scale)</p>
 		</td>
 		<td>
 			Multiple layers between client and server: each architectural component in the system does not care what happens beyond the layers it has immediate interactions with
@@ -111,7 +115,8 @@ The table below describes the REST architectural constraints and the architectur
 	</tr>
 	<tr>
 		<td>
-			Uniform Interface(Extensibility, Internet Scale, Distributed Hypermedia)
+			<p>Uniform Interface</p>
+			<p>(Extensibility, Internet Scale, Distributed Hypermedia)</p>
 		</td>
 		<td>
 			A uniform interface between the architectural components, defined by 4 interface constraints
@@ -137,7 +142,7 @@ The 4 interface constraints defining the Uniform Interface architectural constra
 <table>
 	<tr>
 		<th> Interface Constraint </th>
-		<th> Definitions </th>
+		<th style="width:40%"> Definitions </th>
 		<th> Explanation </th>
 	</tr>
 	<tr>
@@ -145,7 +150,8 @@ The 4 interface constraints defining the Uniform Interface architectural constra
 			Identification of resources
 		</td>
 		<td>
-			Resource: &quot;any information that can be named can be a resource&quot;. The state/value of the resource can vary at different points of time, but the &quot;semantic of mapping&quot; (i.e. the mapping of the resource to its identifier) must remain unchanged.  For example, the student list of CS3281 can be named as &quot;CS3281StudentList&quot;, and hence can be a resource. The student list might change over time, but the identifier &quot;CS3281StudentList&quot; always refers to the student list regardless of its state/value.
+			<p>Resource: &quot;any information that can be named can be a resource&quot;. The state/value of the resource can vary at different points of time, but the &quot;semantic of mapping&quot; (i.e. the mapping of the resource to its identifier) must remain unchanged. </p>
+			<p>For example, the student list of CS3281 can be named as &quot;CS3281StudentList&quot;, and hence can be a resource. The student list might change over time, but the identifier &quot;CS3281StudentList&quot; always refers to the student list regardless of its state/value. </p>
 		</td>
 		<td rowspan="2">
 			Benefits:
@@ -173,7 +179,8 @@ The 4 interface constraints defining the Uniform Interface architectural constra
 			Manipulation of resources through representations
 		</td>
 		<td>
-			Representation of resource: &quot;a sequence of bytes, plus the representation metadata to describe those bytes&quot;. The representation of the resource captures the state of the resource, and is transferred between the architectural components.  For example, the client requests for a HTML version of &quot;CS3281StudentList&quot; at the start of the semester, the representation of the student list, which includes a string of names and the metadata telling the client that the message is a string of names to be formatted in HTML, will be sent back to the client in the response.
+			<p>Representation of resource: &quot;a sequence of bytes, plus the representation metadata to describe those bytes&quot;. The representation of the resource captures the state of the resource, and is transferred between the architectural components. </p>
+			<p>For example, the client requests for a HTML version of &quot;CS3281StudentList&quot; at the start of the semester, the representation of the student list, which includes a string of names and the metadata telling the client that the message is a string of names to be formatted in HTML, will be sent back to the client in the response. </p>
 		</td>
 	</tr>
 	<tr>
