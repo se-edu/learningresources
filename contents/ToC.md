@@ -38,6 +38,8 @@
 ## Other Topics
 
 * AI
+* Architecture
+  * [REST](architecture/RESTArchitecturalStyle.md)
 * Data
   * [Databases](data/databases.md)
 * [Regular Expressions](regex/Regex.md)
