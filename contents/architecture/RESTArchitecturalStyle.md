@@ -144,7 +144,9 @@ The 4 interface constraints defining the Uniform Interface architectural constra
 		<td>
 			Identification of resources
 		</td>
+		<td>
 			Resource: &quot;any information that can be named can be a resource&quot;. The state/value of the resource can vary at different points of time, but the &quot;semantic of mapping&quot; (i.e. the mapping of the resource to its identifier) must remain unchanged.  For example, the student list of CS3281 can be named as &quot;CS3281StudentList&quot;, and hence can be a resource. The student list might change over time, but the identifier &quot;CS3281StudentList&quot; always refers to the student list regardless of its state/value.
+		</td>
 		<td rowspan="2">
 			Benefits:
 			<ul> 
@@ -164,8 +166,6 @@ The 4 interface constraints defining the Uniform Interface architectural constra
 					reference the resource instead of its representation saves the trouble of changing the identifier (i.e. the name) when the representation of the resource changes 
 				</li> 
 			</ul>
-		</td>
-		<td>
 		</td>
 	</tr>
 	<tr>
