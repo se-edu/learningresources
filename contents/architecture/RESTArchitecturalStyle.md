@@ -157,10 +157,10 @@ The 4 interface constraints defining the Uniform Interface architectural constra
 					free the server from managing different states of resources across requests 
 				</li> 
 				<li> 
-					different [data formats](https://en.wikipedia.org/wiki/Media_type#Common_examples) of the representation are available 
+					different <a href="https://en.wikipedia.org/wiki/Media_type#Common_examples">data formats</a> of the representation are available 
 				</li> 
 				<li> 
-					allows [dynamic binding](https://en.wikipedia.org/wiki/Late_binding) of the reference to a representation of the resource, hence allowing the server to serve the representation as specified in the request 
+					allows <a href="https://en.wikipedia.org/wiki/Late_binding">dynamic binding</a> of the reference to a representation of the resource, hence allowing the server to serve the representation as specified in the request 
 				</li> 
 				<li> 
 					reference the resource instead of its representation saves the trouble of changing the identifier (i.e. the name) when the representation of the resource changes 
