@@ -13,7 +13,7 @@ Improving your skills as someone new to UX Design is crucial to getting a UX-rel
 Each keypoint is a tactic to help you refine your UX skillsets, which would also include potential pitfalls and solutions to consider.
 
 ## Building a relationship with a UX mentor
-Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding ux designer would have at the beginning. Chances are that they have already asked the same questions as you before. This is important because if they have tried any methods, they can tell you what works or does not work. Even if they have not tried solving the issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.
+Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding ux designer would have at the beginning. Chances are that they have already asked the same questions you are having. This is important because if they have tried any methods, they can tell you what works or does not work. Even if they have not tried solving the issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.
 
 There are many avenues to find a UX mentor.
 * Mentoring networks
@@ -21,7 +21,7 @@ There are many avenues to find a UX mentor.
 * Local meet-ups
 
 #### Potential pitfalls
-Unresponsive or ineffective mentors: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.
+*Unresponsive or ineffective mentors*: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.
 
 ## Becoming a UX apprentice
 This tactic may sound similar to the first one, but apprenticeship here connotes a stronger meaning for a formal learning experience. While the previous point talks about getting on-the-job advice from more experienced individuals, this tactic mainly discusses learning bootcamps that focuses on bringing an individual from "UX Zero" to "UX Hero" within the span of a few months.
@@ -48,7 +48,7 @@ In-person:
 1. [Product Design (Alpha Camp)](https://sg.alphacamp.co/full-time-product-design/)
 
 #### Potential pitfalls
-Ineffective learning experiences: One mistake is to simply sign up for any program, thinking that all UX Design programs are the same. While most should impart some UX skillsets, the teaching methodology and therefore focus can be different. Consider analysing each course and asking a few questions:
+*Ineffective learning experiences*: One mistake is to simply signing up for any program, thinking that all UX Design programs are the same. While most should impart UX skillsets, their curriculum were developed separatedly, hence their teaching methodology and focus can be different. Consider requesting the course syllabus for each couse and asking a few questions:
 * What kinds of portfolio deliverables will you produce through the program? Will you actually produce things you can showcase as evidence of your problem-solving skills?
 * Does the program have a trusted network of potential employers that you can be connected with?
 * How practical are the experiences that the program promises? How conceptual? How product-based? How process-based?
@@ -56,3 +56,17 @@ Ineffective learning experiences: One mistake is to simply sign up for any progr
 Be honest with your expectations on what you wish to get out of the course and find a suitable one base on your answers to the questions above.
 
 ## Engaging in individual UX projects
+This is the tactic that shows your proactiveness and your desire to excel in UX Design. Regardless of whether you have a mentor or take up a UX Bootcamp before, nothing shows your commitment more than if you further hone those learned skills in actual UX projects.
+
+Find a local organisation with a website/app that you believe needs design help. Approach them via call/email to let them know that you are new to design but would like to gain some experience by providing advice on how certain aspects of their websites can be improved, bearing in mind that it's good to always frame design issues as business issues. Afterwards simply treat it as your own UX project and produce value-added content like prototypes that can help to showcase what you are saying. By doing it well, you can gain experience and even add value to your resume.
+
+#### Potential pitfalls:
+*Projects that don’t count as legitimate UX experience*: It is important to be careful of the type of projects you end up taking. Producing content for non-digital media, such as a brochure or an advertisement, would not be as relevant as producing wireframes for a website. Furthermore, even with a relevant UX experience, it is crucial to be able to link your work to communicate the following points in order to really sell your work as a UX designer:
+* How you helped the team balance user goals and business goals
+* How you analyzed the business and technology constraints
+* How you collaborated with non-designers
+* How you transformed user research and quantitative data into actionable insights for the team
+* How you worked with the team to resolve unexpected challenges
+
+## Summary
+Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Hopefully the tactics and ways to avoid common pitfalls helps to make the process easier to understand. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design skills.
