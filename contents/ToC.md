@@ -45,6 +45,7 @@
   * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
   * [Cryptography](security/cryptography.md)
   * [HTTPS](security/Https.md)
+  * [SQL Injection](security/sqlInjection.md)
 * Multi-Threading
   * [GPGPU](gpgpu/gpgpu.md)
   * [CUDA](gpgpu/cuda.md)
