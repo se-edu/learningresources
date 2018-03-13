@@ -2,17 +2,17 @@
 
 Authors: [Lee Yan Hwa](https://github.com/leeyh20)
 
-- [Getting Started](#-1-getting-started)
-    - [What is Android?](#-11-what-is-android)
-    - [Develop your first app today!](#-12-develop-your-first-app-today)
+- [Getting Started](#1-getting-started)
+    - [What is Android?](#11-what-is-android)
+    - [Develop your first app today!](#12-develop-your-first-app-today)
 
-- [Understanding Android](#-2-getting-started)
-    - [App Components](#-22-app-components)
-    - [Activity Lifecycle](#-23-activity-lifecycle)
-    - [MVVM and Architecture Components](#-24-mvvm-and-architecture-components)
-    - [Resources](#-25-resources)
-    - [Testing](#-26-testing)
-- [Further Readings](#-3-further-readings)
+- [Understanding Android](#2-getting-started)
+    - [App Components](#22-app-components)
+    - [Activity Lifecycle](#23-activity-lifecycle)
+    - [MVVM and Architecture Components](#24-mvvm-and-architecture-components)
+    - [Resources](#25-resources)
+    - [Testing](#26-testing)
+- [Further Readings](#3-further-readings)
 
 ## 1. Getting Started
 
@@ -89,7 +89,11 @@ Some examples of useful components for developers include the `LiveData` observa
 Another very useful component is the `ViewModel` component. It manages and store UI data in a `lifecycle-aware` way, allowing data to be retained during configuration changes such as screen rotations. Using normal UI controllers require data to be saved and then restored by overridding `onSaveInstanceState` or by using `SharedPreferences`, but this is inefficient for large amounts of data. For more information, see the [ViewModel page](https://developer.android.com/topic/libraries/architecture/viewmodel.html).
 
 #### How does this link to MVVM?
-Previously, Android apps were usually developed using the `Model-View-Presenter` (MVP) pattern or the popular Model-View-Controller (MVC) pattern. However, this will change with the above `LiveData` and `ViewModel` components. Now, we can create apps that follow the `Model-View-ViewModel` (MVVM) architecture instead. The `ViewModel` component provided by Android serves as a good base for our `ViewModel` in the MVVM architecture. Our `ViewModel` in MVVM will interact with the Model and manages and store data to be observed by a View. The `ViewModel` is not aware about the View that is getting data from it to update the UI and thus it is decoupled from the View. This is very unlike the Presenter in the MVP pattern, which tells the View what to display through an interface. The Controller in the MVC pattern directly tells the Views how to show the data and is tightly coupled to the Views. To read more about the MVVM architecture in Android apps, see this [tutorial](https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1). For a comparison of the three patterns, see [this article at Realm's Academy](https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/).
+Previously, Android apps were usually developed using the `Model-View-Presenter` (MVP) pattern or the popular Model-View-Controller (MVC) pattern. However, this will change with the above `LiveData` and `ViewModel` components. Now, we can create apps that follow the `Model-View-ViewModel` (MVVM) architecture instead. The `ViewModel` component provided by Android serves as a good base for our `ViewModel` in the MVVM architecture.
+
+Our `ViewModel` in MVVM will interact with the Model and manages and store data to be observed by a View. The `ViewModel` is not aware about the View that is getting data from it to update the UI and thus it is decoupled from the View. This is very unlike the Presenter in the MVP pattern, which tells the View what to display through an interface. The Controller in the MVC pattern directly tells the Views how to show the data and is tightly coupled to the Views.
+
+To read more about the MVVM architecture in Android apps, see this [tutorial](https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1). For a comparison of the three patterns, see [this article at Realm's Academy](https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/).
 
 ### 2.6 Testing
 Test-driven development was [encouraged](https://www.youtube.com/watch?v=pK7W5npkhho) by Google in their Google I/O 2017 due to the release of the `Android Testing Support Library`. You can read more about the library [here](https://developer.android.com/topic/libraries/testing-support-library/index.html).
@@ -100,8 +104,8 @@ Mocking is usually needed in unit testing to simulate the behaviour of real obje
 #### Integration Testing
 Integration testing and end-to-end testing is usually done using [Espresso](https://developer.android.com/training/testing/espresso/index.html). You can even record your own UI tests using the [Espresso Test Recorder](https://developer.android.com/studio/test/espresso-test-recorder.html) to save time! Be sure to check out the Espresso [cheatsheet](https://developer.android.com/training/testing/espresso/cheat-sheet.html) for easy writing of tests.
 
-
 ## 3. Further Readings
+
 Going further, it will be useful to know about:
 *   [Firebase](https://firebase.google.com/), a mobile platform provided by Google that provides various services to grow and monetise your app.
 *   [Reactive Programming with RxJava](https://blog.mindorks.com/rxjava-anatomy-what-is-rxjava-how-rxjava-is-designed-and-how-rxjava-works-d357b3aca586).
