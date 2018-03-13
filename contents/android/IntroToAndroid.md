@@ -95,6 +95,9 @@ Our `ViewModel` in MVVM will interact with the Model and manages and store data 
 
 To read more about the MVVM architecture in Android apps, see this [tutorial](https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1). For a comparison of the three patterns, see [this article at Realm's Academy](https://academy.realm.io/posts/eric-maxwell-mvc-mvp-and-mvvm-on-android/).
 
+### 2.5 Resources
+Any external resources that the app requires such as images, XML layout files, fonts, values such as strings and colors should be placed in the `res/` directory of the Android project. The resource then can be accessed by referencing its resource ID. Its resource ID is composed of the [resource type](https://developer.android.com/guide/topics/resources/available-resources.html) and the resource name. `R.drawable.myimage` is an example of a way to access an image resource in code. `@string/submit` is an example of a way to access a string value from XML. Read more about accessing resources [here](https://developer.android.com/guide/topics/resources/accessing-resources.html).
+
 ### 2.6 Testing
 Test-driven development was [encouraged](https://www.youtube.com/watch?v=pK7W5npkhho) by Google in their Google I/O 2017 due to the release of the `Android Testing Support Library`. You can read more about the library [here](https://developer.android.com/topic/libraries/testing-support-library/index.html).
 
