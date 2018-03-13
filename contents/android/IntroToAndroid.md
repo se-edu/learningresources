@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
     }
 ```
 To free up RAM, the system might kill the process in which an activity runs and the likelihood of this happening depends on the state of the process. It is more likely for the process to be killed when the process is empty or in the background and when the activity is stopped or destroyed.
-For more information, see the table (here)[https://developer.android.com/guide/components/activities/activity-lifecycle.html#asem].
+For more information, see the table [here](https://developer.android.com/guide/components/activities/activity-lifecycle.html#asem).
 
 ### 2.4 MVVM and Architecture Components
 At Google I/O 2017, [Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html) were introduced to help developers solve common issues by following best practices and implementing recommended architecture.
@@ -108,4 +108,4 @@ Going further, it will be useful to know about:
 *   [RxJava](https://medium.com/@kevalpatel2106/code-your-next-android-app-using-rxjava-d1db30ac9fcc), a Java VM implementation of ReactiveX (Reactive Extensions): a library for composing asynchronous and event-based programs by using observable sequences.
 *   [Realm](https://realm.io/), a NoSQL object-orientated mobile database system.
 *   [Android Debug Bridge](https://developer.android.com/studio/command-line/adb.html), a powerful command line tool for Android.
-*   [Advanced Android Expresso](https://academy.realm.io/posts/chiu-ki-chan-advanced-android-espresso-testing/).
+*   [Advanced Android Expresso](https://academy.realm.io/posts/chiu-ki-chan-advanced-android-espresso-testing/), the automated testing tool for Android UI tests.
