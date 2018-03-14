@@ -1,6 +1,6 @@
 # Swift
 
-Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md)
+Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)
 
 # Overview
 
@@ -20,6 +20,22 @@ And if you are really pressed for time, here's a couple of cheatsheets with code
 # Cool Features
 
 Here are some cool features that you might not be familiar with but would definitely be useful to you if you are new to Swift. 
+
+## Type Inference
+
+Swift supports type inference whereby the compiler automatically deduces the type of a variable during compilation by examining the values assigned to it.
+
+```swift
+var str1: String = "foo"
+var str2 = "foo" // compiler infers that str2 is of type String
+```
+
+Do note that variables in Swift are statically typed.
+
+```swift
+var str2 = "foo" // compiler infers that str2 is of type String
+str2 = 5 // compilation error
+```
 
 ## Optionals
 
@@ -54,20 +70,18 @@ func yearAlbumReleased(name: String) -> Int? {
 }
 ```
 
-### Optional Binding
+## Optional Binding
 
-And here is how you unwrap the Optional safely:
+And here is how you unwrap the Optional safely using an `if-let` statement:
 
-``` swift
+```swift
 func timeTravel(album: String) {
-    let year = yearAlbumReleased(album) // type of year: Int?
-    if let past = year {
-        // past is a normal (non-optional) Int value
-        // equal to the value stored in year
-        travelTo(past)
-    } else {
-        // year did not hold a value
-        liveInPresent()
+    let year = yearAlbumReleased(album)
+    if let past = year { 
+        // year contains a non-nil value
+        // past is of type Int (not Int?) with the value stored in year
+    } else { 
+        // year contains a nil value
     }
 }
 ```
@@ -75,6 +89,48 @@ func timeTravel(album: String) {
 To learn more about Optionals, such as Optional Chaining and "dangerously" Force Unwrapping, check out this [article](https://hackernoon.com/swift-optionals-explained-simply-e109a4297298).
 
 If you would like to seek a second (or more) opinion about Optionals, check out this [StackOverflow answer](http://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift).
+
+## Guard Statements
+
+Notice that the [happy path](http://xunitpatterns.com/happy%20path.html) in the code above is indented:
+
+```swift
+func timeTravel(album: String) {
+    let year = yearAlbumReleased(album)
+    if let past = year {
+        // happy path is indented
+        // past contains the non-nil value of year; proceed to do something with past
+    } else { 
+        // failure case
+    }
+
+    // past is no longer defined; unable to use past here
+}
+```
+
+With the guard statement, the happy path is not indented:
+
+```swift
+func timeTravel(album: String) {
+    let year = yearAlbumReleased(album)
+    guard let past = year else {
+        // failure case
+        return
+    }
+
+    // happy path is not indented
+    // past contains the non-nil value of year; proceed to do something with past
+    // past remains defined till the function exits
+}
+```
+
+Let's understand how the code above works:
+1. The code within a `guard` block is only executed if `year` contains a nil value.
+1. As the `guard` statement is used to transfer program control out of a scope, you must call one of the following functions within the `guard` block: `return`, `break`, `continue`, `throw`. As such, the `guard` statement is meant to enforce the pre-conditions of a method and to perform early return.
+
+Here are some of the benefits of using `guard` statement over `if-let` statement:
+1. Unlike the `if-let` statement, using the `guard` statement causes `past` to remain defined and can be used till the function exits.
+1. While using `if-let` statements can lead to deeply nested `if-let` statements (i.e. pyramid of doom), `guard` statements allow us to have the happy path to be not indented, thereby increasing code readability.
 
 ## Structs
 
@@ -102,6 +158,51 @@ You can think of Structs as a way to create instances that have their own unique
 
 If you wish to find out more, here is an [article](https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2) that explains the difference between the 2 types, as well as the benefits of value types and when to use them.
 
+## Enums
+
+An enum is a data type that represents of a set of values. For example, we can use `String` to represent the possible types of a barcode. However, this allows us to assign invalid values to it:
+
+```swift
+var barcode = "qzCode" // supposed to be "qrCode", but we accidentally assigned an invalid value
+```
+
+As such, we create an enum to restrict the values that we can assign to a barcode.
+
+```swift
+enum Barcode {
+    case upc
+    case qrCode
+}
+
+var barcode = Barcode.qrCode 
+barcode = Barcode.qzCode // compilation error
+```
+
+Swift's enums can have associated values. This enables you to store additional custom information along with each case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum `Barcode` with case values `upc` and `qrCode`. We want to be able to distinguish within each value as each `upc` and `qrCode` can take on different values:
+
+```swift
+enum Barcode {
+    case upc(Int, Int, Int, Int)
+    case qrCode(String)
+    
+    func printCode() {
+        switch self {
+        case let .upc(numberSystem, manufacturer, product, check):
+            print("UPC : \(numberSystem), \(manufacturer), \(product), \(check).")
+        case let .qrCode(productCode):
+            print("QR code: \(productCode).")
+        }
+    }
+}
+
+let barcode1 = Barcode.qrCode("foo")
+let barcode2 = Barcode.qrCode("bar")
+barcode1.printCode() // prints "QR code: foo."
+barcode2.printCode() // prints "QR code: bar."
+```
+
+Also, enums with associated values is not supported in languages such as [Java](https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum), and using a workaround to implement enums with associated values results in code verbosity. Take a look at [Swift's documentation on Enums](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html) for more information about enums.
+
 ## Protocol Oriented Programming
 
 The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html). If you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.
@@ -112,7 +213,6 @@ First, we first introduce our protocols.
 
 ```swift
 protocol Bird {
-  var name: String { get }
   var canFly: Bool { get }
 }
  
@@ -126,23 +226,67 @@ Next, we introduce the structs that conform to the protocols above.
 ```swift
 // Penguins can't fly ):
 struct Penguin: Bird {
-    let name: String
     let canFly = false
 }
 
 struct Eagle: Bird, Flyable {
-    let name: String
     let canFly = true
- 
-    var airspeedVelocity: Double {
-        return 160.0
-  }
+    let airspeedVelocity = 160.0
 }
 ```
 
 And if you haven't noticed, protocols are extremely similar to interfaces in Java. 
 
 To understand more about POP, watching this [WWDC 2015 talk](https://www.youtube.com/watch?v=g2LwFZatfTI) is highly recommended.
+
+## Extensions
+
+Extensions allow us to add new functionalities to an existing class, structure, enumeration, or protocol type. Suppose we have an `Eagle` struct:
+
+```swift
+struct Eagle {
+    // some functionalities here
+}
+```
+
+As development progresses, you realize that you now want `Eagle` to conform to `Bird` and `Flyable` protocols. Instead of editing the code in `Eagle` struct directly, we can use extensions to implement each protocol separately. Do take note that you cannot add stored properties in extensions. As such, `canFly` and `airspeedVelocity` have to be computed properties (for more information, see [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html)):
+
+```swift
+struct Eagle {
+    // we can leave the existing code here untouched
+}
+
+extension Eagle: Bird {
+    var canFly: Bool {
+        return true
+    }
+}
+
+extension Eagle: Flyable {
+    var airspeedVelocity: Double {
+        return 160.0
+    }
+}
+```
+
+Extensions also allow us to define instance methods and type methods for types which you do not have access to the original source code. For example: 
+
+```swift
+extension String { // String belongs to Swift Standard Library which we have no access to
+    // This method is copied from: 
+    // https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/SwiftStdlib/StringExtensions.swift
+    func isAlphabetic() -> Bool {
+        let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
+        let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
+        return hasLetters && !hasNumbers
+    }
+}
+
+var foo: String = "a1"
+print(foo.isAlphabetic()) // prints "false"
+```
+
+To find out more about extensions, take a look at [Swift's documentation on Extensions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html)
 
 ## Automatic Reference Counting
 
