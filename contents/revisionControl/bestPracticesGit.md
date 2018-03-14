@@ -11,7 +11,7 @@ Author(s): [Darren Wee](https://github.com/darrenwee)
         - [Stashing](#stashing)
     - [One Logical Change to One Commit](#one-logical-change-to-one-commit)
     - [Hide the Sausage Making](#hide-the-sausage-making)
-        - [How to Hide the Sausage](#how-to-hide-the-sausage)
+        - [How to Hide the Sausage Making](#how-to-hide-the-sausage-making)
     - [Respect Published History](#respect-published-history)
     - [Keep Up To Date](#keep-up-to-date)
         - [Working with Remotes](#working-with-remotes)
@@ -55,40 +55,40 @@ git commit --verbose
 git commit --amend HEAD^
 ```
 
-A good commit message can be formatted the following way:
-```
-Capitalized, short (50 chars or less) summary
+Every commit must have a well written commit message _subject line_.
 
-More detailed explanatory text, if necessary.  Wrap it to about 72
-characters or so.  In some contexts, the first line is treated as the
-subject of an email and the rest of the text as the body.  The blank
-line separating the summary from the body is critical (unless you omit
-the body entirely); tools like rebase can get confused if you run the
-two together.
+1. Try to limit the subject line to 50 characters (hard limit: 72 chars)
+    - Usually, only the subject line is shown in the log, conflict resolution, interactive rebase, etc.
 
-Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
-or "Fixes bug."  This convention matches up with commit messages generated
-by commands like git merge and git revert.
+2. Capitalize the subject line e.g. `Move index.html file to root`
+    - Do not end the subject line with a period.
 
-Further paragraphs come after blank lines.
+3. Use the imperative mood in the subject line
+    - e.g. `Add README.md` rather than `Added README.md` or `Adding README.md` or `Adds README.md`.
 
-- Bullet points are okay, too
+4. Use `{scope}: {change}` format when applicable
+    - e.g. `Person class: remove static imports`, or `Unit tests: remove blank lines`
 
-- Typically a hyphen or asterisk is used for the bullet, followed by a
-    single space, with blank lines in between, but conventions vary here
+5. Commit messages for non-trivial commits should have a *body* giving details of the commit.
+    1. Separate subject from body with a blank line
+    2. Wrap the body at 72 characters
+    3. Use the body to explain:
+        - _what_ the commit does, and
+        - _why_ it was done that way, such that
+        - the reader can refer to the diff to understand _how_ the change was done.
+    4. Avoid including information that can be included in the code as comments.
 
-- Use a hanging indent which is how you should format very long bullet
-    statements by indenting each consecutive newline similar to the way
-    you might do if you need to break a really long method definition,
-    like how this is being done now!
-```
-
-Source: [A Note About Git Commit Messages by Tim Pope.](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-
-As a litmus test, you can try to read your commit message summary in the following manner:
-> If applied, this commit will `your commit message here`
+Give an explanation for the change(s) that is detailed enough so that the reader can judge if it is a good thing to do, without reading the actual diff to determine how well the code does what the explanation promises to do. If your description starts to get too long, that’s a sign that you probably need to split up your commit to finer grained pieces.
 
 Commit messages need to be wrapped to 72 characters or less so that the entire message can be shown without overflow on a standard, 80-column terminal while leaving room for indents/nested reply indicators if you pass `.patch` or `.diff` files via traditional mailing list ([source](https://stackoverflow.com/a/2120040/5399892)).
+
+Read more: [Formats and Conventions: Commit Messages](https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message)
+
+As a litmus test, you can try to read your commit message summary in the following manner:
+> If applied, this commit will `your commit message summary here`
+
+For example:
+> If applied, this commit will `implement getHash() functionality in HashHelper`.
 
 **Some Examples**
 - [se-edu/addressbook-level4](https://github.com/se-edu/addressbook-level4/commits/master)
@@ -143,11 +143,10 @@ Read more:
 
 ---
 
-## One Logical Change to One Commit
+## One Logical Change per Commit
 Commits are the building blocks of a codebase; each building block should contribute exactly one useful thing, like:
 - adding a new function or piece of data
-- fixing one or more bugs
-    - correcting incorrect behavior
+- fixing a bug
 - refactoring code or data
     - reorganizing code
     - removing typos
@@ -167,10 +166,10 @@ If you are concerned about appearances, you can always opt to [hide the sausage 
 If you have made several overlapping changes on your working directory (e.g. forgot to commit, etc), you can always [perform a patch-wise stage using `git add -p`](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git).
 
 Read more:
+- [Do commit early and often](https://sethrobertson.github.io/GitBestPractices/#commit) - an auxiliary best practice of frequency of making commits
 - [programming practices - When to commit code?](https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code)
-- [Do commit early and often](https://sethrobertson.github.io/GitBestPractices/#commit)
-- [When is a version control commit too large?](https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large)
-- [Commit only part of a file in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git) _this is useful to use as a cheatsheet during interactive staging_
+- [When is a version control commit too large?](https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large) - a discussion on judging the suitable size of a commit in different settings
+- [Commit only part of a file in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git) - this is useful to use as a cheatsheet during interactive staging
 
 ---
 
@@ -184,7 +183,7 @@ When working on a `feature`/`fix` branch, you may:
 
 This may clutter your history with low-level details or make it convoluted to follow for a maintainer or reviewer. Like sausage, you may enjoy eating it but not the process of making it.
 
-### How to Hide the Sausage
+### How to Hide the Sausage Making
 Hiding the sausage is typically achieved by either/both:
 - performing an interactive rebase, i.e. `git rebase -i`
 - patch-wise reset and stage, i.e. `git reset -p` and `git add -p`
@@ -280,10 +279,10 @@ It is generally considered good practice to rebase your feature branch onto what
 - makes reviewing/testing easier by [not including irrelevant code by merging](https://lwn.net/Articles/328436/)
 
 Read more:
-- [A Tidy, Linear Git History](http://www.bitsnbites.eu/a-tidy-linear-git-history/) _this is an excellent article which has formed my opinion on rebase vs. merge_
-- [Rebasing and merging: some git best practices](https://lwn.net/Articles/328436/) _involves wisdom from Linus Torvalds_
+- [A Tidy, Linear Git History](http://www.bitsnbites.eu/a-tidy-linear-git-history/) - this is an excellent article which has formed my opinion on rebase vs. merge
+- [Rebasing and merging: some git best practices](https://lwn.net/Articles/328436/) - the merging/rebase issue involving wisdom from the creator of `git`, Linus Torvalds
 - [Merging vs. Rebasing - Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
-- [When do you use git rebase instead of git merge - StackOverflow](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178)
+- [When do you use git rebase instead of git merge - StackOverflow](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178) - a discussion on when to rebase and when to merge
 ---
 
 # Resources
@@ -292,11 +291,11 @@ These are the resources used in the writing of this chapter, as well as any addi
 - [A Note About Git Commit Messages by Tim Pope](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 - [Git Best Practices by Seth Robertson](https://sethrobertson.github.io/GitBestPractices/)
 - [A Tidy, Linear Git History](http://www.bitsnbites.eu/a-tidy-linear-git-history/)
-- [Rebasing and merging: some git best practices](https://lwn.net/Articles/328436/) _involves wisdom from Linus Torvalds_
+- [Rebasing and merging: some git best practices](https://lwn.net/Articles/328436/) involves wisdom from Linus Torvalds
 
 - [programming practices - When to commit code?](https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code)
 - [When is a version control commit too large?](https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large)
-- [Commit only part of a file in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git) _this is useful to use as a cheatsheet during interactive staging_
+- [Commit only part of a file in Git](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git) this is useful to use as a cheatsheet during interactive staging
 - [When do you use git rebase instead of git merge - StackOverflow](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178)
 - [Force "git push" to overwrite remote files - StackOverflow](https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files)
 
@@ -308,6 +307,6 @@ These are the resources used in the writing of this chapter, as well as any addi
 - [Rewriting History - Atlassian](https://www.atlassian.com/git/tutorials/rewriting-history)
 
 ## Further Reading
-- [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
+- [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) - discusses the underlying implementation of `git` (merkle tree)
 - [Pro Git](https://git-scm.com/book/en/v2)
-- [The most useful git commands](https://orga.cat/posts/most-useful-git-commands)
+- [The most useful git commands](https://orga.cat/posts/most-useful-git-commands) - a reference sheet of some handy command macros
