@@ -44,15 +44,15 @@ There are quite a number of reasons why you might want to adopt development, but
 
 1. **Agile development can increase user satisfaction with the product.**
 
-As a project and system unfolds, stakeholders often discover that what they originally requested for at the start of the project may not be what they really want. Luckily, since agile development is "flexible", the project’s priorities and scope can be readjusted to accommodate how the project is evolving. By the end of the project, the product will tend to stick closer to what stakeholders really want, increasing their satisfaction with the product.
+    As a project and system unfolds, stakeholders often discover that what they originally requested for at the start of the project may not be what they really want. Luckily, since agile development is "flexible", the project’s priorities and scope can be readjusted to accommodate how the project is evolving. By the end of the project, the product will tend to stick closer to what stakeholders really want, increasing their satisfaction with the product.
 
 2. **Agile development can increase product quality.**
 
-Under agile development, [testing](https://smartbear.com/learn/automated-testing/testing-in-agile-environments/) is part of every single iteration, so any bugs in the product can be found and fixed earlier and more easily. This can then result in increased product quality as bugs are kept to a minimum to ensure that working software is delivered at the end of each iteration.
+    Under agile development, [testing](https://smartbear.com/learn/automated-testing/testing-in-agile-environments/) is part of every single iteration, so any bugs in the product can be found and fixed earlier and more easily. This can then result in increased product quality as bugs are kept to a minimum to ensure that working software is delivered at the end of each iteration.
 
 3. **Agile development can increase project control.**
 
-Project control can be succinctly defined as the management of a project’s costs and schedule. With agile development’s iterative and people-centric nature, project managers can gain more opportunities to monitor what is going on in the project and assess the project’s progress more accurately. If need be, the project manager can also communicate with the client to decide whether to change the scope of the project. Even in the worst case scenario, agile development will still guarantee a working product delivered by the deadline since changes are made incrementally, eliminating the risk of total project failure.
+    Project control can be succinctly defined as the management of a project’s costs and schedule. With agile development’s iterative and people-centric nature, project managers can gain more opportunities to monitor what is going on in the project and assess the project’s progress more accurately. If need be, the project manager can also communicate with the client to decide whether to change the scope of the project. Even in the worst case scenario, agile development will still guarantee a working product delivered by the deadline since changes are made incrementally, eliminating the risk of total project failure.
 
 ## How to adopt agile development?
 
@@ -90,15 +90,15 @@ Given that agile development can bring about so many benefits to our software pr
 
 - **Unfamiliarity with agile development**
 
-If the team is unfamiliar with agile techniques, you will not be able to reap the full benefits of agile development since agile development depends on tight collaboration between team members. Therefore, it is crucial to ensure that the entire team has good foundations in agile techniques before the transition to agile development. This can be achieved by investing early in training sessions for the team, and bring everyone in the team up-to-date with what agile development entails for the project.
+    If the team is unfamiliar with agile techniques, you will not be able to reap the full benefits of agile development since agile development depends on tight collaboration between team members. Therefore, it is crucial to ensure that the entire team has good foundations in agile techniques before the transition to agile development. This can be achieved by investing early in training sessions for the team, and bring everyone in the team up-to-date with what agile development entails for the project.
 
 - **Over-reliance on manual testing**
 
-If the team relies too much on manual testing, agile development will likely be a nightmare for the team. Recall that agile development is iterative, and that testing a part of every single iteration, so with merely manual testing, the team will be forced to spend an unreasonable amount of time and effort on testing alone. Consequently, it is standard practice to employ [automated testing](https://reqtest.com/agile-blog/you-cant-work-agile-without-automated-testing/) in agile development to allow developers and testers to focus on work that can be of higher value to the project.
+    If the team relies too much on manual testing, agile development will likely be a nightmare for the team. Recall that agile development is iterative, and that testing a part of every single iteration, so with merely manual testing, the team will be forced to spend an unreasonable amount of time and effort on testing alone. Consequently, it is standard practice to employ [automated testing](https://reqtest.com/agile-blog/you-cant-work-agile-without-automated-testing/) in agile development to allow developers and testers to focus on work that can be of higher value to the project.
 
 - **Structural rigidity in larger organisations**
 
-If the team is operating in the context of a large organisation, agile development may not work out as well as it promises to. Unsurprisingly, transiting to agile development in large organisations poses great challenges because large organisations tend to have many established protocols and workflows in place. These protocols may then be familiar to the organisations but are not necessarily in line with agile principles and ideals, but discarding them entirely would cause huge disruptions to the organisations. To combat this, larger organisations can think about [hybrid models](https://www.agilealliance.org/what-is-hybrid-agile-anyway/) - combining Agile methods with other non-Agile techniques that the organisation is currently accustomed to.
+    If the team is operating in the context of a large organisation, agile development may not work out as well as it promises to. Unsurprisingly, transiting to agile development in large organisations poses great challenges because large organisations tend to have many established protocols and workflows in place. These protocols may then be familiar to the organisations but are not necessarily in line with agile principles and ideals, but discarding them entirely would cause huge disruptions to the organisations. To combat this, larger organisations can think about [hybrid models](https://www.agilealliance.org/what-is-hybrid-agile-anyway/) - combining Agile methods with other non-Agile techniques that the organisation is currently accustomed to.
 
 ## Putting it all together: The Spotify success story
 
