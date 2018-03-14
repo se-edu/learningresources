@@ -26,6 +26,7 @@
 * Project Management
 * Requirements
 * Revision Control
+  * [Best Practices with git](revisionControl/bestPracticesGit.md)
 * [Scalability](scalability/scalable-development.md)
 * [Static Analysis](staticAnalysis/intro.md)
   * [CheckStyle](staticAnalysis/checkStyle.md)
