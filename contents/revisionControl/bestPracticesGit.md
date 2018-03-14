@@ -90,10 +90,35 @@ As a litmus test, you can try to read your commit message summary in the followi
 For example:
 > If applied, this commit will `implement getHash() functionality in HashHelper`.
 
-**Some Examples**
-- [se-edu/addressbook-level4](https://github.com/se-edu/addressbook-level4/commits/master)
-- [torvalds/subsurfance-for-dirk](https://github.com/torvalds/subsurface-for-dirk/commits/master)
-- [torvalds/linux](https://github.com/torvalds/linux/commits/master)
+#### Examples of Good Commit Messages
+Adapted from [se-edu/addressbook-level4](https://github.com/se-edu/addressbook-level4/commits/master) ([patch](https://github.com/se-edu/addressbook-level4/commit/2f4405c75cd21111952565a9706a9793b475c41e.patch)).
+This commit message follows the guidelines above and also includes the context of the change (how it worked before this patch) as it is necessary to understand _why_ it needed to change.
+```
+UniquePersonList#remove(Person): update return type
+
+UniquePersonList#remove(Person) returns true if the person passed into
+this method can be found in the internal list, and false otherwise. It
+also throws PersonNotFoundException if a person is not found.
+
+Returning a boolean is not required as the exception is thrown before
+the value is returned.
+
+Let's update the return type for UniquePersonList#remove(Person) to
+void.
+```
+
+Adapted from [torvalds/linux](https://github.com/torvalds/linux/commits/master) ([patch](https://github.com/torvalds/linux/commit/9fe8f03bc0227fb573cc3e5b99eb34e19e405ab6.patch)).
+```
+drm/amd/display: Fix memleaks when atomic check fails
+
+While checking plane states for updates during atomic check, we create
+dc_plane_states in preparation. These dc states should be freed if
+something errors.
+
+Although the input transfer function is also freed by
+dc_plane_state_release(), we should free it (on error) under the same
+scope as where it is created.
+```
 
 ### Set Up Your Editor for Commit Messages
 1. To use your editor of choice for `git`-related functionality, e.g. `vim`, do one of either in your terminal:
