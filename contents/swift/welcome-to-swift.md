@@ -70,7 +70,7 @@ func yearAlbumReleased(name: String) -> Int? {
 }
 ```
 
-## Optional Binding
+### Optional Binding
 
 And here is how you unwrap the Optional safely using an `if-let` statement:
 
@@ -90,7 +90,7 @@ To learn more about Optionals, such as Optional Chaining and "dangerously" Force
 
 If you would like to seek a second (or more) opinion about Optionals, check out this [StackOverflow answer](http://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift).
 
-## Guard Statements
+### Guard Statements
 
 Notice that the [happy path](http://xunitpatterns.com/happy%20path.html) in the code above is indented:
 
@@ -132,7 +132,9 @@ Here are some of the benefits of using `guard` statement over `if-let` statement
 1. Unlike the `if-let` statement, using the `guard` statement causes `past` to remain defined and can be used till the function exits.
 1. While using `if-let` statements can lead to deeply nested `if-let` statements (i.e. pyramid of doom), `guard` statements allow us to have the happy path to be not indented, thereby increasing code readability.
 
-## Structs
+## Data Types
+
+### Structs
 
 Apart from the classes (something you are familiar with if you have already learned languages like Java / Python) which you use for creating instances of Reference type, Swift also provides the use of Structs to create instances of Value type. 
 
@@ -158,7 +160,7 @@ You can think of Structs as a way to create instances that have their own unique
 
 If you wish to find out more, here is an [article](https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2) that explains the difference between the 2 types, as well as the benefits of value types and when to use them.
 
-## Enums
+### Enums
 
 An enum is a data type that represents of a set of values. For example, we can use `String` to represent the possible types of a barcode. However, this allows us to assign invalid values to it:
 
