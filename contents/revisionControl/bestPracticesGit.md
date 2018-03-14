@@ -120,6 +120,8 @@ dc_plane_state_release(), we should free it (on error) under the same
 scope as where it is created.
 ```
 
+More examples can be found here: [Formats and Conventions: Commit Messages](https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message)
+
 ### Set Up Your Editor for Commit Messages
 1. To use your editor of choice for `git`-related functionality, e.g. `vim`, do one of either in your terminal:
 ```bash
@@ -317,6 +319,7 @@ These are the resources used in the writing of this chapter, as well as any addi
 - [Git Best Practices by Seth Robertson](https://sethrobertson.github.io/GitBestPractices/)
 - [A Tidy, Linear Git History](http://www.bitsnbites.eu/a-tidy-linear-git-history/)
 - [Rebasing and merging: some git best practices](https://lwn.net/Articles/328436/) involves wisdom from Linus Torvalds
+- [Formats and Conventions: Commit Messages](https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message)
 
 - [programming practices - When to commit code?](https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code)
 - [When is a version control commit too large?](https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large)
