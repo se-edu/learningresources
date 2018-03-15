@@ -39,6 +39,7 @@
 ## Other Topics
 
 * AI
+  * [Machine Learning] (ai/ml.md)
 * Data
   * [Databases](data/databases.md)
 * [Regular Expressions](regex/Regex.md)
