@@ -54,7 +54,7 @@ The distinction between the types of data is important as different ML algorithm
 ## Machine Learning Workflow (Prototyping to Production)
 Bringing a machine learning algorithm in production requires a workflow which differs greatly from that of software engineering. This is due to a focus on prototyping. Prototyping is required as machine learning algorithms vary in efficacy when used in different domains. The quantity, quality and type of data differs greatly as well, sometimes containing errors such as corruption. Machine learning algorithms contain various parameters that can be tuned to improve performance.
 
-The prototyping phase in ML is usually done on [Jupyter notebooks](link here), or [RStudio](link here). The highlight of such software is their strong support for visualization and quick iterations. Visualizations are essential as they help practitioners analyze data and share findings with coworkers. Code style and clarity is less of a priority at this stage. 
+The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of such software is their strong support for visualization and quick iterations. Visualizations are essential as they help practitioners analyze data and share findings with coworkers. Code style and clarity is less of a priority at this stage. 
 
 A machine learning algorithm is also refered to as a model after the algorithm is provided data to learn from.
 
