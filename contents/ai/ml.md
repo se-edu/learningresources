@@ -130,4 +130,4 @@ A plethora of plugins exist for Jupyter. Even Vim aficionados can get their fix 
 ### Concluding Remarks 
 The process of coding a machine learning algorithm for production is an process fairly different from regular software development. 
 
-The above guide currently only covers process of bringing a machine learning algorithm from prototyping to production, with no mention of specific algorithms. This process however, is mostly similar for all machine learning algorithms, from classical to new and emerging deep learning algorithms.
+The above guide currently only covers the process of bringing a machine learning algorithm from prototyping to production, with no mention of specific algorithms. This process however, is mostly similar for all machine learning algorithms, from classical to new and emerging deep learning algorithms.
