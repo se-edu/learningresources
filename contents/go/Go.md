@@ -15,7 +15,7 @@ If you're unconvinced about Go, [the Go playground](https://play.golang.org/) ca
 ## Using Go
 As it builds on the foundations set by many popular and widely-used languages such as C, C++, Java and Python, much of Go's syntax draws from existing implementations and will be familiar to programmers looking to learn an additional language. However, Go also diverges explicitly from these other languages; listed below are some aspects of Go that may be unfamiliar to learners.
 
-### Arrays and slices
+### Arrays and Slices
 Arrays are not often seen in Go code. This is because the size of a Go array must be declared at its creation, which limits how flexible an array can be.
 
 To create dynamically-sized arrays, Go introduces the concept of a slice. Slices are not arrays; rather, they are data structures that describe a piece of a separately-stored array. Slices are the topic of several Go blog entries; you can read more about [the internal layout of slices](https://blog.golang.org/go-slices-usage-and-internals) and [the mechanics of using slices](https://blog.golang.org/slices). Exercises on how to use slices are available in [A Tour of Go](https://tour.golang.org/moretypes/7).
@@ -32,24 +32,38 @@ More information on these three mechanisms and their uses can be found on the [G
 ### Interfaces
 Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, grouping types by functionality rather than using notions of inheritance. Types implement interfaces by implementing the methods in the interface, and do not need to explicitly specify which interfaces are implemented.
 
-In the example below, the `Rectangle` type implements the interface `TwoDimensional` by implementing the methods `area()` and `perim()` that are specified in the interface.
+In the example below, the `Rectangle` type implements the interface `TwoDimensional` by implementing the methods `area()` and `perim()` that are specified in the interface. Thus, instances of `Rectangle` can be used as arguments to `price`. 
+
+Meanwhile, although `Circle` implements `perim()`, it does not implement `area()`. Since it does not implement all the methods in the `TwoDimensional` interface, `Circle` does not implement `TwoDimensional`. Thus, instances of `Circle` cannot be used as arguments to `price`.
 
 ```go
 type TwoDimensional interface {
-  area() float64
-  perim() float64
+	area() float64
+	perim() float64
 }
 
 type Rectangle struct {
-  width, height float64
+	width, height float64
+}
+
+type Circle struct {
+	radius float64
 }
 
 func (r Rectangle) area() {
-  return r.width * r.height
+	return r.width * r.height
 }
 
 func (r Rectangle) perim() {
-  return r.width * 2 + r.height * 2
+	return r.width*2 + r.height*2
+}
+
+func (c Circle) perim() {
+	return 2 * math.Pi * c.radius
+}
+
+func price(t TwoDimensional) {
+	return t.area() * 3.5
 }
 ```
 
@@ -66,22 +80,25 @@ A goroutine is a lightweight thread that executes a function concurrently with i
 
 ```go
 func run() {
-  \\ does something
+	// does something
 }
 
 func main() {
-  go run()
-  executeOtherCommands()
+	go run()
+	executeOtherCommands()
 }
 ```
 
 In the above example, using the `go` keyword launches a goroutine, which executes `run()` concurrently with `executeOtherCommands()`.
 
 Goroutines can also be started for anonymous functions:
+
 ```go
-go func(msg string) {
-  fmt.Println(msg)
-}("a message")  // starts a goroutine that prints "a message"
+func foo() {
+	go func(msg string) {
+		fmt.Println(msg)
+	}("a message") // starts a goroutine that prints "a message"
+}
 ```
 
 A goroutine is not its own thread; instead, goroutines are dynamically multiplexed onto threads as required to keep them running. This makes them lightweight, so having a large number of goroutines is feasible. In practice, goroutines behave similarly to very cheap threads.
@@ -105,15 +122,15 @@ Channels can transmit data of any type; thus, creating a channel that transmits 
 Goroutines send and receive messages through a channel using the `<-` operator.
 
 ```go
-ch <- v    // Send v to channel ch.
-v := <-ch  // Receive from ch, and
-           // assign value to v.
+	ch <- v   // Send v to channel ch.
+	v := <-ch // Receive from ch, and
+	          // assign value to v.
 ```
 One useful way to think about sending and receiving data with the `<-` operator is that the data moves in the direction of the arrow.
 
-If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's [basic](https://www.youtube.com/watch?v=f6kdp27TYZs) and [advanced concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw). This [code walkthrough](https://golang.org/doc/codewalk/sharemem/) provides an annotated example of how Go's memory-sharing principles can be applied in practice, .
+If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's [basic](https://www.youtube.com/watch?v=f6kdp27TYZs) and [advanced concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw). This [code walkthrough](https://golang.org/doc/codewalk/sharemem/) provides an annotated example of how Go's memory-sharing principles can be applied in practice.
 
-### Effective Go
+### Canonical Coding Style
 Formatting in Go is enforced by running `gofmt`, which will align your source code with the language-wide standard style of indentation and vertical alignment. Thus, given the following code:
 
 ```go
@@ -126,15 +143,15 @@ Running `$ gofmt` in the same directory as the source file will line up comments
 
 ```go
 type T struct {
-    name    string // name of the object
-    value   int    // its value
+	name  string // name of the object
+	value int    // its value
 }
 ```
 Variations on `gofmt` may be of use, and can be found in the [documentation](https://golang.org/cmd/gofmt/).
 
 Go also enforces good coding practices, for instance, by refusing to build projects that declare of unused variables or imports. Such enforcement, along with a clear, unified and extensive [treatise on coding conventions in Go](https://golang.org/doc/effective_go.html), have manifested in a reasonably stable Go coding style.
 
-## Useful resources
+## Useful Resources
 Go's development team is heavily involved in documenting and growing the Go language and community. If you are keen to learn more about Go, here are some resources to help you get started:
 
 - [The Go FAQ](https://golang.org/doc/faq) - answers common questions about the language's history, usage, design and more
