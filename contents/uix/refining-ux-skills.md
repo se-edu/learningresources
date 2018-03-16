@@ -10,15 +10,31 @@ Improving your skills as someone new to UX Design is crucial to getting a UX-rel
 1. Becoming a UX apprentice
 1. Engaging in individual UX projects
 
-Each keypoint is a tactic to help you refine your UX skillsets, which would also include potential pitfalls and solutions to consider.
+Each keypoint represents a tactic to help you refine your UX skillsets, supplemented with the potential pitfalls of each tactic and solutions to consider.
 
 ## Building a relationship with a UX mentor
 Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding ux designer would have at the beginning. Chances are that they have already asked the same questions you are having. This is important because if they have tried any methods, they can tell you what works or does not work. Even if they have not tried solving the issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.
 
-There are many avenues to find a UX mentor.
-* Mentoring networks
-* Conferences
-* Local meet-ups
+There are many avenues to find a UX mentor. Listed below are some links to get you started on some ways you can find
+
+Mentoring networks:
+1. [Find a Mentor (RookieUp)](https://www.rookieup.com/find-a-mentor/)
+1. [UXPA UK Mentoring programme](http://uxpa-uk.org/development/mentoring/)
+1. [IDF Design League program](https://www.interaction-design.org/design-league?ep=az)
+1. [UX Mentorship Program (The UX Review)](https://theuxreview.co.uk/ux-mentorship-program-by-uxr/)
+
+Conferences
+1. [Nielsen Norman Group UX Conferences](https://www.nngroup.com/ux-conference/)
+
+Local meet-ups
+1. [UXSG Community](http://www.uxsg.org/)
+1. [IxDA Singapore](https://www.meetup.com/IxDA-Singapore/)
+1. [Singapore Lean Startup Circle](https://www.meetup.com/Singapore-Lean-Startup-Circle/)
+1. [Singapore Dribbble Meetup](https://www.facebook.com/groups/dribbble.sg/)
+
+If you are concerned with how to find the right mentor, check out below articles which offer some tips on how to select the right mentor for yourself.
+1. [How to Find a UX Mentor](https://www.uxbeginner.com/how-to-find-a-ux-mentor/)
+1. [How (and Why) You Want to Find a Great Design Mentor](https://medium.com/@myplanet/how-and-why-you-want-to-find-a-great-design-mentor-6faa7c0fffd9)
 
 #### Potential pitfalls
 *Unresponsive or ineffective mentors*: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.
@@ -46,6 +62,7 @@ Online:
 In-person:
 1. [UX Design Immersive (General Assembly)](https://generalassemb.ly/education/user-experience-design-immersive)
 1. [Product Design (Alpha Camp)](https://sg.alphacamp.co/full-time-product-design/)
+1. [Human Centered Design](https://www.hyperisland.com/programs-and-courses/human-centered-design)
 
 #### Potential pitfalls
 *Ineffective learning experiences*: One mistake is to simply signing up for any program, thinking that all UX Design programs are the same. While most should impart UX skillsets, their curriculum were developed separatedly, hence their teaching methodology and focus can be different. Consider requesting the course syllabus for each couse and asking a few questions:
@@ -60,6 +77,11 @@ This is the tactic that shows your proactiveness and your desire to excel in UX 
 
 Find a local organisation with a website/app that you believe needs design help. Approach them via call/email to let them know that you are new to design but would like to gain some experience by providing advice on how certain aspects of their websites can be improved, bearing in mind that it's good to always frame design issues as business issues. Afterwards simply treat it as your own UX project and work with the organisation to produce value-added content like prototypes that can help to showcase what you are saying. By doing it well, you can gain experience and even add value to your resume.
 
+Listed below are some examples of UX projects that can be self-initiated.
+1. [10 UX/UI Projects to Help You Build Your Portfolio](https://www.rookieup.com/blog/10-uxui-projects-help-build-portfolio/)
+1. [5 Hidden Sources of UX Portfolio Projects](https://www.uxbeginner.com/5-hidden-sources-of-ux-portfolio-projects/)
+1. [Two Projects to Hone your UX Skills](http://thehipperelement.com/post/145959249463/two-projects-to-hone-your-ux-skills)
+
 #### Potential pitfalls:
 *Projects that don’t count as legitimate UX experience*: It is important to be careful of the type of projects you end up taking. Producing content for non-digital media, such as a brochure or an advertisement, would not be as relevant as producing wireframes for a website. Furthermore, even with a relevant UX experience, it is crucial to be able to link your work to communicate the following points in order to really sell your work as a UX designer:
 * How you helped the team balance user goals and business goals
@@ -67,6 +89,10 @@ Find a local organisation with a website/app that you believe needs design help.
 * How you collaborated with non-designers
 * How you transformed user research and quantitative data into actionable insights for the team
 * How you worked with the team to resolve unexpected challenges
+Applying UX skills and being able to communicate your ideas/results clearly to your clients based on the questions listed above helps you to sell the true value of your design work.
 
 ## Summary
 Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Hopefully the tactics and ways to avoid common pitfalls helps to make the process easier to understand. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design skills.
+
+## Additional Resources
+1. [List of Meetups/Conferences/Resources in Singapore](http://interface.sg/)
