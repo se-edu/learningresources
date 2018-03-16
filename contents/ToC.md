@@ -43,6 +43,7 @@
   * [Databases](data/databases.md)
 * [Regular Expressions](regex/Regex.md)
 * Security
+  * [Cross Site Request Forgery](security/crossSiteRequestForgery/crossSiteRequestForgery.md)
   * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
   * [Cryptography](security/cryptography.md)
   * [HTTPS](security/Https.md)
