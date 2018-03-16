@@ -62,7 +62,7 @@ Online:
 In-person:
 1. [UX Design Immersive (General Assembly)](https://generalassemb.ly/education/user-experience-design-immersive)
 1. [Product Design (Alpha Camp)](https://sg.alphacamp.co/full-time-product-design/)
-1. [Human Centered Design](https://www.hyperisland.com/programs-and-courses/human-centered-design)
+1. [Human Centered Design (Hyper Island)](https://www.hyperisland.com/programs-and-courses/human-centered-design)
 
 #### Potential pitfalls
 *Ineffective learning experiences*: One mistake is to simply signing up for any program, thinking that all UX Design programs are the same. While most should impart UX skillsets, their curriculum were developed separatedly, hence their teaching methodology and focus can be different. Consider requesting the course syllabus for each couse and asking a few questions:
@@ -89,10 +89,11 @@ Listed below are some examples of UX projects that can be self-initiated.
 * How you collaborated with non-designers
 * How you transformed user research and quantitative data into actionable insights for the team
 * How you worked with the team to resolve unexpected challenges
+
 Applying UX skills and being able to communicate your ideas/results clearly to your clients based on the questions listed above helps you to sell the true value of your design work.
 
 ## Summary
 Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Hopefully the tactics and ways to avoid common pitfalls helps to make the process easier to understand. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design skills.
 
-## Additional Resources
+## Additional Resource(s)
 1. [List of Meetups/Conferences/Resources in Singapore](http://interface.sg/)
