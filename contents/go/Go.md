@@ -157,7 +157,7 @@ Goroutines send and receive messages through a channel using the `<-` operator.
 ```
 One useful way to think about sending and receiving data with the `<-` operator is that the data moves in the direction of the arrow.
 
-Channels can be used to synchronize  execution across goroutines, since receivers block until they can receive a message, while senders block if the channel is full. In the code example below, the `main` goroutine waits until it receives a message from the `worker` goroutine that it is done before terminating.
+Channels can be used to synchronize execution across goroutines, since receivers block until they receive data, while senders block [until the receiver or buffer receives data](https://golang.org/doc/effective_go.html#channels). In the code example below, the `main` goroutine waits until it receives a message from the `worker` goroutine that it is done before terminating.
 
 ```go
 func worker(done chan bool) {
