@@ -15,8 +15,37 @@ If you're unconvinced about Go, [the Go playground](https://play.golang.org/) ca
 ## Using Go
 As it builds on the foundations set by many popular and widely-used languages such as C, C++, Java and Python, much of Go's syntax draws from existing implementations and will be familiar to programmers looking to learn an additional language. However, Go also diverges explicitly from these other languages; listed below are some aspects of Go that may be unfamiliar to learners.
 
+### Declaring Variables
+One immediately obvious difference between Go and other languages is that Go declares its variables in the format `var variableName (variableType)`, with the variable's type declared to the right of the variable name, as follows:
+
+```go
+var name string
+name = "John Smith"
+```
+This differs from many other languages, which put the variable type to the left of the variable name.
+
+In addition, the length of a declaration statement in Go can be variable. The `variableType` of a new variable need not be declared if an initializer is used. For instance, in the following example, the `string` type is optional:
+
+```go
+var name string = "John Smith"
+
+// alternatively
+var name = "John Smith"
+```
+
+When initializers are not used, simply declaring a variable allocates storage for the variable and initializes its value to that type's zero value. The zero value is `0` for numeric types, `false` for booleans, `""` for strings, `nil` for pointers, functions, interfaces, slices, channels, and maps.
+
+As an extension of type inference, the `:=` short assignment statement can be used inside a function to as a `var` declaration with implicit type:
+```go
+name := "John Smith"
+```
+
+Thus, we see that there are several potential ways to declare a variable in Go. Choosing which style of variable declaration to use depends on how verbose a programmer wants to be in declaring the variable.
+
+Go's syntax for more complex types such as pointers, arrays and structs is also somewhat idiosyncratic, and can be explored in this [Go blog article](https://blog.golang.org/gos-declaration-syntax), or with the help of [this tutorial on pointers](http://www.golang-book.com/books/intro/8) and [this tutorial on structs](https://www.golang-book.com/books/intro/9).
+
 ### Arrays and Slices
-Arrays are not often seen in Go code. This is because the size of a Go array must be declared at its creation, which limits how flexible an array can be.
+Arrays are not often seen in Go code. This is because the size of a Go array must be declared at its creation, which limits how flexible an array can be. For instance, in the 
 
 To create dynamically-sized arrays, Go introduces the concept of a slice. Slices are not arrays; rather, they are data structures that describe a piece of a separately-stored array. Slices are the topic of several Go blog entries; you can read more about [the internal layout of slices](https://blog.golang.org/go-slices-usage-and-internals) and [the mechanics of using slices](https://blog.golang.org/slices). Exercises on how to use slices are available in [A Tour of Go](https://tour.golang.org/moretypes/7).
 
