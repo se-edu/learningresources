@@ -2,7 +2,15 @@
 
 Author: [Tan Jun Kiat](https://github.com/junkiattan)
 
-## Overview
+## Table of Contents
+  * [Overview](#overview)
+  * [Building a relationship with a UX mentor](#relationship)
+  * [Becoming a UX apprentice](#apprenticeship)
+  * [Engaging in individual UX projects](#engagement)
+  * [Summary](#summary)
+  * [Additional Resource(s)](#additionalResources)
+
+## Overview <a id="overview"></a>
 As someone new to UX Design, honing your design skills is crucial to getting a UX-related career. In addition to knowing the definition of UX Design and it's stages, it is also important to know the practical aspect of starting and refining the required skillsets. This section will explain a few tactics to help you on this journey of improvement.
 
 #### Summary of keypoints
@@ -12,7 +20,7 @@ As someone new to UX Design, honing your design skills is crucial to getting a U
 
 Each keypoint represents a tactic to help you refine your UX skillsets, supplemented with the potential pitfalls of each tactic and solutions to consider.
 
-## Building a relationship with a UX mentor
+## Building a relationship with a UX mentor <a id="relationship"></a>
 Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding UX designer would have at the beginning. Chances are that they have already asked the same questions you are having and can therefore provide constructive feedback on workable solutions. Even if they have not tried tackled the same issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.
 
 There are many avenues to find a UX mentor. Listed below are some links to get you started on some ways you can find a potential mentor.
@@ -39,7 +47,7 @@ If you are concerned with how to find the right mentor, check out below articles
 #### Potential pitfalls
 *Unresponsive or ineffective mentors*: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.
 
-## Becoming a UX apprentice
+## Becoming a UX apprentice <a id="apprenticeship"></a>
 This tactic may sound similar to the first one, but apprenticeship here connotes a stronger meaning for a formal learning experience. While the previous point talks about getting on-the-job advice from more experienced individuals, this tactic mainly discusses learning bootcamps that focuses on bringing an individual from "UX Zero" to "UX Hero" within the span of a few months.
 
 Bootcamps can be classified into online or in-person, each with its advantages and disadvantages.
@@ -72,7 +80,7 @@ In-person:
 
 Be honest with your expectations on what you wish to get out of the course and find a suitable one based on your answers to the questions above.
 
-## Engaging in individual UX projects
+## Engaging in individual UX projects <a id="engagement"></a>
 This is the tactic that shows your proactiveness and desire to excel in UX Design. Whether you have a mentor or have participated in a UX Bootcamp, nothing shows your commitment to UX Design more than if you had further honed those learned skills in actual UX projects.
 
 Find a local organisation with a website/app that you believe needs design help. Approach them via call/email to let them know that you are new to design but would like to gain some experience by providing advice on how certain aspects of their websites can be improved, bearing in mind that it's good to always frame design issues as business issues. Afterwards, simply treat it as your own UX project and work with the organisation to produce value-added content such as prototypes that can help to showcase your ideas. By doing it well, you can gain experience and even add value to your resume.
@@ -92,12 +100,12 @@ Listed below are some examples of UX projects that can be self-initiated.
 
 Applying UX skills and being able to communicate your ideas/results clearly to your clients based on the questions listed above helps you to sell the true value of your design work.
 
-## Summary
+## Summary <a id="summary"></a>
 Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Therefore, knowing the tactics and solutions to common pitfalls would definitely help clarify the steps needed to refine your UX skills. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design.
 
 Know that there are also many other people like you who are new and want to break into UX. Check out the below links for some success stories of individuals who started with zero experience but managed to secure full-time UX jobs. Use those stories as inspiration to motivate your own UX journey!
 * [How I landed a job in UX Design with no degree or work experience](https://blog.prototypr.io/how-i-landed-a-job-in-ux-design-with-no-degree-or-work-experience-ca22c22a1c68)
 * [How I Landed a UX Job in 8 Months Without Work Experience or a Degree](https://medium.com/capitalonedesign/how-i-landed-a-ux-job-in-8-months-without-work-experience-or-a-degree-a057d32df1f9)
 
-## Additional Resource(s)
+## Additional Resource(s) <a id="additionalResources"></a>
 1. [List of Meetups/Conferences/Resources in Singapore](http://interface.sg/)
