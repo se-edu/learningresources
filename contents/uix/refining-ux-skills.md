@@ -103,7 +103,7 @@ Applying UX skills and being able to communicate your ideas/results clearly to y
 ## Summary <a id="summary"></a>
 Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Therefore, knowing the tactics and solutions to common pitfalls would definitely help clarify the steps needed to refine your UX skills. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design.
 
-Know that there are also many other people like you who are new and want to break into UX. Check out the below links for some success stories of individuals who started with zero experience but managed to secure full-time UX jobs. Use those stories as inspiration to motivate your own UX journey!
+Know that there are many others before you who were new but successfully went into UX Design through their tenacity and hard work. Check out the below links for some success stories of individuals who started with zero experience but managed to secure full-time UX jobs. Use those stories as inspiration to motivate your own UX journey!
 * [How I landed a job in UX Design with no degree or work experience](https://blog.prototypr.io/how-i-landed-a-job-in-ux-design-with-no-degree-or-work-experience-ca22c22a1c68)
 * [How I Landed a UX Job in 8 Months Without Work Experience or a Degree](https://medium.com/capitalonedesign/how-i-landed-a-ux-job-in-8-months-without-work-experience-or-a-degree-a057d32df1f9)
 
