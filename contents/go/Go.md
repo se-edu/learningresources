@@ -130,13 +130,13 @@ func foo() {
 }
 ```
 
-A goroutine is not its own thread; instead, goroutines are dynamically multiplexed onto threads as required to keep them running. This makes them lightweight, so having a large number of goroutines is feasible. In practice, goroutines behave similarly to very cheap threads.
+A goroutine is not its own thread; instead, goroutines are dynamically multiplexed onto threads as required to keep them running. In addition, goroutines start with [very small stacks](https://stackoverflow.com/questions/41906357/why-are-goroutines-much-cheaper-than-threads-in-other-languages) which makes them lightweight, so having a large number of goroutines is feasible. In practice, goroutines behave similarly to very cheap threads.
 
 #### Channels
 
-Channels are used to fulfill Go's philosophy on concurrent software: "don't communicate by sharing memory; share memory by communicating".
+Channels are used to fulfill Go's philosophy on concurrent software: "don't communicate by sharing memory; share memory by communicating". In other words, Go relies on message passing between concurrently running goroutines to share information.
 
-Channels are typed conduits that allows goroutines to communicate with each other by sending and receiving messages. Before using a channel of a specific type, we must declare and `make` it:
+Specifically, Go relies on channels to implement message passing. Channels are typed conduits that allows goroutines to communicate with each other by sending and receiving messages. Before using a channel of a specific type, we must declare and `make` it:
 
 ```go
 var c chan int
@@ -156,6 +156,26 @@ Goroutines send and receive messages through a channel using the `<-` operator.
 	          // assign value to v.
 ```
 One useful way to think about sending and receiving data with the `<-` operator is that the data moves in the direction of the arrow.
+
+Channels can be used to synchronize  execution across goroutines, since receivers block until they can receive a message, while senders block if the channel is full. In the code example below, the `main` goroutine waits until it receives a message from the `worker` goroutine that it is done before terminating.
+
+```go
+func worker(done chan bool) {
+	fmt.Print("Working...")
+	time.Sleep(time.Second)
+	fmt.Println("Done working")
+
+	done <- true
+}
+
+func main() {
+	done := make(chan bool)
+	go worker(done)
+
+	<-done
+	fmt.Println("Returned from work")
+}
+```
 
 If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's [basic](https://www.youtube.com/watch?v=f6kdp27TYZs) and [advanced concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw). This [code walkthrough](https://golang.org/doc/codewalk/sharemem/) provides an annotated example of how Go's memory-sharing principles can be applied in practice.
 
