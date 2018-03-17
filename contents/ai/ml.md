@@ -72,7 +72,9 @@ Statistics of the data is also collected to identify data imbalances.
 ![bar_chart](https://upload.wikimedia.org/wikipedia/commons/3/35/Incarceration_Rates_Worldwide_ZP.svg)  
 (image from wikipedia)
 
-Assume that the above barchart indicates the number of data points present for each country in the data. The number of data points for United States is much larger than that of Japan, clearly indicating the presence of class imbalance. The importance of identifying class imbalance is highlighted in the next phase.
+Assume that the above barchart indicates the number of data points present for each country in the data. The number of data points for United States is much larger than that of Japan. Class imbalance is present.
+
+Class imbalance is known to negatively impact model performance. One easy remedey is oversampling the classes with fewer instances during training, up till the point where datapoints from each class has the same probability of being picked. This [paper](https://arxiv.org/abs/1710.05381v1) details oversampling and other methods for tackling class imbalance when using Convolutional Neural Networks. The literature review section in the paper also links to techniques effective on other machine learning algorithms.
 
 ### Partitioning of Data
 Data is usually split into 3 sets, the training set, validation set and test set.
@@ -85,7 +87,21 @@ A test set solves the above problem. A test set is created by partitioning the a
 When the data is balanced, the test set can be created by randomly sampling the data without replacement. When the data is unbalanced, stratified sampling is performed to ensure all classes of data are adequately represented. This process ensures that no class is skipped during testing, in turn ensuring that test performance is a good indicator of real world performance. 
 
 #### Validation Set
-A validation set is then created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting model parameters. As mentioned, models posess a large number of parameters This process of adjusting model parameters is not conducted on the test set as it may make the model overfit the test set and fail to generalize on real world data.
+A validation set is then created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting model parameters. As mentioned, models posess a large number of parameters. This process of adjusting model parameters and verifying performace is not conducted on the test set as it may make the model overfit the test set and fail to generalize on real world data.
+
+Guidelines on picking a size for the validation set (for the statically inclined):
+Jeremy Howard, ex-Chief Scientist at Kaggle, suggests three driving factors for deciding the validation set size.  
+
+- Business Concerns   
+4 mistakes in fraud detection is a much bigger issue than 4 mistakes in hotdog classification. Assuming a validation set of 1000, 4 mistakes equates to 0.2% difference in accuracy. If working on a business problem like hotdog classification, comparing models with a small performance difference like in this example will require a bigger validation set.   
+
+- Statistical Stability  
+Each class should have at least 22 datapoints, so that the validation set follows an approximate normal distribution. This allows easier statistical analysis for the next driving factor.
+
+- Standard Error   
+The standard error, calculated using statsistical analysis, should be smaller than the difference in performance of models. This helps us ensure that the difference in performance is reliable.
+
+See Lesson 7 of FastAI's ML MOOC for a more in-depth explanation (MOOC is at unofficial release at time of writing)
 
 #### Training Set
 The remaining data forms the training set. Data in the training set is used for model training. 
@@ -130,4 +146,4 @@ A plethora of plugins exist for Jupyter. Even Vim aficionados can get their fix 
 ### Concluding Remarks 
 The process of coding a machine learning algorithm for production is an process fairly different from regular software development. 
 
-The above guide currently only covers the process of bringing a machine learning algorithm from prototyping to production, with no mention of specific algorithms. This process however, is mostly similar for all machine learning algorithms, from classical to new and emerging deep learning algorithms.
+The above guide covers only the process of bringing a machine learning algorithm from prototyping to production, with no mention of specific algorithms. This process however, is mostly similar for all machine learning algorithms, from classical to new and emerging deep learning algorithms.
