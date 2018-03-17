@@ -180,7 +180,7 @@ func main() {
 If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's [basic](https://www.youtube.com/watch?v=f6kdp27TYZs) and [advanced concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw). This [code walkthrough](https://golang.org/doc/codewalk/sharemem/) provides an annotated example of how Go's memory-sharing principles can be applied in practice.
 
 ### Canonical Coding Style
-Formatting in Go is enforced by running `gofmt`, which will align your source code with the language-wide standard style of indentation and vertical alignment. Thus, given the following code:
+Formatting in Go is enforced by running `go fmt`, which will align your source code with the language-wide standard style of indentation and vertical alignment. Thus, given the following code:
 
 ```go
 type T struct {
@@ -188,7 +188,7 @@ type T struct {
     value int // its value
 }
 ```
-Running `$ gofmt` in the same directory as the source file will line up comments and correct the source code's indentation:
+Running `$ go fmt` in the same directory as the source file will line up comments and correct the source code's indentation:
 
 ```go
 type T struct {
@@ -196,7 +196,7 @@ type T struct {
 	value int    // its value
 }
 ```
-Variations on `gofmt` may be of use, and can be found in the [documentation](https://golang.org/cmd/gofmt/).
+Variations on `go fmt` may be of use, and can be found in the [documentation](https://golang.org/cmd/gofmt/).
 
 Go also enforces good coding practices, for instance, by refusing to build projects that declare of unused variables or imports. Such enforcement, along with a clear, unified and extensive [treatise on coding conventions in Go](https://golang.org/doc/effective_go.html), have manifested in a reasonably stable Go coding style.
 
