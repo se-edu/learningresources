@@ -49,14 +49,53 @@ Arrays are not often seen in Go code. This is because the size of a Go array mus
 
 To create dynamically-sized arrays, Go introduces the concept of a slice. Slices are not arrays; rather, they are data structures that describe a piece of a separately-stored array. Slices are the topic of several Go blog entries; you can read more about [the internal layout of slices](https://blog.golang.org/go-slices-usage-and-internals) and [the mechanics of using slices](https://blog.golang.org/slices). Exercises on how to use slices are available in [A Tour of Go](https://tour.golang.org/moretypes/7).
 
-### `defer`, `panic` and `recover`
-In addition to traditional control flow mechanisms such as `if`, `for` and `switch`, Go also provides three other ways to alter the flow of a program: `defer`, `panic`, `recover`. These mechanisms can be conceived in terms of exception handling in Java and C++, but also have more general purpose uses.
+### `defer`
+As opposed to traditional control flow mechanisms such as `if`, `for` and `switch`, which execute functions immediately, Go's `defer` keyword pushes a function call to a list, and only executes all functions on the list after the surrounding function returns. In the following example, `defer` adds two print functions to the stack of deferred functions. After `foo` finishes executing, the deferred functions are executed in last-in-first-out order.
 
-- `defer` pushes a function call to a list, and executes all functions on the list in last-in-first-out order after the surrounding function returns. It is frequently used for clean-up actions, such as to close files.
-- `panic` stops the ordinary flow of execution, executes any deferred functions, and returns to its caller as a call to `panic`. The `panic` continues up the stack until all functions in the goroutine have returned, after which the program crashes.
+```go
+func foo() {
+	defer fmt.Println("This gets printed third")
+	defer fmt.Println("This gets printed second")
+	fmt.Println("This gets printed first")
+}
+```
+
+`defer` is frequently used for clean-up actions, such as to [close files](https://gobyexample.com/defer). Deferred functions run on panicking goroutines as well, which makes them useful for recovering from `panic`.
+
+### Error Handling
+Error handling in Go is performed using multiple returns. On any function that can fail, the function's last return type should always be of the type `error`. For example, the `os.Open` function returns a non-nil error value when it fails to open a file.
+
+```go
+func Open(name string) (file *File, err error)
+```
+
+An `error` variable represents any value that can describe itself as a string, by implementing the following interface:
+
+```go
+type error interface {
+	Error() string
+}
+```
+
+When calling a method that may return an error, we check if the returns `err != null` and handle the resulting error.
+
+```go
+func useFile() {
+	f, err := os.Open("filename.ext")
+	if err != nil {
+	    log.Fatal(err)
+	    return
+	}
+	// do something with the open *File f
+}
+```
+
+To deal with unexpected errors, Go also provides two mechanisms: `panic` and `recover`.
+
+- `panic` stops the ordinary flow of execution, executes any deferred functions, and returns to its caller as a call to `panic`. The `panic` continues up the stack until all functions in the goroutine have returned, after which the program crashes. `panic` is used to fail fast on errors that cannot be handled gracefully.
 - `recover` regains control of a panicking goroutine. When used inside a deferred function, a call to recover captures the value returned by `panic` and resumes normal execution.
 
-More information on these three mechanisms and their uses can be found on the [Go blog](https://blog.golang.org/defer-panic-and-recover).
+More information on error handling can be found on the [Go blog](https://blog.golang.org/error-handling-and-go).
 
 ### Interfaces
 Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types implement interfaces by implementing the methods in the interface, and do not need to explicitly specify which interfaces are implemented.
