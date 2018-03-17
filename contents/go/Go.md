@@ -59,7 +59,7 @@ In addition to traditional control flow mechanisms such as `if`, `for` and `swit
 More information on these three mechanisms and their uses can be found on the [Go blog](https://blog.golang.org/defer-panic-and-recover).
 
 ### Interfaces
-Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, grouping types by functionality rather than using notions of inheritance. Types implement interfaces by implementing the methods in the interface, and do not need to explicitly specify which interfaces are implemented.
+Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types implement interfaces by implementing the methods in the interface, and do not need to explicitly specify which interfaces are implemented.
 
 In the example below, the `Rectangle` type implements the interface `TwoDimensional` by implementing the methods `area()` and `perim()` that are specified in the interface. Thus, instances of `Rectangle` can be used as arguments to `price`. 
 
@@ -98,8 +98,8 @@ func price(t TwoDimensional) {
 
 One benefit of using a system where interface implementations need not be stated in the source code is that methods can be attached to types that you didn't write. In other words, you can extend a type to implement an interface without access to its source code by simply implementing the interface's method in your own code.
 
-Some resources to get started with Go interfaces include [this blog post](https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c) introducing Go interfaces, code examples on
-[how interfaces (including the empty interface) are used in practice](https://www.calhoun.io/how-do-interfaces-work-in-go/), this [comparison of Go's OOP style with that of other languages](https://flaviocopes.com/golang-is-go-object-oriented/) and [Go's official FAQ on OOP](https://golang.org/doc/faq#Is_Go_an_object-oriented_language).
+Some resources to get started with Go interfaces include [this blog post](https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c) introducing Go interfaces and code examples on
+[how interfaces (including the empty interface) are used in practice](https://www.calhoun.io/how-do-interfaces-work-in-go/). For a more extensive look at how object-oriented programming is done in Go, you can refer to this [comparison of Go's OOP style with that of other languages](https://flaviocopes.com/golang-is-go-object-oriented/), [Go's official FAQ on OOP](https://golang.org/doc/faq#Is_Go_an_object-oriented_language), or this [tutorial on OOP in Go](https://code.tutsplus.com/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540).
 
 ### Concurrency
 One of Go's special features is its support for concurrency. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.
