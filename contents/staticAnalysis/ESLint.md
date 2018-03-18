@@ -70,10 +70,25 @@ After [installing with npm](https://eslint.org/docs/user-guide/getting-started#i
 **Configuration comments** inside your file. In this example, the comments enforces all braces in the **file** to follow Allman style:
 ```js
 /* eslint brace-style: ["error", "allman"] */
-if (foo === bar)
-{
+if (foo === bar) { // should be on the next line
   return;
 }
+```
+Linting output:
+```shell
+ 1:10  error  Opening curly brace appears on the same line as controlling statement  brace-style
+```
+NOTE: That specifying the rule option as "error" will result in the exit code of 1 when the rule is violated. If you wish for ESLint to alert you but not fail the linting, you may set it to "warn":
+
+```js
+/* eslint brace-style: ["warn", "allman"] */
+if (foo === bar) { // warning displayed but does not affect exit code
+  return;
+}
+```
+Linting output:
+```shell
+1:10  warning  Opening curly brace appears on the same line as controlling statement  brace-style
 ```
 
 If you are not sure what rules to add to your project, you can import [configurations](https://eslint.org/docs/developer-guide/shareable-configs) published by more experienced developers or organizations.
