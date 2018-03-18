@@ -13,6 +13,7 @@ Author: [Shradheya Thakre](https://github.com/tshradheya)
 * [Kotlin for Android Apps](#kotlin-for-android-apps)
     * [Advantages of Shifting to Kotlin](#advantages-of-shifting-to-kotlin)
     * [Drawbacks of Shifting to Kotlin](#drawbacks-of-shifting-to-kotlin)
+* [Resources to learn Kotlin](#resources-to-learn-kotlin)
 
 # Overview
 
@@ -52,7 +53,7 @@ if(playPercentage >= 0 && playPercentage <= 24) {
 
 ### Safe
 
-Kotlin protects you from mistakenly operating on nullable types
+Kotlin protects you from mistakenly operating on [nullable](https://kotlinlang.org/docs/reference/null-safety.html) types
 - Get compilation error when you mistakenly try operating on nullable types
 ``` kotlin
 val name: String? = null    // Nullable type
@@ -91,5 +92,11 @@ The biggest issue is that Java isn’t a modern language, and although Java 8 wa
 ### Drawbacks of Shifting to Kotlin
 
 - Extra runtime size due to increase in size of `.apk`
-- Initial readability of code for core Java developers
+- Initial readability of code may be hindered for core Java developers
 - Smaller community support
+
+# Resources to learn Kotlin
+
+- [Official Resources by Android](https://developer.android.com/kotlin/resources.html)
+- [Kotlin Documentation](https://kotlinlang.org/docs/reference/)
+- [Cheatsheet for shifiting from Java to Kotlin](https://github.com/MindorksOpenSource/from-java-to-kotlin)
