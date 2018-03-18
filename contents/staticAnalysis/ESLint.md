@@ -78,7 +78,9 @@ Linting output:
 ```shell
  1:10  error  Opening curly brace appears on the same line as controlling statement  brace-style
 ```
-NOTE: That specifying the rule option as "error" will result in the exit code of 1 when the rule is violated. If you wish for ESLint to alert you but not fail the linting, you may set it to "warn":
+<br/>
+
+**NOTE**: That specifying the rule option as "error" will result in the exit code of 1 when the rule is violated. If you wish for ESLint to alert you but not fail the linting, you may set it to "warn":
 
 ```js
 /* eslint brace-style: ["warn", "allman"] */
@@ -90,6 +92,7 @@ Linting output:
 ```shell
 1:10  warning  Opening curly brace appears on the same line as controlling statement  brace-style
 ```
+<br/>
 
 If you are not sure what rules to add to your project, you can import [configurations](https://eslint.org/docs/developer-guide/shareable-configs) published by more experienced developers or organizations.
 
@@ -105,8 +108,11 @@ Once configured, you can lint your files with [terminal commands](https://eslint
 ```
 $ eslint --fix file.js
 ```
+<br/>
 
 ESLint can be easily integrated with your build tool of choice. Here are some [plugins](https://eslint.org/docs/user-guide/integrations#build-tools) for some popular build tools. ESLint can also work with Continuous Integration tools like Travis, AppVeyor and CircleCI. Configuration is explained in this [example using Travis](https://medium.com/jason-feng/travis-ci-guide-bdc03b3dbc9d). You can also learn how to automate ESLint to [run every time you commit](https://medium.com/the-node-js-collection/why-and-how-to-use-eslint-in-your-project-742d0bc61ed7).
+
+<br/>
 
 ESLint also has [editor integrations](https://eslint.org/docs/user-guide/integrations#editors) such as error highlighting in many popular editors like Atom and WebStorm.
 
