@@ -118,7 +118,7 @@ ESLint also has [editor integrations](https://eslint.org/docs/user-guide/integra
 
 [ESLint Package for Atom](https://atom.io/packages/linter-eslint)
 
-![linter-eslint](https://i.imgur.com/DfwoeqB.png)
+![linter-eslint](https://imgur.com/6Nrj4NV.png)
 
 ## Plugins
 Custom rules can be [imported](https://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin) via Plugins. You can [learn how to write your own](https://eslint.org/docs/developer-guide/working-with-plugins) or [use existing ones](https://www.npmjs.com/browse/keyword/eslintplugin) that are already published to npm.
