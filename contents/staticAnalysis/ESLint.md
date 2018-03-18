@@ -58,21 +58,22 @@ If you are unsure about the options of the rule you want to change, you can refe
 
 After [installing with npm](https://eslint.org/docs/user-guide/getting-started#installation-and-usage), ESLint can be configured in [two ways](https://eslint.org/docs/user-guide/configuring#configuring-rules):
 
-Single configuration file
+**Single configuration file**. In this example, the rule is configured in `.eslintrc.json` and enforces all braces in the **project** to follow Allman style:
 ```json
-.eslintrc.json
 {
   "rules": {
-    "eqeqeq": "error"
+    "brace-style": ["error", "allman"]
   }
 }
 ```
 
-Comments
+**Configuration comments** inside your file. In this example, the comments enforces all braces in the **file** to follow Allman style:
 ```js
-// yourfile.js
-/* eslint eqeqeq: "error", */
-if (foo === bar) return;
+/* eslint brace-style: ["error", "allman"] */
+if (foo === bar)
+{
+  return;
+}
 ```
 
 If you are not sure what rules to add to your project, you can import [configurations](https://eslint.org/docs/developer-guide/shareable-configs) published by more experienced developers or organizations.
