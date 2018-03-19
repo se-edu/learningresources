@@ -33,6 +33,7 @@
   * [CheckStyle](staticAnalysis/checkStyle.md)
   * [PMD](staticAnalysis/PMD.md)
   * [FindBugs](staticAnalysis/FindBugs.md)
+  * [ESLint](staticAnalysis/ESLint.md)
 * Testing
   * [Writing Testable Code](testing/writing-testable-code.md)
 * [UI/UX](https://github.com/AngShiYa/learningresources/blob/uix/contents/uix/uix.md)
