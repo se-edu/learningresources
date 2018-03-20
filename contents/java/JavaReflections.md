@@ -72,7 +72,7 @@ public class Animal {
 }
 ```
 
-And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class `Sheep` that extends `Animal` and do something when his age reaches certain threshold. But the annoying thing is that somebody decided that it is a good idea to make the age value `private` instead of `protected` in a top-level class such as this! So you cannot access the age of your `Sheep` even though it is an `Animal`.
+And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class `Sheep` that extends `Animal` and do something when his age reaches certain threshold. But the annoying thing is that somebody decided that it is a good idea to make the age value `private` (and without a getter method!) instead of `protected` in a top-level class such as this! So you cannot access the age of your `Sheep` even though it is an `Animal`.
 
 This of course can be solved by Reflection as follows:
 
@@ -108,13 +108,13 @@ And there you have it! What `Sheep` is really doing is to examine itself at runt
 
 You may notice that the `Sheep#getAge()` method sets the age `Field` object to be accessible and might wonder the implications. Fret not! The `Field#getDeclaredField()` actually returns a new `Field` instance - so you're just setting that particular local `Field` instance to be accessible, not the actual `age` field itself. You can read more about it in this [StackOverflow question](http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue).
 
-Do take note that two exceptions need to be handled when accessing private fields: 
+Do take note that two exceptions need to be handled when accessing fields: 
 1. `IllegalAccessException`, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. `f.setAccessible(true)`).
 1. `NoSuchFieldException`, which occurs if the field with the specified name (e.g. `age`) does not exist.
 
 #### Updating private fields
 
-Suppose that you need to write tests for `Sheep`. As part of setting up the test, you need to create a sheep with age = 20. Suppose that the age of the sheep is updated automatically as time passes, whereby the age increases by 1 after every minute. A naive way of creating a sheep with age = 20 is to simply wait for 20minutes before performing the test:
+Suppose that you need to write tests for `Sheep`. As part of setting up the test, you need to create a sheep with age = 20. Suppose that the age of the sheep is updated automatically as time passes, whereby the age increases by 1 after every minute. A naive way of creating a sheep with age = 20 is to simply wait for 20 minutes before performing the test:
 
 ```java
 @Test
@@ -131,7 +131,7 @@ Alternatively, a much simpler and efficient way to perform this test is to set a
 @Test
 public void foo() throws Exception {
   Sheep sheep = new Sheep();
-  Field field = Sheep.class.getDeclaredField("age");
+  Field field = Animal.class.getDeclaredField("age");
   field.setAccessible(true);
   field.set(sheep, 20);
   // perform test
@@ -241,7 +241,7 @@ While Java reflections are powerful, you should not immediately jump on the refl
 
 * Indication of bad class design
 
-  Having to use reflection in order to bypass a class' encapsulation is usually indicative of an API design problem. We can remove the the usage of Reflection in the examples given [above](#accessing-private-fields) by adding a getter and setter method for `age`. See this [post](https://stackoverflow.com/questions/34571/how-do-i-test-a-private-function-or-a-class-that-has-private-methods-fields-or/34658#34658) for further discussion.
+  Having to use reflection in order to bypass a class' encapsulation is usually indicative of an API design problem. We can remove the usage of Reflection in the examples given [above](#accessing-private-fields) by adding a getter and setter method for `age`. See this [post](https://stackoverflow.com/questions/34571/how-do-i-test-a-private-function-or-a-class-that-has-private-methods-fields-or/34658#34658) for further discussion. In this scenario whereby we cannot add a getter and setter method for `age`, we should create our own implementation of `Animal` class with the getter and setter methods.
 
 ### Further Resources for reflections
 
