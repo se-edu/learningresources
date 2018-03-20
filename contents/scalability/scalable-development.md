@@ -67,7 +67,7 @@ With this, cache hits would be more often than cache misses and as a result, the
 #### Sharding 
 As your traffic increases your data increases as well and as a result, your database gets overloaded. One way to mitigate this is to scale your database by sharding. Sharding is a method of splitting and storing a single logical dataset in multiple databases. More specifically, it is the storing of data horizontally - storing rows of a same table in multiple database nodes instead of storing them in the usual vertical way - storing different tables & columns in a separate database.
 
-What are the benefits of Sharding?
+##### Benefits of Sharding
 * Sharding allows you to store more data - Sharding is essential when your dataset becomes too large to store in a single database. It reduces the number of rows in each table and as such improves search performance since the search is done on a smaller table. 
 
 * Sharding allows for quicker query response time - Querying the databases containing only the relevant partitions becomes possible as well. For instance, if a database contains a column for age, you can partition the rows according to an age group and store them in different databases. Whenever there is a need to access the data of a particular age group, instead of querying the whole database, you just need to query the partition that contains that age group. This allows your database to scale along with your data and traffic growth.
