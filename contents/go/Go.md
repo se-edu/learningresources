@@ -190,9 +190,9 @@ Channels can transmit data of any type; thus, creating a channel that transmits 
 Goroutines send and receive messages through a channel using the `<-` operator.
 
 ```go
-	ch <- v   // Send v to channel ch.
-	v := <-ch // Receive from ch, and
-	          // assign value to v.
+ch <- v   // Send v to channel ch.
+v := <-ch // Receive from ch, and
+	  // assign value to v.
 ```
 One useful way to think about sending and receiving data with the `<-` operator is that the data moves in the direction of the arrow.
 
