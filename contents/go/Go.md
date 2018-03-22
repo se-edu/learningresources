@@ -171,7 +171,7 @@ func useFile() {
 
 To deal with unexpected errors, Go also provides two mechanisms: `panic` and `recover`.
 
-- `panic` is similar to throwing an exception in other languages. An explicit call to `panic` on a function `F` stops the ordinary flow of execution of `F` at the point of the panic, executes any functions deferred by `F`, and returns to `F`'s caller as a call to `panic`. The `panic` recursively propagates up the call stack until all functions in the goroutine have returned, after which the program crashes. `panic` is used to fail fast on errors that cannot be handled gracefully.
+- `panic` is similar to throwing an exception in other languages. An explicit call to `panic` on a function `F` stops the ordinary flow of execution of `F` at the point of the panic, executes any functions deferred by `F`, and returns to `F`'s caller. To the caller, `F` behaves like a call to panic. It triggers a `panic` in `F`'s caller, which recursively propagates up the call stack until all functions in the goroutine have returned, after which the program crashes. `panic` is used to fail fast on errors that cannot be handled gracefully.
 - `recover` regains control of a panicking goroutine. Using `recover` is comparable to catching an exception in C++ or Java. When used inside a deferred function, a call to recover captures the value returned by `panic` and resumes normal execution.
 
 More information on error handling can be found on the [Go blog](https://blog.golang.org/error-handling-and-go) or [Go wiki](https://github.com/golang/go/wiki/PanicAndRecover).
