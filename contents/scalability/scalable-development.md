@@ -56,42 +56,28 @@ In certain scenarios, the runtime complexity can be reduced as a trade-off betwe
 There are a few common bottlenecks that can be avoided such as database querying, reading or writing to files and slow communication across network. Different bottlenecks can be solved with their respective solutions. Here are some ways to avoid bottlenecks.
 
 #### Caching
-With an increasing user base, your server has to deal with a larger number of requests along with the bottlenecks mentioned previously such as network congestion and database querying. As a result, the response becomes slower. This is where caching comes in. A cache is a key-value store that resides between the application and the database which can either be in the browser or part of your server infrastructure itself. By retrieving data from the cache instead of the database, the data is retrieved locally (either from the browser or web server) instead of remotely from a database. Simply put, data is retrieved from a closer location and as a result, the response time reduces greatly.
+With an increasing user base, your server has to deal with a larger number of requests along with the bottlenecks mentioned previously such as network congestion and database querying. As a result, the response becomes slower. This is where [caching](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache) comes in. A cache is a key-value store that resides between the application and the database which can either be in the browser or part of your server infrastructure itself. By retrieving data from the cache instead of the database, the data is retrieved locally (either from the browser or web server) instead of remotely from a database. Simply put, data is retrieved from a closer location and as a result, the response time reduces greatly.
 
-The next thing to consider is what to cache. The rule of thumb is to cache data that is:
+The next thing to consider is [what to cache](https://www.infoq.com/articles/ebay-scalability-best-practices). The rule of thumb is to cache data that is:
 1. Frequently accessed.
 1. Read more often than it is updated. 
 
 With this, cache hits would be more often than cache misses and as a result, the time saved from faster accesses and reads outweighs the extra time taken to populate the cache.  
 
 #### Sharding 
-As your traffic increases your data increases as well and as a result, your database gets overloaded. One way to mitigate this is to scale your database by sharding. Sharding is a method of splitting and storing a single logical dataset in multiple databases. More specifically, it is the storing of data horizontally - storing rows of a same table in multiple database nodes instead of storing them in the usual vertical way - storing different tables & columns in a separate database.
+As your traffic increases your data increases as well and as a result, your database gets overloaded. One way to mitigate this is to scale your database by sharding. [Sharding](https://stackoverflow.com/questions/992988/what-is-sharding-and-why-is-it-important) is a method of splitting and storing a single logical dataset in multiple databases. More specifically, it is the storing of data horizontally - storing rows of a same table in multiple database nodes instead of storing them in the usual vertical way - storing different tables & columns in a separate database.
 
-##### Benefits of Sharding
+The [benefits of Sharding](https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6) include:
 * Sharding allows you to store more data - Sharding is essential when your dataset becomes too large to store in a single database. It reduces the number of rows in each table and as such improves search performance since the search is done on a smaller table. 
 
 * Sharding allows for quicker query response time - Querying the databases containing only the relevant partitions becomes possible as well. For instance, if a database contains a column for age, you can partition the rows according to an age group and store them in different databases. Whenever there is a need to access the data of a particular age group, instead of querying the whole database, you just need to query the partition that contains that age group. This allows your database to scale along with your data and traffic growth.
 
 #### Go Asynchronous 
-Unlike synchronous operations that run sequentially and wait for previous operations to complete, asynchronous operations do not block further execution and as a result, other operations do not have to wait.
+Unlike synchronous operations that run sequentially and wait for previous operations to complete, [asynchronous operations](https://www.youtube.com/watch?time_continue=2&v=8aGhZQkoFbQ) do not block further execution and as a result, other operations do not have to wait.
 
 In situations in which responding to request is crucial, asynchronous operations can reduce the latency experienced by the requester and thereby avoid that bottleneck by prioritising the quickness of the response to the user over the speed of other processes such as execution latency (how quickly the request is processed). For instance, rather than waiting for some processes such as downloading the requested file to finish, it's better to asynchronously update the user interface and then finish these processes. In this way, the user experiences lesser latency since the user interface is updated instantly instead of appearing to have crashed due to waiting for the downloaded file.
 
-##### Resources
-1. More details on common performance bottlenecks ([resource](https://www.apicasystem.com/blog/5-common-performance-bottlenecks)).
-
-1. Scalability using caches ([resource](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache)).
-
-1. Scalability best practices ([resource](https://www.infoq.com/articles/ebay-scalability-best-practices)).
-
-1. How Sharding Works ([resource](https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6)).
-
-1. A StackOverflow post on what is Sharding and why you should use it ([resource](https://stackoverflow.com/questions/992988/what-is-sharding-and-why-is-it-important)).
-
-1. An overview of how asynchronous programming works with concepts such as event loops and callbacks, explained using Javascript  ([resource](https://www.youtube.com/watch?time_continue=2&v=8aGhZQkoFbQ)).
-
-You can use the many program profilers available to find the bottlenecks in your server, thereby potentially save huge amounts of time.
-
+You can use the many program profilers available to find such [common bottlenecks](https://www.apicasystem.com/blog/5-common-performance-bottlenecks) in your server, thereby potentially saving huge amounts of time.
 
 ## But wait!
 
