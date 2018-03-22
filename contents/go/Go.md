@@ -10,7 +10,7 @@ Go is an [open source project](https://github.com/golang/go). Its source code ma
 
 Go provides its own [installation guide](https://golang.org/doc/install) and an interactive [ tour of Go](https://tour.golang.org/). These are useful and highly comprehensive resources for programmers looking to learn the syntax and style of Go. For those who prefer to read existing code examples, [Go by Example](https://gobyexample.com/) is a collection of code samples covering a wide variety of features in Go, and includes line-by-line explanations of the code. For those looking for a quick crash course on Go syntax, the Learn X In Y Minutes [Go cheatsheet](https://learnxinyminutes.com/docs/go/) may also be a good starting point.
 
-If you're unconvinced about Go, [the Go playground](https://play.golang.org/) can be used as a sandbox in which to write, build and execute code without installing Go on your machine.
+If you're unconvinced about Go, you can use [the Go playground](https://play.golang.org/) to write, build and execute code without installing Go on your machine.
 
 ## Using Go
 As it builds on the foundations set by many popular and widely-used languages such as C, C++, Java and Python, much of Go's syntax draws from existing implementations and will be familiar to programmers looking to learn an additional language. However, Go also diverges explicitly from these other languages; listed below are some aspects of Go that may be unfamiliar to learners.
@@ -24,7 +24,7 @@ name = "John Smith"
 ```
 This differs from many other languages, which put the variable type to the left of the variable name.
 
-In addition, the length of a declaration statement in Go can be variable. The `variableType` of a new variable need not be declared if an initializer is used. For instance, in the following example, the `string` type is optional:
+In addition, the verbosity of a declaration statement in Go can vary. You do not need to declare the `variableType` of a new variable if you use an initializer, as the type of the variable will be inferred from its initialization. For instance, in the following example, the `string` type is optional:
 
 ```go
 var name string = "John Smith"
@@ -33,9 +33,10 @@ var name string = "John Smith"
 var name = "John Smith"
 ```
 
-When initializers are not used, simply declaring a variable allocates storage for the variable and initializes its value to that type's zero value. The zero value is `0` for numeric types, `false` for booleans, `""` for strings, `nil` for pointers, functions, interfaces, slices, channels, and maps.
+When an initializer is not used, declaring a variable allocates storage for the variable and initializes its value to that type's zero value. The zero value is `0` for numeric types, `false` for booleans, `""` for strings, `nil` for pointers, functions, interfaces, slices, channels, and maps.
 
-As an extension of type inference, the `:=` short assignment statement can be used inside a function to as a `var` declaration with implicit type:
+In addition to omitting the type when it can be inferred, you can also eliminate the keyword `var` when performing variable declaration by using the `:=` short assignment statement. `:=` acts as a shortcut to declare and immediately initialize a variable inside of a function.
+
 ```go
 name := "John Smith"
 ```
