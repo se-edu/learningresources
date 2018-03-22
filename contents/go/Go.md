@@ -50,97 +50,6 @@ Arrays are not often seen in Go code. This is because the size of a Go array mus
 
 To create dynamically-sized arrays, Go introduces the concept of a slice. Slices are not arrays; rather, they are data structures that describe a piece of a separately-stored array. Slices are the topic of several Go blog entries; you can read more about [the internal layout of slices](https://blog.golang.org/go-slices-usage-and-internals) and [the mechanics of using slices](https://blog.golang.org/slices). Exercises on how to use slices are available in [A Tour of Go](https://tour.golang.org/moretypes/7).
 
-### `defer`
-As opposed to traditional control flow mechanisms such as `if`, `for` and `switch`, which execute functions immediately, Go's `defer` keyword pushes a function call to a list, and only executes all functions on the list after the surrounding function returns. In the following example, `defer` adds two print functions to the stack of deferred functions. After `foo` finishes executing, the deferred functions are executed in last-in-first-out order.
-
-```go
-func foo() {
-	defer fmt.Println("This gets printed third")
-	defer fmt.Println("This gets printed second")
-	fmt.Println("This gets printed first")
-}
-```
-
-`defer` is frequently used for clean-up actions, such as to [close files](https://gobyexample.com/defer). Deferred functions run on panicking goroutines as well, which makes them useful for recovering from `panic`.
-
-### Error Handling
-Error handling in Go is performed using multiple returns. On any function that can fail, the function's last return type should always be of the type `error`. For example, the `os.Open` function returns a non-nil error value when it fails to open a file.
-
-```go
-func Open(name string) (file *File, err error)
-```
-
-An `error` variable represents any value that can describe itself as a string, by implementing the following interface:
-
-```go
-type error interface {
-	Error() string
-}
-```
-
-When calling a method that may return an error, we check if the returns `err != null` and handle the resulting error.
-
-```go
-func useFile() {
-	f, err := os.Open("filename.ext")
-	if err != nil {
-	    log.Fatal(err)
-	    return
-	}
-	// do something with the open *File f
-}
-```
-
-To deal with unexpected errors, Go also provides two mechanisms: `panic` and `recover`.
-
-- `panic` stops the ordinary flow of execution, executes any deferred functions, and returns to its caller as a call to `panic`. The `panic` continues up the stack until all functions in the goroutine have returned, after which the program crashes. `panic` is used to fail fast on errors that cannot be handled gracefully.
-- `recover` regains control of a panicking goroutine. When used inside a deferred function, a call to recover captures the value returned by `panic` and resumes normal execution.
-
-More information on error handling can be found on the [Go blog](https://blog.golang.org/error-handling-and-go).
-
-### Interfaces
-Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types implement interfaces by implementing the methods in the interface, and do not need to explicitly specify which interfaces are implemented.
-
-In the example below, the `Rectangle` type implements the interface `TwoDimensional` by implementing the methods `area()` and `perim()` that are specified in the interface. Thus, instances of `Rectangle` can be used as arguments to `price`. 
-
-Meanwhile, although `Circle` implements `perim()`, it does not implement `area()`. Since it does not implement all the methods in the `TwoDimensional` interface, `Circle` does not implement `TwoDimensional`. Thus, instances of `Circle` cannot be used as arguments to `price`.
-
-```go
-type TwoDimensional interface {
-	area() float64
-	perim() float64
-}
-
-type Rectangle struct {
-	width, height float64
-}
-
-type Circle struct {
-	radius float64
-}
-
-func (r Rectangle) area() {
-	return r.width * r.height
-}
-
-func (r Rectangle) perim() {
-	return r.width*2 + r.height*2
-}
-
-func (c Circle) perim() {
-	return 2 * math.Pi * c.radius
-}
-
-func price(t TwoDimensional) {
-	return t.area() * 3.5
-}
-```
-
-One benefit of using a system where interface implementations need not be stated in the source code is that methods can be attached to types that you didn't write. In other words, you can extend a type to implement an interface without access to its source code by simply implementing the interface's method in your own code.
-
-Some resources to get started with Go interfaces include [this blog post](https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c) introducing Go interfaces and code examples on
-[how interfaces (including the empty interface) are used in practice](https://www.calhoun.io/how-do-interfaces-work-in-go/). For a more extensive look at how object-oriented programming is done in Go, you can refer to this [comparison of Go's OOP style with that of other languages](https://flaviocopes.com/golang-is-go-object-oriented/), [Go's official FAQ on OOP](https://golang.org/doc/faq#Is_Go_an_object-oriented_language), or this [tutorial on OOP in Go](https://code.tutsplus.com/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540).
-
 ### Concurrency
 One of Go's special features is its support for concurrency. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.
 
@@ -218,6 +127,97 @@ func main() {
 ```
 
 If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's [basic](https://www.youtube.com/watch?v=f6kdp27TYZs) and [advanced concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw). This [code walkthrough](https://golang.org/doc/codewalk/sharemem/) provides an annotated example of how Go's memory-sharing principles can be applied in practice.
+
+### `defer`
+As opposed to traditional control flow mechanisms such as `if`, `for` and `switch`, which execute functions immediately, Go's `defer` keyword pushes a function call to a list, and only executes all functions on the list after the surrounding function returns. In the following example, `defer` adds two print functions to the stack of deferred functions. After `foo` finishes executing, the deferred functions are executed in last-in-first-out order.
+
+```go
+func foo() {
+	defer fmt.Println("This gets printed third")
+	defer fmt.Println("This gets printed second")
+	fmt.Println("This gets printed first")
+}
+```
+
+`defer` is frequently used for clean-up actions, such as to [close files](https://gobyexample.com/defer). Deferred functions run on [panicking goroutines](#error-handling) as well, which makes them useful for recovering from `panic`.
+
+### Error Handling
+Error handling in Go is performed using multiple returns. On any function that can fail, the function's last return type should always be of the type `error`. For example, the `os.Open` function returns a non-nil error value when it fails to open a file.
+
+```go
+func Open(name string) (file *File, err error)
+```
+
+An `error` variable represents any value that can describe itself as a string, by implementing the following interface:
+
+```go
+type error interface {
+	Error() string
+}
+```
+
+When calling a method that may return an error, we check if the returns `err != nil` and handle the resulting error.
+
+```go
+func useFile() {
+	f, err := os.Open("filename.ext")
+	if err != nil {
+	    log.Fatal(err)
+	    return
+	}
+	// do something with the open *File f
+}
+```
+
+To deal with unexpected errors, Go also provides two mechanisms: `panic` and `recover`.
+
+- `panic` is similar to throwing an exception in other languages. An explicit call to `panic` on a function `F` stops the ordinary flow of execution of `F` at the point of the panic, executes any functions deferred by `F`, and returns to `F`'s caller as a call to `panic`. The `panic` recursively propagates up the call stack until all functions in the goroutine have returned, after which the program crashes. `panic` is used to fail fast on errors that cannot be handled gracefully.
+- `recover` regains control of a panicking goroutine. Using `recover` is comparable to catching an exception in C++ or Java. When used inside a deferred function, a call to recover captures the value returned by `panic` and resumes normal execution.
+
+More information on error handling can be found on the [Go blog](https://blog.golang.org/error-handling-and-go) or [Go wiki](https://github.com/golang/go/wiki/PanicAndRecover).
+
+### Interfaces
+Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types implement interfaces by implementing the methods in the interface, and do not need to explicitly specify which interfaces are implemented.
+
+In the example below, the `Rectangle` type implements the interface `TwoDimensional` by implementing the methods `area()` and `perim()` that are specified in the interface. Thus, instances of `Rectangle` can be used as arguments to `price`. 
+
+Meanwhile, although `Circle` implements `perim()`, it does not implement `area()`. Since it does not implement all the methods in the `TwoDimensional` interface, `Circle` does not implement `TwoDimensional`. Thus, instances of `Circle` cannot be used as arguments to `price`.
+
+```go
+type TwoDimensional interface {
+	area() float64
+	perim() float64
+}
+
+type Rectangle struct {
+	width, height float64
+}
+
+type Circle struct {
+	radius float64
+}
+
+func (r Rectangle) area() {
+	return r.width * r.height
+}
+
+func (r Rectangle) perim() {
+	return r.width*2 + r.height*2
+}
+
+func (c Circle) perim() {
+	return 2 * math.Pi * c.radius
+}
+
+func price(t TwoDimensional) {
+	return t.area() * 3.5
+}
+```
+
+One benefit of using a system where interface implementations need not be stated in the source code is that methods can be attached to types that you didn't write. In other words, you can extend a type to implement an interface without access to its source code by simply implementing the interface's method in your own code.
+
+Some resources to get started with Go interfaces include [this blog post](https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c) introducing Go interfaces and code examples on
+[how interfaces (including the empty interface) are used in practice](https://www.calhoun.io/how-do-interfaces-work-in-go/). For a more extensive look at how object-oriented programming is done in Go, you can refer to this [comparison of Go's OOP style with that of other languages](https://flaviocopes.com/golang-is-go-object-oriented/), [Go's official FAQ on OOP](https://golang.org/doc/faq#Is_Go_an_object-oriented_language), or this [tutorial on OOP in Go](https://code.tutsplus.com/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540).
 
 ### Canonical Coding Style
 Formatting in Go is enforced by running `go fmt`, which will align your source code with the language-wide standard style of indentation and vertical alignment. Thus, given the following code:
