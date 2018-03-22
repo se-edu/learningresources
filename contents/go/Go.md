@@ -177,7 +177,7 @@ To deal with unexpected errors, Go also provides two mechanisms: `panic` and `re
 More information on error handling can be found on the [Go blog](https://blog.golang.org/error-handling-and-go) or [Go wiki](https://github.com/golang/go/wiki/PanicAndRecover).
 
 ### Interfaces
-Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types implement interfaces by implementing the methods in the interface, and do not need to explicitly specify which interfaces are implemented.
+Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types do not need to explicitly specify which interfaces are implemented. Instead, types implement interfaces by implementing the methods in the interface.
 
 In the example below, the `Rectangle` type implements the interface `TwoDimensional` by implementing the methods `area()` and `perim()` that are specified in the interface. Thus, instances of `Rectangle` can be used as arguments to `price`. 
 
@@ -197,21 +197,33 @@ type Circle struct {
 	radius float64
 }
 
-func (r Rectangle) area() {
+func (r Rectangle) area() float64 {
 	return r.width * r.height
 }
 
-func (r Rectangle) perim() {
+func (r Rectangle) perim() float64 {
 	return r.width*2 + r.height*2
 }
 
-func (c Circle) perim() {
+func (c Circle) perim() float64 {
 	return 2 * math.Pi * c.radius
 }
 
-func price(t TwoDimensional) {
+func price(t TwoDimensional) float64 {
 	return t.area() * 3.5
 }
+
+func main(){
+	c := Cirlce{5}
+	fmt.Println(price(c))
+}
+```
+
+Go checks that types satisfy the required interfaces at compile time. For example, the above `main` function specifies that `Circle` satisfies the `TwoDimensional` interface, when in actuality it does not. Thus, when you try to compile your program, you will get a compile-time error drawing your attention to the problem.
+
+```
+cannot use c (type Circle) as type TwoDimensional in argument to price:
+	Circle does not implement TwoDimensional (missing area method)
 ```
 
 One benefit of using a system where interface implementations need not be stated in the source code is that methods can be attached to types that you didn't write. In other words, you can extend a type to implement an interface without access to its source code by simply implementing the interface's method in your own code.
