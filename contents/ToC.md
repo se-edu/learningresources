@@ -41,6 +41,7 @@
 ## Other Topics
 
 * AI
+  * [Computer Vision](computerVision/cv.md)
 * Data
   * [Databases](data/databases.md)
 * [Regular Expressions](regex/Regex.md)
