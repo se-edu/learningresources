@@ -65,7 +65,7 @@ Popular resources for learning ML algorithms:
 - Natural Language Processing with Deep Learning: [Stanford CS224n](cs224n.stanford.edu/)
 - A practical approach towards neural networks: [University of San Francisco, FastAI](http://www.fast.ai/)
 
-Note that there is one more category of ML algorithms, called reinforcement learning. 
+Note that there is one other category of ML algorithms, called reinforcement learning. 
 Reinforcement learning is quite different from the above mentioned categories and will not be discussed in this introductory piece. More information on Reinforcement Learning can be found in this following article on Medium. ([link](https://hackernoon.com/reinforcement-learning-part-1-d2f469a02e3b))
 
 ### Types of Data
@@ -89,7 +89,7 @@ The algorithms contain various parameters that can be tuned to improve efficacy.
 The entire prototyping process is similar to scientific experiments, where many models, configurations and different ways of processing data is used. Practitioners come up with a hypothesis on whether a technique or configuration may improve performance, and verify if performance is as expected.
 
 ### Prototyping Platform and Tools
-The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of such programming languages like Python and R, as well as mentioned accompanying software is their strong support for experimentation and visualization of results. 
+The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of programming languages like Python and R, as well as mentioned accompanying software is their strong support for experimentation and visualization of results. 
 
 Interpreted languages such as Python and R speed up prototyping iterations as they are less verbose than compiled languages like Java or C. 
 Visualizations such as bar charts, graphs or just displaying the data assist in analysis and sharing of findings. 
