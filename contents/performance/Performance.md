@@ -1,6 +1,6 @@
 # Introduction to Performance Optimization
 
-Author: [Ian Teo](https://github.com/IanTeo)
+Author: [Ian Teo](https://github.com/IanTeo), [Phang Chun Rong](https://www.github.com/Crphang)
 
 ## Overview
 
@@ -19,6 +19,7 @@ This is not a guide on how to optimize that 3%, but rather, to explain standard 
 The 2 techniques you should know are:
 
 * Using appropriate Data Structures and Algorithms
+* Memory Management
 * Using Cache Friendly codes
 
 ## Using Appropriate Data Structures and Algorithms
@@ -34,6 +35,21 @@ If you are interested in learning more about Data Structures and Algorithms, you
 * [MIT online course](http://courses.csail.mit.edu/6.851/spring12/lectures/): A online course by MIT on data structures and algorithms
 * [topcoder.com](https://www.topcoder.com/community/data-science/data-science-tutorials/the-importance-of-algorithms/): A good write up on the importance of algorithms
 
+## Memory Management
+
+Memory management is important for performance optimization for Computer systems. One of the common techniques in [algorithms optimisation](#using-appropriate-data-structures-and-algorithms) is space and time trade off, where we increase runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to [Thrashing](https://en.wikipedia.org/wiki/Thrashing_(computer_science)). Detecting if the performance slowdown is memory related can be done with appropriate [memory profiling](PerformanceProfiling.md).
+
+If you have ascertain that your system has memory related performance concerns, there are various solutions that you can employ to resolve them.
+
+- Using generators to reduce memory used. [Generators](https://en.wikipedia.org/wiki/Generator_(computer_programming)) are functions that generates a sequence of values. Instead of returning an explicit array upfront, a generator returns a value at each iteration. This can [greatly reduced memory usage](https://letstalkdata.com/2015/05/how-to-use-python-generators-to-save-memory/) for large arrays.
+- Sometimes memory usage of your program remains high because the unnecessary variables are yet to be freed from memory. If you are using a garbage collected language like Java, consider [tuning](https://www.javacodegeeks.com/2017/11/minimize-java-memory-usage-right-garbage-collector.html) your garbage collector to suit your needs. If such options is not good enough, you can explicitly free memory even in garbage collected language. An example from Python is shown below.
+
+```python
+import gc
+gc.collect()
+```
+
+- Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive `int` over `Integer` to reduce the overhead introduce by the `Integer` Object wrapper. This [guide](http://java-performance.info/overview-of-memory-saving-techniques-java/) for Java also propose ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object wrappers.
 
 ## Using Cache Friendly code
 
@@ -68,7 +84,7 @@ Using the incorrect method of access can cause many cache misses, resulting in a
 
 For example, Java uses Row Major Order. We can create a test to see how big an impact using the wrong Major Order can be on the execution time.
 
-```
+```python
 int size = 10000;
 int[][] arr = new int[size][size];
 int x = 0;
