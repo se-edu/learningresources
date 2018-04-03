@@ -108,7 +108,7 @@ Basic data preprocessing is required to remove unwanted noise from the data. Exa
 
 Other areas of concern are class imbalance (for supervised learning), where there are more datapoints in one class as compared to another.
 
-Statistics of the data are also collected to identify unbalanced data. This [paper](https://arxiv.org/abs/1710.05381v1) details various techinques for tackling unbalanced data when using Convolutional Neural Networks. The literature review section in the paper also links to techniques effective on other machine learning algorithms.
+Statistics of the data are collected to identify class imbalance. This [paper](https://arxiv.org/abs/1710.05381v1) details various techinques for tackling class imbalance when using Convolutional Neural Networks. The literature review section in the paper links to techniques effective for other machine learning algorithms.
 
 ### Partitioning of Data
 Data is usually split into 3 sets after preprocessing: the test set, validation set and training set. 
@@ -125,16 +125,16 @@ Furthermore, ML models run the risk of overfitting the data they were trained on
 
 Overfitting is a modelling error which occurs when models learn patterns unique to a subset of data. 
 A model which overfits training data performs well on training data but is unable to translate this performance to real world data.
-For a more thorough explanation of noise and overfitting, see [here](https://elitedatascience.com/overfitting-in-machine-learning).
+For a more thorough explanation of noise and overfitting, see the following link. ([link](https://elitedatascience.com/overfitting-in-machine-learning))
 
-A test set solves the above problem. A test set is created by partitioning the available data. (dependent on the total amount of data available) The test set is used only for testing model performance, and will not be touched during model training. The test set should also resemble real world data as much as possible to be a good indicator of real world performance.
+A test set solves the above problem. A test set is created by partitioning the available data, with size dependent on the total amount of data available. The test set is used only for testing model performance, and will not be touched during model training. The test set should also resemble real world data as much as possible to be a good indicator of real world performance.
 
 Different schemes for partitioning must be used for data with different characteristics. A good article on splitting test and validation sets can be found in the following link. ([link](http://www.fast.ai/2017/11/13/validation-sets/))  
 
 #### Validation Set
 A validation set is then created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting model parameters. This process of adjusting model parameters and verifying performance is conducted on the validation set to prevent overfitting the test set.
 
-Guidelines on picking a size for the validation set for the statically inclined can be found a Lesson 7 of FastAI's ML MOOC. (MOOC is in unofficial release at time of writing)
+Guidelines on picking a size for the validation set can be found a Lesson 7 of FastAI's ML MOOC. (MOOC is in unofficial release at time of writing)
 
 The following driving factors are suggested for deciding the validation set size.  
 
@@ -151,7 +151,7 @@ The standard error of a model shows that the performance of the model is reliabl
 The remaining data forms the training set.  
 Data in the training set is used for training the model.
 
-Practitioners may choose to create a sample set out of the training set, with a much smaller amount of data. This allows for quicker testing and refinement iterations. Training on the entire training set occurs only after they discover a set of parameters they feel confident with. 
+Practitioners may choose to create a sample set out of the training set, with a much smaller amount of data. This allows for quicker testing and refinement iterations. Training on the entire training set occurs only after they discover a set of parameters they feel confident with. This action is justified, as seen in recent research. ([link](https://blog.acolyer.org/2018/03/28/deep-learning-scaling-is-predictable-empirically/))
 
 ### Model Training, Evaluation & Data Analysis
 Models are evaluated on the validation set after training.
@@ -177,10 +177,10 @@ The best model discovered is rewritten for production. They are usually rewritte
 
 Models are retrained on a regular basis when more data is available, allowing the model to learn new patterns from the data.
 
-Techniques such as model compression must also be used to ensure that the models are within the desired size limit and perform fast enough. The following paper contains a survey of existing compression techniques for neural networks. [link](https://arxiv.org/abs/1710.09282)
+Techniques such as model compression must also be used to ensure that the models are within the desired size limit and perform fast enough. The following paper contains a survey of existing compression techniques for neural networks, an emerging class of ML algorithms. ([link](https://arxiv.org/abs/1710.09282))
 
 Models are often trained against adversarial attacks for security reasons as well. 
-An article detailing adversarial attacks on deep learning models can be found [here](https://blog.openai.com/adversarial-example-research/).  
+An article detailing adversarial attacks on deep learning models can be found in the following link. ([link](https://blog.openai.com/adversarial-example-research/))
 
 Here are some articles detailing the process of deploying machine learning algorithms for production.  
 Dropbox: [OCR and automatic document rotation](https://blogs.dropbox.com/tech/2017/04/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning/)  
