@@ -45,16 +45,17 @@ These different types of algorithms provide solutions to different problems.
 
 Categorization for instance can be conducted with both supervised learning and unsupervised learning algorithms. 
 
-Supervised learning techniques helps us group data to predetermined labels. 
-All training data must be labelled, and the labelling process may be costly.
-We do however, fit items into easily interpretable categories. 
-One simple use case is image classification, to determine the type of input image.
+Supervised learning techniques helps us group data to predetermined labels.   
+All training data must be labelled, and the labelling process may be costly.  
+Platforms like [Amazon Mechanical Turk](https://www.mturk.com/) are used for manual labelling of data.  
+Items are into easily interpretable categories.   
+One simple use case is image classification, to match the input image to a known label.
 
 ![image classification](https://i.imgur.com/mKjIS0C.png)  
 (samples from from [cifar10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html))
 
 Unsupervised learning techniques helps us group data to unknown labels.  
-No labelling of data is required, but it is difficult to explain the relationship between the items in each group.   
+No labelling of data is required, but it is difficult to explain the relationship between the items in each group.  
 This approach can be used by e-commerce sites to identify similar products, where a clear and interpretable label for similar products is not required.
 
 ![image clustering](https://cdn-images-1.medium.com/max/900/1*xTvsgpDfja05SRMt-H5ylA.png)  
@@ -67,7 +68,7 @@ Popular resources for learning ML algorithms:
 - A practical approach towards neural networks: [University of San Francisco, FastAI](http://www.fast.ai/)
 
 Note that there is one more category of ML algorithms, called reinforcement learning. 
-Reinforcement learning is quite different from the above mentioned categories and is not yet ready for production usage. It will not be discussed in this introductory piece.
+Reinforcement learning is quite different from the above mentioned categories and is not yet ready for production usage. It will not be discussed in this introductory piece, but more information can be found in this following article on Medium. ([link](https://hackernoon.com/reinforcement-learning-part-1-d2f469a02e3b))
 
 ### Types of Data
 Data is broadly split into 2 categories, structured and unstructured. 
@@ -88,15 +89,15 @@ The quantity, quality and type of data differs greatly across domains, sometimes
 Algorithms can only approximate the unknown function that produces desired output.
 The algorithms contain various parameters that can be tuned to improve efficacy. Experimentation is required to discover the algorithm and parameters which gives the best performance.
 
+A machine learning algorithm is also referred to as a 'model', after the algorithm is provided data to learn from.
+
 ### Prototyping Platform and Tools
-The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of such programming languages like Python and R, as well as mentioned accompanying software is their strong support for experimentation and visualization of results.  
+The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of such programming languages like Python and R, as well as mentioned accompanying software is their strong support for experimentation and visualization of results. 
 
 Interpreted languages such as Python and R speed up prototyping iterations as they are less verbose than compiled languages like Java or C. 
 Visualizations such as bar charts, graphs or just displaying the data assist in analysis and sharing of findings. 
 
-Code style, clarity and maintainability are less of a priority at this stage. 
-
-A machine learning algorithm is also referred to as a 'model', after the algorithm is provided data to learn from.
+Code style, clarity and maintainability are less of a priority at this stage. A good example of Juptyer notebooks in use can be found in the following link from Kaggle. ([link](https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python))
 
 ### Prototyping Workflow
 Prototyping can be broken down into the following phases:  
@@ -106,9 +107,9 @@ Prototyping can be broken down into the following phases:
 4) Repeating step 3  
 
 ### Basic Data Preprocessing
-Basic data preprocessing is required to remove unwanted noise from the data. Examples of unwanted noise are repeated content and corrupted images. The unwanted content is usually discarded. Training a model on such data hinders its ability to learn the actual patterns in uncorrupted data. 
+Basic data preprocessing is required to remove unwanted noise from the data. Examples of unwanted noise are repeated content and corrupted images. The unwanted content is usually discarded, manually or through aid of scripting. Training a model on such data hinders its ability to learn the actual patterns in uncorrupted data. 
 
-Statistics of the data is also collected to identify data imbalances. 
+Statistics of the data are also collected to identify unbalanced data.
 
 ![bar_chart](https://upload.wikimedia.org/wikipedia/commons/3/35/Incarceration_Rates_Worldwide_ZP.svg)  
 (image from wikipedia)
@@ -118,7 +119,11 @@ Assume that the above bar chart indicates the number of data points present for 
 Class imbalance is known to negatively impact model performance. One easy remedy is oversampling the classes with fewer instances during training, up till the point where data-points from each class has the same probability of being picked. This [paper](https://arxiv.org/abs/1710.05381v1) details oversampling and other methods for tackling class imbalance when using Convolutional Neural Networks. The literature review section in the paper also links to techniques effective on other machine learning algorithms.
 
 ### Partitioning of Data
-Data is usually split into 3 sets after preprocessing: the test set, validation set and training set.
+Data is usually split into 3 sets after preprocessing: the test set, validation set and training set. 
+
+A good article on test and validation sets can be found in the following link. ([link](http://www.fast.ai/2017/11/13/validation-sets/))  
+The FastAI ML MOOC is also a great source of information on data partitioning.  
+(MOOC is in unofficial release at time of writing)   
 
 ![Test, Validation, Train](https://dziganto.github.io/assets/images/train-validate-test.png?raw=true)  
 (by [David Zigano](https://dziganto.github.io/cross-validation/data%20science/machine%20learning/model%20tuning/python/Model-Tuning-with-Validation-and-Cross-Validation/))
@@ -139,7 +144,7 @@ When the data is balanced, the test set can be created by randomly sampling the 
 A validation set is then created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting model parameters. This process of adjusting model parameters and verifying performance is not conducted on the test set as it may make the model overfit the test set and fail to generalize on real world data.
 
 Guidelines on picking a size for the validation set for the statically inclined:  
-See Lesson 7 of FastAI's ML MOOC for a more in-depth explanation (MOOC is at unofficial release at time of writing)
+See Lesson 7 of FastAI's ML MOOC for a more in-depth explanation (MOOC is in unofficial release at time of writing)
 
 The following driving factors are suggested for deciding the validation set size.  
 
@@ -154,11 +159,10 @@ The standard error of a model shows that the performance of the model is reliabl
 Standard error is used to estimate the standard deviation of a sampling distribution, and is calculated with statistical analysis. This shows if the performance difference of a model is statistically significant as compared to another, helping us determine the better model.
 
 #### Training Set
-The remaining data forms the training set. Data in the training set is used for training the model.
+The remaining data forms the training set.  
+Data in the training set is used for training the model.
 
 Practitioners may also choose to create a sample set out of the training set, with a much smaller amount of data. They then train their models on the sample set rather than training set during this prototyping phase. This allows for quicker testing and refinement iterations. Training on the entire training set occurs only after they discover a set of parameters they feel confident with. 
-
-A good article on test and validation sets can be found [here](http://www.fast.ai/2017/11/13/validation-sets/).
 
 ### Model Training, Evaluation & Data Analysis
 Models are evaluated on the validation set after training.
@@ -172,7 +176,12 @@ Looking for highly correlated fields and investigating their impact is also a co
 ![confusion matrix](http://scikit-learn.org/stable/_images/sphx_glr_plot_confusion_matrix_001.png)  
 (image from scikit-learn's documentation)
 
-The confusion matrix above shows that the model has predicted 6 instances of 'versicolor' to be 'virginica'. These misclassifications can be investigated  insights model performance and pre-procssed data. 
+The confusion matrix above shows that the model has predicted 6 instances of 'versicolor' to be 'virginica'. These misclassifications can be investigated to obtain insights on model performance and data. The investigation entails looking at the exact sample image in this case, or analyzing how the model makes its predictions on the input.
+
+An example is using class activation maps, a technique commonly used to reveal what a convolutional neural network is looking at when it makes its predictions. 
+
+![class activation map](http://cnnlocalization.csail.mit.edu/example.jpg)  
+(Class Activation Maps, from http://cnnlocalization.csail.mit.edu)
 
 Model training and refinement continues for multiple cycles until the practitioner is content with a particular model's performance. 
 Finally, the model is tested on the test set and the model's performance is recorded. 
@@ -219,7 +228,7 @@ Commonly used libraries for machine learning
   - [Stanford CS20: Tensorflow for Deep Learning Research](http://web.stanford.edu/class/cs20si/), up to date best practices for Tensorflow
   - [Pytorch](http://pytorch.org/), by Facebook
   
-Keeping up with machine learning research
+Popular resources for keeping up with machine learning research
 - [https://arxiv.org/](https://arxiv.org/) (repository of electronic preprints of scientific papers)
 - [https://www.arxiv-sanity.com](www.arxiv-sanity.com) (provides a better browsing experience than Arxiv)
 - [https://openreview.net/](https://openreview.net/) (peer reviews of research papers submitted to conferences)
