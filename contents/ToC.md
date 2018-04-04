@@ -18,7 +18,7 @@
   * [Code Quality Metrics](codeQuality/CodeQualityMetrics.md)
 * [DevOps](devops/DevOps.md)
 * [Documentation](projectManagement/documentation.md)
-* Functional Programming
+* [Functional Programming](functionalProgramming/intro.md)
 * Maintenance
 * OOP
 * [Performance](performance/Performance.md)
