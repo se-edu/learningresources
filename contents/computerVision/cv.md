@@ -67,7 +67,7 @@ Supposed we have the picture of the Gameboy on the left, and we want to crop out
 
 First of all, we need to have the coordinates of the 4 corners of the screen. This can be entered by hand, as OpenCV has helper functions for capturing mouse input. See more [here](https://docs.opencv.org/3.3.0/db/d5b/tutorial_py_mouse_handling.html). Then, we map the skewed image to a another rectangle frame pixel by pixel
 
-```
+```python
 # We use numpy - a library for scientific computing with Python.
 # OpenCV is referred to as 'cv2'.
 
@@ -120,7 +120,7 @@ At the moment, there already exist classification/localization models that surpa
 
 In this example, we use OpenCV and a pre-trained image classification model called the GoogLeNet. Refer to GoogLeNet's original paper [here](https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf). The goal of this example is to use the model to classify the object present in a given image. First, we load the image in question and the model, then we feed the image to the model and take the most confident prediction.
 
-```
+```python
 # Load the class labels from disk. Class labels is the actual
 # name of a class of objects written in English, e.g. dogs,
 # cats, helicopters. After taking the output from the model,
@@ -173,7 +173,7 @@ In this example, we apply object detection to find cats lurking in a given image
 
 Since Haar cascade method relies on geometrical features of pixels, we convert the image to grayscale before processing it since color information is not relevant.
 
-```
+```python
 # Load the input image and convert it to grayscale.
 image = cv2.imread('./image.jpg')
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -219,7 +219,7 @@ In this example, different background subtraction methods are applied on a video
 
 The process is simple, the video is captured frame by frame and for each image frame, a subtraction mask is applied.
 
-```
+```python
 cap = cv2.VideoCapture('./test.avi')
 
 # We use the algorithm by P. KadewTraKuPong and R. Bowden.
