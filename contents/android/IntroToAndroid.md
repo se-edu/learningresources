@@ -50,7 +50,7 @@ An `Activity` represents a single screen with a user interface. For example, an 
 
 ([Image](https://i.imgur.com/vbIL5HA.gif) from [Codepath](https://guides.codepath.com/android/using-the-recyclerview))
 
-It can also be used to create apps that will benefit from a Staggered Grid. You just need a few lines of Java code as seen below:
+It can also be used to create apps that will benefit from a Grid or Staggered Grid. For example, to have a Staggered Grid, you just need a few lines of Java code as seen below:
 ```Java
 // First parameter is number of columns and second param is orientation i.e Vertical or Horizontal
 StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
@@ -61,6 +61,7 @@ recyclerView.setLayoutManager(gridLayoutManager);
 Sample code is from [Codepath](https://guides.codepath.com/android/using-the-recyclerview).
 
 The app with a Staggered Grid will then look like this:
+
 ![Staggered Grid Example](https://i.imgur.com/AlANFgj.png)
 
 ([Image](https://i.imgur.com/AlANFgj.png) from [Codepath](https://guides.codepath.com/android/using-the-recyclerview))
