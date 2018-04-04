@@ -100,7 +100,7 @@ The common question when learning about Functional Programming is what's the poi
 
 ## Guides on Functional Programming
 
-Functional Programming is a new paradigm and it definitely takes time to practice to be an expert at it. To learn more about Functional Programming, I would recommend looking at these amazing guides for a deeper understanding:
+Functional Programming can be a very different programming paradigm and it definitely takes time to practice to be an expert at it. To learn more about Functional Programming, I would recommend looking at these amazing guides for a deeper understanding:
 
 - [Introduction to Functional Programming](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536)
 - [Functional Programming Principles course](https://www.coursera.org/learn/progfun1)
