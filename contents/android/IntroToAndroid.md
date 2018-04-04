@@ -9,7 +9,7 @@ Authors: [Lee Yan Hwa](https://github.com/leeyh20)
 - [Android is not magic](#2-android-is-not-magic)
     - [App Components](#21-app-components)
     - [Activity Lifecycle](#22-activity-lifecycle)
-    - [MVVM and Architecture Components](#23-mvvm-and-architecture-components)
+    - [The Architecture of Android](#23-the-architecture-of-android)
     - [Resources](#24-resources)
     - [Testing](#25-testing)
 - [Why should I make native Android apps?](#3-why-should-i-make-native-android-apps)
@@ -44,21 +44,25 @@ Some app component examples include:
 An `Activity` represents a single screen with a user interface. For example, an event app could have an `Activity` to login, an `Activity` to view the event schedule and another `Activity` to search for locations.
 
 #### Layouts
-`Layouts` defines a user interface structure for an `Activity`. They specify how each child   `View` will be placed. For example, [ConstraintLayout](https://developer.android.com/training/constraint-layout/index.html) allows you to define constraints between views that will lead to a more responsive UI. Often, apps also need to display a scrolling list of elements and this is where [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview.html) comes in handy. The RecyclerView is very versatile. It can be used to easily create apps like the one below:
+`Layouts` defines a user interface structure for an `Activity`. They specify how each child   `View` will be placed. For example, [ConstraintLayout](https://developer.android.com/training/constraint-layout/index.html) allows you to define constraints between views that will lead to a more responsive UI. Often, apps also need to display a scrolling list of elements and this is where [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview.html) comes in handy. The `RecyclerView` is very versatile. It can be used to easily create apps like the one below:
 
 ![RecyclerView Example](https://i.imgur.com/vbIL5HA.gif)
+
 ([Image](https://i.imgur.com/vbIL5HA.gif) from [Codepath](https://guides.codepath.com/android/using-the-recyclerview))
 
-It can also be used to create apps that will benefit from a Staggered Grid just with a few lines!
+It can also be used to create apps that will benefit from a Staggered Grid. You just need a few lines of Java code as seen below:
 ```Java
 // First parameter is number of columns and second param is orientation i.e Vertical or Horizontal
 StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 // Attach the layout manager to the recycler view
 recyclerView.setLayoutManager(gridLayoutManager);
 ```
+
 Sample code is from [Codepath](https://guides.codepath.com/android/using-the-recyclerview).
 
+The app with a Staggered Grid will then look like this:
 ![Staggered Grid Example](https://i.imgur.com/AlANFgj.png)
+
 ([Image](https://i.imgur.com/AlANFgj.png) from [Codepath](https://guides.codepath.com/android/using-the-recyclerview))
 
 You can also build a `Layout` easily using [Android Layout Editor](https://developer.android.com/studio/write/layout-editor.html).
@@ -68,6 +72,7 @@ For further information, Google I/O 2016 introduces `Layouts` in [this video](ht
 `Fragments` are like 'sub activities' that allow for code reuse in different activities. They are modular sections with their own lifecycles that "sit" on top of an `Activity`, breaking down a huge `Activity` into smaller components. For example, a scrolling list on the left of a `Activity` can be a `Fragment` and a display box on the right of the same `Activity` can be another `Fragment`. Tablets and handsets can choose to display these fragments differently due to the difference in screen size, thus with Fragments, you can easily cater for mobile devices with different resolutions!
 
 ![Fragments Example](https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67)
+
 (Image from [Codepath](https://github.com/codepath/android_guides/wiki/Creating-and-Using-Fragments))
 
 Learn more about `Fragments` in [this video from Google I/O 2016](https://www.youtube.com/watch?v=k3IT-IJ0J98&t=618s) which tries to clarify when a `Fragment` should be used over a `View`.
@@ -85,7 +90,7 @@ Activity instances in an app will transition through different stages in their `
 
 The `Activity` class implements callbacks that will be invoked as the activity enters a new state. These callbacks can be overridden in your activity class that inherits from `Activity` so that your app can respond to transitions between states.
 
-### 2.3 MVVM and Architecture Components
+### 2.3 The Architecture of Android
 
 Developing for Android used to be a daunting task as apps needed to be reactive to data changes, responsive to users and yet deal with the entire Activity Lifecycle. At Google I/O 2017, [Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html) were introduced to help developers solve common issues by following best practices and implementing recommended architecture, so you can focus on building better apps!
 
@@ -95,8 +100,8 @@ Some examples of useful components for developers include the `LiveData` observa
 #### ViewModel
 Another very useful component is the `ViewModel` component. It manages and store UI data in a `lifecycle-aware` way, allowing data to be retained during configuration changes such as screen rotations. Using normal UI controllers require data to be saved and then restored by overridding `onSaveInstanceState` or by using `SharedPreferences`, but this is inefficient for large amounts of data. For more information, see the [ViewModel page](https://developer.android.com/topic/libraries/architecture/viewmodel.html).
 
-#### How does this link to MVVM?
-So I suppose you are a Software Engineer, or at least, aspiring to be one. You would probably have heard about good architectural patterns in a Software Engineering module. Thus you might be glad to hear that there are common architectural patterns used in Android app development so that we can easily structure our app.
+#### How does this link to having better architecture?
+I suppose you are a Software Engineer, or at least, aspiring to be one. You would probably have heard about good architectural patterns in a Software Engineering module. Thus you might be glad to hear that there are common architectural patterns used in Android app development so that we can easily structure our app.
 
 Previously, Android apps were usually developed using the `Model-View-Presenter` (MVP) pattern or the popular Model-View-Controller (MVC) pattern. However, this will change with the above `LiveData` and `ViewModel` components. Now, we can create apps that follow the `Model-View-ViewModel` (MVVM) architecture instead. The `ViewModel` component provided by Android serves as a good base for our `ViewModel` in the MVVM architecture.
 
@@ -106,7 +111,7 @@ To read more about the MVVM architecture in Android apps, see this [tutorial](ht
 
 Apps rely a lot on external resources and Android provides an easy way of accessing these resources.
 
-Any external resources that the app requires such as images, XML layout files, fonts, values such as strings and colors should be placed in the `res/` directory of the Android project. The resource then can be accessed by referencing its resource ID. Its resource ID is composed of the [resource type](https://developer.android.com/guide/topics/resources/available-resources.html) and the resource name. `R.drawable.myimage` is an example of a way to access an image resource in code. `@string/submit` is an example of a way to access a string value from XML. Read more about accessing resources [here](https://developer.android.com/guide/topics/resources/accessing-resources.html).
+Android manages external resources in one central place. Any external resources that the app requires such as images, XML layout files, fonts, values such as strings and colors should be placed in the `res/` directory of the Android project. The resource then can be accessed by referencing its resource ID. Its resource ID is composed of the [resource type](https://developer.android.com/guide/topics/resources/available-resources.html) and the resource name. `R.drawable.myimage` is an example of a way to access an image resource in code. `@string/submit` is an example of a way to access a string value from XML. Read more about accessing resources [here](https://developer.android.com/guide/topics/resources/accessing-resources.html).
 
 ### 2.5 Testing
 
