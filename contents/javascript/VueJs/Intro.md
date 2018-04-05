@@ -1,20 +1,20 @@
 # VueJs
 
-Author: Lu Lechuan
+Author: [Lu Lechuan](https://github.com/LuLechuan)
 
 Vue.js is an open-source progressive [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainablity.
 
 ## Advantages of VueJs
 VueJs is an approachable, versatile and performant framework that helps to create a more maintainable and testable database.
 
-* Approachable: VueJs is very easy to learn. Comparing to other framework such as Augular, Vue is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
+* Approachable: VueJs is very easy to learn. Compared to other framework such as Augular, Vue is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
 
 * Progressive: Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the owner of Vue is as follow:
-Vue.js is a more flexible, less opinionated solution ( than Angular ). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way. It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA.
+"Vue.js is a more flexible, less opinionated solution ( than Angular ). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way. It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA."
 
 * Versetile: Vue is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
 
-* Clean: Vue symtax is simple and this can make the HTML pages very clean.
+* Clean: Vue syntax is simple and this can make the HTML pages very clean.
 
 * Other Advantages of VueJs: [What is Vue.js and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
 
@@ -33,18 +33,14 @@ There are many ways to install VueJs, some of the following ways are mentioned b
   - $ npm install vue
 * CLI:
 ```cli
-    # install vue-cli
-    $ npm install --global vue-cli
-    # create a new project using the "webpack" template
-    $ vue init webpack my-project
-    # install dependencies and go!
-    $ cd my-project
+    $ npm install --global vue-cli  # install vue-cli
+    $ vue init webpack my-project  # create a new project using the "webpack" template
+    $ cd my-project  # install dependencies and go!
     $ npm install
     $ npm run dev
 ```
 
-Apart from installing VueJs, you can install VueJs development tools in your browser. This will allow you to inspect and debug the Vue components in your projects. The link is as follow:
-- [Vue DevTools](https://github.com/vuejs/vue-devtools#vue-devtools)
+Apart from installing VueJs, you can install [VueJs development tools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser. This will allow you to inspect and debug the Vue components in your projects.
 
 ## Creating a Simple Project in VueJs:
 
@@ -73,7 +69,7 @@ new Vue ({
 ```
 
 Explanation:
-* Import Vue cdn and the JavaScript file in the main HTML file.
+* Import Vue CDN and the JavaScript file in the main HTML file.
 * Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element). (In this case, only this component is working in Vue while the rest are unaffected. This is how we progressively plug in Vue into our projects without a complete one at a go.)
 * Specify our data(message: "Hello World") in the Vue instance.
 * Pass the message to the HTML file using double curly brackets.
