@@ -83,7 +83,7 @@ length_of_names = map(len, ['Alex', 'Thomas', 'John'])
 print(length_of_names) # [4,6,4]
 ```
 
-The function creates a new collection, run the function on each element of the given collection, insert the new values and return the new collection.
+`map` takes in 2 parameters, a function and a collection. `map` returns a new collection whose elements are the result of applying the given function on the elements of the given collection. In the given example, `map` returns `[len('Alex'), len('Thomas'), len('John')]`
 
 There are useful functions and techniques that are based off Higher Order Functions in Functional Programming.
 
@@ -97,6 +97,16 @@ The common question when learning about Functional Programming is what's the poi
 - [More Bug-Free Code](https://www.quora.com/Are-software-written-using-Functional-Programming-less-buggy-more-robust-and-stable)
 - [Concurrency](https://softwareengineering.stackexchange.com/questions/293851/what-is-it-about-functional-programming-that-makes-it-inherently-adapted-to-para)
 - [And Many More](https://alvinalexander.com/scala/fp-book/benefits-of-functional-programming)
+
+## Disadvantages of Functional Programming
+
+Functional Programming is not a new concept and has been around since the 1950s. Even though it is gaining in popularity today, it is not the predominant programming paradigm used in software applications today. Despite the stated benefits of Functional Programming, there are some downsides of it that can help explain why it is not the mainstream programming paradigm:
+
+- Lack of imperative data structures. One good example is the [lack of hash map](https://stackoverflow.com/questions/6793259/how-does-one-implement-hash-tables-in-a-functional-language) which is an important performant dictionary.
+- Functional Programming can be [slower](https://www.quora.com/Do-functional-programming-languages-always-run-slower-than-imperative-language) than optimal Imperative Programming for reasons such as data copying due to data immutability.
+- And various [other concerns](http://flyingfrogblog.blogspot.sg/2016/05/disadvantages-of-purely-functional.html)
+
+Some of these reasons help explain why 'impure' Functional languages like Scala is much more popular today than Haskell. Scala is a general purpose language that has interoperability with Java and has support for both popular Object Oriented Programming and Functional Programming paradigm. This establishes a [middle ground](https://cacm.acm.org/magazines/2014/4/173220-unifying-functional-and-object-oriented-programming-with-scala/fulltext) for programmers new to Functional Programming.
 
 ## Guides on Functional Programming
 
