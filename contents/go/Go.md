@@ -40,8 +40,6 @@ var name string = "John Smith"
 var name = "John Smith"
 ```
 
-When an initializer is not used, declaring a variable allocates storage for the variable and initializes its value to that type's zero value. The zero value is `0` for numeric types, `false` for booleans, `""` for strings, `nil` for pointers, functions, interfaces, slices, channels, and maps.
-
 In addition to omitting the type when it can be inferred, you can also eliminate the keyword `var` when performing variable declaration by using the `:=` short assignment statement. `:=` acts as a shortcut to declare and immediately initialize a variable inside of a function.
 
 ```go
