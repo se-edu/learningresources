@@ -77,9 +77,10 @@ Remark: we can only use the Vue data inside the component with id root as we bin
 Open the brower and we will see "Hello World" being displayed.
 
 ## Links to VueJs tutorials
-[VueSchool](https://vuejs.org/)
-[Laracast](https://laracasts.com/series/learn-vue-2-step-by-step)
-[Vuetify](https://vuetifyjs.com/zh-Hans/)
+
+- [VueSchool](https://vuejs.org/)
+- [Laracast](https://laracasts.com/series/learn-vue-2-step-by-step)
+- [Vuetify](https://vuetifyjs.com/zh-Hans/)
 
 ## References
 
