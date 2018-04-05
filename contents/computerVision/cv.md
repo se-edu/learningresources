@@ -65,14 +65,14 @@ The most common transformations are scaling - resizing of image, translation - s
 
 Supposed we have the picture of the Gameboy on the left, and we want to crop out just the game screen like the right side of the picture above. Notice that on the left the screen is slightly skewed, and we want to project it upright.
 
-First of all, we need to have the coordinates of the 4 corners of the screen. This can be entered by hand, as OpenCV has helper functions for capturing mouse input. See more [here](https://docs.opencv.org/3.3.0/db/d5b/tutorial_py_mouse_handling.html). Then, we map the skewed image to a another rectangle frame pixel by pixel
+First of all, we need to have the coordinates of the 4 corners of the screen. This can be entered by hand, as OpenCV has helper functions for capturing mouse input; for example, user can use the mouse to click on the 4 corners of the game screen one by one and the application captures the coordinates of the clicked points. See more [here](https://docs.opencv.org/3.3.0/db/d5b/tutorial_py_mouse_handling.html). Then, we map the skewed image to a another rectangle frame pixel by pixel.
 
 ```python
 # We use numpy - a library for scientific computing with Python.
 # OpenCV is referred to as 'cv2'.
 
 # Declare a rectangle with the 4 corners - top-left, top-right,
-# bottom-right, bottom-left, to represent the portion of they
+# bottom-right, bottom-left, to represent the portion of the
 # screen in the original image.
 (tl, tr, br, bl) = rect
 
