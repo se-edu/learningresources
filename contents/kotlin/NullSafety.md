@@ -3,7 +3,7 @@
 Author: [Pan Haozhe](https://github.com/Haozhe321)
 
 # Overview
-Another part of this book chapter gives an introduction to Kotlin. This piece aims to discuss the null safety feature in Kotlin, and what was previously missing in Java.
+Another [part](https://github.com/se-edu/learningresources/blob/master/contents/kotlin/kotlin.md) of this series on Kotlin gives an introduction to Kotlin. This piece aims to discuss the null safety feature in Kotlin, and what was previously missing in Java.
 
 
 # The Billion Dollar Mistake
@@ -139,4 +139,3 @@ The operator converts any value to a non-null type and throws an exception if th
 * [Null Safety in Kotlin](https://kotlinlang.org/docs/reference/null-safety.html)
 * [Comprehensive Guide to Null Safety in Kotlin](http://www.baeldung.com/kotlin-null-safety)
 * [The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
-* [Java Optionals](http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html)
