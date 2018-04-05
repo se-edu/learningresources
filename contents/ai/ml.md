@@ -86,7 +86,7 @@ The quantity, quality and type of data differs greatly across domains, sometimes
 
 The algorithms contain various parameters that can be tuned to improve efficacy. Experimentation is required to discover the algorithm and parameters which give the best performance.
 
-The entire prototyping process is similar to scientific experiments, where many models, configurations and different ways of processing data is used. Practitioners come up with a hypothesis on whether a technique or configuration may improve performance, and verify if performance is as expected.
+The entire prototyping process is similar to scientific experiments, where many model configurations and differently data is experimented on. Practitioners come up with a hypothesis on whether configuration may improve performance, and verify if performance is as expected.
 
 ### Prototyping Platform and Tools
 The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of programming languages like Python and R, as well as mentioned accompanying software is their strong support for experimentation and visualization of results. 
@@ -113,7 +113,7 @@ Statistics of the data are collected to identify class imbalance. This [paper](h
 ### Partitioning of Data
 Data is usually split into 3 sets after preprocessing: the test set, validation set and training set. 
 
-The FastAI ML MOOC is also a great source of information on data partitioning.  
+The FastAI ML MOOC is a great source of information on data partitioning.  
 (MOOC is in unofficial release at time of writing)   
 
 <img src="https://dziganto.github.io/assets/images/train-validate-test.png?raw=true" width="500"/>  
@@ -129,12 +129,12 @@ For a more thorough explanation of noise and overfitting, see the following link
 
 A test set solves the above problem. A test set is created by partitioning the available data, with size dependent on the total amount of data available. The test set is used only for testing model performance, and will not be touched during model training. The test set should also resemble real world data as much as possible to be a good indicator of real world performance.
 
-Different schemes for partitioning must be used for data with different characteristics. A good article on splitting test and validation sets can be found in the following link. ([link](http://www.fast.ai/2017/11/13/validation-sets/))  
+Different schemes for partitioning must be used for data with different characteristics. A good article on splitting test and validation sets (discussed below) can be found in the following link. ([link](http://www.fast.ai/2017/11/13/validation-sets/))  
 
 #### Validation Set
 A validation set is then created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting model parameters. This process of adjusting model parameters and verifying performance is conducted on the validation set to prevent overfitting the test set.
 
-Guidelines on picking a size for the validation set can be found a Lesson 7 of FastAI's ML MOOC. (MOOC is in unofficial release at time of writing)
+Guidelines on picking a size for the validation set can be found in Lesson 7 of FastAI's ML MOOC. (MOOC is in unofficial release at time of writing)
 
 The following driving factors are suggested for deciding the validation set size.  
 
@@ -163,12 +163,12 @@ These insights guide the practitioner in tweaking the data and model for better 
 
 The confusion matrix is a commonly used tool for data analysis. The image above shows that the model has predicted 6 instances of 'versicolor' to be 'virginica'. These misclassifications can be investigated to obtain insights on model performance and data. 
 
-An example of investigation is using class activation maps, a technique commonly used to reveal what a convolutional neural network is looking at when it makes its predictions. 
+An example of investigation for convolutional neural networks (an emerging class of ML algorithms) is using class activation maps. It reveals what a convolutional neural network is looking at when it makes its predictions. The practitioner may choose to perform further data preprocessing to help the neural network focus on the right areas. 
 
 <img src="http://cnnlocalization.csail.mit.edu/example.jpg" width="500"/>  
 (Class Activation Maps, more information at http://cnnlocalization.csail.mit.edu)
 
-Model training and refinement continues for multiple cycles until the practitioner is content with a particular model's performance. The model is tested on the test set and the model's performance is recorded afterwards and the model is not adjusted from this point onwards.
+Model training and refinement continues for multiple cycles until the practitioner is content with a particular model's performance. The model is tested on the test set and its performance is recorded. The model is not adjusted from this point onwards.
 
 This test set score is used for selecting between different algorithms at the production stage.
 
@@ -177,7 +177,7 @@ The best model discovered is rewritten for production. They are usually rewritte
 
 Models are retrained on a regular basis when more data is available, allowing the model to learn new patterns from the data.
 
-Techniques such as model compression must also be used to ensure that the models are within the desired size limit and perform fast enough. The following paper contains a survey of existing compression techniques for neural networks, an emerging class of ML algorithms. ([link](https://arxiv.org/abs/1710.09282))
+Techniques such as model compression must also be used to ensure that the models are within the desired size limit and perform fast enough. The following paper contains a survey of existing compression techniques for neural networks. ([link](https://arxiv.org/abs/1710.09282))
 
 Models are often trained against adversarial attacks for security reasons as well. 
 An article detailing adversarial attacks on deep learning models can be found in the following link. ([link](https://blog.openai.com/adversarial-example-research/))
@@ -199,8 +199,8 @@ Even Vim aficionados can get their fix of Vim on Jupyter through plugins.
 ### Concluding Remarks 
 The process of coding a machine learning algorithm for production is an process fairly different from regular software development. 
 
-The above guide covers only the process of bringing a machine learning algorithm from prototyping to production, with no mention of specific algorithms. 
-This process is mostly similar for all machine learning algorithms, from classical to new and emerging deep learning algorithms.
+This chapter covers only the process of bringing a machine learning algorithm from prototyping to production, with little mention of specific algorithms. 
+The process is mostly similar for all machine learning algorithms, from classical to emerging algorithms from deep learning.
 
 ## Supplementary Resources
 
