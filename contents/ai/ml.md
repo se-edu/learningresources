@@ -48,13 +48,13 @@ Platforms like [Amazon Mechanical Turk](https://www.mturk.com/) are used for man
 
 One simple use case is image classification, to match the input image to a known label.
 
-![image classification](https://i.imgur.com/mKjIS0C.png)  
+<img src="https://i.imgur.com/mKjIS0C.png" width="500">  
 (samples from [cifar10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html))
 
 Unsupervised learning algorithms do not require labels but it is difficult to explain the relationship between the items in each group.  
 This approach can be used by e-commerce sites to identify similar products, where a clear and interpretable label for similar products is not required.
 
-![image clustering](https://cdn-images-1.medium.com/max/900/1*xTvsgpDfja05SRMt-H5ylA.png)  
+<img src="https://cdn-images-1.medium.com/max/900/1*xTvsgpDfja05SRMt-H5ylA.png" width="500">  
 (T-SNE of Products Shape and Colour by [Eddie Bell](https://twitter.com/ejlbell/status/698309469965516800))
 
 These different types of algorithms provide solutions to different problems. 
@@ -116,7 +116,7 @@ Data is usually split into 3 sets after preprocessing: the test set, validation 
 The FastAI ML MOOC is also a great source of information on data partitioning.  
 (MOOC is in unofficial release at time of writing)   
 
-![Test, Validation, Train](https://dziganto.github.io/assets/images/train-validate-test.png?raw=true)  
+<img src="https://dziganto.github.io/assets/images/train-validate-test.png?raw=true" width="500"/>  
 (by [David Zigano](https://dziganto.github.io/cross-validation/data%20science/machine%20learning/model%20tuning/python/Model-Tuning-with-Validation-and-Cross-Validation/))
 
 #### Test Set
@@ -158,14 +158,14 @@ Models are evaluated on the validation set after training.
 Practitioners perform data analysis on the results to gain insights on the data.
 These insights guide the practitioner in tweaking the data and model for better performance.
 
-![confusion matrix](http://scikit-learn.org/stable/_images/sphx_glr_plot_confusion_matrix_001.png)  
+<img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_confusion_matrix_001.png" width="500"/>  
 (image from scikit-learn's documentation)
 
 The confusion matrix is a commonly used tool for data analysis. The image above shows that the model has predicted 6 instances of 'versicolor' to be 'virginica'. These misclassifications can be investigated to obtain insights on model performance and data. 
 
 An example of investigation is using class activation maps, a technique commonly used to reveal what a convolutional neural network is looking at when it makes its predictions. 
 
-![class activation map](http://cnnlocalization.csail.mit.edu/example.jpg)  
+<img src="http://cnnlocalization.csail.mit.edu/example.jpg" width="500"/>  
 (Class Activation Maps, more information at http://cnnlocalization.csail.mit.edu)
 
 Model training and refinement continues for multiple cycles until the practitioner is content with a particular model's performance. The model is tested on the test set and the model's performance is recorded afterwards and the model is not adjusted from this point onwards.
