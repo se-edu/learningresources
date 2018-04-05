@@ -2,7 +2,6 @@
 
 Author(s): [Cara Leong](https://github.com/craaaa)
 
-- [Getting started](#getting-started)
 - [Using Go](#using-go)
 	- [Declaring Variables](#declaring-variables)
 	- [Arrays and Slices](#arrays-and-slices)
@@ -11,15 +10,12 @@ Author(s): [Cara Leong](https://github.com/craaaa)
 	- [Error Handling](#error-handling)
 	- [Interfaces](#interfaces)
 	- [Canonical Coding Style](#canonical-coding-style)
+- [Getting started](#getting-started)
 - [Useful Resources](#useful-resources)
 
 Go (also known as `golang`) is a compiled, statically-typed, garbage-collected language that has special memory safety and concurrent programming features. Born out of frustration with the available languages (e.g. C, C++, Java) and environments for systems programming, Go was [conceptualized by programmers at Google](https://talks.golang.org/2012/splash.article) who sought to create a single language that was efficient to write, build and execute. Go also supports newer developments in computing such as multicore processors and network systems.
 
 Go is an [open source project](https://github.com/golang/go). Its source code may be useful reading for those interested in learning good practices, or simply to find out more about how the language was implemented.
-
-## Getting Started
-
-Go provides its own [installation guide](https://golang.org/doc/install) and an interactive [ tour of Go](https://tour.golang.org/). These are useful and highly comprehensive resources for programmers looking to learn the syntax and style of Go. For those who prefer to read existing code examples, [Go by Example](https://gobyexample.com/) is a collection of code samples covering a wide variety of features in Go, and includes line-by-line explanations of the code. For those looking for a quick crash course on Go syntax, the Learn X In Y Minutes [Go cheatsheet](https://learnxinyminutes.com/docs/go/) may also be a good starting point.
 
 If you're unconvinced about Go, you can use [the Go playground](https://play.golang.org/) to write, build and execute code without installing Go on your machine.
 
@@ -262,6 +258,10 @@ type T struct {
 Variations on `go fmt` may be of use, and can be found in the [documentation](https://golang.org/cmd/gofmt/).
 
 Go also enforces good coding practices, for instance, by refusing to build projects that declare of unused variables or imports. Such enforcement, along with a clear, unified and extensive [treatise on coding conventions in Go](https://golang.org/doc/effective_go.html), have manifested in a reasonably stable Go coding style.
+
+## Getting Started
+
+Go provides its own [installation guide](https://golang.org/doc/install) and an interactive [ tour of Go](https://tour.golang.org/). These are useful and highly comprehensive resources for programmers looking to learn the syntax and style of Go. For those who prefer to read existing code examples, [Go by Example](https://gobyexample.com/) is a collection of code samples covering a wide variety of features in Go, and includes line-by-line explanations of the code. For those looking for a quick crash course on Go syntax, the Learn X In Y Minutes [Go cheatsheet](https://learnxinyminutes.com/docs/go/) may also be a good starting point.
 
 ## Useful Resources
 Go's development team is heavily involved in documenting and growing the Go language and community. If you are keen to learn more about Go, here are some resources to help you get started:
