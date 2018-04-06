@@ -16,11 +16,11 @@ You can find a nice explaination of the quote [here](http://wiki.c2.com/?Prematu
 
 This is not a guide on how to optimize that 3%, but rather, to explain standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out more about optimizing that 3%, you can find more at [Other Resources](#other-resources) below.
 
-The 2 techniques you should know are:
+The 3 techniques you should know are:
 
 * Using appropriate Data Structures and Algorithms
-* Memory Management
-* Using Cache Friendly codes
+* Memory Management Usage
+* Using Cache Friendly Code
 
 ## Using Appropriate Data Structures and Algorithms
 
@@ -35,11 +35,11 @@ If you are interested in learning more about Data Structures and Algorithms, you
 * [MIT online course](http://courses.csail.mit.edu/6.851/spring12/lectures/): A online course by MIT on data structures and algorithms
 * [topcoder.com](https://www.topcoder.com/community/data-science/data-science-tutorials/the-importance-of-algorithms/): A good write up on the importance of algorithms
 
-## Memory Management
+## Memory Management Usage
 
-Memory management is important for performance optimization for Computer systems. One of the common techniques in [algorithms optimisation](#using-appropriate-data-structures-and-algorithms) is space and time trade off, where we increase runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to [Thrashing](https://en.wikipedia.org/wiki/Thrashing_(computer_science)). Thrashing occurs when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in  significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with appropriate [memory profiling](PerformanceProfiling.md).
+Memory management is important for performance optimization for Computer systems. One of the common techniques in [algorithms optimization](#using-appropriate-data-structures-and-algorithms) is space and time trade off, where we increase runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to [Thrashing](https://en.wikipedia.org/wiki/Thrashing_(computer_science)). Thrashing occurs when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in  significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with appropriate [memory profiling](PerformanceProfiling.md).
 
-If you have ascertain that your system has memory related performance concerns, there are various solutions that you can employ to resolve them.
+If your system suffers from memory related performance issues, here are some solutions you can adopt to resolve them:
 
 - Using generators to reduce memory used. [Generators](https://en.wikipedia.org/wiki/Generator_(computer_programming)) are functions that generates a sequence of values. Instead of returning an explicit array upfront, a generator returns a value at each iteration. This can greatly [reduce memory usage](https://letstalkdata.com/2015/05/how-to-use-python-generators-to-save-memory/) for large arrays.
 - Sometimes memory usage of your program remains high because the unnecessary variables are yet to be freed from memory. If you are using a garbage collected language like Java, consider [tuning](https://www.javacodegeeks.com/2017/11/minimize-java-memory-usage-right-garbage-collector.html) your garbage collector to suit your needs. If such options is not good enough, you can explicitly free memory even in garbage collected language. An example from Python is shown below:
@@ -51,7 +51,7 @@ If you have ascertain that your system has memory related performance concerns, 
 
 - Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive `int` over `Integer` to reduce the overhead introduce by the `Integer` Object wrapper. This [guide](http://java-performance.info/overview-of-memory-saving-techniques-java/) for Java also proposes ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object wrappers.
 
-## Using Cache Friendly code
+## Using Cache Friendly Code
 
 Before we can talk about this, we need to know what the computer memory is. Computer memory has different components, [registers](https://en.wikipedia.org/wiki/Processor_register), [L1/L2/L3 cache](https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/cache.html), [RAM](https://en.wikipedia.org/wiki/Random-access_memory), and [disk](https://en.wikipedia.org/wiki/Hard_disk_drive) in order of their speed.
 
