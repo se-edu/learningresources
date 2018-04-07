@@ -15,7 +15,7 @@ Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
 
 ## What is CV
-Computer vision (CV) is a field of study of computer science concerning with the theories and technologies in building computer systems that can derive useful information from visual data. CV is a prominent field of study nowadays as it allows computers to autonomously solve problems that otherwise require human sight.<sup>[[1]](#footnote1)</sup>
+Computer vision (CV) is a field of study of computer science concerning with the theories and technologies in building computer systems that can derive useful information from visual data. CV is a prominent field of study nowadays as it allows computers to autonomously solve problems that otherwise require human sight.<sup>[[1]](#footnote1)</sup> One notable example of such problems can be seen in smart traffic cameras that can extract car plates information from video feeds, a task that without computer vision would require a human to view the feeds and manually enter the cars' license numbers.<sup>[[14]](#footnote14)</sup>
 
 In computer vision, an image is represented by a number matrix, or a set of matrices, with each number in the matrix corresponds to the color value or intensity value of a pixel in the image.<sup>[[2]](#footnote2)</sup> With this representation, linear algebra can be exploited for many CV operations from the most basic like transformation to very complex like feature extraction and motion tracking.
 
@@ -63,7 +63,7 @@ The most common transformations are scaling - resizing of image, translation - s
 
 ![Warp Transformation](image-transformation-example-1.jpg "Perspective Warpping")
 
-Supposed we have the picture of the Gameboy on the left, and we want to crop out just the game screen like the right side of the picture above. Notice that on the left the screen is slightly skewed, and we want to project it upright.
+Suppose we have the picture of the Gameboy on the left, and we want to crop out just the game screen like the right side of the picture above. Notice that on the left the screen is slightly skewed, and we want to project it upright.
 
 First of all, we need to have the coordinates of the 4 corners of the screen. This can be entered by hand, as OpenCV has helper functions for capturing mouse input; for example, user can use the mouse to click on the 4 corners of the game screen one by one and the application captures the coordinates of the clicked points. See more [here](https://docs.opencv.org/3.3.0/db/d5b/tutorial_py_mouse_handling.html). Then, we map the skewed image to a another rectangle frame pixel by pixel.
 
@@ -118,7 +118,7 @@ At the moment, there already exist classification/localization models that surpa
 
 *This example is extracted from "Deep Learning with OpenCV" tutorial originally published on PyImageSearch on August 21, 2017. Refer to original tutorial [here](https://www.pyimagesearch.com/2017/08/21/deep-learning-with-opencv/). All pictures and code snippets in this example belong to its original author, Adrian Rosebrock.*
 
-In this example, we use OpenCV and a pre-trained image classification model called the GoogLeNet. Refer to GoogLeNet's original paper [here](https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf). The goal of this example is to use the model to classify the object present in a given image. First, we load the image in question and the model, then we feed the image to the model and take the most confident prediction.
+In this example, we use OpenCV and a pre-trained image classification model called the GoogLeNet.<sup>[[15]](#footnote15)</sup> The goal of this example is to use the model to classify the object present in a given image. First, we load the image in question and the model, then we feed the image to the model and take the most confident prediction.
 
 ```python
 # Load the class labels from disk. Class labels is the actual
@@ -169,7 +169,7 @@ Obviously, object detection requires tremendous computing power compared to clas
 
 *This example is extracted from "Detecting cats in images with OpenCV" tutorial originally published on PyImageSearch on August 21, 2017. Refer to original tutorial [here](https://www.pyimagesearch.com/2016/06/20/detecting-cats-in-images-with-opencv/). All pictures and code snippets in this example belong to its original author, Adrian Rosebrock.*
 
-In this example, we apply object detection to find cats lurking in a given image using a Haar feature-based cascade classifier for face of cats. Haar cascade is a fast, efficient, and somewhat restricting, object detection method proposed by Paul Viola and Michael Jones in their [2001 paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf), "Rapid Object Detection using a Boosted Cascade of Simple Features". The classifier used below is pre-trained and shared by OpenCV; there are other classifiers for detecting various objects stored in [OpenCV repository](https://github.com/Itseez/opencv/tree/master/data/haarcascades). In this example, for simplicity, we limit to detecting only 1 class of object, cats. In practice, one can combine many classifiers to detect multiple classes.
+In this example, we apply object detection to find cats lurking in a given image using a Haar feature-based cascade classifier for face of cats. Haar cascade is a fast, efficient, and somewhat restricting, object detection method proposed by *Paul Viola and Michael Jones*.<sup>[[16]](#footnote16)</sup> The classifier used below is pre-trained and shared by OpenCV; there are other classifiers for detecting various objects stored in [OpenCV repository](https://github.com/Itseez/opencv/tree/master/data/haarcascades). In this example, for simplicity, we limit to detecting only 1 class of object, cats. In practice, one can combine many classifiers to detect multiple classes.
 
 Since Haar cascade method relies on geometrical features of pixels, we convert the image to grayscale before processing it since color information is not relevant.
 
@@ -215,7 +215,7 @@ Object tracking algorithms can be divided into 2 categories: those applied to st
 *This example is extracted from "Background Subtraction
 " tutorial originally published on OpenCV's website. Refer to original tutorial [here](https://docs.opencv.org/3.3.0/db/d5c/tutorial_py_bg_subtraction.html). All pictures and code snippets in this example belong to OpenCV organization.*
 
-In this example, different background subtraction methods are applied on a video track, differentiating the moving pedestrians from still background. The methods are 2 Gaussian mixture-based background/foreground segmentation algorithms developed by *P. KadewTraKuPong and R. Bowden* in 2001 ([paper](http://personal.ee.surrey.ac.uk/Personal/R.Bowden/publications/avbs01/avbs01.pdf)) and *Z.Zivkovic* in 2004 ([paper](https://pdfs.semanticscholar.org/56b1/eee82a51ce17d72a91b5876a3281418679cc.pdf)) and 2006 ([paper](https://www.sciencedirect.com/science/article/pii/S0167865505003521)), and a per-pixel Bayesian segmentation algorithm by *Andrew B. Godbehere, Akihiro Matsukawa, Ken Goldberg* in their 2012 [paper](http://goldberg.berkeley.edu/pubs/acc-2012-visual-tracking-final.pdf).
+In this example, different background subtraction methods are applied on a video track, differentiating the moving pedestrians from still background. The methods are 2 Gaussian mixture-based background/foreground segmentation algorithms developed by *P. KadewTraKuPong and R. Bowden*<sup>[[17]](#footnote17)</sup> and *Z.Zivkovic*<sup>[[18]](#footnote18)</sup><sup>[[19]](#footnote19)</sup>, and a per-pixel Bayesian segmentation algorithm by *Andrew B. Godbehere, Akihiro Matsukawa, and Ken Goldberg*<sup>[[20]](#footnote20)</sup>.
 
 The process is simple, the video is captured frame by frame and for each image frame, a subtraction mask is applied.
 
@@ -267,35 +267,39 @@ For computer vision systems, digital images are often translated into matrices, 
 
 Underneath, all computer vision algorithms deal with images as matrices, thus employ theories in Linear Algebra to process images. In computer hardware, there is a class of computing units that specializes in matrix operations called the Graphics Processing Units (GPUs) - their main purpose is to speed up heavy graphical tasks such as video rendering, gaming, or 3D modelling. Therefore, GPUs are well-suited to serve as computer vision computing units.<sup>[[11]](#footnote11)</sup>
 
-Most prominent computer vision libraries such as OpenCV, dlib, or VisionWorks support the use of GPUs in the computing process. For example, OpenCV has APIs that allow a kernel process running on the CPU to transfer image matrices to one or more GPUs to perform heavy functions such as Gaussian filtering or image stitching.<sup>[[12]](#footnote12)</sup> Hardware manufacturers have even tried to ease the image transferring process between CPU and GPU, by introducing system memory regions accessible to both CPU and GPU.
+Most prominent computer vision libraries such as OpenCV, dlib, or VisionWorks support the use of GPUs in the computing process. For example, OpenCV has APIs that allow a kernel process running on the CPU to transfer image matrices to one or more GPUs to perform heavy functions such as Gaussian filtering or image stitching.<sup>[[12]](#footnote12)</sup> Hardware manufacturers have even tried to ease the image transferring process between CPU and GPU, by introducing system memory regions accessible to both CPU and GPU.<sup>[[13]](#footnote13)</sup>
 
 ## What's next
 
-There is an abundance of resources to learn and apply computer vision; however, not all of them are free or beginner-friendly.  The following are some great courses and tutorials freely accessible and aim for the masses:
+There is an abundance of resources to learn and apply computer vision; however, not all of them are free or beginner-friendly. This section mentions some great courses and tutorials that are freely accessible at the time of writing. If you are a starter, it is recommended that you follow these steps for your learning journey:
 
-Before diving into computer vision, it is recommended that learner acquire basic familiarity in Python, C++, or Java, as most tutorials and courses in CV use one of those languages:
+Firstly, you should acquire basic familiarity in Python, C++, or Java, as most tutorials and courses in CV use one of those languages:
 
-[Python For Beginners](https://www.python.org/about/gettingstarted/)
+- [Python For Beginners](https://www.python.org/about/gettingstarted/)
 
-[Learn C++](http://www.learncpp.com/)
+- [Learn C++](http://www.learncpp.com/)
 
-[Java Tutorial](https://www.tutorialspoint.com/java/index.htm)
+- [Java Tutorial](https://www.tutorialspoint.com/java/index.htm)
 
-It is also advisable that learner has some basic understandings in Linear Algebra.
+Next, it is necessary that you gain some basic understandings in Linear Algebra:
 
-[Linear Algebra by Khan Academy](https://www.khanacademy.org/math/linear-algebra)
+- [Linear Algebra by Khan Academy](https://www.khanacademy.org/math/linear-algebra)
 
-**Computer vision:**
+After getting comfortable with the language and the math, you should start with an entry-level computer vision course. This Udacity class pairs theoretical parts with very practical hands-on exercises:
 
-This Udacity course pairs theoretical parts with very practical hands-on exercises:
-[Udacity: Introduction to computer vision
-by Georgia Tech](https://www.udacity.com/course/introduction-to-computer-vision--ud810)
+- [Udacity: Introduction to computer vision by Georgia Tech](https://www.udacity.com/course/introduction-to-computer-vision--ud810)
 
-A great blog from a self-taught computer vision developer:
-[PyImageSearch](https://www.pyimagesearch.com/start-here-learn-computer-vision-opencv/)
+This blog is from a self-taught computer vision developer, where you can find tutorials on more advanced topics in the field:
 
-Learning from those who implemented the wheel is always a good idea: [OpenCV Tutorials for C++](https://docs.opencv.org/3.4.0/d9/df8/tutorial_root.html)
-or the Python version: [OpenCV Tutorials for Python](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html)
+- [PyImageSearch](https://www.pyimagesearch.com/start-here-learn-computer-vision-opencv/)
+
+Lastly, learning to master the wheel from those who implemented the wheel is always a good idea:
+
+- [OpenCV Tutorials for C++](https://docs.opencv.org/3.4.0/d9/df8/tutorial_root.html)
+
+or the Python version:
+
+- [OpenCV Tutorials for Python](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html)
 
 ## References
 
@@ -312,3 +316,10 @@ or the Python version: [OpenCV Tutorials for Python](https://docs.opencv.org/3.0
 <a name="footnote11">[11]</a>: http://www.gipsa-lab.grenoble-inp.fr/summerschool/gpu/fichiers/GIPSA_talk.pdf<br />
 <a name="footnote12">[12]</a>: https://docs.opencv.org/2.4/modules/gpu/doc/introduction.html<br />
 <a name="footnote13">[13]</a>: https://devblogs.nvidia.com/beyond-gpu-memory-limits-unified-memory-pascal/<br />
+<a name="footnote14">[14]</a>: https://pdfs.semanticscholar.org/fabf/4efa0ce7837f24b91c617cf9954fee1df50f.pdf<br />
+<a name="footnote15">[15]</a>: https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf<br />
+<a name="footnote16">[16]</a>: https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf<br />
+<a name="footnote17">[17]</a>: http://personal.ee.surrey.ac.uk/Personal/R.Bowden/publications/avbs01/avbs01.pdf<br />
+<a name="footnote18">[18]</a>: https://pdfs.semanticscholar.org/56b1/eee82a51ce17d72a91b5876a3281418679cc.pdf<br />
+<a name="footnote19">[19]</a>: https://www.sciencedirect.com/science/article/pii/S0167865505003521<br />
+<a name="footnote20">[20]</a>: http://goldberg.berkeley.edu/pubs/acc-2012-visual-tracking-final.pdf<br />
