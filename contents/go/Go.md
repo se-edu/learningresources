@@ -15,12 +15,19 @@ Author(s): [Cara Leong](https://github.com/craaaa)
 
 Go (also known as `golang`) is a compiled, statically-typed, garbage-collected language that has special memory safety and concurrent programming features. Born out of frustration with the available languages (e.g. C, C++, Java) and environments for systems programming, Go was [conceptualized by programmers at Google](https://talks.golang.org/2012/splash.article) who sought to create a single language that was efficient to write, build and execute. Go also supports newer developments in computing such as multicore processors and network systems.
 
-Go is an [open source project](https://github.com/golang/go). Its source code may be useful reading for those interested in learning good practices, or simply to find out more about how the language was implemented.
+## Why Learn Go?
+Go is [not a perfect language](https://github.com/ksimka/go-is-not-good). However, here are some reasons why you might want to learn and use Go:
+
+Firstly, Go is a language built for software engineers. As it was written by software engineers at Google, Go addresses and attempts to solve some of the  pain points that exist in many commonly-used languages. For instance, the language has easy dependency management, prides itself on fast builds and has many [easy to use debugging, testing, and code-vetting tools](https://medium.com/google-cloud/go-tooling-in-action-eca6882ff3bc). These features make Go an easy language to use for software development.
+
+Secondly, Go is a useful systems-side (i.e. backend) language. As it was built with large, distributed architectures in mind, Go is useful for creating [scalable server-side programs](https://www.quora.com/How-is-Go-used-at-Google-What-could-be-areas-specific-systems-applications-in-which-Go-could-replace-other-languages-used-nowadays-inside-Google-and-why-would-it-make-sense-to-introduce-Go-in-place-of-another-language) that handle multicore processors, networked systems or even large computation clusters. In other words, if you're looking to make an Android application, Go is [probably not the language for you](https://www.reddit.com/r/golang/comments/5vhvbc/confused_as_to_what_go_is_actually_used_for/). However, if you're looking to pick up a language that is reasonably easy to learn, builds on the foundations of other common languages and creates programs that are easily scalable, then Go may be the language for you.
+
+Thirdly, Go is an [open source project](https://github.com/golang/go). Learning about Go and contributing to the language may be a useful experience for those interested. In addition, its source code may be useful reading for those interested in learning good practices, or simply to find out more about how the language was implemented.
 
 If you're unconvinced about Go, you can use [the Go playground](https://play.golang.org/) to write, build and execute code without installing Go on your machine.
 
-## Using Go
-As it builds on the foundations set by many popular and widely-used languages such as C, C++, Java and Python, much of Go's syntax draws from existing implementations and will be familiar to programmers looking to learn an additional language. However, Go also diverges explicitly from these other languages; listed below are some aspects of Go that may be unfamiliar to learners.
+## Go Features
+As it builds on the foundations set by many popular and widely-used languages such as C, C++, Java and Python, much of Go's syntax draws from existing implementations and will be familiar to programmers looking to learn an additional language. However, Go also diverges explicitly from these other languages. Listed below are some features that make Go unique!
 
 ### Declaring Variables
 One immediately obvious difference between Go and other languages is that Go declares its variables in the format `var variableName (variableType)`, with the variable's type declared to the right of the variable name, as follows:
@@ -46,12 +53,12 @@ In addition to omitting the type when it can be inferred, you can also eliminate
 name := "John Smith"
 ```
 
-Thus, we see that there are several potential ways to declare a variable in Go. Choosing which style of variable declaration to use depends on how verbose a programmer wants to be in declaring the variable.
+Thus, we see that there are several potential ways to declare a variable in Go. Choosing which style of variable declaration to use depends on how verbose a programmer wants to be in declaring the variable. However, the upshot of having many different degrees of verbosity is that common problems of both dynamically- and statically-typed languages can be avoided. Unlikely dynamically-typed languages, in which the type of a variable is sometimes unclear, a type in Go can always be explicitly declared to increase code clarity. On the other hand, when a variable's type can be clearly inferred, programmers can choose not to be unnecessarily verbose in their code.
 
 Go's syntax for more complex types such as pointers, arrays and structs is also somewhat idiosyncratic, and can be explored in this [Go blog article](https://blog.golang.org/gos-declaration-syntax), or with the help of [this tutorial on pointers](http://www.golang-book.com/books/intro/8) and [this tutorial on structs](https://www.golang-book.com/books/intro/9).
 
 ### Arrays and Slices
-Arrays are not often seen in Go code. This is because the size of a Go array must be declared at its creation, which limits how flexible an array can be. For instance, in the 
+Arrays are not often seen in Go code. This is because the size of a Go array must be declared at its creation, which limits how flexible an array can be.
 
 To create dynamically-sized arrays, Go introduces the concept of a slice. Slices are not arrays; rather, they are data structures that describe a piece of a separately-stored array. Slices are the topic of several Go blog entries; you can read more about [the internal layout of slices](https://blog.golang.org/go-slices-usage-and-internals) and [the mechanics of using slices](https://blog.golang.org/slices). Exercises on how to use slices are available in [A Tour of Go](https://tour.golang.org/moretypes/7).
 
@@ -174,6 +181,8 @@ func useFile() {
 }
 ```
 
+Go's use of multiple returns for errors can be [contrasted with the use of exceptions in a language like Java](https://davidnix.io/post/error-handling-in-go/).  Unlike exceptions, which can crash a program, errors are seen as regular values that are to be expected by programmers and handled accordingly.
+
 To deal with unexpected errors, Go also provides two mechanisms: `panic` and `recover`.
 
 - `panic` is similar to throwing an exception in other languages. An explicit call to `panic` on a function `F` stops the ordinary flow of execution of `F` at the point of the panic, executes any functions deferred by `F`, and returns to `F`'s caller. To the caller, `F` behaves like a call to panic. It triggers a `panic` in `F`'s caller, which recursively propagates up the call stack until all functions in the goroutine have returned, after which the program crashes. `panic` is used to fail fast on errors that cannot be handled gracefully.
@@ -253,7 +262,7 @@ type T struct {
 	value int    // its value
 }
 ```
-Variations on `go fmt` may be of use, and can be found in the [documentation](https://golang.org/cmd/gofmt/).
+Variations on `go fmt` may be of use, and can be found in the [Go documentation](https://golang.org/cmd/gofmt/).
 
 Go also enforces good coding practices, for instance, by refusing to build projects that declare of unused variables or imports. Such enforcement, along with a clear, unified and extensive [treatise on coding conventions in Go](https://golang.org/doc/effective_go.html), have manifested in a reasonably stable Go coding style.
 
@@ -267,4 +276,3 @@ Go's development team is heavily involved in documenting and growing the Go lang
 - [The Go FAQ](https://golang.org/doc/faq) - answers common questions about the language's history, usage, design and more
 - [Go's documentation](https://golang.org/doc/) - a good starting point, contains links to official information about Go
 - [The Go Blog](https://blog.golang.org/) - features news and in-depth articles about Go by the Go team and guests
-- [A list of reasons why Go is bad](https://github.com/ksimka/go-is-not-good) - informative counter-arguments against the use of Go; worth considering before you jump into the world of Go
