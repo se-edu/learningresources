@@ -2,7 +2,7 @@
 
 Author(s): [Cara Leong](https://github.com/craaaa)
 
-- [Why Learn Go?](why-learn-go)
+- [Why Learn Go?](#why-learn-go)
 - [Go Features](#go-features)
 	- [Declaring Variables](#declaring-variables)
 	- [Concurrency](#concurrency)
