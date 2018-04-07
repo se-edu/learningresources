@@ -2,9 +2,9 @@
 
 Author(s): [Cara Leong](https://github.com/craaaa)
 
-- [Using Go](#using-go)
+- [Why Learn Go?](why-learn-go)
+- [Go Features](#go-features)
 	- [Declaring Variables](#declaring-variables)
-	- [Arrays and Slices](#arrays-and-slices)
 	- [Concurrency](#concurrency)
 	- [`defer`](#defer)
 	- [Error Handling](#error-handling)
@@ -56,11 +56,6 @@ name := "John Smith"
 Thus, we see that there are several potential ways to declare a variable in Go. Choosing which style of variable declaration to use depends on how verbose a programmer wants to be in declaring the variable. However, the upshot of having many different degrees of verbosity is that common problems of both dynamically- and statically-typed languages can be avoided. Unlikely dynamically-typed languages, in which the type of a variable is sometimes unclear, a type in Go can always be explicitly declared to increase code clarity. On the other hand, when a variable's type can be clearly inferred, programmers can choose not to be unnecessarily verbose in their code.
 
 Go's syntax for more complex types such as pointers, arrays and structs is also somewhat idiosyncratic, and can be explored in this [Go blog article](https://blog.golang.org/gos-declaration-syntax), or with the help of [this tutorial on pointers](http://www.golang-book.com/books/intro/8) and [this tutorial on structs](https://www.golang-book.com/books/intro/9).
-
-### Arrays and Slices
-Arrays are not often seen in Go code. This is because the size of a Go array must be declared at its creation, which limits how flexible an array can be.
-
-To create dynamically-sized arrays, Go introduces the concept of a slice. Slices are not arrays; rather, they are data structures that describe a piece of a separately-stored array. Slices are the topic of several Go blog entries; you can read more about [the internal layout of slices](https://blog.golang.org/go-slices-usage-and-internals) and [the mechanics of using slices](https://blog.golang.org/slices). Exercises on how to use slices are available in [A Tour of Go](https://tour.golang.org/moretypes/7).
 
 ### Concurrency
 One of Go's special features is its support for concurrency. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.
