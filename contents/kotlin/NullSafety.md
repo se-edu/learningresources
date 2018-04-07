@@ -65,7 +65,7 @@ bob.map(Person::getDepartment)
 
 Let's see how Kotlin deals with this issue while maintaining a simple and readable syntax.
 
-# Null Safety in Kotlin
+# How does Kotlin handle Null Safety?
 ## Nullable and Non-nullable type
 In Kotlin, a type can be nullable or non-nullable, determined by the presence of a `?`. For example, an object of type `String` is non-nullable, while an object of type `String?` is nullable.  
 
