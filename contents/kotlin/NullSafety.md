@@ -2,16 +2,16 @@
 
 Author: [Pan Haozhe](https://github.com/Haozhe321)
 
-# Overview
-Another [part](https://github.com/se-edu/learningresources/blob/master/contents/kotlin/kotlin.md) of this series on Kotlin gives an introduction to Kotlin. This piece aims to discuss the null safety feature in Kotlin, and what was previously missing in Java.
+>“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with **checking performed automatically by the compiler**. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”  
+-Tony Hoare
 
+This document explains Kotlin's null safety feature . For an overview of Kotlin, see [here](https://github.com/se-edu/learningresources/blob/master/contents/kotlin/kotlin.md).
 
-# The Billion Dollar Mistake
-“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with **checking performed automatically by the compiler**. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”  
--Tony Hoare  
+# What is Null Safety?
+Null Safety (or void safety) is the guarantee that no object reference will have a `null` value.
+In object-oriented languages, access to objects is achieved through references. A typical function call is of the form `object.func()`; `object` denotes a reference to a certain object, and `func` denotes a function call. At execution time, the reference to `object` can be `void`, leading to run-time exceptions (In the case of Java, a NullPointerException) and often abnormal termination of the program.
 
-
-# NullPointerException
+## NullPointerException
  When developing Android applications in Java, [NullPointerException(NPE)](https://docs.oracle.com/javase/9/docs/api/java/lang/NullPointerException.html) was a big problem. In fact, About [one third of app crashes can be attributed to NPE](https://image.slidesharecdn.com/droidcon-bugsense-130408170720-phpapp01/95/droid-con-bugsense-16-638.jpg?cb=1365440918). To see how it happens, let's take a look at the piece of Java code below:
 
 ```java
@@ -55,7 +55,7 @@ For the first example above, we can do
 a.ifPresent(this::doSomething);
 ```
 
-And for the deeply-nested if statements, the verbosity can be reduced with
+And for the deeply-nested `if` statements, the verbosity can be reduced with
 ``` java
 bob.map(Person::getDepartment)
     .map(Person::getManager)
@@ -65,7 +65,8 @@ bob.map(Person::getDepartment)
 
 Let's see how Kotlin deals with this issue while maintaining a simple and readable syntax.
 
-# Nullable and Non-nullable type
+# Null Safety in Kotlin
+## Nullable and Non-nullable type
 In Kotlin, a type can be nullable or non-nullable, determined by the presence of a `?`. For example, an object of type `String` is non-nullable, while an object of type `String?` is nullable.  
 
 As the compiler catches `null` assignments to non-nullable objects, the following would result in compilation error.
@@ -83,9 +84,9 @@ In the first case, we can safely call `firstString.length` without having to wor
 In the second case, `secondString` can potentially be `null`, so `secondString.length` will result in a compilation error as the compiler see the danger of such statement and blocks it early.
 
 
-# Operators in Kotlin
+## Operators in Kotlin
 Although non-nullable type is a strong feature in Kotlin, the [interoperability](https://kotlinlang.org/docs/reference/java-interop.html) with Java means that we have to use variables as nullable type sometimes. In the previous section, we seem to have hit an obstacle as the compiler blocks the call to `secondString.length`. In this section we look at some ways of overcoming this problem.
-## Safe call operator
+### Safe call operator
 Represented by `?.`, the safe call operator is used in this way  
 ```kotlin
 secondString?.length
@@ -99,7 +100,7 @@ bob?.department?.manager?.name
 This chain will return `null` if any of the variables inside the chain is `null`.
 
 
-## Elvis Operators
+### Elvis Operators
 Represented by `?:`, the Elvis operator is used in this way
 ```kotlin
 val length = secondString?.length ?: -1
@@ -121,7 +122,7 @@ Doing so like this can help programmers to check for function arguments before c
 At this point you may ask, "What if I still want my NPE?"
 
 
-## Not-null assertion operator
+### Not-null assertion operator
 Represented by `!!`, the not-null assertion operator is used in this way
 ```kotlin
 val stringLength = secondString!!.length
