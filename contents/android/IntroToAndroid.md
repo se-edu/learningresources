@@ -137,7 +137,8 @@ Integration testing and end-to-end testing is usually done using [Espresso](http
 ### 3.2 Debugging
 
 #### On-Device Developer Options
-![Developer Options](https://developer.android.com/studio/images/run/dev-options-pixel_2x.png)
+
+<img src="https://developer.android.com/studio/images/run/dev-options-pixel_2x.png" width="100">
 
 ([Image](https://developer.android.com/studio/images/run/dev-options-pixel_2x.png) from Google)
 Developer Options is a great tool for developers (and Android power users) to make system configurations and profile and debug apps. To enable it, just go to `Settings` and tap the `Build Number` 7 times on any Android phone.
