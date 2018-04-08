@@ -7,7 +7,9 @@
   * [Java Streams](java/streams-an-introduction.md)
   * [Java Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
-* [Kotlin](kotlin/kotlin.md)
+* Kotlin
+  * [Introduction to Kotlin](kotlin/kotlin.md)
+  * [Null Safety In Kotlin](kotlin/NullSafety.md)
 * [JavaScript](javascript/javascript.md)
   * [Javascript Promises](javascript/Javascript-promises.md)
 * [Python](python/introduction-to-python.md)
