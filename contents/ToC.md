@@ -9,6 +9,7 @@
   * [Java Reflection](java/JavaReflections.md)
 * [Kotlin](kotlin/kotlin.md)
 * [JavaScript](javascript/javascript.md)
+  * [Javascript Promises](javascript/Javascript-promises.md)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
 * [Swift](swift/welcome-to-swift.md)
@@ -42,6 +43,7 @@
 ## Other Topics
 
 * AI
+  * [Computer Vision](computerVision/cv.md)
 * Data
   * [Databases](data/databases.md)
 * [Regular Expressions](regex/Regex.md)
