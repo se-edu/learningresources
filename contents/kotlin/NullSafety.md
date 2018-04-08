@@ -8,11 +8,11 @@ Author: [Pan Haozhe](https://github.com/Haozhe321)
 This document explains Kotlin's null safety feature . For an overview of Kotlin, see [here](https://github.com/se-edu/learningresources/blob/master/contents/kotlin/kotlin.md).
 
 # What is Null Safety?
-Null Safety (or void safety) is the guarantee that no object reference will have a `null` value.
+_Null Safety_ (or _void safety_) is the guarantee that no object reference will have a `null` value.
 In object-oriented languages, access to objects is achieved through references. A typical function call is of the form `object.func()`; `object` denotes a reference to a certain object, and `func` denotes a function call. At execution time, the reference to `object` can be `void`, leading to run-time exceptions (In the case of Java, a NullPointerException) and often abnormal termination of the program.
 
 ## NullPointerException
- When developing Android applications in Java, [NullPointerException(NPE)](https://docs.oracle.com/javase/9/docs/api/java/lang/NullPointerException.html) was a big problem. In fact, About [one third of app crashes can be attributed to NPE](https://image.slidesharecdn.com/droidcon-bugsense-130408170720-phpapp01/95/droid-con-bugsense-16-638.jpg?cb=1365440918). To see how it happens, let's take a look at the piece of Java code below:
+ When developing Android applications in Java, [NullPointerException (NPE)](https://docs.oracle.com/javase/9/docs/api/java/lang/NullPointerException.html) was a big problem. In fact, About [one third of app crashes can be attributed to NPE](https://image.slidesharecdn.com/droidcon-bugsense-130408170720-phpapp01/95/droid-con-bugsense-16-638.jpg?cb=1365440918). To see how it happens, let's take a look at the piece of Java code below:
 
 ```java
 String a = null;
@@ -20,7 +20,7 @@ if(a.length > 5) {
     //do something
 }
 ```
-When the above code is ran, a NPE will be thrown on line 2 because a `null` object has no methods. To prevent an object from taking on a `null` value, programmers typically resort to doing additional checks like this:
+When the above code is run, an NPE will be thrown on line 2 because a `null` object has no methods. To prevent an object from taking on a `null` value, programmers typically resort to doing additional checks like this:
 ```java
 String a = null;
 if(a != null && a.length > 5) {
@@ -47,7 +47,7 @@ if(bob != null) {
     }
 }
 ```
-The deep-nested `if` statement adds to the verbosity of our code.
+The deep-nested `if` statement reduces readability of our code.
 
 The other way is to use [Java Optionals](http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html).
 For the first example above, we can do
@@ -62,12 +62,13 @@ bob.map(Person::getDepartment)
     .map(Person::getName)
     .ifPresent(Person::doSomething);
 ```
+`map()` is a method in Java Optionals class that applies the function inside the parentheses to the object that is calling it. If the object is not present, it will return an empty Optional.  
 
 Let's see how Kotlin deals with this issue while maintaining a simple and readable syntax.
 
 # How does Kotlin handle Null Safety?
 ## Nullable and Non-nullable type
-In Kotlin, a type can be nullable or non-nullable, determined by the presence of a `?`. For example, an object of type `String` is non-nullable, while an object of type `String?` is nullable.  
+In Kotlin, a type can be _nullable_ or _non-nullable_, determined by the presence of a `?`. For example, an object of type `String` is non-nullable, while an object of type `String?` is nullable.  
 
 As the compiler catches `null` assignments to non-nullable objects, the following would result in compilation error.
 ```Kotlin
@@ -84,7 +85,7 @@ In the first case, we can safely call `firstString.length` without having to wor
 In the second case, `secondString` can potentially be `null`, so `secondString.length` will result in a compilation error as the compiler see the danger of such statement and blocks it early.
 
 
-## Operators in Kotlin
+## Safety Operators in Kotlin
 Although non-nullable type is a strong feature in Kotlin, the [interoperability](https://kotlinlang.org/docs/reference/java-interop.html) with Java means that we have to use variables as nullable type sometimes. In the previous section, we seem to have hit an obstacle as the compiler blocks the call to `secondString.length`. In this section we look at some ways of overcoming this problem.
 ### Safe call operator
 Represented by `?.`, the safe call operator is used in this way  
@@ -109,7 +110,7 @@ If the expression to the left of `?:` is not null, the Elvis operator (`?.`) wil
 
 We also notice the use of safe call operator together with Elvis operator in the same statement.
 
-But the Elvis operator is more powerful than this. `return` and `throw` statements are legitimate default values on the right side of the Elvis operator. For example:
+But the Elvis operator is more powerful than this. `return` and `throw` statements are legitimate default values on the right side of the Elvis operator. So you can define your own error message to aid debugging. For example:
 ```kotlin
 fun myFunc(node: Node): String? {
     val parent = node.getParent() ?: return null
@@ -127,13 +128,14 @@ Represented by `!!`, the not-null assertion operator is used in this way
 ```kotlin
 val stringLength = secondString!!.length
 ```
-The operator converts any value to a non-null type and throws an exception if the value is null. In the above example, `stringLength` will be assigned the length of `secondString` if `secondString` is not `null`; if secondString is `null`, a NPE is thrown. Kotlin tries to reduce the number of NPE as an NPE is difficult to debug a generic NPE, and also it creates so many app crashes. Hence NPEs in Kotlin are explicitly asked for.
+The operator converts any value to a non-nullable type and throws an exception if the value is null. In the above example, `stringLength` will be assigned the length of `secondString` if `secondString` is not `null`; if secondString is `null`, a NPE is thrown. Kotlin tries to reduce the number of NPEs thrown as it is a run-time exception that is difficult to debug, in addition to creating so many app crashes. Hence NPEs in Kotlin are explicitly asked for.
 
 
 # Summary
-1. Kotlin makes your applications safer by allocating more work to the complier, instead of failing in the hands of the users.
-2. If you expect your object to **not** take on a `null` value, make it a non-null type!
-3. Even if you make your object a nullable type, Kotlin handles it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier(with the help of Elvis operator).
+1. Kotlin increases null safety of programs because some of the work required to ensure null safety is offloaded from the programmer to the compiler, which is less error prone.
+2. Null Safety is enforced by the Kotlin language. This is better compared to Java Optionals which is a Class and not a language construct like Kotlin's null-safety system.
+3. If you expect your object to **not** take on a `null` value, make it a non-nullable type!
+4. Even if you make your object a nullable type, Kotlin handles it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier (with the help of Elvis operator).
 
 
 # Learning resources
