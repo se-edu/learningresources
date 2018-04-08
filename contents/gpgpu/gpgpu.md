@@ -1,6 +1,6 @@
 # An Introduction to GPGPU
 
-###### Author: [Pierce Anderson Fu](https://github.com/PierceAndy)
+###### Authors: [Pierce Anderson Fu](https://github.com/PierceAndy), [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
 - [GPGPU](#-1-gpgpu)
     - [What is GPGPU?](#-11-what-is-gpgpu)
@@ -8,6 +8,7 @@
     - [Aren't multicore CPUs enough?](#-13-arent-multicore-cpus-enough)
     - [What are the challenges with GPGPU?](#-14-what-are-the-challenges-with-gpgpu)
     - [Implementations](#-15-implementations)
+    - [GPGPU in action](#-16-gpgpu-in-action)
 - [Further Readings](#-2-further-readings)
 - [References](#-3-references)
 
@@ -48,6 +49,21 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 - CUDA: [Official website](http://www.nvidia.com/object/cuda_home_new.html)
 - OpenCL: [Official website](https://www.khronos.org/opencl/)
 
+### § 1.6 GPGPU in action
+The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup>[[6]](#footnote6)</sup>. The Pascal architecture is used in many desktop computers, data centres, and supercomputers<sup>[[7]](#footnote7)</sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.
+
+![NVIDIA's Jetson TX2](jetson_tx2.jpg "NVIDIA's Jetson TX2")
+
+*[NVIDIA Jetson TX2 embedded system-on-module with Thermal Transfer Plate (TTP)](https://devblogs.nvidia.com/jetson-tx2-delivers-twice-intelligence-edge/)*
+
+Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup>[[6]](#footnote6)</sup>, the TX2 is capable of intensive parallel computational tasks such as real-time vision processing or deploying deep neural networks, allowing mobile platforms to solve complex, real-world problems.
+
+![DRIVENet](drivenet.jpg "NVIDIA DRIVENet Demo")
+
+*[CES 2016: NVIDIA DRIVENet Demo - Visualizing a Self-Driving Future](https://www.youtube.com/watch?v=HJ58dbd5g8g)*
+
+Compatible with a range of components and large ecosystem products<sup>[[8]](#footnote8)</sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup>[[9]](#footnote9)</sup>.
+
 ## § 2. Further Readings
 - [How concurrency is the next big change in software development since OO](http://www.gotw.ca/publications/concurrency-ddj.htm)
 - [Official CUDA C programming guide: What GPUs excel at processing, and why](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
@@ -62,3 +78,7 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 <a name="footnote3">[3]</a>: http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf<br />
 <a name="footnote4">[4]</a>: https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/<br />
 <a name="footnote5">[5]</a>: http://www.gotw.ca/publications/concurrency-ddj.htm<br />
+<a name="footnote6">[6]</a>: https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/<br />
+<a name="footnote7">[7]</a>: https://en.wikipedia.org/wiki/Tegra#Tegra_X1/<br />
+<a name="footnote8">[8]</a>: https://elinux.org/Jetson_TX2#Ecosystem_Products<br />
+<a name="footnote9">[9]</a>: https://developer.nvidia.com/embedded/learn/success-stories<br />
