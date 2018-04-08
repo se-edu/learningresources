@@ -7,8 +7,10 @@
   * [Java Streams](java/streams-an-introduction.md)
   * [Java Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
+* [Kotlin](kotlin/kotlin.md)
 * [JavaScript](javascript/javascript.md)
   * [VueJS](javascript/VueJs)
+  * [Javascript Promises](javascript/Javascript-promises.md)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
 * [Swift](swift/welcome-to-swift.md)
@@ -25,13 +27,16 @@
 * [Performance](performance/Performance.md)
   * [Performance Profiling](performance/PerformanceProfiling.md)
 * Project Management
+  * [Agile Development](projectManagement/AgileDevelopment.md)
 * Requirements
 * Revision Control
+  * [Best Practices with git](revisionControl/bestPracticesGit.md)
 * [Scalability](scalability/scalable-development.md)
 * [Static Analysis](staticAnalysis/intro.md)
   * [CheckStyle](staticAnalysis/checkStyle.md)
   * [PMD](staticAnalysis/PMD.md)
   * [FindBugs](staticAnalysis/FindBugs.md)
+  * [ESLint](staticAnalysis/ESLint.md)
 * Testing
   * [Writing Testable Code](testing/writing-testable-code.md)
 * [UI/UX](https://github.com/AngShiYa/learningresources/blob/uix/contents/uix/uix.md)
@@ -39,10 +44,12 @@
 ## Other Topics
 
 * AI
+  * [Computer Vision](computerVision/cv.md)
 * Data
   * [Databases](data/databases.md)
 * [Regular Expressions](regex/Regex.md)
 * Security
+  * [Cross Site Request Forgery](security/crossSiteRequestForgery/crossSiteRequestForgery.md)
   * [Cross Site Scripting](security/crossSiteScripting/crossSiteScripting.md)
   * [Cryptography](security/cryptography.md)
   * [HTTPS](security/Https.md)
