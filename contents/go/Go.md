@@ -6,8 +6,8 @@ Author(s): [Cara Leong](https://github.com/craaaa)
 - [Go Features](#go-features)
 	- [Declaring Variables](#declaring-variables)
 	- [Concurrency](#concurrency)
-	- [`defer`](#defer)
 	- [Error Handling](#error-handling)
+	- [`defer`](#defer)
 	- [Interfaces](#interfaces)
 	- [Canonical Coding Style](#canonical-coding-style)
 - [Getting started](#getting-started)
@@ -16,15 +16,13 @@ Author(s): [Cara Leong](https://github.com/craaaa)
 Go (also known as `golang`) is a compiled, statically-typed, garbage-collected language that has special memory safety and concurrent programming features. Born out of frustration with the available languages (e.g. C, C++, Java) and environments for systems programming, Go was [conceptualized by programmers at Google](https://talks.golang.org/2012/splash.article) who sought to create a single language that was efficient to write, build and execute. Go also supports newer developments in computing such as multicore processors and network systems.
 
 ## Why Learn Go?
-Go is [not a perfect language](https://github.com/ksimka/go-is-not-good). However, here are some reasons why you might want to learn and use Go:
+1. **Go is a language built for software engineers.** As it was written by software engineers at Google, Go addresses and attempts to solve some of the  pain points that exist in many commonly-used languages. For instance, the language has easy dependency management, prides itself on fast builds and has many [easy to use debugging, testing, and code-vetting tools](https://medium.com/google-cloud/go-tooling-in-action-eca6882ff3bc). These features make Go an easy language to use for software development.
 
-Firstly, Go is a language built for software engineers. As it was written by software engineers at Google, Go addresses and attempts to solve some of the  pain points that exist in many commonly-used languages. For instance, the language has easy dependency management, prides itself on fast builds and has many [easy to use debugging, testing, and code-vetting tools](https://medium.com/google-cloud/go-tooling-in-action-eca6882ff3bc). These features make Go an easy language to use for software development.
+1. **Go is a useful systems-side (i.e. backend) language.** As it was built with large, distributed architectures in mind, Go is useful for creating [scalable server-side programs](https://www.quora.com/How-is-Go-used-at-Google-What-could-be-areas-specific-systems-applications-in-which-Go-could-replace-other-languages-used-nowadays-inside-Google-and-why-would-it-make-sense-to-introduce-Go-in-place-of-another-language) that handle multicore processors, networked systems or even large computation clusters. In other words, if you're looking to make an Android application, Go is [probably not the language for you](https://www.reddit.com/r/golang/comments/5vhvbc/confused_as_to_what_go_is_actually_used_for/). However, if you're looking to pick up a language that is reasonably easy to learn, builds on the foundations of other common languages and creates programs that are easily scalable, then Go may be the language for you.
 
-Secondly, Go is a useful systems-side (i.e. backend) language. As it was built with large, distributed architectures in mind, Go is useful for creating [scalable server-side programs](https://www.quora.com/How-is-Go-used-at-Google-What-could-be-areas-specific-systems-applications-in-which-Go-could-replace-other-languages-used-nowadays-inside-Google-and-why-would-it-make-sense-to-introduce-Go-in-place-of-another-language) that handle multicore processors, networked systems or even large computation clusters. In other words, if you're looking to make an Android application, Go is [probably not the language for you](https://www.reddit.com/r/golang/comments/5vhvbc/confused_as_to_what_go_is_actually_used_for/). However, if you're looking to pick up a language that is reasonably easy to learn, builds on the foundations of other common languages and creates programs that are easily scalable, then Go may be the language for you.
+1. **Go is an [open source project](https://github.com/golang/go).** Learning about Go and contributing to the language may be a useful experience for those interested. In addition, its source code may be useful reading for those interested in learning good practices, or simply to find out more about how the language was implemented.
 
-Thirdly, Go is an [open source project](https://github.com/golang/go). Learning about Go and contributing to the language may be a useful experience for those interested. In addition, its source code may be useful reading for those interested in learning good practices, or simply to find out more about how the language was implemented.
-
-If you're unconvinced about Go, you can use [the Go playground](https://play.golang.org/) to write, build and execute code without installing Go on your machine.
+Of course, Go is [not a perfect language](https://github.com/ksimka/go-is-not-good). However, for some people, Go may be exactly the right language to pick up! If you're unconvinced about how you can learn and use Go, you can use [the Go playground](https://play.golang.org/) to write, build and execute code without installing Go on your machine.
 
 ## Go Features
 As it builds on the foundations set by many popular and widely-used languages such as C, C++, Java and Python, much of Go's syntax draws from existing implementations and will be familiar to programmers looking to learn an additional language. However, Go also diverges explicitly from these other languages. Listed below are some features that make Go unique!
@@ -58,7 +56,7 @@ Thus, we see that there are several potential ways to declare a variable in Go. 
 Go's syntax for more complex types such as pointers, arrays and structs is also somewhat idiosyncratic, and can be explored in this [Go blog article](https://blog.golang.org/gos-declaration-syntax), or with the help of [this tutorial on pointers](http://www.golang-book.com/books/intro/8) and [this tutorial on structs](https://www.golang-book.com/books/intro/9).
 
 ### Concurrency
-One of Go's special features is its support for concurrency. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.
+One of Go's special features is its focus on implementing concurrency simply and well. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.
 
 #### Goroutines
 A goroutine is a lightweight thread that executes a function concurrently with its caller. A goroutine is launched by a `go` statement:
@@ -135,19 +133,6 @@ func main() {
 
 If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's [basic](https://www.youtube.com/watch?v=f6kdp27TYZs) and [advanced concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw). This [code walkthrough](https://golang.org/doc/codewalk/sharemem/) provides an annotated example of how Go's memory-sharing principles can be applied in practice.
 
-### `defer`
-As opposed to traditional control flow mechanisms such as `if`, `for` and `switch`, which execute functions immediately, Go's `defer` keyword pushes a function call to a list, and only executes all functions on the list after the surrounding function returns. In the following example, `defer` adds two print functions to the stack of deferred functions. After `foo` finishes executing, the deferred functions are executed in last-in-first-out order.
-
-```go
-func foo() {
-	defer fmt.Println("This gets printed third")
-	defer fmt.Println("This gets printed second")
-	fmt.Println("This gets printed first")
-}
-```
-
-`defer` is frequently used for clean-up actions, such as to [close files](https://gobyexample.com/defer). Deferred functions run on [panicking goroutines](#error-handling) as well, which makes them useful for recovering from `panic`.
-
 ### Error Handling
 Error handling in Go is performed using multiple returns. On any function that can fail, the function's last return type should always be of the type `error`. For example, the `os.Open` function returns a non-nil error value when it fails to open a file.
 
@@ -184,6 +169,19 @@ To deal with unexpected errors, Go also provides two mechanisms: `panic` and `re
 - `recover` regains control of a panicking goroutine. Using `recover` is comparable to catching an exception in C++ or Java. When used inside a deferred function, a call to recover captures the value returned by `panic` and resumes normal execution.
 
 More information on error handling can be found on the [Go blog](https://blog.golang.org/error-handling-and-go) or [Go wiki](https://github.com/golang/go/wiki/PanicAndRecover).
+
+### `defer`
+As opposed to traditional control flow mechanisms such as `if`, `for` and `switch`, which execute functions immediately, Go's `defer` keyword pushes a function call to a list, and only executes all functions on the list after the surrounding function returns. In the following example, `defer` adds two print functions to the stack of deferred functions. After `foo` finishes executing, the deferred functions are executed in last-in-first-out order.
+
+```go
+func foo() {
+	defer fmt.Println("This gets printed third")
+	defer fmt.Println("This gets printed second")
+	fmt.Println("This gets printed first")
+}
+```
+
+`defer` is frequently used for clean-up actions, such as to [close files](https://gobyexample.com/defer). Deferred functions run on [panicking goroutines](#error-handling) as well, which makes them useful for recovering from `panic`.
 
 ### Interfaces
 Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types do not need to explicitly specify which interfaces are implemented. Instead, types implement interfaces by implementing the methods in the interface.
