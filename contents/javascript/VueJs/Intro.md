@@ -2,9 +2,10 @@
 
 Author: [Lu Lechuan](https://github.com/LuLechuan)
 
-Vue.js is an open-source progressive [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainablity.
+Vue.js is an open-source progressive [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainablity. Simply put, it is used as a tool to write JavaScript fast and easy.
 
 ## Advantages of VueJs
+
 VueJs is an approachable, versatile and performant framework that helps to create a more maintainable and testable database.
 
 * Approachable: VueJs is very easy to learn. Compared to other framework such as Augular, Vue is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
@@ -76,7 +77,50 @@ Explanation:
 Remark: we can only use the Vue data inside the component with id root as we bind it to the Vue element.
 Open the brower and we will see "Hello World" being displayed.
 
-## Links to VueJs tutorials
+### Common Vue syntaxes
+
+* [Text](https://vuejs.org/v2/guide/syntax.html#Text)
+The most basic data binding is text interpolation using double curly brackets as shown in the above example. The mustache tag will be replaced with the value of the msg property on the corresponding data object. It will also be updated whenever the data object’s msg property changes. The double curly brackets as the identifier inside it will be replaced with the value of the `message` property on the corresponding data object. It will also be updated whenever the data object’s `message` property changes.
+
+* [Attributes](https://vuejs.org/v2/guide/syntax.html#Attributes)
+Double curly brackets does not work in a HTML attributes. Instead, use a `v-bind` directive.
+```HTML
+<div v-bind:id="dynamicId"></div>
+```
+In the case of boolean attributes, where their mere existence implies true, v-bind works a little differently. In this example:
+```HTML
+<button v-bind:disabled="isButtonDisabled">Button</button>
+```
+If `isButtonDisabled` has the value of `null`, `undefined`, or `false`, the disabled attribute will not even be included in the rendered `<button>` element.
+
+* [Directives](https://vuejs.org/v2/guide/syntax.html#Directives)
+Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be a single JavaScript expression (with the exception for `v-for`). A directive’s job is to reactively apply side effects to the DOM when the value of its expression changes.
+Example of how to use the directives are as follow:
+
+  - `v-example="value"` - this will pass a value into the directive, and the directive will response according to the value.
+  ```HTML
+  <div v-if="condition">This div show up if "condition" is true</div>
+  ```
+
+  - `v-example="'string'"` - this will let you use a string as an expression.
+  ```HTML
+  <p v-html="'<b>This example string is in some text and it is bolded</b>'"></p>
+  ```
+
+  - `v-example:arg="value"` - this allows us to pass in an argument to the directive. Using the `v-bind` example above, we are binding the `div` to an `id`.
+  ```HTML
+  <div v-bind:id="dynamicId"></div>
+  ```
+
+  - `v-example:arg.modifier="value"` - this allows us to use a modifier. The example below allows us to call `preventDefault()` on the click event to prevent the submission of a form.
+  ```HTML
+  <button v-on:submit.prevent="onSubmit"></button>
+  ```
+
+To know more about syntaxes for VueJs, you can visit the [official website of Vue](https://vuejs.org/).
+Of course, knowing the syntaxes is clearly not enough to understand the whole picture of VueJs and use it to build a non-trivial applications. To really master VueJs, to use it as a tool to write simple JavaScript, one needs to practices.
+
+## Links to VueJs tutorials and practices
 
 - [VueSchool](https://vuejs.org/)
 - [Laracast](https://laracasts.com/series/learn-vue-2-step-by-step)
