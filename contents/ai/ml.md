@@ -37,6 +37,8 @@ Machine learning algorithms perform well for a large variety of tasks, from comp
 - Instance segmentation (object detection & recognition to the pixel level [MaskRCNN](https://github.com/matterport/Mask_RCNN)) 
 - Classification (often used for document indexing and retrieval)
 
+Different algorithms and ML pipelines exist for tackling the above problems.
+
 ### Types of ML Algorithms
 There are two broad categories of machine learning algorithms, supervised learning and unsupervised learning. 
 
@@ -48,25 +50,27 @@ Platforms like [Amazon Mechanical Turk](https://www.mturk.com/) are used for man
 
 One simple use case is image classification, to match the input image to a known label.
 
-<img src="https://i.imgur.com/mKjIS0C.png" width="500">  
+<img src="https://i.imgur.com/mKjIS0C.png" width="400">  
 (samples from [cifar10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html))
 
 Unsupervised learning algorithms do not require labels but it is difficult to explain the relationship between the items in each group.  
+
 This approach can be used by e-commerce sites to identify similar products, where a clear and interpretable label for similar products is not required.
 
-<img src="https://cdn-images-1.medium.com/max/900/1*xTvsgpDfja05SRMt-H5ylA.png" width="500">  
+<img src="https://cdn-images-1.medium.com/max/900/1*xTvsgpDfja05SRMt-H5ylA.png" width="400">  
 (T-SNE of Products Shape and Colour by [Eddie Bell](https://twitter.com/ejlbell/status/698309469965516800))
 
-These different types of algorithms provide solutions to different problems. 
-
-Popular resources for learning ML algorithms:
+The following are popular resources for ML algorithms:
 - Machine Learning: [Stanford CS229](cs229.stanford.edu/)
 - Convolutional Neural Networks for Visual Recognition: [Stanford CS231n](http://cs231n.stanford.edu/)
 - Natural Language Processing with Deep Learning: [Stanford CS224n](cs224n.stanford.edu/)
 - A practical approach towards neural networks: [University of San Francisco, FastAI](http://www.fast.ai/)
 
+Neural networks and deep learning are classes of ML algorithms.  
+They both contain supervised and unsupervised algorithms. 
+
 Note that there is one other category of ML algorithms, called reinforcement learning. 
-Reinforcement learning is quite different from the above mentioned categories and will not be discussed in this introductory piece. More information on Reinforcement Learning can be found in this following article on Medium. ([link](https://hackernoon.com/reinforcement-learning-part-1-d2f469a02e3b))
+Reinforcement learning is different from the above mentioned categories and will not be discussed in this introductory piece. More information on Reinforcement Learning can be found in this following article on Medium. ([link](https://hackernoon.com/reinforcement-learning-part-1-d2f469a02e3b))
 
 ### Types of Data
 Data is broadly split into 2 categories, structured and unstructured. 
@@ -82,11 +86,9 @@ Bringing a machine learning algorithm to production requires a workflow which di
 
 Prototyping is required as machine learning algorithms vary in efficacy when used in different domains. Machine learning algorithms model unknown functions and this modelling is never 100% correct. Statistical analysis is used to evaluate the performance of the algorithms.
 
-The quantity, quality and type of data differs greatly across domains, sometimes containing errors such as corruption or mislabelling. Consequently, data is often pre-processed.
-
 The algorithms contain various parameters that can be tuned to improve efficacy. Experimentation is required to discover the algorithm and parameters which give the best performance.
 
-The entire prototyping process is similar to scientific experiments, where many model configurations and differently data is experimented on. Practitioners come up with a hypothesis on whether configuration may improve performance, and verify if performance is as expected.
+The entire prototyping process is similar to scientific experiments, where many model configurations and differently processed data is experimented on. Practitioners come up with a hypothesis on whether a configuration may improve performance, and verify if performance is as expected.
 
 ### Prototyping Platform and Tools
 The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of programming languages like Python and R, as well as mentioned accompanying software is their strong support for experimentation and visualization of results. 
@@ -94,7 +96,7 @@ The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyte
 Interpreted languages such as Python and R speed up prototyping iterations as they are less verbose than compiled languages like Java or C. 
 Visualizations such as bar charts, graphs or just displaying the data assist in analysis and sharing of findings. 
 
-Code style, clarity and maintainability are less of a priority at this stage. A good example of Juptyer notebooks in use can be found in the following link from Kaggle. ([link](https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python))
+Code style, clarity and maintainability are less of a priority at this stage. A good example of Juptyer notebooks in action can be found in the following link from Kaggle. ([link](https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python))
 
 ### Prototyping Workflow
 Prototyping can be broken down into the following phases:  
@@ -104,11 +106,10 @@ Prototyping can be broken down into the following phases:
 4) Repeating step 3  
 
 ### Basic Data Preprocessing
-Basic data preprocessing is required to remove unwanted noise from the data. Examples of unwanted noise are repeated content and corrupted images. The unwanted content is usually discarded, manually or through aid of scripting. Training a model on such data hinders its ability to learn the actual patterns in uncorrupted data. 
+The quantity, quality and type of data differs greatly across domains, sometimes containing errors such as corruption or mislabelling. Basic data preprocessing is required to remove such data. 
 
-Other areas of concern are class imbalance (for supervised learning), where there are more datapoints in one class as compared to another.
-
-Statistics of the data are collected to identify class imbalance. This [paper](https://arxiv.org/abs/1710.05381v1) details various techinques for tackling class imbalance when using Convolutional Neural Networks. The literature review section in the paper links to techniques effective for other machine learning algorithms.
+Other areas of concern are class imbalance (for supervised learning), where there are more data points in one class as compared to another. The data is modified in various ways to tackle class imbalance.  
+This [paper](https://arxiv.org/abs/1710.05381v1) details various techinques for tackling class imbalance. 
 
 ### Partitioning of Data
 Data is usually split into 3 sets after preprocessing: the test set, validation set and training set. 
@@ -121,18 +122,17 @@ The FastAI ML MOOC is a great source of information on data partitioning.
 
 #### Test Set
 ML algorithms are never 100% accurate. Testing ML algorithms on real world data is essential for estimating their efficacy. 
-Furthermore, ML models run the risk of overfitting the data they were trained on.  
 
-Overfitting is a modelling error which occurs when models learn patterns unique to a subset of data. 
+Furthermore, ML models run the risk of overfitting the data they were trained on.  Overfitting is a modelling error which occurs when models learn patterns unique to a subset of data. 
 A model which overfits training data performs well on training data but is unable to translate this performance to real world data.
-For a more thorough explanation of noise and overfitting, see the following link. ([link](https://elitedatascience.com/overfitting-in-machine-learning))
+A thorough explanation of overfitting can be found in the following link. ([link](https://elitedatascience.com/overfitting-in-machine-learning))
 
-A test set solves the above problem. A test set is created by partitioning the available data, with size dependent on the total amount of data available. The test set is used only for testing model performance, and will not be touched during model training. The test set should also resemble real world data as much as possible to be a good indicator of real world performance.
+A test set solves the overfitting problem. A test set which resembles real world data as much as possible is created by partitioning the available data. Its size is dependent on the data available. The test set is used only for testing model performance, and will not be touched during model training. 
 
-Different schemes for partitioning must be used for data with different characteristics. A good article on splitting test and validation sets (discussed below) can be found in the following link. ([link](http://www.fast.ai/2017/11/13/validation-sets/))  
+Different schemes for partitioning must be used for data with different characteristics. A good article on splitting test and validation sets (discussed next) can be found in the following link. ([link](http://www.fast.ai/2017/11/13/validation-sets/))  
 
 #### Validation Set
-A validation set is then created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting model parameters. This process of adjusting model parameters and verifying performance is conducted on the validation set to prevent overfitting the test set.
+A validation set is created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting a model's parameters. Adjusting model parameters and verifying performance is conducted on the validation set to prevent overfitting the test set.
 
 Guidelines on picking a size for the validation set can be found in Lesson 7 of FastAI's ML MOOC. (MOOC is in unofficial release at time of writing)
 
@@ -142,10 +142,7 @@ The following driving factors are suggested for deciding the validation set size
 4 mistakes in fraud detection is a much bigger issue than 4 mistakes in [cucumber classification](https://cloud.google.com/blog/big-data/2016/08/how-a-japanese-cucumber-farmer-is-using-deep-learning-and-tensorflow). A large enough validation set tells us if the difference in performance is significant enough for the given problem. 
 
 - Statistical Stability  
-Each class should have at least 22 data points, so that the validation set follows an approximate normal distribution. This allows easier statistical analysis for the next driving factor.
-
-- Standard Error   
-The standard error of a model shows that the performance of the model is reliable and not due to chance. The standard error is found with statistical analysis. When combined with information from business concerns, we can determine if a model is truly better than another.
+Each class should have at least 22 data points, so that the validation set follows an approximate normal distribution. This allows easier statistical analysis.
 
 #### Training Set
 The remaining data forms the training set.  
@@ -154,7 +151,7 @@ Data in the training set is used for training the model.
 Practitioners may choose to create a sample set out of the training set, with a much smaller amount of data. This allows for quicker testing and refinement iterations. Training on the entire training set occurs only after they discover a set of parameters they feel confident with. This action is justified, as seen in recent research. ([link](https://blog.acolyer.org/2018/03/28/deep-learning-scaling-is-predictable-empirically/))
 
 ### Model Training, Evaluation & Data Analysis
-Models are evaluated on the validation set after training.
+Models are evaluated on the validation set after training on the training set.
 Practitioners perform data analysis on the results to gain insights on the data.
 These insights guide the practitioner in tweaking the data and model for better performance.
 
@@ -179,10 +176,10 @@ Models are retrained on a regular basis when more data is available, allowing th
 
 Techniques such as model compression must also be used to ensure that the models are within the desired size limit and perform fast enough. The following paper contains a survey of existing compression techniques for neural networks. ([link](https://arxiv.org/abs/1710.09282))
 
-Models are often trained against adversarial attacks for security reasons as well. 
+Models are often trained against adversarial attacks for security reasons.
 An article detailing adversarial attacks on deep learning models can be found in the following link. ([link](https://blog.openai.com/adversarial-example-research/))
 
-Here are some articles detailing the process of deploying machine learning algorithms for production.  
+Here are some articles and videos detailing the process of deploying machine learning algorithms for production.  
 Dropbox: [OCR and automatic document rotation](https://blogs.dropbox.com/tech/2017/04/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning/)  
 Mozilla: [DeepSpeech for voice recognition](https://hacks.mozilla.org/2017/11/a-journey-to-10-word-error-rate/)  
 PyData's [Youtube Channel](https://www.youtube.com/user/PyDataTV/videos), with many videos on machine learning in production 
