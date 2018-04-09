@@ -125,7 +125,7 @@ Other areas of concern are class imbalance (for supervised learning), where ther
 ### Partitioning of Data
 Data is usually split into 3 sets after preprocessing: the test set, validation set and training set. 
 
-The FastAI ML MOOC<a name="1">[1]</a> is a great source of information on data partitioning. 
+The FastAI ML MOOC<sup>[1](#fast-ai-ml)</sup> is a great source of information on data partitioning. 
 
 <img src="https://dziganto.github.io/assets/images/train-validate-test.png?raw=true" width="300"/><br/>
 <sub>(by [David Zigano](https://dziganto.github.io/cross-validation/data%20science/machine%20learning/model%20tuning/python/Model-Tuning-with-Validation-and-Cross-Validation/))
@@ -144,7 +144,7 @@ Different schemes for partitioning must be used for data with different characte
 #### Validation Set
 A validation set is created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting a model's parameters. Adjusting model parameters and verifying performance is conducted on the validation set to prevent overfitting the test set.
 
-Guidelines on picking a size for the validation set can be found in Lesson 7 of FastAI's ML MOOC<a name="1">[1]</a>. 
+Guidelines on picking a size for the validation set can be found in Lesson 7 of FastAI's ML MOOC<sup>[1](#fast-ai-ml)</sup>. 
 
 The following driving factors are suggested for deciding the validation set size.  
 
@@ -210,4 +210,4 @@ Popular resources for keeping up with machine learning research
 - [https://www.arxiv-sanity.com](www.arxiv-sanity.com) (provides a better browsing experience than Arxiv)
 - [https://openreview.net/](https://openreview.net/) (peer reviews of research papers submitted to conferences)
 
-[1](#1): No link is provided as MOOC is in unofficial release at time of writing  
+<a name="fast-ai-ml">[1]</a>: No link is provided as MOOC is in unofficial release at time of writing  
