@@ -16,7 +16,7 @@ Authors: Vivek Lakshmanan
 ## What is Java Concurrency
 _Concurrency_ is the ability to run several programs or several parts of a program **out-of-order**, in an **interleaved fashion**. Simply put, if a program is running concurrently, the processor will execute one part of the program, pause it, execute another part and repeat. 
 
-As such , Java Concurrency enables you to perform tasks using multi-threading in your code and therefore:
+As such, Java Concurrency enables you to perform tasks using multi-threading in your code and therefore:
 1. improving responsiveness
 1. allowing you to better utilize resources 
 
