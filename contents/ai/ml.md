@@ -19,6 +19,7 @@ Authors: [Alex Fong](https://github.com/alexfjw)
   - [Production](#production)
   - [Concluding Remarks](#concluding-remarks)
 - [Supplementary Resources](#supplementary-resources)
+- [Footnotes](#footnotes)
 
 ## What is ML
 Machine learning is a subfield in artificial intelligence whereby computers learn from data to perform a task. Machine learning is powerful because it can discern complex patterns within data, and utilize them to produce desired outputs for these tasks. 
@@ -210,4 +211,5 @@ Popular resources for keeping up with machine learning research
 - [https://www.arxiv-sanity.com](www.arxiv-sanity.com) (provides a better browsing experience than Arxiv)
 - [https://openreview.net/](https://openreview.net/) (peer reviews of research papers submitted to conferences)
 
+## Footnotes
 <a name="fast-ai-ml">[1]</a>: No link is provided as MOOC is in unofficial release at time of writing  
