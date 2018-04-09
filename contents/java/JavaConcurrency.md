@@ -152,23 +152,26 @@ Due to the creation of multiple threads and the problem of thread interference, 
 Concurrent implementation where you have to ensure that thread interference does not happen
 ```java
 public class Singleton{
-     private static Singleton singleton;
-     private static final Lock lock = new ReentrantLock();  // Create a lock so only one thread can access at a time.
+    private static Singleton singleton;
+    // Create a lock so only one thread can access this object at a time.
+    private static final Lock lock = new ReentrantLock();  
+    
+    private Singleton() {
+        //...
+    }
      
-     private Singleton() {
-         //...
-     }
-     
-     public static Singleton getSingleton() {
-         lock.lock();  // This thread has acquired this object, so lock to ensure other threads don't interfere.
-         try {
+    public static Singleton getSingleton() {
+        // This thread has acquired this object, so lock to ensure other threads don't interfere.
+        lock.lock();  
+        try {
             if (singleton == null) {
                 singleton = new Singleton();
             }
-         } finally {
-            lock.unlock();  // Release lock once you're done so others can access this object.
-         }
-         return singleton;
+        } finally {
+            // Release lock once you're done so others can access this object.
+            lock.unlock();  
+        }
+        return singleton;
      }
 }
 ```
@@ -176,18 +179,18 @@ public class Singleton{
 Vs the usual implementation
 ```java
 public class Singleton {
-     private static Singleton singleton;
+    private static Singleton singleton;
+    
+    private Singleton() {
+        //...
+    }
      
-     private Singleton() {
-         //...
-     }
-     
-     public static Singleton getSingleton() {
+    public static Singleton getSingleton() {
         if (singleton == null) { 
             singleton = new Singleton();
         }
         return singleton;
-     }
+    }
 }
 ```  
 
