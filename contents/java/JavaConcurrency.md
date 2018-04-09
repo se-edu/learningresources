@@ -17,7 +17,6 @@ Authors: Vivek Lakshmanan
 _Concurrency_ is the ability to run several programs or several parts of a program **out-of-order**, in an **interleaved fashion**. Simply put, if a program is running concurrently, the processor will execute one part of the program, pause it, execute another part and repeat. 
 
 As such , Java Concurrency enables you to perform tasks using multi-threading in your code and therefore:
-1. improving performance
 1. improving responsiveness
 1. allowing you to better utilize resources 
 
@@ -33,8 +32,6 @@ A thread:
 * is a lightweight process that exists within a process 
 * is an independent path of execution through program code 
 * has its own call stack and can access shared data of other threads in the same process. 
-
-When multiple threads execute code concurrently, it gives rise to multi-threading.
 
 ### Creating and Starting Threads
 There are two ways to create a thread in Java:
@@ -111,7 +108,7 @@ This can be illustrated by the following image where once Thread 2 (T2) acquires
 
 ![Synchronized block](http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg)
 
-For a deeper look, see the [Java Synchronisation](java/JavaSynchronization.md) section. 
+For a deeper look, see the [Java Synchronisation](../java/JavaSynchronization.md) section. 
 
 ### Executors
 While it is easy to create one or two threads and run them, it becomes a problem when your application requires creating 20 or 30 threads for running tasks concurrently. This is where the `Executors` class comes in. It helps you with:
@@ -150,7 +147,49 @@ And the corresponding output would be `Hello from: pool-1-thread-1`.
 As the saying goes, _there is no free lunch_. While concurrency provides great benefits as mentioned above, it does come with several issues such as:
 
 * **A more complex design**<br>
-Due to the creation of multiple threads and the problem of thread interference, the design becomes more complex as much more work is done to manage these threads such that no problem occurs when the application runs.  
+Due to the creation of multiple threads and the problem of thread interference, the design becomes more complex as much more work is done to manage these threads such that no problem occurs when the application runs. For instance, take a look at these two implementations of the `Singleton` design pattern: 
+
+Concurrent implementation where you have to ensure that thread interference does not happen
+```java
+public class Singleton{
+     private static Singleton singleton;
+     private static final Lock lock = new ReentrantLock();  // Create a lock so only one thread can access at a time.
+     
+     private Singleton() {
+         //...
+     }
+     
+     public static Singleton getSingleton() {
+         lock.lock();  // This thread has acquired this object, so lock to ensure other threads don't interfere.
+         try {
+            if (singleton == null) {
+                singleton = new Singleton();
+            }
+         } finally {
+            lock.unlock();  // Release lock once you're done so others can access this object.
+         }
+         return singleton;
+     }
+}
+```
+
+Vs the usual implementation
+```java
+public class Singleton {
+     private static Singleton singleton;
+     
+     private Singleton() {
+         //...
+     }
+     
+     public static Singleton getSingleton() {
+        if (singleton == null) { 
+            singleton = new Singleton();
+        }
+        return singleton;
+     }
+}
+```  
 
 * **Harder debugging and testing process**<br>
 The unpredictable nature of threads result in errors that can be hard to detect, reproduce and fix as these errors don't crop up consistently like normal errors do.
@@ -161,7 +200,7 @@ When a CPU switches from executing one thread to executing another, the CPU need
 ## Resources
 The following resources are the many in-depth tutorials that will help you get a better grasp of concurrency in Java.
 
-* [Detailed seven part series on concurrency in Java](https://baptiste-wicht.com/posts/2010/05/java-concurrency-part-1-threads.html)
+* [Seven part series on the basics of Concurrency in Java](https://baptiste-wicht.com/posts/2010/05/java-concurrency-part-1-threads.html)
 * [High-level overview of Concurrency in Java by Vogella](http://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency)
 * [Concurrency best practices](https://www.javacodegeeks.com/2015/09/concurrency-best-practices.html)
 * [Java 101: Understanding Java threads](https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html)
