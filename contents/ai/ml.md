@@ -129,7 +129,7 @@ Data is usually split into 3 sets after preprocessing: the test set, validation 
 The FastAI ML MOOC<sup>[1](#fast-ai-ml)</sup> is a great source of information on data partitioning. 
 
 <img src="https://dziganto.github.io/assets/images/train-validate-test.png?raw=true" width="300"/><br/>
-<sub>(by [David Zigano](https://dziganto.github.io/cross-validation/data%20science/machine%20learning/model%20tuning/python/Model-Tuning-with-Validation-and-Cross-Validation/))
+<sub>(Data partitioning visualization by [David Zigano](https://dziganto.github.io/cross-validation/data%20science/machine%20learning/model%20tuning/python/Model-Tuning-with-Validation-and-Cross-Validation/))
 
 #### Test Set
 ML algorithms are never 100% accurate. Testing ML algorithms on real world data is essential for estimating their efficacy. 
