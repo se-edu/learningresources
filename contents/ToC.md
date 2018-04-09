@@ -2,7 +2,6 @@
 
 * C#
 * C++
-* [Go](go/Go.md)
 * [Haskell](haskell/Haskell.md)
 * [Java](java/Java.md)
   * [Java Streams](java/streams-an-introduction.md)
