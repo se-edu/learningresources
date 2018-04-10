@@ -2,29 +2,31 @@
 
 Author: [Lu Lechuan](https://github.com/LuLechuan)
 
-Vue.js is an open-source progressive [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainablity. Simply put, it is used as a tool to write JavaScript fast and easy.
+VueJs (also known as Vue) is an open-source progressive [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainablity. Simply put, it is used as a tool to write JavaScript fast and easy.
 
 ## Advantages of VueJs
 
 VueJs is an approachable, versatile and performant framework that helps to create a more maintainable and testable database.
 
-* Approachable: VueJs is very easy to learn. Compared to other framework such as Augular, Vue is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
+* Approachable: VueJs is very easy to learn. Compared to other framework such as AugularJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
 
-* Progressive: Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the owner of Vue is as follow:
-"Vue.js is a more flexible, less opinionated solution ( than Angular ). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way. It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA."
+* Progressive: VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the owner of VueJs is as follow:
+~~~~
+Vue.js is a more flexible, less opinionated solution ( than Angular ). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way. It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA.
+~~~~
 
-* Versetile: Vue is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
+* Versatile: VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
 
-* Clean: Vue syntax is simple and this can make the HTML pages very clean.
+* Clean: VueJs syntax is simple and this can make the HTML pages very clean.
 
-* Other Advantages of VueJs: [What is Vue.js and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
+* Other Advantages of VueJs: [What is VueJs and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
 
-* Detailed comparison of Vue with other JavaScript frameworks can be found from [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html).
+* Detailed comparison of VueJs with other JavaScript frameworks can be found from [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html).
 
 ## Installation
 
 There are many ways to install VueJs, some of the following ways are mentioned below:
-* Import Vue in HTML `<script>` tag:
+* Import VueJs in HTML `<script>` tag:
   - [development version](https://vuejs.org/js/vue.js)
   - [product version](https://vuejs.org/js/vue.min.js)
 * CDN:
@@ -70,14 +72,14 @@ new Vue ({
 ```
 
 Explanation:
-* Import Vue CDN and the JavaScript file in the main HTML file.
-* Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element). (In this case, only this component is working in Vue while the rest are unaffected. This is how we progressively plug in Vue into our projects without a complete one at a go.)
+* Import VueJs CDN and the JavaScript file in the main HTML file.
+* Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element). (In this case, only this component is working in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects without a complete one at a go.)
 * Specify our data(message: "Hello World") in the Vue instance.
 * Pass the message to the HTML file using double curly brackets.
-Remark: we can only use the Vue data inside the component with id root as we bind it to the Vue element.
+Remark: we can only use the Vue data inside the component with id `root` as we bind it to the Vue element.
 Open the brower and we will see "Hello World" being displayed.
 
-### Common Vue syntaxes
+### Common VueJs syntax
 
 * [Text](https://vuejs.org/v2/guide/syntax.html#Text)
 The most basic data binding is text interpolation using double curly brackets as shown in the above example. The mustache tag will be replaced with the value of the msg property on the corresponding data object. It will also be updated whenever the data object’s msg property changes. The double curly brackets as the identifier inside it will be replaced with the value of the `message` property on the corresponding data object. It will also be updated whenever the data object’s `message` property changes.
@@ -118,7 +120,7 @@ Example of how to use the directives are as follow:
   ```
 
 To know more about syntaxes for VueJs, you can visit the [official website of Vue](https://vuejs.org/).
-Of course, knowing the syntaxes is clearly not enough to understand the whole picture of VueJs and use it to build a non-trivial applications. To really master VueJs, to use it as a tool to write simple JavaScript, one needs to practices.
+Of course, knowing the syntaxes is clearly not enough to understand the whole picture of VueJs and use it to build a non-trivial applications. To really master and reap the benefit of VueJs, you will need some hands-on experience.
 
 ## Links to VueJs tutorials and practices
 
