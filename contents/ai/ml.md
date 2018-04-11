@@ -7,7 +7,7 @@ Authors: [Alex Fong](https://github.com/alexfjw)
     - [Supervised Learning](#supervised-learning)
     - [Unsupervised Learning](#unsupervised-learning)
   - [Types of Data](#types-of-data)
-- [Machine Learning (Prototyping to Production)](#machine-learning-prototyping-to-production)
+- [How ML is Applied](#how-ml-is-applied)
   - [Prototyping Platforms and Tools](#prototyping-platforms-and-tools)
   - [Prototyping Workflow](#prototyping-workflow)
   - [Basic Data Preprocessing](#basic-data-preprocessing)
@@ -15,7 +15,7 @@ Authors: [Alex Fong](https://github.com/alexfjw)
     - [Test Set](#test-set)
     - [Validation Set](#validation-set)
     - [Training Set](#training-set)
-  - [Model Training, Evaluation & Data Analysis](#model-training-evaluation-data-analysis)
+  - [Model Training, Evaluation, Data Analysis](#model-training-evaluation-data-analysis)
   - [Production](#production)
   - [Concluding Remarks](#concluding-remarks)
 - [Supplementary Resources](#supplementary-resources)
@@ -62,7 +62,7 @@ One simple use case is image classification, to match the input image to a known
 #### Unsupervised Learning
 Unsupervised learning algorithms do not require labels. 
 
-Using clustering as an example, the data is split into groups by the algorithm. The down side is that it is difficult to explain the relationships between items grouped. 
+Using clustering as an example, the data is split into groups by the algorithm. The downside is that it is difficult to explain the relationships between items grouped. 
 
 This approach can be used by e-commerce sites to identify similar products, where a clear and interpretable label for similar products is not required.
 
@@ -90,7 +90,7 @@ Data is broadly split into 2 categories, *structured* and *unstructured*.
 
 The distinction between the types of data is important as ML algorithms are not always compatible with both data types. For example, [Decision trees](https://en.wikipedia.org/wiki/Decision_tree) cannot be used for unstructured data. Data must be modified to a structured form for use with decision tree related algorithms.
 
-## Machine Learning (Prototyping to Production)
+## How ML is Applied
 Bringing a machine learning algorithm to production requires a workflow which differs greatly from that of software engineering. This is due to a focus on prototyping.  
 
 Prototyping is required as ML algorithms vary in efficacy when used in different domains, each domain containing data of a different nature.
