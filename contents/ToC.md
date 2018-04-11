@@ -5,6 +5,7 @@
 * [Go](go/Go.md)
 * [Haskell](haskell/Haskell.md)
 * [Java](java/Java.md)
+  * [Java Concurrency](java/JavaConcurrency.md)
   * [Java Streams](java/streams-an-introduction.md)
   * [Java Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
@@ -13,6 +14,7 @@
   * [Null Safety In Kotlin](kotlin/NullSafety.md)
 * [JavaScript](javascript/javascript.md)
   * [Javascript Promises](javascript/Javascript-promises.md)
+  * [Introduction to Nodejs](node/nodejs.md)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
 * [Swift](swift/welcome-to-swift.md)
@@ -46,8 +48,9 @@
 ## Other Topics
 
 * AI
-  * [Computer Vision](computerVision/cv.md)
   * [Machine Learning] (ai/ml.md)
+* [Android](android/IntroToAndroid.md)
+* [Computer Vision](computerVision/cv.md)
 * Data
   * [Databases](data/databases.md)
 * [Regular Expressions](regex/Regex.md)
