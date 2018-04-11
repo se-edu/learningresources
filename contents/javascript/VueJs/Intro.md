@@ -64,7 +64,16 @@ Apart from installing VueJs, you can install [VueJs development tools](https://g
 
 ## Creating a Simple Project in VueJs:
 
-The VueJs version of "Hello World":
+Steps to print the VueJs version of "Hello World":
+
+* Import VueJs CDN and the JavaScript file in the main HTML file.
+* Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element). We can only use the Vue data inside the component with id `root` as we bind it to the Vue element.
+  - In this case, only this component is working in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects without a complete one at a go.
+* Specify our data(message: "Hello World") in the Vue instance.
+* Pass the message to the HTML file using double curly brackets.
+* Open the brower and we will see "Hello World" being displayed.
+
+Codes:
 
 ```HTML
 <!--This is the main HTML file-->
@@ -87,14 +96,6 @@ new Vue ({
   }
 });
 ```
-
-Explanation:
-* Import VueJs CDN and the JavaScript file in the main HTML file.
-* Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element). (In this case, only this component is working in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects without a complete one at a go.)
-* Specify our data(message: "Hello World") in the Vue instance.
-* Pass the message to the HTML file using double curly brackets.
-Remark: we can only use the Vue data inside the component with id `root` as we bind it to the Vue element.
-Open the brower and we will see "Hello World" being displayed.
 
 ### Common VueJs syntax
 
