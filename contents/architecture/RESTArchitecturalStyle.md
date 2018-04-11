@@ -2,225 +2,66 @@
 
 Author: [Wen Xin](https://github.com/wenmogu)
 
-This book chapter introduces the REST architectural style, which is the guideline of development for the Web we use today. The following content is a summary of selected parts from the famous [Roy Fielding's paper about REST](https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf) with my own understanding, which I hope can serve as a relatively brief, easy-to-understand and at the same time detailed introduction to REST.
+## Definition:
+Representational State Transfer (REST) is the architecture style of the World Wide Web we are using today.
 
-**Requirement of Web development --- Background of REST architectural style**
+## Why learn REST: 
+It is the set of guiding principles of the Web development (i.e. how the Web should be developed such that it can be efficient and widely applicable). It also serves as the model for Web protocols e.g. HTTP and the guiding principles for RESTful API. Hence, understanding REST will give us an idea of the rationale behind the Web design and let us have a better understanding of the key properties of RESTful API, which would come in handy when we need to use other people’s RESTful APIs and implement our own RESTful APIs. 
 
-The forefather of Web Sir Tim Berners-Lee envisioned the Web to be &quot;a shared information space through which people and machines could communicate.&quot; Fielding&#39;s understanding of &quot;this shared information space&quot; is that the Web is a place where everyone&#39;s information is structured and stored in a way such that their own information &quot;could be usable to themselves and others&quot;, and they can &quot;reference and structure&quot; others&#39; information such that they do not need to keep a local copy of it.
+## Meaning of REST:
+REST stands for “Representational State Transfer”. In this section, I will explain the meaning of this name.
+Before we understand the term “representational state”, we have to understand the term “resource”. In the context of REST, the term “resource” is used as the way to organize and represent data/information. Roy Fielding in his paper states that “any information that can be named can be a resource”, and the identification of resources is done by using unique identifiers of the resources i.e. unique name of the resources. The information represented by one resource can change at any time, but the name of the resource i.e. the identifier of the resource has to remain the same for identification purposes. For example, the student list of CS3281 can be named as “CS3281StudentList”, and hence can be a resource. The student list might change over time, but the identifier “CS3281StudentList” always refers to the student list regardless of its state/value. As the combination of various types (video, audio, hyperlinks, text…) of information into one unit are becoming more common (e.g. in an online article teaching the reader how to use IntelliJ, there would be text describing the process, videos giving demonstrations and hyperlinks directing the reader to other articles), using an encompassing term to represent a unit of information makes sense as that’s how the user organizes information. Moreover, this abstraction saves us the trouble of distinguishing the types or implementation of information inside this unit when thinking of the process of accessing and transmitting this unit of information.
 
-The design of the Web needs to consider the properties of its users and their information. The target audience of the Web are people in different organizations all over the world connected via the Internet. Their machines to access the Web might be very different, with different operating systems and requesting different file formats. These people&#39;s information also has a large variety in terms of the content type and the format. These restraints give rise to the following requirements of the Web:
+Resource and the term “representational state” are closely related to the client-model server outlined as one of the rules of REST. Resource is the information stored at the server, whereas what the clients see when they access the resource are actually the “representations” of the resource at a specific point of time, i.e. the “representational state” of the resource. Giving the users the representation of the resource instead of the resources itself allows dynamic binding of the reference to a representation of the resource, and this enables the users to have access to and operate on this resource in the formats they want, such as JSON, HTML, XML etc. When the user wishes to make some changes to the resource, he/she can change the representation of this resource and send the representation back to server to update the resource. As such, the server is freed from managing different [application states](https://ruben.verborgh.org/phd/hypermedia/#the-statelessness-constraint-p-8) across requests. 
 
-- Low entry barrier: the Web should have a simple, uniform interface for everyone to use
-- Extensibility: the Web service should be able to evolve to cater to the users&#39; evolving needs
-- Distributed Hypermedia: Hypermedia is a medium for information like graphics, audio, video, plain text and hyperlinks. The Web should use hypermedia as the user interface &quot;because of its simplicity and generality&quot;. Hypermedia has &quot;the same interface&quot; which can be used &quot;regardless of the information source&quot;, and can be used to structure information flexibly. Moreover, the hyperlinks embedded can guide the reader through the information. However, since hypermedia contains information like graphics, audio etc., the amount of information to be transferred is huge. Hence, the Web should be able to transfer a large amount of information within acceptable time limits.
-- Internet Scale:
-  - Anarchic scalability: There is no central entity to control the whole system. Hence, firstly, the Web elements should be able to cope with unexpected load. As a result, it is not feasible for the clients to keep the knowledge about all the servers, and for the servers to keep track of the state of information at each of their clients. It is also costly to keep &quot;back-pointers&quot; inside the hypermedia data elements to refer back to the elements which reference them, as potentially there can be a huge number of references. Secondly, the Web elements should be able to ensure security against malformed or maliciously structured, which requires the Web to be able to &quot;communicate authentication data and authorization controls&quot;.
-  - Independent Deployment: to cater to the needs of different users, the Web has to allow the co-existence of both old and new implementations of the Web elements and undergo &quot;gradual and fragmented change&quot;. Hence the design of the Web should be able to ease the deployment of the Web elements &quot;in a partial, iterative fashion, since it is not possible to force deployment in an orderly manner&quot;.
+The quote below from Roy Fielding outlines what the name entails:
+> The name “Representational State Transfer” is intended to evoke an image of how a well-designed Web application behaves: a network of web pages (a virtual state-machine), where the user progresses through the application by selecting links (state transitions), resulting in the next page (representing the next state of the application) being transferred to the user and rendered for their use.
 
-**REST architectural style**
+## Why REST exists
+REST specifies the key designs of the Web. The design of the Web affects greatly how efficient, applicable and modifiable the Web can be. Hence, before understanding the REST principles, we need to understand the requirements of the Web i.e. what the Web is expected to be. 
+The Web is expected to be a place for convenient storing and sharing of information by its users. Hence, to make the ideal Web, we need to consider the properties of its users and their information. The target audience of the Web are people in different organizations all over the world connected via the Internet. Their organizations would have different requirements for their information (e.g. the authentication for access of information), and the machines they use to access the Web might be very different, with different operating systems and requesting different file formats. These people’s information also has a large variety in terms of the content type and the format. Hence, the Web needs to have the following properties:
+ * the Web should have a simple, uniform interface to present various types of information (e.g. video, audio, graphics, text etc.) 
+ * the Web should be efficient in transmitting information 
+ * the Web should be able to evolve
+ * the Web should not have a central entity to control the whole system, which means 1) the Web elements should be able to cope with unexpected load 2) the Web should be able to communicate authentication data and authorization controls
+ * the Web should allow its element to undergo incremental changes for evolution 
+REST is the abstraction of the design that satisfy the above requirements.
 
-Fielding defined architectural style as &quot;a coordinated set of architectural constraints that restricts the roles/features of architectural elements and the allowed relationships among those elements within any architecture that conforms to that style&quot;.
+## Details of REST
 
-After surveying some common architectures for network-based applications on how the architectural constraints induce their corresponding architectural properties, Fielding came up with a new architectural style – Representational State Transfer, which satisfies the requirements of the Web development.
+Fielding defined architectural style as “a coordinated set of architectural constraints that restricts the roles/features of architectural elements and the allowed relationships among those elements within any architecture that conforms to that style”. 
+After surveying some common architectures for network-based applications on how the architectural constraints induce their corresponding architectural properties, Fielding came up with REST. REST has 6 constraints which aim to induce the properties the Web should have. 
 
-The table below describes the REST architectural constraints and the architectural properties these constraints induce. Detailed information about the architectural properties can be found in **Appendix**.
+### Client-Server
+A system in REST style should separate the user interface concern from the data storage concern. As such, the server is freed from managing the user interface and the user interface is detached from the server. This separation of concern allows the server to evolve without impacting the user interface and makes upgrading the server easier. It also enables the system to have a uniform interface regardless of the different data structures of the servers.
 
-<table>
-	<tr>
-		<th>REST Constraint (Requirements satisfied)</th>
-		<th>Explanation</th>
-		<th>Properties induced/enhanced</th>
-	</tr>
-	<tr>
-		<td>
-			<p>Client-Server</p>
-			<p>(Extensibility)</p>
-		</td>
-		<td>
-			Separation of concerns: separate the user interface concern from the data storage concern  
-		</td>
-		<td>
-			<ul>
-				<li>
-					Portability of user interface across platforms which might differ in their data storage structures
-				</li>
-				<li>
-					Free the server from managing the user interface =&gt; simplified server component =&gt; enhanced scalability
-				</li>
-				<li>
-					Allow the architectural components to evolve independently =&gt; enhanced modifiability 
-				</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>Stateless</p>
-			<p>(Internet Scale)</p>
-		</td>
-		<td>
-			Communications must be stateless: all the messages must be self-sufficient, containing all the necessary information to understand the message without referring to information outside the message
-		</td>
-		<td>
-			<ul>
-				<li>
-					Other architectural components can monitor the interactions with the self-sufficient messages =&gt; enhanced visibility
-				</li>
-				<li>
-					Free the server from managing different states of resources across requests =&gt; enhanced reliability and scalability
-				</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>Cache</p>
-			<p>(Distributed Hypermedia)</p>
-		</td>
-		<td>
-			Data within the response has to be indicated if it is cacheable. If cacheable, the cache will store the data and reuse if for identical requests later.
-		</td>
-		<td>
-			<ul>
-				<li>
-					Eliminate some interactions between server and client =&gt; improved efficiency
-				</li>
-				<li>
-					Reduce average latency of interactions i.e. faster response =&gt; improved user-perceived performance
-				</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>Layered System</p>
-			<p>(Internet Scale)</p>
-		</td>
-		<td>
-			Multiple layers between client and server: each architectural component in the system does not care what happens beyond the layers it has immediate interactions with
-		</td>
-		<td>
-			<ul>
-				<li>
-					reduce complexity of the system =&gt; enhanced simplicity
-				</li>
-				<li>
-					promote independence of the architectural components =&gt; enhanced modifiability
-				</li>
-				<li>
-					allow for load-balancing intermediaries to distribute the workloads =&gt; enhanced scalability
-				</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<p>Uniform Interface</p>
-			<p>(Extensibility, Internet Scale, Distributed Hypermedia)</p>
-		</td>
-		<td>
-			A uniform interface between the architectural components, defined by 4 interface constraints
-		</td>
-		<td>
-			<ul>
-				<li>
-					simplify the architecture
-				</li>
-				<li>
-					interactions between the architectural components can be monitored as the set of interactions are predefined =&gt; increased visibility
-				</li>
-				<li>
-					decouple service from the implementation (how the service is produced) =&gt; allow the architectural components to evolve independently, which increases modifiability
-				</li>
-			</ul>
-		</td>
-	</tr>
-</table>
+### Stateless
+A system in REST style should have stateless communications. This means that all the messages must be self-sufficient, containing all the necessary information to understand the message without referring to information outside the message. By making all the messages self-sufficient, the workload of the server is reduced as the server does not have to keep track of the state of application at the clients. The coupling between the server and the client is further reduced by the statelessness of the system, and thus the server can be scaled up and down according to the amount of workload (e.g. the number of requests from the client at certain point of time). Moreover, by eliminating cross referencing to other messages when interpreting one, this reduces the chances of error and increases reliability of the system. The statelessness of the system also allows the system to make use of intermediaries.  
 
-The 4 interface constraints defining the Uniform Interface architectural constraint for REST are elaborated in the table below:
+### Cache
+Data within the messages for communications between the server and the client should be indicated if it is cacheable. If cacheable, the caches at the elements along the line of communication (e.g. the client cache, the server cache, the proxy cache etc.) will store the data and reuse if for identical requests later. The cacheability of information reduces the amount of interactions needed between the client and the server to access information, and thus improves the efficiency of the system. The average latency of interactions is also reduced, which leads to faster response to the client and an improved user-perceived performance.
 
-<table>
-	<tr>
-		<th> Interface Constraint </th>
-		<th style="width:40%"> Definitions </th>
-		<th> Explanation </th>
-	</tr>
-	<tr>
-		<td>
-			Identification of resources
-		</td>
-		<td>
-			<p>Resource: &quot;any information that can be named can be a resource&quot;. The state/value of the resource can vary at different points of time, but the &quot;semantic of mapping&quot; (i.e. the mapping of the resource to its identifier) must remain unchanged. </p>
-			<p>For example, the student list of CS3281 can be named as &quot;CS3281StudentList&quot;, and hence can be a resource. The student list might change over time, but the identifier &quot;CS3281StudentList&quot; always refers to the student list regardless of its state/value. </p>
-		</td>
-		<td rowspan="2">
-			Benefits:
-			<ul> 
-				<li> 
-					provides generality by including many sources of information without needing to distinguish their types or implementation 
-				</li> 
-				<li> 
-					free the server from managing different states of resources across requests 
-				</li> 
-				<li> 
-					different <a href="https://en.wikipedia.org/wiki/Media_type#Common_examples">data formats</a> of the representation are available 
-				</li> 
-				<li> 
-					allows <a href="https://en.wikipedia.org/wiki/Late_binding">dynamic binding</a> of the reference to a representation of the resource, hence allowing the server to serve the representation as specified in the request 
-				</li> 
-				<li> 
-					reference the resource instead of its representation saves the trouble of changing the identifier (i.e. the name) when the representation of the resource changes 
-				</li> 
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Manipulation of resources through representations
-		</td>
-		<td>
-			<p>Representation of resource: &quot;a sequence of bytes, plus the representation metadata to describe those bytes&quot;. The representation of the resource captures the state of the resource, and is transferred between the architectural components. </p>
-			<p>For example, the client requests for a HTML version of &quot;CS3281StudentList&quot; at the start of the semester, the representation of the student list, which includes a string of names and the metadata telling the client that the message is a string of names to be formatted in HTML, will be sent back to the client in the response. </p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Self-descriptive messages
-		</td>
-		<td>
-		</td>
-		<td>
-			To support the intermediate processing of interactions. This is related to Stateless and Layered System architectural constraints.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Hypermedia as the engine of application state (HATEOAS)
-		</td>
-		<td>
-		</td>
-		<td>
-			The client can use the links provided by the server in the response to dynamically navigate to related resources. Benefits:
-			<ul> 
-				<li> 
-					prevent hardcoding of links 
-				</li> 
-				<li> 
-					the server does not drive the change. Hence, the server does not need to store the state of resources across different requests 
-				</li> 
-			</ul>
-		</td>
-	</tr>
-</table>
+### Layered System
+There should be multiple layers between client and server. The layers are made up by various [intermediaries](https://www.techopedia.com/definition/24378/web-intermediary-wbi) between the client and the server facilitating the processing tasks. Some examples of intermediaries are load-balancer, cache etc. The system elements have no knowledge of the things outside their own layers. For example, a client would not know if it is connected directly to the server or to an intermediary, and an intermediary would not know if it is connected to another intermediary. By limiting the scope of the system element, the complexity of the system is greatly reduced. The system becomes more modifiable as there are less dependencies between the system elements. By facilitating the processing tasks, intermediaries can enhance the server performance by reducing the redundant server processing. Moreover, as the intermediaries can carry out a wide range of tasks including encryption and request conversion, the organizations can use intermediaries to enhance their security and their control over the information. 
 
-**Appendix: Summary of Part of Chapter 2**
+### Uniform Interface
+There should be a way for the server, the client and the intermediaries in the layers in between to communicate with each other. Hence, there should be a uniform interface in the system. The existence of the uniform interface is the foundation for the other 4 architectural constraints. Each component is encapsulated by the interface and hence become more independent of each other, allowing each to evolve independent of the rest. By having a uniform interface in the system, interactions between the layers can be monitored as the set of interactions are predefined. By allowing the interactions to be inspected by mediators (e.g., network firewalls), the security of the system is enhanced. However, the existence of the uniform interface might compromise the efficiency of the system as the information is transmitted in a standard format rather than catering to each component’s needs.
+There are four sub-constraints which further specify the Uniform Interface constraint.
+ * Identification of resources: as mentioned before, “resource” is an organization of information and the identifiers of the resources need to remain constant. An example to illustrate this constraint is [URI](: https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). 
+ * Manipulation of resources through representations: as mentioned before, the “representation” of the resource at one point i.e. the representation of the state of the resource, is what the users see and modify, instead of the resource itself. 
+ * Self-descriptive messages: A message in a communication between the web components should contain all the information needed for the web components to understand its content. 
+ * Hypermedia as the engine of application state (HATEOAS): There should be hyperlinks embedded inside the representations given to the client, such that all the future actions that the client might take are within these representations. Hence, the client can interact with and navigate through the application without any prior knowledge of how to do so. Hence, the client and the server are more independent of each other. 
 
-Architectural properties of key interest in general:
+### Code On Demand (Optional)
+The server can send a code snippet to the client to let the client execute. One example of this is the Javascript code sent along with the webpage in HTML. This constraint extends the client functionality and reduces the workload of the server by reducing the number of features to be implemented at the server. However, it reduces the visibility of the interactions between the client and the server and makes it more difficult to monitor the interactions.
 
-1. **Performance**: network performance(throughput, bandwidth), user-perceived performance (latency and completion), network efficiency(the most efficient architectural styles for a network-based application are those that can effectively minimize use of the network when it is possible to do so, through reuse of prior interactions (caching), reduction of the frequency of network interactions in relation to user actions (replicated data and disconnected operation), or by removing the need for some interactions by moving the processing of data closer to the source of the data (mobile code))
-2. **Scalability**: Scalability refers to the ability of the architecture to support large numbers of components, or interactions among components, within an active configuration. Scalability can be improved by simplifying components, by distributing services across many components (decentralizing the interactions), and by controlling interactions and configurations as a result of monitoring. Scalability is also impacted by the frequency of interactions, whether the load on a component is distributed evenly over time or occurs in peaks, whether an interaction requires guaranteed delivery or a best-effort, whether a request involves synchronous or asynchronous handling, and whether the environment is controlled or anarchic (i.e., can you trust the other components?)
-3. **Simplicity**: If functionality can be allocated such that the individual components are substantially less complex, then they will be easier to understand and implement.
-4. **Modifiability**: Modifiability is about the ease with which a change can be made to an application architecture. Modifiability can be further broken down into **evolvability**, **extensibility**, **customizability**, **configurability**, and **reusability**. **Evolvability** represents the degree to which a component implementation can be changed without negatively impacting other components. **Extensibility** is defined as the ability to add functionality to a system. **Customizability** refers to the ability to temporarily specialize the behavior of an architectural element, such that it can then perform an unusual service. Customizability is a property induced by the remote evaluation and code-on-demand styles. **Configurability** is related to both **extensibility** and **reusability** in that it refers to post-deployment modification of components, or configurations of components, such that they are capable of using a new service or data element type. 
-5. **Visibility**: Visibility in this case refers to the ability of a component to monitor or mediate the interaction between two other components. Visibility can enable improved performance via shared caching of interactions, scalability through layered services, reliability through reflective monitoring, and security by allowing the interactions to be inspected by mediators (e.g., network firewalls).
-6. **Portability**: Software is portable if it can run in different environments.
-7. **Reliability**: the degree to which an architecture is susceptible to failure at the system level in the presence of partial failures within components, connectors, or data.
+## Useful Resources
+* [Roy Fielding's paper which gave birth to RESThttps](//www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf)
+* [History of hypermedia and REST explained](https://ruben.verborgh.org/phd/hypermedia/)
+* Hypermedia as the engine of application state (HATEOAS)
+	* [A general wikipedia explanation](https://en.wikipedia.org/wiki/HATEOAS)
+	* [A more detailed explanation] (https://ruben.verborgh.org/phd/hypermedia/#hypermedia-as-the-engine-of-application-state)
+* Code On Demand
+	* [a general wikipedia explanation](https://en.wikipedia.org/wiki/Code_on_demand)
+	* [a stackoverflow explanation](https://stackoverflow.com/questions/32094952/code-demand-constraint-for-restful-apis?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+* [Video explaning REST (easy to get the big picture but not very precise)](https://www.youtube.com/watch?v=YCcAE2SCQ6k)
