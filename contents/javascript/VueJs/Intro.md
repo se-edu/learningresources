@@ -25,11 +25,12 @@ VueJs syntax is simple and this can make the HTML pages very clean. This would a
 
 #### Other Advantages of VueJs
 There are many articles talking about VueJs's pros and cons; some links can be found here:
-[What is VueJs and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
-[Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
-[ReactJs vs VueJs: In-depth Comparison](https://erminesoft.com/reactjs-or-vuejs-which-is-best-for-your-project/)
+- [What is VueJs and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
+- [Pros and Cons of the Vue.js framework - Vue.js Feed](https://vuejsfeed.com/blog/pros-and-cons-of-the-vue-js-framework)
 
-A detailed comparison of VueJs with other JavaScript frameworks can be found from [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html).
+Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
+- [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
+- [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
 ## Drawbacks of VueJS
 
