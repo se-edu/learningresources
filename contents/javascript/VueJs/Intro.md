@@ -6,25 +6,43 @@ VueJs (also known as Vue) is an open-source progressive [JavaScript framework](h
 
 ## Advantages of VueJs
 
-VueJs is an approachable, versatile and performant framework that helps to create a more maintainable and testable database.
+VueJs is an approachable, versatile and performant framework that helps to create a more maintainable and testable interface.
 
-* Approachable: VueJs is very easy to learn. Compared to other framework such as AugularJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
+#### Approachable
 
-* Progressive: VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the owner of VueJs is as follow:
+VueJs is very easy to learn. Compared to other framework such as Augular, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
 
-> Vue.js is a more flexible, less opinionated solution ( than Angular ). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way. It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA.
+#### Progressive
 
-* Versatile: VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
+VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the owner of VueJs is as follow:
 
-* Clean: VueJs syntax is simple and this can make the HTML pages very clean.
+> Vue.js is a more flexible, less opinionated solution ( than Angular ). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way ( Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project ). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA ( single-page application ).
 
-* Other Advantages of VueJs: [What is VueJs and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
+#### Versatile
 
-* Detailed comparison of VueJs with other JavaScript frameworks can be found from [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html).
+VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
+
+#### Clean
+VueJs syntax is simple and this can make the HTML pages very clean.
+
+#### Other Advantages of VueJs
+[What is VueJs and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
+
+Detailed comparison of VueJs with other JavaScript frameworks can be found from [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html).
+
+## Drawbacks of VueJS
+
+#### Relatively small size community
+
+VueJs is a relatively new JavaScript framework as compared to Augular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
+
+#### Language barriers
+
+A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is very supportive for the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers if an English speaking developer seeking for VueJs resources.
 
 ## Installation
 
-There are many ways to install VueJs, some of the following ways are mentioned below:
+There are many ways to install VueJs. Some of the following ways are mentioned below:
 * Import VueJs in HTML `<script>` tag:
   - [development version](https://vuejs.org/js/vue.js)
   - [product version](https://vuejs.org/js/vue.min.js)
@@ -80,10 +98,28 @@ Open the brower and we will see "Hello World" being displayed.
 
 ### Common VueJs syntax
 
-* [Text](https://vuejs.org/v2/guide/syntax.html#Text)
-The most basic data binding is text interpolation using double curly brackets as shown in the above example. The mustache tag will be replaced with the value of the msg property on the corresponding data object. It will also be updated whenever the data object’s msg property changes. The double curly brackets as the identifier inside it will be replaced with the value of the `message` property on the corresponding data object. It will also be updated whenever the data object’s `message` property changes.
+#### [Text](https://vuejs.org/v2/guide/syntax.html#Text)
 
-* [Attributes](https://vuejs.org/v2/guide/syntax.html#Attributes)
+The most basic data binding is text interpolation using double curly brackets:
+```HTML
+<!--This is the main HTML file-->
+<h1>{{ message }}</h1>
+```
+
+```js
+// This is inside the javacript file
+new Vue ({
+	el: '#root',
+
+  data: {
+    message: "Hello World"
+  }
+});
+```
+The mustache tag will be replaced with the value of the msg property on the corresponding data object. It will also be updated whenever the data object’s msg property changes. The double curly brackets as the identifier inside it will be replaced with the value of the `message` property on the corresponding data object.
+
+#### [Attributes](https://vuejs.org/v2/guide/syntax.html#Attributes)
+
 Double curly brackets does not work in a HTML attributes. Instead, use a `v-bind` directive.
 ```HTML
 <div v-bind:id="dynamicId"></div>
@@ -94,11 +130,12 @@ In the case of boolean attributes, where their mere existence implies true, v-bi
 ```
 If `isButtonDisabled` has the value of `null`, `undefined`, or `false`, the disabled attribute will not even be included in the rendered `<button>` element.
 
-* [Directives](https://vuejs.org/v2/guide/syntax.html#Directives)
+#### [Directives](https://vuejs.org/v2/guide/syntax.html#Directives)
+
 Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be a single JavaScript expression (with the exception for `v-for`). A directive’s job is to reactively apply side effects to the DOM when the value of its expression changes.
 Example of how to use the directives are as follow:
 
-  - `v-example="value"` - this will pass a value into the directive, and the directive will response according to the value.
+  - `v-example="value"` - this will pass a value into the directive, and the directive will response according to the value (`v-` is the prefix for a directive, `example` is a directive name. Directive attributes includes `v-if`, `v-for`, `v-on` etc. More examples of VueJs directives and their usages are [here](https://012.vuejs.org/api/directives.html)).
   ```HTML
   <div v-if="condition">This div show up if "condition" is true</div>
   ```
@@ -119,7 +156,7 @@ Example of how to use the directives are as follow:
   ```
 
 To know more about syntaxes for VueJs, you can visit the [official website of Vue](https://vuejs.org/).
-Of course, knowing the syntaxes is clearly not enough to understand the whole picture of VueJs and use it to build a non-trivial applications. To really master and reap the benefit of VueJs, you will need some hands-on experience.
+Of course, knowing the syntaxes is clearly not enough to understand the whole picture of VueJs and use it to build a non-trivial applications. To really master and reap the benefit of VueJs, you will need some [hands-on experiences](# links-to-vuejs-tutorials-and-practices).
 
 ## Links to VueJs tutorials and practices
 
