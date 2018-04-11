@@ -47,7 +47,7 @@ There should be multiple layers between client and server. The layers are made u
 ### Uniform Interface
 There should be a way for the server, the client and the intermediaries in the layers in between to communicate with each other. Hence, there should be a uniform interface in the system. The existence of the uniform interface is the foundation for the other 4 architectural constraints. Each component is encapsulated by the interface and hence become more independent of each other, allowing each to evolve independent of the rest. By having a uniform interface in the system, interactions between the layers can be monitored as the set of interactions are predefined. By allowing the interactions to be inspected by mediators (e.g., network firewalls), the security of the system is enhanced. However, the existence of the uniform interface might compromise the efficiency of the system as the information is transmitted in a standard format rather than catering to each component’s needs.
 There are four sub-constraints which further specify the Uniform Interface constraint.
- * Identification of resources: as mentioned before, “resource” is an organization of information and the identifiers of the resources need to remain constant. An example to illustrate this constraint is [URI](: https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). 
+ * Identification of resources: as mentioned before, “resource” is an organization of information and the identifiers of the resources need to remain constant. An example to illustrate this constraint is [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). 
  * Manipulation of resources through representations: as mentioned before, the “representation” of the resource at one point i.e. the representation of the state of the resource, is what the users see and modify, instead of the resource itself. 
  * Self-descriptive messages: A message in a communication between the web components should contain all the information needed for the web components to understand its content. 
  * Hypermedia as the engine of application state (HATEOAS): There should be hyperlinks embedded inside the representations given to the client, such that all the future actions that the client might take are within these representations. Hence, the client can interact with and navigate through the application without any prior knowledge of how to do so. Hence, the client and the server are more independent of each other. 
@@ -60,7 +60,7 @@ The server can send a code snippet to the client to let the client execute. One 
 * [History of hypermedia and REST explained](https://ruben.verborgh.org/phd/hypermedia/)
 * Hypermedia as the engine of application state (HATEOAS)
 	* [A general wikipedia explanation](https://en.wikipedia.org/wiki/HATEOAS)
-	* [A more detailed explanation] (https://ruben.verborgh.org/phd/hypermedia/#hypermedia-as-the-engine-of-application-state)
+	* [A more detailed explanation](https://ruben.verborgh.org/phd/hypermedia/#hypermedia-as-the-engine-of-application-state)
 * Code On Demand
 	* [a general wikipedia explanation](https://en.wikipedia.org/wiki/Code_on_demand)
 	* [a stackoverflow explanation](https://stackoverflow.com/questions/32094952/code-demand-constraint-for-restful-apis?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
