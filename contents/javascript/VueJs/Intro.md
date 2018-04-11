@@ -30,7 +30,7 @@ There are many ways to install VueJs, some of the following ways are mentioned b
   - [product version](https://vuejs.org/js/vue.min.js)
 * CDN:
   - include the following into the html file:
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src=`"https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"`></script>
 * NPM:
   - $ npm install vue
 * CLI:
@@ -65,7 +65,7 @@ new Vue ({
 	el: '#root',
 
   data: {
-    message: Hello World
+    message: "Hello World"
   }
 });
 ```
