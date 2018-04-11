@@ -6,8 +6,6 @@ VueJs (also known as Vue) is an open-source progressive [JavaScript framework](h
 
 ## Advantages of VueJs
 
-VueJs is an approachable, versatile and performant framework that helps to create a more maintainable and testable interface.
-
 #### Approachable
 
 VueJs is very easy to learn. Compared to other framework such as Augular, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
@@ -23,12 +21,15 @@ VueJs is designed from the ground up to be incrementally adoptable. The core lib
 VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
 
 #### Clean
-VueJs syntax is simple and this can make the HTML pages very clean.
+VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.
 
 #### Other Advantages of VueJs
+There are many articles talking about VueJs's pros and cons; some links can be found here:
 [What is VueJs and What are its Advantages](https://hackernoon.com/what-is-vue-js-and-what-are-its-advantages-4071b7c7993d)
+[Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
+[ReactJs vs VueJs: In-depth Comparison](https://erminesoft.com/reactjs-or-vuejs-which-is-best-for-your-project/)
 
-Detailed comparison of VueJs with other JavaScript frameworks can be found from [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html).
+A detailed comparison of VueJs with other JavaScript frameworks can be found from [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html).
 
 ## Drawbacks of VueJS
 
@@ -38,7 +39,7 @@ VueJs is a relatively new JavaScript framework as compared to Augular and React.
 
 #### Language barriers
 
-A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is very supportive for the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers if an English speaking developer seeking for VueJs resources.
+A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.
 
 ## Installation
 
@@ -50,7 +51,9 @@ There are many ways to install VueJs. Some of the following ways are mentioned b
   - include the following into the html file:
     `<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"</script>`
 * NPM:
-  - $ npm install vue
+```npm
+    $ npm install vue
+```
 * CLI:
 ```cli
     $ npm install --global vue-cli  # install vue-cli
@@ -67,13 +70,39 @@ Apart from installing VueJs, you can install [VueJs development tools](https://g
 Steps to print the VueJs version of "Hello World":
 
 * Import VueJs CDN and the JavaScript file in the main HTML file.
+```HTML
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <script src="the_path_to_the_javacript_file.js"></script>
+```
+
 * Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element). We can only use the Vue data inside the component with id `root` as we bind it to the Vue element.
   - In this case, only this component is working in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects without a complete one at a go.
+```js
+  new Vue ({
+  	el: '#root',
+  });
+```
+```HTML
+  <div id="root"></div>
+```
+
 * Specify our data(message: "Hello World") in the Vue instance.
+```js
+  data: {
+    message: "Hello World"
+  }
+```
+
 * Pass the message to the HTML file using double curly brackets.
+```HTML
+  <div id="root">
+    <h1>{{ message }}</h1>
+  </div>
+```
+
 * Open the brower and we will see "Hello World" being displayed.
 
-Codes:
+Putting all parts together:
 
 ```HTML
 <!--This is the main HTML file-->
@@ -117,7 +146,7 @@ new Vue ({
   }
 });
 ```
-The mustache tag will be replaced with the value of the msg property on the corresponding data object. It will also be updated whenever the data object’s msg property changes. The double curly brackets as the identifier inside it will be replaced with the value of the `message` property on the corresponding data object.
+The double curly brackets with contents inside will be replaced with the value of the `message` property on the corresponding data object. It will also be updated whenever the `data` object’s `message` property changes. The double curly brackets as the identifier inside it will be replaced with the value of the `message` property on the corresponding `data` object.
 
 #### [Attributes](https://vuejs.org/v2/guide/syntax.html#Attributes)
 
