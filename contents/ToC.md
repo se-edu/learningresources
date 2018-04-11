@@ -5,6 +5,7 @@
 * [Go](go/Go.md)
 * [Haskell](haskell/Haskell.md)
 * [Java](java/Java.md)
+  * [Java Concurrency](java/JavaConcurrency.md)
   * [Java Streams](java/streams-an-introduction.md)
   * [Java Synchronization](java/JavaSynchronization.md)
   * [Java Reflection](java/JavaReflections.md)
