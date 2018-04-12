@@ -48,6 +48,7 @@
 ## Other Topics
 
 * AI
+  * [Machine Learning] (ai/ml.md)
 * [Android](android/IntroToAndroid.md)
 * [Computer Vision](computerVision/cv.md)
 * Data
