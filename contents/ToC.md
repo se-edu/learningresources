@@ -43,7 +43,8 @@
   * [ESLint](staticAnalysis/ESLint.md)
 * Testing
   * [Writing Testable Code](testing/writing-testable-code.md)
-* [UI/UX](https://github.com/AngShiYa/learningresources/blob/uix/contents/uix/uix.md)
+* [UI/UX](uix/uix.md)
+  * [Refining UX Design Skills](uix/refining-ux-skills.md)
 
 ## Other Topics
 
