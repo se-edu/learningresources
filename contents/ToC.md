@@ -2,6 +2,7 @@
 
 * C#
 * C++
+  * [RValue references and Move Semantics](c++/rvalue.md)
 * [Go](go/Go.md)
 * [Haskell](haskell/Haskell.md)
 * [Java](java/Java.md)
