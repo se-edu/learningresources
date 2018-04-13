@@ -15,7 +15,7 @@ Authors: [Tan Jun An](https://github.com/yamidark)
 ## Background
 C++ is a general-purpose programming language that was designed for resource-constrained and large systems, high performance and efficiency. The language has been extended and improved after the past decades, with new standards being released periodically every few years. One such standard, the [C++11](https://isocpp.org/wiki/faq/cpp11) standard, brought about many changes and improvements, that it made C++ feel like a different language altogether. One such feature that furthur improves on the performance on the language is the introduction of *rvalue* references and *Move Semantics*.
 
-Before we move on to talk about Move Semantics and rvalue references, we will first briefly go through the 2 other modes available in C++, Value Semantics and References Semantics.
+Before we move on to talk about Move Semantics and rvalue references, we will first briefly go through the 2 other modes available in C++, *Value Semantics* and *References Semantics*.
 
 ### Value Semantics
 Value (or copy) semantics is given to users by default when we declare arugments with only the type name (e.g. `int`, `string`). It is the programming style where we are only concerned about the values stored in the objects, rather than the object itself. As such, we will always create an extra copy of the value whenever we pass it to a function (also known as [pass-by-value](http://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/)) or when constructing a new object and variable. This ensures that each object (or function) will have their own copy value to use, without having to concern themselves with their originator.
