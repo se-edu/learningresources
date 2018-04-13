@@ -1,27 +1,30 @@
-# RValue references and Move Semantics
+# Rvalue references and Move Semantics
 
 Authors: [Tan Jun An](https://github.com/yamidark)
 
-* Background
-* Value Semantics
-* Reference Semantics
-* Move Semantics
-    * Rvalues and Lvalues references
-    * Using rvalue references
-    * Move Semantics
-* Rvalue anti-pattern 
+* [Background](#background)
+    * [Value Semantics](#value-semantics)
+    * [Reference Semantics](#reference-semantics)
+* [Move Semantics](#move-semantics)
+    * [rvalues and lvalues references](#rvalues-and-lvalues-references)
+    * [Using rvalue references](#using-rvalue-references)
+    * [Move Semantics](#move-semantics)
+* [Rvalue anti-pattern](#rvalue-anti-pattern)
+* [Resources](#resources)
 
 ## Background
 C++ is a general-purpose programming language that was designed for resource-constrained and large systems, high performance and efficiency. The language has been extended and improved after the past decades, with new standards being released periodically every few years. One such standard, the [C++11](https://isocpp.org/wiki/faq/cpp11) standard, brought about many changes and improvements, that it made C++ feel like a different language altogether. One such feature that furthur improves on the performance on the language is the introduction of *rvalue* references and *Move Semantics*.
 
-Before we move on to talk about Move Semantics and rvalue references, we will first briefly go through the 2 other modes available in C++, [Value Semantics](https://akrzemi1.wordpress.com/2012/02/03/value-semantics/)) and References Semantics.
+Before we move on to talk about Move Semantics and rvalue references, we will first briefly go through the 2 other modes available in C++, Value Semantics and References Semantics.
 
 ### Value Semantics
 Value (or copy) semantics is given to users by default when we declare arugments with only the type name (e.g. `int`, `string`). It is the programming style where we are only concerned about the values stored in the objects, rather than the object itself. As such, we will always create an extra copy of the value whenever we pass it to a function (also known as [pass-by-value](http://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/)) or when constructing a new object and variable. This ensures that each object (or function) will have their own copy value to use, without having to concern themselves with their originator.
 
 Some of the advantages of using Value Semantics is that it ensures that we no memory management issue, as we won't have any [dangling references](https://www.quora.com/What-is-dangling-reference) to objects that may not exist and no [memory leaks](https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/).
+
 Value Semantics also ensures [referential transparency](https://en.wikipedia.org/wiki/Referential_transparency), since having our own copy of the value ensures changing the value in 1 object and function will not affect the original value. This is especially useful in a [multi-threaded](https://stackoverflow.com/questions/1313062/what-is-a-multithreaded-application) environment, as this prevents removes the need for synchronization of the values, allowing the program to run faster.
-One seemingly odd benefit of Value Semantics is that it may also speedup programs. If we require accessing the value many times, having your own local copy of the value may be faster than having a pointer to the value and dereferencing it each time. This is especially true in C++ as it encourages Value Semantics, with optimization techniques such as [copy elision](http://en.cppreference.com/w/cpp/language/copy_elision) to help passing by value be faster.
+
+Another seemingly odd benefit of Value Semantics is that it may speedup programs. If we require accessing the value many times, having your own local copy of the value may be faster than having a pointer to the value and dereferencing it each time. This is especially true in C++ as it encourages Value Semantics, with optimization techniques such as [copy elision](http://en.cppreference.com/w/cpp/language/copy_elision) to help passing-by-value be faster.
 
 However, [1 major flaw](https://www.quora.com/What-are-the-drawbacks-of-pass-by-value-result) of Value Semantics and passing-by-value is having poor performance and scability. When we wish to only read the values without modifying it, creating an additional copy just for this purpose is an unnecessary computation, especially if we scale up to larger objects.
 
@@ -89,9 +92,9 @@ Foo(Foo&& other) { // move constructor
 }
 
 Foo& operator=(Foo&& other) { // move assignment
-    x = other.x;
-    y = other.y;
-    z = other.z;
+    x = std::move(other.x);
+    y = std::move(other.y);
+    z = std::move(other.z);
     return *this;
 }
 ```
@@ -116,11 +119,11 @@ Foo(std::string&& x, std::string&& y) { // move constructor
 }
 ```
 
-As we can see, the copy constructor defines each of its parameter to be rvalues. In this case, if we were to call the constructor using a mixture of both, lvalue for `x` and rvalue for `y`, the copy constructor instead will be called! This is because the copy constructor and take both lvalues and rvalues, both the move constructor can only take rvalues. As such, we may think we have made use of Move Semantics to optimize our program, but that may not be the case!
+As we can see, the *move* constructor defines each of its parameter to be rvalues. In this case, if we were to call the constructor using a mixture of both, lvalue for `x` and rvalue for `y`, the copy constructor instead will be called! This is because the copy constructor and take both lvalues and rvalues, both the *move* constructor can only take rvalues. As such, we may think we have made use of Move Semantics to optimize our program, but that may not be the case!
 
-1 solution to this problem would be to overload the constructor for each combination of rvalue parameters possible. However, this is not feasible, especially when the function have many parameters, as we would require 2^n overload functions where n is the number of parameters, leading to too much [boilerplate code](https://www.quora.com/What-is-boilerplate-code), reducing code quality, and increasing memory consumption and compiliation time.
+1 solution to this problem would be to overload the constructor for each combination of rvalue parameters possible. However, this is not feasible, especially when the function have many parameters, as we would require `2^n` overload functions where `n` is the number of parameters, leading to too much [boilerplate code](https://www.quora.com/What-is-boilerplate-code), reducing code quality, and increasing memory consumption and compiliation time.
 
-Rather, what we should be proving here is:
+Rather, what we should be providing here is:
 ```cpp
 Foo(std::string x, std::string y) { // move constructor
     _x = std::move(x);
@@ -130,5 +133,13 @@ Foo(std::string x, std::string y) { // move constructor
 
 Yes, we revert back to the old Value Semantics type constructor instead. By doing so, we leave it to the caller to decide whether they want to have an additional copy by calling this constructor with `Foo(x,y)`, or to prevent the additional copy by calling `Foo(std::move(x), std::move(y))`, depending on which value we don't need a copy of.
 
+### Resources
+The following resources gives more readings on what was discussed, and a more in-depth tutorial on rvalue references and Move Semantics:
 
-
+* [C++11 changes](https://blog.smartbear.com/development/the-biggest-changes-in-c11-and-why-you-should-care/)
+* [Value Semantics](https://akrzemi1.wordpress.com/2012/02/03/value-semantics/)
+* [Pass-by-Value or pass-by-reference](http://www.informit.com/articles/article.aspx?p=2731935&seqNum=18)
+* [rvalue and lvalue](http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php)
+* [Rvalue references and Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php)
+* [Sample examples of Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php)
+* [Rvalue reference anti-pattern](http://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html)
