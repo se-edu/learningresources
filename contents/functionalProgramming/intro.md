@@ -8,7 +8,7 @@ Functional programming is a programming paradigm that treats computation as the 
 
 ## Functional Programming Languages
 
-Functional programming is simply a paradigm and needs to be implemented by programming languages. Below are various [languages](https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Functional_languages) that have explicit support for functional programming paradigm such as:
+Functional programming is simply a paradigm and needs to be implemented by programming languages. Below are various [languages](https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Functional_languages) that have explicit support for the functional programming paradigm such as:
 
 - Haskell
 - Clojure
@@ -17,7 +17,7 @@ Functional programming is simply a paradigm and needs to be implemented by progr
 - Scala
 - ML (Meta Language) family of languages
 
-While functional programming can be implemented by languages like Java, the languages listed above encourage functional programming paradigm such as [pure functions](#pure-functions) or even enforce them in the case of Haskell.
+While functional programming can be implemented by languages like Java, the languages listed above encourage the functional programming paradigm such as [pure functions](#pure-functions) or even enforce them in the case of Haskell.
 
 ## Concepts in Functional Programming
 
@@ -64,7 +64,7 @@ To know more about immutability in functional languages, you can take a look at:
 
 #### Recursion
 
-Pure functional languages does not have loop constructs that procedural languages does. This is because `Iteration` usually involves state mutation per iteration. Since functional programming avoids state changes, `Recursion` is a commonly used [technique](https://www.quora.com/Why-dont-pure-functional-programming-languages-provide-a-loop-construct) to replace `Iteration`.
+Pure functional languages do not have loop constructs like imperative languages. This is because `Iteration` usually involves state mutation per iteration. Since functional programming avoids state changes, `Recursion` is a commonly used [technique](https://www.quora.com/Why-dont-pure-functional-programming-languages-provide-a-loop-construct) to replace `Iteration`.
 
 Hence, to be able to write functional languages effectively, it means being able to replace Iteration with Recursion. Here are some guides to help you on that:
 
@@ -101,7 +101,7 @@ The common question when learning about functional programming is what's the poi
 
 ## Disadvantages of Functional Programming
 
-Functional programming is not a new concept and has been around since the 1950s. Even though it is gaining in popularity today, it is not the predominant programming paradigm used in software applications today. Despite the stated benefits of Functional programming, there are some downsides of it that can help explain why it is not the mainstream programming paradigm:
+Functional programming is not a new concept and has been around since the 1950s. Even though it is gaining in popularity today, it is not the predominant programming paradigm used in software applications today. Despite the stated benefits of functional programming, there are some downsides of it that can help explain why it is not the mainstream programming paradigm:
 
 - Lack of imperative data structures. One good example is the [lack of hash map](https://stackoverflow.com/questions/6793259/how-does-one-implement-hash-tables-in-a-functional-language) which is an important performant dictionary.
 - Functional programming can be [slower](https://www.quora.com/Do-functional-programming-languages-always-run-slower-than-imperative-language) than optimal Imperative programming for reasons such as data copying due to data immutability.
