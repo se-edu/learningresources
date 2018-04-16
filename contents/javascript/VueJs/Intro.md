@@ -187,7 +187,7 @@ Example of how to use the directives are as follow:
   ```
 
 To know more about syntaxes for VueJs, you can visit the [official website of Vue](https://vuejs.org/).
-Of course, knowing the syntaxes is clearly not enough to understand the whole picture of VueJs and use it to build a non-trivial applications. To really master and reap the benefit of VueJs, you will need some [hands-on experiences](# links-to-vuejs-tutorials-and-practices).
+Of course, knowing the syntaxes is clearly not enough to understand the whole picture of VueJs and use it to build a non-trivial applications. To really master and reap the benefit of VueJs, you will need some [hands-on experiences](#links-to-vuejs-tutorials-and-practices).
 
 ## Links to VueJs tutorials and practices
 
