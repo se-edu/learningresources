@@ -8,7 +8,7 @@ VueJs (also known as Vue) is an open-source progressive [JavaScript framework](h
 
 #### Approachable
 
-VueJs is very easy to learn. Compared to other framework such as Augular, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
+VueJs is very easy to learn. Compared to other framework such as Angular, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
 
 #### Progressive
 
@@ -36,7 +36,7 @@ Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
 
 #### Relatively small size community
 
-VueJs is a relatively new JavaScript framework as compared to Augular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
+VueJs is a relatively new JavaScript framework as compared to Angular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
 
 #### Language barriers
 
@@ -66,9 +66,9 @@ There are many ways to install VueJs. Some of the following ways are mentioned b
 
 Apart from installing VueJs, you can install [VueJs development tools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser. This will allow you to inspect and debug the Vue components in your projects.
 
-## Creating a Simple Project in VueJs:
+## Creating a Simple Project in VueJs
 
-Steps to print the VueJs version of "Hello World":
+Steps to print the VueJs version of "Hello World" (a minimal example to show how easy it is to integrate VueJs into your web project):
 
 * Import VueJs CDN and the JavaScript file in the main HTML file.
 ```HTML
@@ -76,8 +76,8 @@ Steps to print the VueJs version of "Hello World":
   <script src="the_path_to_the_javacript_file.js"></script>
 ```
 
-* Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element). We can only use the Vue data inside the component with id `root` as we bind it to the Vue element.
-  - In this case, only this component is working in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects without a complete one at a go.
+* Create a Vue instance in the JavaScript file; bind the instance to one of the component in our html file (the `root` element).
+  - In this case, only the `root` component can be accessed in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects.
 ```js
   new Vue ({
   	el: '#root',
@@ -87,7 +87,7 @@ Steps to print the VueJs version of "Hello World":
   <div id="root"></div>
 ```
 
-* Specify our data(message: "Hello World") in the Vue instance.
+* Specify our data (message: "Hello World") in the Vue instance.
 ```js
   data: {
     message: "Hello World"
@@ -147,7 +147,7 @@ new Vue ({
   }
 });
 ```
-The double curly brackets with contents inside will be replaced with the value of the `message` property on the corresponding data object. It will also be updated whenever the `data` object’s `message` property changes. The double curly brackets as the identifier inside it will be replaced with the value of the `message` property on the corresponding `data` object.
+The double curly brackets with contents inside will be replaced with the value of the `message` property on the corresponding data object. It will also be updated whenever the `data` object’s `message` property changes.
 
 #### [Attributes](https://vuejs.org/v2/guide/syntax.html#Attributes)
 
