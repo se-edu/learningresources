@@ -12,17 +12,17 @@ Printing the VueJs version of "Hello World" (a minimal example to show how easy 
 <!--This is the main HTML file-->
 <body>
   <div id="root">
-		<h2>{{ message }}</h2>
-	</div>
-	<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-	<script src="the_path_to_the_javacript_file.js"></script>
+    <h2>{{ message }}</h2>
+  </div>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <script src="the_path_to_the_javacript_file.js"></script>
 </body>
 ```
 
 ```js
 // This is inside the javacript file
 new Vue ({
-	el: '#root',
+  el: '#root',
 
   data: {
     message: "Hello World"
@@ -42,7 +42,7 @@ Step by step guide:
   - In this case, only the `root` component can be accessed in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects.
 ```js
   new Vue ({
-  	el: '#root',
+    el: '#root',
   });
 ```
 ```HTML
@@ -63,8 +63,7 @@ Step by step guide:
   </div>
 ```
 
-6. Open the brower and we will see "Hello World" being displayed:
-<h2>Hello World</h2>
+6. Open the brower and we will see "Hello World" being displayed
 
 ## Advantages of VueJs
 
@@ -77,18 +76,18 @@ VueJs is very easy to learn. Compared to other framework such as Angular and Rea
 ```js
 // ReactJs (jsx)
 var Iteration = React.createClass({
-     getInitialState() {
-       return {
-         array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-       }
-     },
-     render() {
-       this.state.array.map(function(date) {
-         return (
-           <span>{date}</span>
-         )
-       });
+   getInitialState() {
+     return {
+       array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
      }
+   },
+   render() {
+     this.state.array.map(function(date) {
+       return (
+         <span>{date}</span>
+       )
+     });
+   }
 });
 ReactDOM.render(<Iteration />, document.getElementById('array'));
 ```
@@ -101,16 +100,16 @@ ReactDOM.render(<Iteration />, document.getElementById('array'));
 ```js
 // VueJs (js)
 var Iteration = new Vue({
-      el: '#array',
-      data: {
-        array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-      }
+  el: '#array',
+  data: {
+    array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  }
 });
 ```
 ```html
 <!-- VueJs (html) -->
 <div id="array">
-      <span v-for="date in array">{{date}}</span>
+  <span v-for="date in array">{{date}}</span>
 </div>
 ```
 
