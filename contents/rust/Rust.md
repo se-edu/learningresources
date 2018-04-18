@@ -175,7 +175,7 @@ There is also a [large collection of community-maintained resources](https://git
 
 More resources: [Rust Official Documentation](https://www.rust-lang.org/en-US/documentation.html)
 
-# Why not Rust
+## Why not Rust
 
 Choosing the right language for the job is important so let's look at a few possible reasons not to use Rust:
 - [The ecosystem is not as mature](https://github.com/ctjhoa/rust-learning#are-we--yet)
