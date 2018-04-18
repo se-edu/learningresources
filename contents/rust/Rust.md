@@ -79,7 +79,7 @@ Due to Rust's defaults, variables are by default immutable, and `self.indexes` c
 
 One way to allow for mutation outside the instance would be to borrow the value (by using a reference) and it would have to be a mutable one for us to be able to modify the internal list `indexes` outside an instance of `VisibleIndexes`.
 
-So we have to go through some hoops just to be able to modify the internal list but it doesn't end here. Suppose we then execute the following:
+So we have to go through some hoops just to be able to modify the internal list but it doesn't end here. Suppose the following is then executed:
 
 ```Rust
 let mut visible_indexes = VisibleIndexes::new();
@@ -101,7 +101,7 @@ println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
                  ^^^^^^^^^^^^^^^ second mutable borrow occurs here
 ```
 
-In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by `indexes` does not end until the end of a block (i.e. a closing brace). We then attempt to borrow the same value again in the same scope which will not compile in Rust.
+In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by `indexes` does not end until the end of a block (i.e. a closing brace). Attempting to borrow the same value again in the same scope which will not compile in Rust.
 
 ### Better support for concurrency
 
@@ -109,7 +109,7 @@ Concurrency is getting [increasingly important](https://softwareengineering.stac
 
 Rust provides concurrency which is built upon the safety concepts. The implication is that the safety concepts allows us to be [fearless when writing concurrent code](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html) by helping point out mistakes compile time. 
 
-We look at one [example](https://doc.rust-lang.org/book/second-edition/ch16-02-message-passing.html) of the increasingly popular approach to concurrency called message passing:
+Take an [example](https://doc.rust-lang.org/book/second-edition/ch16-02-message-passing.html) of the increasingly popular approach to concurrency called message passing:
 ```Rust
 fn main() {
     let (tx, rx) = mpsc::channel();
