@@ -159,9 +159,7 @@ There are also a lot of other details that go into making a great developer expe
 
 Knowing the merits of a language without knowing how to learn it however is not sufficient. As [mentioned](#developer-experience), part of making the developer experience great is good documentation. And there are many great avenues to learn Rust.
 
-### Rust is difficult
-
-Many have said Rust is difficult but we should not be so concerned because there has since been many [improvements](https://blog.rust-lang.org/2017/12/21/rust-in-2017.html#rust-should-have-a-lower-learning-curve) to reduce the learning curve.
+One issue is that many have said Rust is difficult but we should not be so concerned because there has since been many [improvements](https://blog.rust-lang.org/2017/12/21/rust-in-2017.html#rust-should-have-a-lower-learning-curve) to reduce the learning curve.
 
 ### Resources to learn Rust
 
