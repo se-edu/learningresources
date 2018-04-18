@@ -144,7 +144,7 @@ Rust is designed to be practical, as shown in Rust's guiding design:
 See [non-goals](https://www.rust-lang.org/en-US/faq.html#what-are-some-non-goals).
 
 #### Production Ready
-Also, in order for a language to be practical it must be usable in production. A well known large project is [Servo](https://github.com/servo/servo), the prototype browser engine Mozilla is working on. On top of that, there are many other [organizations running Rust in production](https://www.rust-lang.org/en-US/friends.html). As an example, Jamie Turner from Dropbox [explains the reasons for using Rust](https://news.ycombinator.com/item?id=11283688).
+Also, in order for a language to be practical it must be usable in production. A well known large project that uses Rust is [Servo](https://github.com/servo/servo), the prototype browser engine Mozilla is working on. On top of that, there are many other [organizations running Rust in production](https://www.rust-lang.org/en-US/friends.html). As an example, Jamie Turner from Dropbox [explains the reasons for using Rust](https://news.ycombinator.com/item?id=11283688).
 
 #### Developer experience
 Practicality can also be measured with how much developers enjoy using the language and want to continue using it, because if the language is not very practical the developer experience would not be very good. For Rust, it is a language that developers want to continue using ([[1]](https://www.reddit.com/r/rust/comments/842adc/rust_voted_most_loved_language_for_the_3rd_year/dvmftnk/), [[2]](https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563)).
