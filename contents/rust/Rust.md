@@ -16,6 +16,93 @@ Designing the language to be safe allows common safety errors such as segmentati
 
 The underlying concept for the safety provided in Rust is called [ownership](https://doc.rust-lang.org/book/second-edition/ch04-00-understanding-ownership.html). Intuitively, the concept just means that each value only has a single owner (i.e. a variable) and if the value needs to be shared, it can be borrowed. This is a powerful concept that ensures safety in Rust compile-time and [can be applied to other languages](https://codewithoutrules.com/2017/01/26/object-ownership/).
 
+
+Take a simplified example in Java of a class called `VisibleIndexes` maintaining the list of visible indexes of UI elements:
+```Java
+class VisibleIndexes {
+    private List<Integer> indexes;
+
+    public VisibleIndexes() {
+        indexes = new ArrayList<>();
+    }
+
+    public void addIndex(int index) {
+        indexes.add(index);
+    }
+
+    public List<Integer> getVisibleIndexes() {
+        return Collections.unmodifiableList(indexes);
+        
+        // Should not do this because indexes can then be modified outside class
+        //return indexes; 
+    }
+}
+```
+
+One would need the discipline to make sure to return only a view of the list, otherwise the following would be legal, but unexpected:
+
+```Java
+VisibleIndexes visibleIndexes = new VisibleIndexes();
+visibleIndexes.addIndex(1);
+List<Integer> indexes= visibleIndexes.getVisibleIndexes();
+System.out.println(indexes); // Output: [1]
+
+listCounts.add(9999); // Unexpected mutation of the internal list in VisibleIndexes
+System.out.println(visibleIndexes.getVisibleIndexes()); // Output: [1, 9999]
+```
+
+In Rust, we can implement it like this:
+```Rust
+struct VisibleIndexes {
+    indexes: Vec<i32>
+}
+
+impl VisibleIndexes {
+    pub fn new() -> VisibleIndexes {
+        VisibleIndexes {
+            indexes: Vec::new(),
+        }
+    }
+
+    pub fn add_index(&mut self, value: i32) {
+        self.indexes.push(value);
+    }
+
+    pub fn get_visible_indexes(&mut self) -> &mut Vec<i32> {
+        &mut self.indexes
+    }
+}
+```
+In particular, we should pay attention to `&mut Vec<i32>` which means to return a mutable reference to a Vector (List in Java).
+
+Due to Rust's defaults, variables are by default immutable, and `self.indexes` can only have a single owner which will be the instance of `VisibleIndexes` instantiated.
+
+One way to allow for mutation outside the instance would be to borrow the value (by using a reference) and it would have to be a mutable one for us to be able to modify the internal list `indexes` outside an instance of `VisibleIndexes`.
+
+So we have to go through some hoops just to be able to modify the internal list but it doesn't end here. Suppose we then execute the following:
+
+```Rust
+let mut visible_indexes = VisibleIndexes::new();
+visible_indexes.add_index(1);
+
+let indexes = visible_indexes.get_visible_indexes();
+println!("{:?}", indexes); // Output: [1]
+
+indexes.push(9999);
+println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
+```
+
+Everything would have executed like in Java except it does not compile because of the last line in Rust. This is shown in the error message below: 
+```shell
+let indexes = visible_indexes.get_visible_indexes()
+              --------------- first mutable borrow occurs here
+...
+println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
+                 ^^^^^^^^^^^^^^^ second mutable borrow occurs here
+```
+
+In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by `indexes` does not end until the end of a block (i.e. a closing brace). We then attempt to borrow the same value again in the same scope which will not compile in Rust.
+
 ### Concurrency
 
 Concurrency is getting [increasingly important](https://softwareengineering.stackexchange.com/questions/115474/why-should-i-know-concurrent-programming) but it is challenging to write concurrent code ([[1]](https://news.ycombinator.com/item?id=8138578), [[2]](https://golang.org/doc/faq#csp), [[3]](http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/)).
