@@ -20,17 +20,17 @@ Apart from installing VueJs, you can install [VueJs development tools](https://g
 ```HTML
 <body>
   <div id="root">
-		<h2>{{ message }}</h2>
-	</div>
-	<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-	<script src="the_path_to_the_javacript_file.js"></script>
+    <h2>{{ message }}</h2>
+  </div>
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  <script src="the_path_to_the_javacript_file.js"></script>
 </body>
 ```
 > This is inside the javacript file
 >
 ```js
 new Vue ({
-	el: '#root',
+  el: '#root',
 
   data: {
     message: "Hello World"
@@ -51,7 +51,7 @@ Step-by-step explanation of the code:
 
 ```js
   new Vue ({
-  	el: '#root',
+    el: '#root',
   });
 ```
 ```HTML
@@ -87,18 +87,18 @@ VueJs is very easy to learn. Compared to other framework such as Angular and Rea
 >
 ```js
 var Iteration = React.createClass({
-     getInitialState() {
-       return {
-         array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-       }
-     },
-     render() {
-       this.state.array.map(function(date) {
-         return (
-           <span>{date}</span>
-         )
-       });
+   getInitialState() {
+     return {
+       array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
      }
+   },
+   render() {
+     this.state.array.map(function(date) {
+       return (
+         <span>{date}</span>
+       )
+     });
+   }
 });
 ReactDOM.render(<Iteration />, document.getElementById('array'));
 ```
@@ -113,17 +113,17 @@ ReactDOM.render(<Iteration />, document.getElementById('array'));
 >
 ```js
 var Iteration = new Vue({
-      el: '#array',
-      data: {
-        array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-      }
+  el: '#array',
+  data: {
+    array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  }
 });
 ```
 > The HTML file in VueJs
 >
 ```html
 <div id="array">
-      <span v-for="date in array">{{date}}</span>
+  <span v-for="date in array">{{date}}</span>
 </div>
 ```
 
