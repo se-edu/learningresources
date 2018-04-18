@@ -7,7 +7,7 @@ Rust is a multi-paradigm (e.g. functional and imperative) systems language, but 
 
 The main merits would be in its [design](https://www.rust-lang.org/en-US/faq.html#what-is-this-projects-goal):
 * [Safety](#safety) (e.g. memory safe)
-* [Concurrency](#concurrency)
+* [Better support for concurrency](#better-support-for-concurrency)
 * [Practicality](#practicality)
 
 ### Safety
@@ -103,7 +103,7 @@ println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
 
 In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by `indexes` does not end until the end of a block (i.e. a closing brace). We then attempt to borrow the same value again in the same scope which will not compile in Rust.
 
-### Concurrency
+### Better support for concurrency
 
 Concurrency is getting [increasingly important](https://softwareengineering.stackexchange.com/questions/115474/why-should-i-know-concurrent-programming) but it is challenging to write concurrent code ([[1]](https://news.ycombinator.com/item?id=8138578), [[2]](https://golang.org/doc/faq#csp), [[3]](http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/)).
 
