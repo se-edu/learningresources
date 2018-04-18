@@ -109,6 +109,31 @@ Concurrency is getting [increasingly important](https://softwareengineering.stac
 
 Rust provides concurrency which is built upon the safety concepts. The implication is that the safety concepts allows us to be [fearless when writing concurrent code](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html) by helping point out mistakes compile time. 
 
+We look at one [example](https://doc.rust-lang.org/book/second-edition/ch16-02-message-passing.html) of the increasingly popular approach to concurrency called message passing:
+```Rust
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+        tx.send(val).unwrap();
+        println!("val is {}", val); // this line does not compile!
+    });
+
+    let received = rx.recv().unwrap();
+    println!("Got: {}", received);
+}
+```
+
+In the example, the message `"hi"` from the new thread is passed to the main thread. However, it does not compile and produce the following error message:
+```Shell
+tx.send(val).unwrap();
+        --- value moved here
+println!("val is {}", val);
+                      ^^^ value used here after move
+```
+When sending a message in Rust, the ownership is transferred (moved). Hence, using the value after the ownership is transferred would not compile. This is important because the string `"hi"` can be mutated by the receiving thread before `println!` executes, yielding unexpected behavior.
+
 ### Practicality
 
 Rust is designed to be practical, as shown in Rust's guiding design:
