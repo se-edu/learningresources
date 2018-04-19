@@ -20,10 +20,10 @@ In order to better understand the benefits of using Move Semantics, it is import
 ### Value Semantics
 Value (or copy) semantics is the programming style where users are only concerned about the values stored in the objects, rather than the object itself. As such, an extra copy of the object will always be created whenever it is passed to a function, (also known as [pass-by-value](http://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/)) or when constructing or assigning a new object. This ensures that each object declared (or function) will have their own copied value to use, without having to concern themselves with their originator. By default, C++ uses this mode if variables are declared with only the data type.
 
-Some of the advantages of Value Semantics include:
-* Lesser memory management issue, as there won't be any [dangling references](https://www.quora.com/What-is-dangling-reference) to objects that may not exist, nor any [memory leaks](https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/).
+Some advantages of Value Semantics include:
+* Lesser memory management issues, as there won't be any [dangling references](https://www.quora.com/What-is-dangling-reference) to objects that may not exist, nor any [memory leaks](https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/).
 * [Referential transparency](https://en.wikipedia.org/wiki/Referential_transparency). Having our own copy of the object ensures that changing the values inside the copied object will not affect the original object. This is especially useful in a [multi-threaded](https://stackoverflow.com/questions/1313062/what-is-a-multithreaded-application) environment, as it removes the need to synchronise the object's values, allowing the program to run faster.
-* Better performance. If the function requires accessing of the object's value many times, having a local copy of the object may be faster than having a pointer to the object and dereferencing it each time. This is especially true in C++ which encourages Value Semantics, with optimization techniques such as [copy elision](http://en.cppreference.com/w/cpp/language/copy_elision) in the compiler to help passing-by-value be faster.
+* Better performance. If the function requires accessing of the object's value many times, having a local copy of the object may be faster than having a pointer to the object and dereferencing it each time. This is especially true in C++ which encourages Value Semantics, with optimization techniques such as [copy elision](http://en.cppreference.com/w/cpp/language/copy_elision) in the compiler which speeds up the process of passing-by-value.
 
 However, Value Semantics has [one major flaw](https://www.quora.com/What-are-the-drawbacks-of-pass-by-value-result):
 * Poor performance and scalability. If the function called is a read-only function, creating an additional copy will be an unnecessary consumption of memory and runtime. This is especially true when scaling up to pass around objects of larger size, as more memory and runtime is needed to create each copy.
@@ -33,14 +33,14 @@ Reference (or pointer) semantics is another choice available for use in C++, whi
 
 Some advantages of Reference Semantics include:
 * Improved performance and scalability. By passing around pointers and references to the same object, functions can just use the values in that object directly without having to create an extra copy, thus overcoming the major flaw of Value Semantics.
-* Interactions between objects and functions. Since the same object can be referred to by the different pointers, they can modify the same address values in different areas of the program.
+* Interactions between objects and functions. Since the same object can be referred to by different pointers, its value can be modified in different areas of the program.
 
 However, Reference Semantics also comes with its own problems, such as:
 * Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary data races and indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources [Java Concurrency](java/JavaConcurrency.md) and [Java Synchronization](java/JavaSynchronization.md).
-* Hardy to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may not know where and why the values are changing. A good example of this problem can be found in this [article](http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151).
+* Harder to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may not know where and why the values are changing. A good example of this problem can be found in this [article](http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151).
 
 ## Move Semantics
-From the summary above, there are many benefits for using Value Semantics. However, it's one major flaw is that a copy of the object will always be created, which can computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, `C++11` introduced a new mode to users, Move Semantics.
+From the summary above, there are many benefits for using Value Semantics. However, it's one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, `C++11` introduced a new mode to users, Move Semantics.
 
 ### rvalue and lvalue references
 To understand how Move Semantics work in C++, it is important to distinguish between rvalue and lvalue references.
@@ -83,7 +83,7 @@ int main() {
 Usage of function overloading with rvalue parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!
 
 ### Move Semantics
-The main usage of rvalue references is that it allows us to create *move* constructor and *move* assignments, instead of *copy* constructor and *copy* assignments by default. Since rvalues are typically temporary objects, we can just *move* the value instead of *copying* it, thus reducing  memory consumption and improving on performance!
+The main usage of rvalue references is that it allows us to create *move* constructor and *move* assignments, instead of *copy* constructor and *copy* assignments by default. Since rvalues are typically temporary objects, we can just *move* the value instead of *copying* it, thus reducing  memory consumption and improving performance!
 
 One example implementation of a move constructor and move assignment is shown below:
 ```cpp
