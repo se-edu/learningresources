@@ -17,6 +17,7 @@
   * [Introduction to Nodejs](node/nodejs.md)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
+* [Rust](rust/Rust.md)
 * [Swift](swift/welcome-to-swift.md)
 
 ## SE Topics
