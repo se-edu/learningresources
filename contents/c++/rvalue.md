@@ -9,7 +9,7 @@ Authors: [Tan Jun An](https://github.com/yamidark)
     * [rvalue and lvalue references](#rvalue-and-lvalue-references)
     * [Using rvalue references](#using-rvalue-references)
     * [Move Semantics](#move-semantics)
-* [Rvalue anti-pattern](#rvalue-anti-pattern)
+* [rvalue anti-pattern](#rvalue-anti-pattern)
 * [Resources](#resources)
 
 ## Background
@@ -37,10 +37,10 @@ Some advantages of Reference Semantics include:
 
 However, Reference Semantics also comes with its own problems, such as:
 * Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary data races and indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources [Java Concurrency](java/JavaConcurrency.md) and [Java Synchronization](java/JavaSynchronization.md).
-* Unintended behaviour. If users are not careful, they can modify the values in the object using one pointer or reference, which will then be reflected by another pointer to the same object, which the user may not have intended. A good example of this problem can be found in this [article](http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151).
+* Hardy to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may not know where and why the values are changing. A good example of this problem can be found in this [article](http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151).
 
 ## Move Semantics
-From the summary above, there are many benefits for using Value Semantics. However, it's one major flaw is that a copy of the object will always be created, which can computationally expensive if this object is of a large size. However, Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits of Value Semantics while overcoming it's major flaw, `C++11` introduced a new mode to users, Move Semantics.
+From the summary above, there are many benefits for using Value Semantics. However, it's one major flaw is that a copy of the object will always be created, which can computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, `C++11` introduced a new mode to users, Move Semantics.
 
 ### rvalue and lvalue references
 To understand how Move Semantics work in C++, it is important to distinguish between rvalue and lvalue references.
@@ -157,7 +157,7 @@ Foo(std::string x, std::string y) { // move constructor
 
 Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with `Foo(x,y)`, or to prevent the additional copy by calling `Foo(std::move(x), std::move(y))`, depending on which value is no longer needed.
 
-### Resources
+## Resources
 The following resources gives more readings on what was discussed, and a more in-depth tutorial on rvalue references and Move Semantics:
 
 * [Biggest and important changes in C++11](https://blog.smartbear.com/development/the-biggest-changes-in-c11-and-why-you-should-care/)
