@@ -49,19 +49,19 @@ REST is an architectural style. Fielding defined architectural style as “a coo
 
 After surveying some common architectures for network-based applications on how the architectural constraints induce their corresponding architectural properties, Fielding came up with REST. REST has 6 constraints which aim to induce the properties the Web should have. 
 
-### <a name="client-server"></a>Client-Server
+### Client-Server
 A system in REST style should separate the user interface concern from the data storage concern. As such, the server is freed from managing the user interface and the user interface is detached from the server. This separation of concern allows the server to evolve without impacting the user interface and makes upgrading the server easier. It also enables the system to have a uniform interface regardless of the different structures of data storage at the servers.
 
-### <a name="stateless"></a>Stateless
+### Stateless
 A system in REST style should have stateless communications. This means that all the messages must be self-sufficient, containing all the necessary information to understand the message without referring to information outside the message. By making all the messages self-sufficient, the workload of the server is reduced as the server does not have to keep track of the state of application at the clients. The coupling between the server and the client is further reduced by the statelessness of the system, and thus the server can be scaled up and down according to the amount of workload (e.g. the number of requests from the client at certain point of time). Moreover, by eliminating cross referencing to other messages when interpreting one, this reduces the chances of error and increases reliability of the system. The statelessness of the system also allows the system to make use of intermediaries as the intermediaries in between the client and the server have all the necessary information to complete their tasks (see [Layered System](#layered-system)).  
 
-### <a name="cache"></a>Cache
+### Cache
 Data within the messages for communications between the server and the client should be indicated if it is cacheable. If cacheable, the caches at the elements along the line of communication (e.g. the client cache, the server cache, the proxy cache etc.) will store the data and reuse it if for identical requests later. The cacheability of information reduces the amount of interactions needed between the client and the server to access information, and thus improves the efficiency of the system. The average latency of interactions is also reduced, which leads to faster response to the client and an improved user-perceived performance.
 
-### <a name="layered-system"></a>Layered System
+### Layered System
 There should be multiple layers between client and server. Between the client and the server, there are layers made up by various [intermediaries](https://www.techopedia.com/definition/24378/web-intermediary-wbi) facilitating the processing tasks. Some examples of intermediaries are load-balancer, cache etc. The system elements have no knowledge of the things outside their own layers. For example, a client would not know if it is connected directly to the server or to an intermediary, and an intermediary would not know if it is connected to another intermediary. By limiting the scope of the system element, the complexity of the system is greatly reduced. The system becomes more modifiable as there are less dependencies between the system elements. By facilitating the processing tasks, intermediaries can enhance the server performance by reducing redundant server processing. Moreover, as the intermediaries can carry out a wide range of tasks including [encryption](https://en.wikipedia.org/wiki/Encryption) and request modification and etc.(see "MEGs" in [this article](http://www.almaden.ibm.com/cs/wbi/doc/Architecture.html)), the organizations can use intermediaries to enhance their security and their control over information. 
 
-### <a name="uniform-interface"></a>Uniform Interface
+### Uniform Interface
 There should be a way for the server, the client and the intermediaries in the layers in between to communicate with each other. Hence, there should be a uniform interface in the system. The existence of the uniform interface is the foundation for the other 4 architectural constraints. Each component is encapsulated by the interface and hence become more independent of each other, allowing each to evolve independent of the rest. By having a uniform interface in the system, interactions between the layers can be monitored as the set of interactions are predefined. By allowing the interactions to be inspected by mediators (e.g., network firewalls), the security of the system is enhanced. However, the existence of the uniform interface might compromise the efficiency of the system as the information is transmitted in a standard format rather than catering to each component’s needs.
 
 There are four sub-constraints which further specify the Uniform Interface constraint.
@@ -70,7 +70,7 @@ There are four sub-constraints which further specify the Uniform Interface const
  * Self-descriptive messages: A message in a communication between the web components should contain all the information needed for the web components to understand its content. 
  * Hypermedia as the engine of application state (HATEOAS): There should be hyperlinks embedded inside the representations given to the client, such that all the future actions that the client might take are within these representations. Hence, the client can interact with and navigate through the application without any prior knowledge of how to do so. Hence, the client and the server are more independent of each other. 
 
-### <a name="code-on-demand"></a>Code On Demand (Optional)
+### Code On Demand (Optional)
 The server can send a code snippet to the client to let the client execute. One example of this is the Javascript code sent along with the webpage in HTML. This constraint extends the client functionality and reduces the workload of the server by reducing the number of features to be implemented at the server. However, it reduces the visibility of the interactions between the client and the server and makes it more difficult to monitor the interactions. Hence, this constraint might be disabled in some implementations in REST style.
 
 ## Useful Resources
