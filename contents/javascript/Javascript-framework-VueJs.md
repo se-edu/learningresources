@@ -151,6 +151,4 @@ A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese 
 
 ## References
 
-- [Inversion of Control](http://martinfowler.com/bliki/InversionOfControl.html)
-- [Differences Between Library and Framework](http://www.c-sharpcorner.com/UploadFile/a85b23/framework-vs-library/)
 - [VueJS Official Website](https://vuejs.org/)
