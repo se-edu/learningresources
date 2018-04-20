@@ -81,43 +81,43 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 VueJs is very easy to learn. Compared to other framework such as Angular and ReactJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
 How is iteration like in ReactJs:<br/><br/>
 The JavaScript file in ReactJs
-```js
-var Iteration = React.createClass({
-   getInitialState() {
-     return {
-       array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-     }
-   },
-   render() {
-     this.state.array.map(function(date) {
-       return (
-         <span>{date}</span>
-       )
-     });
-   }
-});
-ReactDOM.render(<Iteration />, document.getElementById('array'));
-```
-The HTML file in ReactJs
-```html
-<div id="array"></div>
-```
-How is iteration like in VueJs:<br/><br/>
-The JavaScript file in VueJs
-```js
-var Iteration = new Vue({
-  el: '#array',
-  data: {
-    array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  }
-});
-```
-The HTML file in VueJs
-```html
-<div id="array">
-  <span v-for="date in array">{{date}}</span>
-</div>
-```
+    ```js
+    var Iteration = React.createClass({
+       getInitialState() {
+         return {
+           array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+         }
+       },
+       render() {
+         this.state.array.map(function(date) {
+           return (
+             <span>{date}</span>
+           )
+         });
+       }
+    });
+    ReactDOM.render(<Iteration />, document.getElementById('array'));
+    ```
+    The HTML file in ReactJs
+    ```html
+    <div id="array"></div>
+    ```
+    How is iteration like in VueJs:<br/><br/>
+    The JavaScript file in VueJs
+    ```js
+    var Iteration = new Vue({
+      el: '#array',
+      data: {
+        array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      }
+    });
+    ```
+    The HTML file in VueJs
+    ```html
+    <div id="array">
+      <span v-for="date in array">{{date}}</span>
+    </div>
+    ```
 
 2. **Progressive:**<br/>
 VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follow:
