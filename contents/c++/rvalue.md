@@ -1,4 +1,4 @@
-# Rvalue references and Move Semantics
+# Rvalue References and Move Semantics
 
 Authors: [Tan Jun An](https://github.com/yamidark)
 
@@ -6,16 +6,16 @@ Authors: [Tan Jun An](https://github.com/yamidark)
     * [Value Semantics](#value-semantics)
     * [Reference Semantics](#reference-semantics)
 * [Move Semantics](#move-semantics)
-    * [rvalue and lvalue references](#rvalue-and-lvalue-references)
-    * [Using rvalue references](#using-rvalue-references)
+    * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
+    * [Using Rvalue References](#using-rvalue-references)
     * [Move Semantics](#move-semantics)
-* [rvalue anti-pattern](#rvalue-anti-pattern)
+* [Rvalue anti-pattern](#rvalue-anti-pattern)
 * [Resources](#resources)
 
 ## Background
-*C++* is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released periodically. One such standard, the C++11 standard, improved the performance of the language with features such as *rvalue references* and *Move Semantics*.
+*C++* is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released periodically. One such standard, the `C++11` standard, improved the performance of the language with features such as **_Rvalue References_** and **_Move Semantics_**.
 
-In order to better understand the benefits of using Move Semantics, it is important to first understand the two other modes already available in C++, *Value Semantics* and *References Semantics*.
+In order to better understand the benefits of using Move Semantics, it is important to first understand the two other modes already available in C++, **_Value Semantics_** and **_References Semantics_**.
 
 ### Value Semantics
 Value (or copy) semantics is the programming style where users are only concerned about the values stored in the objects, rather than the object itself. As such, an extra copy of the object will always be created whenever it is passed to a function, (also known as [pass-by-value](http://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/)) or when constructing or assigning a new object. This ensures that each object declared (or function) will have their own copied value to use, without having to concern themselves with their originator. By default, C++ uses this mode if variables are declared with only the data type.
@@ -36,21 +36,21 @@ Some advantages of Reference Semantics include:
 * Interactions between objects and functions. Since the same object can be referred to by different pointers, its value can be modified in different areas of the program.
 
 However, Reference Semantics also comes with its own problems, such as:
-* Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary data races and indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources [Java Concurrency](java/JavaConcurrency.md) and [Java Synchronization](java/JavaSynchronization.md).
+* Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary [data races](https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html) and indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources [Java Concurrency](java/JavaConcurrency.md) and [Java Synchronization](java/JavaSynchronization.md).
 * Harder to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may not know where and why the values are changing. A good example of this problem can be found in this [article](http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151).
 
 ## Move Semantics
-From the summary above, there are many benefits for using Value Semantics. However, it's one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, `C++11` introduced a new mode to users, Move Semantics.
+From the summary above, there are many benefits for using Value Semantics. However, its one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, `C++11` introduced a new mode to users, Move Semantics.
 
-### rvalue and lvalue references
-To understand how Move Semantics work in C++, it is important to distinguish between rvalue and lvalue references.
+### Rvalue and Lvalue References
+To understand how Move Semantics work in C++, it is important to distinguish between an rvalue and an lvalue.
 ```
 lvalue = rvalue
 ```
 From the line above, lvalue (left value) basically refers to values that are addressable, while rvalue (right value) are temporary objects or values which are used only on the right side of an assignment expression. More details and classification of these 2 values can be found [here](http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php).
 
-### Using rvalue references
-Rvalue references allows us to distinguish an lvalue from an rvalue. In C++11, we can declare an rvalue reference using the `&&` operator:
+### Using Rvalue References
+Rvalue References allows us to distinguish an lvalue from an rvalue. In `C++11`, we can declare an Rvalue Reference using the `&&` operator:
 ```cpp
 int &&rvalue = 55;
 ```
@@ -80,10 +80,10 @@ int main() {
 }
 ```
 
-Usage of function overloading with rvalue parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!
+Usage of function overloading with Rvalue Reference parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!
 
 ### Move Semantics
-The main usage of rvalue references is that it allows us to create *move* constructor and *move* assignments, instead of *copy* constructor and *copy* assignments by default. Since rvalues are typically temporary objects, we can just *move* the value instead of *copying* it, thus reducing  memory consumption and improving performance!
+The main usage of Rvalue References is that it allows us to create *move* constructor and *move* assignments, instead of *copy* constructor and *copy* assignments by default. Since rvalues are typically temporary objects, we can just *move* the value instead of *copying* it, thus reducing  memory consumption and improving performance!
 
 One example implementation of a move constructor and move assignment is shown below:
 ```cpp
@@ -105,8 +105,8 @@ In this move constructor and assignment, the contents of the `other` parameter i
 
 Along with Move Semantics in `C++11`, the [STL library](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/) provides the overloaded *move* functions for its container classes (e.g. `vector`, `list`, `set`), thus we can take advantage of these Move Semantics by simply supplying rvalues, without the need to redefine the classes ourselves.
 
-## rvalue anti-pattern
-After learning about the new rvalue references and Move Semantics in C++11, many programmers from the older C++ eras may fall into a trap of the rvalue [anti-pattern](https://en.wikipedia.org/wiki/Anti-pattern).
+## Rvalue anti-pattern
+After learning about the new Rvalue References and Move Semantics in `C++11`, many programmers from the older C++ eras may fall into a trap of the rvalue [anti-pattern](https://en.wikipedia.org/wiki/Anti-pattern).
 
 Consider these 2 class constructors:
 ```cpp
@@ -121,9 +121,9 @@ Foo(std::string&& x, std::string&& y) { // move constructor
 }
 ```
 
-As shown above, the *move* constructor defines each of its parameter to be rvalues. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for `x` and rvalue for `y`, the copy constructor instead will be called! This is because the *copy* constructor is able to accept both lvalues and rvalues, while the *move* constructor is only able to accept rvalues. As such, we may think we have made use of Move Semantics to optimize our program, but that may not be the case!
+As shown above, the *move* constructor defines each of its parameter to be Rvalue References. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for `x` and rvalue for `y`, the copy constructor instead will be called! This is because the *copy* constructor is able to accept both lvalues and rvalues, while the *move* constructor is only able to accept rvalues. As such, we may think we have made use of Move Semantics to optimize our program, but that may not be the case!
 
-One solution to this problem would be to overload the constructor for each combination of rvalue parameters possible, like this:
+One solution to this problem would be to overload the constructor for each combination of Rvalue Reference parameters possible, like this:
 ```cpp
 Foo(const std::string& x, const std::string& y) { // copy constructor
     _x = x;
@@ -158,12 +158,13 @@ Foo(std::string x, std::string y) { // move constructor
 Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with `Foo(x,y)`, or to prevent the additional copy by calling `Foo(std::move(x), std::move(y))`, depending on which value is no longer needed.
 
 ## Resources
-The following resources gives more readings on what was discussed, and a more in-depth tutorial on rvalue references and Move Semantics:
+The following resources gives more readings on what was discussed, and a more in-depth tutorial on Rvalue References and Move Semantics:
 
 * [Biggest and important changes in C++11](https://blog.smartbear.com/development/the-biggest-changes-in-c11-and-why-you-should-care/)
 * [Why Value Semantics is good to use](https://akrzemi1.wordpress.com/2012/02/03/value-semantics/)
 * [Comparison on pass-by-value or pass-by-reference](http://www.informit.com/articles/article.aspx?p=2731935&seqNum=18)
 * [Tutorial on what is a rvalue and what is a lvalue](http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php)
-* [Tutorial on using rvalue references and Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php)
-* [Sample examples of using rvalue references Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php)
-* [The rvalue reference anti-pattern](http://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html)
+* [Tutorial on using Rvalue References and Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php)
+* [C++ Rvalue References Explained in 11 Sections](http://thbecker.net/articles/rvalue_references/section_01.html)
+* [Sample examples of using Rvalue References and Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php)
+* [The Rvalue Reference anti-pattern](http://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html)
