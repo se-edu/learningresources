@@ -9,7 +9,7 @@
   * [Java Reflection](java/JavaReflections.md)
 * [Kotlin](kotlin/kotlin.md)
 * [JavaScript](javascript/javascript.md)
-  * [VueJS](javascript/VueJs)
+  * [VueJS](javascript/Javascript-framework-VueJs.md)
   * [Javascript Promises](javascript/Javascript-promises.md)
 * [Python](python/introduction-to-python.md)
 * [Ruby](ruby/Ruby.md)
