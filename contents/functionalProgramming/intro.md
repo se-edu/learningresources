@@ -8,7 +8,7 @@ Functional programming is a programming paradigm that treats computation as the 
 
 ## Functional Programming Languages
 
-Functional programming is simply a paradigm and needs to be implemented by programming languages. Below are various [languages](https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Functional_languages) that have explicit support for the functional programming paradigm such as:
+Functional programming is simply a paradigm and needs to be implemented by programming languages. Below are various [languages](https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Functional_languages) that have explicit support for the functional programming paradigm:
 
 - Haskell
 - Clojure
@@ -23,7 +23,7 @@ While functional programming can be implemented by languages like Java, the lang
 
 #### Pure Functions
 
-Pure functions is one of the concepts in functional programming. To call a function `pure`, it needs to satisfy two conditions:
+_Pure functions_ is one of the concepts in functional programming. To call a function _pure_, it needs to satisfy two conditions:
 
 1. [Idempotence](https://en.wikipedia.org/wiki/Idempotence) - The function should return the same output for the same input when invoked arbitrarily many times.
 1. No side effects - The function should not cause side effects like mutating global state.
@@ -41,18 +41,18 @@ Contrast this with an impure function:
 ```python
 # Mutate state
 y=0
-def addXToY(x):
+def add_to_y(x):
     global y
     y = y + x
     return y
 ```
-We see that the impure function violates both conditions. Running `addXToY` multiple times with the same input X would give different value.
+We see that the impure function violates both conditions. Running `add_to_y` multiple times with the same input X would give different value.
 
 #### Immutability
 
-Another concept in functional programming is immutability. Immutability prevents an object's state to be change after it is created. When we assign `x=1`, it does not make mathematical sense to have this expression `x:=x+1`.
+Another concept in functional programming is immutability. Immutability prevents an object's state to be change after it is created.
 
-Having immutability built into functional programming languages like Haskell also helps to ensure that functions are `pure` because mutable variables and states can introduce side-effects.
+Having immutability built into functional programming languages like Haskell helps ensure that functions are _pure_ because mutable variables and states can introduce side-effects.
 
 To know more about immutability in functional languages, you can take a look at:
 
@@ -64,7 +64,7 @@ To know more about immutability in functional languages, you can take a look at:
 
 #### Recursion
 
-Pure functional languages do not have loop constructs like imperative languages. This is because `Iteration` usually involves state mutation per iteration. Since functional programming avoids state changes, `Recursion` is a commonly used [technique](https://www.quora.com/Why-dont-pure-functional-programming-languages-provide-a-loop-construct) to replace `Iteration`. An example of replacing state-mutating iterative code to a pure functional recusive code is shown below:
+Pure functional languages do not have loop constructs like imperative languages. This is because `Iteration` usually involves state mutation per iteration. Because functional programming avoids state changes, `Recursion` is a commonly used [technique](https://www.quora.com/Why-dont-pure-functional-programming-languages-provide-a-loop-construct) to replace `Iteration`. An example of replacing state-mutating iterative code to a pure functional recusive code is shown below:
 
 ```Python
 # Iterative
@@ -88,7 +88,7 @@ Hence, to be able to write functional languages effectively, it means being able
 
 #### Higher Order Functions
 
-Higher Order Functions are functions that either take functions as parameters, return a function or both. As functions are first class citizens in functional programming languages, this allows [functions to be passed around like objects and values](https://en.wikipedia.org/wiki/Functional_programming#First-class_and_higher-order_functions).
+Higher Order Functions are functions that either take functions as parameters, return a function, or both. As functions are first class citizens in functional programming languages, this allows [functions to be passed around like objects and values](https://en.wikipedia.org/wiki/Functional_programming#First-class_and_higher-order_functions).
 
 One example of Higher Order Functions is `map`, which takes in a function and a collection of objects.
 
@@ -108,8 +108,8 @@ There are useful functions and techniques that are based off Higher Order Functi
 
 The common question when learning about functional programming is what's the point of having us going through all the trouble of having pure functions, state immutability and absence of loops. Turns out, there are various positive implications of functional programming:
 
-- [More Bug-Free Code](https://www.quora.com/Are-software-written-using-Functional-Programming-less-buggy-more-robust-and-stable) for example famously in Haskell, [if it compiles it usually works](https://wiki.haskell.org/Why_Haskell_just_works).
-- [Concurrency](https://softwareengineering.stackexchange.com/questions/293851/what-is-it-about-functional-programming-that-makes-it-inherently-adapted-to-para). Having state immutability and absence of side effects can allow for bug-free concurrent code with less concerns of race conditions on mutable objects.
+- [More Bug-Free Code](https://www.quora.com/Are-software-written-using-Functional-Programming-less-buggy-more-robust-and-stable). For example famously in Haskell, [if it compiles it usually works](https://wiki.haskell.org/Why_Haskell_just_works).
+- [Safer Concurrency](https://softwareengineering.stackexchange.com/questions/293851/what-is-it-about-functional-programming-that-makes-it-inherently-adapted-to-para). Having state immutability and absence of side effects can allow for concurrent code with less concerns of race conditions on mutable objects.
 - [And many more](https://alvinalexander.com/scala/fp-book/benefits-of-functional-programming) such as simpler unit testing as functions are guaranteed not to have any side effects.
 
 ## Disadvantages of Functional Programming
@@ -124,7 +124,7 @@ Some of these reasons help in part explain why 'impure' functional languages lik
 
 ## Guides on Functional Programming
 
-Functional programming can be a very different programming paradigm and it definitely takes time to practice to be an expert at it. To learn more about functional programming, I would recommend looking at these amazing guides for a deeper understanding:
+Functional programming can be a very different programming paradigm and it definitely takes time to practice to be an expert at it. To learn more about functional programming, take a look at these amazing guides for a deeper understanding:
 
 - A good [overview of functional programming](https://en.wikipedia.org/wiki/Functional_programming)
 - A six-part [introduction to functional programming](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536)
