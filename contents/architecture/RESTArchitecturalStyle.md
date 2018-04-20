@@ -7,7 +7,7 @@ Author: [Wen Xin](https://github.com/wenmogu)
 REST stands for *Representational State Transfer*. It is the architecture style of the World Wide Web. In particular,
 * It embodies a set of guiding principles the Web should follow such that it can be efficient and widely applicable.
 * It serves as the model for Web protocols e.g. HTTP.
-* It decribes the nature of [RESTful API](https://openclassrooms.com/courses/build-your-web-projects-with-rest-apis/examples-of-rest-apis),  the type of API that are widely used to provide/consume services over the Web.
+* It describes the nature of [RESTful API](https://openclassrooms.com/courses/build-your-web-projects-with-rest-apis/examples-of-rest-apis),  the type of API that are widely used to provide/consume services over the Web.
 
 Let us learn a bit more about REST so that we can better understand the rationale behind the design of the Web and better design/consume RESTful APIs.
 
@@ -30,7 +30,7 @@ Transfering to the users the representation of the resource instead of the resou
 The quote below from Roy Fielding outlines what the name entails:
 > The name “Representational State Transfer” is intended to evoke an image of how a well-designed Web application behaves: a network of web pages (a virtual state-machine), where the user progresses through the application by selecting links (state transitions), resulting in the next page (representing the next state of the application) being transferred to the user and rendered for their use.
 
-## REST defines what the Web is expected to be
+## What should REST bring to the Web?
 
 REST specifies the key designs of the Web. The design of the Web affects greatly how efficient, applicable and modifiable the Web can be. Hence, before understanding the REST principles, we need to understand the requirements of the Web i.e. what the Web is expected to be. 
 
