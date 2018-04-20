@@ -3,13 +3,13 @@
 Authors: [Tan Jun An](https://github.com/yamidark)
 
 * [Background](#background)
-    * [Value Semantics](#value-semantics)
-    * [Reference Semantics](#reference-semantics)
+  * [Value Semantics](#value-semantics)
+  * [Reference Semantics](#reference-semantics)
 * [Move Semantics](#move-semantics)
-    * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
-    * [Using Rvalue References](#using-rvalue-references)
-    * [Move Semantics](#move-semantics)
-* [Rvalue anti-pattern](#rvalue-anti-pattern)
+  * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
+  * [Using Rvalue References](#using-rvalue-references)
+  * [Move Semantics](#move-semantics)
+* [Rvalue Anti-Pattern](#rvalue-anti-pattern)
 * [Resources](#resources)
 
 ## Background
@@ -105,8 +105,8 @@ In this move constructor and assignment, the contents of the `other` parameter i
 
 Along with Move Semantics in `C++11`, the [STL library](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/) provides the overloaded *move* functions for its container classes (e.g. `vector`, `list`, `set`), thus we can take advantage of these Move Semantics by simply supplying rvalues, without the need to redefine the classes ourselves.
 
-## Rvalue anti-pattern
-After learning about the new Rvalue References and Move Semantics in `C++11`, many programmers from the older C++ eras may fall into a trap of the rvalue [anti-pattern](https://en.wikipedia.org/wiki/Anti-pattern).
+## Rvalue Reference Anti-Pattern
+After learning about the new Rvalue References and Move Semantics in `C++11`, many programmers from the older C++ eras may fall into a trap of the Rvalue Reference [Anti-Pattern](https://en.wikipedia.org/wiki/Anti-pattern).
 
 Consider these 2 class constructors:
 ```cpp
@@ -167,4 +167,4 @@ The following resources gives more readings on what was discussed, and a more in
 * [Tutorial on using Rvalue References and Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php)
 * [C++ Rvalue References Explained in 11 Sections](http://thbecker.net/articles/rvalue_references/section_01.html)
 * [Sample examples of using Rvalue References and Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php)
-* [The Rvalue Reference anti-pattern](http://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html)
+* [The Rvalue Reference Anti-Pattern](http://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html)
