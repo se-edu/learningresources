@@ -68,17 +68,19 @@ Pure functional languages do not have loop constructs like imperative languages.
 
 ```Python
 # Iterative
-def getSumOfListIter(listOfNumbers):
+def getSumOfList(listOfNumbers):
     sum = 0
     for number in listOfNumbers:
         sum += number
     return sum
+```
 
+```Python
 # Recursive
-def getSumOfListRec(listOfNumbers):
+def getSumOfList(listOfNumbers):
     if len(listOfNumbers) == 0:
         return 0
-    return listOfNumbers[0] + getSumOfListRec(listOfNumbers[1:])
+    return listOfNumbers[0] + getSumOfList(listOfNumbers[1:])
 ```
 
 Hence, to be able to write functional languages effectively, it means being able to replace Iteration with Recursion. Here are some guides to help you on that:
