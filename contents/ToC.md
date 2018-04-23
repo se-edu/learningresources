@@ -52,7 +52,7 @@
 ## Other Topics
 
 * AI
-  * [Machine Learning] (ai/ml.md)
+  * [Machine Learning](ai/ml.md)
 * [Android](android/IntroToAndroid.md)
 * Architecture
   * [REST](architecture/RESTArchitecturalStyle.md)
