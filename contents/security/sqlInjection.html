@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL Injection</title>
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+<div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<h1 id="sql-injection">SQL Injection</h1>
+<p>Author: <a href="https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md">Lewis Koh</a></p>
+<h2 id="overview">Overview</h2>
+<p>SQL (Structured Query Language) Injection is a vulnerability found in websites using databases.</p>
+<p>SQL is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Databases are
+  usually made of many &quot;tables&quot; which are organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry.</p>
+<p>As an example, a table in a database may look like this:</p>
+<table class="markbind-table table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="text-align:center">UserId</th>
+      <th style="text-align:center">Username</th>
+      <th style="text-align:center">Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center">1</td>
+      <td style="text-align:center">Admin</td>
+      <td style="text-align:center">123456</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">2</td>
+      <td style="text-align:center">Alice</td>
+      <td style="text-align:center">pw1234</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">3</td>
+      <td style="text-align:center">...</td>
+      <td style="text-align:center">...</td>
+    </tr>
+  </tbody>
+</table>
+<p>SQL is used to interact with the database by sending &quot;queries&quot; which the database responds to. Some common SQL commands used include:</p>
+<ul>
+  <li><code>SELECT</code> - retrieves information from a table</li>
+  <li><code>UPDATE</code> - changes information from a table</li>
+  <li><code>INSERT INTO</code> - adds a new entry into a table</li>
+  <li><code>DELETE FROM</code> - deletes information from a table</li>
+</ul>
+<p>Websites combine SQL syntax with user input to query the underlying database of the website. For example, blog websites may ask for a username and password from users for them to log in to the site. This input is used to create the SQL statement that
+  will be sent to the database. A website which is vulnerable to SQL injection attacks may construct the SQL query like this:</p>
+<pre><code class="hljs sql">String query = "<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘<span class="hljs-string">" + input_username +"</span>’ 
+                <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘<span class="hljs-string">" + input_password + "</span>’<span class="hljs-string">";
+</span></code></pre>
+<p>As an example, if a user entered their username, <code>Alice</code>, and password, <code>pw1234</code> into the website to try to gain access:</p>
+<pre class="hljs"><code>Username: Alice
+Password: pw1234
+</code></pre>
+<p>The constructured query would look like this:</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘Alice’ 
+<span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘pw1234’
+</code></pre>
+<p>This query would find all entries in the <code>Users</code> table in the database, and return any entries where the <code>Username</code> is <code>Alice</code> and the <code>Password</code> is <code>pw1234</code>. If the previous table was searched, it
+  would return the details of the second row as the result. Since there was a result returned, the website would be able to tell that a legitimate username and password combination was entered since the query requires that both are matched to retrieve
+  the data. Thus, the website would know that the user is legitimate, and the user would be allowed to log into the site. On the other hand, if no result was returned by the database, the website would know that the username and password combination does
+  not match any of the users in the database, and would deny access to the person trying to log in.</p>
+<p>However, are users limited to just filling in legitimate username and password strings? Some websites directly use the information given by the user without any validation, thus the users are able to write code as input for their own malicious purposes.
+  For example, users are able to add parameters to the query.</p>
+<pre><code class="hljs sql">Username: foo
+Password: bar’ OR ‘’=’
+</code></pre>
+<p>The SQL command string built from this input would be as follows:</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘foo’ 
+<span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘bar’ <span class="hljs-keyword">OR</span> ‘’=’’
+</code></pre>
+<p>In SQL, <code>AND</code> operations are checked before <code>OR</code> operations. This query will check the database for entries where:</p>
+<pre class="hljs"><code>Username = foo AND Password = bar
+OR
+‘’=’’
+</code></pre>
+<p>This query will always return true, as <code>‘’=’’</code> is always true. As such, the query can be simplified to this:</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span>
+</code></pre>
+<p>This will return all the rows from the <code>Users</code> table in the database, regardless of username or password entered. If used in user authentication, the user will likely be able to gain access to the system.</p>
+<h2 id="preventing-sql-injection">Preventing SQL Injection</h2>
+<p>There are a couple of ways to protect your website against SQL injection attacks. The two most common ways are:</p>
+<ol>
+  <li>Prepared Statements using Parameterized Queries</li>
+  <li>Whitelist Input Validation</li>
+</ol>
+<p>The sections below explain the two options in more detail.</p>
+<h3 id="solution-1-prepared-statements-using-parameterized-queries">Solution 1: Prepared Statements using Parameterized Queries</h3>
+<p>By defining all the SQL code first and passing in the parameters afterwards, you can make the database distinguish the difference between code and data. It would treat the values entered by the user as a parameter, and would not allow it to alter the
+  query being executed. The way to achieve this varies by language, but it is easy to implement and effective.</p>
+<p>For example, instead of writing this in Java:</p>
+<pre><code class="hljs java">String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = "</span> + input_username +<span class="hljs-string">"’ 
+                AND Password = ‘"</span> + input_password + <span class="hljs-string">"’"</span>;
+Statement statement = connection.createStatement();
+ResultSet results = statement.executeQuery( query );
+</code></pre>
+<p>You can prepare the statement like this:</p>
+<pre><code class="hljs java"> String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = ? 
+                AND Password = ? "</span>;
+ PreparedStatement pstmt = connection.prepareStatement( query );
+ pstmt.setString( <span class="hljs-number">1</span>, input_username ); 
+ pstmt.setString( <span class="hljs-number">2</span>, input_password );
+ ResultSet results = pstmt.executeQuery( );
+</code></pre>
+<p>The <code>?</code> in the query string is a placeholder for a string value. In the example, the first <code>?</code> is substituted with the value of <code>input_username</code> using the call <code>pstmt.setString(1, input_username)</code>. If the earlier
+  attack was attempted, The query being submitted to the database will look like this:</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'foo'</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = <span class="hljs-string">'bar'</span> <span class="hljs-keyword">OR</span> ‘’=’’
+</code></pre>
+<p>However, since it is treated as a value to be used, the database will not allow it to modify the query, and it would not be able to affect the structure of the SQL statement. As such, the query will check the database for entries where:</p>
+<pre class="hljs"><code>Username = foo
+AND 
+Password = bar OR ‘’=’’
+</code></pre>
+<p>As such, the query is safe from SQL code being injected by users.</p>
+<h3 id="solution-2-whitelist-input-validation">Solution 2: Whitelist Input Validation</h3>
+<p>By applying a whitelist to the values a user is allowed to use, you can remove undesired symbols in the query being passed to the database (e.g. whitelisting only alphanumeric characters for a username). This ensures that attackers won't be allowed to
+  enter special characters which may have unwanted effects when executed. (e.g. special characters in SQL such as <code>'</code>, <code>@</code>, <code>^</code> and <code>_</code>)</p>
+<h2 id="resources">Resources</h2>
+<p>References:</p>
+<ol>
+  <li><a href="https://www.owasp.org/index.php/SQL_Injection">https://www.owasp.org/index.php/SQL_Injection</a> (Basic description of SQL Injection attack taken from here)</li>
+  <li><a href="http://projects.webappsec.org/f/WASC-TC-v2_0.pdf">http://projects.webappsec.org/f/WASC-TC-v2_0.pdf</a> (page 105-110) (Description of the two types of SQL injection attack taken from here)</li>
+</ol>
+<p>Additional Reading Resources:</p>
+<ol>
+  <li><a href="http://www.sqlinjection.net/">http://www.sqlinjection.net/</a> (Good starting point for diving deeper into SQL injection)</li>
+  <li><a href="https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)">https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)</a> (How to test your website for SQL injection attacks)</li>
+  <li><a href="https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet">https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet</a> (Parameterized query examples for some common languages)</li>
+  <li><a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet</a> (A list of possible preventions, which contains even more ways to protect your site from SQL injection
+    attacks).</li>
+  <li><a href="http://guides.rubyonrails.org/security.html#sql-injection">http://guides.rubyonrails.org/security.html#sql-injection</a> (Discussion of how SQL injection attacks work, some possible scenarios of such attacks, and possible preventive measures
+    using Ruby on Rails)</li>
+  <li><a href="https://www.owasp.org/index.php/Blind_SQL_Injection">https://www.owasp.org/index.php/Blind_SQL_Injection</a> (Discussion about a type of SQL injection attack, when only generic messages are displayed by the website)</li>
+  <li><a href="https://cwe.mitre.org/data/definitions/89.html">https://cwe.mitre.org/data/definitions/89.html</a> (Comprehensive coverage of the aspects of SQL injection)</li>
+</ol>
+<p>Additional Resources:</p>
+<ol>
+  <li><a href="https://github.com/sqlmapproject/sqlmap">https://github.com/sqlmapproject/sqlmap</a> (Penetration testing tool that detects and exploits SQL injection flaws)</li>
+  <li><a href="https://find-sec-bugs.github.io/">https://find-sec-bugs.github.io/</a> (Plugin to detect security vulnerabilities in Java web applications, including SQL injection)</li>
+</ol>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="..\..\markbind\js\vue.min.js"></script>
+<script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+</script>
+<script src="..\..\markbind\js\setup.js"></script>
+</html>

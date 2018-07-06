@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FindBugs</title>
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+<div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<h1 id="findbugs">FindBugs</h1>
+<p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a>, <a href="https://github.com/tshradheya">Shradheya Thakre</a></p>
+<h2 id="overview">Overview</h2>
+<p>FindBugs is a static analysis tool to find bugs in <strong>Java</strong> programs. It looks for 'bug patterns' in the code and signals possible violations. Potential errors are classified in four ranks:</p>
+<ol>
+  <li>scariest</li>
+  <li>scary</li>
+  <li>troubling</li>
+  <li>of concern</li>
+</ol>
+<p>This is a hint to the developer about their possible impact or severity. For example, the bug 'null pointer dereference' has the pattern — A program declares a non-nullable variable but assigns <code>null</code> to the variable somewhere and uses it later.</p>
+<h2 id="features">Features</h2>
+<p>The &quot;bug patterns&quot; can be divided into nine groups:</p>
+<ol>
+  <li>Bad practice</li>
+  <li>Correctness</li>
+  <li>Experimental</li>
+  <li>Internationalization</li>
+  <li>Malicious code vulnerability</li>
+  <li>Multithreaded correctness</li>
+  <li>Performance</li>
+  <li>Security</li>
+  <li>Dodgy code</li>
+</ol>
+<p>Refer to <a href="http://findbugs.sourceforge.net/bugDescriptions.html">FindBugs official documentation</a> for a comprehensive list of bugs and the explanation of each bug.</p>
+<p>FindBugs analyses bytecode in compiled Java <code>.class</code> file and checks multiple files at the same time. This is unlike <a href="checkStyle.md">CheckStyle</a> or <a href="PMD.md">PMD</a> which can only check files one by one and analyse Java source
+  code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is <code>RCN: Redundant nullcheck of value known to be non-null</code>. FindBugs will analyse all the assignments
+  to a particular variable in the code base and then check whether the <code>nullcheck</code> for the variable is redundant or not.</p>
+<h2 id="examples-of-bugs-that-can-be-found-using-findbugs">Examples of Bugs that can be found using FindBugs</h2>
+<h3 id="incorrectly-overriding-methods">Incorrectly overriding methods</h3>
+<p>Consider the following code:</p>
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>{
+    <span class="hljs-comment">//... data members ...</span>
+    <span class="hljs-comment">//... methods ...</span>
+
+    <span class="hljs-comment">//Overriding equals method - the wrong way</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">equals</span><span class="hljs-params">(Foo foo)</span> </span>{
+        <span class="hljs-comment">//... logic ...</span>
+    }
+}
+</code></pre>
+<p>In the above code, if <code>foo.equals()</code> method is called, the <code>equals()</code> method of <code>Object</code> class rather than <code>Foo</code> class will be called. This is due to the way the Java code resolves overloaded methods at compile-time.
+  FindBugs warns the developer of possible cases when a class defines a co-variant version of the <code>equals()</code> or <code>compareTo()</code> method.</p>
+<h3 id="find-hash-equals-mismatch">Find hash-equals mismatch</h3>
+<p>The hashCode() and equals() method are called by many <code>Collection</code> based classes like - List, Maps, Sets, etc. FindBugs helps in finding problems when a class <strong>overrides the <code>equals()</code> but not the <code>hashCode()</code> method or vice-versa</strong>.
+  Overriding only one of the <code>equals()</code> or <code>hashCode()</code> method can cause methods of Collection based classes to fail and hence FindBugs helps in reporting these errors at an early stage</p>
+<h3 id="return-value-of-method-ignored">Return value of method ignored</h3>
+<p>FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been.</p>
+<pre><code class="hljs java"><span class="hljs-number">1</span> String s = <span class="hljs-string">"bob"</span>;
+<span class="hljs-number">2</span> s.replace(<span class="hljs-string">'b'</span>, <span class="hljs-string">'p'</span>);
+<span class="hljs-number">3</span> <span class="hljs-keyword">boolean</span> isCorrect = s.equals(<span class="hljs-string">"pop"</span>); <span class="hljs-comment">//isCorrect is `false`</span>
+</code></pre>
+<p>In the above examples, one would assume that the variable <code>isCorrect</code> is assigned <code>true</code> because the <code>line 2</code> replaces <code>b</code> with <code>p</code>. However since strings are immutable, the <code>replace()</code>  function actually returns a new string with updated value rather than updating the string the method is called on.</p>
+<p>Hence, <code>line 2</code> should be <code>String newString = s.replace('b', 'p'); //newString =&quot;pop&quot;</code></p>
+<h3 id="null-pointer-dereference">Null pointer dereference</h3>
+<p>FindBugs looks for cases where a code path will or could cause a null pointer exception.</p>
+<pre><code class="hljs java"><span class="hljs-number">1</span>  Person person = aMap.get(<span class="hljs-string">"bob"</span>);
+<span class="hljs-number">2</span>  <span class="hljs-keyword">if</span> (person != <span class="hljs-keyword">null</span>) {
+<span class="hljs-number">3</span>      person.updateAccessTime();
+<span class="hljs-number">4</span>  }
+<span class="hljs-number">5</span>  String name = person.getName();
+</code></pre>
+<p>In the above example, the <code>aMap</code> may or may not contain &quot;bob&quot;, so FindBugs will report <em>possible</em> <code>NullPointerException</code> at <code>line 5</code></p>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="configuration">Configuration</h3>
+<p>You can tell FindBugs which bug patterns to exclude and include by using <a href="http://findbugs.sourceforge.net/manual/filter.html">FilterFiles</a>. By default, if no filter files are provided, FindBugs will run all checks.</p>
+<h3 id="suppress-warnings">Suppress Warnings</h3>
+<p>You can use filter files with <code>exclude</code> option in FindBugs as discussed above to suppress warnings.</p>
+<p>In addition, you can also use <code>SuppressWarnings</code> <a href="http://findbugs.sourceforge.net/manual/annotations.html">annotation</a> to filter out unwanted violations.</p>
+<h3 id="running">Running</h3>
+<p>There are several ways to run FindBugs.</p>
+<p>GUI:</p>
+<ul>
+  <li><a href="http://findbugs.sourceforge.net/manual/gui.html">Using the FindBugs GUI</a></li>
+</ul>
+<p>Command Line:</p>
+<ul>
+  <li><a href="http://findbugs.sourceforge.net/manual/running.html">Command Line</a></li>
+</ul>
+<p>Build Automation Tools:</p>
+<ul>
+  <li><a href="http://findbugs.sourceforge.net/manual/anttask.html">Ant Task</a></li>
+  <li><a href="http://gleclaire.github.io/findbugs-maven-plugin/">FindBugs Maven Plugin</a></li>
+  <li><a href="https://docs.gradle.org/current/userguide/findbugs_plugin.html">Gradle FindBugs</a></li>
+</ul>
+<p>IDE Integration:</p>
+<ul>
+  <li><a href="http://findbugs.sourceforge.net/manual/eclipse.html">Eclipse Integration</a></li>
+  <li><a href="https://plugins.jetbrains.com/plugin/3847-findbugs-idea">IntelliJ Integration</a></li>
+  <li><a href="https://netbeans.org/kb/docs/java/code-inspect.html">NetBeans Integration</a></li>
+</ul>
+<h2 id="spotbugs-the-successor-of-findbugs">SpotBugs - The successor of Findbugs</h2>
+<p>On November 2016, FindBugs was <a href="https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2016-November/004321.html">declared dead</a> and <a href="https://spotbugs.github.io/">SpotBugs</a> was <a href="https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2017-September/004383.html">declared as its successor</a>  in September 2017.</p>
+<p>The current projects using <code>FindBugs</code> can make a shift to <code>SpotBugs</code> by following the <a href="http://spotbugs.readthedocs.io/en/latest/migration.html">migration manual</a></p>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<ul>
+  <li><a href="http://findbugs.sourceforge.net/manual/datamining.html">Data mining of bugs with FindBugs</a>: The data for each analysis will be collected and you can use these statistics for data mining.</li>
+  <li><a href="http://findbugs.sourceforge.net/manual/analysisprops.html#analysisproptable">Configure Analysis Properties</a>: You can define properties to configure options for some checks. For example, you can define the assertion methods in your project
+    so that null pointer dereference bug detector will not raise violations if assertion methods are used.</li>
+  <li><a href="http://findbugs.sourceforge.net/manual/annotations.html">Use annotations</a>: You can use annotations to indicate your intents so that FindBugs can issue warnings more appropriately.</li>
+  <li><a href="https://www.ibm.com/developerworks/library/j-findbug2/">Writing custom detectors</a>: You can follow the tutorial step by step to write your customised detector.</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+  <li><a href="http://findbugs.sourceforge.net">FindBugs Official Website</a>: Official website of FindBugs. You can find more documentations here.</li>
+  <li><a href="http://www.cs.cmu.edu/~aldrich/courses/654/tools/Sandcastle-FindBugs-2009.pdf">An Evaluation of FindBugs</a>: Analysis of FindBugs in 2009's version, some content may be outdated. Useful for understanding the benefits and drawbacks.</li>
+  <li><a href="https://www.ibm.com/developerworks/library/j-findbug1/">Improve the quality of your code</a>: Some examples showing the bugs reported by FindBugs. You can get a rough idea of how FindBugs will help you in your project.</li>
+</ul>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="..\..\markbind\js\vue.min.js"></script>
+<script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+</script>
+<script src="..\..\markbind\js\setup.js"></script>
+</html>

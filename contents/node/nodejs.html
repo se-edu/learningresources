@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction to Node.js</title>
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+<div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<h1 id="introduction-to-nodejs">Introduction to Node.js</h1>
+<p>Author: Rachael Sim</p>
+<h1 id="overview">Overview</h1>
+<p><em>This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&amp;%20performance/README.md#you-dont-know-js-async--performance">asynchronous programming section of the You Don't Know JS guide </a> as asynchronous programming is key in Node.</em></p>
+<blockquote>
+  <p><em>Node.js</em> is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--<a href="https://nodejs.org">https://nodejs.org</a></sub></p>
+</blockquote>
+<p>Node is mostly used in back-end and server side scenarios. For example, LinkedIn mobile app backend is built on Node JS and Uber built its massive matching system between customers and drivers on Node.js. However, Node can also be used in the front-end
+  to automate tasks such as building, testing, pre and post processing code.</p>
+<h1 id="benefits">Benefits</h1>
+<p>Why should you use Node?</p>
+<h2 id="benefit-1-easy-to-get-started">Benefit 1: Easy to get started</h2>
+<p>To install Node, simply download the installer from the <a href="https://nodejs.org/en/download/">official Node.js website</a> based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install and
+  manage node.js packages. The use of npm will be explained in the next section.</p>
+<p>Here is an example of how to write a working Node.js server taken from <a href="https://codeburst.io/getting-started-with-node-js-a-beginners-guide-b03e25bca71b">codeburst</a>.</p>
+<p>It is extremely short and simple but it demonstrates how a Node.js application import required modules, create a server to listen to client's request, read the request and returns a response.</p>
+<p>Create a file <code>server.js</code> with following content:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);
+
+<span class="hljs-keyword">const</span> hostname = <span class="hljs-string">'127.0.0.1'</span>;
+<span class="hljs-keyword">const</span> port = <span class="hljs-number">3000</span>;
+
+<span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+  res.statusCode = <span class="hljs-number">200</span>;
+  res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'text/plain'</span>);
+  res.end(<span class="hljs-string">'Hello World'</span>);
+});
+server.listen(port, hostname, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server running at http://'</span> + hostname + <span class="hljs-string">':'</span> + port + <span class="hljs-string">'/'</span>);
+});
+</code></pre>
+<p>After you save the file, you can execute it from your terminal:</p>
+<pre class="hljs"><code>$ node server.js
+Server running at http://127.0.0.1:3000/
+</code></pre>
+<p>To test the server, open a browser tab and navigate to <a href="http://localhost:3000/">http://localhost:3000/</a>. You should see 'Hello world'.</p>
+<p>Read on to find out about how to incorporate external dependencies, manage them and use Node's module system to organize your code.</p>
+<h2 id="benefit-2-avoid-synchronization-problems-and-overheads">Benefit 2: Avoid synchronization problems and overheads</h2>
+<p>Node is designed to be <strong>event-driven</strong>. When an event happens e.g. an I/O event is complete, the event handler/callback function will be enqueued in a queue where it will be subsequently scheduled to run by the <a href="https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c">event loop</a>.
+  The main event loop (where Javascript code is executed) is single-threaded.</p>
+<p>This means that we can avoid thread overheads and synchronization problems including deadlocks and race conditions.</p>
+<h2 id="benefit-3-fast-for-io-intensive-tasks">Benefit 3: Fast for I/O intensive tasks</h2>
+<p>This is due to the <strong>non-blocking</strong> I/O model.</p>
+<p>When file and other I/O operations requests are made in Python or Java, they are blocking -- subsequent requests (in the same thread) have to be enqueued and can only be processed after the current operation and request completes. Meanwhile, the program
+  remains idle. In contrast, Node.js has an event loop which delegates the actual tasks to other systems (e.g. file system and databases) and it is almost never blocked after delegation. While an I/O operation is incomplete, the event loop can still process
+  subsequent requests.</p>
+<h2 id="benefit-4-use-javascript-for-both-front-and-back-end-development">Benefit 4: Use JavaScript for both front and back-end development</h2>
+<p>Using Node for back-end development makes it possible to share and reuse code between the front-end and back-end. Teams can be more efficient and less reliant on documentation as they can read the code directly. The team can also become more cross-functional
+  as developers can contribute to both development.</p>
+<h2 id="benefit-5-easy-dependency-management-with-npm">Benefit 5: Easy dependency management with npm</h2>
+<p>Node Package Manager (npm) is used to</p>
+<ul>
+  <li>Search for node.js packages online</li>
+  <li>Install node.js packages from the command line, manage versions and dependencies effectively and easily</li>
+</ul>
+<p>To load dependencies, anyone who want to use your project will just need to run the following command in the command shell.</p>
+<pre class="hljs"><code>$ npm install
+</code></pre>
+<p>This command will locate the <code>package.json</code> file (a file that contains all metadata information about a Node application) in the root directory and install all the dependencies specified in it.</p>
+<p>A basic <code>package.json</code> has the following structure.</p>
+<pre><code class="hljs json">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"folder_name"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index.js"</span>,
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"test"</span>: <span class="hljs-string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>
+  },
+  <span class="hljs-attr">"keywords"</span>: [],
+  <span class="hljs-attr">"author"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"license"</span>: <span class="hljs-string">"ISC"</span>
+}
+</code></pre>
+<p>Every package needs a <strong>name</strong> and a <strong>version</strong>. Together, they should form a unique identifier. When a package is updated, the version number must be updated. A good <strong>description</strong> string and <strong>keywords</strong>  e.g. <code>[&quot;promise&quot;, &quot;lock&quot;]</code> will help others to discover your package.</p>
+<p>The <code>dependencies</code> property specifies dependencies needed in production while the <code>devDependencies</code> property specifies dependencies needed in development. It is also used to ensure consistency.</p>
+<pre><code class="hljs json">{
+  <span class="hljs-attr">"dependencies"</span>: {
+    <span class="hljs-attr">"express"</span>: <span class="hljs-string">"~3.0.1"</span>,
+    <span class="hljs-attr">"sequelize"</span>:<span class="hljs-string">"latest"</span>,
+    <span class="hljs-attr">"bluebird"</span>: <span class="hljs-string">"^3.4.7"</span>,
+    <span class="hljs-attr">"angular"</span>:<span class="hljs-string">"latest"</span>,
+  },
+  <span class="hljs-attr">"devDependencies"</span>: {
+    <span class="hljs-attr">"eslint"</span>: <span class="hljs-string">"^4.16.0"</span>,
+    <span class="hljs-attr">"eslint-config-airbnb-base"</span>: <span class="hljs-string">"^12.1.0"</span>,
+    <span class="hljs-attr">"eslint-plugin-import"</span>: <span class="hljs-string">"^2.8.0"</span>
+  }
+}
+</code></pre>
+<p>The <code>dependencies</code> property maps to an object that has the name and version range for each dependency. It is common to find carets (<code>^</code>) and tildes (<code>~</code>) in the version range. To understand what they are for, checkout
+  <a href="https://nodesource.com/blog/semver-a-primer/">NodeSource's article on semvers</a>. It is important to specify an appropriate version range to ensure consistency and so that users and developers will have compatible versions. For example, it
+  is not advisable to always use the latest version of a dependency as it might introduce breaking changes (e.g. deprecate API) and the use of different versions by different developers and users might make debugging harder.</p>
+<p>It is possible and easier to install a new dependency and update <code>package.json</code> directly from the command line with</p>
+<pre class="hljs"><code>$ npm install &lt;package_name&gt; --save
+</code></pre>
+<p>When a dependency is installed, the package's code will be added to the local <code>/node_modules</code> folder.</p>
+<p>The <a href="#benefit-7-easy-to-reuse-code-from-others">module section</a> describes how to import packages in your code.</p>
+<h2 id="benefit-6-npm-scripts-is-versatile-and-help-to-save-time-in-the-development-process">Benefit 6: npm <code>scripts</code> is versatile and help to save time in the development process</h2>
+<p><code>package.json</code> also contains a <code>scripts</code> property. It is a useful tool that can be used to perform repetitive tasks such as testing and building. <code>scripts</code> takes in an object. For each property, the key is the name of
+  the command and the corresponding value is the actual command that will be run.</p>
+<p>For example, inside your <code>package.json</code>, you might have</p>
+<pre><code class="hljs json">{
+  <span class="hljs-attr">"scripts"</span>: {
+      <span class="hljs-attr">"build"</span>: <span class="hljs-string">"node app.js"</span>,
+      <span class="hljs-attr">"lint"</span>: <span class="hljs-string">"eslint **/*.js"</span>,
+      <span class="hljs-attr">"lint-fix"</span>: <span class="hljs-string">"eslint --fix **/*.js"</span>
+  }
+}
+</code></pre>
+<p>Running <code>npm run build</code> in the command shell will execute <code>node app.js</code> and similarly <code>npm run lint-fix</code> will fix your linting errors in your JavaScript files. npm scripts are much more powerful - you can use them as shortcuts
+  to <a href="https://css-tricks.com/why-npm-scripts/">uglify JavaScript, auto-prefix CSS</a> and even execute multiple tasks at a go. To find out more about how you can use npm scripts, refer to <a href="https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633">freeCodeCamp's Introduction to NPM Scripts</a>.</p>
+<h2 id="benefit-7-easy-to-reuse-code-from-others">Benefit 7: Easy to reuse code from others</h2>
+<p>Node module system allows you to include other Javascript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.</p>
+<p>Node comes bundled with useful <a href="https://nodejs.org/api/">core modules</a> such as the <code>fs</code> (file system) module which includes classes, methods and events to deal with file I/O operations and the <code>http</code> module which helps
+  Node to transfer data over HTTP.</p>
+<p>There are also useful and well-tested non-core modules maintained by the community and external developers such as <em>Bluebird</em> for promises. Before importing them, remember to install them and include them in your <code>package.json</code> dependencies
+  by following the instructions from the <a href="#benefit-5-easy-dependency-management-with-npm">npm section</a>.</p>
+<p>Importing modules is simple - just use the <code>require()</code> function and provide the module identifier or the file path.</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>); <span class="hljs-comment">// import a core module</span>
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">Promise</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bluebird'</span>); <span class="hljs-comment">// import a non-core module</span>
+</code></pre>
+<p>Node will first check if the module identifier passed to <code>require</code> is a core module or a relative path. If so, it will return the core module or the object which references the value of <code>module.exports</code> in the specified file path
+  respectively. Otherwise, Node will attempt to load the module from the <code>node_modules</code> folder in the parent directory of the current module.</p>
+<h2 id="benefit-8-good-support">Benefit 8: Good support</h2>
+<p>npm (Node Package Manager) is the largest ecosystem of open source libraries in the world. You can find a wide range of helpful and well-tested packages that can serve your needs on <a href="https://www.npmjs.com/">npmjs</a>.</p>
+<h2 id="benefit-9-support-for-better-code-organization">Benefit 9: Support for better code organization</h2>
+<p>We can also create separate files and modules in our codebase such that each module is focused on a single functionality. This makes your code more maintainable and testable.</p>
+<p>To export the <code>Parser</code> constructor in <code>parser.js</code>,</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parser</span>(<span class="hljs-params">options</span>) </span>{
+    <span class="hljs-keyword">this</span>._options = options || {};
+}
+
+Parser.prototype.parse = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">content</span>) </span>{
+  <span class="hljs-comment">// insert code here</span>
+}
+<span class="hljs-built_in">module</span>.exports = Parser; <span class="hljs-comment">// override the exports object</span>
+</code></pre>
+<p>The Parser constructor will then be returned whenever the <code>require</code> function is used to include the <code>Parser</code> module. It can be used to create Parser objects in other files in the project, for example,</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> parser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../parser'</span>) <span class="hljs-comment">// import content from parser.js based on relative file path. The js extension is assumed and can be excluded.</span>
+
+<span class="hljs-keyword">const</span> content = <span class="hljs-string">'some content'</span>;
+<span class="hljs-keyword">const</span> newParser = <span class="hljs-keyword">new</span> Parser();
+newParser.parse(content);
+</code></pre>
+<p>To better understand how to use <code>module.exports</code>, checkout <a href="http://stackabuse.com/how-to-use-module-exports-in-node-js/">Tendai Mutunhire's article</a>.</p>
+<h1 id="use-cases">Use cases</h1>
+<p>Node.js is <strong>good</strong> for</p>
+<ul>
+  <li><strong>Processing high volumes of IO-bound requests</strong>. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than other usual servers (such as those written in Ruby on Rails). This makes
+    the Node server faster and more scalable.</li>
+  <li><strong>Real time apps</strong> where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as Trello and Google
+    Docs. Node.js is a good choice as it can handle multiple client requests (even while waiting for responses).</li>
+  <li><strong>Single-page apps</strong> where a lot of processing and rendering is done on the client's side and the backend server only needs to provide a simple API. Node can process many requests with low response times. In addition, you can reuse and
+    share code, such as those for validation, between the client and server.</li>
+</ul>
+<p>However, Node.js is <strong>not suitable</strong> for</p>
+<ul>
+  <li><strong>CPU-intensive jobs</strong>. Remember that Node.js is single-threaded. If the thread is busy doing CPU-heavy operations, it will not be able to process incoming requests timely. This removes the biggest advantage of Node. Perhaps, you should
+    consider an alternative technology such as Go which supports concurrency.</li>
+</ul>
+<p>To find out more about when you should or should not use Node.js, checkout these articles by <a href="https://www.netguru.co/blog/use-node-js-backend">netguru</a> and <a href="https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e">Node.js foundation</a>.</p>
+<h1 id="resources">Resources</h1>
+<ul>
+  <li>Try out Node.js online - <a href="https://runkit.com/home">Node prototyping with Runkit</a></li>
+  <li>A guide on asynchronous programming in JS - <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&amp;%20performance/README.md#you-dont-know-js-async--performance">You Don't Know JS: Async &amp; Performance</a></li>
+  <li>A comprehensive introduction to Node - <a href="https://github.com/maxogden/art-of-node/">The art of node</a></li>
+  <li>Making better use of npm scripts - <a href="https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">How to Use npm as a Build Tool</a></li>
+  <li>Advice on how to write clean code that makes it easy to add new features - <a href="https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/">Fundamental rules of a Node.js project structure</a></li>
+  <li>A compilation of useful node modules - <a href="https://github.com/sindresorhus/awesome-nodejs">Awesome Nodejs</a></li>
+  <li>A summary and curation of the top-ranked content on Node.js best practices - <a href="https://github.com/i0natan/nodebestpractices">Node.js Best Practices</a></li>
+  <li>Node.js architecture and features - <a href="https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7">All About Node.Js You Wanted To Know</a></li>
+  <li>More about <code>package.json</code> - <a href="https://docs.npmjs.com/files/package.json">npm official documentation on package.json</a>.</li>
+</ul>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="..\..\markbind\js\vue.min.js"></script>
+<script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+</script>
+<script src="..\..\markbind\js\setup.js"></script>
+</html>

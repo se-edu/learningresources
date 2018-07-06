@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevOps</title>
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+<div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<h1 id="devops">DevOps</h1>
+<p>Authors: <a href="https://github.com/whipermr5">John Yong</a></p>
+<h2 id="what-is-devops">What is DevOps?</h2>
+<blockquote>
+  <p>“DevOps is the practice of operations and development engineers participating together in the entire service lifecycle, from design through the development process to production support.” — <a href="https://theagileadmin.com/what-is-devops/">the agile admin</a></p>
+</blockquote>
+<p>The term <strong>DevOps</strong> comes from the amalgamation of two words - <strong>Dev</strong>elopment and <strong>Op</strong>eration<strong>s</strong>. While there are many definitions and opinions out there about what DevOps really is, and no one
+  true answer, most agree that it is the idea of Developers and Operations working together to achieve a goal (<a href="https://blog.xebialabs.com/2015/04/23/best-guide-to-getting-started-in-devops/">source</a>). This involves a <strong>shift in mindset</strong>  away from the traditional view of Development and Operations as two distinct teams with few overlapping responsibilities, to a new mindset where developers and operations engineers communicate, collaborate and share the responsibility of developing
+  and delivering software.</p>
+<p>Indeed, some see DevOps as a culture shift that involves more than just developers and operations teams, but also everyone involved in delivering value to end users, including testers and Quality Assurance, Project Management and Human Resources teams
+  (<a href="http://blog.nwcadence.com/devops-culture-not-team/">source</a>). However, this document will focus more on the development and operations side of DevOps, which is what budding software engineers like yourself need to know.</p>
+<blockquote>
+  <p>Tip: for a comprehensive discussion of what DevOps is and is not, refer to <em>the agile admin</em>'s article, <a href="https://theagileadmin.com/what-is-devops/">What Is DevOps?</a></p>
+</blockquote>
+<h2 id="aspects-of-devops">Aspects of DevOps</h2>
+<p>While DevOps is predominantly an organisational culture and mindset, there are several aspects it covers that you, as a software engineering student, need to be familiar with before entering the industry. These are outlined in the DevOps toolchain (
+  <a
+    href="https://en.wikipedia.org/wiki/DevOps#DevOps_toolchain">source</a>):</p>
+<ol>
+  <li>Code</li>
+  <li>Build</li>
+  <li>Test</li>
+  <li>Package</li>
+  <li>Release</li>
+  <li>Configure</li>
+  <li>Monitor</li>
+</ol>
+<p>These can be roughly summarised into four major aspects:</p>
+<h3 id="code-development-review">Code Development &amp; Review</h3>
+<p>This includes using version control tools, following a process when developing, frequently merging code with a central branch, and going through a code review process.</p>
+<h4 id="relevant-tools">Relevant Tools</h4>
+<p>Version Control Software (VCS)</p>
+<ul>
+  <li><a href="https://git-scm.com/">Git</a></li>
+  <li><a href="https://www.mercurial-scm.org/">Mercurial</a></li>
+</ul>
+<p>Web-based Hosted VCS</p>
+<ul>
+  <li><a href="https://github.com/">GitHub</a></li>
+  <li><a href="https://about.gitlab.com/">GitLab</a></li>
+  <li><a href="https://bitbucket.org/">BitBucket</a></li>
+</ul>
+<h3 id="build-test-automation">Build &amp; Test Automation</h3>
+<p>Involves using continuous integration tools that automatically build and test your software upon every push to a code repository (Git, Mercurial, etc.), so you don't have to do it yourself. They can also be configured to run on specific branches or pull
+  requests.</p>
+<h4 id="relevant-tools-2">Relevant Tools</h4>
+<p>Local Build Tools</p>
+<blockquote>
+  <p>In addition to automating builds, these also manage dependencies</p>
+</blockquote>
+<ul>
+  <li><a href="https://gradle.org/">Gradle</a></li>
+  <li><a href="http://ant.apache.org/">Ant</a></li>
+  <li><a href="https://maven.apache.org/">Maven</a></li>
+</ul>
+<p>Hosted CI Tools</p>
+<blockquote>
+  <p>These integrate with hosted VCS solutions like GitHub</p>
+</blockquote>
+<ul>
+  <li><a href="https://travis-ci.org/">Travis CI</a></li>
+  <li><a href="https://circleci.com/">Circle CI</a></li>
+  <li><a href="https://jenkins.io/">Jenkins</a> (self-hosted)</li>
+</ul>
+<h3 id="deployment-infrastructure">Deployment &amp; Infrastructure</h3>
+<p>This is about getting your software to run in a live server environment so that it is publicly accessible to end users. It also involves packaging your app such that it can be deployed in different environments.</p>
+<h4 id="relevant-tools-3">Relevant Tools</h4>
+<p>Infrastructure Management Tools</p>
+<ul>
+  <li><a href="https://www.vagrantup.com/">Vagrant</a> - portable virtual development environments</li>
+  <li><a href="https://www.docker.com/">Docker</a> - deployment of applications inside software containers</li>
+  <li><a href="https://www.ansible.com/">Ansible</a> - automated software provisioning, configuration management and deployment</li>
+  <li><a href="https://puppet.com/">Puppet</a> - configure infrastructure with declarative code</li>
+</ul>
+<p>Cloud Infrastructure</p>
+<ul>
+  <li><a href="https://www.digitalocean.com/">DigitalOcean</a> - cloud computing for developers</li>
+  <li><a href="https://aws.amazon.com/">Amazon Web Services</a> - scalable cloud computing services</li>
+</ul>
+<h3 id="monitoring">Monitoring</h3>
+<p>After deployment, monitoring the system for any defects or potential defects is essential to minimise outages (infrastructure monitoring). This aspect also includes application performance management (APM) and log analysis.</p>
+<h4 id="relevant-tools-4">Relevant Tools</h4>
+<ul>
+  <li><a href="https://www.icinga.com/">Icinga</a> - open source system and network monitoring <a href="https://www.digitalocean.com/community/tutorials/how-to-use-icinga-to-monitor-your-servers-and-services-on-ubuntu-14-04">[install guide]</a></li>
+  <li><a href="https://mmonit.com/monit/">Monit</a> - open source monitoring utility that also does auto recovery of services <a href="https://www.digitalocean.com/community/tutorials/lemp-stack-monitoring-with-monit-on-ubuntu-14-04">[install guide]</a></li>
+  <li><a href="https://www.elastic.co/products">ELK (Elasticsearch, Logstash, Kibana)</a> - analytics tools that work well together <a href="https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04">[install guide]</a></li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>As a software engineering student, the best way to get started is to gain some practical experience by trying out the various tools mentioned above. This is a suggested process you can try:</p>
+<ol>
+  <li>Contribute to an open source project on GitHub. Make several pull requests and get used to the flow of code review and frequent integration with the base branch.</li>
+  <li>Integrate build and test automation into an existing project that doesn't already use it (perhaps one of your past programming assignments). Write test cases for the project, put the project on GitHub, integrate Travis CI with it and get Travis to run
+    the tests every time you push a commit.</li>
+  <li>Get familiar with the Ops side of things. Get a DigitalOcean droplet (use free credits from the GitHub education pack) and deploy a web app (any past project that you ran on localhost all the time). Try installing and configuring OpenVPN on the droplet
+    (plus point - you get your own private VPN!)</li>
+  <li>Install a monitoring tool on the same droplet to notify you if the web app or the OpenVPN service goes down. Get it to email/ send you a Telegram message if this happens, and test it by manually stopping the web server/ OpenVPN.</li>
+  <li>Bonus: Try setting up automated deployment so your web app gets updated on the fly when code is pushed to the release branch.</li>
+</ol>
+<h2 id="useful-links">Useful Links</h2>
+<h3 id="quick-references">Quick References</h3>
+<ul>
+  <li><a href="https://aws.amazon.com/devops/what-is-devops/">What is DevOps?</a> - a concise article by Amazon Web Services</li>
+  <li><a href="https://blog.xebialabs.com/2016/03/21/essential-devops-terms/">The Essential DevOps Terms You Need to Know</a> - understand the most commonly used terms in the industry</li>
+</ul>
+<h3 id="further-reading">Further Reading</h3>
+<ul>
+  <li><a href="https://blog.xebialabs.com/2015/04/23/best-guide-to-getting-started-in-devops/">Best Guide to Getting Started In DevOps</a> - recommends various places you can read up more on the topic</li>
+  <li><a href="https://devops.com/9%C2%BD-simple-steps-start-devops-today/">9½ Simple Steps On How To Start With DevOps Today</a> - includes practical suggestions like using a code static analysis tool</li>
+  <li><a href="http://www.ca.com/us/lpg/~/media/Files/eBooks/a-pragmatic-guide-to-getting-started-with-devops.pdf">A Pragmatic Guide to Getting Started with DevOps</a> - more of a management point of view but interesting</li>
+  <li><a href="https://books.google.com.sg/books/about/The_Devops_Handbook.html?id=XrQcrgEACAAJ">The DevOps Handbook: How to Create World-Class Speed, Reliability, and Security in Technology Organizations</a> - about managing tech organisations, written by
+    a CTO</li>
+</ul>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="..\..\markbind\js\vue.min.js"></script>
+<script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+</script>
+<script src="..\..\markbind\js\setup.js"></script>
+</html>

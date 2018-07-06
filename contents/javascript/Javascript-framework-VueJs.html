@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VueJs</title>
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+<div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<h1 id="vuejs">VueJs</h1>
+<p>Author: <a href="https://github.com/LuLechuan">Lu Lechuan</a></p>
+<p>VueJs (also known as Vue) is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainablity.</p>
+<h2 id="creating-a-simple-project-in-vuejs">Creating a Simple Project in VueJs</h2>
+<h4 id="installation">Installation</h4>
+<p>There are <a href="https://vuejs.org/v2/guide/installation.html">multiple ways to install VueJs</a> and they are all easy. For example, one of the easiest ways is to run the npm command <code>$ npm install vue</code>.</p>
+<p>Apart from installing VueJs, you can install <a href="https://github.com/vuejs/vue-devtools#vue-devtools">VueJs development tools</a> in your browser. This will allow you to inspect and debug the components that use VueJs in your projects.</p>
+<h4 id="helloworld-in-vuejs">HelloWorld in VueJs</h4>
+<p>This is a minimal example to show how easy it is to integrate VueJs into your web project:<br><br> The main HTML file</p>
+<pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p>This is inside the javacript file</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue ({
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
+
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">message</span>: <span class="hljs-string">"Hello World"</span>
+  }
+});
+</code></pre>
+<p>Step-by-step explanation of the code:</p>
+<p><b>Step 1:</b> Import VueJs CDN and the JavaScript file in the main HTML file.</p>
+<pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p><b>Step 2:</b> Create an instance of Vue (Vue is an object) in the JavaScript file; bind the instance to one of the component in our html file (e.g. create a component with id <code>root</code> and bind it with the instance of Vue).<br> In this case,
+  only the <code>root</code> component can be accessed in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects.</p>
+<pre><code class="hljs js">  <span class="hljs-keyword">new</span> Vue ({
+    <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
+  });
+</code></pre>
+<pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p><b>Step 3:</b> Specify our data (message: &quot;Hello World&quot;) in the instance of Vue Class.</p>
+<pre><code class="hljs js">  data: {
+    <span class="hljs-attr">message</span>: <span class="hljs-string">"Hello World"</span>
+  }
+</code></pre>
+<p><b>Step 4:</b> Pass the message to the HTML file using double curly brackets.</p>
+<pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p><b>Step 5:</b> Open the brower and we will see &quot;Hello World&quot; being displayed:</p>
+<blockquote>
+  <h2>Hello World</h2>
+</blockquote>
+<h2 id="advantages-and-disadvantages-of-vuejs">Advantages and Disadvantages of VueJs</h2>
+<h4 id="advantages-of-vuejs">Advantages of VueJs</h4>
+<ol>
+  <li>
+    <p><strong>Approachable:</strong><br> VueJs is very easy to learn. Compared to other framework such as Angular and ReactJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day.
+      An example is provided below:<br><br> How is iteration like in ReactJs:<br><br> The JavaScript file in ReactJs</p>
+    <pre><code class="hljs js"><span class="hljs-keyword">var</span> Iteration = React.createClass({
+   getInitialState() {
+     <span class="hljs-keyword">return</span> {
+       <span class="hljs-attr">array</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]
+     }
+   },
+   render() {
+     <span class="hljs-keyword">this</span>.state.array.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date</span>) </span>{
+       <span class="hljs-keyword">return</span> (
+         <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{date}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+       )
+     });
+   }
+});
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Iteration</span> /&gt;</span>, document.getElementById('array'));
+</span></code></pre>
+    <p>The HTML file in ReactJs</p>
+    <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+    <p>How is iteration like in VueJs:<br><br> The JavaScript file in VueJs</p>
+    <pre><code class="hljs js"><span class="hljs-keyword">var</span> Iteration = <span class="hljs-keyword">new</span> Vue({
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#array'</span>,
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">array</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]
+  }
+});
+</code></pre>
+    <p>The HTML file in VueJs</p>
+    <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"date in array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Progressive:</strong><br> VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that
+      if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follow:</p>
+    <blockquote>
+      <p>Vue.js is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application,
+        making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).</p>
+      <p>-- <a href="https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/">[source]</a></p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Versatile:</strong><br> VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.</p>
+  </li>
+  <li>
+    <p><strong>Clean:</strong><br> VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.</p>
+  </li>
+</ol>
+<h4 id="disadvantages-of-vuejs">Disadvantages of VueJs</h4>
+<ol>
+  <li>
+    <p><strong>Relatively small size community:</strong><br> VueJs is a relatively new JavaScript framework as compared to Angular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate
+      yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.</p>
+  </li>
+  <li>
+    <p><strong>Language barriers:</strong><br> A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might
+      be some language barriers for an English speaking developer seeking for VueJs resources.</p>
+  </li>
+</ol>
+<h4 id="detailed-comparison-of-vuejs-with-other-javascript-frameworks-can-be-found-from">Detailed Comparison of VueJs with other JavaScript frameworks can be found from:</h4>
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/comparison.html">Vue Guild: Comparison with Other Frameworks</a></li>
+  <li><a href="https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176">Angular vs React vs Vue</a></li>
+</ul>
+<h2 id="links-to-vuejs-tutorials-and-practices">Links to VueJs tutorials and practices</h2>
+<ul>
+  <li><a href="https://vuejs.org/">VueSchool</a></li>
+  <li><a href="https://laracasts.com/series/learn-vue-2-step-by-step">Laracast</a></li>
+  <li><a href="https://vuetifyjs.com/zh-Hans/">Vuetify</a></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://vuejs.org/">VueJS Official Website</a></li>
+</ul>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="..\..\markbind\js\vue.min.js"></script>
+<script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+</script>
+<script src="..\..\markbind\js\setup.js"></script>
+</html>

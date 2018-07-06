@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction to Haskell</title>
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+<div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<h1 id="introduction-to-haskell">Introduction to Haskell</h1>
+<p>Author: Thenaesh Elango</p>
+<p><strong>Table of Contents</strong></p>
+<ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#getting-started">Getting Started</a>
+    <ul>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#system-wide-installation">System-Wide Installation</a></li>
+      <li><a href="#stack-installation">Stack Installation</a></li>
+      <li><a href="#usage">Usage</a></li>
+    </ul>
+  </li>
+  <li><a href="#whirlwind-tour">Whirlwind Tour</a>
+    <ul>
+      <li><a href="#types">Types</a></li>
+      <li><a href="#general-functional-programming">General Functional Programming</a></li>
+      <li><a href="#typeclasses">Typeclasses</a></li>
+    </ul>
+  </li>
+  <li><a href="#common-haskell-idioms">Common Haskell Idioms</a>
+    <ul>
+      <li><a href="#functors">Functors</a></li>
+      <li><a href="#applicative-functors">Applicative Functors</a></li>
+      <li><a href="#monads">Monads</a></li>
+    </ul>
+  </li>
+  <li><a href="#guides">Guides</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<p>Haskell is a purely functional programming language with strong, static, inferred typing.</p>
+<p>While Haskell has its roots in academia, its emphasis on purity and side-effect-free computation makes it a valuable asset in software engineering contexts. Programs written in Haskell tend to be easy to test, refactor and debug, with the compiler usually
+  catching all bugs before the program can even be compiled and run. Consequently, Haskell codebases are extraordinarily stable.</p>
+<p>Here's an example of a Haskell program that reads a string of numbers, prints the sum of the numbers and repeats the process until the string <code>&quot;quit&quot;</code> is entered. This shall serve as our Hello World.</p>
+<pre><code class="hljs haskell"><span class="hljs-comment">-- the entry point of the program</span>
+<span class="hljs-title">main</span> :: <span class="hljs-type">IO</span> ()
+<span class="hljs-title">main</span> = <span class="hljs-keyword">do</span>
+    str &lt;- getLine
+    <span class="hljs-keyword">if</span> str == <span class="hljs-string">"quit"</span>
+        <span class="hljs-keyword">then</span> return ()
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">do</span>
+            <span class="hljs-keyword">let</span> sumOfNumbers = sumAllNumbersInString str
+            putStrLn $ show sumOfNumbers
+            main
+
+<span class="hljs-title">sumAllNumbersInString</span> :: <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Int</span>
+<span class="hljs-title">sumAllNumbersInString</span> str = sumAll $ extractInts $ tokenize str
+
+<span class="hljs-comment">-- sums up a list of integers using a higher-order function (the left fold)</span>
+<span class="hljs-title">sumAll</span> :: [<span class="hljs-type">Int</span>] -&gt; <span class="hljs-type">Int</span>
+<span class="hljs-title">sumAll</span> = foldl (+) <span class="hljs-number">0</span>
+
+<span class="hljs-comment">-- convert each string of digits in a list to an actual integer</span>
+<span class="hljs-title">extractInts</span> :: [<span class="hljs-type">String</span>] -&gt; [<span class="hljs-type">Int</span>]
+<span class="hljs-title">extractInts</span> = fmap read
+
+<span class="hljs-comment">-- split string by spaces using a built-in function</span>
+<span class="hljs-title">tokenize</span> :: <span class="hljs-type">String</span> -&gt; [<span class="hljs-type">String</span>]
+<span class="hljs-title">tokenize</span> = words
+</code></pre>
+<p>Haskell is widely used in a whole range of industries, including banks, financial companies, technology companies and engineering companies use Haskell in a variety of systems. A comprehensive list may be found
+  <a href="https://wiki.haskell.org/Haskell_in_industry">here</a>.</p>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="installation">Installation</h2>
+<p><strong>This tutorial, in general, assumes a <em>system-wide installation</em> of the Haskell
+Platform.</strong> This is primarily for simplicity. It is perfectly acceptable to write small programs or code not intended for production in this manner.</p>
+<p>When using Haskell in an actual project, however, it is <strong>strongly-recommended</strong> to use Stack. Not doing so may cause dependency management to become a nightmare.</p>
+<h3 id="system-wide-installation">System-Wide Installation</h3>
+<p>For new users, Haskell may be quickly and easily installed by downloading the
+  <a href="https://www.haskell.org/platform/">Haskell Platform</a> for their respective operating systems. The Haskell Platform contains many common and important Haskell libraries, in addition to the Glasgow Haskell Compiler (GHC).</p>
+<p>At the time of writing, the Haskell Platform has binaries available for all common operating systems, and many uncommon ones as well.</p>
+<h3 id="stack-installation">Stack Installation</h3>
+<p>For Haskell projects of significant size, it may be necessary to control the exact versions of the compiler and libraries used. For such use cases, the system-wide installation method above may prove unwieldy and inadequate. In cases like these, it may
+  be preferable to have an entire Haskell environment just for that project, together with a curated set of libraries.</p>
+<p>In such a scenario, <a href="https://www.haskellstack.org">Stack</a> may come in handy. Stack is a package manager of sorts for Haskell, similar to NPM. Installation instructions may be found in the
+  <a href="https://docs.haskellstack.org/en/stable/README/">Stack Documentation</a>, and is fairly standard.</p>
+<p>A new Stack project may be created and set up with the following:</p>
+<pre><code class="hljs sh"><span class="hljs-comment"># create the project skeleton</span>
+stack new <span class="hljs-variable">${PROJECT_NAME}</span>
+
+<span class="hljs-comment"># go into the project source directory</span>
+<span class="hljs-built_in">cd</span> <span class="hljs-variable">${PROJECT_NAME}</span>
+
+<span class="hljs-comment"># install GHC for the project</span>
+stack setup
+
+<span class="hljs-comment"># compile the project</span>
+stack build
+
+<span class="hljs-comment"># run the project executable</span>
+stack <span class="hljs-built_in">exec</span> <span class="hljs-variable">${PROJECT_NAME}</span>-exe
+</code></pre>
+<p>The command <code>stack new</code> is used to create a new project, which contains a skeleton already set up. This skeleton includes a <code>${PROJECT_NAME}.cabal</code> file, which contains nearly the entire configuration for the project (compiler/library
+  versions, modules to be exposed, build targets, etc), and is best thought of as a sort of <code>package.json</code> or <code>Gemfile</code> for Stack.</p>
+<p>The command <code>stack setup</code> downloads and installs GHC. Stack installs GHC versions into an isolated location in a user's home directory, and does not add them to the system path. The version used for any particular project depends on the setting
+  in the project's <code>${PROJECT_NAME}.cabal</code> file.</p>
+<p>The commands <code>stack build</code> and <code>stack exec</code> are used to build and run the project. The executable name for a project named Project is <code>Project-exe</code>. This name is configurable in <code>Project.cabal</code>.</p>
+<p>The rest of the Stack documentation may be found in the
+  <a href="https://docs.haskellstack.org/en/stable/GUIDE/">official guide</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>The command <code>ghci</code> may be used to invoke the GHC interpreter. This launches an
+  <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> where Haskell code can be entered and evaluated interactively. This is a very useful tool when first learning Haskell, and also when debugging code that fails to compile.
+</p>
+<p>The command <code>ghc</code> may be used to compile Haskell code down to machine code. The invocation of <code>ghc</code> is very similar to that of <code>gcc</code>.</p>
+<p>When using Stack, simply prefix the commands with <code>stack</code>.</p>
+<h1 id="whirlwind-tour">Whirlwind Tour</h1>
+<h2 id="types">Types</h2>
+<p>Haskell is statically typed, meaning that every variable binds to a value of a specified type. Haskell is also strongly-typed, meaning that every value has a well-defined type.</p>
+<h3 id="basic-types">Basic Types</h3>
+<p>We specify types explicitly by postfixing the variable names with the type.</p>
+<pre><code class="hljs haskell">    a :: <span class="hljs-type">Int</span>
+    a = <span class="hljs-number">5</span>
+
+    <span class="hljs-comment">-- unbounded integer type, similar to Java BigInt</span>
+    b :: <span class="hljs-type">Integer</span>
+    b = product [<span class="hljs-number">1.</span><span class="hljs-number">.1000</span>] <span class="hljs-comment">-- this is the factorial of 1000</span>
+
+    pi :: <span class="hljs-type">Double</span>
+    pi = <span class="hljs-number">3.141592654</span>
+</code></pre>
+<p>Haskell has very powerful type inference engine, so it is possible to omit the type definitions in most cases.</p>
+<pre><code class="hljs haskell">    a = <span class="hljs-number">5</span>
+</code></pre>
+<h3 id="functions-currying">Functions &amp; Currying</h3>
+<p>Functions, which are just values, have types too. It is considered good practice in Haskell to specify types for toplevel functions, as a form of documentation, even though the compiler is likely able to infer types.</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- input:      x of type Double</span>
+    <span class="hljs-comment">-- output: x * x of type Double</span>
+    square :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+    square x = x * x
+
+    <span class="hljs-comment">-- computes the hypotenuse of a right triangle given the other two sides</span>
+    hypotenuse :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+    hypotenuse adj opp = sqrt (square adj + square opp)
+</code></pre>
+<p>If the above syntax is confusing and the comments insufficient, the reader may wish to consult the detailed introduction to Haskell syntax
+  <a href="http://learnyouahaskell.com/starting-out">here</a>.</p>
+<p>The type definition for <code>square</code> is rather obvious. But the type definition of
+  <code>hypotenuse</code> is a little strange. One would expect <code>(Double, Double) -&gt; Double)</code> instead of <code>Double -&gt; Double -&gt; Double</code>. The reason is that functions in Haskell are <a href="https://en.wikipedia.org/wiki/Currying">curried</a>,
+  so a two-parameter function can be called with a single argument, with a one-parameter function (that takes in the remaining argument and produces the value) being returned.
+  <code>(Double, Double) -&gt; Double</code> is actually a function that takes in a <em>single</em> 2-tuple parameter, which is different from a function that takes in two parameters.</p>
+<p>The <code>-&gt;</code> binds to the right, so <code>Double -&gt; Double -&gt; Double</code> may be written as
+  <code>Double -&gt; (Double -&gt; Double)</code> (<em>a function that takes a double and
+returns a function that takes a double and returns a double</em>). Calling <code>hypotenuse 3 4</code> is also the same as calling <code>(hypotenuse 3) 4</code>, as function application binds to the left.</p>
+<p>We may go even further with currying, by fixing some parameters in the function:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- hypotenuse of a right triangle whose adjacent side is restricted to 3</span>
+    hypotenuseWithAdjacent3 :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+    hypotenuseWithAdjacent3 = hypotenuse <span class="hljs-number">3</span>
+</code></pre>
+<p>This clearly illustrates how currying can be used to reuse and partially specialise code as needed. This idiom comes in handy very often in Haskell, as will be seen later.</p>
+<p>It may be of interest to note that <strong>all</strong> functions in Haskell take in at most one parameter. The illusion of multi-parameter functions is created by currying and left-binding function calls.</p>
+<h3 id="algebraic-data-types-pattern-matching">Algebraic Data Types &amp; Pattern Matching</h3>
+<p>It is possible to create custom data types, either from nothing or from existing types.</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">TrafficSignal</span> = <span class="hljs-type">Red</span> | <span class="hljs-type">Amber</span> | <span class="hljs-type">Green</span></span>
+
+    <span class="hljs-comment">-- define some values of type TrafficSignal, all type-inferred</span>
+    redLight = <span class="hljs-type">Red</span>
+    amberLight = <span class="hljs-type">Amber</span>
+    greenLight = <span class="hljs-type">Green</span>
+</code></pre>
+<p>The <code>TrafficSignal</code> type is an example of creating data types from nothing. We call <code>Red</code>, <code>Amber</code> and <code>Green</code> the value constructors and <code>TrafficSignal</code> itself the type constructor. In this case,
+  a <code>TrafficSignal</code> has 3 possible values, <code>Red</code>, <code>Amber</code> or <code>Green</code>.
+  <strong>Both type and value constructors must start with a capital letter.</strong></p>
+<p>We make use of types in functions by pattern matching on the value constructors. It is necessary to pattern match on all the value constructors; omitting any will cause the compiler to complain of non-exhaustive pattern matches.</p>
+<pre><code class="hljs haskell">    makeTrafficDecision :: <span class="hljs-type">TrafficSignal</span> -&gt; <span class="hljs-type">String</span>
+    <span class="hljs-comment">-- leaving any of these out will cause the compiler to complain</span>
+    makeTrafficDecision <span class="hljs-type">Red</span> = <span class="hljs-string">"Stop"</span>
+    makeTrafficDecision <span class="hljs-type">Amber</span> = <span class="hljs-string">"Carefully Proceed"</span>
+    makeTrafficDecision <span class="hljs-type">Green</span> = <span class="hljs-string">"Go"</span>
+</code></pre>
+<p>It is also possible to create data types that encapsulate/contain other data types. The value constructors in this case take parameters instead of being bare. Pattern matching is done by &quot;expanding&quot; the value constructor.</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">HttpRequest</span> = <span class="hljs-type">Get</span> <span class="hljs-type">String</span> | <span class="hljs-type">Post</span> <span class="hljs-type">String</span></span>
+
+    handleRequest :: <span class="hljs-type">HttpRequest</span> -&gt; <span class="hljs-type">String</span>
+    <span class="hljs-comment">-- the ++ denotes string concatenation in this context</span>
+    handleRequest (<span class="hljs-type">Get</span> string) = <span class="hljs-string">"Get request performed on "</span> ++ string
+    <span class="hljs-comment">-- we use _ to denote that we don't care about the actual value</span>
+    handleRequest (<span class="hljs-type">Post</span> _) = <span class="hljs-string">"Post request not supported"</span>
+</code></pre>
+<p>There is also an additional way to declare data types. Suppose we had a C++ class like so:</p>
+<pre><code class="hljs cpp">    <span class="hljs-comment">// we are omitting trivial details like constructors</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Box</span> {</span>
+        <span class="hljs-keyword">double</span> length;
+        <span class="hljs-keyword">double</span> breadth;
+        <span class="hljs-keyword">double</span> height;
+        <span class="hljs-keyword">double</span> density;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getVolume</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;length * <span class="hljs-keyword">this</span>-&gt;breadth * <span class="hljs-keyword">this</span>-&gt;height;
+        }
+        <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">getMass</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;density * <span class="hljs-keyword">this</span>-&gt;getVolume();
+        }
+    };
+</code></pre>
+<p>We could certainly represent a <code>Box</code> as an algebraic data type as follows:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- <span class="hljs-doctag">NOTE:</span> a value constructor can have the same name as the type constructor</span>
+    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Box</span> = <span class="hljs-type">Box</span> <span class="hljs-type">Double</span> <span class="hljs-type">Double</span> <span class="hljs-type">Double</span> <span class="hljs-type">Double</span></span>
+</code></pre>
+<p>But we are missing key information here. Which <code>Double</code> stands for which attribute? In situations like these, we can use Haskell's record syntax:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- define box as a record type</span>
+    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Box</span> = <span class="hljs-type">Box</span> { <span class="hljs-title">length</span> :: <span class="hljs-type">Double</span>, <span class="hljs-title">breadth</span> :: <span class="hljs-type">Double</span>, <span class="hljs-title">height</span> :: <span class="hljs-type">Double</span>, <span class="hljs-title">density</span> :: <span class="hljs-type">Double</span> }</span>
+
+    getVolume :: <span class="hljs-type">Box</span> -&gt; <span class="hljs-type">Double</span>
+    getVolume (<span class="hljs-type">Box</span> { length = l, breadth = b, height = h }) = l * b * h
+
+    getMass :: <span class="hljs-type">Box</span> -&gt; <span class="hljs-type">Double</span>
+    getMass box = getVolume box * density box
+
+    silverBox = <span class="hljs-type">Box</span> { length = <span class="hljs-number">5</span>, breadth = <span class="hljs-number">10</span>, height = <span class="hljs-number">15</span>, density = <span class="hljs-number">10.5</span> }
+    goldBox = <span class="hljs-type">Box</span> <span class="hljs-number">5</span> <span class="hljs-number">10</span> <span class="hljs-number">15</span> <span class="hljs-number">19.3</span> <span class="hljs-comment">-- we can still use normal construction by parameter order</span>
+</code></pre>
+<p>There are a few things to note here, other than the syntax itself. When pattern matching on a record type, we may omit any parameters we do not need (we do not even need to specify <code>_</code>). We may also extract values from the record type by treating
+  the record parameter names as functions from the record type to the parameter type. For instance, <code>density</code> in the above example is actually a
+  <code>Box -&gt; Double</code> function. Doing <code>density silverBox</code> will give the value <code>10.5</code>.</p>
+<h3 id="type-parameters">Type Parameters</h3>
+<p>Consider the division operator on <code>Double</code>. We may be tempted to define it with the type <code>Double -&gt; Double -&gt; Double</code>, but the result may be undefined when dividing by zero. Here's a first stab at a solution to remedy this:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- represents a value that may or may not exist</span>
+    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">MaybeDouble</span> = <span class="hljs-type">Undefined</span> | <span class="hljs-type">Defined</span> <span class="hljs-type">Double</span></span>
+
+    divide :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">MaybeDouble</span>
+    divide _ <span class="hljs-number">0</span> = <span class="hljs-type">Undefined</span>
+    divide x y = <span class="hljs-type">Defined</span> (x / y)
+</code></pre>
+<p>This ensures that division by zero returns a clearly-defined result instead of something weird.</p>
+<p>Now suppose we want to send a HTTP request and retrieve the response data. This response data may not exist as the server may refuse to return the data. We can try to solve the problem in the following manner:</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">MaybeResponse</span> = <span class="hljs-type">NoResponse</span> | <span class="hljs-type">GotResponse</span> <span class="hljs-type">HttpResponse</span></span>
+
+    makeRequest :: <span class="hljs-type">HttpRequest</span> -&gt; <span class="hljs-type">MaybeResponse</span>
+    <span class="hljs-comment">-- implementation details irrelevant</span>
+</code></pre>
+<p>We have <code>MaybeDouble</code> and <code>MaybeResponse</code>, both of which have a common pattern: they represent possible failure of computation. Naturally, we may wish to abstract this out. But all the means of abstraction available to us thus far
+  cannot be used, as we wish to abstract on <em>types</em> rather than values.</p>
+<p>For this purpose, Haskell supports <em>type parameters</em>, much like how C++ has templates and Java has generics.</p>
+<p>We define the following abstraction of failing computations:</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Maybe</span> t = <span class="hljs-type">Nothing</span> | <span class="hljs-type">Just</span> t</span>
+
+    divide :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Maybe</span> <span class="hljs-type">Double</span>
+    divide _ <span class="hljs-number">0</span> = <span class="hljs-type">Nothing</span>
+    divide x y = <span class="hljs-type">Just</span> (x / y)
+
+    makeRequest :: <span class="hljs-type">HttpRequest</span> -&gt; <span class="hljs-type">Maybe</span> <span class="hljs-type">Response</span>
+    <span class="hljs-comment">-- implementation details irrelevant</span>
+</code></pre>
+<p>Note that we introduce an additional parameter <code>t</code> on the left side of the definition. This is known as a type parameter, and <strong>must always be lowercase</strong>. This parameter can then be used in the value constructors as a placeholder
+  for any type that should be there.</p>
+<p>The use of type parameters in this way is similar to the use of generics in Java. We may think of <code>Maybe t</code> as <code>Optional&lt;T&gt;</code>, if that helps to understand the role of <code>t</code>.</p>
+<p>Note that there can be more than one type parameter. An example is <code>Either</code>, which represents the result of a computation that returns values of different types on success or failure:</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Either</span> a b = <span class="hljs-type">Left</span> a | <span class="hljs-type">Right</span> b</span>
+
+    divide :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Either</span> <span class="hljs-type">String</span> <span class="hljs-type">Double</span>
+    divide _ <span class="hljs-number">0</span> = <span class="hljs-type">Left</span> <span class="hljs-string">"Attempt to divide by zero!"</span>
+    divide x y = <span class="hljs-type">Right</span> (x / y)
+</code></pre>
+<p>Type constructors can be curried just like regular functions or value constructors. Therefore, <code>Either String Double</code> is a concrete type, while <code>Either String</code> is a type constructor that takes in the remaining type.</p>
+<p><code>Maybe</code> and <code>Either</code> are both defined in the Haskell prelude library.</p>
+<h3 id="inductive-data-types">Inductive Data Types</h3>
+<p>We can define a data type in terms of itself. Consider, for instance, a tree. A tree can be thought of as either an empty tree, or a node with a left subtree and right subtree attached. We encode it like so:</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Tree</span> t = <span class="hljs-type">EmptyTree</span> | <span class="hljs-type">Node</span> t (<span class="hljs-type">Tree</span> <span class="hljs-title">t</span>) (<span class="hljs-type">Tree</span> <span class="hljs-title">t</span>)</span>
+</code></pre>
+<p>Another classic inductive data type is the singly-linked list. The list is either an empty list or the first element together with the rest of the list. While not canonical, this is a very common representation of lists in the functional programming world:</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">List</span> t = <span class="hljs-type">EmptyList</span> | <span class="hljs-type">Element</span> t (<span class="hljs-type">List</span> <span class="hljs-title">t</span>)</span>
+</code></pre>
+<p>This representation of lists is actually exactly how traditional lists are defined in Haskell, just with different names and notation as will be seen later.</p>
+<p>We are now poised to enter the world of actual functional programming in Haskell.</p>
+<h3 id="further-reading">Further Reading</h3>
+<ul>
+  <li><a href="https://en.wikibooks.org/wiki/Haskell/Type_declarations">Type Declarations</a></li>
+  <li><a href="https://en.wikibooks.org/wiki/Haskell/Pattern_matching">Pattern Matching</a></li>
+  <li><a href="https://en.wikibooks.org/wiki/Haskell/More_on_datatypes">More on Datatypes</a></li>
+</ul>
+<h2 id="general-functional-programming">General Functional Programming</h2>
+<h3 id="functions">Functions</h3>
+<p>A function may be defined in one of several ways. We illustrate the various syntaxes for defining a function below, with more details
+  <a href="http://learnyouahaskell.com/syntax-in-functions">here</a> if needed:</p>
+<pre><code class="hljs haskell">    sumOfSquares :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+    <span class="hljs-comment">-- standard definition</span>
+    sumOfSquares x y  = (x * x) + (y * y)
+     <span class="hljs-comment">-- lambda function</span>
+    sumOfSquares = \x y -&gt; (x * x) + (y * y)
+
+    fizzBuzz :: <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Either</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
+    <span class="hljs-comment">-- the horrible, disgusting, but still perfectly correct way</span>
+    fizzBuzz x = <span class="hljs-keyword">case</span> x `mod` <span class="hljs-number">15</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">of</span>
+                    <span class="hljs-type">True</span> -&gt; <span class="hljs-type">Left</span> <span class="hljs-string">"fizzbuzz"</span>
+                    <span class="hljs-type">False</span> -&gt; <span class="hljs-keyword">case</span> x `mod` <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">of</span>
+                        <span class="hljs-type">True</span> -&gt; <span class="hljs-type">Left</span> <span class="hljs-string">"fizz"</span>
+                        <span class="hljs-type">False</span> -&gt; <span class="hljs-keyword">case</span> x `mod` <span class="hljs-number">5</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">of</span>
+                            <span class="hljs-type">True</span> -&gt; <span class="hljs-type">Left</span> <span class="hljs-string">"buzz"</span>
+                            <span class="hljs-type">False</span> -&gt; <span class="hljs-type">Right</span> x
+    <span class="hljs-comment">-- far more elegant way using guard patterns</span>
+    fizzBuzz x
+        | x `mod` <span class="hljs-number">15</span> = <span class="hljs-type">Left</span> <span class="hljs-string">"fizzbuzz"</span>
+        | x `mod` <span class="hljs-number">3</span> = <span class="hljs-type">Left</span> <span class="hljs-string">"fizz"</span>
+        | x `mod` <span class="hljs-number">5</span> = <span class="hljs-type">Left</span> <span class="hljs-string">"buzz"</span>
+        | otherwise = <span class="hljs-type">Right</span> x
+</code></pre>
+<h3 id="recursion">Recursion</h3>
+<p>Recursion is one of the fundamental themes of functional programming. It is the ability of a function to call itself.</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- Time: O(n)</span>
+    <span class="hljs-comment">-- Space: O(n)</span>
+    factorial :: <span class="hljs-type">Integer</span> -&gt; <span class="hljs-type">Integer</span>
+    factorial <span class="hljs-number">0</span> = <span class="hljs-number">1</span>
+    factorial n = n * factorial (n - <span class="hljs-number">1</span>)
+
+    <span class="hljs-comment">-- Time: O(2^n)</span>
+    <span class="hljs-comment">-- Space: O(n), may vary due to lazy evaluation</span>
+    fibonacci :: <span class="hljs-type">Integer</span> -&gt; <span class="hljs-type">Integer</span>
+    fibonacci <span class="hljs-number">0</span> = <span class="hljs-number">0</span>
+    fibonacci <span class="hljs-number">1</span> = <span class="hljs-number">1</span>
+    fibonacci n = fibonacci (n - <span class="hljs-number">2</span>) + fibonacci (n - <span class="hljs-number">1</span>)
+</code></pre>
+<p>While Haskell has no primitive loop structures, looping can be simulated by recursion. While attempting this in languages in C may cause a stack overflow, Haskell avoids this via <a href="https://en.wikipedia.org/wiki/Tail_call">tail-call optimisation</a>,
+  which can be applied to recursive calls that meet certain requirements.</p>
+<pre><code class="hljs Haskell">    <span class="hljs-comment">-- Time: O(n)</span>
+    <span class="hljs-comment">-- Space: O(1)</span>
+    factorial :: <span class="hljs-type">Integer</span> -&gt; <span class="hljs-type">Integer</span>
+    factorial = factorial' <span class="hljs-number">1</span> <span class="hljs-keyword">where</span>
+        factorial' p <span class="hljs-number">0</span> = p
+        factorial' p n = factorial' (p * n) (n - <span class="hljs-number">1</span>)
+
+    <span class="hljs-comment">-- Time: O(n)</span>
+    <span class="hljs-comment">-- Space: O(1)</span>
+    fibonacci :: <span class="hljs-type">Integer</span> -&gt; <span class="hljs-type">Integer</span>
+    fibonacci <span class="hljs-number">0</span> = <span class="hljs-number">0</span>
+    fibonacci <span class="hljs-number">1</span> = <span class="hljs-number">1</span>
+    fibonacci n = fibonacci' <span class="hljs-number">0</span> <span class="hljs-number">1</span> n <span class="hljs-keyword">where</span>
+        fibonacci a _ <span class="hljs-number">0</span> = a
+        fibonacci' a b n = fibonacci' b (a + b) (n - <span class="hljs-number">1</span>)
+</code></pre>
+<p>We can safely omit the types in the inner function definitions due to type inference. Also note how we freely use currying in the <code>factorial</code> definition.</p>
+<h3 id="lists">Lists</h3>
+<p>As described earlier, a list is an inductive data type, defined as either the empty list or an element concatenated with the rest of the list. The actual list data type is</p>
+<pre><code class="hljs haskell">    <span class="hljs-class"><span class="hljs-keyword">data</span> [] t = [] | (:) t ([] <span class="hljs-title">t</span>)</span>
+</code></pre>
+<p>where <code>:</code> is an infix value constructor.</p>
+<blockquote>
+  <p><strong>IMPORTANT: Infix Functions</strong></p>
+  <p>Any function (a value constructor is really just a function) that takes in two parameters whose name consists of nothing but symbols is infix by default.</p>
+  <p>An infix function like <code>+</code> may be used in prefix form by enclosing in parentheses. For instance, <code>1 + 1</code> is the same as <code>(+) 1 1</code>.<br> In the type definition, the prefix form must be used i.e. <code>(+) :: Int -&gt; Int -&gt; Int</code>.<br>    In the function definition, either is acceptable.</p>
+  <p><a href="https://wiki.haskell.org/Infix_operator">Find out more.</a></p>
+  <p>We will use this concept freely from now on.</p>
+</blockquote>
+<p>Here are several ways to define a list <code>xs :: [Int]</code> containing 2,4,6,8 in that order:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- the crazy way, using prefix notation directly from the list definition</span>
+    xs = (:) <span class="hljs-number">2</span> ((:) <span class="hljs-number">4</span> ((:) <span class="hljs-number">6</span> ((:) <span class="hljs-number">8</span> [])))
+
+    <span class="hljs-comment">-- using infix syntax for (:), still annoying to write</span>
+    xs = <span class="hljs-number">2</span>:(<span class="hljs-number">4</span>:(<span class="hljs-number">6</span>:(<span class="hljs-number">8</span>:[])))
+
+    <span class="hljs-comment">-- taking advantage of binding rules for (:), noiseless and easier to understand at a glance</span>
+    xs = <span class="hljs-number">2</span>:<span class="hljs-number">4</span>:<span class="hljs-number">6</span>:<span class="hljs-number">8</span>:[]
+
+    <span class="hljs-comment">-- using varying amounts of list syntactic sugar provided by the compiler</span>
+    xs = <span class="hljs-number">2</span>:<span class="hljs-number">4</span>:<span class="hljs-number">6</span>:[<span class="hljs-number">8</span>]
+    xs = <span class="hljs-number">2</span>:<span class="hljs-number">4</span>:[<span class="hljs-number">6</span>,<span class="hljs-number">8</span>]
+    xs = <span class="hljs-number">2</span>:[<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>]
+    xs = [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>]
+</code></pre>
+<p>The last representation is most commonly used, while the second last is often used when pattern matching on lists. The rest are almost never seen in practice. However, it is hoped that this pedantic exercise helps the reader understand the true nature
+  of lists: an ordinary inductive data type with some compiler syntactic sugar tacked on.</p>
+<h3 id="list-processing-fold">List Processing - Fold</h3>
+<p>List processing is a very important part of elementary functional programming. This is due to the fact that lists can store large amounts of data, and it is very easy to define powerful abstractions to slice and dice that data in ways typically unknown
+  in imperative programming.</p>
+<p>One common idiom is to loop over a list and aggregate their values.</p>
+<p>It is possible to run over a list and sum their values recursively like so:</p>
+<pre><code class="hljs haskell">    sumList :: [<span class="hljs-type">Int</span>] -&gt; <span class="hljs-type">Int</span>
+    sumList [] = <span class="hljs-number">0</span>
+    sumList (x:xs) = x + sumList xs
+</code></pre>
+<p>Note the infix pattern match <code>(x:xs)</code> as opposed to <code>((:) x xs)</code>. What if we wish to take the product of the elements instead of a sum? Then we would write:</p>
+<pre><code class="hljs haskell">    prodList :: [<span class="hljs-type">Int</span>] -&gt; <span class="hljs-type">Int</span>
+    prodList [] = <span class="hljs-number">1</span>
+    prodList (x:xs) = x * prodList xs
+</code></pre>
+<p>It is clear that some abstraction is in order here. The functions are almost identical except for the aggregating function used and the initial value (0 for sum, 1 for product). We can write a generalised aggregating function:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- 1st parameter is the aggregating function (e.g. (+) or (*))</span>
+    <span class="hljs-comment">-- 2nd parameter is the initial value</span>
+    <span class="hljs-comment">-- 3rd parameter is the list to aggregate</span>
+    aggregate :: (<span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span>) -&gt; <span class="hljs-type">Int</span> -&gt; [<span class="hljs-type">Int</span>] -&gt; <span class="hljs-type">Int</span>
+    aggregate _ initial [] = initial
+    aggregate op initial (x:xs) = op x (aggregate op initial xs)
+</code></pre>
+<p>This is better, but perhaps we could generalise this even further beyond <code>Int</code>. We then arrive at the following, by simply changing the type signature:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- 1st parameter is the aggregating function (e.g. (+) or (*))</span>
+    <span class="hljs-comment">-- 2nd parameter is the initial value</span>
+    <span class="hljs-comment">-- 3rd parameter is the list to aggregate</span>
+    aggregate :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b
+    aggregate _ initial [] = initial
+    aggregate op initial (x:xs) = op x (aggregate op initial xs)
+</code></pre>
+<p>This function is known as <code>foldl</code> in the Haskell prelude library, and there is also a variant called <code>foldr</code> that does the aggregation from the right instead.</p>
+<h3 id="list-processing-map-filter">List Processing - Map &amp; Filter</h3>
+<p>One may wish to take in a list, transform every element in the list, and output the resulting list. This is known as a map, and may be defined as:</p>
+<pre><code class="hljs haskell">    map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+    map _ [] = []
+    map f (x:xs) = (f x):(map f xs)
+</code></pre>
+<p>The type definition itself contains a wealth of information. The <code>map</code> function takes in a &quot;transformer&quot;, the list to be transformed, and return the transformed list. An example of its usage would be:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- xs is [1,4,9,16]</span>
+    xs = map (\x -&gt; x * x) [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]
+</code></pre>
+<p>One may also wish to remove certain elements, that fail some predicate, from a given list. This is known as a filter:</p>
+<pre><code class="hljs haskell">    filter :: (t -&gt; <span class="hljs-type">Bool</span>) -&gt; [t] -&gt; [t]
+    filter _ [] = []
+    filter predicate (x:xs)
+        | predicate x == <span class="hljs-type">True</span> = x:xs
+        | otherwise = xs
+</code></pre>
+<p>This example uses guard patterns. An example of using filter would be:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- xs is [2,4]</span>
+    xs = filter (\x -&gt; x `mod` <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]
+</code></pre>
+<p>It is left as an exercise for the reader to implement <code>map</code> and <code>filter</code> in terms of <code>foldl</code> (or <code>aggregate</code> as defined above, which is the same).</p>
+<h3 id="programming-with-other-inductive-data-types">Programming with Other Inductive Data Types</h3>
+<p>Recursion is a natural fit with inductive data types other than lists. One example would be finding an element in a binary tree:</p>
+<pre><code class="hljs haskell">    find :: <span class="hljs-type">Tree</span> <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Bool</span>
+    find <span class="hljs-type">EmptyTree</span> _ = <span class="hljs-type">False</span>
+    find (<span class="hljs-type">Node</span> x left right) target
+        | x == target = <span class="hljs-type">True</span>
+        | x &lt; target = find left target
+        | x &gt; target = find right target
+</code></pre>
+<p>The above runs in O(log n) as long as the tree is balanced.</p>
+<h3 id="further-reading-2">Further Reading</h3>
+<ul>
+  <li><a href="http://learnyouahaskell.com/syntax-in-functions">Function Syntax</a></li>
+  <li><a href="http://learnyouahaskell.com/higher-order-functions">Higher-Order Functions</a></li>
+</ul>
+<h2 id="typeclasses">Typeclasses</h2>
+<p>Typeclasses are essentially contracts/constraints imposed on types. They are similar to how Java interfaces are constraints imposed on Java classes. When used properly, they are an extremely powerful tool in helping to structure code.</p>
+<h3 id="defining-and-instantiating-typeclasses">Defining and Instantiating Typeclasses</h3>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- "class" here has nothing to do with OOP</span>
+<span class="hljs-class">    <span class="hljs-keyword">class</span> <span class="hljs-type">Eq</span> t <span class="hljs-keyword">where</span></span>
+        (==) :: t -&gt; t -&gt; <span class="hljs-type">Bool</span>
+        (!==) :: t -&gt; t -&gt; <span class="hljs-type">Bool</span>
+        <span class="hljs-comment">-- this ensures that we don't have to define (!==) separately</span>
+        a != b = not (a == b)
+</code></pre>
+<p>We have just defined a typeclass called <code>Eq</code>. As its name probably suggests, this typeclass is used when we wish to define the meaning of equality on types. We then <em>instantiate</em> the typeclass with the <code>TrafficSignal</code> type,
+  like so:</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">instance</span> <span class="hljs-type">Eq</span> <span class="hljs-type">TrafficSignal</span> <span class="hljs-keyword">where</span></span>
+        <span class="hljs-comment">-- note that these are infix function DEFINITIONS</span>
+        <span class="hljs-comment">-- we can define infix operators directly in infix notation</span>
+        <span class="hljs-type">Red</span> == <span class="hljs-type">Red</span>
+        <span class="hljs-type">Amber</span> == <span class="hljs-type">Amber</span>
+        <span class="hljs-type">Green</span> == <span class="hljs-type">Green</span>
+</code></pre>
+<p>We have thus defined <code>(==)</code> completely for <code>TrafficSignal</code>. Note that <code>(!=)</code> now comes for free, since we have defined it in terms of <code>(==)</code> in the typeclass itself.
+</p>
+<p>Here's another example:</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">instance</span> <span class="hljs-type">Eq</span> (<span class="hljs-type">List</span> <span class="hljs-title">t</span>) <span class="hljs-keyword">where</span></span>
+        <span class="hljs-type">EmptyList</span> == <span class="hljs-type">EmptyList</span>
+        (<span class="hljs-type">Element</span> x xs) == (<span class="hljs-type">Element</span> y ys) = (x == y) &amp;&amp; (xs == ys)
+</code></pre>
+<p>Here, we define the equality of a list in terms of its underlying elements. This seems reasonable. However, running this program will give an error. This is because we are attempting to compare the underlying elements (of type <code>t</code>) using <code>(==)</code>,
+  which is not guaranteed to be defined on <code>t</code>.</p>
+<p>The solution, in this case, is to enforce a typeclass constraint prerequisite on <code>t</code> by writing:</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">instance</span> (<span class="hljs-type">Eq</span> <span class="hljs-title">t</span>) =&gt; <span class="hljs-type">Eq</span> (<span class="hljs-type">List</span> <span class="hljs-title">t</span>) <span class="hljs-keyword">where</span></span>
+        <span class="hljs-comment">-- as before</span>
+</code></pre>
+<p>Here is an example of <code>Eq</code> being defined on <code>Tree</code>s:</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">instance</span> (<span class="hljs-type">Eq</span> <span class="hljs-title">t</span>) =&gt; <span class="hljs-type">Eq</span> (<span class="hljs-type">Tree</span> <span class="hljs-title">t</span>) <span class="hljs-keyword">where</span></span>
+        <span class="hljs-type">EmptyTree</span> == <span class="hljs-type">EmptyTree</span>
+        (<span class="hljs-type">Node</span> x left right) == (<span class="hljs-type">Node</span> x' left' right') = (x == x') &amp;&amp; (left == left') &amp;&amp; (right == right')
+
+    tree1 = <span class="hljs-type">Node</span> <span class="hljs-number">1</span> (<span class="hljs-type">Node</span> <span class="hljs-number">2</span> <span class="hljs-type">EmptyTree</span>) (<span class="hljs-type">Node</span> <span class="hljs-number">3</span> <span class="hljs-type">EmptyTree</span>)
+    tree2 = <span class="hljs-type">Node</span> <span class="hljs-number">1</span> (<span class="hljs-type">Node</span> <span class="hljs-number">2</span> <span class="hljs-type">EmptyTree</span>) <span class="hljs-type">EmptyTree</span>
+    tree3 = <span class="hljs-type">Node</span> <span class="hljs-number">1</span> (<span class="hljs-type">Node</span> <span class="hljs-number">2</span> <span class="hljs-type">EmptyTree</span>) <span class="hljs-type">EmptyTree</span>
+
+    <span class="hljs-comment">-- some experiments</span>
+    tree1 == tree2 <span class="hljs-comment">-- False</span>
+    tree2 == tree3 <span class="hljs-comment">-- True</span>
+    tree3 != tree1 <span class="hljs-comment">-- True</span>
+</code></pre>
+<p>We present another common typeclass called <code>Ord</code>, which defines order for a type:</p>
+<pre><code class="hljs haskell">    <span class="hljs-comment">-- anything that instantiates Ord must also instantiate Eq</span>
+    <span class="hljs-comment">-- this makes the typeclass definitions simpler as (==) is already provided and can be used</span>
+<span class="hljs-class">    <span class="hljs-keyword">class</span> (<span class="hljs-type">Eq</span> <span class="hljs-title">t</span>) =&gt; <span class="hljs-type">Ord</span> t <span class="hljs-keyword">where</span></span>
+        <span class="hljs-comment">-- the only one we actually need to implement when instantiating</span>
+        (&lt;) :: t -&gt; t -&gt; <span class="hljs-type">Bool</span>
+
+        <span class="hljs-comment">-- we predefine these and can then get them all for free</span>
+        (&gt;) :: t -&gt; t -&gt; <span class="hljs-type">Bool</span>
+        a &gt; b = not ((a &lt; b) || (a == b))
+
+        (&lt;=) :: t -&gt; t -&gt; <span class="hljs-type">Bool</span>
+        a &lt;= b == (a &lt; b) || (a == b)
+
+        (&gt;=) :: t -&gt; t -&gt; <span class="hljs-type">Bool</span>
+        a &gt;= b = not (a &lt; b)
+</code></pre>
+<h3 id="adding-typeclass-constraints-to-functions">Adding Typeclass Constraints to Functions</h3>
+<p>Consider the following function to check if the elements in the following list are all in ascending order:</p>
+<pre><code class="hljs haskell">    isAscending :: [t] -&gt; <span class="hljs-type">Bool</span>
+    isAscending [] = <span class="hljs-type">True</span> <span class="hljs-comment">-- handle 0-element lists</span>
+    isAscending (x:[]) = <span class="hljs-type">True</span> <span class="hljs-comment">-- handle 1-element lists</span>
+    isAscending (x:y:xs) = (x &lt; y) &amp;&amp; isAscending (y:xs) <span class="hljs-comment">-- recursive case</span>
+</code></pre>
+<p>This function seems reasonable, except for one minor detail: we (and the compiler) are not sure if <code>t</code> can be compared using <code>(&lt;)</code>!. To remedy this, we need to explicitly state that <code>t</code> instantiates <code>Ord</code>,
+  thereby allowing the use of <code>(&lt;)</code>. We do this by adding the constraint in the function type definition:</p>
+<pre><code class="hljs haskell">    isAscending :: (<span class="hljs-type">Ord</span> t) =&gt; [t] -&gt; <span class="hljs-type">Bool</span>
+</code></pre>
+<p>We can now try out the <code>isAscending</code> function:</p>
+<pre><code class="hljs haskell">    isAscending [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>] <span class="hljs-comment">-- False</span>
+    isAscending [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] <span class="hljs-comment">-- True</span>
+    isAscending [] <span class="hljs-comment">-- True</span>
+</code></pre>
+<h3 id="instantiating-typeclasses-with-parameterized-type-constructors">Instantiating Typeclasses with Parameterized Type Constructors</h3>
+<p>Up to this point, we have been instantiating typeclasses with concrete types, such as <code>TrafficSignal</code> and <code>Tree t</code>. It is also possible to instantiate typeclasses with <strong>parameterized</strong> type constructors like <code>Tree</code>  and <code>List</code>.</p>
+<p>Consider the following typeclass <code>Container</code> that is instantiated by types that have some notion of constituent elements and size. For instance, a <code>List</code> has a length and contains elements of some type. A <code>Tree</code> has nodes
+  and a size (number of nodes). The length is independent of type of element contained within.</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">class</span> <span class="hljs-type">Container</span> s <span class="hljs-keyword">where</span></span>
+        <span class="hljs-comment">-- t is an arbitrary unconstrained type</span>
+        size :: s t -&gt; <span class="hljs-type">Int</span>
+</code></pre>
+<p>We can instantiate <code>Container</code> with <code>Tree</code> and <code>List</code>. These are parameterized type constructors, not concrete types. We can even instantiate with <code>Maybe</code>.</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">instance</span> <span class="hljs-type">Container</span> <span class="hljs-type">Tree</span> <span class="hljs-keyword">where</span></span>
+        size <span class="hljs-type">EmptyTree</span> = <span class="hljs-number">0</span>
+        size (<span class="hljs-type">Node</span> _ left right) = <span class="hljs-number">1</span> + size left + size right
+<span class="hljs-class">
+    <span class="hljs-keyword">instance</span> <span class="hljs-type">Container</span> <span class="hljs-type">List</span> <span class="hljs-keyword">where</span></span>
+        size <span class="hljs-type">EmptyList</span> = <span class="hljs-number">0</span>
+        size (<span class="hljs-type">Element</span> _ restOfList) = <span class="hljs-number">1</span> + size restOfList
+<span class="hljs-class">
+    <span class="hljs-keyword">instance</span> <span class="hljs-type">Container</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span>
+        size <span class="hljs-type">Nothing</span> = <span class="hljs-number">0</span>
+        size (<span class="hljs-type">Just</span> _) = <span class="hljs-number">1</span>
+</code></pre>
+<p>As an exercise, the reader may wish to redefine the size of a <code>Tree</code> to mean &quot;height of tree&quot; rather than &quot;number of nodes&quot;. It is necessary to instantiate
+  <code>Container</code> with <code>Tree</code> differently to achieve this. The function
+  <code>max :: (Ord a) =&gt; a -&gt; a -&gt; a</code> may come in handy (<code>Int</code> is an instance of <code>Ord</code>).</p>
+<h3 id="further-reading-3">Further Reading</h3>
+<ul>
+  <li><a href="http://learnyouahaskell.com/making-our-own-types-and-typeclasses">More on Creating Typeclasses</a></li>
+  <li><a href="https://wiki.haskell.org/Typeclassopedia">Collection and Relationship between Standard Typeclasses</a></li>
+</ul>
+<h1 id="common-haskell-idioms">Common Haskell Idioms</h1>
+<h2 id="functors">Functors</h2>
+<p>Consider the <code>map</code> function previously defined. The type of <code>map</code> is <code>(a -&gt; b) -&gt; [a] -&gt; [b]</code>, which means that it operates only on lists. We may imagine extending maps to <code>Tree</code>s and <code>Maybe</code>s
+  in the following manner:</p>
+<pre><code class="hljs haskell">    map :: (a -&gt; b) -&gt; <span class="hljs-type">Tree</span> a -&gt; <span class="hljs-type">Tree</span> b
+    map :: (a -&gt; b) -&gt; <span class="hljs-type">Maybe</span> a -&gt; <span class="hljs-type">Maybe</span> b
+</code></pre>
+<p>The two type definitions above look very similar and suggest a generalization: types that can be mapped over. We call such types <em>functors</em>, and can represent their behaviour with a typeclass.</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">class</span> <span class="hljs-type">Functor</span> f <span class="hljs-keyword">where</span></span>
+        <span class="hljs-comment">-- f is a type constructor that takes in one type parameter</span>
+        fmap :: (a -&gt; b) -&gt; f a -&gt; f b
+<span class="hljs-class">
+
+    <span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> <span class="hljs-type">Tree</span> <span class="hljs-keyword">where</span></span>
+        fmap _ <span class="hljs-type">EmptyTree</span> = <span class="hljs-type">EmptyTree</span>
+        fmap f (<span class="hljs-type">Node</span> x left right) = <span class="hljs-type">Node</span> (f x) (fmap f left) (fmap f right)
+<span class="hljs-class">
+    <span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span>
+        fmap _ <span class="hljs-type">Nothing</span> = <span class="hljs-type">Nothing</span>
+        fmap f (<span class="hljs-type">Just</span> x) = <span class="hljs-type">Just</span> (f x)
+</code></pre>
+<p>We can then map over values of any functor:</p>
+<pre><code class="hljs haskell">    sq x = x * x
+
+    fmap sq (<span class="hljs-type">Just</span> <span class="hljs-number">5</span>) <span class="hljs-comment">-- returns Just 25</span>
+    fmap sq <span class="hljs-type">Nothing</span> <span class="hljs-comment">-- returns Nothing</span>
+
+    fmap sq (<span class="hljs-type">Node</span> <span class="hljs-number">1</span> (<span class="hljs-type">Node</span> <span class="hljs-number">2</span> <span class="hljs-type">EmptyTree</span>) (<span class="hljs-type">Node</span> <span class="hljs-number">3</span> (<span class="hljs-type">Node</span> <span class="hljs-number">4</span> <span class="hljs-type">EmptyTree</span>) <span class="hljs-type">EmptyTree</span>))
+    <span class="hljs-comment">-- returns (Node 1 (Node 4 EmptyTree) (Node 9 (Node 16 EmptyTree) EmptyTree))</span>
+</code></pre>
+<p>More information about functors, including the functor laws, may be found <a href="https://en.wikibooks.org/wiki/Haskell/The_Functor_class">here</a>.</p>
+<h2 id="applicative-functors">Applicative Functors</h2>
+<p>An <em>applicative functor</em> is a functor that allows for a more advanced type of mapping. We shall jump straight into the (abridged) typeclass definition and the example of <code>Maybe</code> as an applicative functor:</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">class</span> (<span class="hljs-type">Functor</span> <span class="hljs-title">f</span>) =&gt; <span class="hljs-type">Applicative</span> f <span class="hljs-keyword">where</span></span>
+        pure :: a -&gt; f a
+        (&lt;*&gt;) :: f (a -&gt; b) -&gt; f a -&gt; f b <span class="hljs-comment">-- generalized map function</span>
+<span class="hljs-class">
+    <span class="hljs-keyword">instance</span> <span class="hljs-type">Applicative</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span>
+        pure x = <span class="hljs-type">Just</span> x
+        <span class="hljs-type">Nothing</span> &lt;*&gt; _ = <span class="hljs-type">Nothing</span>
+        _ &lt;*&gt; <span class="hljs-type">Nothing</span> = <span class="hljs-type">Nothing</span>
+        <span class="hljs-type">Just</span> f &lt;*&gt; <span class="hljs-type">Just</span> x = <span class="hljs-type">Just</span> (f x)
+</code></pre>
+<p>Applicative functors have the concept of <em>lifting</em>, embodied in <code>pure</code>, where a value is taken and placed in the context of a functor. For instance, in the context of <code>Maybe</code>, <code>pure 5</code> returns the value
+  <code>Just 5</code>.</p>
+<p>Applicative functors allow a more general form of mapping, where it is possible to use an N-parameter function to map over N functors. To understand the value of this, consider the following code:</p>
+<pre><code class="hljs haskell">    euclideanDistance :: <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span> -&gt; <span class="hljs-type">Double</span>
+    euclideanDistance x y z = sqrt ((x * x) + (y * y) + (z * z))
+
+    (pure euclideanDistance) &lt;*&gt; <span class="hljs-type">Just</span> <span class="hljs-number">1</span> &lt;*&gt; <span class="hljs-type">Just</span> <span class="hljs-number">2</span> &lt;*&gt; <span class="hljs-type">Just</span> <span class="hljs-number">3</span>
+    <span class="hljs-comment">-- returns Just 3.7416573867739413</span>
+</code></pre>
+<p>The above code can be written with just <code>fmap</code> in the ordinary <code>Functor</code> class, but will involve incredible contortions.</p>
+<p>More information about applicative functors can be found
+  <a href="https://en.wikibooks.org/wiki/Haskell/Applicative_functors">here</a>. There is a lot of additional functionality available in the <code>Applicative</code> typeclass. We have barely scratched the surface.</p>
+<h2 id="monads">Monads</h2>
+<p>No Haskell tutorial will be complete without an introduction to the fabled monad. Monads have been described with various analogies, as well as with notorious phrases from category theory like &quot;a monad is a monoid in the category of endofunctors&quot;.</p>
+<p>None of these are useful for the software engineer, so we dispense with them and opt for just showing the code:</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">class</span> (<span class="hljs-type">Applicative</span> <span class="hljs-title">m</span>) =&gt; <span class="hljs-type">Monad</span> m <span class="hljs-keyword">where</span></span>
+        <span class="hljs-comment">-- this function, called "bind", is at the heart of the monad</span>
+        (&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b
+
+        <span class="hljs-comment">-- we could actually just use pure, but return is here for historical reasons</span>
+        return :: a -&gt; m a
+        return = pure
+</code></pre>
+<p>A monad is essentially an applicative functor that allows for operations to be chained together with a value carried in the background. To consider this, let us consider the familiar case of <code>Maybe</code>, which is a monad.</p>
+<pre><code class="hljs haskell"><span class="hljs-class">    <span class="hljs-keyword">instance</span> <span class="hljs-type">Monad</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span>
+        <span class="hljs-type">Nothing</span> &gt;&gt;= _ = <span class="hljs-type">Nothing</span>
+        (<span class="hljs-type">Just</span> x) &gt;&gt;= f = <span class="hljs-type">Just</span> (f x)
+
+    <span class="hljs-comment">-- maybeSomeValue is Just 50</span>
+    maybeSomeValue = <span class="hljs-type">Just</span> <span class="hljs-number">5</span> &gt;&gt;= (\x -&gt; <span class="hljs-type">Just</span> (x * x) &gt;&gt;= (\x -&gt; <span class="hljs-type">Just</span> (x + x)))
+</code></pre>
+<p>Essentially, the bind function allows for values carried inside the monad (which is ultimately just a functor) to be extracted and passed into another computation. This explanation may seem obtuse, but consider the same code, with some extracted whitespace
+  added and the <code>return</code> function used:</p>
+<pre><code class="hljs haskell">    maybeSomeValue = <span class="hljs-type">Just</span> <span class="hljs-number">5</span> &gt;&gt;= (\x -&gt;
+                     <span class="hljs-type">Just</span> (x * x) &gt;&gt;= (\x -&gt;
+                     return (x + x)))
+</code></pre>
+<p>If the reader squints hard enough, this looks like an imperative program! It looks like the following is being done:</p>
+<pre><code class="hljs haskell">    maybeSomeValue = <span class="hljs-keyword">do</span>
+        x &lt;- <span class="hljs-type">Just</span> <span class="hljs-number">5</span>
+        x &lt;- <span class="hljs-type">Just</span> (x * x)
+        return (x + x)
+</code></pre>
+<p>The result of the imperative-looking code is exactly the same as that of the original computation, if traced through. Using monads to provide an imperative interface in a functional program is such a common pattern that the <code>do</code> notation was
+  conceived as syntactic sugar to make writing such a pattern easier. That means that the imperative-looking code is actually valid Haskell!</p>
+<p>In addition to <code>Maybe</code>, there are several other monads. A major example is the IO monad, which allows external state to be encapsulated in the monad an interfaced with in a manner familiar to imperative programmers.</p>
+<p>Monads are a big topic, and additional resources are available:</p>
+<ul>
+  <li><a href="http://learnyouahaskell.com/a-fistful-of-monads">Monads</a></li>
+  <li><a href="https://en.wikibooks.org/wiki/Haskell/Understanding_monads#Monad_Laws">Monad Laws</a> that every monad should obey</li>
+  <li><a href="http://learnyouahaskell.com/input-and-output">IO Monad</a></li>
+  <li><a href="https://en.wikibooks.org/wiki/Haskell/Understanding_monads/State">State Monad</a>, allows state to be carried in a monadic context, allowing imperative-style computation</li>
+  <li><a href="https://en.wikibooks.org/wiki/Haskell/Mutable_objects">ST Monad</a>, allows mutable state to be carried in a monadic context, useful for implementing inherently destructive algorithms</li>
+  <li><a href="https://wiki.haskell.org/Arrays">Arrays</a>, allows constant-time access to elements like a C array, with mutable variants in the <code>IO</code> and <code>ST</code> monads provided</li>
+</ul>
+<h1 id="guides">Guides</h1>
+<ul>
+  <li><a href="http://learnyouahaskell.com">Learn You a Haskell</a> is a good beginner text for learning Haskell. It does not have much real-world examples, but does quite a good job in explaining difficult theoretical concepts (e.g. functors, applicative
+    functors and monads) well. It is recommended to read the material in 4 chunks:
+    <ul>
+      <li>1-6: basic functional programming</li>
+      <li>7: modules (very important for large codebases)</li>
+      <li>8-10: details of the type-system</li>
+      <li>11-14: monads</li>
+    </ul>
+  </li>
+  <li><a href="http://book.realworldhaskell.org/">Real World Haskell</a> is a rather old text which is possibly outdated. Still, it shows plenty of examples of how Haskell may be used in actual real-life scenarios (databases, web programming, etc).</li>
+  <li><a href="https://en.wikibooks.org/wiki/Haskell">Haskell Wikibook</a> is a comprehensive Haskell reference. This resource really shines when it comes to aggregating and covering advanced Haskell topics that typically appear elsewhere in a very ad-hoc
+    fashion.</li>
+  <li><a href="https://wiki.haskell.org/Typeclassopedia">Typeclassopedia</a> is a reference for the major typeclasses contained in the Haskell hierarchical libraries. Use it to determine which typeclasses are related to which (e.g. every monad is an applicative
+    functor, which is in turn a functor).</li>
+</ul>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="..\..\markbind\js\vue.min.js"></script>
+<script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+</script>
+<script src="..\..\markbind\js\setup.js"></script>
+</html>

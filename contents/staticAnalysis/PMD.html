@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PMD</title>
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+<div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<h1 id="pmd">PMD</h1>
+<p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
+<h2 id="overview">Overview</h2>
+<p>PMD is a static analyser for Java, JavaScript, <a href="http://Salesforce.com">Salesforce.com</a> Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector(<a href="http://pmd.sourceforge.net/pmd-4.3.0/cpd.html">CPD</a>), which helps to find duplicated
+  code, is also included as an add-on in PMD.</p>
+<p><em>Note that the links in this chapter is based on <a href="https://pmd.github.io/pmd-5.5.3/">PMD version 5.5.3</a>. You can check the latest version and documentation at its <a href="https://pmd.github.io/">GitHub Page</a>.</em></p>
+<h2 id="features">Features</h2>
+<p>Rules in PMD represent patterns in code. PMD is supposed to check these rules(patterns) and signal violations to programmers. For example, the <code>OverrideBothEqualsAndHashcode</code> rule requires programmers to override both <code>public boolean Object.equals(Object other)</code>,
+  and <code>public int Object.hashCode()</code>, or override neither.</p>
+<p>PMD supports checking rules for the following languages.</p>
+<ul>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-java/index.html">Java</a> (includes <a href="https://pmd.github.io/pmd-5.5.3/pmd-java/index.html">JSP</a> with <a href="https://pmd.github.io/pmd-5.5.3/pmd-jsp/index.html">limitations</a>)</li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-javascript/index.html">JavaScript</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-apex/index.html">Apex</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-plsql/index.html">PL/SQL</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.4.1/pmd-vm/index.html">Velocity</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-xml/index.html">XML and XSL</a></li>
+</ul>
+<p>PMD doesn't support checking rules for the following languages. Only Copy/Paste Detector (<a href="http://pmd.sourceforge.net/pmd-4.3.0/cpd.html">CPD</a>) is supported for them.</p>
+<ul>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-cs/index.html">C++</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-cpp/index.html">C#</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-fortran/index.html">Fortran</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-go/index.html">Go</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-groovy/index.html">Groovy</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-matlab/index.html">Matlab</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-objectivec/index.html">Objective-C</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-perl/index.html">Perl</a> (only very basic CPD support)</li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-php/index.html">PHP</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-python/index.html">Python</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-ruby/index.html">Ruby</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-swift/index.html">Swift</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-scala/index.html">Scala</a></li>
+</ul>
+<h2 id="limitation">Limitation</h2>
+<p>Limitations are almost the same as <a href="CheckStyle.md">CheckStyle</a>.</p>
+<ul>
+  <li>The examined code has to be compilable. The reason is described in <a href="#how-does-it-work">How does it work</a> section.</li>
+  <li>Files will be examined one by one, which means you cannot check multiple files at the same time.
+    <ul>
+      <li>For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="download">Download</h3>
+<p>PMD can be run on both Windows and Linux/Unix operating system with the help of <a href="http://www.oracle.com/technetwork/java/javase/overview/index.html">Java JRE</a> 1.7 or higher. Refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/installing.html">How to install PMD and CPD</a>  for more details.</p>
+<h3 id="configuration">Configuration</h3>
+<p>You can configure PMD to only include the rules that your want (see <a href="https://pmd.github.io/pmd-5.5.3/customizing/howtomakearuleset.html">How to make a new rule set</a>).</p>
+<h3 id="suppress-warnings">Suppress Warnings</h3>
+<p>PMD supports suppressing warnings in four ways:</p>
+<ul>
+  <li>Annotations</li>
+  <li>Comments</li>
+  <li>Violation Suppress Regex</li>
+  <li>Violation Suppress XPath</li>
+</ul>
+<p>The details are described <a href="https://pmd.github.io/pmd-5.5.3/usage/suppressing.html">here</a>.</p>
+<h3 id="command-line-usage">Command Line Usage</h3>
+<p>PMD can be launched by using command line with various arguments. For details, please refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/running.html">Running PMD via command line</a>.</p>
+<h3 id="integration-with-build-automation-tools">Integration with Build Automation Tools</h3>
+<ul>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/usage/ant-task.html">Ant task usage</a></li>
+  <li><a href="https://docs.gradle.org/current/userguide/pmd_plugin.html">The PMD Plugin in Gradle</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/usage/maven-plugin.html">Maven 1 PMD plugin</a></li>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/usage/mvn-plugin.html">Maven 2 PMD plugin</a></li>
+</ul>
+<h3 id="integration-with-ides">Integration with IDEs</h3>
+<p>PMD can be integrated with most of IDEs, inlcuding BlueJ, CodeGuide, Eclipse, eclipse-pmd, Emacs, Gel, IntelliJ IDEA, IntelliJ IDEA - QAPlug, JBuilder, JCreator, JDeveloper, JEdit, Maven, Maven 2, NetBeans, TextPad, WebLOgic Workshop 8.1.x. For instruction
+  to integrate with those IDEs, please refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/integrations.html">PMD integrations</a>.</p>
+<h2 id="available-rulesets">Available Rulesets</h2>
+<p>There is not pre-defined rules set. You need to <a href="https://pmd.github.io/pmd-5.5.3/customizing/howtomakearuleset.html">define your rule sets</a> by yourself.</p>
+<p>PMD has organised rules into different categories. For example, the rules for Java has been categorised into 26 sections, which will help you quickly find the rules that you want.</p>
+<p>You may refer to the <a href="#features">Features</a> section to view the rules according to your languages and refer to <a href="#configuration">Configuration</a> section to configure your rulesets.</p>
+<h2 id="how-does-it-work">How does it work</h2>
+<p>PMD use <a href="http://javacc.org">JavaCC</a> to parse your code to a <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST(Abstract Syntax Tree)</a> and visited it recursively (<a href="https://pmd.github.io/pmd-5.4.1/customizing/howitworks.html">more details</a>).
+  Thus, one of the requirements for PMD to work is that the code must be in valid Java syntax. You can view the syntax tree by using <a href="https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html">bin/designer.bat</a></p>
+<h2 id="customization">Customization</h2>
+<ul>
+  <li><a href="https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html">How to write a PMD rule</a> (A quicker way to write rule sets <a href="https://pmd.github.io/pmd-5.4.1/customizing/xpathruletutorial.html">Using XPath in PMD</a>, <a href="https://pmd.github.io/pmd-5.4.1/customizing/xpathruletutorial.html">XPath Rule tutorial</a>)</li>
+  <li><a href="https://pmd.github.io/pmd-5.4.1/customizing/new-language.html">Add supports for new language</a> (<a href="https://pmd.github.io/pmd-5.4.1/customizing/cpd-parser-howto.html">Add supports for CPD</a>)</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+  <li><a href="https://pmd.github.io/">PMD</a>: PMD official website. You can download the latest version, view online documentation there.</li>
+  <li><a href="https://github.com/pmd/pmd">PMD Github</a>: PMD GitHub page. You can contribute to the project or report bugs there.</li>
+  <li><a href="https://stackoverflow.com/questions/tagged/pmd">StackOverflow PMD</a>: Question/Answer forum in StackOverflow for PMD. You can ask question related to the using of PMD.</li>
+</ul>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="..\..\markbind\js\vue.min.js"></script>
+<script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+</script>
+<script src="..\..\markbind\js\setup.js"></script>
+</html>
