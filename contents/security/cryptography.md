@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Cryptography
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Cryptography
 
 Authors: [Dickson Tan](https://github.com/neurrone)

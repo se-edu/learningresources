@@ -1,3 +1,10 @@
+<frontmatter>
+  title: UI/UX
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # UI/UX
 
 Authors: [Ang Shi Ya](https://github.com/AngShiYa), [Tan Jun Kiat](https://github.com/junkiattan)

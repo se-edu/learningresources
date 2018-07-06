@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Rvalue References and Move Semantics
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Rvalue References and Move Semantics
 
 Authors: [Tan Jun An](https://github.com/yamidark)

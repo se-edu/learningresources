@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Profiling a Desktop Application In Visual Studio 2015
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Profiling a Desktop Application In Visual Studio 2015
 
 Author: [Ong Heng Le](https://github.com/initialshl)

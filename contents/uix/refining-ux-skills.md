@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Refining UX Design Skills
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Refining UX Design Skills
 
 Author: [Tan Jun Kiat](https://github.com/junkiattan)

@@ -1,3 +1,10 @@
+<frontmatter>
+  title: PMD
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # PMD
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)

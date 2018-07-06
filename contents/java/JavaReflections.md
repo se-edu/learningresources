@@ -1,3 +1,10 @@
+<frontmatter>
+  title: "Advanced Java: Reflections"
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Advanced Java: Reflections
 
 Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)

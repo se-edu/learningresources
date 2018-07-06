@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Scalable Development - An Introduction
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Scalable Development - An Introduction
 
 Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan

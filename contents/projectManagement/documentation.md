@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Documentation
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Documentation
 
 Authors: [Chua Ka Yi Ong](https://github.com/kychua)

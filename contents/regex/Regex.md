@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Regular Expressions
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Regular Expressions
 
 Authors: Jamos Tay

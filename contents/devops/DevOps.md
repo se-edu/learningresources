@@ -1,3 +1,10 @@
+<frontmatter>
+  title: DevOps
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # DevOps
 
 Authors: [John Yong](https://github.com/whipermr5)

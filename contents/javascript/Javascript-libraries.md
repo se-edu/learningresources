@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Libraries
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Libraries
 
 Authors: Li Kai

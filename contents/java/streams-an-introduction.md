@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Java 8 Streams - An Introduction
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Java 8 Streams - An Introduction
 
 Author: Lee Yi Min

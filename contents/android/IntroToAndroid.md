@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Android App Development
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Android App Development
 
 Authors: [Lee Yan Hwa](https://github.com/leeyh20)

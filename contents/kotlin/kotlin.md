@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Kotlin
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Kotlin
 
 Author: [Shradheya Thakre](https://github.com/tshradheya)

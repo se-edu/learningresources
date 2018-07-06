@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Writing Testable Javascript
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Writing Testable Javascript
 
 Authors: Li Kai

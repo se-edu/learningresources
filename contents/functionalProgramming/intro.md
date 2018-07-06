@@ -1,3 +1,10 @@
+<frontmatter>
+  title: An Introduction to Functional Programming
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # An Introduction to Functional Programming
 
 Authors: [Phang Chun Rong](https://github.com/crphang)

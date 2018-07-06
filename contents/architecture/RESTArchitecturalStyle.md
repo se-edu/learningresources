@@ -1,3 +1,10 @@
+<frontmatter>
+  title: REST Architectural Style
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # REST Architectural Style
 
 Author: [Wen Xin](https://github.com/wenmogu)

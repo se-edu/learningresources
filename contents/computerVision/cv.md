@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to computer vision (CV)
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to computer vision (CV)
 Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 

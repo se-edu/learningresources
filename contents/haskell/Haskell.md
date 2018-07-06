@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Haskell
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Haskell
 
 Author: Thenaesh Elango

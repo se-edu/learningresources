@@ -1,3 +1,10 @@
+<frontmatter>
+  title: VueJs
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # VueJs
 
 Author: [Lu Lechuan](https://github.com/LuLechuan)

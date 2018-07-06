@@ -1,3 +1,10 @@
+<frontmatter>
+  title: "Javascript: Promises"
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Javascript: Promises
 
 Author: Daniel Berzin Chua

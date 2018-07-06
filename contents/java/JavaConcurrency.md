@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Java Concurrency
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Java Concurrency
 
 Authors: Vivek Lakshmanan

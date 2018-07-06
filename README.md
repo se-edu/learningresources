@@ -2,7 +2,7 @@
 
 This repository is a collection of Software Engineering learning resources.
 
-**Click [here](contents/ToC.md) to start exploring the resources**.
+**Click [here](index.html) to start exploring the resources**.
 
 ---
 

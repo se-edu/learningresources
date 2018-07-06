@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Go
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Go
 
 Author(s): [Cara Leong](https://github.com/craaaa)

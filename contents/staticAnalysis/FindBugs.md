@@ -1,3 +1,10 @@
+<frontmatter>
+  title: FindBugs
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # FindBugs
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html), [Shradheya Thakre](https://github.com/tshradheya)

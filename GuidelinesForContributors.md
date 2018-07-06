@@ -1,3 +1,8 @@
+<frontmatter>
+  title: "Learning Resources for Software Engineering Students"
+  footer: footer.md
+</frontmatter>
+
 # Guidelines for Contributors
 
 * Our objective is to help SE students learn a relevant topic quickly by locating good learning resources. 

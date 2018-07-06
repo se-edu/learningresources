@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Performance Profiling
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Performance Profiling
 
 Author: [Ong Heng Le](https://github.com/initialshl)

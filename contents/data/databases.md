@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Databases & Database Management Systems (DBMS)
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Databases & Database Management Systems (DBMS)
 
 Authors: [Syed Abdullah](https://github.com/Skaty)

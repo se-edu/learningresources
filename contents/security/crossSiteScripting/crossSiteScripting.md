@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Cross Site Scripting
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Cross Site Scripting
 
 Author: [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md)

@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Performance Optimization
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Performance Optimization
 
 Author: [Ian Teo](https://github.com/IanTeo), [Phang Chun Rong](https://www.github.com/Crphang)

@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Code Quality Metrics
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Code Quality Metrics
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)

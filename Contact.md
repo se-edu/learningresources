@@ -1,3 +1,8 @@
+<frontmatter>
+  title: "Learning Resources for Software Engineering Students"
+  footer: footer.md
+</frontmatter>
+
 # Contact
 
 * Suggestions, questions, and bug reports can be posted in 

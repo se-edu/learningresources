@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Null Safety in Kotlin
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Null Safety in Kotlin
 
 Author: [Pan Haozhe](https://github.com/Haozhe321)

@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Best Practices with `git`
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Best Practices with `git`
 
 Author(s): [Darren Wee](https://github.com/darrenwee)

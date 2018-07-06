@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Java Synchronization
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Java Synchronization
 
 Authors: [Boxin](https://github.com/boxin-yang)

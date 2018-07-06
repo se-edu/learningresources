@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Ruby
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Ruby
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)

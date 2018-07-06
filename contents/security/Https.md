@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Security - https
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Security - https
 
 Author: [Boxin][1]

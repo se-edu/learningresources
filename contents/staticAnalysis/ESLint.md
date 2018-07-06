@@ -1,3 +1,10 @@
+<frontmatter>
+  title: ESLint
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # ESLint
 
 Author: [Nicholas Chua](https://github.com/nus-cs3281/2018/blob/master/students/nicholasChua/nicholasChua-Resume.md)

@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Agile Development
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Agile Development
 
 Author: [Joanne Ong](https://github.com/joanneong)

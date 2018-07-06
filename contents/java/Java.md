@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Java
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Java
 
 Authors: John Doe, Jane Doe

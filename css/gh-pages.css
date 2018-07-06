@@ -1,0 +1,214 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Open+Sans);
+@import "asciidoctor.css"; /* Default asciidoc style framework - important */
+
+/* Custom block: details */
+
+.sidebarblock.details > .content {
+    border-left: .25rem solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebarblock.details > .content {
+    padding-left: .5rem
+}
+
+.sidebarblock.details {
+    background-color: transparent;
+    border: none;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+/* Overrides for asciidoctor.css */
+
+a {
+    color: #0074c7;
+}
+
+h1,
+#content h1 > a.link,
+h2,
+h2 > a.link,
+h3,
+h3 > a.link,
+#toctitle,
+#toctitle > a.link,
+.sidebarblock > .content > .title,
+.sidebarblock > .content > .title > a.link,
+h4,
+h4 > a.link,
+h5,
+h5 > a.link,
+h6,
+h6 > a.link {
+    color: #e46c0a;
+}
+
+.subheader,
+.admonitionblock td.content > .title,
+.audioblock > .title,
+.exampleblock > .title,
+.imageblock > .title,
+.listingblock > .title,
+.literalblock > .title,
+.stemblock > .title,
+.openblock > .title,
+.paragraph >.title,
+.quoteblock > .title,
+table.tableblock > .title,
+.verseblock > .title,
+.videoblock > .title,
+.dlist > .title,
+.olist > .title,
+.ulist > .title,
+.qlist > .title,
+.hdlist > .title {
+    color: rgb(197, 90, 17);
+}
+
+@media screen {
+    #footer {
+        background-color: #f6f6f6;
+        border-top: 1px #d2d2d2 solid;
+        border-bottom: 1px #d2d2d2 solid;
+        font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    }
+
+    #footer-text {
+        color: #595959;
+        line-height: 1;
+    }
+}
+
+/* Utilities */
+
+.container {
+    width: 100%;
+    max-width: 62.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Colors */
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+.bg-lighter {
+    background-color: #fbfbfb;
+}
+
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    font-size: 1rem;
+    padding: 0px 1rem;
+}
+
+.navbar-lg {
+    font-size: 1.3rem;
+}
+
+.navbar-light {
+    border-bottom: 1px #d2d2d2 solid;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar-light a {
+    color: #595959;
+}
+
+.navbar-light a:hover,
+.navbar-light a:focus {
+    color: #000000;
+}
+
+.navbar a.active,
+.navbar a.active:hover,
+.navbar a.active:focus {
+    font-weight: bold;
+}
+
+.navbar-light a.active,
+.navbar-light a.active:hover,
+.navbar-light a.active:focus {
+    color: #000000;
+}
+
+.navbar-light .nav-link {
+    border-bottom: 2px transparent solid;
+}
+
+.navbar-light .nav-link.active {
+    border-bottom: 2px #e46c0a solid;
+}
+
+.navbar-lg .nav-link.active {
+    border-bottom: 0;
+}
+
+.navbar > .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navbar-brand {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.8125rem 0rem;
+    padding-left: 0.9375rem;
+    font-size: 1.25rem;
+}
+
+.navbar-brand img {
+    height: 1.4rem;
+    margin: 0rem 0.4rem;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.navbar-lg .navbar-brand {
+    font-size: 1.7rem;
+}
+
+.navbar-lg .navbar-brand img {
+    height: 2.3rem;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    line-height: inherit;
+}
+
+.nav-link {
+    display: block;
+    margin: 0px;
+    border: 0px;
+    padding: 1rem 1rem;
+}
+
+/* Do not display site header on print mediums */
+@media print {
+    #seedu-header {
+        display: none;
+    }
+
+    #site-header {
+        display: none;
+    }
+}

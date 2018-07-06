@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Cross Site Request Forgery (CSRF)
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Cross Site Request Forgery (CSRF)
 
 Author: [Tran Tien Dat](https://github.com/tran-tien-dat)

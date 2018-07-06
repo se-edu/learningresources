@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Machine Learning (ML)
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Machine Learning (ML)
 Authors: [Alex Fong](https://github.com/alexfjw)
 

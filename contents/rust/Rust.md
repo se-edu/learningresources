@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Rust
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Rust
 
 Author(s): [Tan Li Hao](https://github.com/LiHaoTan)

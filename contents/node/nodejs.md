@@ -1,3 +1,10 @@
+<frontmatter>
+  title: Introduction to Node.js
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # Introduction to Node.js
 
 Author: Rachael Sim

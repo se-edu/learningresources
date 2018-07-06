@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Eclipse template
-
+_site/
 .metadata
 bin/
 tmp/
@@ -99,3 +99,4 @@ fabric.properties
 
 .idea/
 learningresources.iml
+_markbind/logs/

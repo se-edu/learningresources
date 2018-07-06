@@ -1,3 +1,10 @@
+<frontmatter>
+  title: An Introduction to CUDA
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # An Introduction to CUDA
 
 ###### Author: [Pierce Anderson Fu](https://github.com/PierceAndy)

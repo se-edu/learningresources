@@ -1,0 +1,18 @@
+{
+  "baseUrl": "/learningresources",
+  "titlePrefix": "",
+  "ignore": [
+    "_markbind/logs/*",
+    "_site/*",
+    "site.json",
+    "*.md"
+  ],
+  "pages": [
+    {
+      "glob": "**/*.md"
+    }
+  ],
+  "deploy": {
+    "message": "Site Update."
+  }
+}

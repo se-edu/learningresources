@@ -1,3 +1,10 @@
+<frontmatter>
+  title: An Introduction to Python
+  footer: footer.md
+</frontmatter>
+
+{{ navbar | safe }}
+
 # An Introduction to Python
 
 Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang Chun Rong](https://www.github.com/Crphang)
