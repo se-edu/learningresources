@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # DevOps
 
 Authors: [John Yong](https://github.com/whipermr5)
@@ -120,3 +122,4 @@ As a software engineering student, the best way to get started is to gain some p
 - [9½ Simple Steps On How To Start With DevOps Today](https://devops.com/9%C2%BD-simple-steps-start-devops-today/) - includes practical suggestions like using a code static analysis tool
 - [A Pragmatic Guide to Getting Started with DevOps](http://www.ca.com/us/lpg/~/media/Files/eBooks/a-pragmatic-guide-to-getting-started-with-devops.pdf) - more of a management point of view but interesting
 - [The DevOps Handbook: How to Create World-Class Speed, Reliability, and Security in Technology Organizations](https://books.google.com.sg/books/about/The_Devops_Handbook.html?id=XrQcrgEACAAJ) - about managing tech organisations, written by a CTO
+</div>

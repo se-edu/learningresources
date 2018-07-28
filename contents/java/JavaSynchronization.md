@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Java Synchronization
 
 Authors: [Boxin](https://github.com/boxin-yang)
@@ -140,3 +142,5 @@ Java Synchronization as demonstrated in this tutorial is easy to learn, and you 
 [5]: https://en.wikipedia.org/wiki/Thread_safety
 [6]: https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 [7]: https://en.wikipedia.org/wiki/Semaphore_(programming)
+
+</div>

@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Kotlin
 
 Author: [Shradheya Thakre](https://github.com/tshradheya)
@@ -108,3 +110,5 @@ The biggest issue is that Java isn’t a modern language, and although Java 8 wa
 - [Official Resources by Android](https://developer.android.com/kotlin/resources.html)
 - [Kotlin Documentation](https://kotlinlang.org/docs/reference/)
 - [Cheatsheet for shifiting from Java to Kotlin](https://github.com/MindorksOpenSource/from-java-to-kotlin)
+
+</div>

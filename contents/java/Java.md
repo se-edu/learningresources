@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Java
 
 Authors: John Doe, Jane Doe
@@ -25,3 +27,5 @@ Authors: John Doe, Jane Doe
 // Reflection overview
 
 // Learning resources
+
+</div>

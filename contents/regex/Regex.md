@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Regular Expressions
 
 Authors: Jamos Tay
@@ -367,3 +369,4 @@ Since `o` is a suitable match for `.+`, the engine accepts it and tries to match
 * [Regular Expressions Cookbook](https://www.amazon.com/Regular-Expressions-Cookbook-Solutions-Programming/dp/1449319432) - *Jan Goyvaerts, Steven Levithan*
 * [Teach Yourself Regular Expressions in 10 Minutes](https://www.amazon.com/exec/obidos/ASIN/0672325667/jgsbookselection) - *Ben Forta*
 * [Mastering Regular Expressions](https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124) - *Jeffrey Friedl*
+</div>

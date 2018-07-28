@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Documentation
 
 Authors: [Chua Ka Yi Ong](https://github.com/kychua)
@@ -169,3 +171,4 @@ In addition to the links mentioned above, here are the links used in the writing
 * https://spin.atomicobject.com/2015/04/24/source-control-documentation/
 * https://wiki.openstack.org/wiki/GitCommitMessages
 * https://github.com/matiassingers/awesome-readme
+</div>

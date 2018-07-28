@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Advanced Java: Reflections
 
 Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)
@@ -267,3 +269,5 @@ While Java reflections are powerful, you should not immediately jump on the refl
   [https://github.com/google/guava/wiki/ReflectionExplained](https://github.com/google/guava/wiki/ReflectionExplained)
 
 
+
+</div>

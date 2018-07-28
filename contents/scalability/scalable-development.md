@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Scalable Development - An Introduction
 
 Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan
@@ -106,3 +108,4 @@ Use the following tips to avoid those pitfalls:
 There is a huge gap between theory and practice. What looks well on paper might need tweaking with arbitrary constants and "hacks". As such, more research should be done before you implement any of the solutions.
 
 However, scalability will still be a crucial part of servers aiming to provide services to an increasingly-growing user base. Learning good scalability practices will help prevent developing a server that will never be able to scale. Take the time to explore the depths of scalability, and you will be able help your server scale to meet its demand.
+</div>

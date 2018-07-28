@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Ruby
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)
@@ -153,3 +155,5 @@ As with most other languages, tools and frameworks exist for serious Ruby develo
 - **Static Analysis:** [RuboCop](http://batsov.com/rubocop/) is the sole leading static analysis tool for Ruby language.
 
 [This repository](https://github.com/markets/awesome-ruby) lists down a large collection of Ruby libraries, tools, frameworks, and software.
+
+</div>

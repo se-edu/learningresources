@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Null Safety in Kotlin
 
 Author: [Pan Haozhe](https://github.com/Haozhe321)
@@ -150,3 +152,5 @@ The operator converts any value to a non-nullable type and throws an exception i
 * [Null Safety in Kotlin](https://kotlinlang.org/docs/reference/null-safety.html)
 * [Comprehensive Guide to Null Safety in Kotlin](http://www.baeldung.com/kotlin-null-safety)
 * [The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
+
+</div>

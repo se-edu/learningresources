@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Haskell
 
 Author: Thenaesh Elango
@@ -1049,3 +1051,5 @@ ad-hoc fashion.
 for the major typeclasses contained in the Haskell hierarchical libraries. Use
 it to determine which typeclasses are related to which (e.g. every monad is an
 applicative functor, which is in turn a functor).
+
+</div>

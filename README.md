@@ -7,3 +7,5 @@ This repository is a collection of Software Engineering learning resources.
 ---
 
 [Guidelines for Contributors](GuidelinesForContributors.md) | [Contact](Contact.md) | License: MIT
+
+</div>

@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Refining UX Design Skills
 
 Author: [Tan Jun Kiat](https://github.com/junkiattan)
@@ -117,3 +119,5 @@ Know that there are many others before you who were new but successfully went in
 
 ## Additional Resource(s) <a id="additionalResources"></a>
 1. [List of Meetups/Conferences/Resources in Singapore](http://interface.sg/)
+
+</div>

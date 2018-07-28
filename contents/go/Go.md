@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Go
 
 Author(s): [Cara Leong](https://github.com/craaaa)
@@ -279,3 +281,5 @@ Go's development team is heavily involved in documenting and growing the Go lang
 - [The Go FAQ](https://golang.org/doc/faq) - answers common questions about the language's history, usage, design and more
 - [Go's documentation](https://golang.org/doc/) - a good starting point, contains links to official information about Go
 - [The Go Blog](https://blog.golang.org/) - features news and in-depth articles about Go by the Go team and guests
+
+</div>

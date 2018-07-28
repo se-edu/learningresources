@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Cryptography
 
 Authors: [Dickson Tan](https://github.com/neurrone)
@@ -125,3 +127,4 @@ The [first article of this 2-part series  ](http://doctrina.org/How-RSA-Works-Wi
 * [Understanding Cryptography: A Textbook for Students and Practitioners](https://www.amazon.com/Understanding-Cryptography-Textbook-Students-Practitioners/dp/3642041000) is an outstanding introductory text. Explanations are excellent, and no knowledge of number theory is assumed. It was used as reference material for this document.
 * [Awesome Cryptography](https://github.com/sobolevn/awesome-cryptography) is a curated list of resources - articles, blogs, books, libraries and more.
 * [Security Now](https://grc.com/sn) is a weekly podcast on security. Though it does not go into much detail about the underlying mathematics, there are many episodes on cryptography that provide a working knowledge of the subject. It also discusses security headlines, which emphasize the practical aspect of cryptography; while the math may be sound, implementation mistakes or side-channel attacks often cause vulnerabilities in practice.
+</div>

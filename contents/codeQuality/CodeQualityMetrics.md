@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Code Quality Metrics
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)
@@ -108,3 +110,5 @@ Measuring design (relevant to architects, QA team), most of them commercial:
 - Java: [JArchitect](http://www.jarchitect.com)
 - C#: [NDepend](http://www.ndepend.com)
 - PHP: [PHP Depend](https://pdepend.org)
+
+</div>

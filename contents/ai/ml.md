@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Machine Learning (ML)
 Authors: [Alex Fong](https://github.com/alexfjw)
 
@@ -219,3 +221,5 @@ Popular resources for keeping up with machine learning research
 
 ## Footnotes
 <a name="fast-ai-ml">[1]</a>: No link is provided as MOOC is in unofficial release at time of writing  
+
+</div>

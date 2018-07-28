@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Swift
 
 Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)
@@ -311,3 +313,4 @@ Here is an [article](https://krakendev.io/blog/weak-and-unowned-references-in-sw
 ## CocoaPods
 
 When you have been working on a Swift project for a while and start to think "Hmm... Someone has probably done something like this before" or "This is a common problem and there should be a library for this", check out [CocoaPods](https://guides.cocoapods.org/using/getting-started.html), THE package/library manager for Swift.
+</div>

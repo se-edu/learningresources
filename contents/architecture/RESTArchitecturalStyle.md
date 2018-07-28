@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # REST Architectural Style
 
 Author: [Wen Xin](https://github.com/wenmogu)
@@ -94,3 +96,4 @@ The server can send a code snippet to the client to let the client execute. One 
   * [a general wikipedia explanation](https://en.wikipedia.org/wiki/Code_on_demand)
   * [a stackoverflow explanation](https://stackoverflow.com/questions/32094952/code-demand-constraint-for-restful-apis?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
 * [Video explaning REST (easy to get the big picture but not very precise)](https://www.youtube.com/watch?v=YCcAE2SCQ6k)
+</div>

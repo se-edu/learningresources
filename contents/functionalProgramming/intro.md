@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # An Introduction to Functional Programming
 
 Authors: [Phang Chun Rong](https://github.com/crphang)
@@ -140,3 +142,4 @@ Functional programming can be a very different programming paradigm and it defin
 - A six-part [introduction to functional programming](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536)
 - If you are hungry for more, take the [excellent functional programming principles course](https://www.coursera.org/learn/progfun1)
 - And to help with the mindset shift for functional programming, take a look at a [practical guide on how to translate an imperative to functional style](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming)
+</div>

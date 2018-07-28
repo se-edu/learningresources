@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # An Introduction to CUDA
 
 ###### Author: [Pierce Anderson Fu](https://github.com/PierceAndy)
@@ -251,3 +253,5 @@ This topic is widely covered. Here are some good references on what the differen
 <a name="footnote7">[7]</a>: http://stackoverflow.com/a/5957647<br />
 <a name="footnote8">[8]</a>: https://developer.nvidia.com/cuda-faq#Programming<br />
 <a name="footnote9">[9]</a>: https://www.khronos.org/opencl/<br />
+
+</div>

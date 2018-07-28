@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # PMD
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
@@ -99,3 +101,4 @@ PMD use [JavaCC](http://javacc.org) to parse your code to a [AST(Abstract Syntax
 - [PMD](https://pmd.github.io/): PMD official website. You can download the latest version, view online documentation there.
 - [PMD Github](https://github.com/pmd/pmd): PMD GitHub page. You can contribute to the project or report bugs there.
 - [StackOverflow PMD](https://stackoverflow.com/questions/tagged/pmd): Question/Answer forum in StackOverflow for PMD. You can ask question related to the using of PMD.
+</div>

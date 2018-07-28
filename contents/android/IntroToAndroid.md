@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Introduction to Android App Development
 
 Authors: [Lee Yan Hwa](https://github.com/leeyh20)
@@ -191,3 +193,5 @@ Going further, it will be useful to know more about:
 Other useful links:
 *   [Android Authority](https://www.androidauthority.com)
 *   [Android Central](https://www.androidcentral.com/)
+
+</div>

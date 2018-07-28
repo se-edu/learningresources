@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Cross Site Scripting
 
 Author: [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md)
@@ -117,3 +119,5 @@ Additional Resources:
 (Ruby on Rails plugin responsible for escaping String input in Ruby on Rails websites)
 1. http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html
 (Ruby on Rails HTML sanitization function)
+
+</div>

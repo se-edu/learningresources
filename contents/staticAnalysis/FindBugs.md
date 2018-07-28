@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # FindBugs
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html), [Shradheya Thakre](https://github.com/tshradheya)
@@ -143,3 +145,5 @@ The current projects using `FindBugs` can make a shift to `SpotBugs` by followin
 - [FindBugs Official Website](http://findbugs.sourceforge.net): Official website of FindBugs. You can find more documentations here.
 - [An Evaluation of FindBugs](http://www.cs.cmu.edu/~aldrich/courses/654/tools/Sandcastle-FindBugs-2009.pdf): Analysis of FindBugs in 2009's version, some content may be outdated. Useful for understanding the benefits and drawbacks.
 - [Improve the quality of your code](https://www.ibm.com/developerworks/library/j-findbug1/): Some examples showing the bugs reported by FindBugs. You can get a rough idea of how FindBugs will help you in your project.
+
+</div>

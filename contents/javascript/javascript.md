@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Writing Testable Javascript
 
 Authors: Li Kai
@@ -259,3 +261,5 @@ The title says it all. From the most common to obscure patterns, this book cover
 [Namespacing in Javascript](https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/)
 
 [Method Chaining in JavaScript](https://schier.co/blog/2013/11/14/method-chaining-in-javascript.html)
+
+</div>

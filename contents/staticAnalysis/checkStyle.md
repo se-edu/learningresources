@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # CheckStyle
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
@@ -90,3 +92,4 @@ CheckStyle will use [ANTLR](http://www.antlr.org) to parse your code into a [AST
 - [CheckStyle](http://checkstyle.sourceforge.net/): CheckStyle official website. You can download the latest version, view online documentation there.
 - [CheckStyle Github](https://github.com/checkstyle/checkstyle): CheckStyle GitHub page. You can contribute to the project or report bugs there.
 - [StackOverflow CheckStyle](http://stackoverflow.com/questions/tagged/checkstyle): Question/Answer forum in StackOverflow for CheckStyle. You can ask question related to the using of CheckStyle.
+</div>

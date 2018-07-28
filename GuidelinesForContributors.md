@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Guidelines for Contributors
 
 * Our objective is to help SE students learn a relevant topic quickly by locating good learning resources. 
@@ -22,3 +24,5 @@
 
 * When contributing, follow the [oss-generics process](https://github.com/oss-generic/process) where applicable.
 
+
+</div>

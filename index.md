@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Learning Resources for Software Engineering Students
 
 This repository is a collection of Software Engineering learning resources.
@@ -81,3 +83,5 @@ This repository is a collection of Software Engineering learning resources.
 
 
 [Guidelines for Contributors](GuidelinesForContributors.html) | [Contact](Contact.html) | License: MIT
+
+</div>

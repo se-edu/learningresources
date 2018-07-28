@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # SQL Injection
 
 Author: [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md)
@@ -177,3 +179,4 @@ Additional Resources:
 (Penetration testing tool that detects and exploits SQL injection flaws)
 1. https://find-sec-bugs.github.io/
 (Plugin to detect security vulnerabilities in Java web applications, including SQL injection)
+</div>

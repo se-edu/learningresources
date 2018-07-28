@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Writing Testable Code
 
 When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented programs.
@@ -172,3 +174,5 @@ This closely follows with [Open Closed Principle](https://en.wikipedia.org/wiki/
 # Concluding Notes
 
 This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.
+
+</div>

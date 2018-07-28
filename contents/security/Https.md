@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # Security - https
 
 Author: [Boxin][1]
@@ -92,3 +94,4 @@ HTTPS provides security to a web application.  If the web application requires s
 [22]: https://weakdh.org/
 [23]: https://en.wikipedia.org/wiki/Session_hijacking
 [24]: https://www.youtube.com/watch?v=BjTwNzoMUuk
+</div>

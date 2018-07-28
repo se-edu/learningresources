@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # VueJs
 
 Author: [Lu Lechuan](https://github.com/LuLechuan)
@@ -160,3 +162,5 @@ A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese 
 ## References
 
 - [VueJS Official Website](https://vuejs.org/)
+
+</div>

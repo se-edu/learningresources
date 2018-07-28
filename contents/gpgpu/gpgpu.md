@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # An Introduction to GPGPU
 
 ###### Authors: [Pierce Anderson Fu](https://github.com/PierceAndy), [Nguyen Quoc Bao](https://github.com/bqnguyen94)
@@ -90,3 +92,5 @@ Compatible with a range of components and large ecosystem products<sup>[[8]](#fo
 <a name="footnote7">[7]</a>: https://en.wikipedia.org/wiki/Tegra#Tegra_X1/<br />
 <a name="footnote8">[8]</a>: https://elinux.org/Jetson_TX2#Ecosystem_Products<br />
 <a name="footnote9">[9]</a>: https://developer.nvidia.com/embedded/learn/success-stories<br />
+
+</div>

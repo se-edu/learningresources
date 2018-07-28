@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # An Introduction to Python
 
 Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang Chun Rong](https://www.github.com/Crphang)
@@ -97,3 +99,4 @@ Learning how to avoid such pitfalls is one huge step towards being a productive 
 
 * [Top 10 Common Mistakes of Python Programmers](https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make)
 * [Common Python Gotchas](https://sopython.com/wiki/Common_Gotchas_In_Python)
+</div>

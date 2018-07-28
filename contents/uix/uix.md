@@ -6,6 +6,8 @@
 
 {{ navbar | safe }}
 
+<div class="website-content">
+
 # UI/UX
 
 Authors: [Ang Shi Ya](https://github.com/AngShiYa), [Tan Jun Kiat](https://github.com/junkiattan)
@@ -117,3 +119,5 @@ After User Testing and the launch of the final product, the next stage is Mainte
 ### Ending Notes
 The clearly-stated objectives and deliverables of each stage culminate in a well-defined target audience and a well-designed prototype needed to match the expectations of that audience. UX Design requires empathy in the users' shoes and effort to address their problems, however all that is worth it in the grand scheme of delighting users when they use your applications.
   
+
+</div>
