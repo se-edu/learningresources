@@ -1,6 +1,7 @@
 <frontmatter>
   title: Introduction to Android App Development
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

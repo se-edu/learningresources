@@ -1,6 +1,7 @@
 <frontmatter>
   title: ESLint
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

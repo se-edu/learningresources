@@ -1,6 +1,7 @@
 <frontmatter>
   title: Code Quality Metrics
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

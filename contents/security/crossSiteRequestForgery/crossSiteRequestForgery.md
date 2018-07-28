@@ -1,6 +1,7 @@
 <frontmatter>
   title: Cross Site Request Forgery (CSRF)
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

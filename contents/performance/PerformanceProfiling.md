@@ -1,6 +1,7 @@
 <frontmatter>
   title: Performance Profiling
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

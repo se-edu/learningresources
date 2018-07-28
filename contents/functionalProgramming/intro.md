@@ -1,6 +1,7 @@
 <frontmatter>
   title: An Introduction to Functional Programming
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

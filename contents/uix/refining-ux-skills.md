@@ -1,6 +1,7 @@
 <frontmatter>
   title: Refining UX Design Skills
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

@@ -1,6 +1,7 @@
 <frontmatter>
   title: "Learning Resources for Software Engineering Students"
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 # Contact

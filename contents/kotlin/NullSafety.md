@@ -1,6 +1,7 @@
 <frontmatter>
   title: Null Safety in Kotlin
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

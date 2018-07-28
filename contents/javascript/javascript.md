@@ -1,6 +1,7 @@
 <frontmatter>
   title: Writing Testable Javascript
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

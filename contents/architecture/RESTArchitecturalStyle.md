@@ -1,6 +1,7 @@
 <frontmatter>
   title: REST Architectural Style
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

@@ -1,6 +1,7 @@
 <frontmatter>
   title: Rvalue References and Move Semantics
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

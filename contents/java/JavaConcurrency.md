@@ -1,6 +1,7 @@
 <frontmatter>
   title: Java Concurrency
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

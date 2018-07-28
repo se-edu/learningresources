@@ -1,6 +1,7 @@
 <frontmatter>
   title: Best Practices with `git`
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

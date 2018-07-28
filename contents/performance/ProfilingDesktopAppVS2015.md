@@ -1,6 +1,7 @@
 <frontmatter>
   title: Profiling a Desktop Application In Visual Studio 2015
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

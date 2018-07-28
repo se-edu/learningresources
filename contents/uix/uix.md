@@ -1,6 +1,7 @@
 <frontmatter>
   title: UI/UX
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

@@ -1,6 +1,7 @@
 <frontmatter>
   title: Introduction to computer vision (CV)
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

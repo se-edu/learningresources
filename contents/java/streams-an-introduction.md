@@ -1,6 +1,7 @@
 <frontmatter>
   title: Java 8 Streams - An Introduction
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

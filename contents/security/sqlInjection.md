@@ -1,6 +1,7 @@
 <frontmatter>
   title: SQL Injection
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

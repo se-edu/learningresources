@@ -1,6 +1,7 @@
 <frontmatter>
   title: Introduction to Cryptography
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

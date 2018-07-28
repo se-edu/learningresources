@@ -1,5 +1,4 @@
 <span id="navbar">
-<link rel="stylesheet" href="{{baseUrl}}/css/gh-pages.css">
 <div id="seedu-header">
     <nav class="navbar navbar-lg navbar-light bg-lighter">
         <div class="container">

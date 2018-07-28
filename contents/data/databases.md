@@ -1,6 +1,7 @@
 <frontmatter>
   title: Introduction to Databases & Database Management Systems (DBMS)
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}

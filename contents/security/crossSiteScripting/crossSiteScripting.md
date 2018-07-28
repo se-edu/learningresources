@@ -1,6 +1,7 @@
 <frontmatter>
   title: Cross Site Scripting
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
