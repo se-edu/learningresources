@@ -15,4 +15,16 @@
         </div>
     </nav>
 </div>
+<div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{baseUrl}}/index.html">Learning Resources for Software Engineering Students</a>
+            <ul class="navbar-nav">
+            </ul>
+            <form class="navbar-form">
+                <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right ></searchbar>
+            </form>
+        </div>
+    </nav>
+</div>
 </span>
