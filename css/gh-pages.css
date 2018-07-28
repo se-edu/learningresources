@@ -211,3 +211,11 @@ table.tableblock > .title,
         display: none;
     }
 }
+
+#app.container-fluid {
+    padding: 0;
+}
+
+footer {
+    margin: 0;
+}
