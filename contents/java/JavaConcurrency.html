@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Java Concurrency</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,169 +29,182 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="java-concurrency">Java Concurrency</h1>
-<p>Authors: Vivek Lakshmanan</p>
-<ul>
-  <li><a href="#what-is-java-concurrency">What is Java Concurrency</a></li>
-  <li><a href="#getting-started">Getting started</a>
-    <ul>
-      <li><a href="#understanding-threads">Understanding Threads</a></li>
-      <li><a href="#creating-and-starting-threads">Creating and Starting Threads</a></li>
-      <li><a href="#operations-on-threads">Operations on Threads</a></li>
-      <li><a href="#thread-interference">Thread Interference</a></li>
-      <li><a href="#executors">Executors</a></li>
-    </ul>
-  </li>
-  <li><a href="#disadvantages-of-java-concurrency">Disadvantages of Java Concurrency</a></li>
-  <li><a href="#resources">Resources</a>
-    <ul>
-      <li><a href="#further-reading">Further Reading</a></li>
-    </ul>
-  </li>
-</ul>
-<h2 id="what-is-java-concurrency">What is Java Concurrency</h2>
-<p><em>Concurrency</em> is the ability to run several programs or several parts of a program <strong>out-of-order</strong>, in an <strong>interleaved fashion</strong>. Simply put, if a program is running concurrently, the processor will execute one part
-  of the program, pause it, execute another part and repeat.</p>
-<p>As such, Java Concurrency enables you to perform tasks using multi-threading in your code and therefore:</p>
-<ol>
-  <li>improving responsiveness</li>
-  <li>allowing you to better utilize resources</li>
-</ol>
-<p>Do note that <em>Concurrency</em> often gets confused with <em>Parallelism</em> which is <strong>a different property altogether</strong>. <em>Parallelism</em> is where parts of the program are executed at the <strong>same time</strong>, for example,
-  on a multi-core processor. This <a href="https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/36604522#36604522">StackOverflow post</a> explains this in much greater detail.</p>
-<h2 id="getting-started">Getting Started</h2>
-<p>There are many tutorials that cover Java Concurrency in-depth, such as the <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/">Java tutorial by Oracle</a>. Instead, this chapter will provide an overview and things to take note of.</p>
-<h3 id="understanding-threads">Understanding Threads</h3>
-<p>First off, a process is simply a program in execution. It contains at least one thread and has it's own memory space.</p>
-<p>A thread:</p>
-<ul>
-  <li>is a lightweight process that exists within a process</li>
-  <li>is an independent path of execution through program code</li>
-  <li>has its own call stack and can access shared data of other threads in the same process.</li>
-</ul>
-<h3 id="creating-and-starting-threads">Creating and Starting Threads</h3>
-<p>There are two ways to create a thread in Java:</p>
-<ol>
-  <li>Extend the <code>Thread</code> class</li>
-  <li>Implement the <code>Runnable</code> interface</li>
-</ol>
-<p>After which, override the <code>run()</code> method which contains the code that will be executed when the thread starts.</p>
-<p>Depending on how you created the <code>Thread</code> you can either create the class that extends the <code>Thread</code> class or pass the class that implements the <code>Runnable</code> interface into the <code>Thread</code> constructor and then start
-  it.</p>
-<p>When deciding which method to use to create a <code>Thread</code>, it is always advisable to implement the <code>Runnable</code> interface as this results in composition which will allow your code to be more loosely coupled as compared to inheritance.
-  Furthermore, you can extend another class if need be. Shown below are the two ways to create a <code>Thread</code>.</p>
-<p>Extending the <code>Thread</code> class:</p>
-<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnotherThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="java-concurrency">Java Concurrency</h1>
+  <p>Authors: Vivek Lakshmanan</p>
+  <ul>
+    <li><a href="#what-is-java-concurrency">What is Java Concurrency</a></li>
+    <li><a href="#getting-started">Getting started</a>
+      <ul>
+        <li><a href="#understanding-threads">Understanding Threads</a></li>
+        <li><a href="#creating-and-starting-threads">Creating and Starting Threads</a></li>
+        <li><a href="#operations-on-threads">Operations on Threads</a></li>
+        <li><a href="#thread-interference">Thread Interference</a></li>
+        <li><a href="#executors">Executors</a></li>
+      </ul>
+    </li>
+    <li><a href="#disadvantages-of-java-concurrency">Disadvantages of Java Concurrency</a></li>
+    <li><a href="#resources">Resources</a>
+      <ul>
+        <li><a href="#further-reading">Further Reading</a></li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="what-is-java-concurrency">What is Java Concurrency</h2>
+  <p><em>Concurrency</em> is the ability to run several programs or several parts of a program <strong>out-of-order</strong>, in an <strong>interleaved fashion</strong>. Simply put, if a program is running concurrently, the processor will execute one part
+    of the program, pause it, execute another part and repeat.</p>
+  <p>As such, Java Concurrency enables you to perform tasks using multi-threading in your code and therefore:</p>
+  <ol>
+    <li>improving responsiveness</li>
+    <li>allowing you to better utilize resources</li>
+  </ol>
+  <p>Do note that <em>Concurrency</em> often gets confused with <em>Parallelism</em> which is <strong>a different property altogether</strong>. <em>Parallelism</em> is where parts of the program are executed at the <strong>same time</strong>, for example,
+    on a multi-core processor. This <a href="https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/36604522#36604522">StackOverflow post</a> explains this in much greater detail.</p>
+  <h2 id="getting-started">Getting Started</h2>
+  <p>There are many tutorials that cover Java Concurrency in-depth, such as the <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/">Java tutorial by Oracle</a>. Instead, this chapter will provide an overview and things to take note of.</p>
+  <h3 id="understanding-threads">Understanding Threads</h3>
+  <p>First off, a process is simply a program in execution. It contains at least one thread and has it's own memory space.</p>
+  <p>A thread:</p>
+  <ul>
+    <li>is a lightweight process that exists within a process</li>
+    <li>is an independent path of execution through program code</li>
+    <li>has its own call stack and can access shared data of other threads in the same process.</li>
+  </ul>
+  <h3 id="creating-and-starting-threads">Creating and Starting Threads</h3>
+  <p>There are two ways to create a thread in Java:</p>
+  <ol>
+    <li>Extend the <code>Thread</code> class</li>
+    <li>Implement the <code>Runnable</code> interface</li>
+  </ol>
+  <p>After which, override the <code>run()</code> method which contains the code that will be executed when the thread starts.</p>
+  <p>Depending on how you created the <code>Thread</code> you can either create the class that extends the <code>Thread</code> class or pass the class that implements the <code>Runnable</code> interface into the <code>Thread</code> constructor and then start
+    it.</p>
+  <p>When deciding which method to use to create a <code>Thread</code>, it is always advisable to implement the <code>Runnable</code> interface as this results in composition which will allow your code to be more loosely coupled as compared to inheritance.
+    Furthermore, you can extend another class if need be. Shown below are the two ways to create a <code>Thread</code>.</p>
+  <p>Extending the <code>Thread</code> class:</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnotherThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
         System.out.println(<span class="hljs-string">"This class extends the Thread class"</span>);
     }
 }
 </code></pre>
-<p>Implemeting the <code>Runnable</code> interface:</p>
-<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
+  <p>Implemeting the <code>Runnable</code> interface:</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
         System.out.println(<span class="hljs-string">"This class implements the Runnable interface"</span>);
     }
 }
 </code></pre>
-<p>Do note that this is only for illustration and can be simplified using lambdas.</p>
-<h3 id="operations-on-threads">Operations on Threads</h3>
-<p>After creating and starting threads, you can carry out operations on them. There are several such operations you can use to manipulate threads:</p>
-<ul>
-  <li>Making a thread sleep for a given amount of time. This is useful for pausing the execution of a thread for a certain amount of time to free up resources for other threads or delaying the execution of the thread.</li>
-</ul>
-<pre><code class="hljs java"><span class="hljs-keyword">try</span> {
+  <p>Do note that this is only for illustration and can be simplified using lambdas.</p>
+  <h3 id="operations-on-threads">Operations on Threads</h3>
+  <p>After creating and starting threads, you can carry out operations on them. There are several such operations you can use to manipulate threads:</p>
+  <ul>
+    <li>Making a thread sleep for a given amount of time. This is useful for pausing the execution of a thread for a certain amount of time to free up resources for other threads or delaying the execution of the thread.</li>
+  </ul>
+  <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
     Thread.sleep(<span class="hljs-number">1000</span>);
 } <span class="hljs-keyword">catch</span> (InterruptedException e){
     <span class="hljs-comment">// handle interruption</span>
 }
 </code></pre>
-<ul>
-  <li>Joining one thread to the current thread. This will pause the execution of the current thread and cause it to wait until the newly joined thread has finished it's execution. This is useful in cases where there is a need for the results of another thread
-    before moving on.</li>
-</ul>
-<pre><code class="hljs java"><span class="hljs-keyword">try</span> {
+  <ul>
+    <li>Joining one thread to the current thread. This will pause the execution of the current thread and cause it to wait until the newly joined thread has finished it's execution. This is useful in cases where there is a need for the results of another
+      thread before moving on.</li>
+  </ul>
+  <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
     thread2.join();
 } <span class="hljs-keyword">catch</span> (InterruptedException e) {
     <span class="hljs-comment">// handle interruption</span>
 }
 </code></pre>
-<h3 id="thread-interference">Thread Interference</h3>
-<p>Since threads share the resources of the process they exist in, there will inevitably be conflicts when using shared resources due to the unpredictable nature of threads. When threads try to write to the same resource, thread interference occurs. To illustrate
-  this problem, here's a sequence of execution for two threads, A and B, that increment and decrement a counter variable respectively:</p>
-<ol>
-  <li>Thread A retrieves the value of counter and increments it to a value of 1</li>
-  <li>Thread B then retrieves the values of counter, which is still 0, and decrements it to a value of -1</li>
-  <li>Thread A stores the value of 1 to the counter variable</li>
-  <li>Thread B stores the value of -1 to the counter variable and overwrites the previous value stored by Thread A</li>
-</ol>
-<p><img src="thread_interference.png" alt="Thread Interference Sequence"></p>
-<p>Without thread interference, the expected value of the counter variable would be 0, since one thread increments it while the other decrements it. But with thread interference, the value of counter is simply the value written by the last thread. This is
-  due to the unpredictable nature of threads as there is no way to know when the operating system switches between the two threads.</p>
-<p>To solve this issue of interference, the keyword <code>synchronized</code> is used to ensure that method or block of code can only be accessed by one thread at a time. This is done through the use of the intrinsic lock system, a mechanism put in place
-  by Java to control access to a shared resource. Simply put, each object has it's own intrinsic lock which:</p>
-<ul>
-  <li>is acquired by the thread that works on it</li>
-  <li>prevents any other thread from working on it while it's lock has been acquired</li>
-</ul>
-<p>This can be illustrated by the following image where once Thread 2 (T2) acquires the lock for the synchronized block of code, the other two threads (T1 and T3) must wait for the synchronized block of code to release it's lock once T2 to complete its execution:</p>
-<p><img src="http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" alt="Synchronized block"></p>
-<p>For a deeper look, see the <a href="../java/JavaSynchronization.md">Java Synchronisation</a> section.</p>
-<h3 id="executors">Executors</h3>
-<p>While it is easy to create one or two threads and run them, it becomes a problem when your application requires creating 20 or 30 threads for running tasks concurrently. This is where the <code>Executors</code> class comes in. It helps you with:</p>
-<ol>
-  <li>
-    <p><strong>Thread Creation</strong><br> It provides various methods for creating threads, more specifically a pool of threads, to run tasks concurrently.</p>
-  </li>
-  <li>
-    <p><strong>Thread Management</strong><br> It manages the life cycle of the threads in the thread pool. You don’t need to worry about whether the threads in the thread pool are active, busy or dead before submitting a task for execution.</p>
-  </li>
-  <li>
-    <p><strong>Task submission and execution</strong><br> It provides methods for submitting tasks for execution in the thread pool, and also allows you to decide when the tasks will be executed. For example, a task can be submitted to be executed instantly,
-      scheduled to be executed later or even executed periodically. Tasks are submitted to a thread pool via an internal queue called the <code>Blocking Queue</code>. If there are more tasks than the number of active threads, they are queued until a thread
-      becomes available. New tasks are rejected if the blocking queue is full.</p>
-  </li>
-</ol>
-<p>The <code>Executors</code> class provides convenient factory methods for creating the <code>ExecutorService</code> class. This class manages the lifecycle of tasks in various ways by assigning a <code>ThreadPool</code> to it. Different thread pools manage
-  tasks in different ways along with their own advantages and disadvantages. Some of these include:</p>
-<ul>
-  <li>
-    <p><code>CachedThreadPool</code> - Creates new threads as they are needed. This would prove useful for short-lived tasks but otherwise would be resource intensive as it would create too many threads.</p>
-  </li>
-  <li>
-    <p><code>FixedThreadPool</code> - A thread pool with a fixed number of threads. If all threads are active when a new task is submitted, they will be queued until a thread becomes available. This can come in handy when you know exactly how many threads
-      you need, though that may be tricky by itself.</p>
-  </li>
-  <li>
-    <p><code>ThreadPoolExecutor</code> - This thread pool implementation adds the ability to configure parameters such as the maximum number of threads it can hold and how long to keep extra threads alive.</p>
-  </li>
-</ul>
-<p>Shown below is an image to illustrate how <code>ExecutorService</code> and <code>ThreadPools</code> are connected (Do note that the <code>Executor</code> is not in the image as it creates the <code>ExecutorService</code>):
-  <img src="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" alt="ExecutorService and ThreadPools"></p>
-<p>A simple example of using the <code>Executors</code> class is shown below where after passing in the task to be executed, it is automatically managed by the <code>ExecutorService</code>. For a more detailed look at the workflow of the <code>ExecutorService</code>,
-  see this <a href="https://www.callicoder.com/java-executor-service-and-thread-pool-tutorial/">in-depth tutorial</a>.</p>
-<pre><code class="hljs java">ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">10</span>); 
+  <h3 id="thread-interference">Thread Interference</h3>
+  <p>Since threads share the resources of the process they exist in, there will inevitably be conflicts when using shared resources due to the unpredictable nature of threads. When threads try to write to the same resource, thread interference occurs. To
+    illustrate this problem, here's a sequence of execution for two threads, A and B, that increment and decrement a counter variable respectively:</p>
+  <ol>
+    <li>Thread A retrieves the value of counter and increments it to a value of 1</li>
+    <li>Thread B then retrieves the values of counter, which is still 0, and decrements it to a value of -1</li>
+    <li>Thread A stores the value of 1 to the counter variable</li>
+    <li>Thread B stores the value of -1 to the counter variable and overwrites the previous value stored by Thread A</li>
+  </ol>
+  <p><a href="thread_interference.png" target="_self"><img src="thread_interference.png" alt="" class="img-fluid"></a></p>
+  <p>Without thread interference, the expected value of the counter variable would be 0, since one thread increments it while the other decrements it. But with thread interference, the value of counter is simply the value written by the last thread. This
+    is due to the unpredictable nature of threads as there is no way to know when the operating system switches between the two threads.</p>
+  <p>To solve this issue of interference, the keyword <code>synchronized</code> is used to ensure that method or block of code can only be accessed by one thread at a time. This is done through the use of the intrinsic lock system, a mechanism put in place
+    by Java to control access to a shared resource. Simply put, each object has it's own intrinsic lock which:</p>
+  <ul>
+    <li>is acquired by the thread that works on it</li>
+    <li>prevents any other thread from working on it while it's lock has been acquired</li>
+  </ul>
+  <p>This can be illustrated by the following image where once Thread 2 (T2) acquires the lock for the synchronized block of code, the other two threads (T1 and T3) must wait for the synchronized block of code to release it's lock once T2 to complete its
+    execution:</p>
+  <p><a href="http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" target="_self"><img src="http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" alt="" class="img-fluid"></a></p>
+  <p>For a deeper look, see the <a href="../java/JavaSynchronization.md">Java Synchronisation</a> section.</p>
+  <h3 id="executors">Executors</h3>
+  <p>While it is easy to create one or two threads and run them, it becomes a problem when your application requires creating 20 or 30 threads for running tasks concurrently. This is where the <code>Executors</code> class comes in. It helps you with:</p>
+  <ol>
+    <li>
+      <p><strong>Thread Creation</strong><br> It provides various methods for creating threads, more specifically a pool of threads, to run tasks concurrently.</p>
+    </li>
+    <li>
+      <p><strong>Thread Management</strong><br> It manages the life cycle of the threads in the thread pool. You don’t need to worry about whether the threads in the thread pool are active, busy or dead before submitting a task for execution.</p>
+    </li>
+    <li>
+      <p><strong>Task submission and execution</strong><br> It provides methods for submitting tasks for execution in the thread pool, and also allows you to decide when the tasks will be executed. For example, a task can be submitted to be executed instantly,
+        scheduled to be executed later or even executed periodically. Tasks are submitted to a thread pool via an internal queue called the <code>Blocking Queue</code>. If there are more tasks than the number of active threads, they are queued until a
+        thread becomes available. New tasks are rejected if the blocking queue is full.</p>
+    </li>
+  </ol>
+  <p>The <code>Executors</code> class provides convenient factory methods for creating the <code>ExecutorService</code> class. This class manages the lifecycle of tasks in various ways by assigning a <code>ThreadPool</code> to it. Different thread pools
+    manage tasks in different ways along with their own advantages and disadvantages. Some of these include:</p>
+  <ul>
+    <li>
+      <p><code>CachedThreadPool</code> - Creates new threads as they are needed. This would prove useful for short-lived tasks but otherwise would be resource intensive as it would create too many threads.</p>
+    </li>
+    <li>
+      <p><code>FixedThreadPool</code> - A thread pool with a fixed number of threads. If all threads are active when a new task is submitted, they will be queued until a thread becomes available. This can come in handy when you know exactly how many threads
+        you need, though that may be tricky by itself.</p>
+    </li>
+    <li>
+      <p><code>ThreadPoolExecutor</code> - This thread pool implementation adds the ability to configure parameters such as the maximum number of threads it can hold and how long to keep extra threads alive.</p>
+    </li>
+  </ul>
+  <p>Shown below is an image to illustrate how <code>ExecutorService</code> and <code>ThreadPools</code> are connected (Do note that the <code>Executor</code> is not in the image as it creates the <code>ExecutorService</code>):
+    <a href="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" target="_self"><img src="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" alt="" class="img-fluid"></a></p>
+  <p>A simple example of using the <code>Executors</code> class is shown below where after passing in the task to be executed, it is automatically managed by the <code>ExecutorService</code>. For a more detailed look at the workflow of the <code>ExecutorService</code>,
+    see this <a href="https://www.callicoder.com/java-executor-service-and-thread-pool-tutorial/">in-depth tutorial</a>.</p>
+  <pre><code class="hljs java">ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">10</span>); 
 executor.execute(() -&gt; {  
     System.out.println(<span class="hljs-string">"Hello from: "</span> + Thread.currentThread().getName());
 });
 executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thread.</span>
 </code></pre>
-<p>And the corresponding output would be <code>Hello from: pool-1-thread-1</code>.</p>
-<h2 id="disadvantages-of-java-concurrency">Disadvantages of Java Concurrency</h2>
-<p>As the saying goes, <em>there is no free lunch</em>. While concurrency provides great benefits as mentioned above, it does come with several issues such as:</p>
-<ul>
-  <li><strong>A more complex design</strong><br> Due to the creation of multiple threads and the problem of thread interference, the design becomes more complex as much more work is done to manage these threads such that no problem occurs when the application
-    runs. For instance, take a look at these two implementations of the <code>Singleton</code> design pattern:</li>
-</ul>
-<p>Concurrent implementation where you have to ensure that thread interference does not happen</p>
-<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>{
+  <p>And the corresponding output would be <code>Hello from: pool-1-thread-1</code>.</p>
+  <h2 id="disadvantages-of-java-concurrency">Disadvantages of Java Concurrency</h2>
+  <p>As the saying goes, <em>there is no free lunch</em>. While concurrency provides great benefits as mentioned above, it does come with several issues such as:</p>
+  <ul>
+    <li><strong>A more complex design</strong><br> Due to the creation of multiple threads and the problem of thread interference, the design becomes more complex as much more work is done to manage these threads such that no problem occurs when the application
+      runs. For instance, take a look at these two implementations of the <code>Singleton</code> design pattern:</li>
+  </ul>
+  <p>Concurrent implementation where you have to ensure that thread interference does not happen</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>{
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;
     <span class="hljs-comment">// Create a lock so only one thread can access this object at a time.</span>
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();  
@@ -211,8 +228,8 @@ executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thre
      }
 }
 </code></pre>
-<p>Vs the usual implementation</p>
-<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>{
+  <p>Vs the usual implementation</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>{
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;
     
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{
@@ -227,42 +244,45 @@ executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thre
     }
 }
 </code></pre>
-<ul>
-  <li>
-    <p><strong>Harder debugging and testing process</strong><br> The unpredictable nature of threads result in errors that can be hard to detect, reproduce and fix as these errors don't crop up consistently like normal errors do.</p>
-  </li>
-  <li>
-    <p><strong>Context switching overhead</strong><br> When a CPU switches from executing one thread to executing another, the CPU needs to save the state of the current thread, and load the state of the next thread to execute, making this process of context
-      switching very expensive.</p>
-  </li>
-</ul>
-<h2 id="resources">Resources</h2>
-<p>The following resources are the many in-depth tutorials that will help you get a better grasp of concurrency in Java.</p>
-<ul>
-  <li><a href="https://baptiste-wicht.com/posts/2010/05/java-concurrency-part-1-threads.html">Seven part series on the basics of Concurrency in Java</a></li>
-  <li><a href="http://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency">High-level overview of Concurrency in Java by Vogella</a></li>
-  <li><a href="https://www.javacodegeeks.com/2015/09/concurrency-best-practices.html">Concurrency best practices</a></li>
-  <li><a href="https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html">Java 101: Understanding Java threads</a></li>
-  <li><a href="http://tutorials.jenkov.com/java-concurrency/index.html">Java Concurrency / Multithreading Tutorial by Jenkov</a></li>
-  <li><a href="https://www.tutorialspoint.com/java_concurrency/concurrency_overview.htm">Java Concurrency Tutorial by tutorialspoint</a></li>
-</ul>
-<h3 id="further-reading">Further Reading</h3>
-<p>The following resources are interesting reads for a deeper understanding.</p>
-<ul>
-  <li><a href="https://beginnersbook.com/2015/01/what-is-the-difference-between-a-process-and-a-thread-in-java/">What is the difference between a process and a thread in Java?</a></li>
-  <li><a href="https://cs.stackexchange.com/questions/19987/difference-between-parallel-and-concurrent-programming">Computer Science Stack Exchange Post on the difference between Concurrency and Parallelism</a></li>
-  <li><a href="https://www.callicoder.com/java-locks-and-atomic-variables-tutorial/">Java Locks and Atomic Variables Tutorial</a></li>
-  <li><a href="https://www.quora.com/What-is-the-advantage-of-Googles-Golang-over-Java-and-Scala">A comparison between concurrency in Golang and Java</a></li>
-</ul>
+  <ul>
+    <li>
+      <p><strong>Harder debugging and testing process</strong><br> The unpredictable nature of threads result in errors that can be hard to detect, reproduce and fix as these errors don't crop up consistently like normal errors do.</p>
+    </li>
+    <li>
+      <p><strong>Context switching overhead</strong><br> When a CPU switches from executing one thread to executing another, the CPU needs to save the state of the current thread, and load the state of the next thread to execute, making this process of context
+        switching very expensive.</p>
+    </li>
+  </ul>
+  <h2 id="resources">Resources</h2>
+  <p>The following resources are the many in-depth tutorials that will help you get a better grasp of concurrency in Java.</p>
+  <ul>
+    <li><a href="https://baptiste-wicht.com/posts/2010/05/java-concurrency-part-1-threads.html">Seven part series on the basics of Concurrency in Java</a></li>
+    <li><a href="http://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency">High-level overview of Concurrency in Java by Vogella</a></li>
+    <li><a href="https://www.javacodegeeks.com/2015/09/concurrency-best-practices.html">Concurrency best practices</a></li>
+    <li><a href="https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html">Java 101: Understanding Java threads</a></li>
+    <li><a href="http://tutorials.jenkov.com/java-concurrency/index.html">Java Concurrency / Multithreading Tutorial by Jenkov</a></li>
+    <li><a href="https://www.tutorialspoint.com/java_concurrency/concurrency_overview.htm">Java Concurrency Tutorial by tutorialspoint</a></li>
+  </ul>
+  <h3 id="further-reading">Further Reading</h3>
+  <p>The following resources are interesting reads for a deeper understanding.</p>
+  <ul>
+    <li><a href="https://beginnersbook.com/2015/01/what-is-the-difference-between-a-process-and-a-thread-in-java/">What is the difference between a process and a thread in Java?</a></li>
+    <li><a href="https://cs.stackexchange.com/questions/19987/difference-between-parallel-and-concurrent-programming">Computer Science Stack Exchange Post on the difference between Concurrency and Parallelism</a></li>
+    <li><a href="https://www.callicoder.com/java-locks-and-atomic-variables-tutorial/">Java Locks and Atomic Variables Tutorial</a></li>
+    <li><a href="https://www.quora.com/What-is-the-advantage-of-Googles-Golang-over-Java-and-Scala">A comparison between concurrency in Golang and Java</a></li>
+  </ul>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

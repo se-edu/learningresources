@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Performance Profiling</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,75 +29,90 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="performance-profiling">Performance Profiling</h1>
-<p>Author: <a href="https://github.com/initialshl">Ong Heng Le</a></p>
-<h2 id="overview">Overview</h2>
-<p>A performance profiler is a tool which collects data (such as function timings) about your program to identify the areas with performance issues, commonly used in code optimization. There are two common types of performance profiling methods.</p>
-<ul>
-  <li><strong>CPU sampling</strong>: Collects <em>samples</em> at fixed intervals, which provides an overview of your program's performance</li>
-  <li><strong>Instrumentation</strong>: Collects detailed <em>elapsed times</em> for your program's function calls</li>
-</ul>
-<p>Learn <a href="https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/">which profiling method to use for your program</a> when choosing between CPU sampling and instrumentation.</p>
-<h2 id="performance-profiling-for-the-first-time">Performance Profiling For The First Time</h2>
-<p>This article provides resources to help you identify the performance issues as you perform profiling on your program for the first time. The general steps in profiling a program for the first time are:</p>
-<ol>
-  <li>Run a performance profiling session</li>
-  <li>View the performance report</li>
-  <li>Trace down to the problem</li>
-  <li>Identify areas for improvements upwards</li>
-</ol>
-<p>Most profilers are similar in their functionalities, user interface, and use of technical terms. You may adapt the tutorials in this article to your preferred profiling tools on your own project.</p>
-<ul>
-  <li><a href="ProfilingDesktopAppVS2015.md">Profiling a Desktop Application In Visual Studio 2015</a></li>
-</ul>
-<h2 id="advanced-topics">Advanced Topics</h2>
-<h3 id="sampling-interval">Sampling Interval</h3>
-<p>CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many profilers offer the option to <strong>set a custom interval or perform sampling based on events</strong>, such as page faults or system calls, in the sampling settings.</p>
-<ul>
-  <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/ms182376.aspx">How to: Choose Sampling Events</a><br></li>
-  <li>For YourKit Java Profiler: <a href="https://www.yourkit.com/docs/java/help/sampling_settings.jsp">YourKit Java Profiler Help - CPU sampling settings</a></li>
-</ul>
-<h3 id="instrumentation-overhead">Instrumentation Overhead</h3>
-<p>Instrumentation profiling incurs a substantial overhead, which is an increase in file size and execution time of the program. This makes it unsuitable for large projects. In such cases, it is recommended to <strong>limit instrumentation to a specific portion of your project</strong>.</p>
-<ul>
-  <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/cc470663.aspx">How to: Limit Instrumentation to Specific Functions</a> or <a href="https://msdn.microsoft.com/en-us/library/bb385752.aspx">Specific DLLs</a></li>
-</ul>
-<p>To reduce instrumentation overhead, some profilers may exclude <em>small functions</em>, which are short functions that do not make any function calls, and treat the time as being spent in their calling functions. This behavior is usually enabled by default,
-  which may be undesirable when you want to <strong>examine <em>small functions</em> carefully</strong>. Most profilers offer the option to change this behavior.</p>
-<ul>
-  <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/bb514150.aspx">How to: Exclude or Include Short Functions from Instrumentation</a></li>
-</ul>
-<h2 id="profiling-other-types-of-data">Profiling Other Types Of Data</h2>
-<p>Other than collecting performance statistics and timing data, profilers are also able to collect other information such as memory allocation and GPU usage.</p>
-<p>For Visual Studio 2015:</p>
-<ol>
-  <li>List of <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">Profiling Tools</a> (A <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx#Anchor_10">table</a> which shows the most suitable tool for each project)</li>
-  <li><a href="https://msdn.microsoft.com/en-us/library/2s0xxa1d.aspx">How to: Collect Performance Data for a Web Site</a> (<a href="http://ASP.NET">ASP.NET</a> and JavaScript)</li>
-  <li><a href="https://msdn.microsoft.com/en-us/library/dd264934.aspx">Collecting .NET Memory Allocation and Lifetime Data</a></li>
-  <li><a href="https://msdn.microsoft.com/en-us/library/dd265004.aspx">Collecting Thread and Process Concurrency Data</a></li>
-  <li><a href="https://msdn.microsoft.com/en-us/library/dd465169.aspx">Collecting tier interaction data</a></li>
-</ol>
-<h2 id="resources">Resources</h2>
-<ol>
-  <li>What is a software profiler?: <a href="https://msdn.microsoft.com/en-us/library/bb384493(v=vs.110).aspx">Profiling Overview</a></li>
-  <li>Common performance profiling methods: <a href="https://msdn.microsoft.com/en-us/library/dd264994.aspx">Understanding Performance Collection Methods</a></li>
-  <li>Learn the best practices in profiling: <a href="https://netbeans.org/community/magazine/html/04/profiler.html">Advanced Profiling: Theory in Practice with NetBeans IDE</a></li>
-  <li>Why do profilers exclude small functions from instrumentation by default?: <a href="https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/">Excluding Small Functions From Instrumentation</a></li>
-</ol>
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="performance-profiling">Performance Profiling</h1>
+  <p>Author: <a href="https://github.com/initialshl">Ong Heng Le</a></p>
+  <h2 id="overview">Overview</h2>
+  <p>A performance profiler is a tool which collects data (such as function timings) about your program to identify the areas with performance issues, commonly used in code optimization. There are two common types of performance profiling methods.</p>
+  <ul>
+    <li><strong>CPU sampling</strong>: Collects <em>samples</em> at fixed intervals, which provides an overview of your program's performance</li>
+    <li><strong>Instrumentation</strong>: Collects detailed <em>elapsed times</em> for your program's function calls</li>
+  </ul>
+  <p>Learn <a href="https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/">which profiling method to use for your program</a> when choosing between CPU sampling and instrumentation.</p>
+  <h2 id="performance-profiling-for-the-first-time">Performance Profiling For The First Time</h2>
+  <p>This article provides resources to help you identify the performance issues as you perform profiling on your program for the first time. The general steps in profiling a program for the first time are:</p>
+  <ol>
+    <li>Run a performance profiling session</li>
+    <li>View the performance report</li>
+    <li>Trace down to the problem</li>
+    <li>Identify areas for improvements upwards</li>
+  </ol>
+  <p>Most profilers are similar in their functionalities, user interface, and use of technical terms. You may adapt the tutorials in this article to your preferred profiling tools on your own project.</p>
+  <ul>
+    <li><a href="ProfilingDesktopAppVS2015.md">Profiling a Desktop Application In Visual Studio 2015</a></li>
+  </ul>
+  <h2 id="advanced-topics">Advanced Topics</h2>
+  <h3 id="sampling-interval">Sampling Interval</h3>
+  <p>CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many profilers offer the option to <strong>set a custom interval or perform sampling based on events</strong>, such as page faults or system calls, in the sampling settings.</p>
+  <ul>
+    <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/ms182376.aspx">How to: Choose Sampling Events</a><br></li>
+    <li>For YourKit Java Profiler: <a href="https://www.yourkit.com/docs/java/help/sampling_settings.jsp">YourKit Java Profiler Help - CPU sampling settings</a></li>
+  </ul>
+  <h3 id="instrumentation-overhead">Instrumentation Overhead</h3>
+  <p>Instrumentation profiling incurs a substantial overhead, which is an increase in file size and execution time of the program. This makes it unsuitable for large projects. In such cases, it is recommended to <strong>limit instrumentation to a specific portion of your project</strong>.</p>
+  <ul>
+    <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/cc470663.aspx">How to: Limit Instrumentation to Specific Functions</a> or <a href="https://msdn.microsoft.com/en-us/library/bb385752.aspx">Specific DLLs</a></li>
+  </ul>
+  <p>To reduce instrumentation overhead, some profilers may exclude <em>small functions</em>, which are short functions that do not make any function calls, and treat the time as being spent in their calling functions. This behavior is usually enabled by
+    default, which may be undesirable when you want to <strong>examine <em>small functions</em> carefully</strong>. Most profilers offer the option to change this behavior.</p>
+  <ul>
+    <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/bb514150.aspx">How to: Exclude or Include Short Functions from Instrumentation</a></li>
+  </ul>
+  <h2 id="profiling-other-types-of-data">Profiling Other Types Of Data</h2>
+  <p>Other than collecting performance statistics and timing data, profilers are also able to collect other information such as memory allocation and GPU usage.</p>
+  <p>For Visual Studio 2015:</p>
+  <ol>
+    <li>List of <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">Profiling Tools</a> (A <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx#Anchor_10">table</a> which shows the most suitable tool for each project)</li>
+    <li><a href="https://msdn.microsoft.com/en-us/library/2s0xxa1d.aspx">How to: Collect Performance Data for a Web Site</a> (<a href="http://ASP.NET">ASP.NET</a> and JavaScript)</li>
+    <li><a href="https://msdn.microsoft.com/en-us/library/dd264934.aspx">Collecting .NET Memory Allocation and Lifetime Data</a></li>
+    <li><a href="https://msdn.microsoft.com/en-us/library/dd265004.aspx">Collecting Thread and Process Concurrency Data</a></li>
+    <li><a href="https://msdn.microsoft.com/en-us/library/dd465169.aspx">Collecting tier interaction data</a></li>
+  </ol>
+  <h2 id="resources">Resources</h2>
+  <ol>
+    <li>What is a software profiler?: <a href="https://msdn.microsoft.com/en-us/library/bb384493(v=vs.110).aspx">Profiling Overview</a></li>
+    <li>Common performance profiling methods: <a href="https://msdn.microsoft.com/en-us/library/dd264994.aspx">Understanding Performance Collection Methods</a></li>
+    <li>Learn the best practices in profiling: <a href="https://netbeans.org/community/magazine/html/04/profiler.html">Advanced Profiling: Theory in Practice with NetBeans IDE</a></li>
+    <li>Why do profilers exclude small functions from instrumentation by default?: <a href="https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/">Excluding Small Functions From Instrumentation</a></li>
+  </ol>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

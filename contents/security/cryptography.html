@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Introduction to Cryptography</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,117 +29,132 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="introduction-to-cryptography">Introduction to Cryptography</h1>
-<p>Authors: <a href="https://github.com/neurrone">Dickson Tan</a></p>
-<h2 id="overview">Overview</h2>
-<p>Cryptography is the science of developing methods for secure communication, while Cryptanalysis is the discipline of breaking such methods. Understanding cryptography will enable you to correctly use cryptography libraries and combine cryptographic primitives
-  to match the security needs of your application.</p>
-<p>Modern cryptography involves developing techniques to achieve the following objectives:</p>
-<ul>
-  <li>Confidentiality: ensuring that a message can only be read by its intended recipient. For example, websites use encryption in the Transport Layer Security (TLS) protocol to prevent interception of sensitive information such as credit card numbers and
-    passwords.</li>
-  <li>Integrity: ensuring a message has not been changed. For example, hash functions are used in the BitTorrent protocol to ensure files received have not been modified by malicious peers.</li>
-  <li>Authentication: the recipient should be able to verify the sender of a message. For example, iPhones need to verify that the software updates received really came from Apple, not a malicious attacker.</li>
-  <li>Non-repudiation: the sender should not be able to deny sending a message after doing so. For example, the parties of a digital contract should not be able to deny signing the contract in a legal dispute.</li>
-</ul>
-<p>In Cryptanalysis, the objective is to exploit weaknesses in cryptographic algorithms - for example, attempting to recover the original message from its encrypted form. The security of cryptographic algorithms is evaluated based on their resistance to
-  <a href="https://en.wikipedia.org/wiki/Cryptanalysis#Amount_of_information_available_to_the_attacker">these attacks</a>.</p>
-<h2 id="encryption">Encryption</h2>
-<p>Encryption is the process of encoding messages so that it is readable only by the intended recipient. The message being encrypted is called the plaintext. The encryption algorithm &quot;scrambles&quot; the message, producing ciphertext, which should only
-  be readable by the recipient. Decryption is the reverse process of recovering the plaintext from the ciphertext.</p>
-<p>A cipher refers to a pair of algorithms - one for encryption and decryption, and is used to refer to symmetric key techniques. A cryptosystem consists of 3 algorithms - a cipher and a key generation algorithm. Though cryptosystems usually refer to asymmetric
-  key techniques, it may also be used to refer to symmetric key techniques.</p>
-<p>The key is a parameter, or a piece of secret information, that determines the output of cryptographic algorithms. According to <a href="https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle">Kerckhoffs' principle</a>, a cryptosystem should be secure
-  even if the attacker knows everything about the cryptosystem, except the key. This means that the attacker knows the algorithms used for encryption and decryption. Although it is tempting to design secure systems by employing <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">&quot;security by obscurity&quot;</a>  to keep their details hidden, they are usually easily broken once their design is known. The <a href="https://en.wikipedia.org/wiki/Content_Scramble_System">CSS copy-protection system for DVDs</a> is one such example.</p>
-<p>One of the earliest encryption algorithms or ciphers is the substitution cipher, which encrypts text by substituting each letter of the message with another letter. This page introduces the <a href="http://www.cs.trincoll.edu/~crypto/historical/caesar.html">Caesar substitution cipher</a>,
-  and how it can be defeated using statistical analysis, a <a href="https://en.wikipedia.org/wiki/Ciphertext-only_attack">ciphertext-only attack</a>. Modern ciphers today operate on bits rather than letters.</p>
-<h3 id="symmetric-key-ciphers">Symmetric Key Ciphers</h3>
-<p>In a symmetric key cipher, the same key, a shared secret, is used for both encryption and decryption. The parties wishing to communicate securely share the same key. For example, in the substitution cipher, the same key (the substitution table) is used
-  for both encryption and decryption. There are 2 types of symmetric ciphers: stream and block ciphers.</p>
-<h4 id="stream-ciphers">Stream ciphers</h4>
-<p>The ciphertext, keystream and plaintext are sequences or streams of bits of equal length. During encryption, each plaintext bit is combined (usually xored) with the corresponding keystream bit to produce the ciphertext bits. For example, the 1st plaintext
-  bit is xored with the 1st keystream bit, 2nd plaintext bit with 2nd keystream bit and so on. During decryption, each ciphertext bit is xored with the corresponding keystream bit to produce the plaintext. Notice that encryption and decryption are the
-  same operation; this is possible since xoring a bit x with another bit y twice recovers the original bit; (x xor y) xor y = x.</p>
-<p>The simplest stream cipher is the <a href="https://en.wikipedia.org/wiki/One-time_pad">one-time pad</a>. In this cipher, the keystream used is bits from a truly random source, and is also the key. It is the only known cipher that cannot be cracked, even
-  if the attacker has infinite computing power. This property is known as <a href="https://crypto.stackexchange.com/questions/3896/simply-put-what-does-perfect-secrecy-mean">perfect secrecy</a>; the ciphertext gives no additional information about the
-  plaintext, so knowing the ciphertext does not provide any advantage to the attacker trying to recover the plaintext. Unfortunately, <a href="https://www.scientificamerican.com/article/claude-e-shannon-founder/">Shannon</a>, renowned cryptographer and
-  founder of Information Theory, proved that any cipher that achieves perfect secrecy must have the following limitations, making them <a href="https://www.schneier.com/crypto-gram/archives/2002/1015.html#7">impractical</a>.</p>
-<ul>
-  <li>The key must be truely random, not pseudorandomly generated, and must never be reused.</li>
-  <li>The key must be securely distributed, and be at least as long as the message being generated. For example, to send a 10gb file to someone encrypted with the one-time pad requires sending 10gb of key material + 10gb of ciphertext = 20gb.</li>
-</ul>
-<p>In practice, we do not require perfect secrecy, since attackers have limited computational power. Hence, all other ciphers are only <a href="https://en.wikipedia.org/wiki/Computational_hardness_assumption">computationally secure</a>; their security relies
-  on the assumption that certain problems are difficult to solve.</p>
-<p>Modern stream ciphers approximate the operation of the one-time pad. A short key (say 256 bits) is used to seed a <a href="https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator">cryptographically secure pseudorandom number generator</a>,
-  which is used to generate the keystream for both encryption and decryption. They are more practical, as the key the communicating parties need to share is much shorter.</p>
-<p>Keys must never be reused in stream ciphers. Doing so causes the same keystream, k, to be generated, and 2 plaintexts, p and q, to be encrypted with the same keystream. If we xor the ciphertexts for p and q, we get (p xor k) xor (q xor k) = (p xor q)
-  xor (k xor k) = p xor q. This exposes information about the plaintexts, which may lead to the recovery of both. Here is a <a href="https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse">visual illustration of this attack</a>,
-  and <a href="https://www.schneier.com/blog/archives/2005/01/microsoft_rc4_f.html">an example of this happening in practice</a>.</p>
-<p>Stream ciphers are used for their efficiency, ease of implementation in hardware, and when the length of the plaintext is unpredictable. However, block ciphers are more widely used than stream ciphers. In some modes of operation, they can be used like
-  stream ciphers, reducing the need for dedicated stream ciphers.</p>
-<p><a href="https://en.wikipedia.org/wiki/RC4">RC4</a> is the most widely used stream cipher. Though its use is now discouraged due to known vulnerabilities. The <a href="http://www.ecrypt.eu.org/stream/">eSTREAM project</a>, a research effort to develop
-  state-of-the-art stream ciphers, has identified several ciphers suitable for widespread adoption. However, being relatively new, they have not been analyzed as extensively by cryptographers.</p>
-<h4 id="block-ciphers">Block Ciphers</h4>
-<p>Unlike stream ciphers, which operate on individual bits, block ciphers operate on an entire block of bits at a time. In practice, the size of each block is 64 or 128 bits.</p>
-<p><a href="https://www.scientificamerican.com/article/claude-e-shannon-founder/">Shannon</a> introduced 2 primitives, which modern block ciphers are built on.</p>
-<ul>
-  <li>Confusion: an operation which obscures the relationship between key and ciphertext. This is usually done by substitution.</li>
-  <li>Diffusion: an operation which hides statistical properties in the plaintext by spreading the influence of a plaintext bit over many ciphertext bits. For example, the DES cipher achieves this by bit Permutations.</li>
-</ul>
-<p>Ciphers that use only one of these operations are insecure. For example, the insecure Caesar cipher only uses confusion. But strong ciphers can be built by using both confusion and diffusion - these are called product ciphers.</p>
-<ul>
-  <li>This <a href="https://graquantum.com/blog/deciphering-encryption-des-block-cipher/">article</a> explains how the DES cipher works, Feistel networks, s-boxes and p-boxes. Though DES is no longer secure, its design has inspired many ciphers. A still secure
-    variant, triple DES, is popular in legacy applications.</li>
-  <li>The Advanced Encryption Standard (AES) is the most popular symmetric cipher today. It is used by the US government and in many protocols such as TLS, WPA2-AES and SSH. This <a href="https://graquantum.com/blog/deciphering-encryption-aes-block-cipher/">article</a>    explains how AES works without going too much into the mathematical details.</li>
-</ul>
-<h5 id="modes-of-operation">Modes of Operation</h5>
-<p>Block ciphers alone aren't very useful, because they only provide a secure way of encrypting one block of data. Modes of operation are ways of using block ciphers to securely encrypt multiple blocks. The plaintext is padded if it is not an even multiple
-  of the block size. Block ciphers can also provide additional services such as integrity, depending on the mode used, which makes them vercitile. This <a href="http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">article</a> provides a nice
-  overview of common modes.</p>
-<p>Most modes require a random value called an initialization vector (IV) so that encrypting the same message twice doesn't produce the same ciphertext, which leaks information. It is critical that the IV be <a href="https://defuse.ca/cbcmodeiv.htm">random, used only once and unpredictable</a>.
-  Not doing so has caused several vulnerabilities such as the <a href="http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html">BEAST Attack on TLS</a> and <a href="https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy">the recovery of WEP keys</a>.</p>
-<h3 id="asymmetric-key-cryptosystems">Asymmetric Key Cryptosystems</h3>
-<p>Symmetric cryptography is not practical for the following situations, which motivates the development of asymmetric or public key cryptography:</p>
-<ul>
-  <li>Key agreement: the communicating parties must securely establish a shared secret key, since the communication channel for the message is insecure, other methods must be used.</li>
-  <li>Large number of keys: for each user in a group of <code>n</code> users to securely communicate to every other user, each user must securely store <code>n-1</code> keys , which is impractical.</li>
-  <li>No non-repudiation: since each party has the same capability by possessing the shared key, symmetric cryptography cannot be used when non-repudiation is required. For instance, if an online store, Bob, needs to prove Alice purchased an item where symmetric
-    encryption is used for the transaction message, Alice can claim Bob falsely generated the transaction, as they both share the same key.</li>
-</ul>
-<p>In asymmetric cryptography, there are 2 separate keys; one for encryption, and the other for decryption. The key used for encryption is published so that anyone can securely send messages to Alice. Hence, it is called a public key. Alice has the corresponding
-  decryption key, or private key, which is kept secret. Hence, messages encrypted with the public key can only be decrypted by Alice. In contrast, there is a single shared key which must be kept secret in symmetric ciphers.</p>
-<p>Public key cryptography has many uses beyond sending encrypted messages, such as key agreement and non-repudiation, which will be covered in future sections.</p>
-<p>For this to be secure, it must be computationally infeasible to obtain the private key from the public key. This is achieved using one-way functions, which have the following properties:</p>
-<ul>
-  <li>It must be easy to compute y = f(x) so that encryption is not too slow.</li>
-  <li>It is computationally infeasible to compute x = f^{-1}(y).</li>
-</ul>
-<h4 id="the-rsa-cryptosystem">The RSA Cryptosystem</h4>
-<p><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> is one of the earliest and most widely used public key cryposystems. Its one-way function is the integer factorization problem; Given 2 large primes <code>p</code> and <code>q</code>,
-  it is easy to compute the product <code>pq</code>, but difficult to factor <code>pq</code>. The <a href="http://doctrina.org/How-RSA-Works-With-Examples.html">first article of this 2-part series  </a> explains how RSA works, as well as the minimal number
-  theory required. The <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html">follow-up article</a> explains why RSA works by introducing some important results in number theory.</p>
-<h2 id="other-resources">Other Resources</h2>
-<ul>
-  <li><a href="https://www.amazon.com/Understanding-Cryptography-Textbook-Students-Practitioners/dp/3642041000">Understanding Cryptography: A Textbook for Students and Practitioners</a> is an outstanding introductory text. Explanations are excellent, and
-    no knowledge of number theory is assumed. It was used as reference material for this document.</li>
-  <li><a href="https://github.com/sobolevn/awesome-cryptography">Awesome Cryptography</a> is a curated list of resources - articles, blogs, books, libraries and more.</li>
-  <li><a href="https://grc.com/sn">Security Now</a> is a weekly podcast on security. Though it does not go into much detail about the underlying mathematics, there are many episodes on cryptography that provide a working knowledge of the subject. It also
-    discusses security headlines, which emphasize the practical aspect of cryptography; while the math may be sound, implementation mistakes or side-channel attacks often cause vulnerabilities in practice.</li>
-</ul>
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="introduction-to-cryptography">Introduction to Cryptography</h1>
+  <p>Authors: <a href="https://github.com/neurrone">Dickson Tan</a></p>
+  <h2 id="overview">Overview</h2>
+  <p>Cryptography is the science of developing methods for secure communication, while Cryptanalysis is the discipline of breaking such methods. Understanding cryptography will enable you to correctly use cryptography libraries and combine cryptographic
+    primitives to match the security needs of your application.</p>
+  <p>Modern cryptography involves developing techniques to achieve the following objectives:</p>
+  <ul>
+    <li>Confidentiality: ensuring that a message can only be read by its intended recipient. For example, websites use encryption in the Transport Layer Security (TLS) protocol to prevent interception of sensitive information such as credit card numbers and
+      passwords.</li>
+    <li>Integrity: ensuring a message has not been changed. For example, hash functions are used in the BitTorrent protocol to ensure files received have not been modified by malicious peers.</li>
+    <li>Authentication: the recipient should be able to verify the sender of a message. For example, iPhones need to verify that the software updates received really came from Apple, not a malicious attacker.</li>
+    <li>Non-repudiation: the sender should not be able to deny sending a message after doing so. For example, the parties of a digital contract should not be able to deny signing the contract in a legal dispute.</li>
+  </ul>
+  <p>In Cryptanalysis, the objective is to exploit weaknesses in cryptographic algorithms - for example, attempting to recover the original message from its encrypted form. The security of cryptographic algorithms is evaluated based on their resistance to
+    <a href="https://en.wikipedia.org/wiki/Cryptanalysis#Amount_of_information_available_to_the_attacker">these attacks</a>.</p>
+  <h2 id="encryption">Encryption</h2>
+  <p>Encryption is the process of encoding messages so that it is readable only by the intended recipient. The message being encrypted is called the plaintext. The encryption algorithm &quot;scrambles&quot; the message, producing ciphertext, which should
+    only be readable by the recipient. Decryption is the reverse process of recovering the plaintext from the ciphertext.</p>
+  <p>A cipher refers to a pair of algorithms - one for encryption and decryption, and is used to refer to symmetric key techniques. A cryptosystem consists of 3 algorithms - a cipher and a key generation algorithm. Though cryptosystems usually refer to asymmetric
+    key techniques, it may also be used to refer to symmetric key techniques.</p>
+  <p>The key is a parameter, or a piece of secret information, that determines the output of cryptographic algorithms. According to <a href="https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle">Kerckhoffs' principle</a>, a cryptosystem should be secure
+    even if the attacker knows everything about the cryptosystem, except the key. This means that the attacker knows the algorithms used for encryption and decryption. Although it is tempting to design secure systems by employing <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">&quot;security by obscurity&quot;</a>    to keep their details hidden, they are usually easily broken once their design is known. The <a href="https://en.wikipedia.org/wiki/Content_Scramble_System">CSS copy-protection system for DVDs</a> is one such example.</p>
+  <p>One of the earliest encryption algorithms or ciphers is the substitution cipher, which encrypts text by substituting each letter of the message with another letter. This page introduces the <a href="http://www.cs.trincoll.edu/~crypto/historical/caesar.html">Caesar substitution cipher</a>,
+    and how it can be defeated using statistical analysis, a <a href="https://en.wikipedia.org/wiki/Ciphertext-only_attack">ciphertext-only attack</a>. Modern ciphers today operate on bits rather than letters.</p>
+  <h3 id="symmetric-key-ciphers">Symmetric Key Ciphers</h3>
+  <p>In a symmetric key cipher, the same key, a shared secret, is used for both encryption and decryption. The parties wishing to communicate securely share the same key. For example, in the substitution cipher, the same key (the substitution table) is used
+    for both encryption and decryption. There are 2 types of symmetric ciphers: stream and block ciphers.</p>
+  <h4 id="stream-ciphers">Stream ciphers</h4>
+  <p>The ciphertext, keystream and plaintext are sequences or streams of bits of equal length. During encryption, each plaintext bit is combined (usually xored) with the corresponding keystream bit to produce the ciphertext bits. For example, the 1st plaintext
+    bit is xored with the 1st keystream bit, 2nd plaintext bit with 2nd keystream bit and so on. During decryption, each ciphertext bit is xored with the corresponding keystream bit to produce the plaintext. Notice that encryption and decryption are the
+    same operation; this is possible since xoring a bit x with another bit y twice recovers the original bit; (x xor y) xor y = x.</p>
+  <p>The simplest stream cipher is the <a href="https://en.wikipedia.org/wiki/One-time_pad">one-time pad</a>. In this cipher, the keystream used is bits from a truly random source, and is also the key. It is the only known cipher that cannot be cracked,
+    even if the attacker has infinite computing power. This property is known as <a href="https://crypto.stackexchange.com/questions/3896/simply-put-what-does-perfect-secrecy-mean">perfect secrecy</a>; the ciphertext gives no additional information about
+    the plaintext, so knowing the ciphertext does not provide any advantage to the attacker trying to recover the plaintext. Unfortunately, <a href="https://www.scientificamerican.com/article/claude-e-shannon-founder/">Shannon</a>, renowned cryptographer
+    and founder of Information Theory, proved that any cipher that achieves perfect secrecy must have the following limitations, making them <a href="https://www.schneier.com/crypto-gram/archives/2002/1015.html#7">impractical</a>.</p>
+  <ul>
+    <li>The key must be truely random, not pseudorandomly generated, and must never be reused.</li>
+    <li>The key must be securely distributed, and be at least as long as the message being generated. For example, to send a 10gb file to someone encrypted with the one-time pad requires sending 10gb of key material + 10gb of ciphertext = 20gb.</li>
+  </ul>
+  <p>In practice, we do not require perfect secrecy, since attackers have limited computational power. Hence, all other ciphers are only <a href="https://en.wikipedia.org/wiki/Computational_hardness_assumption">computationally secure</a>; their security
+    relies on the assumption that certain problems are difficult to solve.</p>
+  <p>Modern stream ciphers approximate the operation of the one-time pad. A short key (say 256 bits) is used to seed a <a href="https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator">cryptographically secure pseudorandom number generator</a>,
+    which is used to generate the keystream for both encryption and decryption. They are more practical, as the key the communicating parties need to share is much shorter.</p>
+  <p>Keys must never be reused in stream ciphers. Doing so causes the same keystream, k, to be generated, and 2 plaintexts, p and q, to be encrypted with the same keystream. If we xor the ciphertexts for p and q, we get (p xor k) xor (q xor k) = (p xor q)
+    xor (k xor k) = p xor q. This exposes information about the plaintexts, which may lead to the recovery of both. Here is a <a href="https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse">visual illustration of this attack</a>,
+    and <a href="https://www.schneier.com/blog/archives/2005/01/microsoft_rc4_f.html">an example of this happening in practice</a>.</p>
+  <p>Stream ciphers are used for their efficiency, ease of implementation in hardware, and when the length of the plaintext is unpredictable. However, block ciphers are more widely used than stream ciphers. In some modes of operation, they can be used like
+    stream ciphers, reducing the need for dedicated stream ciphers.</p>
+  <p><a href="https://en.wikipedia.org/wiki/RC4">RC4</a> is the most widely used stream cipher. Though its use is now discouraged due to known vulnerabilities. The <a href="http://www.ecrypt.eu.org/stream/">eSTREAM project</a>, a research effort to develop
+    state-of-the-art stream ciphers, has identified several ciphers suitable for widespread adoption. However, being relatively new, they have not been analyzed as extensively by cryptographers.</p>
+  <h4 id="block-ciphers">Block Ciphers</h4>
+  <p>Unlike stream ciphers, which operate on individual bits, block ciphers operate on an entire block of bits at a time. In practice, the size of each block is 64 or 128 bits.</p>
+  <p><a href="https://www.scientificamerican.com/article/claude-e-shannon-founder/">Shannon</a> introduced 2 primitives, which modern block ciphers are built on.</p>
+  <ul>
+    <li>Confusion: an operation which obscures the relationship between key and ciphertext. This is usually done by substitution.</li>
+    <li>Diffusion: an operation which hides statistical properties in the plaintext by spreading the influence of a plaintext bit over many ciphertext bits. For example, the DES cipher achieves this by bit Permutations.</li>
+  </ul>
+  <p>Ciphers that use only one of these operations are insecure. For example, the insecure Caesar cipher only uses confusion. But strong ciphers can be built by using both confusion and diffusion - these are called product ciphers.</p>
+  <ul>
+    <li>This <a href="https://graquantum.com/blog/deciphering-encryption-des-block-cipher/">article</a> explains how the DES cipher works, Feistel networks, s-boxes and p-boxes. Though DES is no longer secure, its design has inspired many ciphers. A still
+      secure variant, triple DES, is popular in legacy applications.</li>
+    <li>The Advanced Encryption Standard (AES) is the most popular symmetric cipher today. It is used by the US government and in many protocols such as TLS, WPA2-AES and SSH. This <a href="https://graquantum.com/blog/deciphering-encryption-aes-block-cipher/">article</a>      explains how AES works without going too much into the mathematical details.</li>
+  </ul>
+  <h5 id="modes-of-operation">Modes of Operation</h5>
+  <p>Block ciphers alone aren't very useful, because they only provide a secure way of encrypting one block of data. Modes of operation are ways of using block ciphers to securely encrypt multiple blocks. The plaintext is padded if it is not an even multiple
+    of the block size. Block ciphers can also provide additional services such as integrity, depending on the mode used, which makes them vercitile. This <a href="http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html">article</a> provides a
+    nice overview of common modes.</p>
+  <p>Most modes require a random value called an initialization vector (IV) so that encrypting the same message twice doesn't produce the same ciphertext, which leaks information. It is critical that the IV be <a href="https://defuse.ca/cbcmodeiv.htm">random, used only once and unpredictable</a>.
+    Not doing so has caused several vulnerabilities such as the <a href="http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html">BEAST Attack on TLS</a> and <a href="https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy">the recovery of WEP keys</a>.</p>
+  <h3 id="asymmetric-key-cryptosystems">Asymmetric Key Cryptosystems</h3>
+  <p>Symmetric cryptography is not practical for the following situations, which motivates the development of asymmetric or public key cryptography:</p>
+  <ul>
+    <li>Key agreement: the communicating parties must securely establish a shared secret key, since the communication channel for the message is insecure, other methods must be used.</li>
+    <li>Large number of keys: for each user in a group of <code>n</code> users to securely communicate to every other user, each user must securely store <code>n-1</code> keys , which is impractical.</li>
+    <li>No non-repudiation: since each party has the same capability by possessing the shared key, symmetric cryptography cannot be used when non-repudiation is required. For instance, if an online store, Bob, needs to prove Alice purchased an item where
+      symmetric encryption is used for the transaction message, Alice can claim Bob falsely generated the transaction, as they both share the same key.</li>
+  </ul>
+  <p>In asymmetric cryptography, there are 2 separate keys; one for encryption, and the other for decryption. The key used for encryption is published so that anyone can securely send messages to Alice. Hence, it is called a public key. Alice has the corresponding
+    decryption key, or private key, which is kept secret. Hence, messages encrypted with the public key can only be decrypted by Alice. In contrast, there is a single shared key which must be kept secret in symmetric ciphers.</p>
+  <p>Public key cryptography has many uses beyond sending encrypted messages, such as key agreement and non-repudiation, which will be covered in future sections.</p>
+  <p>For this to be secure, it must be computationally infeasible to obtain the private key from the public key. This is achieved using one-way functions, which have the following properties:</p>
+  <ul>
+    <li>It must be easy to compute y = f(x) so that encryption is not too slow.</li>
+    <li>It is computationally infeasible to compute x = f^{-1}(y).</li>
+  </ul>
+  <h4 id="the-rsa-cryptosystem">The RSA Cryptosystem</h4>
+  <p><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> is one of the earliest and most widely used public key cryposystems. Its one-way function is the integer factorization problem; Given 2 large primes <code>p</code> and <code>q</code>,
+    it is easy to compute the product <code>pq</code>, but difficult to factor <code>pq</code>. The <a href="http://doctrina.org/How-RSA-Works-With-Examples.html">first article of this 2-part series  </a> explains how RSA works, as well as the minimal
+    number theory required. The <a href="http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html">follow-up article</a> explains why RSA works by introducing some important results in number theory.</p>
+  <h2 id="other-resources">Other Resources</h2>
+  <ul>
+    <li><a href="https://www.amazon.com/Understanding-Cryptography-Textbook-Students-Practitioners/dp/3642041000">Understanding Cryptography: A Textbook for Students and Practitioners</a> is an outstanding introductory text. Explanations are excellent, and
+      no knowledge of number theory is assumed. It was used as reference material for this document.</li>
+    <li><a href="https://github.com/sobolevn/awesome-cryptography">Awesome Cryptography</a> is a curated list of resources - articles, blogs, books, libraries and more.</li>
+    <li><a href="https://grc.com/sn">Security Now</a> is a weekly podcast on security. Though it does not go into much detail about the underlying mathematics, there are many episodes on cryptography that provide a working knowledge of the subject. It also
+      discusses security headlines, which emphasize the practical aspect of cryptography; while the math may be sound, implementation mistakes or side-channel attacks often cause vulnerabilities in practice.</li>
+  </ul>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

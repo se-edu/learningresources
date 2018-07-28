@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rust</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,30 +29,42 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="rust">Rust</h1>
-<p>Author(s): <a href="https://github.com/LiHaoTan">Tan Li Hao</a></p>
-<h2 id="why-rust">Why Rust</h2>
-<p>Rust is a multi-paradigm (e.g. functional and imperative) systems language, but as it is relatively new the benefits of learning or using the language is not very clear. In any case, it is important to know the merits of a language so we know when to
-  use them.</p>
-<p>The main merits would be in its <a href="https://www.rust-lang.org/en-US/faq.html#what-is-this-projects-goal">design</a>:</p>
-<ul>
-  <li><a href="#safety">Safety</a> (e.g. memory safe)</li>
-  <li><a href="#better-support-for-concurrency">Better support for concurrency</a></li>
-  <li><a href="#practicality">Practicality</a></li>
-</ul>
-<h3 id="safety">Safety</h3>
-<p>Designing the language to be safe allows common safety errors such as segmentation faults (<a href="https://en.wikipedia.org/wiki/Segmentation_fault">[1]</a>, <a href="https://stackoverflow.com/questions/2346806/what-is-a-segmentation-fault/2346849#2346849">[2]</a>),
-  <a href="http://blog.skylight.io/rust-means-never-having-to-close-a-socket/">resource leaks</a>, and <a href="https://www.reddit.com/r/rust/comments/2mwpie/what_are_the_advantages_of_rust_over_modern_c/">many others</a> to be avoided. Many of these
-  pitfalls can already be avoided in modern languages such as <a href="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization">RAII</a> in C++ and <a href="https://blogs.oracle.com/darcy/more-concise-try-with-resources-statements-in-jdk-9">try-with-resources</a>  in Java, but mostly still requires developer discipline to ensure safety (<a href="https://www.rust-lang.org/en-US/faq.html#why-rust-vs-cxx">[1]</a>, <a href="https://www.reddit.com/r/rust/comments/2mwpie/what_are_the_advantages_of_rust_over_modern_c/">[2]</a>).</p>
-<p>The underlying concept for the safety provided in Rust is called <a href="https://doc.rust-lang.org/book/second-edition/ch04-00-understanding-ownership.html">ownership</a>. Intuitively, the concept just means that each value only has a single owner (i.e.
-  a variable) and if the value needs to be shared, it can be borrowed. This is a powerful concept that ensures safety in Rust compile-time and <a href="https://codewithoutrules.com/2017/01/26/object-ownership/">can be applied to other languages</a>.</p>
-<p>Take a simplified example in Java of a class called <code>VisibleIndexes</code> maintaining the list of visible indexes of UI elements:</p>
-<pre><code class="hljs Java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VisibleIndexes</span> </span>{
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="rust">Rust</h1>
+  <p>Author(s): <a href="https://github.com/LiHaoTan">Tan Li Hao</a></p>
+  <h2 id="why-rust">Why Rust</h2>
+  <p>Rust is a multi-paradigm (e.g. functional and imperative) systems language, but as it is relatively new the benefits of learning or using the language is not very clear. In any case, it is important to know the merits of a language so we know when to
+    use them.</p>
+  <p>The main merits would be in its <a href="https://www.rust-lang.org/en-US/faq.html#what-is-this-projects-goal">design</a>:</p>
+  <ul>
+    <li><a href="#safety">Safety</a> (e.g. memory safe)</li>
+    <li><a href="#better-support-for-concurrency">Better support for concurrency</a></li>
+    <li><a href="#practicality">Practicality</a></li>
+  </ul>
+  <h3 id="safety">Safety</h3>
+  <p>Designing the language to be safe allows common safety errors such as segmentation faults (<a href="https://en.wikipedia.org/wiki/Segmentation_fault">[1]</a>, <a href="https://stackoverflow.com/questions/2346806/what-is-a-segmentation-fault/2346849#2346849">[2]</a>),
+    <a href="http://blog.skylight.io/rust-means-never-having-to-close-a-socket/">resource leaks</a>, and <a href="https://www.reddit.com/r/rust/comments/2mwpie/what_are_the_advantages_of_rust_over_modern_c/">many others</a> to be avoided. Many of these
+    pitfalls can already be avoided in modern languages such as <a href="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization">RAII</a> in C++ and <a href="https://blogs.oracle.com/darcy/more-concise-try-with-resources-statements-in-jdk-9">try-with-resources</a>    in Java, but mostly still requires developer discipline to ensure safety (<a href="https://www.rust-lang.org/en-US/faq.html#why-rust-vs-cxx">[1]</a>, <a href="https://www.reddit.com/r/rust/comments/2mwpie/what_are_the_advantages_of_rust_over_modern_c/">[2]</a>).</p>
+  <p>The underlying concept for the safety provided in Rust is called <a href="https://doc.rust-lang.org/book/second-edition/ch04-00-understanding-ownership.html">ownership</a>. Intuitively, the concept just means that each value only has a single owner
+    (i.e. a variable) and if the value needs to be shared, it can be borrowed. This is a powerful concept that ensures safety in Rust compile-time and <a href="https://codewithoutrules.com/2017/01/26/object-ownership/">can be applied to other languages</a>.</p>
+  <p>Take a simplified example in Java of a class called <code>VisibleIndexes</code> maintaining the list of visible indexes of UI elements:</p>
+  <pre><code class="hljs Java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VisibleIndexes</span> </span>{
     <span class="hljs-keyword">private</span> List&lt;Integer&gt; indexes;
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">VisibleIndexes</span><span class="hljs-params">()</span> </span>{
@@ -67,8 +83,8 @@
     }
 }
 </code></pre>
-<p>One would need the discipline to make sure to return only a view of the list, otherwise the following would be legal, but unexpected:</p>
-<pre><code class="hljs Java">VisibleIndexes visibleIndexes = <span class="hljs-keyword">new</span> VisibleIndexes();
+  <p>One would need the discipline to make sure to return only a view of the list, otherwise the following would be legal, but unexpected:</p>
+  <pre><code class="hljs Java">VisibleIndexes visibleIndexes = <span class="hljs-keyword">new</span> VisibleIndexes();
 visibleIndexes.addIndex(<span class="hljs-number">1</span>);
 List&lt;Integer&gt; indexes= visibleIndexes.getVisibleIndexes();
 System.out.println(indexes); <span class="hljs-comment">// Output: [1]</span>
@@ -76,8 +92,8 @@ System.out.println(indexes); <span class="hljs-comment">// Output: [1]</span>
 listCounts.add(<span class="hljs-number">9999</span>); <span class="hljs-comment">// Unexpected mutation of the internal list in VisibleIndexes</span>
 System.out.println(visibleIndexes.getVisibleIndexes()); <span class="hljs-comment">// Output: [1, 9999]</span>
 </code></pre>
-<p>In Rust, we can implement it like this:</p>
-<pre><code class="hljs Rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">VisibleIndexes</span></span> {
+  <p>In Rust, we can implement it like this:</p>
+  <pre><code class="hljs Rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">VisibleIndexes</span></span> {
     indexes: <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-built_in">i32</span>&gt;
 }
 
@@ -97,11 +113,11 @@ System.out.println(visibleIndexes.getVisibleIndexes()); <span class="hljs-commen
     }
 }
 </code></pre>
-<p>In particular, we should pay attention to <code>&amp;mut Vec&lt;i32&gt;</code> which means to return a mutable reference to a Vector (List in Java).</p>
-<p>Due to Rust's defaults, variables are by default immutable, and <code>self.indexes</code> can only have a single owner which will be the instance of <code>VisibleIndexes</code> instantiated.</p>
-<p>One way to allow for mutation outside the instance would be to borrow the value (by using a reference) and it would have to be a mutable one for us to be able to modify the internal list <code>indexes</code> outside an instance of <code>VisibleIndexes</code>.</p>
-<p>So we have to go through some hoops just to be able to modify the internal list but it doesn't end here. Suppose the following is then executed:</p>
-<pre><code class="hljs Rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> visible_indexes = VisibleIndexes::new();
+  <p>In particular, we should pay attention to <code>&amp;mut Vec&lt;i32&gt;</code> which means to return a mutable reference to a Vector (List in Java).</p>
+  <p>Due to Rust's defaults, variables are by default immutable, and <code>self.indexes</code> can only have a single owner which will be the instance of <code>VisibleIndexes</code> instantiated.</p>
+  <p>One way to allow for mutation outside the instance would be to borrow the value (by using a reference) and it would have to be a mutable one for us to be able to modify the internal list <code>indexes</code> outside an instance of <code>VisibleIndexes</code>.</p>
+  <p>So we have to go through some hoops just to be able to modify the internal list but it doesn't end here. Suppose the following is then executed:</p>
+  <pre><code class="hljs Rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> visible_indexes = VisibleIndexes::new();
 visible_indexes.add_index(<span class="hljs-number">1</span>);
 
 <span class="hljs-keyword">let</span> indexes = visible_indexes.get_visible_indexes();
@@ -110,22 +126,22 @@ visible_indexes.add_index(<span class="hljs-number">1</span>);
 indexes.push(<span class="hljs-number">9999</span>);
 <span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, visible_indexes.get_visible_indexes()); <span class="hljs-comment">// Cannot compile!</span>
 </code></pre>
-<p>Everything would have executed like in Java except it does not compile because of the last line in Rust. This is shown in the error message below:</p>
-<pre><code class="hljs shell">let indexes = visible_indexes.get_visible_indexes()
+  <p>Everything would have executed like in Java except it does not compile because of the last line in Rust. This is shown in the error message below:</p>
+  <pre><code class="hljs shell">let indexes = visible_indexes.get_visible_indexes()
               --------------- first mutable borrow occurs here
 ...
 println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
                  ^^^^^^^^^^^^^^^ second mutable borrow occurs here
 </code></pre>
-<p>In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by <code>indexes</code> does not end until the end of a block (i.e. a closing brace). Attempting to borrow the same value again in the same scope which
-  will not compile in Rust.</p>
-<h3 id="better-support-for-concurrency">Better support for concurrency</h3>
-<p>Concurrency is getting <a href="https://softwareengineering.stackexchange.com/questions/115474/why-should-i-know-concurrent-programming">increasingly important</a> but it is challenging to write concurrent code (<a href="https://news.ycombinator.com/item?id=8138578">[1]</a>,
-  <a href="https://golang.org/doc/faq#csp">[2]</a>, <a href="http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/">[3]</a>).</p>
-<p>Rust provides concurrency which is built upon the safety concepts. The implication is that the safety concepts allows us to be <a href="https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">fearless when writing concurrent code</a> by helping
-  point out mistakes compile time.</p>
-<p>Take an <a href="https://doc.rust-lang.org/book/second-edition/ch16-02-message-passing.html">example</a> of the increasingly popular approach to concurrency called message passing:</p>
-<pre><code class="hljs Rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+  <p>In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by <code>indexes</code> does not end until the end of a block (i.e. a closing brace). Attempting to borrow the same value again in the same scope which
+    will not compile in Rust.</p>
+  <h3 id="better-support-for-concurrency">Better support for concurrency</h3>
+  <p>Concurrency is getting <a href="https://softwareengineering.stackexchange.com/questions/115474/why-should-i-know-concurrent-programming">increasingly important</a> but it is challenging to write concurrent code (<a href="https://news.ycombinator.com/item?id=8138578">[1]</a>,
+    <a href="https://golang.org/doc/faq#csp">[2]</a>, <a href="http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/">[3]</a>).</p>
+  <p>Rust provides concurrency which is built upon the safety concepts. The implication is that the safety concepts allows us to be <a href="https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">fearless when writing concurrent code</a> by helping
+    point out mistakes compile time.</p>
+  <p>Take an <a href="https://doc.rust-lang.org/book/second-edition/ch16-02-message-passing.html">example</a> of the increasingly popular approach to concurrency called message passing:</p>
+  <pre><code class="hljs Rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
     <span class="hljs-keyword">let</span> (tx, rx) = mpsc::channel();
 
     thread::spawn(<span class="hljs-keyword">move</span> || {
@@ -138,72 +154,75 @@ println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
     <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Got: {}"</span>, received);
 }
 </code></pre>
-<p>In the example, the message <code>&quot;hi&quot;</code> from the new thread is passed to the main thread. However, it does not compile and produce the following error message:</p>
-<pre><code class="hljs Shell">tx.send(val).unwrap();
+  <p>In the example, the message <code>&quot;hi&quot;</code> from the new thread is passed to the main thread. However, it does not compile and produce the following error message:</p>
+  <pre><code class="hljs Shell">tx.send(val).unwrap();
         --- value moved here
 println!("val is {}", val);
                       ^^^ value used here after move
 </code></pre>
-<p>When sending a message in Rust, the ownership is transferred (moved). Hence, using the value after the ownership is transferred would not compile. This is important because the string <code>&quot;hi&quot;</code> can be mutated by the receiving thread
-  before <code>println!</code> executes, yielding unexpected behavior.</p>
-<h3 id="practicality">Practicality</h3>
-<p>Rust is designed to be practical, as shown in Rust's guiding design:</p>
-<ul>
-  <li>Uses old established techniques instead of particularly cutting-edge technologies</li>
-  <li>Provides only majority-case features</li>
-  <li>Runs on widely used platforms without unnecessary compromises</li>
-</ul>
-<p>See <a href="https://www.rust-lang.org/en-US/faq.html#what-are-some-non-goals">non-goals</a>.</p>
-<h4 id="production-ready">Production Ready</h4>
-<p>Also, in order for a language to be practical it must be usable in production. A well known large project that uses Rust is <a href="https://github.com/servo/servo">Servo</a>, the prototype browser engine Mozilla is working on. On top of that, there are
-  many other <a href="https://www.rust-lang.org/en-US/friends.html">organizations running Rust in production</a>. As an example, Jamie Turner from Dropbox <a href="https://news.ycombinator.com/item?id=11283688">explains the reasons for using Rust</a>.</p>
-<h4 id="developer-experience">Developer experience</h4>
-<p>Practicality can also be measured with how much developers enjoy using the language and want to continue using it, because if the language is not very practical the developer experience would not be very good. For Rust, it is a language that developers
-  want to continue using (<a href="https://www.reddit.com/r/rust/comments/842adc/rust_voted_most_loved_language_for_the_3rd_year/dvmftnk/">[1]</a>, <a href="https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563">[2]</a>).</p>
-<p>Although Rust does not use particularly cutting-edge technologies, Rust is still modern in that it is <a href="https://doc.rust-lang.org/book/second-edition/ch13-00-functional-features.html">significantly influenced by functional programming</a>, and
-  has a type system that is <a href="https://www.rust-lang.org/en-US/faq.html#compare-go-and-rust">drawn from Haskell's typeclasses</a>. This allows Rust to also benefit from the advantages of functional programming.</p>
-<p>There are also a lot of other details that go into making a great developer experience, such as tooling and documentation. However, instead of going into more details, let's look at a resource that summarizes why others think Rust is great:</p>
-<p><a href="https://brson.github.io/fireflowers/">fireflowers - The Rust Programming Language, in the words of its practitioners</a></p>
-<h2 id="how-to-learn-rust">How to learn Rust</h2>
-<p>Knowing the merits of a language without knowing how to learn it however is not sufficient. As <a href="#developer-experience">mentioned</a>, part of making the developer experience great is good documentation. And there are many great avenues to learn
-  Rust.</p>
-<p>One issue is that many have said Rust is difficult but we should not be so concerned because there has since been many <a href="https://blog.rust-lang.org/2017/12/21/rust-in-2017.html#rust-should-have-a-lower-learning-curve">improvements</a> to reduce
-  the learning curve.</p>
-<h3 id="resources-to-learn-rust">Resources to learn Rust</h3>
-<p>There are already great official resources to learn Rust, for instance:</p>
-<ul>
-  <li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language book</a></li>
-  <li><a href="https://rustbyexample.com/">Rust By Example</a></li>
-  <li><a href="https://www.rust-lang.org/en-US/faq.html">Frequently Asked Questions</a></li>
-</ul>
-<p>There is also a <a href="https://github.com/ctjhoa/rust-learning">large collection of community-maintained resources</a>, and the following are some resources that are possibly useful:</p>
-<ul>
-  <li><a href="https://github.com/ctjhoa/rust-learning#comparison-with-other-languages">Comparison with other languages</a></li>
-  <li><a href="https://github.com/ctjhoa/rust-learning#cheat-sheets">Cheat sheets</a></li>
-  <li><a href="https://github.com/ctjhoa/rust-learning#ownership--concurrency">Ownership / Concurrency</a></li>
-</ul>
-<p>More resources: <a href="https://www.rust-lang.org/en-US/documentation.html">Rust Official Documentation</a></p>
-<h2 id="why-not-rust">Why not Rust</h2>
-<p>Choosing the right language for the job is important so let's look at a few possible reasons not to use Rust:</p>
-<ul>
-  <li><a href="https://github.com/ctjhoa/rust-learning#are-we--yet">The ecosystem is not as mature</a></li>
-  <li>Rust's compiler is extremely strict in that it enforces ownership, i.e. needs time getting used to. However, it is <a href="https://news.ycombinator.com/item?id=16202373">probably debatable if this approach is a worthwhile trade-off</a>.</li>
-  <li>While not a completely similar language, <a href="https://news.ycombinator.com/item?id=13430108">Go feels immediately more productive</a></li>
-</ul>
-<p>Some other discussions on why not Rust:</p>
-<ul>
-  <li><a href="https://www.reddit.com/r/rust/comments/7p75ab/why_rust_what_i_want_changed_for_rust_to_help_way/">How can Rust improve</a></li>
-  <li><a href="https://www.reddit.com/r/rust/comments/6hp54n/blog_why_not_to_use_rust/">Why not Rust</a></li>
-</ul>
+  <p>When sending a message in Rust, the ownership is transferred (moved). Hence, using the value after the ownership is transferred would not compile. This is important because the string <code>&quot;hi&quot;</code> can be mutated by the receiving thread
+    before <code>println!</code> executes, yielding unexpected behavior.</p>
+  <h3 id="practicality">Practicality</h3>
+  <p>Rust is designed to be practical, as shown in Rust's guiding design:</p>
+  <ul>
+    <li>Uses old established techniques instead of particularly cutting-edge technologies</li>
+    <li>Provides only majority-case features</li>
+    <li>Runs on widely used platforms without unnecessary compromises</li>
+  </ul>
+  <p>See <a href="https://www.rust-lang.org/en-US/faq.html#what-are-some-non-goals">non-goals</a>.</p>
+  <h4 id="production-ready">Production Ready</h4>
+  <p>Also, in order for a language to be practical it must be usable in production. A well known large project that uses Rust is <a href="https://github.com/servo/servo">Servo</a>, the prototype browser engine Mozilla is working on. On top of that, there
+    are many other <a href="https://www.rust-lang.org/en-US/friends.html">organizations running Rust in production</a>. As an example, Jamie Turner from Dropbox <a href="https://news.ycombinator.com/item?id=11283688">explains the reasons for using Rust</a>.</p>
+  <h4 id="developer-experience">Developer experience</h4>
+  <p>Practicality can also be measured with how much developers enjoy using the language and want to continue using it, because if the language is not very practical the developer experience would not be very good. For Rust, it is a language that developers
+    want to continue using (<a href="https://www.reddit.com/r/rust/comments/842adc/rust_voted_most_loved_language_for_the_3rd_year/dvmftnk/">[1]</a>, <a href="https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563">[2]</a>).</p>
+  <p>Although Rust does not use particularly cutting-edge technologies, Rust is still modern in that it is <a href="https://doc.rust-lang.org/book/second-edition/ch13-00-functional-features.html">significantly influenced by functional programming</a>, and
+    has a type system that is <a href="https://www.rust-lang.org/en-US/faq.html#compare-go-and-rust">drawn from Haskell's typeclasses</a>. This allows Rust to also benefit from the advantages of functional programming.</p>
+  <p>There are also a lot of other details that go into making a great developer experience, such as tooling and documentation. However, instead of going into more details, let's look at a resource that summarizes why others think Rust is great:</p>
+  <p><a href="https://brson.github.io/fireflowers/">fireflowers - The Rust Programming Language, in the words of its practitioners</a></p>
+  <h2 id="how-to-learn-rust">How to learn Rust</h2>
+  <p>Knowing the merits of a language without knowing how to learn it however is not sufficient. As <a href="#developer-experience">mentioned</a>, part of making the developer experience great is good documentation. And there are many great avenues to learn
+    Rust.</p>
+  <p>One issue is that many have said Rust is difficult but we should not be so concerned because there has since been many <a href="https://blog.rust-lang.org/2017/12/21/rust-in-2017.html#rust-should-have-a-lower-learning-curve">improvements</a> to reduce
+    the learning curve.</p>
+  <h3 id="resources-to-learn-rust">Resources to learn Rust</h3>
+  <p>There are already great official resources to learn Rust, for instance:</p>
+  <ul>
+    <li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language book</a></li>
+    <li><a href="https://rustbyexample.com/">Rust By Example</a></li>
+    <li><a href="https://www.rust-lang.org/en-US/faq.html">Frequently Asked Questions</a></li>
+  </ul>
+  <p>There is also a <a href="https://github.com/ctjhoa/rust-learning">large collection of community-maintained resources</a>, and the following are some resources that are possibly useful:</p>
+  <ul>
+    <li><a href="https://github.com/ctjhoa/rust-learning#comparison-with-other-languages">Comparison with other languages</a></li>
+    <li><a href="https://github.com/ctjhoa/rust-learning#cheat-sheets">Cheat sheets</a></li>
+    <li><a href="https://github.com/ctjhoa/rust-learning#ownership--concurrency">Ownership / Concurrency</a></li>
+  </ul>
+  <p>More resources: <a href="https://www.rust-lang.org/en-US/documentation.html">Rust Official Documentation</a></p>
+  <h2 id="why-not-rust">Why not Rust</h2>
+  <p>Choosing the right language for the job is important so let's look at a few possible reasons not to use Rust:</p>
+  <ul>
+    <li><a href="https://github.com/ctjhoa/rust-learning#are-we--yet">The ecosystem is not as mature</a></li>
+    <li>Rust's compiler is extremely strict in that it enforces ownership, i.e. needs time getting used to. However, it is <a href="https://news.ycombinator.com/item?id=16202373">probably debatable if this approach is a worthwhile trade-off</a>.</li>
+    <li>While not a completely similar language, <a href="https://news.ycombinator.com/item?id=13430108">Go feels immediately more productive</a></li>
+  </ul>
+  <p>Some other discussions on why not Rust:</p>
+  <ul>
+    <li><a href="https://www.reddit.com/r/rust/comments/7p75ab/why_rust_what_i_want_changed_for_rust_to_help_way/">How can Rust improve</a></li>
+    <li><a href="https://www.reddit.com/r/rust/comments/6hp54n/blog_why_not_to_use_rust/">Why not Rust</a></li>
+  </ul>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

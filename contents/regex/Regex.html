@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Introduction to Regular Expressions</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,372 +29,389 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="introduction-to-regular-expressions">Introduction to Regular Expressions</h1>
-<p>Authors: Jamos Tay</p>
-<h1 id="overview">Overview</h1>
-<h2 id="what-are-regular-expressions">What are Regular Expressions?</h2>
-<p>A Regular Expression (or Regex for short) is a string of characters that define a search pattern. You can think of a regular expression as a list of descriptions that describe a string. These strings can be tested against other text formatted data to
-  find, match, and extract data.</p>
-<p>Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars
-  as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with <code>C</code>, ends with a <code>S</code>, and only consists of letters: <code>C[A-z]+S</code>) and the section of text is searched,
-  finding all the possible matches.</p>
-<h2 id="why-should-i-learn-regex">Why should I learn Regex?</h2>
-<ul>
-  <li><strong>Regex is everywhere</strong> - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion
-    (A full list is available <a href="http://www.regular-expressions.info/tools.html">here</a>). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers
-    to benefit from Regex.</li>
-  <li><strong>Regex is portable</strong> - People often complain that switching to a new language usually means having to learn a new API and syntax. Regex however is implemented almost the same way on every single language, so you can just learn it once
-    and use it everywhere.</li>
-  <li><strong>Regex is useful</strong> - Although Regex doesn't have a specific use, it is a general use library with many different applications. It can be used automate many different common programming tasks such as validating user input, parsing data
-    from text, and string manipulation, all of which are commonly done in any programming project.</li>
-  <li><strong>Regex is convenient</strong> - &quot;Regex offers a simple and painless way of dealing some with them&quot; because not all string processing are regex-related.</li>
-</ul>
-<h1 id="getting-started">Getting Started</h1>
-<h2 id="introduction">Introduction</h2>
-<p>The power of regex revolves around the idea that most data comes in a regular, predictable format. Some everyday examples are as follows:</p>
-<ul>
-  <li>Phone numbers: +65 65162727</li>
-  <li>Passwords: Contains lower/upper case, symbol…</li>
-  <li>IP Addresses: 127.0.0.1:8080</li>
-  <li>Date time: DD/MM/YY HH:MM</li>
-</ul>
-<p>Regex exploits these simlarities and provides a way of specifying patterns that can fit almost any use case. Some of the basic functionalities are as follows:</p>
-<p>Let's take a look at some simple examples without code. For this article, you can use any text editor that supports Regex functionality (e.g. <a href="https://notepad-plus-plus.org/download/v7.3.1.html">Notepad++</a>, <a href="https://www.sublimetext.com/">Sublimetext</a>).</p>
-<h2 id="search-text">Search Text</h2>
-<p>The most basic use of Regex is searching a section of text. Say you want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example, if you're looking
-  for phone numbers (represented simply as an 8 digit number) in a chat log, you don't want a specific 8 digit number, you want to find all possible 8 digit numbers. This can't be done with your traditional Ctrl-F search.</p>
-<p>Rather, what you're looking for is a <strong>pattern</strong> - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular <strong>Regular Expression</strong>. These patterns
-  encapsulate properties about the string you're looking for.</p>
-<h3 id="example">Example</h3>
-<p>Let's go back to our example of finding phone numbers in a text. You know that a string representing a phone number must satisfy two criteria: It consists of 8 digits, and may have a country code <code>65</code> in front of it. This is what the equivalent
-  pattern for such a string might look like:</p>
-<p><code>(65)?[\d]{8}</code></p>
-<p>Firstly, the phone number may start with a country code 65. This criterion is embedded in <code>(65)?</code>. The first part, <code>(65)</code>, matches the country code. The question mark <code>?</code> means that the <code>(65)</code> that comes before
-  it is optional.</p>
-<p>Secondly, a phone number must have 8 digits. This is specified by <code>[\d]{8}</code>. <code>[\d]</code> matches a single digit from 0-9, and <code>{8}</code> means that <code>[\d]</code> is repeated 8 times. Putting them together, <code>[\d]{8}</code>  matches a string of 8 digits.</p>
-<p>As we can see, the pattern <code>(65)?[\d]{8}</code> when translated to simple English, means 'Look for a string of 8 numerical digits, that may have an extra <code>65</code> in front of it'. This satisfies our criteria for matching a phone number, so
-  we can use it to search our text. Here are some examples of matching strings:</p>
-<pre class="hljs"><code>6591234567
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="introduction-to-regular-expressions">Introduction to Regular Expressions</h1>
+  <p>Authors: Jamos Tay</p>
+  <h1 id="overview">Overview</h1>
+  <h2 id="what-are-regular-expressions">What are Regular Expressions?</h2>
+  <p>A Regular Expression (or Regex for short) is a string of characters that define a search pattern. You can think of a regular expression as a list of descriptions that describe a string. These strings can be tested against other text formatted data to
+    find, match, and extract data.</p>
+  <p>Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars
+    as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with <code>C</code>, ends with a <code>S</code>, and only consists of letters: <code>C[A-z]+S</code>) and the section of text is
+    searched, finding all the possible matches.</p>
+  <h2 id="why-should-i-learn-regex">Why should I learn Regex?</h2>
+  <ul>
+    <li><strong>Regex is everywhere</strong> - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion
+      (A full list is available <a href="http://www.regular-expressions.info/tools.html">here</a>). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers
+      to benefit from Regex.</li>
+    <li><strong>Regex is portable</strong> - People often complain that switching to a new language usually means having to learn a new API and syntax. Regex however is implemented almost the same way on every single language, so you can just learn it once
+      and use it everywhere.</li>
+    <li><strong>Regex is useful</strong> - Although Regex doesn't have a specific use, it is a general use library with many different applications. It can be used automate many different common programming tasks such as validating user input, parsing data
+      from text, and string manipulation, all of which are commonly done in any programming project.</li>
+    <li><strong>Regex is convenient</strong> - &quot;Regex offers a simple and painless way of dealing some with them&quot; because not all string processing are regex-related.</li>
+  </ul>
+  <h1 id="getting-started">Getting Started</h1>
+  <h2 id="introduction">Introduction</h2>
+  <p>The power of regex revolves around the idea that most data comes in a regular, predictable format. Some everyday examples are as follows:</p>
+  <ul>
+    <li>Phone numbers: +65 65162727</li>
+    <li>Passwords: Contains lower/upper case, symbol…</li>
+    <li>IP Addresses: 127.0.0.1:8080</li>
+    <li>Date time: DD/MM/YY HH:MM</li>
+  </ul>
+  <p>Regex exploits these simlarities and provides a way of specifying patterns that can fit almost any use case. Some of the basic functionalities are as follows:</p>
+  <p>Let's take a look at some simple examples without code. For this article, you can use any text editor that supports Regex functionality (e.g. <a href="https://notepad-plus-plus.org/download/v7.3.1.html">Notepad++</a>, <a href="https://www.sublimetext.com/">Sublimetext</a>).</p>
+  <h2 id="search-text">Search Text</h2>
+  <p>The most basic use of Regex is searching a section of text. Say you want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example, if you're looking
+    for phone numbers (represented simply as an 8 digit number) in a chat log, you don't want a specific 8 digit number, you want to find all possible 8 digit numbers. This can't be done with your traditional Ctrl-F search.</p>
+  <p>Rather, what you're looking for is a <strong>pattern</strong> - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular <strong>Regular Expression</strong>. These patterns
+    encapsulate properties about the string you're looking for.</p>
+  <h3 id="example">Example</h3>
+  <p>Let's go back to our example of finding phone numbers in a text. You know that a string representing a phone number must satisfy two criteria: It consists of 8 digits, and may have a country code <code>65</code> in front of it. This is what the equivalent
+    pattern for such a string might look like:</p>
+  <p><code>(65)?[\d]{8}</code></p>
+  <p>Firstly, the phone number may start with a country code 65. This criterion is embedded in <code>(65)?</code>. The first part, <code>(65)</code>, matches the country code. The question mark <code>?</code> means that the <code>(65)</code> that comes before
+    it is optional.</p>
+  <p>Secondly, a phone number must have 8 digits. This is specified by <code>[\d]{8}</code>. <code>[\d]</code> matches a single digit from 0-9, and <code>{8}</code> means that <code>[\d]</code> is repeated 8 times. Putting them together, <code>[\d]{8}</code>    matches a string of 8 digits.</p>
+  <p>As we can see, the pattern <code>(65)?[\d]{8}</code> when translated to simple English, means 'Look for a string of 8 numerical digits, that may have an extra <code>65</code> in front of it'. This satisfies our criteria for matching a phone number,
+    so we can use it to search our text. Here are some examples of matching strings:</p>
+  <pre class="hljs"><code>6591234567
 87775555
 67777188
 </code></pre>
-<h2 id="search-and-replace">Search and Replace</h2>
-<p>Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.</p>
-<p>Regex can also be used to search and replace strings.</p>
-<p>Say you have a passage of text which contains NRICs to be censored.</p>
-<blockquote>
+  <h2 id="search-and-replace">Search and Replace</h2>
+  <p>Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.</p>
+  <p>Regex can also be used to search and replace strings.</p>
+  <p>Say you have a passage of text which contains NRICs to be censored.</p>
+  <blockquote>
+    <ul>
+      <li>John - S1234567A</li>
+      <li>Mary - S8192853B</li>
+      <li>David - S1235326C</li>
+    </ul>
+  </blockquote>
+  <p>This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct
+    a Regex:</p>
   <ul>
-    <li>John - S1234567A</li>
-    <li>Mary - S8192853B</li>
-    <li>David - S1235326C</li>
+    <li>Find: <code>S[\d]{7}[A-Z]</code></li>
+    <li>Replace: <code>SXXXXXXXX</code></li>
   </ul>
-</blockquote>
-<p>This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct
-  a Regex:</p>
-<ul>
-  <li>Find: <code>S[\d]{7}[A-Z]</code></li>
-  <li>Replace: <code>SXXXXXXXX</code></li>
-</ul>
-<p>As we can see, the <code>S</code> matches the very first S, [\d]{7} matches a string of 7 digits, and [A-Z] matches a single capital letter. We then replace all the critical information with a string of Xs.</p>
-<h3 id="result">Result</h3>
-<blockquote>
+  <p>As we can see, the <code>S</code> matches the very first S, [\d]{7} matches a string of 7 digits, and [A-Z] matches a single capital letter. We then replace all the critical information with a string of Xs.</p>
+  <h3 id="result">Result</h3>
+  <blockquote>
+    <ul>
+      <li>John - SXXXXXXXX</li>
+      <li>Mary - SXXXXXXXX</li>
+      <li>David - SXXXXXXXX</li>
+    </ul>
+  </blockquote>
+  <h2 id="capturing-groups">Capturing groups</h2>
+  <p>Now, imagine you have a section of text with many dates written in the US Date Format (MM-DD-YYYY).</p>
+  <blockquote>
+    <p>Calendar</p>
+    <ul>
+      <li>02-20-2017 Paul's Birthday</li>
+      <li>02-24-2017 Presentation at work</li>
+      <li>02-25-2017 Workshop</li>
+    </ul>
+  </blockquote>
+  <p>However, you want them to be written in (DD-MM-YYYY) instead. As we can see, this isn't as simple as just finding and replacing text, we must also maintain the data in the search string (e.g. <code>02-20</code> becomes <code>20-02</code>). This can
+    be done using a <strong>capturing group</strong>. A capturing group is a part of a Regex surrounded by brackets <code>()</code>. They are numbered <code>1</code>, <code>2</code>, <code>3</code>, from left to right and are used to hold captured data.
+    For example:</p>
+  <p><code>(\d\d)-(\d\d)-(\d\d\d\d)</code> against <code>02/20/2017</code> will result in group 1 : <code>02</code>, group 2 : <code>20</code>, and group 3 : <code>2017</code>.</p>
+  <p>Using this, we can construct our regex as follows:</p>
   <ul>
-    <li>John - SXXXXXXXX</li>
-    <li>Mary - SXXXXXXXX</li>
-    <li>David - SXXXXXXXX</li>
+    <li>Find: <code>(\d\d)-(\d\d)-(\d\d\d\d)</code></li>
+    <li>Replace: <code>\2-\1-\3</code></li>
   </ul>
-</blockquote>
-<h2 id="capturing-groups">Capturing groups</h2>
-<p>Now, imagine you have a section of text with many dates written in the US Date Format (MM-DD-YYYY).</p>
-<blockquote>
-  <p>Calendar</p>
+  <p>In the replace field, <code>\1</code> represents the group matched in the string. For example, <code>\1</code> corresponds to <code>02</code>, <code>\2</code> corresponds to <code>20</code> and so on. As you can see, we are swapping group 1 (the month)
+    and group 2 (the day) to get the desired result.</p>
+  <h3 id="result-2">Result</h3>
+  <blockquote>
+    <p>Calendar <br></p>
+    <ul>
+      <li>20-02-2017 Paul's Birthday <br></li>
+      <li>24-02-2017 Presentation at work <br></li>
+      <li>25-02-2017 Workshop</li>
+    </ul>
+  </blockquote>
+  <h2 id="further-exploration">Further exploration</h2>
+  <p>These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language
+    (for example, Python uses the <a href="https://docs.python.org/2/library/re.html"><code>re</code></a> library, Java uses <a href="http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html"><code>Pattern</code></a> and Javascript has regex
+    built into the language using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions"><code>/</code> notation</a>), but the functionality is consistent so it's not difficult to port Regex from one language to another.
+    You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.</p>
+  <p>For more examples of what Regex can do, you can refer to the tutorial links in the appendix.</p>
+  <h2 id="quick-reference">Quick Reference</h2>
+  <div class="table-responsive">
+    <table class="markbind-table table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Regex</th>
+          <th>Use</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Literal characters</td>
+          <td>Any character(s)</td>
+          <td>Matches any substring</td>
+          <td><code>cat</code> matches <code>category</code></td>
+        </tr>
+        <tr>
+          <td>Escape characters</td>
+          <td><code>\t</code>, <code>\n</code>, <code>\d</code>...</td>
+          <td>Matches <a href="http://www.regular-expressions.info/refcharacters.html">special characters</a>.</td>
+          <td><code>\t</code> matches a tab character</td>
+        </tr>
+        <tr>
+          <td>Anchors</td>
+          <td><code>^</code>, <code>$</code></td>
+          <td>Matches start and end of string</td>
+          <td><code>^ant</code> matches <code>antics</code> but not <code>pant</code></td>
+        </tr>
+        <tr>
+          <td>Character classes</td>
+          <td><code>[abc]</code></td>
+          <td>Matches any character in the character class</td>
+          <td><code>l[ai]st</code> matches <code>last</code> and <code>list</code></td>
+        </tr>
+        <tr>
+          <td>Quantifiers</td>
+          <td><code>+</code></td>
+          <td>Matches one or more of the previous character</td>
+          <td><code>no+</code> matches <code>nooooooo</code> but not <code>n</code></td>
+        </tr>
+        <tr>
+          <td><code>?</code></td>
+          <td>Matches zero or one of the previous character</td>
+          <td><code>colou?r</code> matches <code>color</code> and <code>colour</code></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><code>*</code></td>
+          <td>Matches zero or more of the previous character</td>
+          <td><code>ba*</code> matches <code>b</code>, <code>ba</code> and <code>baaa</code></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><code>{1, 3}</code> or <code>{2}</code></td>
+          <td>Matches the previous character a specified number of times</td>
+          <td><code>a{1, 3}</code> matches <code>a</code>, <code>aa</code> and <code>aaa</code>, <code>a{2}</code> matches <code>aa</code></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Groups</td>
+          <td><code>(...)</code></td>
+          <td>Groups a pattern of data</td>
+          <td><code>Used for extracting data, see above</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>For a full list of possible operators, refer to this cheat sheet:
+    <a href="http://www.rexegg.com/regex-quickstart.html">Regex cheat sheet</a><br></p>
+  <h2 id="helpful-links">Helpful links</h2>
   <ul>
-    <li>02-20-2017 Paul's Birthday</li>
-    <li>02-24-2017 Presentation at work</li>
-    <li>02-25-2017 Workshop</li>
+    <li><a href="https://regex101.com/">Regex101</a> - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.</li>
+    <li><a href="http://www.regular-expressions.info/examples.html">Regular-Expressions</a> - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.</li>
+    <li><a href="https://regexone.com/">Regexone</a> - A free online course that teaches the many features of Regex interactively.</li>
+    <li><a href="http://www.rexegg.com">Rexegg</a> - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.</li>
   </ul>
-</blockquote>
-<p>However, you want them to be written in (DD-MM-YYYY) instead. As we can see, this isn't as simple as just finding and replacing text, we must also maintain the data in the search string (e.g. <code>02-20</code> becomes <code>20-02</code>). This can be
-  done using a <strong>capturing group</strong>. A capturing group is a part of a Regex surrounded by brackets <code>()</code>. They are numbered <code>1</code>, <code>2</code>, <code>3</code>, from left to right and are used to hold captured data. For
-  example:</p>
-<p><code>(\d\d)-(\d\d)-(\d\d\d\d)</code> against <code>02/20/2017</code> will result in group 1 : <code>02</code>, group 2 : <code>20</code>, and group 3 : <code>2017</code>.</p>
-<p>Using this, we can construct our regex as follows:</p>
-<ul>
-  <li>Find: <code>(\d\d)-(\d\d)-(\d\d\d\d)</code></li>
-  <li>Replace: <code>\2-\1-\3</code></li>
-</ul>
-<p>In the replace field, <code>\1</code> represents the group matched in the string. For example, <code>\1</code> corresponds to <code>02</code>, <code>\2</code> corresponds to <code>20</code> and so on. As you can see, we are swapping group 1 (the month)
-  and group 2 (the day) to get the desired result.</p>
-<h3 id="result-2">Result</h3>
-<blockquote>
-  <p>Calendar <br></p>
-  <ul>
-    <li>20-02-2017 Paul's Birthday <br></li>
-    <li>24-02-2017 Presentation at work <br></li>
-    <li>25-02-2017 Workshop</li>
-  </ul>
-</blockquote>
-<h2 id="further-exploration">Further exploration</h2>
-<p>These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language
-  (for example, Python uses the <a href="https://docs.python.org/2/library/re.html"><code>re</code></a> library, Java uses <a href="http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html"><code>Pattern</code></a> and Javascript has regex
-  built into the language using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions"><code>/</code> notation</a>), but the functionality is consistent so it's not difficult to port Regex from one language to another.
-  You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.</p>
-<p>For more examples of what Regex can do, you can refer to the tutorial links in the appendix.</p>
-<h2 id="quick-reference">Quick Reference</h2>
-<table class="markbind-table table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Regex</th>
-      <th>Use</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Literal characters</td>
-      <td>Any character(s)</td>
-      <td>Matches any substring</td>
-      <td><code>cat</code> matches <code>category</code></td>
-    </tr>
-    <tr>
-      <td>Escape characters</td>
-      <td><code>\t</code>, <code>\n</code>, <code>\d</code>...</td>
-      <td>Matches <a href="http://www.regular-expressions.info/refcharacters.html">special characters</a>.</td>
-      <td><code>\t</code> matches a tab character</td>
-    </tr>
-    <tr>
-      <td>Anchors</td>
-      <td><code>^</code>, <code>$</code></td>
-      <td>Matches start and end of string</td>
-      <td><code>^ant</code> matches <code>antics</code> but not <code>pant</code></td>
-    </tr>
-    <tr>
-      <td>Character classes</td>
-      <td><code>[abc]</code></td>
-      <td>Matches any character in the character class</td>
-      <td><code>l[ai]st</code> matches <code>last</code> and <code>list</code></td>
-    </tr>
-    <tr>
-      <td>Quantifiers</td>
-      <td><code>+</code></td>
-      <td>Matches one or more of the previous character</td>
-      <td><code>no+</code> matches <code>nooooooo</code> but not <code>n</code></td>
-    </tr>
-    <tr>
-      <td><code>?</code></td>
-      <td>Matches zero or one of the previous character</td>
-      <td><code>colou?r</code> matches <code>color</code> and <code>colour</code></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><code>*</code></td>
-      <td>Matches zero or more of the previous character</td>
-      <td><code>ba*</code> matches <code>b</code>, <code>ba</code> and <code>baaa</code></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><code>{1, 3}</code> or <code>{2}</code></td>
-      <td>Matches the previous character a specified number of times</td>
-      <td><code>a{1, 3}</code> matches <code>a</code>, <code>aa</code> and <code>aaa</code>, <code>a{2}</code> matches <code>aa</code></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Groups</td>
-      <td><code>(...)</code></td>
-      <td>Groups a pattern of data</td>
-      <td><code>Used for extracting data, see above</code></td>
-    </tr>
-  </tbody>
-</table>
-<p>For a full list of possible operators, refer to this cheat sheet:
-  <a href="http://www.rexegg.com/regex-quickstart.html">Regex cheat sheet</a><br></p>
-<h2 id="helpful-links">Helpful links</h2>
-<ul>
-  <li><a href="https://regex101.com/">Regex101</a> - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.</li>
-  <li><a href="http://www.regular-expressions.info/examples.html">Regular-Expressions</a> - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.</li>
-  <li><a href="https://regexone.com/">Regexone</a> - A free online course that teaches the many features of Regex interactively.</li>
-  <li><a href="http://www.rexegg.com">Rexegg</a> - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.</li>
-</ul>
-<h1 id="advanced-topics">Advanced topics</h1>
-<h2 id="the-regex-engine">The Regex Engine</h2>
-<p>So, how exactly does Regex work?</p>
-<p>Regex works similarly to most brute force searches. A simplified Regex engine would look something like this:</p>
-<ol>
-  <li>Start from the start of the text and the start of the regex.</li>
-  <li>Check if the first character matches.</li>
-  <li>If it does, check the second character of both strings.</li>
-  <li>If it does, check the third character of both strings, and so on.</li>
-  <li>If any character doesn't match, start from the second character of the text.</li>
-  <li>Return when a match is found, or if no match is found.</li>
-</ol>
-<p>For example, for the regex <code>light</code> against the sentence <code>He likes light lightbulbs.</code>:</p>
-<pre class="hljs"><code>He likes light lightbulbs.
+  <h1 id="advanced-topics">Advanced topics</h1>
+  <h2 id="the-regex-engine">The Regex Engine</h2>
+  <p>So, how exactly does Regex work?</p>
+  <p>Regex works similarly to most brute force searches. A simplified Regex engine would look something like this:</p>
+  <ol>
+    <li>Start from the start of the text and the start of the regex.</li>
+    <li>Check if the first character matches.</li>
+    <li>If it does, check the second character of both strings.</li>
+    <li>If it does, check the third character of both strings, and so on.</li>
+    <li>If any character doesn't match, start from the second character of the text.</li>
+    <li>Return when a match is found, or if no match is found.</li>
+  </ol>
+  <p>For example, for the regex <code>light</code> against the sentence <code>He likes light lightbulbs.</code>:</p>
+  <pre class="hljs"><code>He likes light lightbulbs.
 ^
 light
 </code></pre>
-<p>First, the engine checks against the start of the string, <code>H</code> against <code>l</code>. This doesn't match, so the engine moves on to <code>e</code>, then <code></code>, and so on.</p>
-<pre class="hljs"><code>He likes light lightbulbs.
+  <p>First, the engine checks against the start of the string, <code>H</code> against <code>l</code>. This doesn't match, so the engine moves on to <code>e</code>, then <code></code>, and so on.</p>
+  <pre class="hljs"><code>He likes light lightbulbs.
    ^
    light
 </code></pre>
-<p>Once it reaches the first <code>l</code>, it sees a match, consumes the <code>l</code> and starts comparing the rest of the string.</p>
-<pre class="hljs"><code>He likes light lightbulbs.
+  <p>Once it reaches the first <code>l</code>, it sees a match, consumes the <code>l</code> and starts comparing the rest of the string.</p>
+  <pre class="hljs"><code>He likes light lightbulbs.
      ^
    light
 </code></pre>
-<p>However, when it reaches <code>k</code>, it finds a different character so it knows it's not a match. It then starts again from <code>i</code> (the letter after <code>l</code>).</p>
-<pre class="hljs"><code>He likes light lightbulbs.
+  <p>However, when it reaches <code>k</code>, it finds a different character so it knows it's not a match. It then starts again from <code>i</code> (the letter after <code>l</code>).</p>
+  <pre class="hljs"><code>He likes light lightbulbs.
          ^
          light
 </code></pre>
-<p>Finally, when it finds a match, it returns the match and terminates. Note that the second <code>light</code> in <code>lightbulbs</code> is ignored.</p>
-<p>Of course, more complex Regex functions will require more steps, but this will give you a rough understanding of the engine for now.</p>
-<h2 id="greedy-operators">Greedy Operators</h2>
-<p>The operators <code>{}</code>, <code>*</code> and <code>+</code> are called greedy operators because they try to match as many characters as possible. For example, for the regex <code>b.*</code> against the string <code>baaaaaa</code>:</p>
-<pre class="hljs"><code>baaaaaaaaa
+  <p>Finally, when it finds a match, it returns the match and terminates. Note that the second <code>light</code> in <code>lightbulbs</code> is ignored.</p>
+  <p>Of course, more complex Regex functions will require more steps, but this will give you a rough understanding of the engine for now.</p>
+  <h2 id="greedy-operators">Greedy Operators</h2>
+  <p>The operators <code>{}</code>, <code>*</code> and <code>+</code> are called greedy operators because they try to match as many characters as possible. For example, for the regex <code>b.*</code> against the string <code>baaaaaa</code>:</p>
+  <pre class="hljs"><code>baaaaaaaaa
  ^
 ba
 </code></pre>
-<p>Although a suitable match (<code>ba</code>) has already been found, the engine sees that it can match against a longer string of <code>a</code>s. It will instead return the match <code>baaaaaaaaa</code>, matching the entire string.</p>
-<p>But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'.
-  For example, consider the regex <code>c.*ed</code> against the string <code>contested</code> (Let <code>.....</code> represent <code>.+</code>).</p>
-<pre class="hljs"><code>contested
+  <p>Although a suitable match (<code>ba</code>) has already been found, the engine sees that it can match against a longer string of <code>a</code>s. It will instead return the match <code>baaaaaaaaa</code>, matching the entire string.</p>
+  <p>But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called
+    'backtracking'. For example, consider the regex <code>c.*ed</code> against the string <code>contested</code> (Let <code>.....</code> represent <code>.+</code>).</p>
+  <pre class="hljs"><code>contested
         ^
 c........ed
 </code></pre>
-<p>Remember that <code>.*</code> matches any number of characters, and this includes the <code>ed</code> at the back! The entire string is matched by <code>c.*</code>, leaving no characters left for <code>ed</code>. This obviously doesn't match, so the engine
-  backtracks one step:</p>
-<pre class="hljs"><code>contested
+  <p>Remember that <code>.*</code> matches any number of characters, and this includes the <code>ed</code> at the back! The entire string is matched by <code>c.*</code>, leaving no characters left for <code>ed</code>. This obviously doesn't match, so the
+    engine backtracks one step:</p>
+  <pre class="hljs"><code>contested
         ^
 c.......ed
 </code></pre>
-<p>As we can see, <code>e</code> still doesn't match <code>d</code>, so we take another step back:</p>
-<pre class="hljs"><code>contested
+  <p>As we can see, <code>e</code> still doesn't match <code>d</code>, so we take another step back:</p>
+  <pre class="hljs"><code>contested
        ^
 c......ed
 </code></pre>
-<p>Finally, we get a match and see that both strings match.</p>
-<h3 id="effect-on-performance">Effect on performance</h3>
-<p>Bad use of greedy operators (<code>.*</code>, <code>.+</code>) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:</p>
-<p>Match a person's full name: <code>(Anderson.*Cooper)</code> <br> Text: <code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</code></p>
-<p>This looks like a simple matching at first glance, but look at what happens:</p>
-<pre class="hljs"><code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)
+  <p>Finally, we get a match and see that both strings match.</p>
+  <h3 id="effect-on-performance">Effect on performance</h3>
+  <p>Bad use of greedy operators (<code>.*</code>, <code>.+</code>) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:</p>
+  <p>Match a person's full name: <code>(Anderson.*Cooper)</code> <br> Text: <code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</code></p>
+  <p>This looks like a simple matching at first glance, but look at what happens:</p>
+  <pre class="hljs"><code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)
                ^
                Anderson..............................................
 </code></pre>
-<p>Every character after <code>Anderson</code> matches <code>.*</code>, resulting in scanning the entire string! And not only that, the Regex also has to backtrack one character at a time, until it reaches <code>Anderson Pearson</code> and <code>Cooper</code>  can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.</p>
-<h3 id="catastrophic-backtracking">Catastrophic Backtracking</h3>
-<p>This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when multiple greedy operators are chained. If a match can't be found, each operator will be backtracked individually,
-  which results in a lot of computation, even up to O(2<sup>n</sup>) in some cases! Let's look at one case in detail.</p>
-<h3 id="matching-delimiters">Matching Delimiters</h3>
-<p>One common reason this happens is when delimited data is carelessly matched. This is when the Regex group you are using to match the data also matches the delimiter. Consider the following example:</p>
-<p>Match 10 comma separated values in an array: <code>\[(.+,){9}(.+)\]</code><br> E.g.: <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></p>
-<p>This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?</p>
-<p>The problem occurs because <code>.</code> matches any character. This also includes the comma separating the group. This is what happens when the first set of <code>(.+,)</code> is parsed:</p>
-<pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  <p>Every character after <code>Anderson</code> matches <code>.*</code>, resulting in scanning the entire string! And not only that, the Regex also has to backtrack one character at a time, until it reaches <code>Anderson Pearson</code> and <code>Cooper</code>    can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.</p>
+  <h3 id="catastrophic-backtracking">Catastrophic Backtracking</h3>
+  <p>This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when multiple greedy operators are chained. If a match can't be found, each operator will be backtracked
+    individually, which results in a lot of computation, even up to O(2<sup>n</sup>) in some cases! Let's look at one case in detail.</p>
+  <h3 id="matching-delimiters">Matching Delimiters</h3>
+  <p>One common reason this happens is when delimited data is carelessly matched. This is when the Regex group you are using to match the data also matches the delimiter. Consider the following example:</p>
+  <p>Match 10 comma separated values in an array: <code>\[(.+,){9}(.+)\]</code><br> E.g.: <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></p>
+  <p>This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?</p>
+  <p>The problem occurs because <code>.</code> matches any character. This also includes the comma separating the group. This is what happens when the first set of <code>(.+,)</code> is parsed:</p>
+  <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [.........................,
 [.+                       ,
 </code></pre>
-<p>The first group keeps everything as its data group. Now, it tries to find the second <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks:</p>
-<pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  <p>The first group keeps everything as its data group. Now, it tries to find the second <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks:</p>
+  <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [......................,..,
 [.+                    ,.+,
 </code></pre>
-<p>This time the first and second groups are matched. Now, it tries to find the <strong>third</strong> <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks yet again. So we move the first <code>(.+,)</code> back:</p>
-<pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  <p>This time the first and second groups are matched. Now, it tries to find the <strong>third</strong> <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks yet again. So we move the first <code>(.+,)</code> back:</p>
+  <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [...................,
 [.+                 ,
 </code></pre>
-<p>Now, what happens? Well, the second <code>(.+,)</code> is greedy, so it actually matches the last comma instead!</p>
-<pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  <p>Now, what happens? Well, the second <code>(.+,)</code> is greedy, so it actually matches the last comma instead!</p>
+  <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [...................,.....,
 [.+                 ,.+   ,
 </code></pre>
-<p>As we can see, by chaining repeated groups, it actually causes cascading levels of backtracking, which leads to very poor performance, even with short strings. For this case, we can observe that each comma is either included in the regex or not included
-  in the match, and every possible combination of included and not included combinations will appear at least once. That means the complexity is equal to the number of possible ways n commas can be either included or not included, or O(2<sup>n</sup>).
-  This is a Very Bad Thing™!</p>
-<p>This problem can be exacerbated by the one mentioned previously. Imagine if your text looked like this:</p>
-<pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)
+  <p>As we can see, by chaining repeated groups, it actually causes cascading levels of backtracking, which leads to very poor performance, even with short strings. For this case, we can observe that each comma is either included in the regex or not included
+    in the match, and every possible combination of included and not included combinations will appear at least once. That means the complexity is equal to the number of possible ways n commas can be either included or not included, or O(2<sup>n</sup>).
+    This is a Very Bad Thing™!</p>
+  <p>This problem can be exacerbated by the one mentioned previously. Imagine if your text looked like this:</p>
+  <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)
 [...................................................,
 </code></pre>
-<p>The extra parts of the string will be matched each time, and we can only imagine how long that will take.</p>
-<p>So, how do we prevent this?</p>
-<ul>
-  <li>Explicitly exclude the delimter.</li>
-</ul>
-<blockquote>
-  <p>Match 10 comma separated values in an array: <code>\[([^,]+,){9}([^,]+)\]</code> instead of <code>\[(.+,){9}(.+)\]</code><br></p>
-</blockquote>
-<p>Here, instead of matching all characters (<code>.</code>), we match all characters except a certain character (<code>[^,]</code>). This allows the regex to capture in one parse successfully. Some other common examples are HTML/XML tags (<code>&lt;[^&gt;]*&gt;</code>  instead of <code>&lt;.+&gt;</code>) and bracketed expressions (<code>\([^\)]+\)</code> instead of <code>\(.+\)</code>).</p>
-<ul>
-  <li>Always narrow the scope as much as possible.</li>
-</ul>
-<blockquote>
-  <p>Matching a name: <code>[A-z]+ [A-z]+</code> instead of <code>.+ .+</code><br></p>
-</blockquote>
-<p>A great tip for improving Regex performance is to specify your match as clearly as possible. This reduces the potential of unwanted matchings and unnecessary backtracking.</p>
-<ul>
-  <li>Avoid greedy operators if possible.</li>
-</ul>
-<blockquote>
-  <p>Matching a date: <code>\d{1,2}-\d{1,2}-\d{2,4}</code> instead of <code>.*-.*-.*</code><br></p>
-</blockquote>
-<p>If you know your data will only be a few characters long, try your best to avoid using <code>*</code> or <code>+</code>. Limiting to a number of characters would reduce the amount of backtracking if any.</p>
-<ul>
-  <li>Use Lazy Quantifiers</li>
-</ul>
-<blockquote>
-  <p>Use <code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code></p>
-</blockquote>
-<p>A greedy quantifier <code>+</code> or <code>*</code> can be turned into a lazy quantifier by adding an extra <code>?</code> behind it, i.e. (<code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code>). A lazy quantifier works
-  similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our <code>contested</code> example, if we replaced <code>c.+d</code> with <code>c.+?d</code>, the engine would stop
-  matching the <code>.+</code> here:</p>
-<pre class="hljs"><code>contested
+  <p>The extra parts of the string will be matched each time, and we can only imagine how long that will take.</p>
+  <p>So, how do we prevent this?</p>
+  <ul>
+    <li>Explicitly exclude the delimter.</li>
+  </ul>
+  <blockquote>
+    <p>Match 10 comma separated values in an array: <code>\[([^,]+,){9}([^,]+)\]</code> instead of <code>\[(.+,){9}(.+)\]</code><br></p>
+  </blockquote>
+  <p>Here, instead of matching all characters (<code>.</code>), we match all characters except a certain character (<code>[^,]</code>). This allows the regex to capture in one parse successfully. Some other common examples are HTML/XML tags (<code>&lt;[^&gt;]*&gt;</code>    instead of <code>&lt;.+&gt;</code>) and bracketed expressions (<code>\([^\)]+\)</code> instead of <code>\(.+\)</code>).</p>
+  <ul>
+    <li>Always narrow the scope as much as possible.</li>
+  </ul>
+  <blockquote>
+    <p>Matching a name: <code>[A-z]+ [A-z]+</code> instead of <code>.+ .+</code><br></p>
+  </blockquote>
+  <p>A great tip for improving Regex performance is to specify your match as clearly as possible. This reduces the potential of unwanted matchings and unnecessary backtracking.</p>
+  <ul>
+    <li>Avoid greedy operators if possible.</li>
+  </ul>
+  <blockquote>
+    <p>Matching a date: <code>\d{1,2}-\d{1,2}-\d{2,4}</code> instead of <code>.*-.*-.*</code><br></p>
+  </blockquote>
+  <p>If you know your data will only be a few characters long, try your best to avoid using <code>*</code> or <code>+</code>. Limiting to a number of characters would reduce the amount of backtracking if any.</p>
+  <ul>
+    <li>Use Lazy Quantifiers</li>
+  </ul>
+  <blockquote>
+    <p>Use <code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code></p>
+  </blockquote>
+  <p>A greedy quantifier <code>+</code> or <code>*</code> can be turned into a lazy quantifier by adding an extra <code>?</code> behind it, i.e. (<code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code>). A lazy quantifier works
+    similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our <code>contested</code> example, if we replaced <code>c.+d</code> with <code>c.+?d</code>, the engine would stop
+    matching the <code>.+</code> here:</p>
+  <pre class="hljs"><code>contested
   ^
 c.ed
 </code></pre>
-<p>Since <code>o</code> is a suitable match for <code>.+</code>, the engine accepts it and tries to match the <code>ed</code>. If no match is found, the engine would bactrack and match <code>c..ed</code>, and so on. We can see a clear advantage here for
-  matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.</p>
-<h2 id="related-links">Related links</h2>
-<ul>
-  <li><a href="http://www.regular-expressions.info/engine.html">The Regex Engine</a></li>
-  <li><a href="http://www.regular-expressions.info/catastrophic.html">Catastrophic Backtracking</a></li>
-</ul>
-<h2 id="learning-resources">Learning resources</h2>
-<ul>
-  <li><a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/">Printable cheat sheet for quick reference</a></li>
-  <li><a href="http://www.regular-expressions.info/">Comprehensive Regex Knowledge Base</a></li>
-</ul>
-<h3 id="fun-stuff">Fun Stuff</h3>
-<ul>
-  <li><a href="https://alf.nu/RegexGolf">Regex Golf - Test your Regex skills!</a></li>
-  <li><a href="https://regexcrossword.com/">Regex Crossword - Crosswords, but with Regex</a></li>
-</ul>
-<h3 id="further-reading">Further Reading</h3>
-<ul>
-  <li><a href="https://www.amazon.com/Regular-Expressions-Cookbook-Solutions-Programming/dp/1449319432">Regular Expressions Cookbook</a> - <em>Jan Goyvaerts, Steven Levithan</em></li>
-  <li><a href="https://www.amazon.com/exec/obidos/ASIN/0672325667/jgsbookselection">Teach Yourself Regular Expressions in 10 Minutes</a> - <em>Ben Forta</em></li>
-  <li><a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124">Mastering Regular Expressions</a> - <em>Jeffrey Friedl</em></li>
-</ul>
+  <p>Since <code>o</code> is a suitable match for <code>.+</code>, the engine accepts it and tries to match the <code>ed</code>. If no match is found, the engine would bactrack and match <code>c..ed</code>, and so on. We can see a clear advantage here for
+    matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.</p>
+  <h2 id="related-links">Related links</h2>
+  <ul>
+    <li><a href="http://www.regular-expressions.info/engine.html">The Regex Engine</a></li>
+    <li><a href="http://www.regular-expressions.info/catastrophic.html">Catastrophic Backtracking</a></li>
+  </ul>
+  <h2 id="learning-resources">Learning resources</h2>
+  <ul>
+    <li><a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/">Printable cheat sheet for quick reference</a></li>
+    <li><a href="http://www.regular-expressions.info/">Comprehensive Regex Knowledge Base</a></li>
+  </ul>
+  <h3 id="fun-stuff">Fun Stuff</h3>
+  <ul>
+    <li><a href="https://alf.nu/RegexGolf">Regex Golf - Test your Regex skills!</a></li>
+    <li><a href="https://regexcrossword.com/">Regex Crossword - Crosswords, but with Regex</a></li>
+  </ul>
+  <h3 id="further-reading">Further Reading</h3>
+  <ul>
+    <li><a href="https://www.amazon.com/Regular-Expressions-Cookbook-Solutions-Programming/dp/1449319432">Regular Expressions Cookbook</a> - <em>Jan Goyvaerts, Steven Levithan</em></li>
+    <li><a href="https://www.amazon.com/exec/obidos/ASIN/0672325667/jgsbookselection">Teach Yourself Regular Expressions in 10 Minutes</a> - <em>Ben Forta</em></li>
+    <li><a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124">Mastering Regular Expressions</a> - <em>Jeffrey Friedl</em></li>
+  </ul>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

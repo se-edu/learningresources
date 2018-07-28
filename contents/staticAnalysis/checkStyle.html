@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CheckStyle</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,101 +29,116 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="checkstyle">CheckStyle</h1>
-<p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-<h2 id="overview">Overview</h2>
-<p>CheckStyle is a static analyser for <strong>Java</strong>. It can be used to assist developers in <a href="intro.md">static analysis</a> process.</p>
-<h2 id="features">Features</h2>
-<p>CheckStyle will examine code based on different rules(or checks).</p>
-<p>According to the <a href="http://checkstyle.sourceforge.net/checks.html">checks list</a> provided by CheckStyle, the checks(rules) can be divided into 14 sections.</p>
-<ul>
-  <li>Annotations</li>
-  <li>Block Checks</li>
-  <li>Class Design</li>
-  <li>Coding</li>
-  <li>Headers</li>
-  <li>Imports</li>
-  <li>Javadoc Comments</li>
-  <li>Metrics</li>
-  <li>Miscellaneous</li>
-  <li>Modifiers</li>
-  <li>Naming Conventions</li>
-  <li>Regexp</li>
-  <li>Size Violations</li>
-  <li>Whitespace</li>
-</ul>
-<h2 id="limitations">Limitations</h2>
-<p>As described <a href="http://checkstyle.sourceforge.net/writingchecks.html#Limitations">here</a>, there are several limitations in CheckStyle.</p>
-<ul>
-  <li>The code must be written in ASCII characters only.</li>
-  <li>The examined code has to be compilable. The reason is described in <a href="#how-does-it-work">How does it work</a> section.</li>
-  <li>Files will be examined one by one, which means you cannot check multiple files at the same time.
-    <ul>
-      <li>For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.</li>
-    </ul>
-  </li>
-</ul>
-<h2 id="how-to-use-it">How to use it</h2>
-<h3 id="configuration">Configuration</h3>
-<p>CheckStyle uses a <a href="http://checkstyle.sourceforge.net/config.html">configuration file</a> to know all the rules that it is supposed to check.</p>
-<h3 id="suppress-warnings">Suppress Warnings</h3>
-<p>CheckStyle supports suppressing warnings in four ways:</p>
-<ul>
-  <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter">Annotations</a></li>
-  <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressionCommentFilter">Comments</a></li>
-  <li><a href="http://checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter">File Filter</a></li>
-  <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressionFilter">Configuration File</a></li>
-</ul>
-<h3 id="running">Running</h3>
-<p>There are several ways to run CheckStyle.</p>
-<p>Command Line:</p>
-<ul>
-  <li><a href="http://checkstyle.sourceforge.net/cmdline.html">Command Line</a></li>
-</ul>
-<p>Build Automation Tools:</p>
-<ul>
-  <li><a href="http://checkstyle.sourceforge.net/anttask.html">Ant Task</a></li>
-  <li><a href="https://maven.apache.org/plugins/maven-checkstyle-plugin/">Maven Checkstyle</a></li>
-  <li><a href="https://docs.gradle.org/current/userguide/checkstyle_plugin.html">Gradle Checkstyle</a></li>
-</ul>
-<p>IDE Integration:</p>
-<ul>
-  <li><a href="http://eclipse-cs.sourceforge.net/#!/">Eclipse Integration</a></li>
-  <li><a href="https://plugins.jetbrains.com/idea/plugin/1065-checkstyle-idea">IntelliJ Integration</a></li>
-</ul>
-<h2 id="available-configurations">Available Configurations</h2>
-<p>There are two widely used configurations: <a href="http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html">Sun Code Conversions</a> and <a href="http://checkstyle.sourceforge.net/reports/google-java-style.html">Google Java Style</a>.
-  Some common rules are already included in these configurations.</p>
-<h2 id="how-does-it-work">How does it work</h2>
-<p>CheckStyle will use <a href="http://www.antlr.org">ANTLR</a> to parse your code into a <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST(Abstract Syntax Tree)</a> and visit it in a <a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS(Depth First Search)</a>  pattern to check violations. Thus, it is necessary to make the code compilable in order for the ANTLR to work. You can view the syntax tree using <a href="http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui">CheckStyle Grammar Tree Viewer</a></p>
-<h2 id="customisation">Customisation</h2>
-<ul>
-  <li><a href="http://checkstyle.sourceforge.net/writingchecks.html">Writing Checks</a> (I want to write my own check for Java code.)</li>
-  <li><a href="http://checkstyle.sourceforge.net/writingjavadocchecks.html">Writing Javadoc Checks</a> (I want to enforce new rules for writing Javadoc header comment.)</li>
-  <li><a href="http://checkstyle.sourceforge.net/writingfilters.html">Writing Filters</a> (I will do something when violations are found.)</li>
-  <li><a href="http://checkstyle.sourceforge.net/writingfilefilters.html">Writing File Filters</a> (I want to check the rules against specific files.)</li>
-  <li><a href="http://checkstyle.sourceforge.net/writinglisteners.html">Writing Listeners</a> (I want different notifications (verbose printer, sending emails, etc) when violations are thrown.)</li>
-</ul>
-<h2 id="resources">Resources</h2>
-<ul>
-  <li><a href="http://checkstyle.sourceforge.net/">CheckStyle</a>: CheckStyle official website. You can download the latest version, view online documentation there.</li>
-  <li><a href="https://github.com/checkstyle/checkstyle">CheckStyle Github</a>: CheckStyle GitHub page. You can contribute to the project or report bugs there.</li>
-  <li><a href="http://stackoverflow.com/questions/tagged/checkstyle">StackOverflow CheckStyle</a>: Question/Answer forum in StackOverflow for CheckStyle. You can ask question related to the using of CheckStyle.</li>
-</ul>
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="checkstyle">CheckStyle</h1>
+  <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
+  <h2 id="overview">Overview</h2>
+  <p>CheckStyle is a static analyser for <strong>Java</strong>. It can be used to assist developers in <a href="intro.md">static analysis</a> process.</p>
+  <h2 id="features">Features</h2>
+  <p>CheckStyle will examine code based on different rules(or checks).</p>
+  <p>According to the <a href="http://checkstyle.sourceforge.net/checks.html">checks list</a> provided by CheckStyle, the checks(rules) can be divided into 14 sections.</p>
+  <ul>
+    <li>Annotations</li>
+    <li>Block Checks</li>
+    <li>Class Design</li>
+    <li>Coding</li>
+    <li>Headers</li>
+    <li>Imports</li>
+    <li>Javadoc Comments</li>
+    <li>Metrics</li>
+    <li>Miscellaneous</li>
+    <li>Modifiers</li>
+    <li>Naming Conventions</li>
+    <li>Regexp</li>
+    <li>Size Violations</li>
+    <li>Whitespace</li>
+  </ul>
+  <h2 id="limitations">Limitations</h2>
+  <p>As described <a href="http://checkstyle.sourceforge.net/writingchecks.html#Limitations">here</a>, there are several limitations in CheckStyle.</p>
+  <ul>
+    <li>The code must be written in ASCII characters only.</li>
+    <li>The examined code has to be compilable. The reason is described in <a href="#how-does-it-work">How does it work</a> section.</li>
+    <li>Files will be examined one by one, which means you cannot check multiple files at the same time.
+      <ul>
+        <li>For example, you cannot determine the full inheritance hierarchy of a class as you need to examine the parent class while checking the child class.</li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="how-to-use-it">How to use it</h2>
+  <h3 id="configuration">Configuration</h3>
+  <p>CheckStyle uses a <a href="http://checkstyle.sourceforge.net/config.html">configuration file</a> to know all the rules that it is supposed to check.</p>
+  <h3 id="suppress-warnings">Suppress Warnings</h3>
+  <p>CheckStyle supports suppressing warnings in four ways:</p>
+  <ul>
+    <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter">Annotations</a></li>
+    <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressionCommentFilter">Comments</a></li>
+    <li><a href="http://checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter">File Filter</a></li>
+    <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressionFilter">Configuration File</a></li>
+  </ul>
+  <h3 id="running">Running</h3>
+  <p>There are several ways to run CheckStyle.</p>
+  <p>Command Line:</p>
+  <ul>
+    <li><a href="http://checkstyle.sourceforge.net/cmdline.html">Command Line</a></li>
+  </ul>
+  <p>Build Automation Tools:</p>
+  <ul>
+    <li><a href="http://checkstyle.sourceforge.net/anttask.html">Ant Task</a></li>
+    <li><a href="https://maven.apache.org/plugins/maven-checkstyle-plugin/">Maven Checkstyle</a></li>
+    <li><a href="https://docs.gradle.org/current/userguide/checkstyle_plugin.html">Gradle Checkstyle</a></li>
+  </ul>
+  <p>IDE Integration:</p>
+  <ul>
+    <li><a href="http://eclipse-cs.sourceforge.net/#!/">Eclipse Integration</a></li>
+    <li><a href="https://plugins.jetbrains.com/idea/plugin/1065-checkstyle-idea">IntelliJ Integration</a></li>
+  </ul>
+  <h2 id="available-configurations">Available Configurations</h2>
+  <p>There are two widely used configurations: <a href="http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html">Sun Code Conversions</a> and <a href="http://checkstyle.sourceforge.net/reports/google-java-style.html">Google Java Style</a>.
+    Some common rules are already included in these configurations.</p>
+  <h2 id="how-does-it-work">How does it work</h2>
+  <p>CheckStyle will use <a href="http://www.antlr.org">ANTLR</a> to parse your code into a <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST(Abstract Syntax Tree)</a> and visit it in a <a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS(Depth First Search)</a>    pattern to check violations. Thus, it is necessary to make the code compilable in order for the ANTLR to work. You can view the syntax tree using <a href="http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui">CheckStyle Grammar Tree Viewer</a></p>
+  <h2 id="customisation">Customisation</h2>
+  <ul>
+    <li><a href="http://checkstyle.sourceforge.net/writingchecks.html">Writing Checks</a> (I want to write my own check for Java code.)</li>
+    <li><a href="http://checkstyle.sourceforge.net/writingjavadocchecks.html">Writing Javadoc Checks</a> (I want to enforce new rules for writing Javadoc header comment.)</li>
+    <li><a href="http://checkstyle.sourceforge.net/writingfilters.html">Writing Filters</a> (I will do something when violations are found.)</li>
+    <li><a href="http://checkstyle.sourceforge.net/writingfilefilters.html">Writing File Filters</a> (I want to check the rules against specific files.)</li>
+    <li><a href="http://checkstyle.sourceforge.net/writinglisteners.html">Writing Listeners</a> (I want different notifications (verbose printer, sending emails, etc) when violations are thrown.)</li>
+  </ul>
+  <h2 id="resources">Resources</h2>
+  <ul>
+    <li><a href="http://checkstyle.sourceforge.net/">CheckStyle</a>: CheckStyle official website. You can download the latest version, view online documentation there.</li>
+    <li><a href="https://github.com/checkstyle/checkstyle">CheckStyle Github</a>: CheckStyle GitHub page. You can contribute to the project or report bugs there.</li>
+    <li><a href="http://stackoverflow.com/questions/tagged/checkstyle">StackOverflow CheckStyle</a>: Question/Answer forum in StackOverflow for CheckStyle. You can ask question related to the using of CheckStyle.</li>
+  </ul>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

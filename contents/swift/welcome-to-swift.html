@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Swift</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,39 +29,51 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="swift">Swift</h1>
-<p>Authors: <a href="https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md">Ch'ng Ming Shin</a>, <a href="https://github.com/Zhiyuan-Amos">Yong Zhi Yuan</a></p>
-<h1 id="overview">Overview</h1>
-<p>Welcome to Swift, THE preferred language to do iOS programming. Introduced in 2014, Swift is a fast, modern and safe programming language which supports playgrounds, an innovative feature that allows programmers to experiment with Swift code and see the
-  results immediately, without the overhead of building and running an app.</p>
-<h1 id="getting-started">Getting Started</h1>
-<p>Reading the <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/">Language Guide in the official documentation</a> is definitely recommended, since it explains everything quite clearly, albeit
-  quite verbose.</p>
-<p>If you're just looking to take a dip into Swift, here are the <a href="https://guides.codepath.com/ios/Swift-Basics">basics</a> you'll need to understand.</p>
-<p>And if you are really pressed for time, here's a couple of cheatsheets with code examples:</p>
-<ul>
-  <li><a href="https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html">Swift Cheat Sheet</a> (web-friendly)</li>
-  <li><a href="https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf">Swift 3.0 Cheat Sheet and Quick Reference</a> (print-friendly)</li>
-</ul>
-<h1 id="cool-features">Cool Features</h1>
-<p>Here are some cool features that you might not be familiar with but would definitely be useful to you if you are new to Swift.</p>
-<h2 id="type-inference">Type Inference</h2>
-<p>Swift supports type inference whereby the compiler automatically deduces the type of a variable during compilation by examining the values assigned to it.</p>
-<pre><code class="hljs swift"><span class="hljs-keyword">var</span> str1: <span class="hljs-type">String</span> = <span class="hljs-string">"foo"</span>
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="swift">Swift</h1>
+  <p>Authors: <a href="https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md">Ch'ng Ming Shin</a>, <a href="https://github.com/Zhiyuan-Amos">Yong Zhi Yuan</a></p>
+  <h1 id="overview">Overview</h1>
+  <p>Welcome to Swift, THE preferred language to do iOS programming. Introduced in 2014, Swift is a fast, modern and safe programming language which supports playgrounds, an innovative feature that allows programmers to experiment with Swift code and see
+    the results immediately, without the overhead of building and running an app.</p>
+  <h1 id="getting-started">Getting Started</h1>
+  <p>Reading the <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/">Language Guide in the official documentation</a> is definitely recommended, since it explains everything quite clearly, albeit
+    quite verbose.</p>
+  <p>If you're just looking to take a dip into Swift, here are the <a href="https://guides.codepath.com/ios/Swift-Basics">basics</a> you'll need to understand.</p>
+  <p>And if you are really pressed for time, here's a couple of cheatsheets with code examples:</p>
+  <ul>
+    <li><a href="https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html">Swift Cheat Sheet</a> (web-friendly)</li>
+    <li><a href="https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf">Swift 3.0 Cheat Sheet and Quick Reference</a> (print-friendly)</li>
+  </ul>
+  <h1 id="cool-features">Cool Features</h1>
+  <p>Here are some cool features that you might not be familiar with but would definitely be useful to you if you are new to Swift.</p>
+  <h2 id="type-inference">Type Inference</h2>
+  <p>Swift supports type inference whereby the compiler automatically deduces the type of a variable during compilation by examining the values assigned to it.</p>
+  <pre><code class="hljs swift"><span class="hljs-keyword">var</span> str1: <span class="hljs-type">String</span> = <span class="hljs-string">"foo"</span>
 <span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span>
 </code></pre>
-<p>Do note that variables in Swift are statically typed.</p>
-<pre><code class="hljs swift"><span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span>
+  <p>Do note that variables in Swift are statically typed.</p>
+  <pre><code class="hljs swift"><span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span>
 str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilation error</span>
 </code></pre>
-<h2 id="optionals">Optionals</h2>
-<p>Swift allows you the use of Optionals, so that you can choose to either return nil or a data value, instead of returning a special value to indicate the absence of a value.</p>
-<pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int</span> {
+  <h2 id="optionals">Optionals</h2>
+  <p>Swift allows you the use of Optionals, so that you can choose to either return nil or a data value, instead of returning a special value to indicate the absence of a value.</p>
+  <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int</span> {
     <span class="hljs-keyword">switch</span> name {
     <span class="hljs-keyword">case</span> <span class="hljs-string">"Taylor Swift"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2006</span>
     <span class="hljs-keyword">case</span> <span class="hljs-string">"Fearless"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2008</span>
@@ -69,8 +85,8 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
     }
 }
 </code></pre>
-<p>Without Optionals, you might consider using -1 to indicate that there was no such album. But if someone else uses this function, how does he know that -1 means &quot;no such album&quot;? Wouldn't it be better if we could return nil?</p>
-<pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int</span>? {
+  <p>Without Optionals, you might consider using -1 to indicate that there was no such album. But if someone else uses this function, how does he know that -1 means &quot;no such album&quot;? Wouldn't it be better if we could return nil?</p>
+  <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int</span>? {
     <span class="hljs-keyword">switch</span> name {
     <span class="hljs-keyword">case</span> <span class="hljs-string">"Taylor Swift"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2006</span>
     <span class="hljs-keyword">case</span> <span class="hljs-string">"Fearless"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2008</span>
@@ -82,9 +98,9 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
     }
 }
 </code></pre>
-<h3 id="optional-binding">Optional Binding</h3>
-<p>And here is how you unwrap the Optional safely using an <code>if-let</code> statement:</p>
-<pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
+  <h3 id="optional-binding">Optional Binding</h3>
+  <p>And here is how you unwrap the Optional safely using an <code>if-let</code> statement:</p>
+  <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
     <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> past = year { 
         <span class="hljs-comment">// year contains a non-nil value</span>
@@ -94,11 +110,11 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
     }
 }
 </code></pre>
-<p>To learn more about Optionals, such as Optional Chaining and &quot;dangerously&quot; Force Unwrapping, check out this <a href="https://hackernoon.com/swift-optionals-explained-simply-e109a4297298">article</a>.</p>
-<p>If you would like to seek a second (or more) opinion about Optionals, check out this <a href="http://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift">StackOverflow answer</a>.</p>
-<h3 id="guard-statements">Guard Statements</h3>
-<p>Notice that the <a href="http://xunitpatterns.com/happy%20path.html">happy path</a> in the code above is indented:</p>
-<pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
+  <p>To learn more about Optionals, such as Optional Chaining and &quot;dangerously&quot; Force Unwrapping, check out this <a href="https://hackernoon.com/swift-optionals-explained-simply-e109a4297298">article</a>.</p>
+  <p>If you would like to seek a second (or more) opinion about Optionals, check out this <a href="http://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift">StackOverflow answer</a>.</p>
+  <h3 id="guard-statements">Guard Statements</h3>
+  <p>Notice that the <a href="http://xunitpatterns.com/happy%20path.html">happy path</a> in the code above is indented:</p>
+  <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
     <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> past = year {
         <span class="hljs-comment">// happy path is indented</span>
@@ -110,8 +126,8 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
     <span class="hljs-comment">// past is no longer defined; unable to use past here</span>
 }
 </code></pre>
-<p>With the guard statement, the happy path is not indented:</p>
-<pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
+  <p>With the guard statement, the happy path is not indented:</p>
+  <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
     <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
     <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> past = year <span class="hljs-keyword">else</span> {
         <span class="hljs-comment">// failure case</span>
@@ -123,22 +139,22 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
     <span class="hljs-comment">// past remains defined till the function exits</span>
 }
 </code></pre>
-<p>Let's understand how the code above works:</p>
-<ol>
-  <li>The code within a <code>guard</code> block is only executed if <code>year</code> contains a nil value.</li>
-  <li>As the <code>guard</code> statement is used to transfer program control out of a scope, you must call one of the following functions within the <code>guard</code> block: <code>return</code>, <code>break</code>, <code>continue</code>, <code>throw</code>.
-    As such, the <code>guard</code> statement is meant to enforce the pre-conditions of a method and to perform early return.</li>
-</ol>
-<p>Here are some of the benefits of using <code>guard</code> statement over <code>if-let</code> statement:</p>
-<ol>
-  <li>Unlike the <code>if-let</code> statement, using the <code>guard</code> statement causes <code>past</code> to remain defined and can be used till the function exits.</li>
-  <li>While using <code>if-let</code> statements can lead to deeply nested <code>if-let</code> statements (i.e. pyramid of doom), <code>guard</code> statements allow us to have the happy path to be not indented, thereby increasing code readability.</li>
-</ol>
-<h2 id="data-types">Data Types</h2>
-<h3 id="structs">Structs</h3>
-<p>Apart from the classes (something you are familiar with if you have already learned languages like Java / Python) which you use for creating instances of Reference type, Swift also provides the use of Structs to create instances of Value type.</p>
-<p>Let's use a simple example (from <a href="https://developer.apple.com/swift/blog/?id=10">Apple's own blog on Swift</a>) to illustrate the difference between Reference types (Classes) and Value types (Structs).</p>
-<pre><code class="hljs swift"><span class="hljs-comment">// Value type example</span>
+  <p>Let's understand how the code above works:</p>
+  <ol>
+    <li>The code within a <code>guard</code> block is only executed if <code>year</code> contains a nil value.</li>
+    <li>As the <code>guard</code> statement is used to transfer program control out of a scope, you must call one of the following functions within the <code>guard</code> block: <code>return</code>, <code>break</code>, <code>continue</code>, <code>throw</code>.
+      As such, the <code>guard</code> statement is meant to enforce the pre-conditions of a method and to perform early return.</li>
+  </ol>
+  <p>Here are some of the benefits of using <code>guard</code> statement over <code>if-let</code> statement:</p>
+  <ol>
+    <li>Unlike the <code>if-let</code> statement, using the <code>guard</code> statement causes <code>past</code> to remain defined and can be used till the function exits.</li>
+    <li>While using <code>if-let</code> statements can lead to deeply nested <code>if-let</code> statements (i.e. pyramid of doom), <code>guard</code> statements allow us to have the happy path to be not indented, thereby increasing code readability.</li>
+  </ol>
+  <h2 id="data-types">Data Types</h2>
+  <h3 id="structs">Structs</h3>
+  <p>Apart from the classes (something you are familiar with if you have already learned languages like Java / Python) which you use for creating instances of Reference type, Swift also provides the use of Structs to create instances of Value type.</p>
+  <p>Let's use a simple example (from <a href="https://developer.apple.com/swift/blog/?id=10">Apple's own blog on Swift</a>) to illustrate the difference between Reference types (Classes) and Value types (Structs).</p>
+  <pre><code class="hljs swift"><span class="hljs-comment">// Value type example</span>
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">S</span> </span>{ <span class="hljs-keyword">var</span> data: <span class="hljs-type">Int</span> = -<span class="hljs-number">1</span> }
 <span class="hljs-keyword">var</span> a = <span class="hljs-type">S</span>()
 <span class="hljs-keyword">var</span> b = a                       <span class="hljs-comment">// a is copied to b</span>
@@ -152,15 +168,15 @@ a.data = <span class="hljs-number">42</span>                     <span class="hl
 x.data = <span class="hljs-number">42</span>                     <span class="hljs-comment">// changes the instance referred to by x (and y)</span>
 <span class="hljs-built_in">print</span>(<span class="hljs-string">"<span class="hljs-subst">\(x.data)</span>, <span class="hljs-subst">\(y.data)</span>"</span>)   <span class="hljs-comment">// prints "42, 42\n"</span>
 </code></pre>
-<p>You can think of Structs as a way to create instances that have their own unique copies of data, which can help to make things a lot easier.</p>
-<p>If you wish to find out more, here is an <a href="https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2">article</a> that explains the difference between the 2 types, as well as the benefits of value types and when
-  to use them.</p>
-<h3 id="enums">Enums</h3>
-<p>An enum is a data type that represents of a set of values. For example, we can use <code>String</code> to represent the possible types of a barcode. However, this allows us to assign invalid values to it:</p>
-<pre><code class="hljs swift"><span class="hljs-keyword">var</span> barcode = <span class="hljs-string">"qzCode"</span> <span class="hljs-comment">// supposed to be "qrCode", but we accidentally assigned an invalid value</span>
+  <p>You can think of Structs as a way to create instances that have their own unique copies of data, which can help to make things a lot easier.</p>
+  <p>If you wish to find out more, here is an <a href="https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2">article</a> that explains the difference between the 2 types, as well as the benefits of value types and when
+    to use them.</p>
+  <h3 id="enums">Enums</h3>
+  <p>An enum is a data type that represents of a set of values. For example, we can use <code>String</code> to represent the possible types of a barcode. However, this allows us to assign invalid values to it:</p>
+  <pre><code class="hljs swift"><span class="hljs-keyword">var</span> barcode = <span class="hljs-string">"qzCode"</span> <span class="hljs-comment">// supposed to be "qrCode", but we accidentally assigned an invalid value</span>
 </code></pre>
-<p>As such, we create an enum to restrict the values that we can assign to a barcode.</p>
-<pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{
+  <p>As such, we create an enum to restrict the values that we can assign to a barcode.</p>
+  <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{
     <span class="hljs-keyword">case</span> upc
     <span class="hljs-keyword">case</span> qrCode
 }
@@ -168,8 +184,8 @@ x.data = <span class="hljs-number">42</span>                     <span class="hl
 <span class="hljs-keyword">var</span> barcode = <span class="hljs-type">Barcode</span>.qrCode 
 barcode = <span class="hljs-type">Barcode</span>.qzCode <span class="hljs-comment">// compilation error</span>
 </code></pre>
-<p>Swift's enums can have associated values. This enables you to store additional custom information along with each case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum <code>Barcode</code>  with case values <code>upc</code> and <code>qrCode</code>. We want to be able to distinguish within each value as each <code>upc</code> and <code>qrCode</code> can take on different values:</p>
-<pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{
+  <p>Swift's enums can have associated values. This enables you to store additional custom information along with each case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum <code>Barcode</code>    with case values <code>upc</code> and <code>qrCode</code>. We want to be able to distinguish within each value as each <code>upc</code> and <code>qrCode</code> can take on different values:</p>
+  <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{
     <span class="hljs-keyword">case</span> upc(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)
     <span class="hljs-keyword">case</span> qrCode(<span class="hljs-type">String</span>)
     
@@ -188,15 +204,15 @@ barcode = <span class="hljs-type">Barcode</span>.qzCode <span class="hljs-commen
 barcode1.printCode() <span class="hljs-comment">// prints "QR code: foo."</span>
 barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
 </code></pre>
-<p>Also, enums with associated values is not supported in languages such as <a href="https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum">Java</a>, and using a workaround to implement enums with
-  associated values results in code verbosity. Take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html">Swift's documentation on Enums</a> for more information about
-  enums.</p>
-<h2 id="protocol-oriented-programming">Protocol Oriented Programming</h2>
-<p>The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the <a href="http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html">bloat that is sometimes caused by Object Oriented Programming (OOP)</a>.
-  If you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.</p>
-<p>Here's some code to serve as a brief introduction to POP:</p>
-<p>First, we first introduce our protocols.</p>
-<pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Bird</span> </span>{
+  <p>Also, enums with associated values is not supported in languages such as <a href="https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum">Java</a>, and using a workaround to implement enums with
+    associated values results in code verbosity. Take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html">Swift's documentation on Enums</a> for more information about
+    enums.</p>
+  <h2 id="protocol-oriented-programming">Protocol Oriented Programming</h2>
+  <p>The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the <a href="http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html">bloat that is sometimes caused by Object Oriented Programming (OOP)</a>.
+    If you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.</p>
+  <p>Here's some code to serve as a brief introduction to POP:</p>
+  <p>First, we first introduce our protocols.</p>
+  <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Bird</span> </span>{
   <span class="hljs-keyword">var</span> canFly: <span class="hljs-type">Bool</span> { <span class="hljs-keyword">get</span> }
 }
  
@@ -204,8 +220,8 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
   <span class="hljs-keyword">var</span> airspeedVelocity: <span class="hljs-type">Double</span> { <span class="hljs-keyword">get</span> }
 }
 </code></pre>
-<p>Next, we introduce the structs that conform to the protocols above.</p>
-<pre><code class="hljs swift"><span class="hljs-comment">// Penguins can't fly ):</span>
+  <p>Next, we introduce the structs that conform to the protocols above.</p>
+  <pre><code class="hljs swift"><span class="hljs-comment">// Penguins can't fly ):</span>
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Penguin</span>: <span class="hljs-title">Bird</span> </span>{
     <span class="hljs-keyword">let</span> canFly = <span class="hljs-literal">false</span>
 }
@@ -215,17 +231,17 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
     <span class="hljs-keyword">let</span> airspeedVelocity = <span class="hljs-number">160.0</span>
 }
 </code></pre>
-<p>And if you haven't noticed, protocols are extremely similar to interfaces in Java.</p>
-<p>To understand more about POP, watching this <a href="https://www.youtube.com/watch?v=g2LwFZatfTI">WWDC 2015 talk</a> is highly recommended.</p>
-<h2 id="extensions">Extensions</h2>
-<p>Extensions allow us to add new functionalities to an existing class, structure, enumeration, or protocol type. Suppose we have an <code>Eagle</code> struct:</p>
-<pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{
+  <p>And if you haven't noticed, protocols are extremely similar to interfaces in Java.</p>
+  <p>To understand more about POP, watching this <a href="https://www.youtube.com/watch?v=g2LwFZatfTI">WWDC 2015 talk</a> is highly recommended.</p>
+  <h2 id="extensions">Extensions</h2>
+  <p>Extensions allow us to add new functionalities to an existing class, structure, enumeration, or protocol type. Suppose we have an <code>Eagle</code> struct:</p>
+  <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{
     <span class="hljs-comment">// some functionalities here</span>
 }
 </code></pre>
-<p>As development progresses, you realize that you now want <code>Eagle</code> to conform to <code>Bird</code> and <code>Flyable</code> protocols. Instead of editing the code in <code>Eagle</code> struct directly, we can use extensions to implement each
-  protocol separately. Do take note that you cannot add stored properties in extensions. As such, <code>canFly</code> and <code>airspeedVelocity</code> have to be computed properties (for more information, see <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html">here</a>):</p>
-<pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{
+  <p>As development progresses, you realize that you now want <code>Eagle</code> to conform to <code>Bird</code> and <code>Flyable</code> protocols. Instead of editing the code in <code>Eagle</code> struct directly, we can use extensions to implement each
+    protocol separately. Do take note that you cannot add stored properties in extensions. As such, <code>canFly</code> and <code>airspeedVelocity</code> have to be computed properties (for more information, see <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html">here</a>):</p>
+  <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{
     <span class="hljs-comment">// we can leave the existing code here untouched</span>
 }
 
@@ -241,8 +257,8 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
     }
 }
 </code></pre>
-<p>Extensions also allow us to define instance methods and type methods for types which you do not have access to the original source code. For example:</p>
-<pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{ <span class="hljs-comment">// String belongs to Swift Standard Library which we have no access to</span>
+  <p>Extensions also allow us to define instance methods and type methods for types which you do not have access to the original source code. For example:</p>
+  <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{ <span class="hljs-comment">// String belongs to Swift Standard Library which we have no access to</span>
     <span class="hljs-comment">// This method is copied from: </span>
     <span class="hljs-comment">// https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/SwiftStdlib/StringExtensions.swift</span>
     <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isAlphabetic</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Bool</span> {
@@ -255,25 +271,28 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
 <span class="hljs-keyword">var</span> foo: <span class="hljs-type">String</span> = <span class="hljs-string">"a1"</span>
 <span class="hljs-built_in">print</span>(foo.isAlphabetic()) <span class="hljs-comment">// prints "false"</span>
 </code></pre>
-<p>To find out more about extensions, take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html">Swift's documentation on Extensions</a></p>
-<h2 id="automatic-reference-counting">Automatic Reference Counting</h2>
-<p>A few keywords unique to Swift are <code>strong</code>, <code>weak</code> and <code>unowned</code>, which have to do with Swift's way of memory management, <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html">Automatic Reference Counting (ARC)</a>.</p>
-<p>Essentially, when an instance of a class is created, a chunk of memory is allocated to it until it is no longer strongly referenced by anything. References are strong by default. Thus, if we have an Object A (a <code>UIViewController</code>) that creates
-  an Object B (a <code>UIAlertController</code>), B would be strongly referenced by A. However, B might also need access to a variable in A, such that A may be strongly referenced by B, resulting in a reference cycle.</p>
-<p>Reference cycles are bad, because they cause memory leaks. Even though A and B are no longer needed eventually, A and B will still sit in memory since they are both strongly referenced by each other. This is why we need the <code>strong</code>, <code>weak</code>  and <code>unowned</code> keywords, to resolve reference cycles.</p>
-<p>Here is an <a href="https://krakendev.io/blog/weak-and-unowned-references-in-swift">article</a> with greater in-depth explanation and examples.</p>
-<h2 id="cocoapods">CocoaPods</h2>
-<p>When you have been working on a Swift project for a while and start to think &quot;Hmm... Someone has probably done something like this before&quot; or &quot;This is a common problem and there should be a library for this&quot;, check out <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a>,
-  THE package/library manager for Swift.</p>
+  <p>To find out more about extensions, take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html">Swift's documentation on Extensions</a></p>
+  <h2 id="automatic-reference-counting">Automatic Reference Counting</h2>
+  <p>A few keywords unique to Swift are <code>strong</code>, <code>weak</code> and <code>unowned</code>, which have to do with Swift's way of memory management, <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html">Automatic Reference Counting (ARC)</a>.</p>
+  <p>Essentially, when an instance of a class is created, a chunk of memory is allocated to it until it is no longer strongly referenced by anything. References are strong by default. Thus, if we have an Object A (a <code>UIViewController</code>) that creates
+    an Object B (a <code>UIAlertController</code>), B would be strongly referenced by A. However, B might also need access to a variable in A, such that A may be strongly referenced by B, resulting in a reference cycle.</p>
+  <p>Reference cycles are bad, because they cause memory leaks. Even though A and B are no longer needed eventually, A and B will still sit in memory since they are both strongly referenced by each other. This is why we need the <code>strong</code>, <code>weak</code>    and <code>unowned</code> keywords, to resolve reference cycles.</p>
+  <p>Here is an <a href="https://krakendev.io/blog/weak-and-unowned-references-in-swift">article</a> with greater in-depth explanation and examples.</p>
+  <h2 id="cocoapods">CocoaPods</h2>
+  <p>When you have been working on a Swift project for a while and start to think &quot;Hmm... Someone has probably done something like this before&quot; or &quot;This is a common problem and there should be a library for this&quot;, check out <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a>,
+    THE package/library manager for Swift.</p>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

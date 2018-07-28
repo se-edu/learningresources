@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Static Analysis</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,114 +29,129 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="static-analysis">Static Analysis</h1>
-<p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-<h2 id="overview">Overview</h2>
-<p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p>
-<p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p>
-<h2 id="why-static-analysis">Why Static Analysis?</h2>
-<h3 id="analyse-thoroughly">Analyse Thoroughly</h3>
-<p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you find
-  bugs). In static analysis, all the related files/codes will be analysed.</p>
-<h3 id="find-potential-bugs-early">Find Potential Bugs Early</h3>
-<p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
-<pre><code class="hljs java"><span class="hljs-keyword">switch</span>(colour) {
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="static-analysis">Static Analysis</h1>
+  <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
+  <h2 id="overview">Overview</h2>
+  <p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p>
+  <p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p>
+  <h2 id="why-static-analysis">Why Static Analysis?</h2>
+  <h3 id="analyse-thoroughly">Analyse Thoroughly</h3>
+  <p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you
+    find bugs). In static analysis, all the related files/codes will be analysed.</p>
+  <h3 id="find-potential-bugs-early">Find Potential Bugs Early</h3>
+  <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">switch</span>(colour) {
 <span class="hljs-keyword">case</span> <span class="hljs-string">'blue'</span>:
 	value = <span class="hljs-number">1</span>;
 <span class="hljs-keyword">case</span> <span class="hljs-string">'green'</span>:
 	value = <span class="hljs-number">2</span>;
 }
 </code></pre>
-<p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
-<h3 id="enforce-a-standard-in-project">Enforce a Standard in Project</h3>
-<p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
-<pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
+  <p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
+  <h3 id="enforce-a-standard-in-project">Enforce a Standard in Project</h3>
+  <p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
 	<span class="hljs-comment">// true</span>
 } <span class="hljs-keyword">else</span> {
 	<span class="hljs-comment">// false</span>
 }
 </code></pre>
-<p>While others enforce the following standard:</p>
-<pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
+  <p>While others enforce the following standard:</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
 	<span class="hljs-comment">// true</span>
 }
 <span class="hljs-keyword">else</span> {
 	<span class="hljs-comment">// false</span>
 }
 </code></pre>
-<p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
-<h3 id="improve-code-quality">Improve Code Quality</h3>
-<p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
-<pre><code class="hljs java"><span class="hljs-keyword">if</span> (isConditionTrue()) {
+  <p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
+  <h3 id="improve-code-quality">Improve Code Quality</h3>
+  <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">if</span> (isConditionTrue()) {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
 } <span class="hljs-keyword">else</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
 }
 </code></pre>
-<p>Majority of static analysis tools will point out that this can be simplified to:</p>
-<pre><code class="hljs java"><span class="hljs-keyword">return</span> isConditionTrue();
+  <p>Majority of static analysis tools will point out that this can be simplified to:</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">return</span> isConditionTrue();
 </code></pre>
-<h2 id="limitation-of-static-analysis">Limitation of Static Analysis</h2>
-<h3 id="false-positives">False positives</h3>
-<p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
-<pre><code class="hljs java"><span class="hljs-keyword">try</span> {
+  <h2 id="limitation-of-static-analysis">Limitation of Static Analysis</h2>
+  <h3 id="false-positives">False positives</h3>
+  <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
+  <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
 	<span class="hljs-comment">// logic part</span>
 } <span class="hljs-keyword">catch</span> (Throwable t) {
 	<span class="hljs-comment">// alert user</span>
 }
 </code></pre>
-<p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the tools will
-  prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected by static analysis tools
-  is a false positive.</p>
-<p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="PMD.md">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation can be used. In this case,</p>
-<pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"PMD.AvoidCatchingThrowable"</span>) <span class="hljs-comment">// used as fallback</span>
+  <p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the tools will
+    prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected by static analysis
+    tools is a false positive.</p>
+  <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="PMD.md">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation can be used. In this case,</p>
+  <pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"PMD.AvoidCatchingThrowable"</span>) <span class="hljs-comment">// used as fallback</span>
 </code></pre>
-<p>is the correct way to suppress warnings.</p>
-<h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment</h3>
-<p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases
-  are also needed to verify the functionalities in logic, UI and etc.</p>
-<h2 id="how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)</h2>
-<p>There are several static analysis tools that can be used to assist the process.</p>
-<ul>
-  <li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li>
-  <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each
-    commit.</li>
-</ul>
-<p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p>
-<ul>
-  <li>
-    <p>Java</p>
-    <ul>
-      <li><a href="CheckStyle.md">CheckStyle</a></li>
-      <li><a href="PMD.md">PMD</a></li>
-      <li><a href="FindBugs.md">FindBugs</a></li>
-    </ul>
-  </li>
-  <li>
-    <p>JavaScript</p>
-    <ul>
-      <li>eslint</li>
-    </ul>
-  </li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-  <li><a href="http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li>
-</ul>
+  <p>is the correct way to suppress warnings.</p>
+  <h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment</h3>
+  <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases
+    are also needed to verify the functionalities in logic, UI and etc.</p>
+  <h2 id="how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)</h2>
+  <p>There are several static analysis tools that can be used to assist the process.</p>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li>
+    <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each
+      commit.</li>
+  </ul>
+  <p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p>
+  <ul>
+    <li>
+      <p>Java</p>
+      <ul>
+        <li><a href="CheckStyle.md">CheckStyle</a></li>
+        <li><a href="PMD.md">PMD</a></li>
+        <li><a href="FindBugs.md">FindBugs</a></li>
+      </ul>
+    </li>
+    <li>
+      <p>JavaScript</p>
+      <ul>
+        <li>eslint</li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="references">References</h2>
+  <ul>
+    <li><a href="http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li>
+  </ul>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>

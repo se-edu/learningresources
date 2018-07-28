@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Javascript: Promises</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
+    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
+    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
 <div id="app" class="container-fluid">
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
-<div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <div id="seedu-header">
+  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -25,26 +29,38 @@
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
         <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
       </ul>
     </div>
   </nav>
 </div>
-<h1 id="javascript-promises">Javascript: Promises</h1>
-<p>Author: Daniel Berzin Chua</p>
-<h2 id="why-promises">Why Promises?</h2>
-<p>We're used to operations completing their work before proceeding on with other operations in a sequential manner. These sorts of operations are synchronous, and they're usually easy to understand and debug. However, take an HTTP request for example. It
-  is an operation that takes a while to process because there's a round trip time that involves the time for request to be sent to the server you are querying, and the time for the server to send the response back to you. It may take varying amounts of
-  time depending on your internet speed and location.</p>
-<p>If such an operation was to be executed in a synchronous manner, your application would be slow because it has to wait for this request to be resolved by the server and it would not make for a particularly good user experience. Instead, we can make HTTP
-  requests to operate asynchronously in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished before proceeding on with other operations, which allow for them to continue processing
-  in the background while other operations are executed. However, asynchronous operations can cause programming and debugging to be difficult, because you would need some sort of way to know when the operation has finished, or in the case of debugging,
-  when exactly the operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.</p>
-<p>To illustrate this problem in code, we'll use <code>setTimeout()</code>. This is an asynchronous function takes in 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed and lastly, additional parameters to pass to
-  the callback. A callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. <code>setTimeout()</code> is asynchronous as the code below it will execute while the timer is counting down,
-  as you will see in the following code snippet.</p>
-<p>You would probably expect <code>console.log(x)</code> to print <code>I have been updated</code> after 1 second has passed. Unfortunately, it prints <code>I have not been updated.</code> Give it a try in Google Chrome's developer console.</p>
-<pre><code class="hljs javascript">
+<div id="site-header">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+      <ul class="navbar-nav"></ul>
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="website-content">
+  <h1 id="javascript-promises">Javascript: Promises</h1>
+  <p>Author: Daniel Berzin Chua</p>
+  <h2 id="why-promises">Why Promises?</h2>
+  <p>We're used to operations completing their work before proceeding on with other operations in a sequential manner. These sorts of operations are synchronous, and they're usually easy to understand and debug. However, take an HTTP request for example.
+    It is an operation that takes a while to process because there's a round trip time that involves the time for request to be sent to the server you are querying, and the time for the server to send the response back to you. It may take varying amounts
+    of time depending on your internet speed and location.</p>
+  <p>If such an operation was to be executed in a synchronous manner, your application would be slow because it has to wait for this request to be resolved by the server and it would not make for a particularly good user experience. Instead, we can make
+    HTTP requests to operate asynchronously in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished before proceeding on with other operations, which allow for them to continue
+    processing in the background while other operations are executed. However, asynchronous operations can cause programming and debugging to be difficult, because you would need some sort of way to know when the operation has finished, or in the case
+    of debugging, when exactly the operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.</p>
+  <p>To illustrate this problem in code, we'll use <code>setTimeout()</code>. This is an asynchronous function takes in 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed and lastly, additional parameters to pass to
+    the callback. A callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. <code>setTimeout()</code> is asynchronous as the code below it will execute while the timer is counting
+    down, as you will see in the following code snippet.</p>
+  <p>You would probably expect <code>console.log(x)</code> to print <code>I have been updated</code> after 1 second has passed. Unfortunately, it prints <code>I have not been updated.</code> Give it a try in Google Chrome's developer console.</p>
+  <pre><code class="hljs javascript">
 <span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
 
 setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
@@ -54,8 +70,8 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 <span class="hljs-built_in">console</span>.log(x);
 
 </code></pre>
-<p>To fix this problem, we can simply shift the <code>console.log(x)</code> into the callback to get the expected result. It will now print the correct value.</p>
-<pre><code class="hljs javascript">
+  <p>To fix this problem, we can simply shift the <code>console.log(x)</code> into the callback to get the expected result. It will now print the correct value.</p>
+  <pre><code class="hljs javascript">
 <span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
 
 setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
@@ -64,8 +80,8 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 }, <span class="hljs-number">1000</span>);
 
 </code></pre>
-<p>However, this fix will only go so far. If we had another <code>setTimeout()</code> that depended on the result of the earlier <code>setTimeout()</code>, we would have to nest the functions within each other which would make for unreadable code as follows.</p>
-<pre><code class="hljs javascript">
+  <p>However, this fix will only go so far. If we had another <code>setTimeout()</code> that depended on the result of the earlier <code>setTimeout()</code>, we would have to nest the functions within each other which would make for unreadable code as follows.</p>
+  <pre><code class="hljs javascript">
 <span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
 
 setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
@@ -83,38 +99,41 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 }, <span class="hljs-number">1000</span>);
 
 </code></pre>
-<p>This is what's infamously known as callback hell. It's a natural result of using too many callbacks, as this would result in the code becoming deeply nested. It would be difficult for anyone to read your code and to understand what exactly is going on.</p>
-<p>We can instead use Promises for cleaner code that would be easier to read, write and debug.</p>
-<h2 id="what-is-a-promise">What is a Promise?</h2>
-<p>The following example is adapted from <a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies</a>.</p>
-<p>Promises in Javascript behave the same way as Promises do in real life. Imagine that your friend promises to return you money that you have lent him. At the time this promise was made, you would not know if your friend would really return your money.
-  Your friend could either return your money on time, or he could just not do it. These situations correspond to the 3 states of Promises in Javascript.</p>
-<table class="markbind-table table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>State</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Pending</td>
-      <td>You don't know if he would return your money.</td>
-    </tr>
-    <tr>
-      <td>Fulfilled</td>
-      <td>He returned your money.</td>
-    </tr>
-    <tr>
-      <td>Rejected</td>
-      <td>He refused to return your money.</td>
-    </tr>
-  </tbody>
-</table>
-<p>Promises provide the ability to specify how the execution of some part of your code would depend on the status of an asynchronous operation. It can now wait for the asynchronous operation to resolve first before doing any work on its result.</p>
-<h2 id="quickstart">Quickstart</h2>
-<p>Let's return to the setTimeout example at the beginning and rewrite that with promises.</p>
-<pre><code class="hljs javascript">
+  <p>This is what's infamously known as callback hell. It's a natural result of using too many callbacks, as this would result in the code becoming deeply nested. It would be difficult for anyone to read your code and to understand what exactly is going
+    on.</p>
+  <p>We can instead use Promises for cleaner code that would be easier to read, write and debug.</p>
+  <h2 id="what-is-a-promise">What is a Promise?</h2>
+  <p>The following example is adapted from <a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies</a>.</p>
+  <p>Promises in Javascript behave the same way as Promises do in real life. Imagine that your friend promises to return you money that you have lent him. At the time this promise was made, you would not know if your friend would really return your money.
+    Your friend could either return your money on time, or he could just not do it. These situations correspond to the 3 states of Promises in Javascript.</p>
+  <div class="table-responsive">
+    <table class="markbind-table table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pending</td>
+          <td>You don't know if he would return your money.</td>
+        </tr>
+        <tr>
+          <td>Fulfilled</td>
+          <td>He returned your money.</td>
+        </tr>
+        <tr>
+          <td>Rejected</td>
+          <td>He refused to return your money.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Promises provide the ability to specify how the execution of some part of your code would depend on the status of an asynchronous operation. It can now wait for the asynchronous operation to resolve first before doing any work on its result.</p>
+  <h2 id="quickstart">Quickstart</h2>
+  <p>Let's return to the setTimeout example at the beginning and rewrite that with promises.</p>
+  <pre><code class="hljs javascript">
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
         <span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
@@ -128,12 +147,12 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 update().then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(result));
 
 </code></pre>
-<p>The first step of creating a Promise involves invoking the <code>Promise</code> constructor which takes in just 1 parameter known as the executor function. This is the function that will be executed by the Promise. This function has two parameters: resolve,
-  reject. In our example, we only use the resolve function to indicate that our promise has executed successfully with the result <code>x</code>. The reject function may be used to indicate that some error has occured during execution.</p>
-<p>After defining the function, we call it, and we call another function <code>.then()</code> upon the result. <code>.then()</code> is used to consume the result from a fulfilled Promise and act on it. In this case, we are using it to log our result. More
-  importantly, it lets us chain promises to avoid the deep nesting known as callback hell.</p>
-<p>Here's the callback hell code rewritten with Promises.</p>
-<pre><code class="hljs javascript">
+  <p>The first step of creating a Promise involves invoking the <code>Promise</code> constructor which takes in just 1 parameter known as the executor function. This is the function that will be executed by the Promise. This function has two parameters:
+    resolve, reject. In our example, we only use the resolve function to indicate that our promise has executed successfully with the result <code>x</code>. The reject function may be used to indicate that some error has occured during execution.</p>
+  <p>After defining the function, we call it, and we call another function <code>.then()</code> upon the result. <code>.then()</code> is used to consume the result from a fulfilled Promise and act on it. In this case, we are using it to log our result. More
+    importantly, it lets us chain promises to avoid the deep nesting known as callback hell.</p>
+  <p>Here's the callback hell code rewritten with Promises.</p>
+  <pre><code class="hljs javascript">
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params">numTimes</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
         <span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
@@ -149,17 +168,17 @@ update(<span class="hljs-number">1</span>).then(<span class="hljs-function">(<sp
 .then(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> update(result + <span class="hljs-number">1</span>));
 
 </code></pre>
-<p>Now we update our function to take in a parameter <code>numTimes</code> so that we can log how many times <code>x</code> was updated. <code>then()</code> will return a Promise, which you can then again call <code>.then()</code>. By doing this, we can
-  chain our Promises and ensure that execution of the code goes in the order that we require. In addition, it also allows your variables to be correctly passed down, ensuring that you will not have to deal with any undefined variables along the way.</p>
-<p>Using Promises helps your code to be clean and easy to read, which makes it easy for anyone to instantly know what the code does, instead of having to trace through the code written with callbacks.</p>
-<h2 id="how-promises-are-used">How Promises are used</h2>
-<p>There are many interesting ways to use Promises. Here we cover HTTP requests in Javascript, and Disk I/O in Node.js. No prior knowledge of Node.js is necessary.</p>
-<h3 id="http-requests">HTTP Requests</h3>
-<p>Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for
-  the response to be returned.</p>
-<p>The following code sends a GET request to a URL and logs the body of the response using Promises. By using Promises instead of callbacks, we have clean code and improved performance as the code is able to run in the background.</p>
-<p>Code adapted from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise MDN docs</a></p>
-<pre><code class="hljs javascript">
+  <p>Now we update our function to take in a parameter <code>numTimes</code> so that we can log how many times <code>x</code> was updated. <code>then()</code> will return a Promise, which you can then again call <code>.then()</code>. By doing this, we can
+    chain our Promises and ensure that execution of the code goes in the order that we require. In addition, it also allows your variables to be correctly passed down, ensuring that you will not have to deal with any undefined variables along the way.</p>
+  <p>Using Promises helps your code to be clean and easy to read, which makes it easy for anyone to instantly know what the code does, instead of having to trace through the code written with callbacks.</p>
+  <h2 id="how-promises-are-used">How Promises are used</h2>
+  <p>There are many interesting ways to use Promises. Here we cover HTTP requests in Javascript, and Disk I/O in Node.js. No prior knowledge of Node.js is necessary.</p>
+  <h3 id="http-requests">HTTP Requests</h3>
+  <p>Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for
+    the response to be returned.</p>
+  <p>The following code sends a GET request to a URL and logs the body of the response using Promises. By using Promises instead of callbacks, we have clean code and improved performance as the code is able to run in the background.</p>
+  <p>Code adapted from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise MDN docs</a></p>
+  <pre><code class="hljs javascript">
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchPage</span>(<span class="hljs-params">url</span>) </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
     <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
@@ -175,10 +194,10 @@ fetchPage(<span class="hljs-string">'path/to/resource'</span>)
     .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
 
 </code></pre>
-<h3 id="disk-io">Disk I/O</h3>
-<p>Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous
-  file reading functions which allow for background loading of the file, whilst keeping your program humming along.</p>
-<pre><code class="hljs javascript">
+  <h3 id="disk-io">Disk I/O</h3>
+  <p>Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous
+    file reading functions which allow for background loading of the file, whilst keeping your program humming along.</p>
+  <pre><code class="hljs javascript">
 <span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);   <span class="hljs-comment">// this is the in-built filesystem module from Node.js</span>
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFileWithPromise</span>(<span class="hljs-params">filePath</span>) </span>{
@@ -199,26 +218,29 @@ readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)
     .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
 
 </code></pre>
-<h2 id="other-functions">Other functions</h2>
-<p>Sometimes multiple promises may have to be used at a time, and Javascript provides excellent support with the <code>Promise.all</code> and <code>Promise.race</code> functions.</p>
-<p>If multiple asynchronous operations have to be performed, and these operations are independent in that they do not rely on each other's values, <code>Promise.all()</code>can be used to execute all these operations at a go. It takes in an array of Promises
-  and returns either an array with all the resolved values, or the value of the first rejected Promise. After which, <code>then()</code> which was previously mentioned, can be used to act on all these resolved values.</p>
-<p>There is an excellent write up on these methods <a href="https://davidwalsh.name/promises">here</a>, which go through how best to use these functions.</p>
-<p>In addition, there are other libraries such as <a href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> and <a href="https://github.com/kriskowal/q">Q</a> which offer even more functionality such as Promise monitoring and synchronous inspection
-  of Promises.</p>
-<h2 id="further-reading">Further Reading</h2>
-<p>You may read more about Promises, and how to use them at the following 2 websites:</p>
-<p><a href="https://developers.google.com/web/fundamentals/primers/promises">JavaScript Promises: an Introduction</a>
-  <a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies</a></p>
+  <h2 id="other-functions">Other functions</h2>
+  <p>Sometimes multiple promises may have to be used at a time, and Javascript provides excellent support with the <code>Promise.all</code> and <code>Promise.race</code> functions.</p>
+  <p>If multiple asynchronous operations have to be performed, and these operations are independent in that they do not rely on each other's values, <code>Promise.all()</code>can be used to execute all these operations at a go. It takes in an array of Promises
+    and returns either an array with all the resolved values, or the value of the first rejected Promise. After which, <code>then()</code> which was previously mentioned, can be used to act on all these resolved values.</p>
+  <p>There is an excellent write up on these methods <a href="https://davidwalsh.name/promises">here</a>, which go through how best to use these functions.</p>
+  <p>In addition, there are other libraries such as <a href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> and <a href="https://github.com/kriskowal/q">Q</a> which offer even more functionality such as Promise monitoring and synchronous inspection
+    of Promises.</p>
+  <h2 id="further-reading">Further Reading</h2>
+  <p>You may read more about Promises, and how to use them at the following 2 websites:</p>
+  <p><a href="https://developers.google.com/web/fundamentals/primers/promises">JavaScript Promises: an Introduction</a>
+    <a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies</a></p>
+</div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.8.4</a> on Fri, 06 Jul 2018 11:25:43 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\polyfill.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
 </script>
