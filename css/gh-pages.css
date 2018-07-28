@@ -227,3 +227,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
+
+#site-header {
+    margin-bottom: 2.25rem;
+}
