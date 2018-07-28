@@ -4,6 +4,8 @@
   head: head.md
 </frontmatter>
 
+{{ navbar | safe }}
+
 # Contact
 
 * Suggestions, questions, and bug reports can be posted in 

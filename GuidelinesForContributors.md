@@ -4,6 +4,8 @@
   head: head.md
 </frontmatter>
 
+{{ navbar | safe }}
+
 # Guidelines for Contributors
 
 * Our objective is to help SE students learn a relevant topic quickly by locating good learning resources. 
