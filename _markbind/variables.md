@@ -1,9 +1,8 @@
 <span id="navbar">
-<link rel="stylesheet" href="{{baseUrl}}/css/gh-pages.css">
 <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+            <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
@@ -11,8 +10,20 @@
                 <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{baseUrl}}/index.html">Resources</a></li>
             </ul>
+        </div>
+    </nav>
+</div>
+<div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{baseUrl}}/index.html">Learning Resources for Software Engineering Students</a>
+            <ul class="navbar-nav">
+            </ul>
+            <form class="navbar-form">
+                <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right ></searchbar>
+            </form>
         </div>
     </nav>
 </div>

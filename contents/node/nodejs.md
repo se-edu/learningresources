@@ -1,9 +1,12 @@
 <frontmatter>
   title: Introduction to Node.js
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Introduction to Node.js
 
@@ -215,3 +218,5 @@ To find out more about when you should or should not use Node.js, checkout these
 *  A summary and curation of the top-ranked content on Node.js best practices - [Node.js Best Practices](https://github.com/i0natan/nodebestpractices)
 * Node.js architecture and features - [All About Node.Js You Wanted To Know](https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7)
 * More about `package.json` - [npm official documentation on package.json](https://docs.npmjs.com/files/package.json).
+
+</div>

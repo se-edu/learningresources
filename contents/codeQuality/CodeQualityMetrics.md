@@ -1,9 +1,12 @@
 <frontmatter>
   title: Code Quality Metrics
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Code Quality Metrics
 
@@ -107,3 +110,5 @@ Measuring design (relevant to architects, QA team), most of them commercial:
 - Java: [JArchitect](http://www.jarchitect.com)
 - C#: [NDepend](http://www.ndepend.com)
 - PHP: [PHP Depend](https://pdepend.org)
+
+</div>

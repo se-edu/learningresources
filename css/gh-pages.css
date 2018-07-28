@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Open+Sans);
-@import "asciidoctor.css"; /* Default asciidoc style framework - important */
 
 /* Custom block: details */
 
@@ -112,6 +111,7 @@ table.tableblock > .title,
 
 .navbar-lg {
     font-size: 1.3rem;
+    line-height: 1;
 }
 
 .navbar-light {
@@ -195,7 +195,7 @@ table.tableblock > .title,
     line-height: inherit;
 }
 
-.nav-link {
+.navbar-expand .navbar-nav .nav-link {
     display: block;
     margin: 0px;
     border: 0px;
@@ -211,4 +211,23 @@ table.tableblock > .title,
     #site-header {
         display: none;
     }
+}
+
+#app.container-fluid {
+    padding: 0;
+}
+
+footer {
+    margin: 0;
+}
+
+.website-content {
+    width: 100%;
+    max-width: 62.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#site-header {
+    margin-bottom: 2.25rem;
 }

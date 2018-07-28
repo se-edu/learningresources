@@ -1,9 +1,12 @@
 <frontmatter>
   title: Introduction to Android App Development
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Introduction to Android App Development
 
@@ -190,3 +193,5 @@ Going further, it will be useful to know more about:
 Other useful links:
 *   [Android Authority](https://www.androidauthority.com)
 *   [Android Central](https://www.androidcentral.com/)
+
+</div>

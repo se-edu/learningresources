@@ -1,9 +1,12 @@
 <frontmatter>
   title: Java
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Java
 
@@ -24,3 +27,5 @@ Authors: John Doe, Jane Doe
 // Reflection overview
 
 // Learning resources
+
+</div>

@@ -1,9 +1,12 @@
 <frontmatter>
   title: ESLint
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # ESLint
 
@@ -137,3 +140,5 @@ A popular plugin would be [eslint-plugin-lodash](https://github.com/wix/eslint-p
 * [ESLint Github](https://github.com/eslint/eslint): You can contribute to the project but remember to read their [guidelines](https://eslint.org/docs/developer-guide/contributing/) first
 * [npm Developer Guide](https://docs.npmjs.com/misc/developers): If you're writing your own custom rules/configs, you need to know how to publish them on npm.
 * [Awesome ESLint](https://github.com/dustinspecker/awesome-eslint): repository for ESLint configs, plugins and other useful links.
+
+</div>

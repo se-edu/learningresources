@@ -1,9 +1,12 @@
 <frontmatter>
   title: Introduction to Performance Optimization
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Introduction to Performance Optimization
 
@@ -126,3 +129,5 @@ In the example above, Row major takes around 100ms, while column major takes aro
 If you want to know more about Optimization, especially for that critical 3%, these other resources could be useful:
 
 * Finding the critical path - [Performance Profiling](PerformanceProfiling.md)
+
+</div>

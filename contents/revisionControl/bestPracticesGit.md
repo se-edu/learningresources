@@ -1,9 +1,12 @@
 <frontmatter>
   title: Best Practices with `git`
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Best Practices with `git`
 
@@ -345,3 +348,5 @@ These are the resources used in the writing of this chapter, as well as any addi
 - [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) - discusses the underlying implementation of `git` (merkle tree)
 - [Pro Git](https://git-scm.com/book/en/v2)
 - [The most useful git commands](https://orga.cat/posts/most-useful-git-commands) - a reference sheet of some handy command macros
+
+</div>

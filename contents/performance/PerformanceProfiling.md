@@ -1,9 +1,12 @@
 <frontmatter>
   title: Performance Profiling
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Performance Profiling
 
@@ -85,3 +88,4 @@ For Visual Studio 2015:
 1. Common performance profiling methods: [Understanding Performance Collection Methods](https://msdn.microsoft.com/en-us/library/dd264994.aspx)
 1. Learn the best practices in profiling: [Advanced Profiling: Theory in Practice with NetBeans IDE](https://netbeans.org/community/magazine/html/04/profiler.html)
 1. Why do profilers exclude small functions from instrumentation by default?: [Excluding Small Functions From Instrumentation](https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/)
+</div>

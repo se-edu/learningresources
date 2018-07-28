@@ -1,9 +1,12 @@
 <frontmatter>
   title: "Advanced Java: Reflections"
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Advanced Java: Reflections
 
@@ -266,3 +269,5 @@ While Java reflections are powerful, you should not immediately jump on the refl
   [https://github.com/google/guava/wiki/ReflectionExplained](https://github.com/google/guava/wiki/ReflectionExplained)
 
 
+
+</div>

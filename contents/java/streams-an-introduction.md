@@ -1,9 +1,12 @@
 <frontmatter>
   title: Java 8 Streams - An Introduction
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Java 8 Streams - An Introduction
 
@@ -410,3 +413,5 @@ The five-part tutorial by Brian Goetz gives a complete guide on how to work with
 #### Common pitfalls
 * https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/  
 The article gives a list of other common mistakes one may make when using streams.
+
+</div>

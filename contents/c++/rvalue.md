@@ -1,9 +1,12 @@
 <frontmatter>
   title: Rvalue References and Move Semantics
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Rvalue References and Move Semantics
 
@@ -175,3 +178,5 @@ The following resources gives more readings on what was discussed, and a more in
 * [C++ Rvalue References Explained in 11 Sections](http://thbecker.net/articles/rvalue_references/section_01.html)
 * [Sample examples of using Rvalue References and Move Semantics](http://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php)
 * [The Rvalue Reference Anti-Pattern](http://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html)
+
+</div>

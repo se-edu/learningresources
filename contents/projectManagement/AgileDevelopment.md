@@ -1,9 +1,12 @@
 <frontmatter>
   title: Agile Development
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Agile Development
 
@@ -138,3 +141,5 @@ Here is a compilation of other resources on agile development for your further e
 - [Scrum vs Kanban vs Scrumban](http://www.eylean.com/blog/2013/05/scrum-vs-kanban-vs-scrumban-planning-estimation-and-performance-metrics/)
 - [Scrum vs Kanban vs Lean vs XP](https://dzone.com/articles/agile-framework-comparison-scrum-vs-kanban-vs-lean)
 - [XP vs FDD vs FDSM](https://project-management.com/xp-fdd-dsdm-and-crystal-methods-of-agile-development/)
+
+</div>

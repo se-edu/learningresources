@@ -1,9 +1,12 @@
 <frontmatter>
   title: An Introduction to Python
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # An Introduction to Python
 
@@ -96,3 +99,4 @@ Learning how to avoid such pitfalls is one huge step towards being a productive 
 
 * [Top 10 Common Mistakes of Python Programmers](https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make)
 * [Common Python Gotchas](https://sopython.com/wiki/Common_Gotchas_In_Python)
+</div>

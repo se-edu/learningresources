@@ -1,9 +1,12 @@
 <frontmatter>
   title: Rust
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Rust
 
@@ -192,3 +195,5 @@ Choosing the right language for the job is important so let's look at a few poss
 Some other discussions on why not Rust:
 - [How can Rust improve](https://www.reddit.com/r/rust/comments/7p75ab/why_rust_what_i_want_changed_for_rust_to_help_way/)
 - [Why not Rust](https://www.reddit.com/r/rust/comments/6hp54n/blog_why_not_to_use_rust/)
+
+</div>

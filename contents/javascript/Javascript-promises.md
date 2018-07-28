@@ -1,9 +1,12 @@
 <frontmatter>
   title: "Javascript: Promises"
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Javascript: Promises
 
@@ -205,3 +208,5 @@ You may read more about Promises, and how to use them at the following 2 website
 
 [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/primers/promises)
 [JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
+
+</div>

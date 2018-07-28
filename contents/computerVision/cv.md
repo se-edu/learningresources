@@ -1,9 +1,12 @@
 <frontmatter>
   title: Introduction to computer vision (CV)
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Introduction to computer vision (CV)
 Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
@@ -330,3 +333,5 @@ or the Python version:
 <a name="footnote18">[18]</a>: https://pdfs.semanticscholar.org/56b1/eee82a51ce17d72a91b5876a3281418679cc.pdf<br />
 <a name="footnote19">[19]</a>: https://www.sciencedirect.com/science/article/pii/S0167865505003521<br />
 <a name="footnote20">[20]</a>: http://goldberg.berkeley.edu/pubs/acc-2012-visual-tracking-final.pdf<br />
+
+</div>

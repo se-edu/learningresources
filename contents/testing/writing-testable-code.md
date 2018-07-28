@@ -1,9 +1,12 @@
 <frontmatter>
   title: Writing Testable Code
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Writing Testable Code
 
@@ -171,3 +174,5 @@ This closely follows with [Open Closed Principle](https://en.wikipedia.org/wiki/
 # Concluding Notes
 
 This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.
+
+</div>

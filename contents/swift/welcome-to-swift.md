@@ -1,9 +1,12 @@
 <frontmatter>
   title: Swift
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Swift
 
@@ -310,3 +313,4 @@ Here is an [article](https://krakendev.io/blog/weak-and-unowned-references-in-sw
 ## CocoaPods
 
 When you have been working on a Swift project for a while and start to think "Hmm... Someone has probably done something like this before" or "This is a common problem and there should be a library for this", check out [CocoaPods](https://guides.cocoapods.org/using/getting-started.html), THE package/library manager for Swift.
+</div>

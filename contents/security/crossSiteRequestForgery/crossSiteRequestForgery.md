@@ -1,9 +1,12 @@
 <frontmatter>
   title: Cross Site Request Forgery (CSRF)
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Cross Site Request Forgery (CSRF)
 
@@ -115,3 +118,5 @@ So a valid request by Alice made from the bank's own website will also carry thi
 - https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet (In-depth discussion of the various defense approaches, including those that do not work)
 - http://www.cgisecurity.com/csrf-faq.html (Short FAQs about CSRF)
 - https://docs.djangoproject.com/en/2.0/ref/csrf/ (CSRF Protection in Django)
+
+</div>

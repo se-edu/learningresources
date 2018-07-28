@@ -1,9 +1,12 @@
 <frontmatter>
   title: Profiling a Desktop Application In Visual Studio 2015
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Profiling a Desktop Application In Visual Studio 2015
 
@@ -59,3 +62,5 @@ function body. But before that, here's a final tip: It is sometimes easier
 
 1. The general steps in profiling your program: [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/en-us/library/ms182372.aspx)
 1. Read my chapter on performance profiling for more advanced topics: [Performance Profiling](PerformanceProfiling.md)
+
+</div>

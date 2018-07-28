@@ -1,9 +1,12 @@
 <frontmatter>
   title: Java Concurrency
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Java Concurrency
 
@@ -224,3 +227,5 @@ The following resources are interesting reads for a deeper understanding.
 * [Computer Science Stack Exchange Post on the difference between Concurrency and Parallelism](https://cs.stackexchange.com/questions/19987/difference-between-parallel-and-concurrent-programming)
 * [Java Locks and Atomic Variables Tutorial](https://www.callicoder.com/java-locks-and-atomic-variables-tutorial/)
 * [A comparison between concurrency in Golang and Java](https://www.quora.com/What-is-the-advantage-of-Googles-Golang-over-Java-and-Scala)
+
+</div>

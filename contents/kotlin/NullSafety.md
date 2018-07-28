@@ -1,9 +1,12 @@
 <frontmatter>
   title: Null Safety in Kotlin
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Null Safety in Kotlin
 
@@ -149,3 +152,5 @@ The operator converts any value to a non-nullable type and throws an exception i
 * [Null Safety in Kotlin](https://kotlinlang.org/docs/reference/null-safety.html)
 * [Comprehensive Guide to Null Safety in Kotlin](http://www.baeldung.com/kotlin-null-safety)
 * [The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
+
+</div>

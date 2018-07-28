@@ -1,9 +1,12 @@
 <frontmatter>
   title: Introduction to Databases & Database Management Systems (DBMS)
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Introduction to Databases & Database Management Systems (DBMS)
 
@@ -169,3 +172,4 @@ Another level of abstraction is the **database abstraction layer**. This is usua
 
 - [PHP Data Objects](https://secure.php.net/manual/en/book.pdo.php)
 - [Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
+</div>

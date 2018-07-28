@@ -1,9 +1,12 @@
 <frontmatter>
   title: Refining UX Design Skills
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Refining UX Design Skills
 
@@ -116,3 +119,5 @@ Know that there are many others before you who were new but successfully went in
 
 ## Additional Resource(s) <a id="additionalResources"></a>
 1. [List of Meetups/Conferences/Resources in Singapore](http://interface.sg/)
+
+</div>

@@ -1,9 +1,12 @@
 <frontmatter>
   title: Static Analysis
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Static Analysis
 
@@ -115,3 +118,5 @@ Here, we will introduce several well-known ones in detail. You can click the hyp
 ## References
 
 - [Why Static Code Analysis is Important?](http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html)
+
+</div>

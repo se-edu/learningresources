@@ -1,9 +1,12 @@
 <frontmatter>
   title: Libraries
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Libraries
 
@@ -33,3 +36,5 @@ The general advice is to go for Mocha if you are new, due to its [large communit
 Jest, due to its speed, support for React.js, support for asynchronous testing and helpful terminal outputs, seems to be the upcoming major player. The fact that it is being made by Facebook is icing to the cake.
 
 The odd test framework in the list above is QUnit, which is a test framework that runs on the browser instead of node.js like the others. QUnit has been around longer. Unless you are running JQuery and need to test for browser or UI related bugs, it is no longer a conventional choice.
+
+</div>

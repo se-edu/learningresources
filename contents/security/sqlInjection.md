@@ -1,9 +1,12 @@
 <frontmatter>
   title: SQL Injection
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # SQL Injection
 
@@ -176,3 +179,4 @@ Additional Resources:
 (Penetration testing tool that detects and exploits SQL injection flaws)
 1. https://find-sec-bugs.github.io/
 (Plugin to detect security vulnerabilities in Java web applications, including SQL injection)
+</div>

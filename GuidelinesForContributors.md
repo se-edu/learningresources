@@ -1,7 +1,12 @@
 <frontmatter>
   title: "Learning Resources for Software Engineering Students"
   footer: footer.md
+  head: head.md
 </frontmatter>
+
+{{ navbar | safe }}
+
+<div class="website-content">
 
 # Guidelines for Contributors
 
@@ -19,3 +24,5 @@
 
 * When contributing, follow the [oss-generics process](https://github.com/oss-generic/process) where applicable.
 
+
+</div>

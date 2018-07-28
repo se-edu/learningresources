@@ -1,9 +1,12 @@
 <frontmatter>
   title: Security - https
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Security - https
 
@@ -91,3 +94,4 @@ HTTPS provides security to a web application.  If the web application requires s
 [22]: https://weakdh.org/
 [23]: https://en.wikipedia.org/wiki/Session_hijacking
 [24]: https://www.youtube.com/watch?v=BjTwNzoMUuk
+</div>

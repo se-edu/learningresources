@@ -1,9 +1,12 @@
 <frontmatter>
   title: Cross Site Scripting
   footer: footer.md
+  head: head.md
 </frontmatter>
 
 {{ navbar | safe }}
+
+<div class="website-content">
 
 # Cross Site Scripting
 
@@ -116,3 +119,5 @@ Additional Resources:
 (Ruby on Rails plugin responsible for escaping String input in Ruby on Rails websites)
 1. http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html
 (Ruby on Rails HTML sanitization function)
+
+</div>
