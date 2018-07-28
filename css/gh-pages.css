@@ -111,6 +111,7 @@ table.tableblock > .title,
 
 .navbar-lg {
     font-size: 1.3rem;
+    line-height: 1;
 }
 
 .navbar-light {
