@@ -1,6 +1,6 @@
 <span id="navbar">
 <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-light bg-lighter">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
         <div class="container">
             <a class="navbar-brand" href="index.html"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
             <ul class="navbar-nav">
