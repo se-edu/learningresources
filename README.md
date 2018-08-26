@@ -2,7 +2,7 @@
 
 This repository is a collection of Software Engineering learning resources.
 
-**Click [here](index.html) to start exploring the resources**.
+**Click [here](https://se-edu.github.io/learningresources/) to start exploring the resources**.
 
 ---
 
