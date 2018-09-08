@@ -12,79 +12,81 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-    <div class="container">
-      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<div id="site-header">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-      <ul class="navbar-nav"></ul>
-      <form class="navbar-form">
-        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-      </form>
-    </div>
-  </nav>
-</div>
-<div class="website-content">
-  <h1 id="java-synchronization">Java Synchronization</h1>
-  <p>Authors: <a href="https://github.com/boxin-yang">Boxin</a></p>
-  <h1 id="introduction">Introduction</h1>
-  <p>Java Synchronization is the Java implementation of <a href="https://en.wikipedia.org/wiki/Monitor_(synchronization)">Monitor</a>. The Monitor is used with [parallel threads][2] to ensure [mutual exclusion][3] in [critical section][4]. It is a mechanism
-    to ensure [thread safety][5] when parallel threads are accessing shared data of an object.</p>
-  <p>Java builds Monitor into [Java Object][6] and each object is itself a Monitor. Although Java has also implemented other mechanisms such as [Semaphore][7] in Java 5, Java Monitor is more widely used since it is supported in the first version of Java.
-    In this tutorial, we will go through Java Synchronization in terms of basic syntax, useful features and best practice.</p>
-  <h1 id="basic-syntax">Basic Syntax</h1>
-  <p>Java Synchronization is done by using keyword <strong>synchronized</strong>. It is commonly used in two forms: <em>synchronized statement</em> and <em>synchronized method</em>. We will use example codes to illustrate how synchronized keyword is used.</p>
-  <h2 id="synchronized-statement">synchronized statement</h2>
-  <p>Let us look at the following code snippet to understand synchronized statement:</p>
-  <pre class="hljs"><code>synchronized(object) {
+<div id="app">
+    <div id="content-wrapper">
+  <div id="seedu-header">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
+      <div class="container">
+        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+        <ul class="navbar-nav"></ul>
+        <form class="navbar-form">
+          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="website-content">
+    <h1 id="java-synchronization">Java Synchronization</h1>
+    <p>Authors: <a href="https://github.com/boxin-yang">Boxin</a></p>
+    <h1 id="introduction">Introduction</h1>
+    <p>Java Synchronization is the Java implementation of <a href="https://en.wikipedia.org/wiki/Monitor_(synchronization)">Monitor</a>. The Monitor is used with [parallel threads][2] to ensure [mutual exclusion][3] in [critical section][4]. It is a mechanism
+      to ensure [thread safety][5] when parallel threads are accessing shared data of an object.</p>
+    <p>Java builds Monitor into [Java Object][6] and each object is itself a Monitor. Although Java has also implemented other mechanisms such as [Semaphore][7] in Java 5, Java Monitor is more widely used since it is supported in the first version of Java.
+      In this tutorial, we will go through Java Synchronization in terms of basic syntax, useful features and best practice.</p>
+    <h1 id="basic-syntax">Basic Syntax</h1>
+    <p>Java Synchronization is done by using keyword <strong>synchronized</strong>. It is commonly used in two forms: <em>synchronized statement</em> and <em>synchronized method</em>. We will use example codes to illustrate how synchronized keyword is used.</p>
+    <h2 id="synchronized-statement">synchronized statement</h2>
+    <p>Let us look at the following code snippet to understand synchronized statement:</p>
+    <pre class="hljs"><code>synchronized(object) {
 	// critical section
 }
 </code></pre>
-  <p>The <strong>synchronized</strong> keyword takes in an <strong>object</strong> as an argument and uses brackets to enclose the <strong>critical section</strong> that accesses object data. In the code above, the <strong>object</strong> argument is the
-    object to be used as the Monitor. When <strong>critical section</strong> is executed, the <strong>object Monitor</strong> locks all data of the object and only the <strong>critical section</strong>in the synchronized block can access data of the <strong>object</strong>.
-    When the execution of <strong>critical section</strong> finishes on a certain thread, the thread gives up the <strong>object Monitor</strong> lock and other threads can access the data of <strong>object</strong>. Therefore, as long as <strong>critical section</strong>    is included in a synchronized block of a <strong>object Monitor</strong>, data of the object is guaranteed to be thread safe.</p>
-  <h2 id="synchronized-method">synchronized method</h2>
-  <p>Another common way to use <strong>synchronized</strong> functionality is called <strong>synchronized method</strong>. The following code snippet is an example.</p>
-  <pre class="hljs"><code>public synchronized void foo() {
+    <p>The <strong>synchronized</strong> keyword takes in an <strong>object</strong> as an argument and uses brackets to enclose the <strong>critical section</strong> that accesses object data. In the code above, the <strong>object</strong> argument is the
+      object to be used as the Monitor. When <strong>critical section</strong> is executed, the <strong>object Monitor</strong> locks all data of the object and only the <strong>critical section</strong>in the synchronized block can access data of the
+      <strong>object</strong>. When the execution of <strong>critical section</strong> finishes on a certain thread, the thread gives up the <strong>object Monitor</strong> lock and other threads can access the data of <strong>object</strong>. Therefore,
+      as long as <strong>critical section</strong> is included in a synchronized block of a <strong>object Monitor</strong>, data of the object is guaranteed to be thread safe.</p>
+    <h2 id="synchronized-method">synchronized method</h2>
+    <p>Another common way to use <strong>synchronized</strong> functionality is called <strong>synchronized method</strong>. The following code snippet is an example.</p>
+    <pre class="hljs"><code>public synchronized void foo() {
 	// method code
 }
 </code></pre>
-  <p>In this example, <strong>synchronized</strong> is used as a method modifier to indicate that the method is synchronized. In the case of a synchronized method, all the content in the method is considered as <strong>critical section</strong> and the Monitor
-    object used is dependent on the method. If the method is an instance method, then the Monitor object used is <strong>this</strong> instance. If the method is a class method, then the Monitor object used is a special class object initialized during
-    run time for each class. The equivalence of the above code is:</p>
-  <pre class="hljs"><code>public void foo() {
+    <p>In this example, <strong>synchronized</strong> is used as a method modifier to indicate that the method is synchronized. In the case of a synchronized method, all the content in the method is considered as <strong>critical section</strong> and the
+      Monitor object used is dependent on the method. If the method is an instance method, then the Monitor object used is <strong>this</strong> instance. If the method is a class method, then the Monitor object used is a special class object initialized
+      during run time for each class. The equivalence of the above code is:</p>
+    <pre class="hljs"><code>public void foo() {
 	synchronized(this) {
 		// method code
 	}
 }
 </code></pre>
-  <h1 id="more-features-of-java-synchronization">More features of Java synchronization</h1>
-  <p>Besides synchronized keyword to guard a critical section, another important feature of Java Synchronization is <strong>wait()</strong> and <strong>notify()</strong>.</p>
-  <h2 id="wait-and-notifyall">wait() and notifyAll()</h2>
-  <p>In a synchronized block, sometimes some conditions are required for execution. If such conditions are not met, wait() method can be used to give up the Monitor object lock and put the current thread into a * callback queue** once the conditions are
-    met. Let us use the following code as an example.</p>
-  <pre class="hljs"><code>public synchronized void eatChicken() {
+    <h1 id="more-features-of-java-synchronization">More features of Java synchronization</h1>
+    <p>Besides synchronized keyword to guard a critical section, another important feature of Java Synchronization is <strong>wait()</strong> and <strong>notify()</strong>.</p>
+    <h2 id="wait-and-notifyall">wait() and notifyAll()</h2>
+    <p>In a synchronized block, sometimes some conditions are required for execution. If such conditions are not met, wait() method can be used to give up the Monitor object lock and put the current thread into a * callback queue** once the conditions are
+      met. Let us use the following code as an example.</p>
+    <pre class="hljs"><code>public synchronized void eatChicken() {
 	while (!hasChicken) {
 		wait();
 	}
@@ -97,18 +99,19 @@ public synchronized void cookChicken() {
 	notifyAll();
 }
 </code></pre>
-  <p>In method eatChicken, the condition of hasChicken must be true before eat() can take place. However, instead of terminating the method, the program can call wait() and then this thread is put into a * callback queue**. When some other threads change
-    the conditions, in this case, if cookChicken() method produces chicken and the condition for eatChicken() might be changed, cookChicken() can call notifyAll(). notifyALl() wakes up one by one all the threads in the * callback queue** associated with
-    the Monitor object used to by coooChicken(). In this case, eatChicken() is woken up and eatChicken() gains Monitor object lock and starts execution from wait() onwards. This is basically how wait() and notifyAll() work in Java. However, here are some
-    points to take notes to use them correctly.</p>
-  <h3 id="understand-which-object-is-used-as-monitor">Understand which object is used as Monitor</h3>
-  <p>As described from the very beginning, all the synchronized feature is associated with a Monitor object as a lock. This is also true for wait() and notifyAll(). The Monitor object associated with wait() and notifyAll() is the Monitor object associated
-    with the synchronized block that calls wait() and notifyAll(). When wait() is called, the current thread pull is put into the callback queue of the Monitor object of the synchronized block. When notifyAll() is called, only threads waiting in the Monitor
-    object queue associated with notifyAll() will be notified. Therefore, in the above example of eatChicken() and cookChick(), the wait() and notifyAll() will only work if both eatChicken() and cookChicken() are associated with the same Monitor object.</p>
-  <h3 id="check-condition-for-wait-with-while-loop">Check condition for wait() with while loop</h3>
-  <p>wait() is usually used to check condition(e.g. hasChicken in the method eatChicken()). It is a good practice to always use wait() inside a while loop to check for the condition. This is to avoid the situation in which thread is woken for an unintended
-    purpose. The example below illustrates this situation:</p>
-  <pre class="hljs"><code>public synchronized void eatChicken() {
+    <p>In method eatChicken, the condition of hasChicken must be true before eat() can take place. However, instead of terminating the method, the program can call wait() and then this thread is put into a * callback queue**. When some other threads change
+      the conditions, in this case, if cookChicken() method produces chicken and the condition for eatChicken() might be changed, cookChicken() can call notifyAll(). notifyALl() wakes up one by one all the threads in the * callback queue** associated
+      with the Monitor object used to by coooChicken(). In this case, eatChicken() is woken up and eatChicken() gains Monitor object lock and starts execution from wait() onwards. This is basically how wait() and notifyAll() work in Java. However, here
+      are some points to take notes to use them correctly.</p>
+    <h3 id="understand-which-object-is-used-as-monitor">Understand which object is used as Monitor</h3>
+    <p>As described from the very beginning, all the synchronized feature is associated with a Monitor object as a lock. This is also true for wait() and notifyAll(). The Monitor object associated with wait() and notifyAll() is the Monitor object associated
+      with the synchronized block that calls wait() and notifyAll(). When wait() is called, the current thread pull is put into the callback queue of the Monitor object of the synchronized block. When notifyAll() is called, only threads waiting in the
+      Monitor object queue associated with notifyAll() will be notified. Therefore, in the above example of eatChicken() and cookChick(), the wait() and notifyAll() will only work if both eatChicken() and cookChicken() are associated with the same Monitor
+      object.</p>
+    <h3 id="check-condition-for-wait-with-while-loop">Check condition for wait() with while loop</h3>
+    <p>wait() is usually used to check condition(e.g. hasChicken in the method eatChicken()). It is a good practice to always use wait() inside a while loop to check for the condition. This is to avoid the situation in which thread is woken for an unintended
+      purpose. The example below illustrates this situation:</p>
+    <pre class="hljs"><code>public synchronized void eatChicken() {
 	if (!hasChicken) {
 		wait();
 	}
@@ -134,34 +137,35 @@ public synchronized void prepareDrink() {
 	notifyAll();
 }
 </code></pre>
-  <p>In this example, all four synchronized methods are associated with the same Monitor object. When both eatChicken() and drink() are called and are both put into the callback queue because current hasChicken is false and hasDrink is false, calling notifyAll()
-    from cookChicken() will wake up both drink() and eatChicken() one after another. If while loop is not used to check for the condition, both drink() and eatChicken() will execute and the execution of drink() is not intended. However, instead if while
-    loop is used to check for the condition, when drink() is woken, hasDrink will be checked again and drink() will call wait() again. One alternative solution is to make sure all wait() and notifyAll() associated with the same Monitor object are checking
-    the same conditions. However, this is hard to maintain and verify.</p>
-  <h3 id="breakpoint-of-notifyall">Breakpoint of notifyAll()</h3>
-  <p>One important point to take note when using notifyAll() is to understand what happens when notify all is called and how code gives up its Monitor object lock. Taking the following code snippet as an example:</p>
-  <pre class="hljs"><code>public synchronized void foo() {
+    <p>In this example, all four synchronized methods are associated with the same Monitor object. When both eatChicken() and drink() are called and are both put into the callback queue because current hasChicken is false and hasDrink is false, calling notifyAll()
+      from cookChicken() will wake up both drink() and eatChicken() one after another. If while loop is not used to check for the condition, both drink() and eatChicken() will execute and the execution of drink() is not intended. However, instead if while
+      loop is used to check for the condition, when drink() is woken, hasDrink will be checked again and drink() will call wait() again. One alternative solution is to make sure all wait() and notifyAll() associated with the same Monitor object are checking
+      the same conditions. However, this is hard to maintain and verify.</p>
+    <h3 id="breakpoint-of-notifyall">Breakpoint of notifyAll()</h3>
+    <p>One important point to take note when using notifyAll() is to understand what happens when notify all is called and how code gives up its Monitor object lock. Taking the following code snippet as an example:</p>
+    <pre class="hljs"><code>public synchronized void foo() {
 	before();
 	notifyAll();
 	after();
 }
 </code></pre>
-  <p>When synchronized method foo() is called, it calls notifyAll() before after(). However, after notifyAll() is called, the method foo() does not give up Monitor object lock immediately. Instead, all codes in the synchronized block(in this case the method
-    body) will be executed before the thread gives up the Monitor object lock and notifies all the threads in the callback queue.</p>
-  <h2 id="notify">notify()</h2>
-  <p>Another feature of synchronized is notify(), which notifies only one thread in the callback queue. This method is less used than notifyAll() because notify() only wakes up one randomly chosen thread from callback queue and it is hard to assert that
-    the thread woken up is the intended thread. However, there are special situations in which notify() is used and is preferred. When all threads that call wait() are checking for the same condition, it is no different to call anyone of the thread. notify()
-    can be used in this situation and is better than nofityAll() because notifyAll() wake up all the threads and is, therefore, more costly. When one can be sure that all the threads in the callback queue are waiting for the same condition, one can use
-    notify().</p>
-  <h1 id="related-areas">Related areas</h1>
-  <p>Java Synchronization as demonstrated in this tutorial is easy to learn, and you are ready to use it after this tutorial. However, Java Synchronization is just a part of a bigger picture: Parallel programs in Java. To fully exploits the parallelism brought
-    by modern hardware, you may also want to learn [Java Thread][2] and [Thread Safety][5]</p>
-  <p>[2]: to be updated when @ablyx finishes on java threads [3]: <a href="https://en.wikipedia.org/wiki/Mutual_exclusion">https://en.wikipedia.org/wiki/Mutual_exclusion</a> [4]: <a href="https://en.wikipedia.org/wiki/Critical_section">https://en.wikipedia.org/wiki/Critical_section</a>    [5]: <a href="https://en.wikipedia.org/wiki/Thread_safety">https://en.wikipedia.org/wiki/Thread_safety</a> [6]: <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html</a>    [7]: <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">https://en.wikipedia.org/wiki/Semaphore_(programming)</a></p>
+    <p>When synchronized method foo() is called, it calls notifyAll() before after(). However, after notifyAll() is called, the method foo() does not give up Monitor object lock immediately. Instead, all codes in the synchronized block(in this case the method
+      body) will be executed before the thread gives up the Monitor object lock and notifies all the threads in the callback queue.</p>
+    <h2 id="notify">notify()</h2>
+    <p>Another feature of synchronized is notify(), which notifies only one thread in the callback queue. This method is less used than notifyAll() because notify() only wakes up one randomly chosen thread from callback queue and it is hard to assert that
+      the thread woken up is the intended thread. However, there are special situations in which notify() is used and is preferred. When all threads that call wait() are checking for the same condition, it is no different to call anyone of the thread.
+      notify() can be used in this situation and is better than nofityAll() because notifyAll() wake up all the threads and is, therefore, more costly. When one can be sure that all the threads in the callback queue are waiting for the same condition,
+      one can use notify().</p>
+    <h1 id="related-areas">Related areas</h1>
+    <p>Java Synchronization as demonstrated in this tutorial is easy to learn, and you are ready to use it after this tutorial. However, Java Synchronization is just a part of a bigger picture: Parallel programs in Java. To fully exploits the parallelism
+      brought by modern hardware, you may also want to learn [Java Thread][2] and [Thread Safety][5]</p>
+    <p>[2]: to be updated when @ablyx finishes on java threads [3]: <a href="https://en.wikipedia.org/wiki/Mutual_exclusion">https://en.wikipedia.org/wiki/Mutual_exclusion</a> [4]: <a href="https://en.wikipedia.org/wiki/Critical_section">https://en.wikipedia.org/wiki/Critical_section</a>      [5]: <a href="https://en.wikipedia.org/wiki/Thread_safety">https://en.wikipedia.org/wiki/Thread_safety</a> [6]: <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html</a>      [7]: <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">https://en.wikipedia.org/wiki/Semaphore_(programming)</a></p>
+  </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
 </footer>
 </div>
 </body>

@@ -12,122 +12,124 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-    <div class="container">
-      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<div id="site-header">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-      <ul class="navbar-nav"></ul>
-      <form class="navbar-form">
-        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-      </form>
-    </div>
-  </nav>
-</div>
-<div class="website-content">
-  <h1 id="introduction-to-performance-optimization">Introduction to Performance Optimization</h1>
-  <p>Author: <a href="https://github.com/IanTeo">Ian Teo</a>, <a href="https://www.github.com/Crphang">Phang Chun Rong</a></p>
-  <h2 id="overview">Overview</h2>
-  <p>Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; from applications
-    running in small battery operated devices to huge data centres.</p>
-  <blockquote>
-    <p>Premature optimization is the root of all evil.</p>
-  </blockquote>
-  <p>I think many people have heard of this quote from Donald Knuth before. This quote is actually misinterpreted frequently, because of the lack of context. Here is the full quote:</p>
-  <blockquote>
-    <p>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.</p>
-  </blockquote>
-  <p>You can find a nice explaination of the quote <a href="http://wiki.c2.com/?PrematureOptimization">here</a>.</p>
-  <p>This is not a guide on how to optimize that 3%, but rather, to explain standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out more about
-    optimizing that 3%, you can find more at <a href="#other-resources">Other Resources</a> below.</p>
-  <p>The 3 techniques you should know are:</p>
-  <ul>
-    <li>Using appropriate Data Structures and Algorithms</li>
-    <li>Memory Management Usage</li>
-    <li>Using Cache Friendly Code</li>
-  </ul>
-  <h2 id="using-appropriate-data-structures-and-algorithms">Using Appropriate Data Structures and Algorithms</h2>
-  <p>Using appropriate Data Structures and Algorithms can improve the execution speed of your program trememdously. However, it requires time to learn and understand the nuances of each Data Structure and Algorithm and when to use them.</p>
-  <p>A good example of how Data Structures and Algorithms can improve execution time is with <a href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">binary search</a>. When finding a particular element in a list, you
-    need to search through the entire list. If it has a million entries, every find will require you to look through <strong>1,000,000</strong> entries. However, if you have a <a href="https://www.tutorialspoint.com/data_structures_algorithms/sorting_algorithms.htm">sorted</a>    list, you can use binary search to reduce the number of entries you have to look through to around <strong>20</strong>!</p>
-  <p>If you are interested in learning more about Data Structures and Algorithms, you can learn more from the following resources:</p>
-  <ul>
-    <li><a href="http://www.geeksforgeeks.org/data-structures/">Geeksforgeeks.org</a>: Introduction to data structures with code examples</li>
-    <li><a href="https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844">Introduction to Algorithms (Book)</a>: A good read for beginners interested in data structures and algorithms</li>
-    <li><a href="http://courses.csail.mit.edu/6.851/spring12/lectures/">MIT online course</a>: A online course by MIT on data structures and algorithms</li>
-    <li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/the-importance-of-algorithms/">topcoder.com</a>: A good write up on the importance of algorithms</li>
-  </ul>
-  <h2 id="memory-management-usage">Memory Management Usage</h2>
-  <p>Memory management is important for performance optimization for Computer systems. One of the common techniques in <a href="#using-appropriate-data-structures-and-algorithms">algorithms optimization</a> is space and time trade off, where we increase
-    runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to <a href="https://en.wikipedia.org/wiki/Thrashing_(computer_science)">Thrashing</a>. Thrashing occurs
-    when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with appropriate
-    <a
-      href="PerformanceProfiling.md">memory profiling</a>.</p>
-  <p>If your system suffers from memory related performance issues, here are some solutions you can adopt to resolve them:</p>
-  <ul>
-    <li>
-      <p>Using generators to reduce memory used. <a href="https://en.wikipedia.org/wiki/Generator_(computer_programming)">Generators</a> are functions that generates a sequence of values. Instead of returning an explicit array upfront, a generator returns
-        a value at each iteration. This can greatly <a href="https://letstalkdata.com/2015/05/how-to-use-python-generators-to-save-memory/">reduce memory usage</a> for large arrays.</p>
-    </li>
-    <li>
-      <p>Sometimes memory usage of your program remains high because the unnecessary variables are yet to be freed from memory. If you are using a garbage collected language like Java, consider <a href="https://www.javacodegeeks.com/2017/11/minimize-java-memory-usage-right-garbage-collector.html">tuning</a>        your garbage collector to suit your needs. If such options is not good enough, you can explicitly free memory even in garbage collected language. An example from Python is shown below:</p>
-      <pre><code class="hljs python"><span class="hljs-keyword">import</span> gc
+<div id="app">
+    <div id="content-wrapper">
+  <div id="seedu-header">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
+      <div class="container">
+        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+        <ul class="navbar-nav"></ul>
+        <form class="navbar-form">
+          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="website-content">
+    <h1 id="introduction-to-performance-optimization">Introduction to Performance Optimization</h1>
+    <p>Author: <a href="https://github.com/IanTeo">Ian Teo</a>, <a href="https://www.github.com/Crphang">Phang Chun Rong</a></p>
+    <h2 id="overview">Overview</h2>
+    <p>Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; from applications
+      running in small battery operated devices to huge data centres.</p>
+    <blockquote>
+      <p>Premature optimization is the root of all evil.</p>
+    </blockquote>
+    <p>I think many people have heard of this quote from Donald Knuth before. This quote is actually misinterpreted frequently, because of the lack of context. Here is the full quote:</p>
+    <blockquote>
+      <p>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.</p>
+    </blockquote>
+    <p>You can find a nice explaination of the quote <a href="http://wiki.c2.com/?PrematureOptimization">here</a>.</p>
+    <p>This is not a guide on how to optimize that 3%, but rather, to explain standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out more
+      about optimizing that 3%, you can find more at <a href="#other-resources">Other Resources</a> below.</p>
+    <p>The 3 techniques you should know are:</p>
+    <ul>
+      <li>Using appropriate Data Structures and Algorithms</li>
+      <li>Memory Management Usage</li>
+      <li>Using Cache Friendly Code</li>
+    </ul>
+    <h2 id="using-appropriate-data-structures-and-algorithms">Using Appropriate Data Structures and Algorithms</h2>
+    <p>Using appropriate Data Structures and Algorithms can improve the execution speed of your program trememdously. However, it requires time to learn and understand the nuances of each Data Structure and Algorithm and when to use them.</p>
+    <p>A good example of how Data Structures and Algorithms can improve execution time is with <a href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">binary search</a>. When finding a particular element in a list,
+      you need to search through the entire list. If it has a million entries, every find will require you to look through <strong>1,000,000</strong> entries. However, if you have a <a href="https://www.tutorialspoint.com/data_structures_algorithms/sorting_algorithms.htm">sorted</a>      list, you can use binary search to reduce the number of entries you have to look through to around <strong>20</strong>!</p>
+    <p>If you are interested in learning more about Data Structures and Algorithms, you can learn more from the following resources:</p>
+    <ul>
+      <li><a href="http://www.geeksforgeeks.org/data-structures/">Geeksforgeeks.org</a>: Introduction to data structures with code examples</li>
+      <li><a href="https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844">Introduction to Algorithms (Book)</a>: A good read for beginners interested in data structures and algorithms</li>
+      <li><a href="http://courses.csail.mit.edu/6.851/spring12/lectures/">MIT online course</a>: A online course by MIT on data structures and algorithms</li>
+      <li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/the-importance-of-algorithms/">topcoder.com</a>: A good write up on the importance of algorithms</li>
+    </ul>
+    <h2 id="memory-management-usage">Memory Management Usage</h2>
+    <p>Memory management is important for performance optimization for Computer systems. One of the common techniques in <a href="#using-appropriate-data-structures-and-algorithms">algorithms optimization</a> is space and time trade off, where we increase
+      runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to <a href="https://en.wikipedia.org/wiki/Thrashing_(computer_science)">Thrashing</a>. Thrashing occurs
+      when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with appropriate
+      <a
+        href="PerformanceProfiling.md">memory profiling</a>.</p>
+    <p>If your system suffers from memory related performance issues, here are some solutions you can adopt to resolve them:</p>
+    <ul>
+      <li>
+        <p>Using generators to reduce memory used. <a href="https://en.wikipedia.org/wiki/Generator_(computer_programming)">Generators</a> are functions that generates a sequence of values. Instead of returning an explicit array upfront, a generator returns
+          a value at each iteration. This can greatly <a href="https://letstalkdata.com/2015/05/how-to-use-python-generators-to-save-memory/">reduce memory usage</a> for large arrays.</p>
+      </li>
+      <li>
+        <p>Sometimes memory usage of your program remains high because the unnecessary variables are yet to be freed from memory. If you are using a garbage collected language like Java, consider <a href="https://www.javacodegeeks.com/2017/11/minimize-java-memory-usage-right-garbage-collector.html">tuning</a>          your garbage collector to suit your needs. If such options is not good enough, you can explicitly free memory even in garbage collected language. An example from Python is shown below:</p>
+        <pre><code class="hljs python"><span class="hljs-keyword">import</span> gc
 gc.collect()
 </code></pre>
-    </li>
-    <li>
-      <p>Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive <code>int</code> over <code>Integer</code> to reduce the overhead introduce by the <code>Integer</code> Object wrapper. This
-        <a href="http://java-performance.info/overview-of-memory-saving-techniques-java/">guide</a> for Java also proposes ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object wrappers.</p>
-    </li>
-  </ul>
-  <h2 id="using-cache-friendly-code">Using Cache Friendly Code</h2>
-  <p>Before we can talk about this, we need to know what the computer memory is. Computer memory has different components, <a href="https://en.wikipedia.org/wiki/Processor_register">registers</a>, <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/cache.html">L1/L2/L3 cache</a>,
-    <a href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, and <a href="https://en.wikipedia.org/wiki/Hard_disk_drive">disk</a> in order of their speed.</p>
-  <blockquote>
-    <p>You can take a look at the extent of the difference of their access speeds <a href="https://gist.github.com/jboner/2841832">here</a> <br> You can also check out this <a href="http://imgur.com/8LIwV4C">infographic</a></p>
-  </blockquote>
-  <p>To understand this topic, you only need to know how the cache works. It is okay if you do not understand exactly how the other components, registers, RAM and disk work. The cache is simply a place to store memory so that it can be accessed quickly.
-    The cache is usually split into a few layers, L1, L2 and L3 cache, where the L1 cache is the fastest and L3 is the slowest. The faster a cache is, the more expensive it is. This means that the L1 cache (a few kilobytes big) is smaller than the L2
-    cache (a few megabytes big) and so on, until the RAM (a few gigabytes big).</p>
-  <p>Whenever data is requested, the computer will first look in the cache for the data. If it exists, this is known as a <strong>cache hit</strong>. If it does not exist, this is known as a <strong>cache miss</strong>. When a <strong>cache miss</strong>    happens, a contiguous block of memory containing the requested data is retrieved and stored onto the cache. Because of this, we want to remember these rules to make cache friendly codes:</p>
-  <ul>
-    <li>Temporal Locality</li>
-    <li>Spatial Locality</li>
-    <li>Row/Column Major Order</li>
-  </ul>
-  <h4 id="temporal-locality">Temporal Locality</h4>
-  <p>This rule states that recently used memory will likely be used in the near future. This means that making the scope of your variables smaller helps with execution times, as it will likely result in less cache misses.</p>
-  <h4 id="spatial-locality">Spatial Locality</h4>
-  <p>This rule states that memory stored near each other will likely be used in the near future. This means that using contiguous data structures, such as arrays, help improve the execution times. This is because the contiguous block of memory will likely
-    contain the other elements of the array, resulting in less <strong>cache misses</strong>.</p>
-  <p>An example of a Data Structure that does not do well in this aspect is <a href="https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm">Linked List</a>. In a Linked List, each node can be stored anywhere on the memory.
-    This means that there will likely be more cache misses when trying to iterate through a Linked List. This can cause Linked Lists to be much slower than what you would expect in theory.</p>
-  <h4 id="rowcolumn-major-order">Row/Column Major Order</h4>
-  <p>This rule is about how multidimensional arrays are stored in memory. Different programming languages have different methods of storing multidimensional arrays. <a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">More Information</a>.</p>
-  <p>Using the incorrect method of access can cause many cache misses, resulting in a much slower execution time. Thus, it is important to be aware of which major order the programming language is using.</p>
-  <p>For example, Java uses Row Major Order. We can create a test to see how big an impact using the wrong Major Order can be on the execution time.</p>
-  <pre><code class="hljs python">int size = <span class="hljs-number">10000</span>;
+      </li>
+      <li>
+        <p>Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive <code>int</code> over <code>Integer</code> to reduce the overhead introduce by the <code>Integer</code> Object wrapper. This
+          <a href="http://java-performance.info/overview-of-memory-saving-techniques-java/">guide</a> for Java also proposes ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object
+          wrappers.</p>
+      </li>
+    </ul>
+    <h2 id="using-cache-friendly-code">Using Cache Friendly Code</h2>
+    <p>Before we can talk about this, we need to know what the computer memory is. Computer memory has different components, <a href="https://en.wikipedia.org/wiki/Processor_register">registers</a>, <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/cache.html">L1/L2/L3 cache</a>,
+      <a href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, and <a href="https://en.wikipedia.org/wiki/Hard_disk_drive">disk</a> in order of their speed.</p>
+    <blockquote>
+      <p>You can take a look at the extent of the difference of their access speeds <a href="https://gist.github.com/jboner/2841832">here</a> <br> You can also check out this <a href="http://imgur.com/8LIwV4C">infographic</a></p>
+    </blockquote>
+    <p>To understand this topic, you only need to know how the cache works. It is okay if you do not understand exactly how the other components, registers, RAM and disk work. The cache is simply a place to store memory so that it can be accessed quickly.
+      The cache is usually split into a few layers, L1, L2 and L3 cache, where the L1 cache is the fastest and L3 is the slowest. The faster a cache is, the more expensive it is. This means that the L1 cache (a few kilobytes big) is smaller than the L2
+      cache (a few megabytes big) and so on, until the RAM (a few gigabytes big).</p>
+    <p>Whenever data is requested, the computer will first look in the cache for the data. If it exists, this is known as a <strong>cache hit</strong>. If it does not exist, this is known as a <strong>cache miss</strong>. When a <strong>cache miss</strong>      happens, a contiguous block of memory containing the requested data is retrieved and stored onto the cache. Because of this, we want to remember these rules to make cache friendly codes:</p>
+    <ul>
+      <li>Temporal Locality</li>
+      <li>Spatial Locality</li>
+      <li>Row/Column Major Order</li>
+    </ul>
+    <h4 id="temporal-locality">Temporal Locality</h4>
+    <p>This rule states that recently used memory will likely be used in the near future. This means that making the scope of your variables smaller helps with execution times, as it will likely result in less cache misses.</p>
+    <h4 id="spatial-locality">Spatial Locality</h4>
+    <p>This rule states that memory stored near each other will likely be used in the near future. This means that using contiguous data structures, such as arrays, help improve the execution times. This is because the contiguous block of memory will likely
+      contain the other elements of the array, resulting in less <strong>cache misses</strong>.</p>
+    <p>An example of a Data Structure that does not do well in this aspect is <a href="https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm">Linked List</a>. In a Linked List, each node can be stored anywhere on the memory.
+      This means that there will likely be more cache misses when trying to iterate through a Linked List. This can cause Linked Lists to be much slower than what you would expect in theory.</p>
+    <h4 id="rowcolumn-major-order">Row/Column Major Order</h4>
+    <p>This rule is about how multidimensional arrays are stored in memory. Different programming languages have different methods of storing multidimensional arrays. <a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">More Information</a>.</p>
+    <p>Using the incorrect method of access can cause many cache misses, resulting in a much slower execution time. Thus, it is important to be aware of which major order the programming language is using.</p>
+    <p>For example, Java uses Row Major Order. We can create a test to see how big an impact using the wrong Major Order can be on the execution time.</p>
+    <pre><code class="hljs python">int size = <span class="hljs-number">10000</span>;
 int[][] arr = new int[size][size];
 int x = <span class="hljs-number">0</span>;
  
@@ -149,22 +151,23 @@ time = System.currentTimeMillis();
 }
 System.out.println(<span class="hljs-string">"Column major: "</span> +(System.currentTimeMillis() - time));
 </code></pre>
-  <p>In the example above, Row major takes around 100ms, while column major takes around 2000ms. You can use the codes above and try it on your own too.</p>
-  <blockquote>
-    <p>This test was done on a typical notebook. Your results may vary based on the hardware of your computer</p>
-  </blockquote>
-  <p><a href="https://en.wikipedia.org/wiki/Locality_of_reference">Wikipedia</a> and the <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/matrix.html">University of Maryland</a> have excellent articles which covers everything I have mentioned
-    and more.</p>
-  <h2 id="other-resources">Other Resources</h2>
-  <p>If you want to know more about Optimization, especially for that critical 3%, these other resources could be useful:</p>
-  <ul>
-    <li>Finding the critical path - <a href="PerformanceProfiling.md">Performance Profiling</a></li>
-  </ul>
+    <p>In the example above, Row major takes around 100ms, while column major takes around 2000ms. You can use the codes above and try it on your own too.</p>
+    <blockquote>
+      <p>This test was done on a typical notebook. Your results may vary based on the hardware of your computer</p>
+    </blockquote>
+    <p><a href="https://en.wikipedia.org/wiki/Locality_of_reference">Wikipedia</a> and the <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/matrix.html">University of Maryland</a> have excellent articles which covers everything I have
+      mentioned and more.</p>
+    <h2 id="other-resources">Other Resources</h2>
+    <p>If you want to know more about Optimization, especially for that critical 3%, these other resources could be useful:</p>
+    <ul>
+      <li>Finding the critical path - <a href="PerformanceProfiling.md">Performance Profiling</a></li>
+    </ul>
+  </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
 </footer>
 </div>
 </body>

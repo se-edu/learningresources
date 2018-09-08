@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\markbind\css\site-nav.css">
+    
     
     
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <span id="navbar">
+<div id="app">
+    <div id="content-wrapper"><span id="navbar">
 <div id="seedu-header">
     <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
         <div class="container">
@@ -37,7 +37,7 @@
             <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
             <ul class="navbar-nav"></ul>
             <form class="navbar-form">
-                <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar></form></div></nav></div></span>
+                <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar></form></div></nav></div></span></div>
 </div>
 </body>
 <script src="..\markbind\js\vue.min.js"></script>

@@ -12,164 +12,167 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-    <div class="container">
-      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<div id="site-header">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-      <ul class="navbar-nav"></ul>
-      <form class="navbar-form">
-        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-      </form>
-    </div>
-  </nav>
-</div>
-<div class="website-content">
-  <h1 id="writing-testable-code">Writing Testable Code</h1>
-  <p>When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because
-    it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented
-    programs.</p>
-  <p>This article compiles multiple posts from <a href="https://testing.googleblog.com">Google Testing Blog</a> on how to write more unit-testable code. It explains <a href="https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html">four common flaws</a>    in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.</p>
-  <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No seams for isolating the class under test</h2>
-  <p>Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.</p>
-  <p>To create seams in your code, you need to acquire your dependency via <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. You inject real object for production and <a href="https://www.martinfowler.com/bliki/TestDouble.html">test doubles</a>    for testing. For example, if a class depends on some database connection to retrieve some user data, you can inject a fake database connection to always return prepared data immediately without really performing any database operation.</p>
-  <p>That is the basic idea for how seams can help in unit testing. Below are five rules you can follow to create seams in your code.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a></p>
-  <h3 id="rule-1-dont-do-actual-work-in-constructors">Rule #1: Don't do actual work in constructors</h3>
-  <h4 id="warning-signs">Warning Signs</h4>
-  <ul>
-    <li><code>new</code> keyword in a constructor or at field declaration</li>
-    <li>Code does complex object graph construction inside a constructor rather than using a factory or builder</li>
-    <li>Anything more than field assignment in constructors</li>
-  </ul>
-  <p>Any work you do in a constructor needs to successfully navigate through in every test (not just the direct test, but also any related test which tries to instantiate your class indirectly as part of some larger object graph).</p>
-  <p>In short, the constructor's job is to assign the dependencies to fields. And that's all.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-  <h3 id="rule-2-dont-mix-object-construction-with-application-logic">Rule #2: Don't mix object construction with application logic</h3>
-  <h4 id="warning-signs-2">Warning Signs</h4>
-  <ul>
-    <li>Create objects using <code>new</code> keyword freely anywhere in your code</li>
-  </ul>
-  <p>You should have two kinds of classes in your application.</p>
-  <p>First, <strong><a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factories</a></strong>, where all <code>new</code> operators reside in, are in charge of constructing objects, and nothing else.</p>
-  <p>The other, <strong>application classes</strong>, are devoid of <code>new</code> operators. Instead of creating object, they simply ask for them. This makes it easier to test the application logic by replacing the real classes for test doubles.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-  <h3 id="rule-3-dont-mix-service-objects-with-value-objects">Rule #3: Don't mix Service Objects with Value Objects</h3>
-  <p>Value objects are your <strong>model</strong> objects, like <code>User</code>, <code>Email</code>, <code>CreditCard</code>.</p>
-  <ol>
-    <li>They are (or should be) very easy to construct. And they should never take a service object in its constructor (since otherwise it is not easy to construct).</li>
-    <li>You can freely create value objects with the &quot;new&quot; operator directly in line with your business logic (exception to previous rule) since they are leafs of your application graph).</li>
-    <li>They are <strong>never mocked</strong>.</li>
-  </ol>
-  <p>Service objects, on the other hand, are your <strong>logic</strong> objects, like <code>UserAuthenticator</code>, <code>MailServer</code>, <code>CreditCardProcessor</code>. Compared to value objects,</p>
-  <ol>
-    <li>Service objects are harder to construct. And their constructors ask for lots of other objects for collaboration.</li>
-    <li>Service objects are harder to construct and as a result are never constructed with a new operator in-line, (instead use factory / DI-framework) for the object graph construction.
-      <strong>Note</strong>: service objects don't take value objects in their constructors since DI-frameworks tend to be unaware about the how to create a value objects.</li>
-    <li>Service objects are harder to test since they are all about collaboration and as a result we are forced to use mocking, something which we want to minimize.</li>
-  </ol>
-  <p>Clearly, they are very different in their nature and usage. Mixing the two creates a hybrid which has no advantages of value-objects and all the baggage of service-object.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-  <h3 id="rule-4-avoid-static-methods">Rule #4: Avoid Static Methods</h3>
-  <p>Static methods are procedural code. You can write your program in an OO language only using static methods, with one calling another, then it is not an OOP application but a procedural application. There is <em>no way</em> to unit test procedure application
-    because there is no seams for you to divert the normal execution flow.</p>
-  <p>You can remove the static methods as below:</p>
-  <ol>
-    <li>If the static method has arguments, chances are you can move the method as an instance method to one of the method's arguments. (As in <code>method(a,b)</code> becomes <code>a.method(b)</code>)</li>
-    <li>If the static method takes no arguments, either it returns a constant in which case there is nothing to test; or it accesses <a href="#rule-2-avoid-singletons">global state</a>, which is bad.</li>
-  </ol>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-  <h3 id="rule-5-favor-composition-over-inheritance">Rule #5: Favor composition over inheritance</h3>
-  <p>At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.</p>
-  <p>Wrongly used inheritance clutters the focus of test because you need to mock out the your parent classes' irrelevant dependencies, too. For example,</p>
-  <p>Inheriting from AuthenticatedServlet will make your sub-class very hard to test since every test will have to mock out the authentication. But what if AuthenticatedServlet inherits from DbTransactionServlet? (that gets so much harder)</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-  <h2 id="flaw-2-brittle-global-state-singleton">Flaw #2: Brittle Global State &amp; Singleton</h2>
-  <h3 id="rule-1-avoid-global-states">Rule #1: Avoid Global States</h3>
-  <h4 id="warning-signs-3">Warning Signs</h4>
-  <ul>
-    <li>Adding or using static fields or static methods</li>
-    <li>Adding or using registries</li>
-    <li>Using <code>System.currentTimeMillis()</code>, <code>new Date()</code> or <code>Math.random()</code></li>
-  </ul>
-  <p>Global states are a bad idea because they make the code hard to understand and reason about.</p>
-  <p>Moreover, they cause problems for testing because global states are persistent throughout the lifetime of a JVM instance. In unit testing, we have one JVM instance to run all tests (instead one JVM for one test, for performance reason). Thus the global
-    states are persistent from tests to tests. Now, if some tests expect the global states to be in state A, while some other tests expect the global states to be in state B. In this scenario, you cannot run the tests in parallel, otherwise your tests
-    will become flaky (sometimes pass, sometimes fail) because the order of tests matters.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-  <h3 id="rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern</h3>
-  <p>Singleton Pattern, despite being a well-know design patter, are global states in sheep's clothing. They have <strong>globally</strong> accessible <code>getInstance()</code> method and a private singleton object (which is the global state).</p>
-  <p>Another problem about Singleton Pattern is that they are globally accessible, thus any method can access them inside the code without explicitly declaring in its API. In other words, the API lied about its dependency!</p>
-  <p><strong>Note</strong> singletons (with lowercase s) are valid and sometimes very useful, which you can enforce their singleton identities by enforcing their constructors are called only once in the application. However, Singleton Pattern (with uppercase
-    S) is almost always causing undesirable global states, which you should avoid. Only few examples of Singleton Pattern, including Constants and Logging, are acceptable since they don't affect the application logic.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html">Singletons are Pathological Liars</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-  <h2 id="flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators</h2>
-  <h3 id="rule-1-dont-look-for-things-ask-for-things">Rule #1: Don't look for things. Ask for things.</h3>
-  <h4 id="warning-signs-4">Warning Signs</h4>
-  <ul>
-    <li>Objects are passed in but never used directly (only used to get access to other objects)</li>
-    <li><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> violation: method call chain walks an object graph with more than one dot. (e.g. <code>a.getB().getC().doSomething()</code>)</li>
-  </ul>
-  <p>The Law of Demeter can be summarized as &quot;only talk to your <strong>immediate</strong> friends&quot;.</p>
-  <p>Previously we mentioned the importance of dependency injection for creating seams in <a href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: no seams for isolating the class under test</a>. Here we emphasize on injecting only those <strong>direct dependency</strong>.</p>
-  <p>Let's use an example to illustrate why <strong>indirect</strong> dependency hurts testability:</p>
-  <p>Say you have an Authenticator class which needs a <code>Config</code> object, do you pass in a path to the configuration file, or just pass in a <code>Config</code> object? Since what you need is a <code>Config</code> object, not a file path, an example
-    of indirect dependency will be you pass in a path to the configuration file, and read a <code>Config</code> object from the path. To test Authenticator, you have to first write some configuration to a file, pass the file path to Authenticator, and
-    let it read a <code>Config</code> itself. Versus you can directly create a <code>Config</code> object and pass it to Authenticator using direct dependency.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-  <h2 id="flaw-4-class-does-too-much">Flaw #4: Class does too much</h2>
-  <p>To extreme, it becomes an anti-pattern, <a href="https://en.wikipedia.org/wiki/God_object">God Object</a>.</p>
-  <h3 id="rule-1-avoid-mixing-of-concerns">Rule #1: Avoid mixing of concerns</h3>
-  <h4 id="warning-signs-5">Warning Signs:</h4>
-  <ul>
-    <li>summing up what the class does includes the word &quot;and&quot;</li>
-    <li>class has fields that are only used in some methods (objects hiding inside)</li>
-    <li>class has static methods that only operate on parameters (methods should be instance methods of one of the parameters)</li>
-  </ul>
-  <p>These classes are hard to test since there are multiple objects hiding inside of them and as a result you are testing all of the objects at once.</p>
-  <p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a> also requires you to have classes with one concern (one reason to change), because these classes are simpler to understand what they are doing
-    and easier to unit test.</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-  <h3 id="rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor polymorphism over conditionals</h3>
-  <h4 id="warning-signs-6">Warning Signs:</h4>
-  <ul>
-    <li>Class has the same <code>switch</code> or <code>if</code> conditions in many places</li>
-  </ul>
-  <p>For a detailed code example, please refer to this <a href="http://stackoverflow.com/a/234491/3522482">Stack Overflow answer</a>.</p>
-  <p>From the answer, if you have one switch statement based on an internal field you probably have the same switch in multiple places. This causes problems when you add a new case as you have to update all the switch statements.</p>
-  <p>By using polymorphism, you get the same functionality and because a new case is a new class you don't have to search your code for things that need to be updated. It is all isolated for each class.</p>
-  <p>This closely follows with <a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open Closed Principle</a> because you can ship this abstract parent class (<strong>closed for modification</strong>) as part of your binary library, but people can
-    still extend the functionality by adding new child classes (<strong>open for extension</strong>).</p>
-  <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-  <h1 id="concluding-notes">Concluding Notes</h1>
-  <p>This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules
-    in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.</p>
+<div id="app">
+    <div id="content-wrapper">
+  <div id="seedu-header">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
+      <div class="container">
+        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+        <ul class="navbar-nav"></ul>
+        <form class="navbar-form">
+          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="website-content">
+    <h1 id="writing-testable-code">Writing Testable Code</h1>
+    <p>When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because
+      it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented
+      programs.</p>
+    <p>This article compiles multiple posts from <a href="https://testing.googleblog.com">Google Testing Blog</a> on how to write more unit-testable code. It explains <a href="https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html">four common flaws</a>      in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.</p>
+    <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No seams for isolating the class under test</h2>
+    <p>Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.</p>
+    <p>To create seams in your code, you need to acquire your dependency via <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. You inject real object for production and <a href="https://www.martinfowler.com/bliki/TestDouble.html">test doubles</a>      for testing. For example, if a class depends on some database connection to retrieve some user data, you can inject a fake database connection to always return prepared data immediately without really performing any database operation.</p>
+    <p>That is the basic idea for how seams can help in unit testing. Below are five rules you can follow to create seams in your code.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a></p>
+    <h3 id="rule-1-dont-do-actual-work-in-constructors">Rule #1: Don't do actual work in constructors</h3>
+    <h4 id="warning-signs">Warning Signs</h4>
+    <ul>
+      <li><code>new</code> keyword in a constructor or at field declaration</li>
+      <li>Code does complex object graph construction inside a constructor rather than using a factory or builder</li>
+      <li>Anything more than field assignment in constructors</li>
+    </ul>
+    <p>Any work you do in a constructor needs to successfully navigate through in every test (not just the direct test, but also any related test which tries to instantiate your class indirectly as part of some larger object graph).</p>
+    <p>In short, the constructor's job is to assign the dependencies to fields. And that's all.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+    <h3 id="rule-2-dont-mix-object-construction-with-application-logic">Rule #2: Don't mix object construction with application logic</h3>
+    <h4 id="warning-signs-2">Warning Signs</h4>
+    <ul>
+      <li>Create objects using <code>new</code> keyword freely anywhere in your code</li>
+    </ul>
+    <p>You should have two kinds of classes in your application.</p>
+    <p>First, <strong><a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factories</a></strong>, where all <code>new</code> operators reside in, are in charge of constructing objects, and nothing else.</p>
+    <p>The other, <strong>application classes</strong>, are devoid of <code>new</code> operators. Instead of creating object, they simply ask for them. This makes it easier to test the application logic by replacing the real classes for test doubles.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+    <h3 id="rule-3-dont-mix-service-objects-with-value-objects">Rule #3: Don't mix Service Objects with Value Objects</h3>
+    <p>Value objects are your <strong>model</strong> objects, like <code>User</code>, <code>Email</code>, <code>CreditCard</code>.</p>
+    <ol>
+      <li>They are (or should be) very easy to construct. And they should never take a service object in its constructor (since otherwise it is not easy to construct).</li>
+      <li>You can freely create value objects with the &quot;new&quot; operator directly in line with your business logic (exception to previous rule) since they are leafs of your application graph).</li>
+      <li>They are <strong>never mocked</strong>.</li>
+    </ol>
+    <p>Service objects, on the other hand, are your <strong>logic</strong> objects, like <code>UserAuthenticator</code>, <code>MailServer</code>, <code>CreditCardProcessor</code>. Compared to value objects,</p>
+    <ol>
+      <li>Service objects are harder to construct. And their constructors ask for lots of other objects for collaboration.</li>
+      <li>Service objects are harder to construct and as a result are never constructed with a new operator in-line, (instead use factory / DI-framework) for the object graph construction.
+        <strong>Note</strong>: service objects don't take value objects in their constructors since DI-frameworks tend to be unaware about the how to create a value objects.</li>
+      <li>Service objects are harder to test since they are all about collaboration and as a result we are forced to use mocking, something which we want to minimize.</li>
+    </ol>
+    <p>Clearly, they are very different in their nature and usage. Mixing the two creates a hybrid which has no advantages of value-objects and all the baggage of service-object.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+    <h3 id="rule-4-avoid-static-methods">Rule #4: Avoid Static Methods</h3>
+    <p>Static methods are procedural code. You can write your program in an OO language only using static methods, with one calling another, then it is not an OOP application but a procedural application. There is <em>no way</em> to unit test procedure application
+      because there is no seams for you to divert the normal execution flow.</p>
+    <p>You can remove the static methods as below:</p>
+    <ol>
+      <li>If the static method has arguments, chances are you can move the method as an instance method to one of the method's arguments. (As in <code>method(a,b)</code> becomes <code>a.method(b)</code>)</li>
+      <li>If the static method takes no arguments, either it returns a constant in which case there is nothing to test; or it accesses <a href="#rule-2-avoid-singletons">global state</a>, which is bad.</li>
+    </ol>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+    <h3 id="rule-5-favor-composition-over-inheritance">Rule #5: Favor composition over inheritance</h3>
+    <p>At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.</p>
+    <p>Wrongly used inheritance clutters the focus of test because you need to mock out the your parent classes' irrelevant dependencies, too. For example,</p>
+    <p>Inheriting from AuthenticatedServlet will make your sub-class very hard to test since every test will have to mock out the authentication. But what if AuthenticatedServlet inherits from DbTransactionServlet? (that gets so much harder)</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+    <h2 id="flaw-2-brittle-global-state-singleton">Flaw #2: Brittle Global State &amp; Singleton</h2>
+    <h3 id="rule-1-avoid-global-states">Rule #1: Avoid Global States</h3>
+    <h4 id="warning-signs-3">Warning Signs</h4>
+    <ul>
+      <li>Adding or using static fields or static methods</li>
+      <li>Adding or using registries</li>
+      <li>Using <code>System.currentTimeMillis()</code>, <code>new Date()</code> or <code>Math.random()</code></li>
+    </ul>
+    <p>Global states are a bad idea because they make the code hard to understand and reason about.</p>
+    <p>Moreover, they cause problems for testing because global states are persistent throughout the lifetime of a JVM instance. In unit testing, we have one JVM instance to run all tests (instead one JVM for one test, for performance reason). Thus the global
+      states are persistent from tests to tests. Now, if some tests expect the global states to be in state A, while some other tests expect the global states to be in state B. In this scenario, you cannot run the tests in parallel, otherwise your tests
+      will become flaky (sometimes pass, sometimes fail) because the order of tests matters.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+    <h3 id="rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern</h3>
+    <p>Singleton Pattern, despite being a well-know design patter, are global states in sheep's clothing. They have <strong>globally</strong> accessible <code>getInstance()</code> method and a private singleton object (which is the global state).</p>
+    <p>Another problem about Singleton Pattern is that they are globally accessible, thus any method can access them inside the code without explicitly declaring in its API. In other words, the API lied about its dependency!</p>
+    <p><strong>Note</strong> singletons (with lowercase s) are valid and sometimes very useful, which you can enforce their singleton identities by enforcing their constructors are called only once in the application. However, Singleton Pattern (with uppercase
+      S) is almost always causing undesirable global states, which you should avoid. Only few examples of Singleton Pattern, including Constants and Logging, are acceptable since they don't affect the application logic.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html">Singletons are Pathological Liars</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+    <h2 id="flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators</h2>
+    <h3 id="rule-1-dont-look-for-things-ask-for-things">Rule #1: Don't look for things. Ask for things.</h3>
+    <h4 id="warning-signs-4">Warning Signs</h4>
+    <ul>
+      <li>Objects are passed in but never used directly (only used to get access to other objects)</li>
+      <li><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> violation: method call chain walks an object graph with more than one dot. (e.g. <code>a.getB().getC().doSomething()</code>)</li>
+    </ul>
+    <p>The Law of Demeter can be summarized as &quot;only talk to your <strong>immediate</strong> friends&quot;.</p>
+    <p>Previously we mentioned the importance of dependency injection for creating seams in <a href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: no seams for isolating the class under test</a>. Here we emphasize on injecting only those
+      <strong>direct dependency</strong>.</p>
+    <p>Let's use an example to illustrate why <strong>indirect</strong> dependency hurts testability:</p>
+    <p>Say you have an Authenticator class which needs a <code>Config</code> object, do you pass in a path to the configuration file, or just pass in a <code>Config</code> object? Since what you need is a <code>Config</code> object, not a file path, an example
+      of indirect dependency will be you pass in a path to the configuration file, and read a <code>Config</code> object from the path. To test Authenticator, you have to first write some configuration to a file, pass the file path to Authenticator, and
+      let it read a <code>Config</code> itself. Versus you can directly create a <code>Config</code> object and pass it to Authenticator using direct dependency.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+    <h2 id="flaw-4-class-does-too-much">Flaw #4: Class does too much</h2>
+    <p>To extreme, it becomes an anti-pattern, <a href="https://en.wikipedia.org/wiki/God_object">God Object</a>.</p>
+    <h3 id="rule-1-avoid-mixing-of-concerns">Rule #1: Avoid mixing of concerns</h3>
+    <h4 id="warning-signs-5">Warning Signs:</h4>
+    <ul>
+      <li>summing up what the class does includes the word &quot;and&quot;</li>
+      <li>class has fields that are only used in some methods (objects hiding inside)</li>
+      <li>class has static methods that only operate on parameters (methods should be instance methods of one of the parameters)</li>
+    </ul>
+    <p>These classes are hard to test since there are multiple objects hiding inside of them and as a result you are testing all of the objects at once.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a> also requires you to have classes with one concern (one reason to change), because these classes are simpler to understand what they are doing
+      and easier to unit test.</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+    <h3 id="rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor polymorphism over conditionals</h3>
+    <h4 id="warning-signs-6">Warning Signs:</h4>
+    <ul>
+      <li>Class has the same <code>switch</code> or <code>if</code> conditions in many places</li>
+    </ul>
+    <p>For a detailed code example, please refer to this <a href="http://stackoverflow.com/a/234491/3522482">Stack Overflow answer</a>.</p>
+    <p>From the answer, if you have one switch statement based on an internal field you probably have the same switch in multiple places. This causes problems when you add a new case as you have to update all the switch statements.</p>
+    <p>By using polymorphism, you get the same functionality and because a new case is a new class you don't have to search your code for things that need to be updated. It is all isolated for each class.</p>
+    <p>This closely follows with <a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open Closed Principle</a> because you can ship this abstract parent class (<strong>closed for modification</strong>) as part of your binary library, but people
+      can still extend the functionality by adding new child classes (<strong>open for extension</strong>).</p>
+    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+    <h1 id="concluding-notes">Concluding Notes</h1>
+    <p>This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules
+      in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.</p>
+  </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
 </footer>
 </div>
 </body>

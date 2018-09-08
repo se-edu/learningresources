@@ -19,9 +19,7 @@
       "src": "GuidelinesForContributors.md"
     },
     {
-      "headings": {
-        "learning-resources-for-software-engineering-students": "Learning Resources for Software Engineering Students"
-      },
+      "headings": {},
       "src": "README.md",
       "title": ""
     },

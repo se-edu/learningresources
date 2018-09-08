@@ -12,165 +12,167 @@
     <link rel="stylesheet" href="markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="markbind\css\github.min.css">
     <link rel="stylesheet" href="markbind\css\markbind.css">
-    <link rel="stylesheet" href="markbind\css\site-nav.css">
+    
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-    <div class="container">
-      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<div id="site-header">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-      <ul class="navbar-nav"></ul>
-      <form class="navbar-form">
-        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-      </form>
-    </div>
-  </nav>
-</div>
-<div class="website-content">
-  <h1 id="learning-resources-for-software-engineering-students">Learning Resources for Software Engineering Students</h1>
-  <p>This repository is a collection of Software Engineering learning resources.</p>
-  <p><strong>Programming Languages</strong></p>
-  <ul>
-    <li>C++
-      <ul>
-        <li><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/go/Go.html">Go</a></li>
-    <li><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
-    <li><a href="/learningresources/contents/java/Java.html">Java</a>
-      <ul>
-        <li><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
-        <li><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
-        <li><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
-        <li><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
-      </ul>
-    </li>
-    <li>Kotlin
-      <ul>
-        <li><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
-        <li><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/javascript/javascript.html">JavaScript</a>
-      <ul>
-        <li><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
-        <li><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
-        <li><a href="/learningresources/contents/node/nodejs.html">Introduction to Nodejs</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
-    <li><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
-    <li><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
-    <li><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
-  </ul>
-  <p><strong>SE Topics</strong></p>
-  <ul>
-    <li>Code Quality
-      <ul>
-        <li><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
-    <li><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
-    <li><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
-    <li>OOP</li>
-    <li><a href="/learningresources/contents/performance/Performance.html">Performance</a>
-      <ul>
-        <li><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
-      </ul>
-    </li>
-    <li>Project Management
-      <ul>
-        <li><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
-      </ul>
-    </li>
-    <li>Revision Control
-      <ul>
-        <li><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
-    <li><a href="/learningresources/contents/staticAnalysis/intro.html">Static Analysis</a>
-      <ul>
-        <li><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
-        <li><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
-        <li><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
-        <li><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
-      </ul>
-    </li>
-    <li>Testing
-      <ul>
-        <li><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/uix/uix.html">UI/UX</a>
-      <ul>
-        <li><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
-      </ul>
-    </li>
-  </ul>
-  <p><strong>Other Topics</strong></p>
-  <ul>
-    <li>AI
-      <ul>
-        <li><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
-    <li>Architecture
-      <ul>
-        <li><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
-    <li>Data
-      <ul>
-        <li><a href="/learningresources/contents/data/databases.html">Databases</a></li>
-      </ul>
-    </li>
-    <li><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
-    <li>Security
-      <ul>
-        <li><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
-        <li><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
-        <li><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
-        <li><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
-        <li><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
-      </ul>
-    </li>
-    <li>Multi-Threading
-      <ul>
-        <li><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
-        <li><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
-      </ul>
-    </li>
-  </ul>
-  <p><a href="GuidelinesForContributors.html">Guidelines for Contributors</a> | <a href="Contact.html">Contact</a> | License: MIT</p>
+<div id="app">
+    <div id="content-wrapper">
+  <div id="seedu-header">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
+      <div class="container">
+        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+        <ul class="navbar-nav"></ul>
+        <form class="navbar-form">
+          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="website-content">
+    <h1 id="learning-resources-for-software-engineering-students">Learning Resources for Software Engineering Students</h1>
+    <p>This repository is a collection of Software Engineering learning resources.</p>
+    <p><strong>Programming Languages</strong></p>
+    <ul>
+      <li>C++
+        <ul>
+          <li><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/go/Go.html">Go</a></li>
+      <li><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+      <li><a href="/learningresources/contents/java/Java.html">Java</a>
+        <ul>
+          <li><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+          <li><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+          <li><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+          <li><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+        </ul>
+      </li>
+      <li>Kotlin
+        <ul>
+          <li><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+          <li><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/javascript/javascript.html">JavaScript</a>
+        <ul>
+          <li><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+          <li><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+          <li><a href="/learningresources/contents/node/nodejs.html">Introduction to Nodejs</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+      <li><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+      <li><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+      <li><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+    </ul>
+    <p><strong>SE Topics</strong></p>
+    <ul>
+      <li>Code Quality
+        <ul>
+          <li><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+      <li><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+      <li><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+      <li>OOP</li>
+      <li><a href="/learningresources/contents/performance/Performance.html">Performance</a>
+        <ul>
+          <li><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+        </ul>
+      </li>
+      <li>Project Management
+        <ul>
+          <li><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+        </ul>
+      </li>
+      <li>Revision Control
+        <ul>
+          <li><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+      <li><a href="/learningresources/contents/staticAnalysis/intro.html">Static Analysis</a>
+        <ul>
+          <li><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+          <li><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+          <li><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+          <li><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+        </ul>
+      </li>
+      <li>Testing
+        <ul>
+          <li><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/uix/uix.html">UI/UX</a>
+        <ul>
+          <li><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+        </ul>
+      </li>
+    </ul>
+    <p><strong>Other Topics</strong></p>
+    <ul>
+      <li>AI
+        <ul>
+          <li><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+      <li>Architecture
+        <ul>
+          <li><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+      <li>Data
+        <ul>
+          <li><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+        </ul>
+      </li>
+      <li><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+      <li>Security
+        <ul>
+          <li><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+          <li><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+          <li><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+          <li><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+          <li><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+        </ul>
+      </li>
+      <li>Multi-Threading
+        <ul>
+          <li><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+          <li><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+        </ul>
+      </li>
+    </ul>
+    <p><a href="GuidelinesForContributors.html">Guidelines for Contributors</a> | <a href="Contact.html">Contact</a> | License: MIT</p>
+  </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
 </footer>
 </div>
 </body>

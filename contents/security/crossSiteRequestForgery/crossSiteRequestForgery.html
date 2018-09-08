@@ -12,112 +12,113 @@
     <link rel="stylesheet" href="..\..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\..\markbind\css\site-nav.css">
+    
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <div id="seedu-header">
-  <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-    <div class="container">
-      <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<div id="site-header">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-      <ul class="navbar-nav"></ul>
-      <form class="navbar-form">
-        <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-      </form>
-    </div>
-  </nav>
-</div>
-<div class="website-content">
-  <h1 id="cross-site-request-forgery-csrf">Cross Site Request Forgery (CSRF)</h1>
-  <p>Author: <a href="https://github.com/tran-tien-dat">Tran Tien Dat</a></p>
-  <p>Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like <a href="http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html">Gmail</a> and <a href="http://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html">Netflix</a>    in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.</p>
-  <h2 id="flow-of-a-csrf-attack">Flow of a CSRF attack</h2>
-  <p>A CSRF attack tricks the victim to perform actions that they do not intend to do on a web application in which they're currently authenticated. It generally consists of 3 steps:</p>
-  <ol>
-    <li>The victim logs in to a vulnerable web service</li>
-    <li>The victim visits an untrusted website controlled by the attacker</li>
-    <li>The untrusted website makes requests to the vulnerable web service on the victim's behalf</li>
-  </ol>
-  <p>These steps are best explained through an example. Suppose that Alice is a customer of the banking website <code>www.example-bank.com</code>. Alice wants to transfer money to her friend Bob (because she does not like the fact that he keeps paying for
-    her meals when they go out together).</p>
-  <h3 id="step-1-the-victim-logs-in-to-a-vulnerable-web-service">Step 1: The victim logs in to a vulnerable web service</h3>
-  <p>Alice first logs in to the website at <code>www.example-bank.com/login</code>, providing her username and password. She then clicks on a hyperlink on the site to go to the URL <code>www.example-bank.com/transfer</code> to perform her transaction. Note
-    that Alice does not have to enter her username and password again, but the bank still knows that the request is made by her. This is done through a mechanism of the HTTP protocol called a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">HTTP Cookie</a>.
-    A <em>cookie</em> is a small piece of information that is sent along with all HTTP requests to a particular website. In our case, after receiving Alice's credentials for logging in, the bank instructs Alice's browser to store a <em>cookie</em> <code>auth=1abcd2ek3292fsa390sdf</code>    and <strong>send this cookie together with every subsequent request</strong> to <code>www.example-bank.com</code>. Thus, once the web server sees this cookie in the request, it knows that this is an authenticated request from Alice. Many websites
-    use this cookie mechanism so that users only have to log in once.</p>
-  <p>At <code>www.example-bank.com/transfer</code>, Alice fills out the following HTML form to transfer money to Bob:</p>
-  <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
+<div id="app">
+    <div id="content-wrapper">
+  <div id="seedu-header">
+    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
+      <div class="container">
+        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="site-header">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
+        <ul class="navbar-nav"></ul>
+        <form class="navbar-form">
+          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="website-content">
+    <h1 id="cross-site-request-forgery-csrf">Cross Site Request Forgery (CSRF)</h1>
+    <p>Author: <a href="https://github.com/tran-tien-dat">Tran Tien Dat</a></p>
+    <p>Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like <a href="http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html">Gmail</a> and <a href="http://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html">Netflix</a>      in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.</p>
+    <h2 id="flow-of-a-csrf-attack">Flow of a CSRF attack</h2>
+    <p>A CSRF attack tricks the victim to perform actions that they do not intend to do on a web application in which they're currently authenticated. It generally consists of 3 steps:</p>
+    <ol>
+      <li>The victim logs in to a vulnerable web service</li>
+      <li>The victim visits an untrusted website controlled by the attacker</li>
+      <li>The untrusted website makes requests to the vulnerable web service on the victim's behalf</li>
+    </ol>
+    <p>These steps are best explained through an example. Suppose that Alice is a customer of the banking website <code>www.example-bank.com</code>. Alice wants to transfer money to her friend Bob (because she does not like the fact that he keeps paying
+      for her meals when they go out together).</p>
+    <h3 id="step-1-the-victim-logs-in-to-a-vulnerable-web-service">Step 1: The victim logs in to a vulnerable web service</h3>
+    <p>Alice first logs in to the website at <code>www.example-bank.com/login</code>, providing her username and password. She then clicks on a hyperlink on the site to go to the URL <code>www.example-bank.com/transfer</code> to perform her transaction.
+      Note that Alice does not have to enter her username and password again, but the bank still knows that the request is made by her. This is done through a mechanism of the HTTP protocol called a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">HTTP Cookie</a>.
+      A <em>cookie</em> is a small piece of information that is sent along with all HTTP requests to a particular website. In our case, after receiving Alice's credentials for logging in, the bank instructs Alice's browser to store a <em>cookie</em> <code>auth=1abcd2ek3292fsa390sdf</code>      and <strong>send this cookie together with every subsequent request</strong> to <code>www.example-bank.com</code>. Thus, once the web server sees this cookie in the request, it knows that this is an authenticated request from Alice. Many websites
+      use this cookie mechanism so that users only have to log in once.</p>
+    <p>At <code>www.example-bank.com/transfer</code>, Alice fills out the following HTML form to transfer money to Bob:</p>
+    <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bob"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"123456"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </code></pre>
-  <p>As Alice clicks the submit button, the browser will send the following request to <code>www.example-bank.com</code>:</p>
-  <pre class="hljs"><code>POST http://www.example-bank.com/transfer HTTP/1.1
+    <p>As Alice clicks the submit button, the browser will send the following request to <code>www.example-bank.com</code>:</p>
+    <pre class="hljs"><code>POST http://www.example-bank.com/transfer HTTP/1.1
 Cookie: auth=1abcd2ek3292fsa390sdf
 
 receiver-name=Bob&amp;receiver-account-no=123456&amp;amount=100
 </code></pre>
-  <p>The bank's server verifies that the cookie <code>auth=1abcd2ek3292fsa390sdf</code> is valid and is associated with Alice. It then proceeds to transfer $100 from Alice's account to account number 123456, which belongs to Bob.</p>
-  <h3 id="step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker">Step 2: The victim visits an untrusted website controlled by the attacker</h3>
-  <p>Alice then receives a chat message from her not-so-trustworthy friend, Eve:</p>
-  <pre class="hljs"><code>Eve: OMG Alice! This site is selling the shoes you have always
+    <p>The bank's server verifies that the cookie <code>auth=1abcd2ek3292fsa390sdf</code> is valid and is associated with Alice. It then proceeds to transfer $100 from Alice's account to account number 123456, which belongs to Bob.</p>
+    <h3 id="step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker">Step 2: The victim visits an untrusted website controlled by the attacker</h3>
+    <p>Alice then receives a chat message from her not-so-trustworthy friend, Eve:</p>
+    <pre class="hljs"><code>Eve: OMG Alice! This site is selling the shoes you have always
      wanted for half the price: www.i-am-not-evil.com/shoes
 </code></pre>
-  <p>Excited by this piece of news, Alice clicks on the hyperlink to check out <code>www.i-am-not-evil.com</code>.</p>
-  <h3 id="step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victims-behalf">Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf</h3>
-  <p>While browsing <code>www.i-am-not-evil.com</code>, Alice clicks on the <code>View more pictures</code> button on the website to see more pictures of her favorite pair of shoes. Unbeknownst to her, that button has the following HTML code:</p>
-  <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"http://www.example-bank.com/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
+    <p>Excited by this piece of news, Alice clicks on the hyperlink to check out <code>www.i-am-not-evil.com</code>.</p>
+    <h3 id="step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victims-behalf">Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf</h3>
+    <p>While browsing <code>www.i-am-not-evil.com</code>, Alice clicks on the <code>View more pictures</code> button on the website to see more pictures of her favorite pair of shoes. Unbeknownst to her, that button has the following HTML code:</p>
+    <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"http://www.example-bank.com/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Eve"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"987654"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100000"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"View more pictures"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </code></pre>
-  <p>So, when she clicks that button, the browser actually sends the following request to <code>http://www.example-bank.com</code>:</p>
-  <pre class="hljs"><code>POST http://www.example-bank.com/transfer HTTP/1.1
+    <p>So, when she clicks that button, the browser actually sends the following request to <code>http://www.example-bank.com</code>:</p>
+    <pre class="hljs"><code>POST http://www.example-bank.com/transfer HTTP/1.1
 Cookie: auth=1abcd2ek3292fsa390sdf
 
 receiver-name=Eve&amp;receiver-account-no=987654&amp;amount=100000
 </code></pre>
-  <p>Since Alice is still logged in to <code>www.example-bank.com</code>, the browser automatically attaches the cookie <code>auth=1abcd2ek3292fsa390sdf</code> to any requests made to <code>www.example-bank.com</code>. Hence, the bank's server considers
-    this as an authenticated request from Alice and proceeds to transfer $100,000 from Alice's account to account number 987654, which belongs to the attacker!</p>
-  <h2 id="conditions-for-a-successful-csrf-attack">Conditions for a successful CSRF attack</h2>
-  <p>From the example, we can see that a CSRF attack works by forging a valid request which <strong>inherits the identity and privileges of the victim</strong> on the vulnerable web server. Such inheritance of privileges is possible because the browser attaches
-    any credentials associated with a website to all requests made to the site. Therefore, if the user is currently authenticated to the site, the site will have no way to distinguish between the forged request sent by the victim and a legitimate request
-    sent by the victim. In short, there are 3 conditions necessary for the attack:</p>
-  <ol>
-    <li>The target website is vulnerable to a CSRF attack (i.e. it cannot distinguish between forged and legitimate requests).</li>
-    <li>The victim is authenticated to the target website.</li>
-    <li>The victim is tricked to visit an untrusted website by social engineering.</li>
-  </ol>
-  <p><em>Note: <a href="https://en.wikipedia.org/wiki/Social_engineering_%28security%29">Social engineering</a> refers to psychological manipulation of people into performing actions. In our example, Eve shares a link with a description that matches Alice's interest, which increases the chance that Alice will follow the link. Thus, this action is a form of social engineering.</em></p>
-  <h2 id="defense-against-csrf-attacks">Defense against CSRF attacks</h2>
-  <p>Both users and websites can take actions to defend themselves against CSRF attacks. As the user, one can reduce the likelihood of being attacked by logging out of sensitive services like banking immediately after carrying out transactions. This will
-    negate condition number 2. Condition number 3 can be mitigated if the user is extremely careful and never visits websites they do not know. However, users generally do not follow this and just click on interesting links they encounter on social media.
-    Hence, this threat of social engineering could never be fully eliminated.</p>
-  <p>As for the web server, it can eliminate condition number 1 by adding a secret token as a hidden field to all forms that it serves. This token should be random and cannot be guessed by the attacker. Back to our example, the bank website should use a
-    form like the following:</p>
-  <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
+    <p>Since Alice is still logged in to <code>www.example-bank.com</code>, the browser automatically attaches the cookie <code>auth=1abcd2ek3292fsa390sdf</code> to any requests made to <code>www.example-bank.com</code>. Hence, the bank's server considers
+      this as an authenticated request from Alice and proceeds to transfer $100,000 from Alice's account to account number 987654, which belongs to the attacker!</p>
+    <h2 id="conditions-for-a-successful-csrf-attack">Conditions for a successful CSRF attack</h2>
+    <p>From the example, we can see that a CSRF attack works by forging a valid request which <strong>inherits the identity and privileges of the victim</strong> on the vulnerable web server. Such inheritance of privileges is possible because the browser
+      attaches any credentials associated with a website to all requests made to the site. Therefore, if the user is currently authenticated to the site, the site will have no way to distinguish between the forged request sent by the victim and a legitimate
+      request sent by the victim. In short, there are 3 conditions necessary for the attack:</p>
+    <ol>
+      <li>The target website is vulnerable to a CSRF attack (i.e. it cannot distinguish between forged and legitimate requests).</li>
+      <li>The victim is authenticated to the target website.</li>
+      <li>The victim is tricked to visit an untrusted website by social engineering.</li>
+    </ol>
+    <p><em>Note: <a href="https://en.wikipedia.org/wiki/Social_engineering_%28security%29">Social engineering</a> refers to psychological manipulation of people into performing actions. In our example, Eve shares a link with a description that matches Alice's interest, which increases the chance that Alice will follow the link. Thus, this action is a form of social engineering.</em></p>
+    <h2 id="defense-against-csrf-attacks">Defense against CSRF attacks</h2>
+    <p>Both users and websites can take actions to defend themselves against CSRF attacks. As the user, one can reduce the likelihood of being attacked by logging out of sensitive services like banking immediately after carrying out transactions. This will
+      negate condition number 2. Condition number 3 can be mitigated if the user is extremely careful and never visits websites they do not know. However, users generally do not follow this and just click on interesting links they encounter on social
+      media. Hence, this threat of social engineering could never be fully eliminated.</p>
+    <p>As for the web server, it can eliminate condition number 1 by adding a secret token as a hidden field to all forms that it serves. This token should be random and cannot be guessed by the attacker. Back to our example, the bank website should use
+      a form like the following:</p>
+    <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"csrf-token"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"abcd23ksk3l2faad2kdkl"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bob"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"123456"</span>/&gt;</span>
@@ -125,21 +126,22 @@ receiver-name=Eve&amp;receiver-account-no=987654&amp;amount=100000
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </code></pre>
-  <p>So a valid request by Alice made from the bank's own website will also carry this secret token <code>csrf-token=abcd23ksk3l2faad2kdkl</code>. Since the token is added by the bank's website on its webpages, forged requests from other websites will not
-    know the token. Thus, when the bank's server receives a request, it can distinguish between a legitimate and a forged request by checking that the CSRF token is present and valid.</p>
-  <h2 id="references">References</h2>
-  <ul>
-    <li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)</a> (A more technical description of the attack)</li>
-    <li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet</a> (In-depth discussion of the various defense approaches,
-      including those that do not work)</li>
-    <li><a href="http://www.cgisecurity.com/csrf-faq.html">http://www.cgisecurity.com/csrf-faq.html</a> (Short FAQs about CSRF)</li>
-    <li><a href="https://docs.djangoproject.com/en/2.0/ref/csrf/">https://docs.djangoproject.com/en/2.0/ref/csrf/</a> (CSRF Protection in Django)</li>
-  </ul>
+    <p>So a valid request by Alice made from the bank's own website will also carry this secret token <code>csrf-token=abcd23ksk3l2faad2kdkl</code>. Since the token is added by the bank's website on its webpages, forged requests from other websites will
+      not know the token. Thus, when the bank's server receives a request, it can distinguish between a legitimate and a forged request by checking that the CSRF token is present and valid.</p>
+    <h2 id="references">References</h2>
+    <ul>
+      <li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)</a> (A more technical description of the attack)</li>
+      <li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet</a> (In-depth discussion of the various defense approaches,
+        including those that do not work)</li>
+      <li><a href="http://www.cgisecurity.com/csrf-faq.html">http://www.cgisecurity.com/csrf-faq.html</a> (Short FAQs about CSRF)</li>
+      <li><a href="https://docs.djangoproject.com/en/2.0/ref/csrf/">https://docs.djangoproject.com/en/2.0/ref/csrf/</a> (CSRF Protection in Django)</li>
+    </ul>
+  </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.10.0</a> on Sat, 28 Jul 2018 08:04:24 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
 </footer>
 </div>
 </body>
