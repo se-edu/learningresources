@@ -213,14 +213,6 @@ table.tableblock > .title,
     }
 }
 
-#app.container-fluid {
-    padding: 0;
-}
-
-footer {
-    margin: 0;
-}
-
 .website-content {
     width: 100%;
     max-width: 62.5rem;
