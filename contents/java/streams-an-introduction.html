@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,7 +48,7 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="java-8-streams-an-introduction">Java 8 Streams - An Introduction</h1>
+    <h1 id="java-8-streams-an-introduction">Java 8 Streams - An Introduction<a class="fa fa-anchor" href="#java-8-streams-an-introduction"></a></h1>
     <p>Author: Lee Yi Min</p>
 
     <ul>
@@ -101,11 +102,9 @@
       </li>
     </ul>
 
-    <h2 id="overview">Overview</h2>
-    <p>In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with lambda
-      expressions and stream operations.</p>
-    <p>However, oftentimes, it's hard not to admire the conciseness of the codes utilising these features. For example, you might want to calculate the mean height of male students given a list of students. Using traditional for-loops, you may write something
-      like this:</p>
+    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+    <p>In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with lambda expressions and stream operations.</p>
+    <p>However, oftentimes, it's hard not to admire the conciseness of the codes utilising these features. For example, you might want to calculate the mean height of male students given a list of students. Using traditional for-loops, you may write something like this:</p>
     <pre><code class="hljs java"><span class="hljs-keyword">double</span> totalMaleHeight = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">int</span> noOfMales = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span> (Student student: students) {
@@ -123,26 +122,19 @@
                                 .average()
                                 .orElse(Double.NaN);
 </code></pre>
-    <p>Not only is the numbers of lines reduced by almost half, the code utilising streams is also rather intuitive. First, we filter the students who are male, using a lambda expression (<code>student -&gt; student.isMale()</code>). Then, we get the heights
-      of these students and followed by the average value of these heights. If the average value does not exist (which can happen when there are no male students), we store NaN in <code>meanMaleHeight</code> instead. The code is declarative and self-documenting,
-      it's easy to understand what the original author was trying to achieve. This reduces the need for code comments, which we often see in loops since they can be harder to understand at a glance.</p>
-    <p>Besides its brevity, another cool feature of streams is that code can be executed in parallel using your multicore processor. Multiple students can be processed simultaneously, compared to processing only one student at a time with a normal loop.
-      This can help to improve the performance of the operation significantly. And the best part is this can be done just by adding a simple method call in the Stream API, so you don't have implement multithreading or worry about how to go about splitting
-      the work for it to work in parallel.</p>
+    <p>Not only is the numbers of lines reduced by almost half, the code utilising streams is also rather intuitive. First, we filter the students who are male, using a lambda expression (<code>student -&gt; student.isMale()</code>). Then, we get the heights of these students and followed by the average value of these heights. If the average value does not exist (which can happen when there are no male students), we store NaN in <code>meanMaleHeight</code> instead. The code is declarative and self-documenting, it's easy to understand what the original author was trying to achieve. This reduces the need for code comments, which we often see in loops since they can be harder to understand at a glance.</p>
+    <p>Besides its brevity, another cool feature of streams is that code can be executed in parallel using your multicore processor. Multiple students can be processed simultaneously, compared to processing only one student at a time with a normal loop. This can help to improve the performance of the operation significantly. And the best part is this can be done just by adding a simple method call in the Stream API, so you don't have implement multithreading or worry about how to go about splitting the work for it to work in parallel.</p>
     <p>It's okay if you have no experience in writing lambda expressions! This guide will step you through the basics of both lambda expressions and streams so that you can start utilising them.</p>
-    <h2 id="getting-started">Getting Started</h2>
-    <p>Before we can get started on Stream, it is imperative to first have some understanding on the concept of functional interface and lambda expressions. Feel free to skip right ahead if you are already familiar with such concepts! Then, let's take a
-      closer look at the Stream API to get a better understanding of how it works.</p>
-    <h3 id="functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions</h3>
+    <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h2>
+    <p>Before we can get started on Stream, it is imperative to first have some understanding on the concept of functional interface and lambda expressions. Feel free to skip right ahead if you are already familiar with such concepts! Then, let's take a closer look at the Stream API to get a better understanding of how it works.</p>
+    <h3 id="functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions<a class="fa fa-anchor" href="#functional-interface-and-lambda-expressions"></a></h3>
     <h4 id="functional-interface">Functional Interface</h4>
-    <p>If you have tried using the Stream library and looked at its <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">API page</a>, you would see that many of its methods accept objects of new types such as <code>Predicate</code>,
-      <code>Collector</code> and more. If you navigate into the APIs of these new types, you would have realised they are merely interfaces and the APIs themselves aren't giving much help on how you are supposed to make use of these interfaces.</p>
+    <p>If you have tried using the Stream library and looked at its <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">API page</a>, you would see that many of its methods accept objects of new types such as <code>Predicate</code>, <code>Collector</code> and more. If you navigate into the APIs of these new types, you would have realised they are merely interfaces and the APIs themselves aren't giving much help on how you are supposed to make use of these interfaces.</p>
     <p>These interfaces are actually functional interfaces, which are simply <strong>interfaces declared with a single abstract method</strong>.</p>
-    <p>As these interfaces only have a single abstract method, when you provide a method reference or a lambda expression where a functional interface is required, the compiler is able to self-infer and instantiate an object of the required functional interface
-      type, with the given method/lambda as the implementation of the abstract method. This is similar to instantiating an <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html">anonymous class object</a>, except that the
-      code is more concise with the new syntax.</p>
+    <p>As these interfaces only have a single abstract method, when you provide a method reference or a lambda expression where a functional interface is required, the compiler is able to self-infer and instantiate an object of the required functional interface type, with the given method/lambda as the implementation of the abstract method. This is similar to instantiating an <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html">anonymous class object</a>, except that the code is more concise with the new syntax.</p>
     <h4 id="method-reference">Method Reference</h4>
-    <p>So how can you provide a method reference? The syntax is simple : <code>&lt;class/object/interface&gt;::&lt;method name&gt;</code>.<br> The method could be</p>
+    <p>So how can you provide a method reference? The syntax is simple : <code>&lt;class/object/interface&gt;::&lt;method name&gt;</code>.<br>
+      The method could be</p>
     <ol>
       <li>a static method of a class (<code>MyClass::staticMethodName</code>),</li>
       <li>an instance method of some object (<code>myObject::methodName</code>),</li>
@@ -151,14 +143,11 @@
     </ol>
     <p>In all four cases, the return type of the referenced method should match the return type of the required functional interface (unless this is <code>void</code>). In the first three cases, the parameters of the two methods would also need to match.</p>
     <p>Suppose the parameter required is <code>(SomeClass object)</code>, then the implemented method of the functional interface object created would run <code>MyClass.staticMethodName(object)</code>, <code>myObject.methodName(object)</code> or <code>new MyClass(object)</code>.</p>
-    <p>However, for the last case, the parameters required by the two methods would be different. Suppose the parameter required by the abstract method of the functional interface is <code>(SomeClass object)</code> and <code>SomeClass::doSomething</code>      is given as the required functional interface. This would translate to running <code>object.doSomething()</code> in the implemented method.</p>
-    <p>If the parameters required by the abstract method are <code>(SomeClass object, SomeArgument arg)</code>, the implemented method would run <code>object.doSomething(arg)</code>. The implemented method runs the referenced method of the first parameter,
-      with the remaining parameters supplied to the referenced method as arguments.</p>
-    <p>For more information, you should take a look at <a href="https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx">this guide written by Esteban Herrera</a>, who has more than 12 years of experience in Java. The guide provides clear
-      examples to illustrate the different kinds of method references and how it can be used.</p>
+    <p>However, for the last case, the parameters required by the two methods would be different. Suppose the parameter required by the abstract method of the functional interface is <code>(SomeClass object)</code> and <code>SomeClass::doSomething</code> is given as the required functional interface. This would translate to running <code>object.doSomething()</code> in the implemented method.</p>
+    <p>If the parameters required by the abstract method are <code>(SomeClass object, SomeArgument arg)</code>, the implemented method would run <code>object.doSomething(arg)</code>. The implemented method runs the referenced method of the first parameter, with the remaining parameters supplied to the referenced method as arguments.</p>
+    <p>For more information, you should take a look at <a href="https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx">this guide written by Esteban Herrera</a>, who has more than 12 years of experience in Java. The guide provides clear examples to illustrate the different kinds of method references and how it can be used.</p>
     <h4 id="lambda-expressions">Lambda Expressions</h4>
-    <p>Moving on to lambda expressions! Lambda expressions are simply a clear and concise way to instantiate an object that implements a functional interface. The expression itself, however, does not contain information about which functional interface it
-      implements, this is deduced by the compiler through the context where it is used.</p>
+    <p>Moving on to lambda expressions! Lambda expressions are simply a clear and concise way to instantiate an object that implements a functional interface. The expression itself, however, does not contain information about which functional interface it implements, this is deduced by the compiler through the context where it is used.</p>
     <p>The structure of a lambda expression is as such : <code>(parameters) -&gt; &lt;body&gt;</code>, where the <code>&lt;body&gt;</code> can be a block of statement(s),</p>
     <pre><code class="hljs java">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y) -&gt; { <span class="hljs-keyword">return</span> x + y; }
 </code></pre>
@@ -173,14 +162,12 @@
     <pre><code class="hljs java">x -&gt; x + <span class="hljs-number">10</span>
 </code></pre>
     <p>For a lambda expression to be compatible with the required functional interface, the lambda expression must have <strong>the same parameters types</strong> and <strong>a compatible return type</strong> as the required functional interface.</p>
-    <p>Although lambda expressions can be expressed in a block, it does not introduce a new level of scoping. Names in the body of the lambda are interpreted in the same way as its enclosing scope, with the addition of the names of its parameters. <code>this</code>      and <code>super</code> can also be used in the lambda body to refer to the enclosing object and the parent class of the enclosing object.</p>
+    <p>Although lambda expressions can be expressed in a block, it does not introduce a new level of scoping. Names in the body of the lambda are interpreted in the same way as its enclosing scope, with the addition of the names of its parameters. <code>this</code> and <code>super</code> can also be used in the lambda body to refer to the enclosing object and the parent class of the enclosing object.</p>
     <p>This also means that lambda expressions are able to access local variables of the enclosing scope as well. However, any local variables accessed by a lambda expression must be final or effectively final (ie. cannot be reassigned another value).</p>
-    <p>To understand more about lambda expressions, take a look at <a href="http://www.lambdafaq.org/">http://www.lambdafaq.org/</a> ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed
-      use case of lambda expressions, you can read <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">this Java tutorial</a>.</p>
+    <p>To understand more about lambda expressions, take a look at <a href="http://www.lambdafaq.org/">http://www.lambdafaq.org/</a> ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">this Java tutorial</a>.</p>
     <h4 id="an-example">An Example</h4>
     <p>Now that we have some understanding on functional interface, method references and lambda expressions, let's consolidate our understanding with an example.</p>
-    <p><code>Comparator&lt;T&gt;</code> may be a familiar interface to you. In previous Java editions, to create an object extending this interface, you could either instantiate the object from a named class or an anonymous class, both of which need to override
-      the abstract methods in <code>Comparator&lt;T&gt;</code>. So the code may look something like this:</p>
+    <p><code>Comparator&lt;T&gt;</code> may be a familiar interface to you. In previous Java editions, to create an object extending this interface, you could either instantiate the object from a named class or an anonymous class, both of which need to override the abstract methods in <code>Comparator&lt;T&gt;</code>. So the code may look something like this:</p>
     <pre><code class="hljs java"><span class="hljs-comment">// trying to sort students by height</span>
 students.sort(<span class="hljs-keyword">new</span> Comparator&lt;Student&gt;() {
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student s1, Student s2)</span> </span>{
@@ -193,8 +180,7 @@ students.sort(<span class="hljs-keyword">new</span> Comparator&lt;Student&gt;() 
     <pre><code class="hljs java"><span class="hljs-comment">// trying to sort students by height</span>
 students.sort((s1, s2) -&gt; Double.compare(s1.getHeight(), s2.getHeight()));
 </code></pre>
-    <p>The compiler is able to infer that an object of type <code>Comparator&lt;Student&gt;</code> is expected and that the lambda expression fits into the definition for <code>compare</code> (the single abstract method), thus creating an instance of type
-      <code>Comparator&lt;Student&gt;</code> with the <code>Double.compare(s1.getHeight(), s2.getHeight())</code> returned in the implemented <code>compare</code> method.</p>
+    <p>The compiler is able to infer that an object of type <code>Comparator&lt;Student&gt;</code> is expected and that the lambda expression fits into the definition for <code>compare</code> (the single abstract method), thus creating an instance of type <code>Comparator&lt;Student&gt;</code> with the <code>Double.compare(s1.getHeight(), s2.getHeight())</code> returned in the implemented <code>compare</code> method.</p>
     <p>By using an lambda expression, the code is much more simplified, and can be now written on a single line. However, the expression in the body is slightly complicated and it may not be easily understood by everyone.</p>
     <p>Suppose this comparison is used over and over again in the code. To improve cohesion in the code, you may want to add instance method <code>compareToByHeight(Student other)</code> in the <code>Student</code> class.</p>
     <pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareToByHeight</span><span class="hljs-params">(Student other)</span></span>{
@@ -206,42 +192,31 @@ students.sort((s1, s2) -&gt; Double.compare(s1.getHeight(), s2.getHeight()));
 students.sort(Student::compareToByHeight);
 </code></pre>
     <p>Notice that the code is very easy to understand at a high level and what the intentions of the author can be understood from the code, reducing the need for further documentation. This also makes code more maintainable.</p>
-    <h3 id="what-is-a-stream">What is a stream?</h3>
-    <p>Now that we have the basics nailed, let's get started on Streams. Streams are basically sequences of elements. However, when dealing with streams, we are not so interested in where the data of elements is stored, what is currently stored in each element,
-      but rather <strong>what we can do with the elements</strong>.</p>
+    <h3 id="what-is-a-stream">What is a stream?<a class="fa fa-anchor" href="#what-is-a-stream"></a></h3>
+    <p>Now that we have the basics nailed, let's get started on Streams. Streams are basically sequences of elements. However, when dealing with streams, we are not so interested in where the data of elements is stored, what is currently stored in each element, but rather <strong>what we can do with the elements</strong>.</p>
     <p>To use a stream, we need to first construct one. A stream can be obtained from an existing source of elements, such as a collection or an array. We will get into the details of how to do so in the next section.</p>
-    <p>The methods described in the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream API</a> allows us to perform operations on the elements. The stream operations can be categorised into two kinds: intermediate or
-      terminal. These operations may take in functional interfaces, which will exactly define what is performed on each element.</p>
-    <p>Intermediate operations are operations which returns a stream. They can be stateless, operating on each element independently, or stateful, where the result of the operation performed on an element depends on other elements in the stream. The intermediate
-      operations can</p>
+    <p>The methods described in the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream API</a> allows us to perform operations on the elements. The stream operations can be categorised into two kinds: intermediate or terminal. These operations may take in functional interfaces, which will exactly define what is performed on each element.</p>
+    <p>Intermediate operations are operations which returns a stream. They can be stateless, operating on each element independently, or stateful, where the result of the operation performed on an element depends on other elements in the stream. The intermediate operations can</p>
     <ul>
       <li>reduce the number of elements in the returned stream (eg. <code>filter</code>),</li>
       <li>transform the type of the elements in the returned stream (eg. <code>map</code>) or</li>
       <li>change the order of the elements in the returned stream (eg. <code>sorted</code>)</li>
     </ul>
-    <p>As a stream is returned from an intermediate operation, you can chain many of these intermediates operations in a single statement. However, intermediate operations are <em>lazy</em> and no processing is actually done when an intermediate operation
-      is invoked.</p>
-    <p>To get any tangible output and to start the processing the operations on the stream, you will need to add a terminal operation. A terminal operation will consume each element in the stream to produce the desired output. Once a stream object is consumed
-      by a terminal operation, it cannot be reused. You would have to construct a new stream object if you want to perform another terminal operation on the stream.</p>
+    <p>As a stream is returned from an intermediate operation, you can chain many of these intermediates operations in a single statement. However, intermediate operations are <em>lazy</em> and no processing is actually done when an intermediate operation is invoked.</p>
+    <p>To get any tangible output and to start the processing the operations on the stream, you will need to add a terminal operation. A terminal operation will consume each element in the stream to produce the desired output. Once a stream object is consumed by a terminal operation, it cannot be reused. You would have to construct a new stream object if you want to perform another terminal operation on the stream.</p>
     <p>By putting these operations together, we get a stream pipeline, which has some source of elements, performs multiple operations on the elements in the stream, then utilises the elements to get the desired output.</p>
-    <p>A general guideline is that streams operations should not modify its original data source or be unnecessarily stateful (ie. depending on some variable which may change during the execution of the stream pipeline). Going against this rule can lead
-      to exceptions or unexpected, incorrect behaviour when processing the stream pipeline.</p>
-    <p>The terminal operations of Streams may also return an <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html"><code>Optional</code> object</a>, which is just an container for your desired output. In the case where the stream is
-      empty, the terminal operation will produce an empty optional. This allows developers to differentiate between the case of the terminal operation producing a legitimate <code>null</code> result and the case where there is no result due to the absence
-      of elements.</p>
-    <p>To understand more about Streams, you can read up on the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">documentation of the Stream package</a>. They provide clear explanations on how streams work and how
-      you should make use of them.</p>
-    <p>This <a href="https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html">tutorial by Brian Goetz</a>, a Java Language Architect at Oracle, also provides a good overview of Streams. The whole five-part tutorial does go pretty
-      in-depth, so you may want to take your time to go through it.</p>
-    <h2 id="building-a-stream-pipeline">Building a Stream Pipeline</h2>
+    <p>A general guideline is that streams operations should not modify its original data source or be unnecessarily stateful (ie. depending on some variable which may change during the execution of the stream pipeline). Going against this rule can lead to exceptions or unexpected, incorrect behaviour when processing the stream pipeline.</p>
+    <p>The terminal operations of Streams may also return an <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html"><code>Optional</code> object</a>, which is just an container for your desired output. In the case where the stream is empty, the terminal operation will produce an empty optional. This allows developers to differentiate between the case of the terminal operation producing a legitimate <code>null</code> result and the case where there is no result due to the absence of elements.</p>
+    <p>To understand more about Streams, you can read up on the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">documentation of the Stream package</a>. They provide clear explanations on how streams work and how you should make use of them.</p>
+    <p>This <a href="https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html">tutorial by Brian Goetz</a>, a Java Language Architect at Oracle, also provides a good overview of Streams. The whole five-part tutorial does go pretty in-depth, so you may want to take your time to go through it.</p>
+    <h2 id="building-a-stream-pipeline">Building a Stream Pipeline<a class="fa fa-anchor" href="#building-a-stream-pipeline"></a></h2>
     <p>In this section, we will look at the details of implementing a stream pipeline and the common pitfalls when implementing one.</p>
-    <h3 id="constructing-streams">Constructing Streams</h3>
+    <h3 id="constructing-streams">Constructing Streams<a class="fa fa-anchor" href="#constructing-streams"></a></h3>
     <p>One way to construct a stream is simply supplying a sequence of elements to the <code>Stream.of</code> method.</p>
     <pre><code class="hljs java"> <span class="hljs-comment">// construct stream with Stream.of</span>
 Stream&lt;String&gt; nameStream = Stream.of(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Eve"</span>, <span class="hljs-string">"Mallory"</span>);
 </code></pre>
-    <p>When you want to use an array as the data source of the stream, you can use <code>Stream.of</code> or <code>Arrays.stream</code>. <code>Arrays.stream</code> is also able to take a primitive-typed array and return a stream of a specialised Stream class
-      that has primitive elements, instead of boxed elements. (You can read more about these specialised streams IntStream, LongStream, DoubleStream in the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">Java Documentation</a>)</p>
+    <p>When you want to use an array as the data source of the stream, you can use <code>Stream.of</code> or <code>Arrays.stream</code>. <code>Arrays.stream</code> is also able to take a primitive-typed array and return a stream of a specialised Stream class that has primitive elements, instead of boxed elements. (You can read more about these specialised streams IntStream, LongStream, DoubleStream in the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">Java Documentation</a>)</p>
     <pre><code class="hljs java">String[] array = {<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Eve"</span>, <span class="hljs-string">"Mallory"</span>};
 
 <span class="hljs-comment">// construct stream from array with Stream.of</span>
@@ -264,11 +239,10 @@ Stream&lt;String&gt; nameStream = names.stream();
 
 </code></pre>
     <p>There are many other ways of constructing a stream, such as using the <code>Stream.iterate</code> method or <code>BufferedReader.lines()</code>. A nice summary of these different ways are provided in the <a href="https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html">tutorial by Brian Goetz</a></p>
-    <h3 id="intermediate-operations">Intermediate Operations</h3>
+    <h3 id="intermediate-operations">Intermediate Operations<a class="fa fa-anchor" href="#intermediate-operations"></a></h3>
     <p>There are many intermediate operations one can apply to their streams, but this guide will just focus on two of the most commonly used intermediate operations, <code>filter</code> and <code>map</code>.</p>
     <h4 id="filter">Filter</h4>
-    <p>The <code>filter</code> method takes in one parameter, a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html"><code>Predicate&lt;T&gt;</code></a> object, where <code>T</code> is the type of the elements in the stream.
-      The functional method of this interface is <code>test</code>, which takes in a parameter of type <code>T</code> and returns a <code>boolean</code> value. Only elements which returns <code>true</code> when tested with the <code>Predicate&lt;T&gt;</code>      parameter are kept in the returned stream. The elements which returns <code>false</code> are filtered out.</p>
+    <p>The <code>filter</code> method takes in one parameter, a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html"><code>Predicate&lt;T&gt;</code></a> object, where <code>T</code> is the type of the elements in the stream. The functional method of this interface is <code>test</code>, which takes in a parameter of type <code>T</code> and returns a <code>boolean</code> value. Only elements which returns <code>true</code> when tested with the <code>Predicate&lt;T&gt;</code> parameter are kept in the returned stream. The elements which returns <code>false</code> are filtered out.</p>
     <p>As mentioned in <a href="#functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions</a>, you can provide the <code>Predicate&lt;T&gt;</code> object using lambda expressions or method references.</p>
     <p>Suppose you want a stream of male students. You can filter the male students from a stream of all students by using an lambda that operates on objects of type <code>T</code> and returns a <code>boolean</code> value</p>
     <pre><code class="hljs java">Stream&lt;Student&gt; maleStudents = students.stream()
@@ -279,9 +253,8 @@ Stream&lt;String&gt; nameStream = names.stream();
                                        .filter(Student::isMale);
 </code></pre>
     <h4 id="map">Map</h4>
-    <p>The <code>map</code> method takes in a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html"><code>Function&lt;T, R&gt;</code></a> parameter. The functional method <code>apply</code> takes in a type <code>T</code> object
-      and returns a type <code>R</code> object, where <code>R</code> is the desired return type. These <code>T</code> and <code>R</code> are usually inferred by the compiler and you do not have to specify them in your lambda or method reference.</p>
-    <p>The <code>map</code> method performs the <code>apply</code> of the <code>Function&lt;T, R&gt;</code> object you provide on the elements and the returned objects from the <code>apply</code> operations are put into the returned stream. Each <code>T</code>      element is mapped to its corresponding <code>R</code> object according to the provided <code>Function&lt;T, R&gt;</code> object and a <code>Stream&lt;R&gt;</code> object is returned.</p>
+    <p>The <code>map</code> method takes in a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html"><code>Function&lt;T, R&gt;</code></a> parameter. The functional method <code>apply</code> takes in a type <code>T</code> object and returns a type <code>R</code> object, where <code>R</code> is the desired return type. These <code>T</code> and <code>R</code> are usually inferred by the compiler and you do not have to specify them in your lambda or method reference.</p>
+    <p>The <code>map</code> method performs the <code>apply</code> of the <code>Function&lt;T, R&gt;</code> object you provide on the elements and the returned objects from the <code>apply</code> operations are put into the returned stream. Each <code>T</code> element is mapped to its corresponding <code>R</code> object according to the provided <code>Function&lt;T, R&gt;</code> object and a <code>Stream&lt;R&gt;</code> object is returned.</p>
     <p>Suppose you want a stream of names of all students. Similarly, you can use a lambda expression</p>
     <pre><code class="hljs java">Stream&lt;String&gt; names = students.stream() <span class="hljs-comment">// Stream&lt;Student&gt; here</span>
                                .map(x -&gt; x.getName()); <span class="hljs-comment">// Stream&lt;String&gt; here</span>
@@ -290,19 +263,19 @@ Stream&lt;String&gt; nameStream = names.stream();
     <pre><code class="hljs java">Stream&lt;String&gt; names = students.stream() <span class="hljs-comment">// Stream&lt;Student&gt; here</span>
                                .map(Student::getName); <span class="hljs-comment">// Stream&lt;String&gt; here</span>
 </code></pre>
-    <h3 id="terminal-operations">Terminal Operations</h3>
-    <p>Two commonly used terminal operations are <code>reduce</code> and <code>collect</code>. <code>reduce</code> typically takes in a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html"><code>BinaryOperator&lt;T&gt;</code></a>,
-      which is used to operate on all elements in the stream, resulting in a single final result. To find out how <code>reduce</code> works and how you can use it, you can look at <a href="https://www.ibm.com/developerworks/library/j-java-streams-2-brian-goetz/index.html">second part of Brian Goetz's tutorial</a>.</p>
+    <h3 id="terminal-operations">Terminal Operations<a class="fa fa-anchor" href="#terminal-operations"></a></h3>
+    <p>Two commonly used terminal operations are <code>reduce</code> and <code>collect</code>. <code>reduce</code> typically takes in a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html"><code>BinaryOperator&lt;T&gt;</code></a>, which is used to operate on all elements in the stream, resulting in a single final result. To find out how <code>reduce</code> works and how you can use it, you can look at <a href="https://www.ibm.com/developerworks/library/j-java-streams-2-brian-goetz/index.html">second part of Brian Goetz's tutorial</a>.</p>
     <p>In this guide, we will look more closely at <code>collect</code>.</p>
     <h4 id="collect">Collect</h4>
     <p><code>collect</code> can be used to transfer the elements in a stream into a collection-like data structure easily. There are two ways of using <code>collect</code>:</p>
     <ul>
       <li>
-        <p>by using <code>collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R,? super T&gt; accumulator, BiConsumer&lt;R,R&gt; combiner)</code><br> The <code>supplier</code> is a factory function that produces empty results of type <code>R</code>. The <code>accumulator</code>          is then applied on the a empty or partial result with the elements, resulting in one or more results. The <code>combiner</code> then combines the possibly multiple results into one single result object, which is returned by the terminal operation.</p>
+        <p>by using <code>collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R,? super T&gt; accumulator, BiConsumer&lt;R,R&gt; combiner)</code><br>
+          The <code>supplier</code> is a factory function that produces empty results of type <code>R</code>. The <code>accumulator</code> is then applied on the a empty or partial result with the elements, resulting in one or more results. The <code>combiner</code> then combines the possibly multiple results into one single result object, which is returned by the terminal operation.</p>
       </li>
       <li>
-        <p>by using <code>collect(Collector&lt;? super T,A,R&gt; collector)</code><br> The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html"><code>Collector&lt;T,A,R&gt;</code></a> is specified by a <code>supplier</code>,
-          <code>accumulator</code>, <code>combiner</code> and an optional <code>finisher</code>, which can transform the final result from accumulation and combining to a possibly different desired type.</p>
+        <p>by using <code>collect(Collector&lt;? super T,A,R&gt; collector)</code><br>
+          The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html"><code>Collector&lt;T,A,R&gt;</code></a> is specified by a <code>supplier</code>, <code>accumulator</code>, <code>combiner</code> and an optional <code>finisher</code>, which can transform the final result from accumulation and combining to a possibly different desired type.</p>
       </li>
     </ul>
     <p>One can easily do a <code>collect</code> operation by making use of the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html"><code>Collectors</code></a> class, which contains many methods which help to generate a <code>Collector&lt;T, A, R&gt;</code>.</p>
@@ -315,17 +288,15 @@ Stream&lt;String&gt; nameStream = names.stream();
     <pre><code class="hljs java">List&lt;String&gt; averageCap = students.stream()
                                   .collect(Collectors.averagingDouble(Student::getCap));
 </code></pre>
-    <p>Suppose you want lists of students according to their current year of study. You can use <code>Collectors.groupingBy(Function&lt;? super T,? extends K&gt; classifier)</code> and provide the classifier which returns the year of study of a student.
-      This returns a <code>Map&lt;Integer, List&lt;Student&gt;&gt;</code> object where the result of the classifier for an element would be one of the key values of the <code>Map</code>.</p>
+    <p>Suppose you want lists of students according to their current year of study. You can use <code>Collectors.groupingBy(Function&lt;? super T,? extends K&gt; classifier)</code> and provide the classifier which returns the year of study of a student. This returns a <code>Map&lt;Integer, List&lt;Student&gt;&gt;</code> object where the result of the classifier for an element would be one of the key values of the <code>Map</code>.</p>
     <pre><code class="hljs java">Map&lt;Integer, List&lt;Student&gt;&gt; studentsByYear = students.stream()
                                             .collect(Collectors.groupingBy(Student::getYear));
 List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1</span>);
 </code></pre>
-    <h3 id="drawbacks-and-pitfalls">Drawbacks and Pitfalls</h3>
+    <h3 id="drawbacks-and-pitfalls">Drawbacks and Pitfalls<a class="fa fa-anchor" href="#drawbacks-and-pitfalls"></a></h3>
     <p>In order to effectively utilise streams, one would also need to know the common drawbacks and pitfalls associated with streams. In this section, we will talk about two common pitfalls and how you can avoid them.</p>
     <h4 id="long-complicated-lambda-expressions">Long, complicated lambda expressions</h4>
-    <p>Lambda expressions allow us, as developers, to define a function quickly and easily. However, this power can be easily abused, and one might write a long, complicated lambda expression when trying to provide the required functional interface for the
-      stream operation, resulting in code like this:</p>
+    <p>Lambda expressions allow us, as developers, to define a function quickly and easily. However, this power can be easily abused, and one might write a long, complicated lambda expression when trying to provide the required functional interface for the stream operation, resulting in code like this:</p>
     <pre><code class="hljs java">result = futures.stream()
                 .map(HttpService::getFutureValue)
                 .map(failureOrResponse -&gt; {
@@ -345,8 +316,7 @@ List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1<
                 .reduce(EMPTY_RESULT, Result::union);
 </code></pre>
     <p>(adapted from <a href="https://www.reddit.com/r/java/comments/2x47wy/java_8_code_style/">https://www.reddit.com/r/java/comments/2x47wy/java_8_code_style/</a>)</p>
-    <p>Such code is not only hard to read but also hard to maintain. The general guideline is that <strong>lambda expressions should only be one line long</strong>. If it cannot fit within a single line, the lambda expression is probably not easy to read
-      for people who aren't the author. The code will be much more readable if such lambdas are extracted as methods and this extraction can be easily done with a few clicks in many IDEs such as Eclipse or IntelliJ.</p>
+    <p>Such code is not only hard to read but also hard to maintain. The general guideline is that <strong>lambda expressions should only be one line long</strong>. If it cannot fit within a single line, the lambda expression is probably not easy to read for people who aren't the author. The code will be much more readable if such lambdas are extracted as methods and this extraction can be easily done with a few clicks in many IDEs such as Eclipse or IntelliJ.</p>
     <p>With the lambda expressions extracted as methods <code>getFailureOrResult</code> and <code>getEmptyResultIfFailure</code>, the earlier code example can be simplified to look like this:</p>
     <pre><code class="hljs java">result = futures.stream()
                 .map(HttpService::getFutureValue)
@@ -357,51 +327,48 @@ List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1<
 </code></pre>
     <p>With good method names given to the extracted lambda expressions, the code for the stream operation becomes self-documenting again.</p>
     <h4 id="difficulty-in-optimising-stream-performance">Difficulty in optimising stream performance</h4>
-    <p>Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to <a href="http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/">this blog post</a>,
-      an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance between
-      loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.</p>
-    <p>Loops are one of the most common control flow structures we use and many of us would probably have a relatively good idea of what are the things you should avoid in loops to achieve good performance. However, this is not the case with streams. As
-      streams have a more high-level abstraction, it is more difficult to understand what is going on beneath our code. Streams are fairly new compared to loops and the unfamiliarity with streams is also another factor which adds on to the difficulty
-      in optimising stream performance.</p>
-    <p>Oftentimes, <strong>using streams to give us better readability and reduced development time while compromising some performance is a reasonable bargain</strong>. We don't spend our time optimising each line of code for a small improvement in performance
-      when we can be doing more productive things.</p>
-    <p>However, when the application is <strong>performance-critical</strong>, knowing that streams can possibly run much slower than a traditional loop, it is good to <strong>benchmark and test the performance of the stream code</strong>. To understand
-      more about how streams are processed and how one can optimise a stream pipeline, you may want to look at <a href="https://www.ibm.com/developerworks/library/j-java-streams-3-brian-goetz/index.html">third</a>, <a href="https://www.ibm.com/developerworks/java/library/j-java-streams-4-brian-goetz/index.html">fourth</a>      and <a href="https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html">fifth</a> part of Brian Goetz's tutorial.</p>
-    <h2 id="resources">Resources</h2>
+    <p>Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to <a href="http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/">this blog post</a>, an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance between loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.</p>
+    <p>Loops are one of the most common control flow structures we use and many of us would probably have a relatively good idea of what are the things you should avoid in loops to achieve good performance. However, this is not the case with streams. As streams have a more high-level abstraction, it is more difficult to understand what is going on beneath our code. Streams are fairly new compared to loops and the unfamiliarity with streams is also another factor which adds on to the difficulty in optimising stream performance.</p>
+    <p>Oftentimes, <strong>using streams to give us better readability and reduced development time while compromising some performance is a reasonable bargain</strong>. We don't spend our time optimising each line of code for a small improvement in performance when we can be doing more productive things.</p>
+    <p>However, when the application is <strong>performance-critical</strong>, knowing that streams can possibly run much slower than a traditional loop, it is good to <strong>benchmark and test the performance of the stream code</strong>. To understand more about how streams are processed and how one can optimise a stream pipeline, you may want to look at <a href="https://www.ibm.com/developerworks/library/j-java-streams-3-brian-goetz/index.html">third</a>, <a href="https://www.ibm.com/developerworks/java/library/j-java-streams-4-brian-goetz/index.html">fourth</a> and <a href="https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html">fifth</a> part of Brian Goetz's tutorial.</p>
+    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
     <p>Hopefully through this guide, you are able to get a good understanding on what are streams and how you can use it. Below are resources you may want to look at to learn more about each respective topic.</p>
-    <h3 id="functional-interfaces">Functional Interfaces</h3>
+    <h3 id="functional-interfaces">Functional Interfaces<a class="fa fa-anchor" href="#functional-interfaces"></a></h3>
     <ul>
-      <li><a href="https://dzone.com/articles/introduction-functional-1">https://dzone.com/articles/introduction-functional-1</a><br> The article provides the background understanding of functional interfaces and links to other blog posts to understand more
-        about functional interfaces.</li>
+      <li><a href="https://dzone.com/articles/introduction-functional-1">https://dzone.com/articles/introduction-functional-1</a><br>
+        The article provides the background understanding of functional interfaces and links to other blog posts to understand more about functional interfaces.</li>
     </ul>
-    <h3 id="method-references">Method References</h3>
+    <h3 id="method-references">Method References<a class="fa fa-anchor" href="#method-references"></a></h3>
     <ul>
       <li>
-        <p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html</a><br> Provides a good summary and short examples of how each kind of method reference
-          can be used.</p>
+        <p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html</a><br>
+          Provides a good summary and short examples of how each kind of method reference can be used.</p>
       </li>
       <li>
-        <p><a href="https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx">https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx</a><br> Read this to get a good understanding of how each method reference is translated
-          to a functional interface object.</p>
-      </li>
-    </ul>
-    <h3 id="lambda-expressions-2">Lambda Expressions</h3>
-    <ul>
-      <li>
-        <p><a href="http://www.lambdafaq.org/">http://www.lambdafaq.org/</a><br> A helpful reference and tutorial on functional-style programming in Java. Explanations given are concise and easy to understand.</p>
-      </li>
-      <li>
-        <p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html</a><br> Read this to understand more about the use cases for lambda expressions.</p>
-      </li>
-      <li>
-        <p><a href="http://www.informit.com/articles/article.aspx?p=2303960&amp;seqNum=7">http://www.informit.com/articles/article.aspx?p=2303960&amp;seqNum=7</a><br> The article is from a book, Core Java for the Impatient, and talks about the scoping of
-          lambda expressions and what you can or cannot do with variables belonging to the enclosing scope.</p>
+        <p><a href="https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx">https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx</a><br>
+          Read this to get a good understanding of how each method reference is translated to a functional interface object.</p>
       </li>
     </ul>
-    <h3 id="stream">Stream</h3>
+    <h3 id="lambda-expressions-2">Lambda Expressions<a class="fa fa-anchor" href="#lambda-expressions-2"></a></h3>
     <ul>
       <li>
-        <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html</a><br> Gives a good overview on Streams and how it should be used.</p>
+        <p><a href="http://www.lambdafaq.org/">http://www.lambdafaq.org/</a><br>
+          A helpful reference and tutorial on functional-style programming in Java. Explanations given are concise and easy to understand.</p>
+      </li>
+      <li>
+        <p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html</a><br>
+          Read this to understand more about the use cases for lambda expressions.</p>
+      </li>
+      <li>
+        <p><a href="http://www.informit.com/articles/article.aspx?p=2303960&amp;seqNum=7">http://www.informit.com/articles/article.aspx?p=2303960&amp;seqNum=7</a><br>
+          The article is from a book, Core Java for the Impatient, and talks about the scoping of lambda expressions and what you can or cannot do with variables belonging to the enclosing scope.</p>
+      </li>
+    </ul>
+    <h3 id="stream">Stream<a class="fa fa-anchor" href="#stream"></a></h3>
+    <ul>
+      <li>
+        <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html</a><br>
+          Gives a good overview on Streams and how it should be used.</p>
       </li>
       <li>
         <p><a href="https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html">https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html</a></p>
@@ -416,22 +383,21 @@ List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1<
         <p><a href="https://www.ibm.com/developerworks/java/library/j-java-streams-4-brian-goetz/index.html">https://www.ibm.com/developerworks/java/library/j-java-streams-4-brian-goetz/index.html</a></p>
       </li>
       <li>
-        <p><a href="https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html">https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html</a><br> The five-part tutorial by Brian Goetz gives a complete
-          guide on how to work with Stream, with the basic operations in the first part, reducing and collecting in the second part, understanding how streams are processed in the third part, and how to optimize parallel operations in the fourth and fifth
-          part.</p>
+        <p><a href="https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html">https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html</a><br>
+          The five-part tutorial by Brian Goetz gives a complete guide on how to work with Stream, with the basic operations in the first part, reducing and collecting in the second part, understanding how streams are processed in the third part, and how to optimize parallel operations in the fourth and fifth part.</p>
       </li>
     </ul>
     <h4 id="common-pitfalls">Common pitfalls</h4>
     <ul>
-      <li><a href="https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/">https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/</a><br> The article gives a list of other common
-        mistakes one may make when using streams.</li>
+      <li><a href="https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/">https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/</a><br>
+        The article gives a list of other common mistakes one may make when using streams.</li>
     </ul>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -443,4 +409,5 @@ List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1<
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

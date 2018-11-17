@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,47 +48,62 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="performance-profiling">Performance Profiling</h1>
+    <h1 id="performance-profiling">Performance Profiling<a class="fa fa-anchor" href="#performance-profiling"></a></h1>
     <p>Author: <a href="https://github.com/initialshl">Ong Heng Le</a></p>
-    <h2 id="overview">Overview</h2>
-    <p>A performance profiler is a tool which collects data (such as function timings) about your program to identify the areas with performance issues, commonly used in code optimization. There are two common types of performance profiling methods.</p>
+    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+    <p>A performance profiler is a tool which collects data (such as function timings) about
+      your program to identify the areas with performance issues, commonly used in code
+      optimization. There are two common types of performance profiling methods.</p>
     <ul>
       <li><strong>CPU sampling</strong>: Collects <em>samples</em> at fixed intervals, which provides an overview of your program's performance</li>
       <li><strong>Instrumentation</strong>: Collects detailed <em>elapsed times</em> for your program's function calls</li>
     </ul>
-    <p>Learn <a href="https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/">which profiling method to use for your program</a> when choosing between CPU sampling and instrumentation.</p>
-    <h2 id="performance-profiling-for-the-first-time">Performance Profiling For The First Time</h2>
-    <p>This article provides resources to help you identify the performance issues as you perform profiling on your program for the first time. The general steps in profiling a program for the first time are:</p>
+    <p>Learn <a href="https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/">which profiling method to use for your program</a>
+      when choosing between CPU sampling and instrumentation.</p>
+    <h2 id="performance-profiling-for-the-first-time">Performance Profiling For The First Time<a class="fa fa-anchor" href="#performance-profiling-for-the-first-time"></a></h2>
+    <p>This article provides resources to help you identify the performance issues as you
+      perform profiling on your program for the first time. The general steps in profiling a
+      program for the first time are:</p>
     <ol>
       <li>Run a performance profiling session</li>
       <li>View the performance report</li>
       <li>Trace down to the problem</li>
       <li>Identify areas for improvements upwards</li>
     </ol>
-    <p>Most profilers are similar in their functionalities, user interface, and use of technical terms. You may adapt the tutorials in this article to your preferred profiling tools on your own project.</p>
+    <p>Most profilers are similar in their functionalities, user interface, and use of
+      technical terms. You may adapt the tutorials in this article to your preferred profiling
+      tools on your own project.</p>
     <ul>
       <li><a href="ProfilingDesktopAppVS2015.md">Profiling a Desktop Application In Visual Studio 2015</a></li>
     </ul>
-    <h2 id="advanced-topics">Advanced Topics</h2>
-    <h3 id="sampling-interval">Sampling Interval</h3>
-    <p>CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many profilers offer the option to <strong>set a custom interval or perform sampling based on events</strong>, such as page faults or system calls, in the sampling
-      settings.</p>
+    <h2 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h2>
+    <h3 id="sampling-interval">Sampling Interval<a class="fa fa-anchor" href="#sampling-interval"></a></h3>
+    <p>CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many
+      profilers offer the option to <strong>set a custom interval or perform sampling based on events</strong>,
+      such as page faults or system calls, in the sampling settings.</p>
     <ul>
       <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/ms182376.aspx">How to: Choose Sampling Events</a><br></li>
       <li>For YourKit Java Profiler: <a href="https://www.yourkit.com/docs/java/help/sampling_settings.jsp">YourKit Java Profiler Help - CPU sampling settings</a></li>
     </ul>
-    <h3 id="instrumentation-overhead">Instrumentation Overhead</h3>
-    <p>Instrumentation profiling incurs a substantial overhead, which is an increase in file size and execution time of the program. This makes it unsuitable for large projects. In such cases, it is recommended to <strong>limit instrumentation to a specific portion of your project</strong>.</p>
+    <h3 id="instrumentation-overhead">Instrumentation Overhead<a class="fa fa-anchor" href="#instrumentation-overhead"></a></h3>
+    <p>Instrumentation profiling incurs a substantial overhead, which is an increase in file size
+      and execution time of the program. This makes it unsuitable for large projects. In such
+      cases, it is recommended to <strong>limit instrumentation to a specific portion of your project</strong>.</p>
     <ul>
-      <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/cc470663.aspx">How to: Limit Instrumentation to Specific Functions</a> or <a href="https://msdn.microsoft.com/en-us/library/bb385752.aspx">Specific DLLs</a></li>
+      <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/cc470663.aspx">How to: Limit Instrumentation to Specific Functions</a>
+        or <a href="https://msdn.microsoft.com/en-us/library/bb385752.aspx">Specific DLLs</a></li>
     </ul>
-    <p>To reduce instrumentation overhead, some profilers may exclude <em>small functions</em>, which are short functions that do not make any function calls, and treat the time as being spent in their calling functions. This behavior is usually enabled
-      by default, which may be undesirable when you want to <strong>examine <em>small functions</em> carefully</strong>. Most profilers offer the option to change this behavior.</p>
+    <p>To reduce instrumentation overhead, some profilers may exclude <em>small functions</em>, which
+      are short functions that do not make any function calls, and treat the time as being
+      spent in their calling functions. This behavior is usually enabled by default, which may
+      be undesirable when you want to <strong>examine <em>small functions</em> carefully</strong>. Most profilers
+      offer the option to change this behavior.</p>
     <ul>
       <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/bb514150.aspx">How to: Exclude or Include Short Functions from Instrumentation</a></li>
     </ul>
-    <h2 id="profiling-other-types-of-data">Profiling Other Types Of Data</h2>
-    <p>Other than collecting performance statistics and timing data, profilers are also able to collect other information such as memory allocation and GPU usage.</p>
+    <h2 id="profiling-other-types-of-data">Profiling Other Types Of Data<a class="fa fa-anchor" href="#profiling-other-types-of-data"></a></h2>
+    <p>Other than collecting performance statistics and timing data, profilers are also able
+      to collect other information such as memory allocation and GPU usage.</p>
     <p>For Visual Studio 2015:</p>
     <ol>
       <li>List of <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">Profiling Tools</a> (A <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx#Anchor_10">table</a> which shows the most suitable tool for each project)</li>
@@ -96,7 +112,7 @@
       <li><a href="https://msdn.microsoft.com/en-us/library/dd265004.aspx">Collecting Thread and Process Concurrency Data</a></li>
       <li><a href="https://msdn.microsoft.com/en-us/library/dd465169.aspx">Collecting tier interaction data</a></li>
     </ol>
-    <h2 id="resources">Resources</h2>
+    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
     <ol>
       <li>What is a software profiler?: <a href="https://msdn.microsoft.com/en-us/library/bb384493(v=vs.110).aspx">Profiling Overview</a></li>
       <li>Common performance profiling methods: <a href="https://msdn.microsoft.com/en-us/library/dd264994.aspx">Understanding Performance Collection Methods</a></li>
@@ -108,7 +124,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -120,4 +136,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

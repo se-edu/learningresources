@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,7 +48,7 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="an-introduction-to-gpgpu">An Introduction to GPGPU</h1>
+    <h1 id="an-introduction-to-gpgpu">An Introduction to GPGPU<a class="fa fa-anchor" href="#an-introduction-to-gpgpu"></a></h1>
     <h6 id="authors-pierce-anderson-fu-nguyen-quoc-bao">Authors: <a href="https://github.com/PierceAndy">Pierce Anderson Fu</a>, <a href="https://github.com/bqnguyen94">Nguyen Quoc Bao</a></h6>
     <ul>
       <li><a href="#-1-gpgpu">GPGPU</a>
@@ -63,18 +64,15 @@
       <li><a href="#-2-further-readings">Further Readings</a></li>
       <li><a href="#-3-references">References</a></li>
     </ul>
-    <h2 id="1-gpgpu">§ 1. GPGPU</h2>
-    <h3 id="11-what-is-gpgpu">§ 1.1 What is GPGPU?</h3>
-    <p>GPGPU stands for General-purpose computing on graphics processing units. It is the use of a graphics processing unit (GPU), which typically handles computation only for computer graphics, to perform computation in applications traditionally handled
-      by the central processing unit (CPU).<sup><a href="#footnote1">[1]</a></sup></p>
+    <h2 id="1-gpgpu">§ 1. GPGPU<a class="fa fa-anchor" href="#1-gpgpu"></a></h2>
+    <h3 id="11-what-is-gpgpu">§ 1.1 What is GPGPU?<a class="fa fa-anchor" href="#11-what-is-gpgpu"></a></h3>
+    <p>GPGPU stands for General-purpose computing on graphics processing units. It is the use of a graphics processing unit (GPU), which typically handles computation only for computer graphics, to perform computation in applications traditionally handled by the central processing unit (CPU).<sup><a href="#footnote1">[1]</a></sup></p>
     <p>Simply put, it's a kind of parallel processing where we're trying to exploit the data-parallel hardware on GPUs to improve the throughput of our computers.</p>
-    <h3 id="12-why-bother-with-parallel-processing">§ 1.2 Why bother with parallel processing?</h3>
-    <p>Moore's law is the observation made by Gordon Moore that the density of transistors in an integrated circuit board doubles approximately every two years. It has long been co-opted by the semiconductor industry as a target, and consumers have taken
-      this growth for granted.</p>
-    <p>Because it suggests exponential growth, it is unsustainable and it cannot be expected to continue indefinitely. In the words of Moore himself, &quot;It can't continue forever.&quot;.<sup><a href="#footnote2">[2]</a></sup> There are hard physical limits
-      to this scaling such as heat dissipation rate<sup><a href="#footnote3">[3]</a></sup> and size of microprocessor features.<sup><a href="#footnote4">[4]</a></sup></p>
+    <h3 id="12-why-bother-with-parallel-processing">§ 1.2 Why bother with parallel processing?<a class="fa fa-anchor" href="#12-why-bother-with-parallel-processing"></a></h3>
+    <p>Moore's law is the observation made by Gordon Moore that the density of transistors in an integrated circuit board doubles approximately every two years. It has long been co-opted by the semiconductor industry as a target, and consumers have taken this growth for granted.</p>
+    <p>Because it suggests exponential growth, it is unsustainable and it cannot be expected to continue indefinitely. In the words of Moore himself, &quot;It can't continue forever.&quot;.<sup><a href="#footnote2">[2]</a></sup> There are hard physical limits to this scaling such as heat dissipation rate<sup><a href="#footnote3">[3]</a></sup> and size of microprocessor features.<sup><a href="#footnote4">[4]</a></sup></p>
     <p>As software engineers, this means that free and regular performance gains can no longer be expected.<sup><a href="#footnote5">[5]</a></sup> To fully exploit CPU throughput gains, we need to code differently.</p>
-    <h3 id="13-arent-multicore-cpus-enough">§ 1.3 Aren't multicore CPUs enough?</h3>
+    <h3 id="13-arent-multicore-cpus-enough">§ 1.3 Aren't multicore CPUs enough?<a class="fa fa-anchor" href="#13-arent-multicore-cpus-enough"></a></h3>
     <p>Between CPUs and GPUs, there are differences in <strong>scale</strong> and <strong>architecture</strong>.</p>
     <ul>
       <li>In terms of <strong>scale</strong>, CPUs only have several cores while GPUs house up to thousands of cores.</li>
@@ -86,27 +84,23 @@
       <p><em>Data parallelism</em> refers to how a processor executes the same operation on different data elements simultaneously.</p>
       <p><em>Compute intensive</em> refers to how the algorithm will have to process lots of data elements.</p>
     </blockquote>
-    <h3 id="14-what-are-the-challenges-with-gpgpu">§ 1.4 What are the challenges with GPGPU?</h3>
+    <h3 id="14-what-are-the-challenges-with-gpgpu">§ 1.4 What are the challenges with GPGPU?<a class="fa fa-anchor" href="#14-what-are-the-challenges-with-gpgpu"></a></h3>
     <p>Not all problems are inherently parallelizable.</p>
     <p>The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that they don't handle branches and inter-thread communication well.</p>
-    <h3 id="15-implementations">§ 1.5 Implementations</h3>
+    <h3 id="15-implementations">§ 1.5 Implementations<a class="fa fa-anchor" href="#15-implementations"></a></h3>
     <ul>
       <li>CUDA: <a href="http://www.nvidia.com/object/cuda_home_new.html">Official website</a></li>
       <li>OpenCL: <a href="https://www.khronos.org/opencl/">Official website</a></li>
     </ul>
-    <h3 id="16-gpgpu-in-action">§ 1.6 GPGPU in action</h3>
-    <p>The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson
-      TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup><a href="#footnote6">[6]</a></sup>. The Pascal architecture is used in many desktop computers,
-      data centres, and supercomputers<sup><a href="#footnote7">[7]</a></sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.</p>
+    <h3 id="16-gpgpu-in-action">§ 1.6 GPGPU in action<a class="fa fa-anchor" href="#16-gpgpu-in-action"></a></h3>
+    <p>The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup><a href="#footnote6">[6]</a></sup>. The Pascal architecture is used in many desktop computers, data centres, and supercomputers<sup><a href="#footnote7">[7]</a></sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.</p>
     <p><a href="jetson_tx2.jpg" target="_self"><img src="jetson_tx2.jpg" alt="" class="img-fluid" title="NVIDIA's Jetson TX2"></a></p>
     <p><em><a href="https://devblogs.nvidia.com/jetson-tx2-delivers-twice-intelligence-edge/">NVIDIA Jetson TX2 embedded system-on-module with Thermal Transfer Plate (TTP)</a></em></p>
-    <p>Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup><a href="#footnote6">[6]</a></sup>, the TX2 is capable of intensive parallel computational tasks such as real-time vision processing or deploying deep neural networks, allowing
-      mobile platforms to solve complex, real-world problems.</p>
+    <p>Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup><a href="#footnote6">[6]</a></sup>, the TX2 is capable of intensive parallel computational tasks such as real-time vision processing or deploying deep neural networks, allowing mobile platforms to solve complex, real-world problems.</p>
     <p><a href="drivenet.jpg" target="_self"><img src="drivenet.jpg" alt="" class="img-fluid" title="NVIDIA DRIVENet Demo"></a></p>
     <p><em><a href="https://www.youtube.com/watch?v=HJ58dbd5g8g">CES 2016: NVIDIA DRIVENet Demo - Visualizing a Self-Driving Future</a></em></p>
-    <p>Compatible with a range of components and large ecosystem products<sup><a href="#footnote8">[8]</a></sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous
-      robots, drones, IoT, handheld medical devices, etc<sup><a href="#footnote9">[9]</a></sup>.</p>
-    <h2 id="2-further-readings">§ 2. Further Readings</h2>
+    <p>Compatible with a range of components and large ecosystem products<sup><a href="#footnote8">[8]</a></sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup><a href="#footnote9">[9]</a></sup>.</p>
+    <h2 id="2-further-readings">§ 2. Further Readings<a class="fa fa-anchor" href="#2-further-readings"></a></h2>
     <ul>
       <li><a href="http://www.gotw.ca/publications/concurrency-ddj.htm">How concurrency is the next big change in software development since OO</a></li>
       <li><a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing">Official CUDA C programming guide: What GPUs excel at processing, and why</a></li>
@@ -114,7 +108,7 @@
       <li><a href="https://github.com/nus-oss/lightningtalks/issues/10">Lightning talk slides: An Introduction to GPGPU</a></li>
       <li><a href="cuda.md">se-edu's learning resource on CUDA</a></li>
     </ul>
-    <h2 id="3-references">§ 3. References</h2>
+    <h2 id="3-references">§ 3. References<a class="fa fa-anchor" href="#3-references"></a></h2>
     <p><a name="footnote1">[1]</a>: <a href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units</a><br>
       <a name="footnote2">[2]</a>: <a href="http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/">http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/</a><br>
       <a name="footnote3">[3]</a>: <a href="http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf">http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf</a><br>
@@ -129,7 +123,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -141,4 +135,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

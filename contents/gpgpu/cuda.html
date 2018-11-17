@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,7 +48,7 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="an-introduction-to-cuda">An Introduction to CUDA</h1>
+    <h1 id="an-introduction-to-cuda">An Introduction to CUDA<a class="fa fa-anchor" href="#an-introduction-to-cuda"></a></h1>
     <h6 id="author-pierce-anderson-fu">Author: <a href="https://github.com/PierceAndy">Pierce Anderson Fu</a></h6>
     <ul>
       <li><a href="#-0-disclaimer">Disclaimer</a></li>
@@ -110,14 +111,14 @@
       <li><a href="#-4-further-readings">Further Readings</a></li>
       <li><a href="#-5-references">References</a></li>
     </ul>
-    <h2 id="0-disclaimer">§ 0. Disclaimer</h2>
+    <h2 id="0-disclaimer">§ 0. Disclaimer<a class="fa fa-anchor" href="#0-disclaimer"></a></h2>
     <p>This learning resource assumes that you understand what GPGPU is.</p>
     <p>If not, find out more about GPGPU at <a href="gpgpu.md">se-edu's learning resource on GPGPU</a>.</p>
-    <h2 id="1-cuda">§ 1. CUDA</h2>
-    <h3 id="11-what-is-cuda">§ 1.1 What is CUDA?</h3>
+    <h2 id="1-cuda">§ 1. CUDA<a class="fa fa-anchor" href="#1-cuda"></a></h2>
+    <h3 id="11-what-is-cuda">§ 1.1 What is CUDA?<a class="fa fa-anchor" href="#11-what-is-cuda"></a></h3>
     <p>CUDA is a parallel computing platform and programming model from NVIDIA.<sup><a href="#footnote1">[1]</a></sup></p>
     <p>It allows us to use a CUDA-enabled GPU for GPGPU. The list of GPUs that support CUDA can be found here: <a href="https://developer.nvidia.com/cuda-gpus">https://developer.nvidia.com/cuda-gpus</a>.</p>
-    <h3 id="12-cuda-terminologies">§ 1.2 CUDA Terminologies</h3>
+    <h3 id="12-cuda-terminologies">§ 1.2 CUDA Terminologies<a class="fa fa-anchor" href="#12-cuda-terminologies"></a></h3>
     <h4 id="host">Host</h4>
     <p>Refers to CPU and its memory</p>
     <h4 id="host-code">Host code</h4>
@@ -139,21 +140,18 @@
     <h4 id="blocks">Blocks</h4>
     <p>A logical group of threads.</p>
     <p>The threads in a block can be arranged into 1D, 2D, or 3D arrays, and can be identified using 1D (<code>x</code>), 2D (<code>x</code>, <code>y</code>), or 3D (<code>x</code>, <code>y</code>, <code>z</code>) indexes, respectively.</p>
-    <p>Each block is atomically assigned to and run by a single SM. A single block will never be split up, and it will never be processed by more than one SM. However, note that it isn't a one-to-one relationship, and one SM can concurrently process more
-      than one block. There is no synchronization between blocks, and they are executed independently from each other.<sup><a href="#footnote3">[3]</a></sup></p>
+    <p>Each block is atomically assigned to and run by a single SM. A single block will never be split up, and it will never be processed by more than one SM. However, note that it isn't a one-to-one relationship, and one SM can concurrently process more than one block. There is no synchronization between blocks, and they are executed independently from each other.<sup><a href="#footnote3">[3]</a></sup></p>
     <h4 id="grids">Grids</h4>
     <p>A logical group of blocks.</p>
     <p>The blocks in a grid can be arranged into 1D, or 2D arrays, and can be identified using 1D (<code>x</code>), or 2D (<code>x</code>, <code>y</code>) indexes, respectively.</p>
     <h5 id="nvidias-official-word-on-kernels-threads-blocks-and-grids">NVIDIA's official word on Kernels, Threads, Blocks, and Grids</h5>
     <blockquote>
-      <p>When a CUDA program on the host CPU invokes a kernel grid, the blocks of the grid are enumerated and distributed to multiprocessors with available execution capacity. The threads of a thread block execute concurrently on one multiprocessor, and
-        multiple thread blocks can execute concurrently on one multiprocessor. As thread blocks terminate, new blocks are launched on the vacated multiprocessors.<sup><a href="#footnote4">[4]</a></sup></p>
+      <p>When a CUDA program on the host CPU invokes a kernel grid, the blocks of the grid are enumerated and distributed to multiprocessors with available execution capacity. The threads of a thread block execute concurrently on one multiprocessor, and multiple thread blocks can execute concurrently on one multiprocessor. As thread blocks terminate, new blocks are launched on the vacated multiprocessors.<sup><a href="#footnote4">[4]</a></sup></p>
     </blockquote>
     <p><a href="gpgpu_architecture.png" target="_self"><img src="gpgpu_architecture.png" alt="" class="img-fluid" title="GPGPU architecture"></a></p>
-    <h3 id="13-kernel-implementations-in-c">§ 1.3 Kernel Implementations in C</h3>
+    <h3 id="13-kernel-implementations-in-c">§ 1.3 Kernel Implementations in C<a class="fa fa-anchor" href="#13-kernel-implementations-in-c"></a></h3>
     <p>A kernel is defined using the <code>__global__</code> declaration specifier. This tells the CUDA C++ compiler that this is a function that runs on the GPU and can be called from CPU code.</p>
-    <p>The number of CUDA threads that execute that kernel for a given kernel call is specified using the <code>&lt;&lt;&lt;...&gt;&gt;&gt;</code> execution configuration.<sup><a href="#footnote2">[2]</a></sup> A kernel called <code>myKernel</code> can be
-      launched with the following syntax in C:</p>
+    <p>The number of CUDA threads that execute that kernel for a given kernel call is specified using the <code>&lt;&lt;&lt;...&gt;&gt;&gt;</code> execution configuration.<sup><a href="#footnote2">[2]</a></sup> A kernel called <code>myKernel</code> can be launched with the following syntax in C:</p>
     <p><code>myKernel&lt;&lt;&lt;numBlocks, numThreadsPerBlock&gt;&gt;&gt;(args)</code></p>
     <blockquote>
       <h5 id="definitions">Definitions:</h5>
@@ -191,20 +189,18 @@ int main()
     <p>Thread index within the block. Is block-level unique.</p>
     <p>For instance, the index of a thread in a 1D grid of a 1D block of threads can be determined using</p>
     <p><code>blockIdx.x * blockDim.x + threadIdx.x</code></p>
-    <h3 id="14-introductory-tutorial">§ 1.4 Introductory Tutorial</h3>
+    <h3 id="14-introductory-tutorial">§ 1.4 Introductory Tutorial<a class="fa fa-anchor" href="#14-introductory-tutorial"></a></h3>
     <p>Refer to the excellent tutorial by the Chief Technologist for GPU Computing Software at NVIDIA here: <a href="https://devblogs.nvidia.com/parallelforall/even-easier-introduction-cuda/">An Even Easier Introduction to CUDA</a>.</p>
     <p>Should you have trouble understanding any terms, you can refer to <a href="#-12-cuda-terminologies">section 1.2 of this guide on CUDA terminologies</a>.</p>
-    <h2 id="2-pycuda">§ 2. PyCUDA</h2>
-    <h3 id="21-what-is-pycuda">§ 2.1 What is PyCUDA?</h3>
+    <h2 id="2-pycuda">§ 2. PyCUDA<a class="fa fa-anchor" href="#2-pycuda"></a></h2>
+    <h3 id="21-what-is-pycuda">§ 2.1 What is PyCUDA?<a class="fa fa-anchor" href="#21-what-is-pycuda"></a></h3>
     <p>PyCUDA lets you access NVIDIA‘s CUDA parallel computation API from Python.<sup><a href="#footnote6">[6]</a></sup></p>
-    <h3 id="22-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python">§ 2.2 Does this mean not having to use C, and coding entirely in Python?</h3>
+    <h3 id="22-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python">§ 2.2 Does this mean not having to use C, and coding entirely in Python?<a class="fa fa-anchor" href="#22-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python"></a></h3>
     <p>Not entirely so.</p>
-    <p>While kernels will have to be written in CUDA C, PyCUDA has helper interfaces that make it easier to write CUDA code (e.g. with memory management and cleanup). However, with the right helpers, you can write CUDA code without needing to write any C
-      code at all. For instance, <a href="https://wiki.tiker.net/PyCuda/Examples/2DFFT">see this example from the Wiki that performs a 2D fast Fourier transform (FFT) without any CUDA C code</a>.<sup><a href="#footnote7">[7]</a></sup></p>
-    <h3 id="23-so-why-bother-with-pycuda">§ 2.3 So Why bother with PyCUDA?</h3>
+    <p>While kernels will have to be written in CUDA C, PyCUDA has helper interfaces that make it easier to write CUDA code (e.g. with memory management and cleanup). However, with the right helpers, you can write CUDA code without needing to write any C code at all. For instance, <a href="https://wiki.tiker.net/PyCuda/Examples/2DFFT">see this example from the Wiki that performs a 2D fast Fourier transform (FFT) without any CUDA C code</a>.<sup><a href="#footnote7">[7]</a></sup></p>
+    <h3 id="23-so-why-bother-with-pycuda">§ 2.3 So Why bother with PyCUDA?<a class="fa fa-anchor" href="#23-so-why-bother-with-pycuda"></a></h3>
     <ul>
-      <li>Object cleanup tied to lifetime of objects. This idiom, often called <a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a> in C++, makes it much easier to write correct, leak- and crash-free code. PyCUDA knows about
-        dependencies, too, so (for example) it won’t detach from a context before all memory allocated in it is also freed.<sup><a href="#footnote6">[6]</a></sup></li>
+      <li>Object cleanup tied to lifetime of objects. This idiom, often called <a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a> in C++, makes it much easier to write correct, leak- and crash-free code. PyCUDA knows about dependencies, too, so (for example) it won’t detach from a context before all memory allocated in it is also freed.<sup><a href="#footnote6">[6]</a></sup></li>
       <li>Convenience. Abstractions like pycuda.driver.SourceModule and pycuda.gpuarray.GPUArray make CUDA programming even more convenient than with NVIDIA’s C-based runtime.<sup><a href="#footnote6">[6]</a></sup></li>
       <li>Completeness. PyCUDA puts the full power of CUDA’s driver API at your disposal, if you wish.<sup><a href="#footnote6">[6]</a></sup></li>
       <li>Automatic Error Checking. All CUDA errors are automatically translated into Python exceptions.<sup><a href="#footnote6">[6]</a></sup></li>
@@ -213,29 +209,27 @@ int main()
       <li><a href="https://github.com/inducer/pycuda">Open sourced on GitHub</a>.</li>
     </ul>
     <p>Thus, if you're not familiar with C, it would be easier to learn about CUDA through PyCUDA, especially if you have prior experience with Python.</p>
-    <h3 id="24-installing-pycuda">§ 2.4 Installing PyCUDA</h3>
+    <h3 id="24-installing-pycuda">§ 2.4 Installing PyCUDA<a class="fa fa-anchor" href="#24-installing-pycuda"></a></h3>
     <p>Official installation instructions here: <a href="https://wiki.tiker.net/PyCuda/Installation">https://wiki.tiker.net/PyCuda/Installation</a></p>
-    <h3 id="25-minor-pycuda-terminologies">§ 2.5 Minor PyCUDA Terminologies</h3>
+    <h3 id="25-minor-pycuda-terminologies">§ 2.5 Minor PyCUDA Terminologies<a class="fa fa-anchor" href="#25-minor-pycuda-terminologies"></a></h3>
     <h4 id="dtoh">dtoh</h4>
     <p>Device to host, <em>i.e.</em> GPU to CPU.</p>
     <h4 id="htod">htod</h4>
     <p>Host to device, <em>i.e.</em> CPU to GPU.</p>
-    <h3 id="26-introductory-tutorial">§ 2.6 Introductory Tutorial</h3>
+    <h3 id="26-introductory-tutorial">§ 2.6 Introductory Tutorial<a class="fa fa-anchor" href="#26-introductory-tutorial"></a></h3>
     <p>Official tutorial here: <a href="https://documen.tician.de/pycuda/tutorial.html">https://documen.tician.de/pycuda/tutorial.html</a></p>
     <blockquote>
       <h5 id="note">Note:</h5>
       <p>While still useful and relevant, this tutorial was originally written in 2008, and contains some outdated information.</p>
-      <p>Specifically, the point about how &quot;most nVidia [<em>sic</em>] devices only support single precision&quot; is incorrect. All NVIDIA GPUs since GT200 (released in Sep 2008), with compute capability 1.3 or higher, provide hardware support for
-        double precision floating point values and operations.<sup><a href="#footnote8">[8]</a></sup></p>
+      <p>Specifically, the point about how &quot;most nVidia [<em>sic</em>] devices only support single precision&quot; is incorrect. All NVIDIA GPUs since GT200 (released in Sep 2008), with compute capability 1.3 or higher, provide hardware support for double precision floating point values and operations.<sup><a href="#footnote8">[8]</a></sup></p>
       <p>You can find out the compute capability of your NVIDIA card from the <a href="https://developer.nvidia.com/cuda-gpus">official website</a> or <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">this table from Wikipedia</a>.</p>
       <p>You can also find out more about the features and specifications of each compute capability version from the <a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">official documentation</a> or <a href="https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications">these tables from Wikipedia</a>.</p>
     </blockquote>
-    <h2 id="3-cuda-vs-opencl">§ 3. CUDA vs OpenCL</h2>
-    <h3 id="31-what-is-opencl">§ 3.1 What is OpenCL?</h3>
+    <h2 id="3-cuda-vs-opencl">§ 3. CUDA vs OpenCL<a class="fa fa-anchor" href="#3-cuda-vs-opencl"></a></h2>
+    <h3 id="31-what-is-opencl">§ 3.1 What is OpenCL?<a class="fa fa-anchor" href="#31-what-is-opencl"></a></h3>
     <p>OpenCL (Open Computing Language) is an open standard for cross-platform, parallel programming of diverse processors found in personal computers, servers, mobile devices and embedded platforms.<sup><a href="#footnote9">[9]</a></sup></p>
-    <h3 id="32-differences-between-cuda-and-opencl">§ 3.2 Differences between CUDA and OpenCL</h3>
-    <p>First and foremost, the most distinctive difference is in how CUDA is proprietary to NVIDIA, whereas OpenCL, while owned by the Khronos Group, is open-sourced. The implications are that if you have an NVIDIA GPU, it supports both CUDA and OpenCL,
-      but if not, and you're using an AMD GPU, it only supports OpenCL.</p>
+    <h3 id="32-differences-between-cuda-and-opencl">§ 3.2 Differences between CUDA and OpenCL<a class="fa fa-anchor" href="#32-differences-between-cuda-and-opencl"></a></h3>
+    <p>First and foremost, the most distinctive difference is in how CUDA is proprietary to NVIDIA, whereas OpenCL, while owned by the Khronos Group, is open-sourced. The implications are that if you have an NVIDIA GPU, it supports both CUDA and OpenCL, but if not, and you're using an AMD GPU, it only supports OpenCL.</p>
     <p>Additionally, they use different terms. For instance, what NIVIDIA refers to as a &quot;thread&quot;, OpenCL refers to as a &quot;work item&quot;.</p>
     <p>This topic is widely covered. Here are some good references on what the differences are, and what the implications are when choosing one over the other:</p>
     <ul>
@@ -243,14 +237,14 @@ int main()
       <li><a href="http://create.pro/blog/opencl-vs-cuda/">http://create.pro/blog/opencl-vs-cuda/</a></li>
       <li><a href="https://streamcomputing.eu/blog/2010-04-22/difference-between-cuda-and-opencl/">https://streamcomputing.eu/blog/2010-04-22/difference-between-cuda-and-opencl/</a></li>
     </ul>
-    <h2 id="4-further-readings">§ 4. Further Readings</h2>
+    <h2 id="4-further-readings">§ 4. Further Readings<a class="fa fa-anchor" href="#4-further-readings"></a></h2>
     <ul>
       <li><a href="https://developer.nvidia.com/cuda-zone">Official CUDA C developer resources</a></li>
       <li><a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide">Official CUDA C programming guide</a></li>
       <li><a href="https://github.com/nus-oss/lightningtalks/issues/44">Lightning talk slides: GPU Programming Made Easy with Python</a></li>
       <li><a href="gpgpu.md">se-edu's learning resource on GPGPU</a></li>
     </ul>
-    <h2 id="5-references">§ 5. References</h2>
+    <h2 id="5-references">§ 5. References<a class="fa fa-anchor" href="#5-references"></a></h2>
     <p><a name="footnote1">[1]</a>: <a href="http://www.nvidia.com/object/cuda_home_new.html">http://www.nvidia.com/object/cuda_home_new.html</a><br>
       <a name="footnote2">[2]</a>: <a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels">http://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels</a><br>
       <a name="footnote3">[3]</a>: <a href="https://llpanorama.wordpress.com/2008/06/11/threads-and-blocks-and-grids-oh-my/">https://llpanorama.wordpress.com/2008/06/11/threads-and-blocks-and-grids-oh-my/</a><br>
@@ -265,7 +259,7 @@ int main()
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -277,4 +271,5 @@ int main()
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

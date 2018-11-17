@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,11 +48,11 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="introduction-to-ruby">Introduction to Ruby</h1>
+    <h1 id="introduction-to-ruby">Introduction to Ruby<a class="fa fa-anchor" href="#introduction-to-ruby"></a></h1>
     <p>Authors: <a href="https://github.com/wkurniawan07">Wilson Kurniawan</a></p>
-    <h2 id="ruby-overview">Ruby Overview</h2>
-    <p><strong>Ruby</strong> is a <strong>dynamic</strong>, <strong>reflective</strong>, <strong>object-oriented</strong>, <strong>general-purpose</strong> programming-language, designed and developed by Yukihiro &quot;Matz&quot; Matsumoto in 1990s. It is
-      widely used across many fields of computer science and software engineering, and its most prevalent use is in web development.</p>
+    <h2 id="ruby-overview">Ruby Overview<a class="fa fa-anchor" href="#ruby-overview"></a></h2>
+    <p><strong>Ruby</strong> is a <strong>dynamic</strong>, <strong>reflective</strong>, <strong>object-oriented</strong>, <strong>general-purpose</strong> programming-language, designed and developed by Yukihiro &quot;Matz&quot; Matsumoto in 1990s.
+      It is widely used across many fields of computer science and software engineering, and its most prevalent use is in web development.</p>
     <p>Ruby boasts high programmer productivity with its concise, elegant, and human-readable syntax, which is widely agreed to outweigh the loss in execution speed (as compared to compiled languages such as C and Java) unless the latter is critical.</p>
     <blockquote>
       <p>Often people, especially computer engineers, focus on the machines. They think, &quot;By doing this, the machine will run faster. By doing this, the machine will run more effectively. By doing this, the machine will something something something.&quot;
@@ -59,12 +60,13 @@
       <p><em>Yukihiro Matsumoto, creator of Ruby language</em></p>
     </blockquote>
     <p>Popular websites running on Ruby: GitHub, Airbnb, Twitter, Shopify.</p>
-    <h2 id="getting-started">Getting Started</h2>
+    <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h2>
     <p><a href="https://www.ruby-lang.org/en/">The official website of Ruby</a> will have everything you need from release notes to downloads to documentations.</p>
-    <p>To install Ruby, go to the download page of the above website and follow the instructions. If you're a Mac user, you don't need to do anything; Macs come with Ruby pre-installed!</p>
-    <p>For beginners and intermediate users, <a href="https://www.tutorialspoint.com/ruby/index.htm">tutorialspoint</a> has great introductory Ruby tutorials, and <a href="http://rubylearning.com/satishtalim/tutorial.html">rubylearning.com</a> is another
-      great place. We will explore some of the more prominent language features of Ruby.</p>
-    <h3 id="everything-is-an-object">Everything is an object</h3>
+    <p>To install Ruby, go to the download page of the above website and follow the instructions.
+      If you're a Mac user, you don't need to do anything; Macs come with Ruby pre-installed!</p>
+    <p>For beginners and intermediate users, <a href="https://www.tutorialspoint.com/ruby/index.htm">tutorialspoint</a> has great introductory Ruby tutorials, and <a href="http://rubylearning.com/satishtalim/tutorial.html">rubylearning.com</a> is another great place.
+      We will explore some of the more prominent language features of Ruby.</p>
+    <h3 id="everything-is-an-object">Everything is an object<a class="fa fa-anchor" href="#everything-is-an-object"></a></h3>
     <p>Ruby has no concept of &quot;primitives&quot;. Anything that can be assigned to a variable is an object. Even numbers and boolean values <code>true</code> and <code>false</code> are objects.</p>
     <pre><code class="hljs rb"><span class="hljs-number">5</span>.times <span class="hljs-keyword">do</span>
   puts <span class="hljs-string">"Hello world!"</span>
@@ -86,7 +88,7 @@
 <span class="hljs-number">7</span>.<span class="hljs-keyword">next</span>()
 <span class="hljs-comment">#  =&gt; 8</span>
 </code></pre>
-    <h3 id="readability-is-king">Readability is king</h3>
+    <h3 id="readability-is-king">Readability is king<a class="fa fa-anchor" href="#readability-is-king"></a></h3>
     <blockquote>
       <p>Ruby is simple in appearance, but is very complex inside, just like our human body.</p>
       <p><em>Yukihiro Matsumoto</em></p>
@@ -105,7 +107,7 @@
 }
 </code></pre>
     <p><em>No, you're not reading an English poem. You're reading Ruby!</em></p>
-    <h3 id="functional-programming-is-encouraged">Functional programming is encouraged</h3>
+    <h3 id="functional-programming-is-encouraged">Functional programming is encouraged<a class="fa fa-anchor" href="#functional-programming-is-encouraged"></a></h3>
     <p>For those familiar with <a href="http://www.cse.unsw.edu.au/~en1000/haskell/hof.html">higher-order functions</a>, Ruby supports <em>map</em>, <em>fold-left</em>, and <em>filter</em>.</p>
     <pre><code class="hljs rb"><span class="hljs-comment"># Map</span>
 [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].map { <span class="hljs-params">|n|</span> n * n }
@@ -120,7 +122,7 @@
 <span class="hljs-comment">#  =&gt; [2, 4]</span>
 </code></pre>
     <p>Joel McCracken makes an <a href="http://joelmccracken.github.io/functional-programming-in-ruby/#/">excellent short presentation</a> on how functions are treated in Ruby.</p>
-    <h3 id="object-oriented-programming-is-possible-too">Object-oriented programming is possible, too</h3>
+    <h3 id="object-oriented-programming-is-possible-too">Object-oriented programming is possible, too<a class="fa fa-anchor" href="#object-oriented-programming-is-possible-too"></a></h3>
     <pre><code class="hljs rb"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialize</span><span class="hljs-params">(r)</span></span>
     @radius = r
@@ -140,7 +142,7 @@ c.get_area
 <span class="hljs-comment">#  =&gt; 78.53981633974483</span>
 </code></pre>
     <p>More on this in <a href="https://www.tutorialspoint.com/ruby/ruby_object_oriented.htm">Object-oriented Ruby tutorial</a>.</p>
-    <h2 id="advanced-topics">Advanced Topics</h2>
+    <h2 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h2>
     <ul>
       <li><a href="https://www.tutorialspoint.com/ruby/ruby_blocks.htm">Blocks in Ruby</a> - ever imagine that a method invocation can be another method's parameter?</li>
       <li><a href="https://www.tutorialspoint.com/ruby/ruby_modules.htm">Modules and mixins in Ruby</a> - provides namespacing, and makes multiple inheritance (or a variant of it, technically) possible.</li>
@@ -151,13 +153,12 @@ c.get_area
       <li><a href="http://www.rubyinside.com/21-ruby-tricks-902.html">21 Ruby tricks</a> - making good use of Ruby's language features.</li>
       <li><a href="http://www.reedbushey.com/119Ruby%20Best%20Practices.pdf">Ruby best practices</a> - a book written by a Ruby expert with foreword provided by Yukihiro Matsumoto himself.</li>
     </ul>
-    <h2 id="ruby-frameworks-and-devops">Ruby Frameworks and DevOps</h2>
+    <h2 id="ruby-frameworks-and-devops">Ruby Frameworks and DevOps<a class="fa fa-anchor" href="#ruby-frameworks-and-devops"></a></h2>
     <p>As with most other languages, tools and frameworks exist for serious Ruby developers and project managers to assist many of their tasks.</p>
     <ul>
       <li><strong>Frameworks:</strong> <a href="http://rubyonrails.org">Ruby on Rails</a> is by far the most popular web application framework for Ruby. Another popular framework is <a href="http://www.sinatrarb.com">Sinatra</a>.</li>
       <li><strong>Libraries:</strong> Ruby libraries come in form of <em>gems</em>. The complete registry can be found on <a href="https://rubygems.org">this website</a>.</li>
-      <li><strong>IDE:</strong> <a href="http://www.aptana.com/products/studio3.html">Aptana Studio</a> is the favourite IDE for Rails developers. Other alternatives are <a href="https://www.jetbrains.com/ruby/">RubyMine</a> (commercial) and Eclipse with
-        <a href="https://sourceforge.net/projects/rubyeclipse/">RDT plugin</a>.</li>
+      <li><strong>IDE:</strong> <a href="http://www.aptana.com/products/studio3.html">Aptana Studio</a> is the favourite IDE for Rails developers. Other alternatives are <a href="https://www.jetbrains.com/ruby/">RubyMine</a> (commercial) and Eclipse with <a href="https://sourceforge.net/projects/rubyeclipse/">RDT plugin</a>.</li>
       <li><strong>Task Automation:</strong> <a href="http://docs.seattlerb.org/rake/">Rake</a> is the most commonly used automation tool.</li>
       <li><strong>Static Analysis:</strong> <a href="http://batsov.com/rubocop/">RuboCop</a> is the sole leading static analysis tool for Ruby language.</li>
     </ul>
@@ -167,7 +168,7 @@ c.get_area
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -179,4 +180,5 @@ c.get_area
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

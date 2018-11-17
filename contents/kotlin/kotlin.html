@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,7 +48,7 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="introduction-to-kotlin">Introduction to Kotlin</h1>
+    <h1 id="introduction-to-kotlin">Introduction to Kotlin<a class="fa fa-anchor" href="#introduction-to-kotlin"></a></h1>
     <p>Author: <a href="https://github.com/tshradheya">Shradheya Thakre</a></p>
     <p><strong>Chapter contents</strong></p>
     <ul>
@@ -68,10 +69,10 @@
       </li>
       <li><a href="#resources-to-learn-kotlin">Resources to learn Kotlin</a></li>
     </ul>
-    <h1 id="overview">Overview</h1>
+    <h1 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h1>
     <p>Kotlin is a general purpose, open source, statically typed programming language for the JVM and Android that combines object-oriented and functional programming features.</p>
-    <h1 id="why-kotlin">Why Kotlin?</h1>
-    <h3 id="concise">Concise</h3>
+    <h1 id="why-kotlin">Why Kotlin?<a class="fa fa-anchor" href="#why-kotlin"></a></h1>
+    <h3 id="concise">Concise<a class="fa fa-anchor" href="#concise"></a></h3>
     <p>Highly reduces the amount of boilerplate code.</p>
     <ul>
       <li>A Java object with getters, setters, equals(), hashCode(), toString() and copy() can be created in a single line in Kotlin</li>
@@ -84,8 +85,8 @@
     <p><strong>Kotlin</strong></p>
     <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> quartile: <span class="hljs-built_in">Int</span>
 quartile = <span class="hljs-keyword">when</span> (playPercentage) {
-    <span class="hljs-keyword">in</span> <span class="hljs-number">0.</span><span class="hljs-number">.24</span> -&gt; <span class="hljs-number">0</span>
-    <span class="hljs-keyword">in</span> <span class="hljs-number">25.</span><span class="hljs-number">.49</span> -&gt; <span class="hljs-number">1</span>
+    <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">24</span> -&gt; <span class="hljs-number">0</span>
+    <span class="hljs-keyword">in</span> <span class="hljs-number">25</span>..<span class="hljs-number">49</span> -&gt; <span class="hljs-number">1</span>
     ...
 }
 </code></pre>
@@ -98,7 +99,7 @@ quartile = <span class="hljs-keyword">when</span> (playPercentage) {
 }
 ...
 </code></pre>
-    <h3 id="safe">Safe</h3>
+    <h3 id="safe">Safe<a class="fa fa-anchor" href="#safe"></a></h3>
     <p>Kotlin protects you from mistakenly operating on <a href="https://kotlinlang.org/docs/reference/null-safety.html">nullable</a> types</p>
     <ul>
       <li>Get compilation error when you mistakenly try operating on nullable types</li>
@@ -106,7 +107,7 @@ quartile = <span class="hljs-keyword">when</span> (playPercentage) {
     <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> name: String? = <span class="hljs-literal">null</span>    <span class="hljs-comment">// Nullable type</span>
 println(name.length())      <span class="hljs-comment">// Compilation error</span>
 </code></pre>
-    <h3 id="interoperable">Interoperable</h3>
+    <h3 id="interoperable">Interoperable<a class="fa fa-anchor" href="#interoperable"></a></h3>
     <ul>
       <li>Target either the JVM or JavaScript. Write code in Kotlin and decide where you want to deploy</li>
     </ul>
@@ -118,14 +119,12 @@ println(name.length())      <span class="hljs-comment">// Compilation error</spa
     <ul>
       <li>You can literally continue work on your old Java projects using Kotlin. All your favorite Java frameworks are still available, and whatever framework you’ll write in Kotlin can be easily adopted by other Java developers</li>
     </ul>
-    <h3 id="tool-friendly">Tool Friendly</h3>
-    <p>Hyperbolically, a programming language is only as good as what its tools can provide. This is why the advantage of using Kotlin is the built-in language support from IntelliJ. Any Java IDE for e.g. IntelliJ, Eclipse and Android Studio, can be used
-      to write and compile Kotlin code. It also contains the aforementioned Java-to-Kotlin converter and code generators for Java and JavaScript from Kotlin code.</p>
-    <h1 id="kotlin-for-android-apps">Kotlin for Android Apps</h1>
+    <h3 id="tool-friendly">Tool Friendly<a class="fa fa-anchor" href="#tool-friendly"></a></h3>
+    <p>Hyperbolically, a programming language is only as good as what its tools can provide. This is why the advantage of using Kotlin is the built-in language support from IntelliJ. Any Java IDE for e.g. IntelliJ, Eclipse and Android Studio, can be used to write and compile Kotlin code. It also contains the aforementioned Java-to-Kotlin converter and code generators for Java and JavaScript from Kotlin code.</p>
+    <h1 id="kotlin-for-android-apps">Kotlin for Android Apps<a class="fa fa-anchor" href="#kotlin-for-android-apps"></a></h1>
     <p>While Java is one of the world's most widely used programming languages and is pretty much the official language of Android development, there are many reasons why Java might not always be the best option for your Android projects.</p>
-    <p>The biggest issue is that Java isn’t a modern language, and although Java 8 was a huge step forward for the platform, introducing lots of features that developers had been waiting for (including lambda functions), at the time of writing Android only
-      supports a subset of Java 8 features.</p>
-    <h3 id="advantages-of-shifting-to-kotlin">Advantages of Shifting to Kotlin</h3>
+    <p>The biggest issue is that Java isn’t a modern language, and although Java 8 was a huge step forward for the platform, introducing lots of features that developers had been waiting for (including lambda functions), at the time of writing Android only supports a subset of Java 8 features.</p>
+    <h3 id="advantages-of-shifting-to-kotlin">Advantages of Shifting to Kotlin<a class="fa fa-anchor" href="#advantages-of-shifting-to-kotlin"></a></h3>
     <ul>
       <li>Interchangeability With Java</li>
       <li>Easy learning curve</li>
@@ -133,13 +132,13 @@ println(name.length())      <span class="hljs-comment">// Compilation error</spa
       <li>First-class Android Studio support</li>
       <li>More concise code</li>
     </ul>
-    <h3 id="drawbacks-of-shifting-to-kotlin">Drawbacks of Shifting to Kotlin</h3>
+    <h3 id="drawbacks-of-shifting-to-kotlin">Drawbacks of Shifting to Kotlin<a class="fa fa-anchor" href="#drawbacks-of-shifting-to-kotlin"></a></h3>
     <ul>
       <li>Extra runtime size due to increase in size of <code>.apk</code></li>
       <li>Initial readability of code may be hindered for core Java developers</li>
       <li>Smaller community support</li>
     </ul>
-    <h1 id="resources-to-learn-kotlin">Resources to learn Kotlin</h1>
+    <h1 id="resources-to-learn-kotlin">Resources to learn Kotlin<a class="fa fa-anchor" href="#resources-to-learn-kotlin"></a></h1>
     <ul>
       <li><a href="https://developer.android.com/kotlin/resources.html">Official Resources by Android</a></li>
       <li><a href="https://kotlinlang.org/docs/reference/">Kotlin Documentation</a></li>
@@ -150,7 +149,7 @@ println(name.length())      <span class="hljs-comment">// Compilation error</spa
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -162,4 +161,5 @@ println(name.length())      <span class="hljs-comment">// Compilation error</spa
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

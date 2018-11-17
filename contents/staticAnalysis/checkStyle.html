@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,11 +48,11 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="checkstyle">CheckStyle</h1>
+    <h1 id="checkstyle">CheckStyle<a class="fa fa-anchor" href="#checkstyle"></a></h1>
     <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-    <h2 id="overview">Overview</h2>
+    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
     <p>CheckStyle is a static analyser for <strong>Java</strong>. It can be used to assist developers in <a href="intro.md">static analysis</a> process.</p>
-    <h2 id="features">Features</h2>
+    <h2 id="features">Features<a class="fa fa-anchor" href="#features"></a></h2>
     <p>CheckStyle will examine code based on different rules(or checks).</p>
     <p>According to the <a href="http://checkstyle.sourceforge.net/checks.html">checks list</a> provided by CheckStyle, the checks(rules) can be divided into 14 sections.</p>
     <ul>
@@ -70,7 +71,7 @@
       <li>Size Violations</li>
       <li>Whitespace</li>
     </ul>
-    <h2 id="limitations">Limitations</h2>
+    <h2 id="limitations">Limitations<a class="fa fa-anchor" href="#limitations"></a></h2>
     <p>As described <a href="http://checkstyle.sourceforge.net/writingchecks.html#Limitations">here</a>, there are several limitations in CheckStyle.</p>
     <ul>
       <li>The code must be written in ASCII characters only.</li>
@@ -81,10 +82,10 @@
         </ul>
       </li>
     </ul>
-    <h2 id="how-to-use-it">How to use it</h2>
-    <h3 id="configuration">Configuration</h3>
+    <h2 id="how-to-use-it">How to use it<a class="fa fa-anchor" href="#how-to-use-it"></a></h2>
+    <h3 id="configuration">Configuration<a class="fa fa-anchor" href="#configuration"></a></h3>
     <p>CheckStyle uses a <a href="http://checkstyle.sourceforge.net/config.html">configuration file</a> to know all the rules that it is supposed to check.</p>
-    <h3 id="suppress-warnings">Suppress Warnings</h3>
+    <h3 id="suppress-warnings">Suppress Warnings<a class="fa fa-anchor" href="#suppress-warnings"></a></h3>
     <p>CheckStyle supports suppressing warnings in four ways:</p>
     <ul>
       <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter">Annotations</a></li>
@@ -92,7 +93,7 @@
       <li><a href="http://checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter">File Filter</a></li>
       <li><a href="http://checkstyle.sourceforge.net/config_filters.html#SuppressionFilter">Configuration File</a></li>
     </ul>
-    <h3 id="running">Running</h3>
+    <h3 id="running">Running<a class="fa fa-anchor" href="#running"></a></h3>
     <p>There are several ways to run CheckStyle.</p>
     <p>Command Line:</p>
     <ul>
@@ -109,12 +110,11 @@
       <li><a href="http://eclipse-cs.sourceforge.net/#!/">Eclipse Integration</a></li>
       <li><a href="https://plugins.jetbrains.com/idea/plugin/1065-checkstyle-idea">IntelliJ Integration</a></li>
     </ul>
-    <h2 id="available-configurations">Available Configurations</h2>
-    <p>There are two widely used configurations: <a href="http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html">Sun Code Conversions</a> and <a href="http://checkstyle.sourceforge.net/reports/google-java-style.html">Google Java Style</a>.
-      Some common rules are already included in these configurations.</p>
-    <h2 id="how-does-it-work">How does it work</h2>
-    <p>CheckStyle will use <a href="http://www.antlr.org">ANTLR</a> to parse your code into a <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST(Abstract Syntax Tree)</a> and visit it in a <a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS(Depth First Search)</a>      pattern to check violations. Thus, it is necessary to make the code compilable in order for the ANTLR to work. You can view the syntax tree using <a href="http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui">CheckStyle Grammar Tree Viewer</a></p>
-    <h2 id="customisation">Customisation</h2>
+    <h2 id="available-configurations">Available Configurations<a class="fa fa-anchor" href="#available-configurations"></a></h2>
+    <p>There are two widely used configurations: <a href="http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html">Sun Code Conversions</a> and <a href="http://checkstyle.sourceforge.net/reports/google-java-style.html">Google Java Style</a>. Some common rules are already included in these configurations.</p>
+    <h2 id="how-does-it-work">How does it work<a class="fa fa-anchor" href="#how-does-it-work"></a></h2>
+    <p>CheckStyle will use <a href="http://www.antlr.org">ANTLR</a> to parse your code into a <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST(Abstract Syntax Tree)</a> and visit it in a <a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS(Depth First Search)</a> pattern to check violations. Thus, it is necessary to make the code compilable in order for the ANTLR to work. You can view the syntax tree using <a href="http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui">CheckStyle Grammar Tree Viewer</a></p>
+    <h2 id="customisation">Customisation<a class="fa fa-anchor" href="#customisation"></a></h2>
     <ul>
       <li><a href="http://checkstyle.sourceforge.net/writingchecks.html">Writing Checks</a> (I want to write my own check for Java code.)</li>
       <li><a href="http://checkstyle.sourceforge.net/writingjavadocchecks.html">Writing Javadoc Checks</a> (I want to enforce new rules for writing Javadoc header comment.)</li>
@@ -122,7 +122,7 @@
       <li><a href="http://checkstyle.sourceforge.net/writingfilefilters.html">Writing File Filters</a> (I want to check the rules against specific files.)</li>
       <li><a href="http://checkstyle.sourceforge.net/writinglisteners.html">Writing Listeners</a> (I want different notifications (verbose printer, sending emails, etc) when violations are thrown.)</li>
     </ul>
-    <h2 id="resources">Resources</h2>
+    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
     <ul>
       <li><a href="http://checkstyle.sourceforge.net/">CheckStyle</a>: CheckStyle official website. You can download the latest version, view online documentation there.</li>
       <li><a href="https://github.com/checkstyle/checkstyle">CheckStyle Github</a>: CheckStyle GitHub page. You can contribute to the project or report bugs there.</li>
@@ -133,7 +133,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -145,4 +145,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,14 +48,12 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="an-introduction-to-functional-programming">An Introduction to Functional Programming</h1>
+    <h1 id="an-introduction-to-functional-programming">An Introduction to Functional Programming<a class="fa fa-anchor" href="#an-introduction-to-functional-programming"></a></h1>
     <p>Authors: <a href="https://github.com/crphang">Phang Chun Rong</a></p>
-    <h2 id="what-is-functional-programming">What is Functional Programming</h2>
-    <p>Functional programming is a programming paradigm that treats computation as the evaluation of mathematical function and avoids mutating state and variables. Unlike <a href="https://en.wikipedia.org/wiki/Imperative_programming">imperative programming</a>      languages like C, functional programming languages are <a href="https://en.wikipedia.org/wiki/Declarative_programming">declarative</a>. Even though this demands a shift in mindset from most programmers who are used to imperative form of programming,
-      functional programming paradigm is still <a href="https://blog.appdynamics.com/engineering/the-most-popular-programming-languages-for-2017/">increasingly popular</a> due to its <a href="#advantages-of-functional-programming">advantages</a>.</p>
-    <h2 id="functional-programming-languages">Functional Programming Languages</h2>
-    <p>Functional programming is simply a paradigm and needs to be implemented by programming languages. Below are various <a href="https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Functional_languages">languages</a> that have explicit
-      support for the functional programming paradigm:</p>
+    <h2 id="what-is-functional-programming">What is Functional Programming<a class="fa fa-anchor" href="#what-is-functional-programming"></a></h2>
+    <p>Functional programming is a programming paradigm that treats computation as the evaluation of mathematical function and avoids mutating state and variables. Unlike <a href="https://en.wikipedia.org/wiki/Imperative_programming">imperative programming</a> languages like C, functional programming languages are <a href="https://en.wikipedia.org/wiki/Declarative_programming">declarative</a>. Even though this demands a shift in mindset from most programmers who are used to imperative form of programming, functional programming paradigm is still <a href="https://blog.appdynamics.com/engineering/the-most-popular-programming-languages-for-2017/">increasingly popular</a> due to its <a href="#advantages-of-functional-programming">advantages</a>.</p>
+    <h2 id="functional-programming-languages">Functional Programming Languages<a class="fa fa-anchor" href="#functional-programming-languages"></a></h2>
+    <p>Functional programming is simply a paradigm and needs to be implemented by programming languages. Below are various <a href="https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Functional_languages">languages</a> that have explicit support for the functional programming paradigm:</p>
     <ul>
       <li>Haskell</li>
       <li>Clojure</li>
@@ -64,7 +63,7 @@
       <li>ML (Meta Language) family of languages</li>
     </ul>
     <p>While functional programming can be implemented by languages like Java, the languages listed above encourage the functional programming paradigm such as <a href="#pure-functions">pure functions</a> or even enforce them in the case of Haskell.</p>
-    <h2 id="concepts-in-functional-programming">Concepts in Functional Programming</h2>
+    <h2 id="concepts-in-functional-programming">Concepts in Functional Programming<a class="fa fa-anchor" href="#concepts-in-functional-programming"></a></h2>
     <h4 id="pure-functions">Pure Functions</h4>
     <p><em>Pure functions</em> is one of the concepts in functional programming. To call a function <em>pure</em>, it needs to satisfy two conditions:</p>
     <ol>
@@ -94,11 +93,9 @@ y=<span class="hljs-number">0</span>
       <li><a href="http://elmprogramming.com/immutability.html">Immutability in Elm</a></li>
       <li><a href="https://stackoverflow.com/questions/12207757/why-do-immutable-objects-enable-functional-programming">Why does immutability enable functional programming</a></li>
     </ul>
-    <h2 id="techniques-in-functional-programming">Techniques in Functional Programming</h2>
+    <h2 id="techniques-in-functional-programming">Techniques in Functional Programming<a class="fa fa-anchor" href="#techniques-in-functional-programming"></a></h2>
     <h4 id="recursion">Recursion</h4>
-    <p>Pure functional languages do not have loop constructs like imperative languages. This is because <code>Iteration</code> usually involves state mutation per iteration. Because functional programming avoids state changes, <code>Recursion</code> is a
-      commonly used <a href="https://www.quora.com/Why-dont-pure-functional-programming-languages-provide-a-loop-construct">technique</a> to replace <code>Iteration</code>. An example of replacing state-mutating iterative code to a pure functional recusive
-      code is shown below:</p>
+    <p>Pure functional languages do not have loop constructs like imperative languages. This is because <code>Iteration</code> usually involves state mutation per iteration. Because functional programming avoids state changes, <code>Recursion</code> is a commonly used <a href="https://www.quora.com/Why-dont-pure-functional-programming-languages-provide-a-loop-construct">technique</a> to replace <code>Iteration</code>. An example of replacing state-mutating iterative code to a pure functional recusive code is shown below:</p>
     <pre><code class="hljs Python"><span class="hljs-comment"># Iterative</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getSumOfList</span><span class="hljs-params">(listOfNumbers)</span>:</span>
     sum = <span class="hljs-number">0</span>
@@ -123,32 +120,28 @@ y=<span class="hljs-number">0</span>
     <pre><code class="hljs python">length_of_names = map(len, [<span class="hljs-string">'Alex'</span>, <span class="hljs-string">'Thomas'</span>, <span class="hljs-string">'John'</span>])
 print(length_of_names) <span class="hljs-comment"># [4,6,4]</span>
 </code></pre>
-    <p><code>map</code> takes in 2 parameters, a function and a collection. <code>map</code> returns a new collection whose elements are the result of applying the given function on the elements of the given collection. In the given example, <code>map</code>      returns <code>[len('Alex'), len('Thomas'), len('John')]</code></p>
+    <p><code>map</code> takes in 2 parameters, a function and a collection. <code>map</code> returns a new collection whose elements are the result of applying the given function on the elements of the given collection. In the given example, <code>map</code> returns <code>[len('Alex'), len('Thomas'), len('John')]</code></p>
     <p>There are useful functions and techniques that are based off Higher Order Functions in Functional programming.</p>
     <ul>
       <li><a href="https://hackernoon.com/javascript-and-functional-programming-currying-pt-4-96e3230782ab">Currying</a></li>
       <li><a href="https://medium.freecodecamp.org/higher-order-functions-in-javascript-d9101f9cf528">Map, Reduce and Filter</a></li>
     </ul>
-    <h2 id="advantages-of-functional-programming">Advantages of Functional Programming</h2>
-    <p>The common question when learning about functional programming is what's the point of having us going through all the trouble of having pure functions, state immutability and absence of loops. Turns out, there are various positive implications of
-      functional programming:</p>
+    <h2 id="advantages-of-functional-programming">Advantages of Functional Programming<a class="fa fa-anchor" href="#advantages-of-functional-programming"></a></h2>
+    <p>The common question when learning about functional programming is what's the point of having us going through all the trouble of having pure functions, state immutability and absence of loops. Turns out, there are various positive implications of functional programming:</p>
     <ul>
       <li><a href="https://www.quora.com/Are-software-written-using-Functional-Programming-less-buggy-more-robust-and-stable">More Bug-Free Code</a>. For example famously in Haskell, <a href="https://wiki.haskell.org/Why_Haskell_just_works">if it compiles it usually works</a>.</li>
-      <li><a href="https://softwareengineering.stackexchange.com/questions/293851/what-is-it-about-functional-programming-that-makes-it-inherently-adapted-to-para">Safer Concurrency</a>. Having state immutability and absence of side effects can allow for
-        concurrent code with less concerns of race conditions on mutable objects.</li>
+      <li><a href="https://softwareengineering.stackexchange.com/questions/293851/what-is-it-about-functional-programming-that-makes-it-inherently-adapted-to-para">Safer Concurrency</a>. Having state immutability and absence of side effects can allow for concurrent code with less concerns of race conditions on mutable objects.</li>
       <li><a href="https://alvinalexander.com/scala/fp-book/benefits-of-functional-programming">And many more</a> such as simpler unit testing as functions are guaranteed not to have any side effects.</li>
     </ul>
-    <h2 id="disadvantages-of-functional-programming">Disadvantages of Functional Programming</h2>
-    <p>Functional programming is not a new concept and has been around since the 1950s. Even though it is gaining in popularity today, it is not the predominant programming paradigm used in software applications today. Despite the stated benefits of functional
-      programming, there are some downsides of it that can help explain why it is not the mainstream programming paradigm:</p>
+    <h2 id="disadvantages-of-functional-programming">Disadvantages of Functional Programming<a class="fa fa-anchor" href="#disadvantages-of-functional-programming"></a></h2>
+    <p>Functional programming is not a new concept and has been around since the 1950s. Even though it is gaining in popularity today, it is not the predominant programming paradigm used in software applications today. Despite the stated benefits of functional programming, there are some downsides of it that can help explain why it is not the mainstream programming paradigm:</p>
     <ul>
       <li>Lack of imperative data structures. One good example is the <a href="https://stackoverflow.com/questions/6793259/how-does-one-implement-hash-tables-in-a-functional-language">lack of hash map</a> which is an important performant dictionary.</li>
       <li>Functional programming can be <a href="https://www.quora.com/Do-functional-programming-languages-always-run-slower-than-imperative-language">slower</a> than optimal Imperative programming for reasons such as data copying due to data immutability.</li>
       <li>And various <a href="http://flyingfrogblog.blogspot.sg/2016/05/disadvantages-of-purely-functional.html">other concerns</a></li>
     </ul>
-    <p>Some of these reasons help in part explain why 'impure' functional languages like Scala is much more popular today than Haskell. Scala is a general purpose language that has interoperability with Java and has support for both imperative and functional
-      programming paradigms. This establishes a <a href="https://cacm.acm.org/magazines/2014/4/173220-unifying-functional-and-object-oriented-programming-with-scala/fulltext">middle ground</a> for programmers new to functional programming.</p>
-    <h2 id="guides-on-functional-programming">Guides on Functional Programming</h2>
+    <p>Some of these reasons help in part explain why 'impure' functional languages like Scala is much more popular today than Haskell. Scala is a general purpose language that has interoperability with Java and has support for both imperative and functional programming paradigms. This establishes a <a href="https://cacm.acm.org/magazines/2014/4/173220-unifying-functional-and-object-oriented-programming-with-scala/fulltext">middle ground</a> for programmers new to functional programming.</p>
+    <h2 id="guides-on-functional-programming">Guides on Functional Programming<a class="fa fa-anchor" href="#guides-on-functional-programming"></a></h2>
     <p>Functional programming can be a very different programming paradigm and it definitely takes time to practice to be an expert at it. To learn more about functional programming, take a look at these amazing guides for a deeper understanding:</p>
     <ul>
       <li>A good <a href="https://en.wikipedia.org/wiki/Functional_programming">overview of functional programming</a></li>
@@ -161,7 +154,7 @@ print(length_of_names) <span class="hljs-comment"># [4,6,4]</span>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -173,4 +166,5 @@ print(length_of_names) <span class="hljs-comment"># [4,6,4]</span>
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,14 +48,13 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="writing-testable-javascript">Writing Testable Javascript</h1>
+    <h1 id="writing-testable-javascript">Writing Testable Javascript<a class="fa fa-anchor" href="#writing-testable-javascript"></a></h1>
     <p>Authors: Li Kai</p>
-    <p>JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same
-      thing.</p>
+    <p>JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing.</p>
     <p>That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.</p>
     <p>Good JavaScript code should be testable and reusable.</p>
-    <h2 id="writing-testable-javascript-2">Writing testable JavaScript</h2>
-    <h3 id="avoid-coupling-with-selectors">Avoid coupling with selectors</h3>
+    <h2 id="writing-testable-javascript-2">Writing testable JavaScript<a class="fa fa-anchor" href="#writing-testable-javascript-2"></a></h2>
+    <h3 id="avoid-coupling-with-selectors">Avoid coupling with selectors<a class="fa fa-anchor" href="#avoid-coupling-with-selectors"></a></h3>
     <p>When writing front end code we would encounter code that manipulates the document object model (DOM). Let's look at one such example.</p>
     <pre><code class="hljs js"><span class="hljs-keyword">var</span> DIV_STATUS_MESSAGE = <span class="hljs-string">'#statusMessagesToUser'</span>;
 
@@ -63,14 +63,13 @@
     ...
 }
 </code></pre>
-    <p>In this piece of code, we see that the selector is intrinsically tied to the function. This means that the function is tightly tied with the selector and is not easily testable as the test code has to generate the same markup in the test suite for
-      the function to hook up to. In order to prevent such tight coupling, it is advised to leave the selector as a parameter, or sometimes, simply pass in the element itself.</p>
+    <p>In this piece of code, we see that the selector is intrinsically tied to the function. This means that the function is tightly tied with the selector and is not easily testable as the test code has to generate the same markup in the test suite for the function to hook up to. In order to prevent such tight coupling, it is advised to leave the selector as a parameter, or sometimes, simply pass in the element itself.</p>
     <pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">populateStatusMessage</span>(<span class="hljs-params">selector, message, status</span>) </span>{
     <span class="hljs-keyword">var</span> $statusMessageDivToUser = $(selector);
     ...
 }
 </code></pre>
-    <h3 id="split-business-logic-and-presentation-code">Split business logic and presentation code</h3>
+    <h3 id="split-business-logic-and-presentation-code">Split business logic and presentation code<a class="fa fa-anchor" href="#split-business-logic-and-presentation-code"></a></h3>
     <p>When we have to write code that generates markup, it requires business logic. However, mixing the two up is not a good idea. Let's look at the following example:</p>
     <pre><code class="hljs js">$.ajax({
     <span class="hljs-attr">type</span>: <span class="hljs-string">'POST'</span>,
@@ -86,8 +85,7 @@
     }
 });
 </code></pre>
-    <p>It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse code
-      that generates the markup in multiple places.</p>
+    <p>It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places.</p>
     <pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setLoadingImage</span>(<span class="hljs-params">selector</span>) </span>{
     $(selector).html(<span class="hljs-string">"&lt;img src='/images/ajax-loader.gif'/&gt;"</span>);
 }
@@ -109,9 +107,8 @@ $.ajax({
 });
 </code></pre>
     <p>Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.</p>
-    <h3 id="avoid-big-anonymous-functions">Avoid big anonymous functions</h3>
-    <p>Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off in
-      a <code>document.ready()</code> or <code>$.ajax()</code>.</p>
+    <h3 id="avoid-big-anonymous-functions">Avoid big anonymous functions<a class="fa fa-anchor" href="#avoid-big-anonymous-functions"></a></h3>
+    <p>Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off in a <code>document.ready()</code> or <code>$.ajax()</code>.</p>
     <p>The testable way of writing such function is to simply give the function a name, which allows it to be tested.</p>
     <pre><code class="hljs js">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     bindStudentPhotoLink(<span class="hljs-string">'.profile-pic-icon-view-link'</span>);
@@ -138,13 +135,10 @@ $.ajax({
     };
 })();
 </code></pre>
-    <p>As demonstrated above, only <code>myApp</code> is declared in the global scope, and we can access its methods through the object notation, e.g. <code>myApp.next()</code>. This is also especially useful to declare private variables that be used among
-      functions. <code>id</code> is not accessible outside of scope in this example.</p>
-    <h3 id="purity-is-worth-pursuing">Purity is worth pursuing</h3>
-    <p>There are tonnes of literature about functional programming. I will heavily recommend reading the <a href="https://github.com/MostlyAdequate/mostly-adequate-guide">Mostly adequate guide to Functional Programming</a>. It explains functional concepts
-      extremely well.</p>
-    <p>The benefit of pure functions is simple, there is no need to keep track of state. Given an input, the output is guaranteed to be the same every time. This allows us to write extremely simple unit tests, instead of having to maintain the state while
-      testing.</p>
+    <p>As demonstrated above, only <code>myApp</code> is declared in the global scope, and we can access its methods through the object notation, e.g. <code>myApp.next()</code>. This is also especially useful to declare private variables that be used among functions. <code>id</code> is not accessible outside of scope in this example.</p>
+    <h3 id="purity-is-worth-pursuing">Purity is worth pursuing<a class="fa fa-anchor" href="#purity-is-worth-pursuing"></a></h3>
+    <p>There are tonnes of literature about functional programming. I will heavily recommend reading the <a href="https://github.com/MostlyAdequate/mostly-adequate-guide">Mostly adequate guide to Functional Programming</a>. It explains functional concepts extremely well.</p>
+    <p>The benefit of pure functions is simple, there is no need to keep track of state. Given an input, the output is guaranteed to be the same every time. This allows us to write extremely simple unit tests, instead of having to maintain the state while testing.</p>
     <pre><code class="hljs js"><span class="hljs-keyword">var</span> counter = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">var</span> todos = [];
 
@@ -172,8 +166,8 @@ getTodo();
 getTodo(counter, todos);
 </code></pre>
     <p>Now, not only that the person who writes the unit test can write in fewer lines of code, you can also use the function for some other state other than the global values.</p>
-    <h2 id="writing-reusable-javascript">Writing reusable javascript</h2>
-    <h3 id="optional-parameters">Optional parameters</h3>
+    <h2 id="writing-reusable-javascript">Writing reusable javascript<a class="fa fa-anchor" href="#writing-reusable-javascript"></a></h2>
+    <h3 id="optional-parameters">Optional parameters<a class="fa fa-anchor" href="#optional-parameters"></a></h3>
     <p>When writing certain functions, there would be certain situations where we want to have optional parameters. The easiest way would be to put optional parameters at the end of the parameter calls, like such:</p>
     <pre><code class="hljs js"><span class="hljs-comment">// es5 syntax</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, headerColor, bodyColor</span>) </span>{
@@ -203,7 +197,7 @@ getTodo(counter, todos);
     <p>By using an object, the user would just need to fill in what parameter they want to be changed. In large functions, this would result in better readability as well.</p>
     <pre><code class="hljs js">createPopUp(<span class="hljs-string">'Warning'</span>, <span class="hljs-string">'This will delete everything!'</span>, dangerStatus, { <span class="hljs-attr">bodyColor</span>: <span class="hljs-string">'red'</span> });
 </code></pre>
-    <h3 id="understand-method-chaining">Understand method chaining</h3>
+    <h3 id="understand-method-chaining">Understand method chaining<a class="fa fa-anchor" href="#understand-method-chaining"></a></h3>
     <p>Method chaining is syntax such as <code>array.concat([1, 2]).push(1).filter(isEven)</code>. It is also sometimes referred to as the fluent interface. (see: <a href="">Method Chaining in JavaScript</a>)</p>
     <p>It is achieved by returning the object itself in the call.</p>
     <pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = {
@@ -230,15 +224,16 @@ bob.save();
 </code></pre>
     <p>Not only is the method chaining much shorter, it also makes the code more maintainable by keeping properties organised nicely and easily traceable in version control.</p>
     <p>However, like any design pattern, this is not to be abused. Only use method chaining when methods are related to the object at hand.</p>
-    <h3 id="addendum">Addendum</h3>
+    <h3 id="addendum">Addendum<a class="fa fa-anchor" href="#addendum"></a></h3>
     <p>As with all guides, this list of good practices and advices are not exhausive. Good code takes practice and finese, and if you discover ways to make code better, feel free to contribute and add them to this document!</p>
-    <h2 id="resources">Resources</h2>
-    <p><a href="https://github.com/ryanmcdermott/clean-code-javascript">Clean Code Javascript</a> Apparently most of what I wrote appears in this huge guide in some form. It's an amazing resource and also explains SOLID clearly near the bottom.</p>
-    <p><a href="https://github.com/airbnb/javascript">Airbnb Javascript Style</a> It is one thing to follow the style guide, and another to understand why it is that way. Understanding why Airbnb chose certain constructs and syntax reveals ways to write
-      code that is clean, understandable and maintainable.</p>
-    <p><a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/">JavaScript Design Patterns</a> The title says it all. From the most common to obscure patterns, this book covers design patterns and explains trade offs. Although it specifically
-      caters to Javascript, it's recommended reading for all prospective software engineers.</p>
-    <h2 id="references">References</h2>
+    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
+    <p><a href="https://github.com/ryanmcdermott/clean-code-javascript">Clean Code Javascript</a>
+      Apparently most of what I wrote appears in this huge guide in some form. It's an amazing resource and also explains SOLID clearly near the bottom.</p>
+    <p><a href="https://github.com/airbnb/javascript">Airbnb Javascript Style</a>
+      It is one thing to follow the style guide, and another to understand why it is that way. Understanding why Airbnb chose certain constructs and syntax reveals ways to write code that is clean, understandable and maintainable.</p>
+    <p><a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/">JavaScript Design Patterns</a>
+      The title says it all. From the most common to obscure patterns, this book covers design patterns and explains trade offs. Although it specifically caters to Javascript, it's recommended reading for all prospective software engineers.</p>
+    <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
     <p><a href="https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/">Namespacing in Javascript</a></p>
     <p><a href="https://schier.co/blog/2013/11/14/method-chaining-in-javascript.html">Method Chaining in JavaScript</a></p>
   </div>
@@ -246,7 +241,7 @@ bob.save();
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -258,4 +253,5 @@ bob.save();
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

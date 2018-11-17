@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,37 +48,35 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="code-quality-metrics">Code Quality Metrics</h1>
+    <h1 id="code-quality-metrics">Code Quality Metrics<a class="fa fa-anchor" href="#code-quality-metrics"></a></h1>
     <p>Authors: <a href="https://github.com/wkurniawan07">Wilson Kurniawan</a></p>
-    <h2 id="overview">Overview</h2>
+    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
     <ul>
       <li>It is undisputed that developers, code reviewers, testers, QA team members, and software architects alike want code to be as simple, understandable, and (put more positive adjectives here) as possible.</li>
-      <li>It is, however, disputable how &quot;simple&quot;, &quot;understandable&quot;, etc. is defined, because they are all qualitative. What is &quot;...&quot; for one person may not be so &quot;...&quot; for another; in fact, it may not be so for that
-        person three months later.</li>
+      <li>It is, however, disputable how &quot;simple&quot;, &quot;understandable&quot;, etc. is defined, because they are all qualitative. What is &quot;...&quot; for one person may not be so &quot;...&quot; for another; in fact, it may not be so for that person three months later.</li>
     </ul>
     <p>A quantitative approach needs to be adopted to measure those qualities precisely. <strong>Code Quality Metrics</strong> is the answer. It provides a <strong>quantitative measure</strong> of the quality of a piece of code.</p>
     <blockquote>
-      <p>Since quantitative measurements are essential in all sciences, there is a continuous effort by computer science practitioners and theoreticians to bring similar approaches to software development. The goal is obtaining objective, reproducible and
-        quantifiable measurements, which may have numerous valuable applications in schedule and budget planning, cost estimation, quality assurance testing, software debugging, software performance optimization, and optimal personnel task assignments.</p>
+      <p>Since quantitative measurements are essential in all sciences, there is a continuous effort by computer science practitioners and theoreticians to bring similar approaches to software development.
+        The goal is obtaining objective, reproducible and quantifiable measurements, which may have numerous valuable applications in schedule and budget planning, cost estimation, quality assurance testing, software debugging, software performance optimization, and optimal personnel task assignments.</p>
       <p><a href="https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics">https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics</a></p>
     </blockquote>
     <p>In fact, <a href="https://thesai.org/Downloads/Volume3No1/Paper%2021-Survey%20on%20Impact%20of%20Software%20Metrics%20on%20Software%20Quality.pdf">the Boeing 777 project attributed its success to excellent usage of Quality Metrics (both code and non-code)</a>.</p>
     <p><em>Note that the term &quot;Code Quality&quot; here is scoped to be the readability, understandability, and maintainability of the code. While performance can be considered a legitimate basis for some metrics (e.g. time taken to run certain operations, based on profiling), it is not considered for this purpose.</em></p>
-    <h2 id="examples-of-metrics">Examples of Metrics</h2>
-    <h3 id="complexity-metrics">Complexity Metrics</h3>
+    <h2 id="examples-of-metrics">Examples of Metrics<a class="fa fa-anchor" href="#examples-of-metrics"></a></h2>
+    <h3 id="complexity-metrics">Complexity Metrics<a class="fa fa-anchor" href="#complexity-metrics"></a></h3>
     <p>Complexity metrics measure how &quot;complex&quot; methods, classes, packages, etc. are. &quot;Complex&quot; here is defined as difficult to understand and difficult to maintain.</p>
     <p>They are arguably the most useful metrics for the largest number of developers because they are the easiest to grasp, the most directly relevant to the coding activity, and applicable to most/all programming languages.</p>
     <ul>
-      <li>The most well-known complexity metric is <strong>Cyclomatic Complexity (CC)</strong>, invented by Thomas McCabe in 1976. CC corresponds to the <strong>minimum number of test cases needed to achieve 100% branch coverage</strong>. <a href="http://www.whiteboxtest.com/cyclomatic-complexity.php">Here</a>        is an excellent explanation on how to make use of it to measure your code quality.</li>
+      <li>The most well-known complexity metric is <strong>Cyclomatic Complexity (CC)</strong>, invented by Thomas McCabe in 1976. CC corresponds to the <strong>minimum number of test cases needed to achieve 100% branch coverage</strong>. <a href="http://www.whiteboxtest.com/cyclomatic-complexity.php">Here</a> is an excellent explanation on how to make use of it to measure your code quality.</li>
       <li>An alternative, less well-known, harder to calculate complexity metric is <strong>NPath Complexity (NC)</strong>, invented by Brian A. Nejmeh in 1988. NC corresponds to the <strong>minimum number of test cases needed to achieve 100% path coverage</strong>.</li>
     </ul>
     <blockquote>
       <p><a href="http://www.literateprogramming.com/mccabe.pdf">Here</a> is the original paper by McCabe, and <a href="http://dl.acm.org/citation.cfm?doid=42372.42379">here</a> is the original paper by Nejmeh.</p>
     </blockquote>
     <p>These complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.</p>
-    <h3 id="class-design-metrics">Class Design Metrics</h3>
-    <p>Class design metrics measure how &quot;well-designed&quot; a class is. &quot;Well-designed&quot; here is defined as conformance to good software engineering principles such as high cohesion, low coupling, promoting encapsulation and information hiding.
-      Well-designed classes promote reuse and ease maintenance effort.</p>
+    <h3 id="class-design-metrics">Class Design Metrics<a class="fa fa-anchor" href="#class-design-metrics"></a></h3>
+    <p>Class design metrics measure how &quot;well-designed&quot; a class is. &quot;Well-designed&quot; here is defined as conformance to good software engineering principles such as high cohesion, low coupling, promoting encapsulation and information hiding. Well-designed classes promote reuse and ease maintenance effort.</p>
     <p>Metrics on this level are more applicable for QA team members and software architects, but still hold some relevance to students and junior developers who have to design a class-level API.</p>
     <p>The most well-accepted metrics for class design are <a href="http://www.virtualmachinery.com/sidebar3.htm"><strong>The Chidamber and Kemerer Metrics</strong></a>:</p>
     <ul>
@@ -88,7 +87,7 @@
       <li>Depth of Inheritance Tree (DIT)</li>
       <li>Number of Children (NOC)</li>
     </ul>
-    <h3 id="package-design-metrics">Package Design Metrics</h3>
+    <h3 id="package-design-metrics">Package Design Metrics<a class="fa fa-anchor" href="#package-design-metrics"></a></h3>
     <p>Package design metrics measure how &quot;well-designed&quot; a package is. &quot;Well-designed&quot; here is similarly defined as the one in class design metrics. Metrics on this level are mostly applicable only for QA team members and software architects.</p>
     <p>The most well-accepted metrics for package design are <a href="http://www.virtualmachinery.com/jhawkmetricssyspack.htm"><strong>&quot;the group of five&quot;</strong></a>:</p>
     <ul>
@@ -98,8 +97,9 @@
       <li>Abstractness (A)</li>
       <li>Distance from Main Sequence (D)</li>
     </ul>
-    <h3 id="seemingly-trivial-metrics">Seemingly Trivial Metrics</h3>
-    <p>The previous sections have introduced mostly new concepts that are foreign to many developers. However, measures that are seemingly trivial and easy-to-overlook can also count as metrics, such as the following:</p>
+    <h3 id="seemingly-trivial-metrics">Seemingly Trivial Metrics<a class="fa fa-anchor" href="#seemingly-trivial-metrics"></a></h3>
+    <p>The previous sections have introduced mostly new concepts that are foreign to many developers.
+      However, measures that are seemingly trivial and easy-to-overlook can also count as metrics, such as the following:</p>
     <ul>
       <li>Number of lines of codes in a class/method/...</li>
       <li>Number of methods in a class</li>
@@ -110,19 +110,18 @@
       <li>Percentage of comments</li>
       <li>Percentage of code duplication</li>
     </ul>
-    <h2 id="define-your-own-metric">Define Your Own Metric</h2>
+    <h2 id="define-your-own-metric">Define Your Own Metric<a class="fa fa-anchor" href="#define-your-own-metric"></a></h2>
     <p>You would have noticed that these metrics are self-formulated rather than being inherent properties of a piece of software, and you are right.</p>
     <p>You might then ask: can I define my own code quality metric? Yes, you can. <a href="http://www.developer.com/tech/article.php/3644656/Software-Quality-Metrics.htm">This page</a> has a good guide on how to formulate your own metric.</p>
-    <h2 id="making-sense-of-it">Making Sense of It</h2>
+    <h2 id="making-sense-of-it">Making Sense of It<a class="fa fa-anchor" href="#making-sense-of-it"></a></h2>
     <p>Any code quality metric is as good as how it is used; without context, it is merely a number. <strong>Do not</strong> use any metric just for the sake of it.</p>
     <ul>
       <li>It makes little sense to say: &quot;This method has a CC value of 42. It is bad.&quot;</li>
       <li>It makes more sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it, and it is bad.&quot;</li>
-      <li>It makes the most sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it. This indicates an overly complex method, and it will be difficult to maintain in the long run.
-        Try to separate it to calls of a few methods of CC value of 10 or less each; that way we can better design test cases for those smaller methods and achieve perfect coverage.&quot;</li>
+      <li>It makes the most sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it. This indicates an overly complex method, and it will be difficult to maintain in the long run. Try to separate it to calls of a few methods of CC value of 10 or less each; that way we can better design test cases for those smaller methods and achieve perfect coverage.&quot;</li>
     </ul>
     <p><a href="http://homepages.dcc.ufmg.br/~figueiredo/disciplinas/lectures/detection-strategy-examples_v01.pdf">Here</a> is an excellent example of how different metrics are used to determine which classes/methods need some maintenance works.</p>
-    <h2 id="code-quality-metrics-tools">Code Quality Metrics Tools</h2>
+    <h2 id="code-quality-metrics-tools">Code Quality Metrics Tools<a class="fa fa-anchor" href="#code-quality-metrics-tools"></a></h2>
     <p>Measuring complexity (relevant to most developers):</p>
     <ul>
       <li>Java: <a href="https://pmd.github.io">PMD</a></li>
@@ -143,7 +142,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -155,4 +154,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

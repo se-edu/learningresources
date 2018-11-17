@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,15 +48,18 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="profiling-a-desktop-application-in-visual-studio-2015">Profiling a Desktop Application In Visual Studio 2015</h1>
+    <h1 id="profiling-a-desktop-application-in-visual-studio-2015">Profiling a Desktop Application In Visual Studio 2015<a class="fa fa-anchor" href="#profiling-a-desktop-application-in-visual-studio-2015"></a></h1>
     <p>Author: <a href="https://github.com/initialshl">Ong Heng Le</a></p>
-    <h2 id="overview">Overview</h2>
-    <p>This tutorial demonstrates how to get an overview of your desktop application's performance using the profiler included in <a href="https://www.visualstudio.com/downloads/">Visual Studio 2015</a>.</p>
-    <h2 id="1-run-a-performance-profiling-session">1. Run a performance profiling session</h2>
+    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+    <p>This tutorial demonstrates how to get an overview of your desktop application's performance
+      using the profiler included in <a href="https://www.visualstudio.com/downloads/">Visual Studio 2015</a>.</p>
+    <h2 id="1-run-a-performance-profiling-session">1. Run a performance profiling session<a class="fa fa-anchor" href="#1-run-a-performance-profiling-session"></a></h2>
     <p>To start a performance profiling session, follow this guide on
       <a href="https://msdn.microsoft.com/en-us/library/ms182372.aspx#Anchor_0">Creating and running a performance session</a>.</p>
-    <h2 id="2-view-the-performance-report">2. View the performance report</h2>
-    <p>The profiler will generate the performance report after the profiling session, which you can explore on your own. <em>Inclusive and exclusive data</em> provides meaningful information about the execution time of each function.</p>
+    <h2 id="2-view-the-performance-report">2. View the performance report<a class="fa fa-anchor" href="#2-view-the-performance-report"></a></h2>
+    <p>The profiler will generate the performance report after the profiling session, which you
+      can explore on your own. <em>Inclusive and exclusive data</em> provides meaningful information
+      about the execution time of each function.</p>
     <ul>
       <li><strong>Inclusive samples</strong>: Collected during execution of the function itself and all functions it calls</li>
       <li><strong>Exclusive samples</strong>: Collected during execution of the function itself only</li>
@@ -63,21 +67,28 @@
     <blockquote>
       <p>The Visual Studio Profiler Team Blog has a <a href="https://blogs.msdn.microsoft.com/profiler/2004/06/09/what-are-exclusive-and-inclusive/">good explanation on inclusive and exclusive data values</a>.</p>
     </blockquote>
-    <h2 id="3-trace-down-to-the-problem">3. Trace down to the problem</h2>
-    <p>You can identify the performance issues using the performance report. The <code>Summary</code> view shows these two useful information analyzed by the profiler.</p>
+    <h2 id="3-trace-down-to-the-problem">3. Trace down to the problem<a class="fa fa-anchor" href="#3-trace-down-to-the-problem"></a></h2>
+    <p>You can identify the performance issues using the performance report. The <code>Summary</code> view
+      shows these two useful information analyzed by the profiler.</p>
     <ul>
       <li><strong>Functions With Most Individual Work</strong>: The functions which took up the most execution time <em>(exclusive samples)</em></li>
       <li><strong>Hot Path</strong>: The branch of the call tree which took up the most execution time <em>(inclusive samples)</em></li>
     </ul>
-    <p>To locate performance issues quickly, the <strong>Functions With Most Individual Work</strong> provides a list of functions which are usually candidates for optimization.</p>
-    <p>If you would like to trace down to the problem more carefully, the <strong>Hot Path</strong> is a good starting point. This will familiarize you about the most expensive execution path taken by your program.</p>
+    <p>To locate performance issues quickly, the <strong>Functions With Most Individual Work</strong> provides
+      a list of functions which are usually candidates for optimization.</p>
+    <p>If you would like to trace down to the problem more carefully, the <strong>Hot Path</strong> is a good
+      starting point. This will familiarize you about the most expensive execution path taken
+      by your program.</p>
     <blockquote>
-      <p>You can follow this <a href="https://msdn.microsoft.com/en-us/library/ms182398.aspx">walkthrough</a> to experience how to identify performance problems and optimize your code.</p>
+      <p>You can follow this <a href="https://msdn.microsoft.com/en-us/library/ms182398.aspx">walkthrough</a>
+        to experience how to identify performance problems and optimize your code.</p>
     </blockquote>
-    <h2 id="4-identify-areas-for-improvements-upwards">4. Identify areas for improvements upwards</h2>
-    <p>You have identified the problem, and may now want to optimize the code in the function body. But before that, here's a final tip: It is sometimes easier (and better) to optimize by
+    <h2 id="4-identify-areas-for-improvements-upwards">4. Identify areas for improvements upwards<a class="fa fa-anchor" href="#4-identify-areas-for-improvements-upwards"></a></h2>
+    <p>You have identified the problem, and may now want to optimize the code in the
+      function body. But before that, here's a final tip: It is sometimes easier
+      (and better) to optimize by
       <strong>reducing the number of calls to that function in its calling functions.</strong></p>
-    <h2 id="resources">Resources</h2>
+    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
     <ol>
       <li>The general steps in profiling your program: <a href="https://msdn.microsoft.com/en-us/library/ms182372.aspx">Beginners Guide to Performance Profiling</a></li>
       <li>Read my chapter on performance profiling for more advanced topics: <a href="PerformanceProfiling.md">Performance Profiling</a></li>
@@ -87,7 +98,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -99,4 +110,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

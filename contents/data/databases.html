@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,27 +48,23 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="introduction-to-databases-database-management-systems-dbms">Introduction to Databases &amp; Database Management Systems (DBMS)</h1>
+    <h1 id="introduction-to-databases-database-management-systems-dbms">Introduction to Databases &amp; Database Management Systems (DBMS)<a class="fa fa-anchor" href="#introduction-to-databases-database-management-systems-dbms"></a></h1>
     <p>Authors: <a href="https://github.com/Skaty">Syed Abdullah</a></p>
-    <h2 id="why-learn-databases-and-dbmses">Why learn databases and DBMSes?</h2>
-    <p>The programs that we create would handle data in some way or another. Be it a simple calculator application that tabulates user calculations (and maybe store them in a log of recent calculation) or a cluster of servers that handle indexing of a large
-      number of documents. Data is what is worked on by any program, the inputs and outputs of a program or even a simple function are data.</p>
-    <p>As our programs get larger and the data that is worked on becomes much more complex, there needs to be a way for us to systematically store and access data that is being worked on. It could be a crude structure, designed specifically for a particular
-      use case or something that is more standardised, for instance, an application that handles data.</p>
+    <h2 id="why-learn-databases-and-dbmses">Why learn databases and DBMSes?<a class="fa fa-anchor" href="#why-learn-databases-and-dbmses"></a></h2>
+    <p>The programs that we create would handle data in some way or another. Be it a simple calculator application that tabulates user calculations (and maybe store them in a log of recent calculation) or a cluster of servers that handle indexing of a large number of documents. Data is what is worked on by any program, the inputs and outputs of a program or even a simple function are data.</p>
+    <p>As our programs get larger and the data that is worked on becomes much more complex, there needs to be a way for us to systematically store and access data that is being worked on. It could be a crude structure, designed specifically for a particular use case or something that is more standardised, for instance, an application that handles data.</p>
     <p>This notion of structuring data and providing an easy to use abstraction for accessing, storing and performing mundane operations on data (for instance, sorting them) is what this guide will cover.</p>
-    <h2 id="introduction">Introduction</h2>
+    <h2 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction"></a></h2>
     <p><a href="images/db-dbms-relation.png" target="_self"><img src="images/db-dbms-relation.png" alt="" class="img-fluid"></a></p>
-    <p>A <strong>database</strong> is a collection of data. While any data in a medium can theoretically be a database (for instance, scribbling on a piece of paper), databases in the context of this chapter typically involve data that are organised in some
-      manner.</p>
+    <p>A <strong>database</strong> is a collection of data. While any data in a medium can theoretically be a database (for instance, scribbling on a piece of paper), databases in the context of this chapter typically involve data that are organised in some manner.</p>
     <p>Programs generally do not access the raw data directly. Instead, a <strong>database management system (DBMS)</strong> is used, which will handle the storage, retrieval and updating of the data.</p>
     <p>Sometimes people use the term database to refer to a DBMS. However, to avoid any confusion, this guide will use these terms as defined above.</p>
     <p>There are various concepts in the field of databases and DBMS and this guide will cover the basic concepts that are useful for someone who is starting out.</p>
-    <h2 id="database-models">Database models</h2>
+    <h2 id="database-models">Database models<a class="fa fa-anchor" href="#database-models"></a></h2>
     <p>For databases to make any sense, there has to be a certain logical structure in the database (for instance, how data is stored). This logical structure is known as a <strong>database model</strong>.</p>
     <p>There are many types of database models. Some examples are:</p>
     <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Relational_model"><strong>Relational model</strong></a> - the most widely used database model, usually modeled using a table format. The data structure is defined by a set of relations and domains (types) that
-        dictates the constraints. Constraints are also established for the type of operations that can be done.</li>
+      <li><a href="https://en.wikipedia.org/wiki/Relational_model"><strong>Relational model</strong></a> - the most widely used database model, usually modeled using a table format. The data structure is defined by a set of relations and domains (types) that dictates the constraints. Constraints are also established for the type of operations that can be done.</li>
       <li><a href="https://en.wikipedia.org/wiki/Document-oriented_database"><strong>Document-oriented</strong></a> - data is stored in documents, that encapsulates the data. This data is normally stored in a semi-structured manner.</li>
       <li><a href="https://en.wikipedia.org/wiki/Key-value_database"><strong>Key-value</strong></a> - utilises a dictionary-like structure</li>
       <li><a href="https://en.wikipedia.org/wiki/Graph_database"><strong>Graph database</strong></a> - utilises graph structures to store data</li>
@@ -75,13 +72,12 @@
       <li><a href="https://en.wikipedia.org/wiki/Multi-model_database"><strong>Multi-model</strong></a> - DBMS that supports multiple database models</li>
     </ul>
     <p><a href="https://en.wikipedia.org/wiki/Database_model">Click here</a> to learn more about the different database models.</p>
-    <h3 id="why-are-there-different-models">Why are there different models?</h3>
+    <h3 id="why-are-there-different-models">Why are there different models?<a class="fa fa-anchor" href="#why-are-there-different-models"></a></h3>
     <p>There are advantages and disadvantages to utilising one of the many database models available. These different models seek to solve certain issues when programs deal with data.</p>
-    <p>For instance, the relational model is the most structured out of the three that were shown. The presence of structure allows the database to enhance and improve certain common operations, for instance, searching for a specific data for an entry would
-      be faster.</p>
+    <p>For instance, the relational model is the most structured out of the three that were shown. The presence of structure allows the database to enhance and improve certain common operations, for instance, searching for a specific data for an entry would be faster.</p>
     <p>However, having such a rigid structure would mean that there's a limitation on how and what kind of data can be stored in the database.</p>
     <p>For the purposes of introduction, we would mainly cover on aspects that are used in the relational and/or document-oriented database models.</p>
-    <h3 id="examples-of-dbms-implementations">Examples of DBMS implementations</h3>
+    <h3 id="examples-of-dbms-implementations">Examples of DBMS implementations<a class="fa fa-anchor" href="#examples-of-dbms-implementations"></a></h3>
     <ul>
       <li><a href="https://www.mongodb.com/">MongoDB</a> (document-oriented)</li>
       <li><a href="https://www.mysql.com/">MySQL</a> (relational)</li>
@@ -89,9 +85,8 @@
       <li><a href="https://www.arangodb.com/">ArrangoDB</a> (document, graph, key-value - multi-model)</li>
       <li><a href="https://redis.io/">Redis</a> (key-value database)</li>
     </ul>
-    <h2 id="relations">Relations</h2>
-    <p>The most popular database model, relational model, makes use of relations. This model assumes that the data to be stored follow a certain 'pattern'. For instance, a database that stores products sold by a shop would contain data such as: name, description,
-      price and current stock levels. A visualisation of the database and data can be seen below:</p>
+    <h2 id="relations">Relations<a class="fa fa-anchor" href="#relations"></a></h2>
+    <p>The most popular database model, relational model, makes use of relations. This model assumes that the data to be stored follow a certain 'pattern'. For instance, a database that stores products sold by a shop would contain data such as: name, description, price and current stock levels. A visualisation of the database and data can be seen below:</p>
     <div class="table-responsive">
       <table class="markbind-table table table-bordered table-striped">
         <thead>
@@ -128,12 +123,11 @@
     <ul>
       <li>The whole table is known as a <strong>relation</strong>.</li>
       <li>Each data row (i.e. excluding the header row) is known as a <strong>tuple</strong>, for instance: (Fruit, A fruit., 1.00, 100).</li>
-      <li>Each column is an <strong>attribute</strong> and each attribute has a <strong>domain</strong> or <strong>data type</strong>. The <em>Current Stock</em> column of the table is an attribute with a data type of integer (as product stock is logically
-        represented using an integer).</li>
+      <li>Each column is an <strong>attribute</strong> and each attribute has a <strong>domain</strong> or <strong>data type</strong>. The <em>Current Stock</em> column of the table is an attribute with a data type of integer (as product stock is logically represented using an integer).</li>
       <li>Each element in a tuple is called an <strong>attribute value</strong></li>
     </ul>
     <p><a href="https://en.wikipedia.org/wiki/Relation_(database)">Click here</a> for a more in-depth and formal definition of relations.</p>
-    <h2 id="transactions">Transactions</h2>
+    <h2 id="transactions">Transactions<a class="fa fa-anchor" href="#transactions"></a></h2>
     <p>Databases are useless if the data cannot be used in a meaningful manner. However, uncontrolled access to the database would not be ideal, as it might cause problems, especially when other actions may depend on the previous action's result.</p>
     <p>Take for instance, a program that transfers money from one bank account to another. The actions that the program would need to do involves:</p>
     <ol>
@@ -141,9 +135,8 @@
       <li>Deducting the amount of money to be sent</li>
       <li>Adding that amount to the receiver's account</li>
     </ol>
-    <p>A problem arises if another action takes place in between any of the steps (e.g. another transfer from the same sender), or if any of the steps fails (e.g. due to a program crash). As a result, it may cause the data to be manipulated in an undesired
-      manner (e.g. money not credited to receiver).</p>
-    <p>Thus, <strong>transactions</strong> allow us to guard against these problems. A <strong>transaction</strong> symbolises a logical unit of work, which consists of multiple database actions, performed on a set of databases. <a href="https://en.wikipedia.org/wiki/Database_transaction">[Source]</a>      Properties of a database transaction ensures that these actions are done in a predictable (i.e. in the particular order) and reliable (i.e. all actions must be performed correctly) manner.</p>
+    <p>A problem arises if another action takes place in between any of the steps (e.g. another transfer from the same sender), or if any of the steps fails (e.g. due to a program crash). As a result, it may cause the data to be manipulated in an undesired manner (e.g. money not credited to receiver).</p>
+    <p>Thus, <strong>transactions</strong> allow us to guard against these problems. A <strong>transaction</strong> symbolises a logical unit of work, which consists of multiple database actions, performed on a set of databases. <a href="https://en.wikipedia.org/wiki/Database_transaction">[Source]</a> Properties of a database transaction ensures that these actions are done in a predictable (i.e. in the particular order) and reliable (i.e. all actions must be performed correctly) manner.</p>
     <p>Thus, the transaction that would be implemented in the program could be something like this:</p>
     <ol>
       <li>Perform funds transfer from <em>sender</em> to <em>receiver</em>
@@ -154,9 +147,8 @@
         </ul>
       </li>
     </ol>
-    <p>As demonstrated above, the actions that needs to be done in order to transfer funds is wrapped as one large <strong>transaction</strong>. Hence, the <em>funds transfer</em> can be seen as the unit of work to be done on the database. The actions that
-      make up the <strong>transaction</strong> are executed as though <strong>transaction</strong> is a single action.</p>
-    <h3 id="acid-in-transactions">ACID in transactions</h3>
+    <p>As demonstrated above, the actions that needs to be done in order to transfer funds is wrapped as one large <strong>transaction</strong>. Hence, the <em>funds transfer</em> can be seen as the unit of work to be done on the database. The actions that make up the <strong>transaction</strong> are executed as though <strong>transaction</strong> is a single action.</p>
+    <h3 id="acid-in-transactions">ACID in transactions<a class="fa fa-anchor" href="#acid-in-transactions"></a></h3>
     <p>For a <strong>transaction</strong> to be considered as an implementation of the <strong>transaction</strong> concept, it has to satisfy the ACID principle.</p>
     <p>This principle states that a <strong>transaction</strong> must contain these characteristics:</p>
     <ul>
@@ -165,11 +157,9 @@
       <li>Isolation - if multiple transactions runs at the same time, the result should be the same as though these transactions are run sequentially</li>
       <li>Durability - transactions and its results should remain persistent (i.e. power loss or reboot should not affect results)</li>
     </ul>
-    <h2 id="distributed-databases">Distributed Databases</h2>
-    <p>The above section demonstrates how data can be related to each other. However, this demonstration assumes one thing: there is only one record of the data that is stored. What if there is a need to scale the database in such a way that the data is
-      distributed across several servers?</p>
-    <p>Relational model DBMSes usually do not scale as well, as the <strong>ACID principle</strong>, more specifically, durability, forces the database to propagate any changes to the data across all servers. One famous theorem, the <strong>CAP theorem</strong>,
-      states the a distributed computer system can only fulfil two out of three guarantees.</p>
+    <h2 id="distributed-databases">Distributed Databases<a class="fa fa-anchor" href="#distributed-databases"></a></h2>
+    <p>The above section demonstrates how data can be related to each other. However, this demonstration assumes one thing: there is only one record of the data that is stored. What if there is a need to scale the database in such a way that the data is distributed across several servers?</p>
+    <p>Relational model DBMSes usually do not scale as well, as the <strong>ACID principle</strong>, more specifically, durability, forces the database to propagate any changes to the data across all servers. One famous theorem, the <strong>CAP theorem</strong>, states the a distributed computer system can only fulfil two out of three guarantees.</p>
     <div class="table-responsive">
       <table class="markbind-table table table-bordered table-striped">
         <thead>
@@ -202,23 +192,19 @@
       <li>Soft state - state of system changes even though there might not be any user input, as it needs to ensure 'eventual consistency'</li>
       <li>Eventual consistency - the consistency of the system eventually occurs, but changes to data are still accepted in the meantime</li>
     </ul>
-    <h2 id="database-abstractions-and-languages">Database Abstractions and Languages</h2>
-    <h3 id="relational-algebra">Relational Algebra</h3>
+    <h2 id="database-abstractions-and-languages">Database Abstractions and Languages<a class="fa fa-anchor" href="#database-abstractions-and-languages"></a></h2>
+    <h3 id="relational-algebra">Relational Algebra<a class="fa fa-anchor" href="#relational-algebra"></a></h3>
     <p>A formal method of modelling the relations that have been demonstrated in this chapter is through the use of <strong>relational algebra</strong>. This is a formal method for modelling the data and actions performed on a relational database.</p>
     <h4 id="further-exploration">Further exploration</h4>
     <ul>
       <li><a href="https://www.tutorialspoint.com/dbms/relational_algebra.htm">Relational algebra</a></li>
     </ul>
-    <h3 id="query-language-and-abstractions">Query Language and Abstractions</h3>
+    <h3 id="query-language-and-abstractions">Query Language and Abstractions<a class="fa fa-anchor" href="#query-language-and-abstractions"></a></h3>
     <p>We have seen how databases are structured and how the underlying DBMS ensures that a certain set of characteristics, with regards to the system, hold true.</p>
-    <p>Now, the data consumer (for instance, an application or an actual human) would preferably want to access the data in a manner that is not DBMS specific. The DBMS implementation should have very little effect on the actual method of accessing the data.
-      If there's a need to switch over to a different DBMS that has the same set of features as the previous DBMS, the application should preferably not have to change its method of accessing the data.</p>
-    <p><strong>Query languages</strong> solves that issue, as some of them are designed to be platform-independent. As such, the query language can be seen as an abstraction of the possible actions that can be performed on a specific set of DBMSes. However,
-      be forewarned that query languages are not totally platform-independent, as certain DBMSes may implement features that are unique to the certain DBMS.</p>
-    <p>Take for instance SQL, which is one of the most popular query languages for relational DBMSes. While most features in the language are supported by relational DBMSes that uses SQL, certain features, for instance <code>SAMPLE</code> (which allows the
-      consumer to pick a random set of data) are not available on all of the DBMses that supports SQL.</p>
-    <p>Another level of abstraction is the <strong>database abstraction layer</strong>. This is usually an API level solution, as the programmer does not even need to know about a specific query language. Some abstractions are DBMS agnostic and as such,
-      can be used to access data from any kind of DBMS, regardless of its features.</p>
+    <p>Now, the data consumer (for instance, an application or an actual human) would preferably want to access the data in a manner that is not DBMS specific. The DBMS implementation should have very little effect on the actual method of accessing the data. If there's a need to switch over to a different DBMS that has the same set of features as the previous DBMS, the application should preferably not have to change its method of accessing the data.</p>
+    <p><strong>Query languages</strong> solves that issue, as some of them are designed to be platform-independent. As such, the query language can be seen as an abstraction of the possible actions that can be performed on a specific set of DBMSes. However, be forewarned that query languages are not totally platform-independent, as certain DBMSes may implement features that are unique to the certain DBMS.</p>
+    <p>Take for instance SQL, which is one of the most popular query languages for relational DBMSes. While most features in the language are supported by relational DBMSes that uses SQL, certain features, for instance <code>SAMPLE</code> (which allows the consumer to pick a random set of data) are not available on all of the DBMses that supports SQL.</p>
+    <p>Another level of abstraction is the <strong>database abstraction layer</strong>. This is usually an API level solution, as the programmer does not even need to know about a specific query language. Some abstractions are DBMS agnostic and as such, can be used to access data from any kind of DBMS, regardless of its features.</p>
     <h4 id="further-exploration-2">Further exploration</h4>
     <h5 id="query-languages">Query languages</h5>
     <ul>
@@ -235,7 +221,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -247,4 +233,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

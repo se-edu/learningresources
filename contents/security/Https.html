@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,9 +48,9 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="security-https">Security - https</h1>
+    <h1 id="security-https">Security - https<a class="fa fa-anchor" href="#security-https"></a></h1>
     <p>Author: <a href="https://github.com/boxin-yang">Boxin</a></p>
-    <h2 id="overview">Overview</h2>
+    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
     <p>HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sniffing (eavesdropping data packets). In this tutorial, we will cover four questions to have a better understanding of https. The questions are:</p>
     <ul>
       <li><a href="#why-do-we-need-https">Why do we need HTTPS</a></li>
@@ -57,70 +58,50 @@
       <li><a href="#how-to-set-up-https">How to set up HTTPS</a></li>
       <li><a href="#misuse-of-https">Misuse of HTTPS</a></li>
     </ul>
-    <h3 id="why-do-we-need-https">Why do we need HTTPS</h3>
-    <p>The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such as the
-      password or <a href="http://searchsoftwarequality.techtarget.com/definition/session-ID">session tokens</a>. Here are some examples on how a plain text could be sniffed.</p>
+    <h3 id="why-do-we-need-https">Why do we need HTTPS<a class="fa fa-anchor" href="#why-do-we-need-https"></a></h3>
+    <p>The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such as the password or <a href="http://searchsoftwarequality.techtarget.com/definition/session-ID">session tokens</a>. Here are some examples on how a plain text could be sniffed.</p>
     <ul>
       <li>
-        <p>On public free wifi, a Wifi adapter in monitor mode would be able to capture all the ongoing packets to and from the wifi access point, regardless of its destination. If the traffic is transmitted over HTTP, the data sent over wifi is in plain
-          text and the session token and password can be stolen. One famous example would be <a href="https://github.com/codebutler/firesheep">Firesheep</a>, a Firefox plugin to sniff session token used in websites such as Facebook. This has made Facebook
-          <a href="https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920/">change its default protocol from HTTP to HTTPS</a></p>
+        <p>On public free wifi, a Wifi adapter in monitor mode would be able to capture all the ongoing packets to and from the wifi access point, regardless of its destination. If the traffic is transmitted over HTTP, the data sent over wifi is in plain text and the session token and password can be stolen. One famous example would be <a href="https://github.com/codebutler/firesheep">Firesheep</a>, a Firefox plugin to sniff session token used in websites such as Facebook. This has made Facebook <a href="https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920/">change its default protocol from HTTP to HTTPS</a></p>
       </li>
       <li>
-        <p>Our network packets usually travel through switches and routers around the globe to reach the destination. Any one of them, if compromised, could expose our network traffic to the sniffer. <a href="http://searchnetworking.techtarget.com/definition/Network-tap">Network tap</a>          is an example of a device used to sniff network traffic.</p>
+        <p>Our network packets usually travel through switches and routers around the globe to reach the destination. Any one of them, if compromised, could expose our network traffic to the sniffer. <a href="http://searchnetworking.techtarget.com/definition/Network-tap">Network tap</a> is an example of a device used to sniff network traffic.</p>
       </li>
       <li>
-        <p>Our Internet architecture relies on <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> for domain name and IP mapping and <a href="https://en.wikipedia.org/wiki/Address_Resolution_Protocol">ARP</a> for MAC address and IP mapping.
-          None of the above is built with security in mind. Common attacks such as <a href="https://en.wikipedia.org/wiki/DNS_spoofing">DNS cache poisoning</a> or <a href="https://en.wikipedia.org/wiki/ARP_spoofing">ARP poisoning</a> could redirect your
-          traffic for monitoring.</p>
+        <p>Our Internet architecture relies on <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> for domain name and IP mapping and <a href="https://en.wikipedia.org/wiki/Address_Resolution_Protocol">ARP</a> for MAC address and IP mapping. None of the above is built with security in mind. Common attacks such as <a href="https://en.wikipedia.org/wiki/DNS_spoofing">DNS cache poisoning</a> or <a href="https://en.wikipedia.org/wiki/ARP_spoofing">ARP poisoning</a>
+          could redirect your traffic for monitoring.</p>
       </li>
     </ul>
-    <p>All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application. Therefore,
-      we need to use HTTPS as an end to end encryption to secure our network packets.</p>
-    <h3 id="why-https-is-secure">Why HTTPS is secure</h3>
-    <p>As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of <a href="https://www.digicert.com/ssl.htm">SSL</a> to encrypt the plain text message. The purpose of this encryption is to make
-      sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.</p>
-    <p>There are mainly 3 encryption algorithms used in HTTPS, namely RSA, Diffie Hellman and Elliptic Curve Algorithm. They are more thoroughly explained in <a href="../security/cryptography.md">Introduction to Cryptography</a> section. These algorithms
-      prevent sniffers from decrypting packets without knowing the keys used because the best attack algorithms known at the moment run in <a href="https://en.wikipedia.org/wiki/Time_complexity#Sub-exponential_time">sub-exponential</a> time. Therefore,
-      the attack is believed to be computationally infeasible when the keysize is large enough (e.g. 2048 bits for RSA), though it is not mathematically proven.</p>
+    <p>All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application. Therefore, we need to use HTTPS as an end to end encryption to secure our network packets.</p>
+    <h3 id="why-https-is-secure">Why HTTPS is secure<a class="fa fa-anchor" href="#why-https-is-secure"></a></h3>
+    <p>As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of <a href="https://www.digicert.com/ssl.htm">SSL</a> to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.</p>
+    <p>There are mainly 3 encryption algorithms used in HTTPS, namely RSA, Diffie Hellman and Elliptic Curve Algorithm. They are more thoroughly explained in <a href="../security/cryptography.md">Introduction to Cryptography</a> section. These algorithms prevent sniffers from decrypting packets without knowing the keys used because the best attack algorithms known at the moment run in <a href="https://en.wikipedia.org/wiki/Time_complexity#Sub-exponential_time">sub-exponential</a> time. Therefore, the attack is believed to be computationally infeasible when the keysize is large enough (e.g. 2048 bits for RSA), though it is not mathematically proven.</p>
     <p>Thus, by using https, we can be sure that even though our network packets are transmitted over an insecure network, sniffers cannot understand the content of our encrypted packets.</p>
-    <p>Besides providing secure network traffic, HTTPS also provides server validation through Certificate Authority (CA) architecture. A detailed explanation on CA is <a href="https://www.globalsign.com/en-sg/ssl-information-center/what-are-certification-authorities-trust-hierarchies/">here</a>      . In short, CA works by issuing the server a digital certificate that can only be produced by CA. When the server sends its digital certificate to the client, client browsers verify the digital certificate with CA to check whether the server is
-      indeed the intended server. To obtain such digital certificate, the server needs to apply to CA and CA will verify the server before issuing the digital certificate.</p>
-    <h3 id="how-to-set-up-https">How to set up HTTPS</h3>
+    <p>Besides providing secure network traffic, HTTPS also provides server validation through Certificate Authority (CA) architecture. A detailed explanation on CA is <a href="https://www.globalsign.com/en-sg/ssl-information-center/what-are-certification-authorities-trust-hierarchies/">here</a> . In short, CA works by issuing the server a digital certificate that can only be produced by CA. When the server sends its digital certificate to the client, client browsers verify the digital certificate with CA to check whether the server is indeed the intended server. To obtain such digital certificate, the server needs to apply to CA and CA will verify the server before issuing the digital certificate.</p>
+    <h3 id="how-to-set-up-https">How to set up HTTPS<a class="fa fa-anchor" href="#how-to-set-up-https"></a></h3>
     <p>In order set up HTTPS on your server, you would need to have:</p>
     <ol>
       <li>A dedicated IP address for your server.</li>
       <li>Obtain a digital certificate from a CA.</li>
     </ol>
-    <p>For example, one of the CA is <a href="https://www.digicert.com">digicert</a> and they provide SSL <a href="https://www.digicert.com/ssl-certificate-installation.htm">installation guide</a> for different platforms. Usually, the SSL setup could be
-      found on the CA that you obtained a digital signature from.</p>
+    <p>For example, one of the CA is <a href="https://www.digicert.com">digicert</a> and they provide SSL <a href="https://www.digicert.com/ssl-certificate-installation.htm">installation guide</a> for different platforms. Usually, the SSL setup could be found on the CA that you obtained a digital signature from.</p>
     <p>However, most CAs are not free of charge. One free initiative to provide free domain validation certificates is <a href="https://letsencrypt.org/">Lets Encrypt</a>.</p>
-    <h2 id="misuse-of-https">Misuse of HTTPS</h2>
+    <h2 id="misuse-of-https">Misuse of HTTPS<a class="fa fa-anchor" href="#misuse-of-https"></a></h2>
     <p>Up to this moment, it seems that nothing could go wrong with HTTPS. However, in real life, there could be weakness on the implementation of HTTPS.</p>
     <h4 id="sha-1-collision-attack">SHA-1 Collision Attack</h4>
-    <p>As aforementioned, Certificate Authority (CA) signs a digital certificate provided by the server to prove the identity of the server. However, in the real-world implementation, the CA does not sign the digital certificate directly, rather CA signs
-      the fixed length <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">hashed digest</a> of the digital certificate for efficiency. This introduces the possibility of two different digital certificates with the same hashed digest.
-      Thus, if the attackers manage to forge a fake digital certificate with the same hashed digest of another valid digital certificate, the browser would trust the attackers server and all the servers signed by the attackers. This loophole occurs with
-      SHA-1 hashing algorithm and SHA-1 is no longer used in HTTPS after 2016. In 2017, Google has announced an algorithm to forge a duplicated SHA-1 hash and the report is <a href="https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html?m=1">here</a>.
-      A more detailed explanation of this problem is found <a href="https://www.sott.net/article/275524-Why-HTTPS-and-SSL-are-not-as-secure-as-you-think">here</a>.</p>
+    <p>As aforementioned, Certificate Authority (CA) signs a digital certificate provided by the server to prove the identity of the server. However, in the real-world implementation, the CA does not sign the digital certificate directly, rather CA signs the fixed length <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">hashed digest</a> of the digital certificate for efficiency. This introduces the possibility of two different digital certificates with the same hashed digest. Thus, if the attackers manage to forge a fake digital certificate with the same hashed digest of another valid digital certificate, the browser would trust the attackers server and all the servers signed by the attackers. This loophole occurs with SHA-1 hashing algorithm and SHA-1 is no longer used in HTTPS after 2016. In 2017, Google has announced an algorithm to forge a duplicated SHA-1 hash and the report is <a href="https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html?m=1">here</a>. A more detailed explanation of this problem is found <a href="https://www.sott.net/article/275524-Why-HTTPS-and-SSL-are-not-as-secure-as-you-think">here</a>.</p>
     <h4 id="weak-diffie-hellman-attack">Weak Diffie-Hellman Attack</h4>
-    <p>During the <a href="https://en.wikipedia.org/wiki/Cipher_suite">cipher suite negotiation</a> process of HTTPS, client and server send each other in plain text the HTTPS standard they support and the most secure standard is chosen to be used. However,
-      this can be exploited for HTTPS downgrade by a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man in the middle attack</a>. The man in the middle could send forged cipher suite negotiation to both server and client to indicate
-      the maximum security supported is only 512 bits Diffie Hellman and trick server and client to encrypt with 512 bits Diffie Hellman. At the moment, without knowing the keys, 512 bits Diffie Hellman algorithm could be decrypted with sufficient resources.
-      A more detailed description could be found <a href="https://weakdh.org/">here</a></p>
+    <p>During the <a href="https://en.wikipedia.org/wiki/Cipher_suite">cipher suite negotiation</a> process of HTTPS, client and server send each other in plain text the HTTPS standard they support and the most secure standard is chosen to be used. However, this can be exploited for HTTPS downgrade by a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man in the middle attack</a>. The man in the middle could send forged cipher suite negotiation to both server and client to indicate the maximum security supported is only 512 bits Diffie Hellman and trick server and client to encrypt with 512 bits Diffie Hellman. At the moment, without knowing the keys, 512 bits Diffie Hellman algorithm could be decrypted with sufficient resources. A more detailed description could be found <a href="https://weakdh.org/">here</a></p>
     <h4 id="session-hijacking-on-partially-protected-websites">Session Hijacking on partially protected websites</h4>
-    <p>Some websites use HTTPS only on the login page to encrypt the login credentials of users. However, this is vulnerable to <a href="https://en.wikipedia.org/wiki/Session_hijacking">session hijacking</a> attack. Most websites use cookies and session
-      tokens to maintain a stateful connection with its users, and the session token is embedded into each packet to authenticate the identity of users. Without using HTTPS in all the websites in the domain, the packets containing session token is transmitted
-      in plaintext and sniffers can easily obtain the session token to impersonate the victim. A demonstration of this attack on <a href="http://Qoo10.com">Qoo10.com</a> user can be found <a href="https://www.youtube.com/watch?v=BjTwNzoMUuk">here</a></p>
-    <h2 id="conclusion">Conclusion</h2>
-    <p>HTTPS provides security to a web application. If the web application requires secure network traffic (e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional
-      layer of encryption and decryption adds overhead to network traffic (though the impact is not significant). If secure network traffic is not required (e.g. University home page), HTTPS may not be used.</p>
+    <p>Some websites use HTTPS only on the login page to encrypt the login credentials of users. However, this is vulnerable to <a href="https://en.wikipedia.org/wiki/Session_hijacking">session hijacking</a> attack. Most websites use cookies and session tokens to maintain a stateful connection with its users, and the session token is embedded into each packet to authenticate the identity of users. Without using HTTPS in all the websites in the domain, the packets containing session token is transmitted in plaintext and sniffers can easily obtain the session token to impersonate the victim. A demonstration of this attack on <a href="http://Qoo10.com">Qoo10.com</a> user can be found <a href="https://www.youtube.com/watch?v=BjTwNzoMUuk">here</a></p>
+    <h2 id="conclusion">Conclusion<a class="fa fa-anchor" href="#conclusion"></a></h2>
+    <p>HTTPS provides security to a web application. If the web application requires secure network traffic (e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional layer of encryption and decryption adds overhead to network traffic (though the impact is not significant). If secure network traffic is not required (e.g. University home page), HTTPS may not be used.</p>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -132,4 +113,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

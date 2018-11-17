@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,31 +48,29 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="documentation">Documentation</h1>
+    <h1 id="documentation">Documentation<a class="fa fa-anchor" href="#documentation"></a></h1>
     <p>Authors: <a href="https://github.com/kychua">Chua Ka Yi Ong</a></p>
-    <h2 id="introduction">Introduction</h2>
-    <p>Software documentation refers to information that explains the code in a software project or how to use a software product or API. Many developers neglect writing documentation because they find it boring or troublesome, which is a pity because documentation
-      communicates what you have done to the world - without documentation, people won't know about your awesome code or cool features.</p>
+    <h2 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction"></a></h2>
+    <p>Software documentation refers to information that explains the code in a software project or how to use a software product or API.
+      Many developers neglect writing documentation because they find it boring or troublesome, which is a pity because documentation communicates what you have done to the world - without documentation, people won't know about your awesome code or cool features.</p>
     <blockquote>
-      <p>The difference between a tolerable programmer and a great programmer is not how many programming languages they know, and it’s not whether they prefer Python or Java. It’s whether they can communicate their ideas. By persuading other people, they
-        get leverage. By writing clear comments and technical specs, they let other programmers understand their code, which means other programmers can use and work with their code instead of rewriting it. Absent this, their code is worthless. By writing
-        clear technical documentation for end users, they allow people to figure out what their code is supposed to do, which is the only way those users can see the value in their code. There’s a lot of wonderful, useful code buried on sourceforge somewhere
-        that nobody uses because it was created by programmers who don’t write very well (or don’t write at all), and so nobody knows what they’ve done and their brilliant code languishes.</p>
+      <p>The difference between a tolerable programmer and a great programmer is not how many programming languages they know, and it’s not whether they prefer Python or Java. It’s whether they can communicate their ideas. By persuading other people, they get leverage. By writing clear comments and technical specs, they let other programmers understand their code, which means other programmers can use and work with their code instead of rewriting it. Absent this, their code is worthless. By writing clear technical documentation for end users, they allow people to figure out what their code is supposed to do, which is the only way those users can see the value in their code. There’s a lot of wonderful, useful code buried on sourceforge somewhere that nobody uses because it was created by programmers who don’t write very well (or don’t write at all), and so nobody knows what they’ve done and their brilliant code languishes.</p>
       <p><a href="https://www.joelonsoftware.com/2005/01/02/advice-for-computer-science-college-students/">Advice for Computer Science College Students</a>, by Joel Spolsky</p>
     </blockquote>
-    <h2 id="why-write-documentation">Why Write Documentation</h2>
+    <h2 id="why-write-documentation">Why Write Documentation<a class="fa fa-anchor" href="#why-write-documentation"></a></h2>
     <p>There are many benefits to writing good documentation, such as the following:</p>
     <ul>
-      <li><strong>Makes things easier for yourself</strong>: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find
-        yourself confused by your own work</li>
+      <li><strong>Makes things easier for yourself</strong>: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find yourself confused by your own work</li>
       <li><strong>Improves your code</strong>: documentation forces you to think carefully about what you are trying to do and why you have chosen to implement it in a particular way</li>
       <li><strong>Encourages others to contribute to your software</strong>: by documenting how to contribute, it makes easier for others to do so, so they are more likely to help out</li>
       <li><strong>Encourages others to use your software</strong>: <a href="http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680">&quot;If it isn't documented, it doesn't exist.&quot;</a></li>
     </ul>
-    <h2 id="writing-good-documentation">Writing Good Documentation</h2>
-    <p>Documentation should not be written for the sake of writing, but rather, to fulfill a need. Good documentation is up-to-date and includes only what is necessary.</p>
-    <p>Documentation comes in many different forms. Below are some guidelines on how to tackle each type of documentation.</p>
-    <h3 id="written-documentation">Written Documentation</h3>
+    <h2 id="writing-good-documentation">Writing Good Documentation<a class="fa fa-anchor" href="#writing-good-documentation"></a></h2>
+    <p>Documentation should not be written for the sake of writing, but rather, to fulfill a need.
+      Good documentation is up-to-date and includes only what is necessary.</p>
+    <p>Documentation comes in many different forms.
+      Below are some guidelines on how to tackle each type of documentation.</p>
+    <h3 id="written-documentation">Written Documentation<a class="fa fa-anchor" href="#written-documentation"></a></h3>
     <p>Written documentation refers to what people usually think of as documentation - READMEs, user guides and developer guides.</p>
     <p>In general, written documentation should use:</p>
     <ul>
@@ -89,33 +88,47 @@
     <p><a href="http://www.bluemangolearning.com/software-documentation/">This</a> provides useful general tips for writing documentation and
       <a href="https://jacobian.org/writing/technical-style/">this guide</a> provides more tips on writing well.</p>
     <h4 id="readme">README</h4>
-    <p>A README serves as an introduction to your project, and is often the first thing people see when encountering your project.<br> A good README should convince users to use your product or contribute to your code, by providing enough information to
-      make it easy for them to get started.</p>
+    <p>A README serves as an introduction to your project, and is often the first thing people see when encountering your project.<br>
+      A good README should convince users to use your product or contribute to your code, by providing enough information to make it easy for them to get started.</p>
     <p>For a good guide on how to write a README, check out <a href="http://www.writethedocs.org/guide/writing/beginners-guide-to-docs/">this guide</a>.</p>
     <ul>
-      <li>Some suggest that READMEs should be written before you start coding, as it gives you an overview of your project and what you need to do. This is known as <a href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html">Readme Driven Development</a>.</li>
+      <li>Some suggest that READMEs should be written before you start coding, as it gives you an overview of your project and what you need to do.
+        This is known as <a href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html">Readme Driven Development</a>.</li>
     </ul>
     <h4 id="user-guide">User Guide</h4>
-    <p>A user guide teaches users how to use your software. User guides can include quickstart guides, reference materials, tutorials, cookbooks/recipes and more.</p>
+    <p>A user guide teaches users how to use your software.
+      User guides can include quickstart guides, reference materials, tutorials, cookbooks/recipes and more.</p>
     <p><a href="https://jacobian.org/writing/what-to-write/">Here</a> is a useful guide on how to tackle different types of user documentation.
       <a href="http://stevelosh.com/blog/2013/09/teach-dont-tell/">This</a> points out the problems with common approaches to documentation and builds on the previous article.</p>
     <h4 id="developer-guide">Developer Guide</h4>
-    <p>Developer guides teach new developers how to contribute to the code base. They should give an overview of the code and an explanation of the design, as well as include instructions for setting up, making changes and deploying.</p>
+    <p>Developer guides teach new developers how to contribute to the code base.
+      They should give an overview of the code and an explanation of the design, as well as include instructions for setting up, making changes and deploying.</p>
     <p>See <a href="https://www.petrikainulainen.net/software-development/processes/writing-just-enough-documentation/">this</a> to learn more about what to include in a developer guide.</p>
-    <h3 id="code-documentation">Code Documentation</h3>
-    <p>Code docummentation refers to documentation that is found within the source code. All the following types of code documentation are important and complement one another. Note that such documentation should always be updated together with the code.</p>
+    <h3 id="code-documentation">Code Documentation<a class="fa fa-anchor" href="#code-documentation"></a></h3>
+    <p>Code docummentation refers to documentation that is found within the source code.
+      All the following types of code documentation are important and complement one another.
+      Note that such documentation should always be updated together with the code.</p>
     <h4 id="comments">Comments</h4>
-    <p>Comments are a well-known form of documentation. They <a href="http://softwareengineering.stackexchange.com/a/285789">complement the code</a> and are intended for developers who use and work on the code. They include API documentation for variables,
-      methods, classes, and packages, as well as inline comments.</p>
-    <p>API documentation for variables, methods, classes, and packages explain what they do. Good API documentation should enable users to use the API without having to guess how to use it or be confronted with unexpected behavior. Thus, comments for methods
-      should include the input and output, assumptions, edge cases and possible exceptions or errors thrown by the method.</p>
-    <p>Comments can also refer to inline comments. Even the most well-written code can leave ambiguous questions. For example, code cannot explain why a line of code was written in a specific way, as discussed in <a href="https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/">this article</a>.
+    <p>Comments are a well-known form of documentation.
+      They <a href="http://softwareengineering.stackexchange.com/a/285789">complement the code</a> and are intended for developers who use and work on the code.
+      They include API documentation for variables, methods, classes, and packages, as well as inline comments.</p>
+    <p>API documentation for variables, methods, classes, and packages explain what they do.
+      Good API documentation should enable users to use the API without having to guess how to use it or be confronted with unexpected behavior.
+      Thus, comments for methods should include the input and output, assumptions, edge cases and possible exceptions or errors thrown by the method.</p>
+    <p>Comments can also refer to inline comments.
+      Even the most well-written code can leave ambiguous questions.
+      For example, code cannot explain why a line of code was written in a specific way, as discussed in <a href="https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/">this article</a>.
       In such cases, well-written comments can clarify and make the code easier to understand.</p>
-    <p>Note however, that excessive comments are also a code smell. Comments should not repeat what the code is saying and requiring a lot of comments to explain what you are doing can suggest that the code is too convoluted. Often, comments can be replaced
-      by clearer code. As much as possible, code should be written as clearly as possible, with comments added in only when necessary.
-      <a href="http://stackoverflow.com/a/209089">This Stack Overflow answer</a> gives a good example on how to do this. For a more detailed explanation, read <a href="https://blog.codinghorror.com/coding-without-comments/">this article</a>.</p>
+    <p>Note however, that excessive comments are also a code smell.
+      Comments should not repeat what the code is saying and requiring a lot of comments to explain what you are doing can suggest that the code is too convoluted.
+      Often, comments can be replaced by clearer code.
+      As much as possible, code should be written as clearly as possible, with comments added in only when necessary.
+      <a href="http://stackoverflow.com/a/209089">This Stack Overflow answer</a> gives a good example on how to do this.
+      For a more detailed explanation, read <a href="https://blog.codinghorror.com/coding-without-comments/">this article</a>.</p>
     <h4 id="source-code">Source Code</h4>
-    <p>The source code is a form of documentation. Well-written code makes it easy for developers to understand what the code is doing. This can be done via a number of ways, such as</p>
+    <p>The source code is a form of documentation.
+      Well-written code makes it easy for developers to understand what the code is doing.
+      This can be done via a number of ways, such as</p>
     <ul>
       <li>using meaningful names for variables, functions and classes</li>
       <li>using useful error messages</li>
@@ -124,12 +137,14 @@
     </ul>
     <h4 id="tests">Tests</h4>
     <p>Tests are another form of documentation as they make the expected behavior of the methods clear for different types of input and edge cases.</p>
-    <h3 id="version-control">Version Control</h3>
-    <p>Version control is also a form of documentation. Having access to how the code base was changed over time can shows how, when and why a piece of code was written or changed. For this to work well, it is important to write good commit messages and
-      follow good commit practices.</p>
+    <h3 id="version-control">Version Control<a class="fa fa-anchor" href="#version-control"></a></h3>
+    <p>Version control is also a form of documentation.
+      Having access to how the code base was changed over time can shows how, when and why a piece of code was written or changed.
+      For this to work well, it is important to write good commit messages and follow good commit practices.</p>
     <p><a href="https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message">This</a> explains what to include in commit messages while
-      <a href="http://mislav.net/2014/02/hidden-documentation/">this article</a> explains how to use Git to make full use of your code's version control history. For more resources on commit messages, check out <a href="https://stackoverflow.com/questions/15324900/standard-to-follow-when-writing-git-commit-messages">this Stack Overflow thread</a>.</p>
-    <h2 id="resources">Resources</h2>
+      <a href="http://mislav.net/2014/02/hidden-documentation/">this article</a> explains how to use Git to make full use of your code's version control history.
+      For more resources on commit messages, check out <a href="https://stackoverflow.com/questions/15324900/standard-to-follow-when-writing-git-commit-messages">this Stack Overflow thread</a>.</p>
+    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
     <ul>
       <li>For inspiration: <a href="https://github.com/PharkMillups/beautiful-docs">https://github.com/PharkMillups/beautiful-docs</a></li>
       <li>An overview of the different types of documentation and good examples of each type: <a href="http://www.ybrikman.com/writing/2014/05/05/you-are-what-you-document/">http://www.ybrikman.com/writing/2014/05/05/you-are-what-you-document/</a></li>
@@ -137,7 +152,7 @@
       <li>Agile documentation: <a href="http://www.agilemodeling.com/essays/agileDocumentationBestPractices.htm">http://www.agilemodeling.com/essays/agileDocumentationBestPractices.htm</a></li>
       <li>Video on how to write great documentation: <a href="https://www.youtube.com/watch?v=z3fRu9pkuXE">https://www.youtube.com/watch?v=z3fRu9pkuXE</a></li>
     </ul>
-    <h2 id="acknowledgements">Acknowledgements</h2>
+    <h2 id="acknowledgements">Acknowledgements<a class="fa fa-anchor" href="#acknowledgements"></a></h2>
     <p>In addition to the links mentioned above, here are the links used in the writing of this article:</p>
     <ul>
       <li><a href="https://opensource.com/business/15/5/write-better-docs">https://opensource.com/business/15/5/write-better-docs</a></li>
@@ -169,7 +184,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -181,4 +196,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

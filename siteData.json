@@ -7,7 +7,8 @@
       "title": "Learning Resources for Software Engineering Students",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "Contact.md"
+      "src": "Contact.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -16,32 +17,40 @@
       "title": "Learning Resources for Software Engineering Students",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "GuidelinesForContributors.md"
+      "src": "GuidelinesForContributors.md",
+      "layout": "default"
     },
     {
-      "headings": {},
+      "headings": {
+        "learning-resources-for-software-engineering-students": "Learning Resources for Software Engineering Students"
+      },
       "src": "README.md",
-      "title": ""
+      "title": "",
+      "layout": "default"
     },
     {
       "headings": {},
       "src": "_markbind/footers/footer.md",
-      "title": ""
+      "title": "",
+      "layout": "default"
     },
     {
       "headings": {},
       "src": "_markbind/head/head.md",
-      "title": ""
+      "title": "",
+      "layout": "default"
     },
     {
       "headings": {},
       "src": "_markbind/variables.md",
-      "title": ""
+      "title": "",
+      "layout": "default"
     },
     {
       "headings": {},
       "src": "contents/ToC.md",
-      "title": ""
+      "title": "",
+      "layout": "default"
     },
     {
       "headings": {
@@ -64,7 +73,8 @@
       "title": "Introduction to Machine Learning (ML)",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/ai/ml.md"
+      "src": "contents/ai/ml.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -86,7 +96,8 @@
       "title": "Introduction to Android App Development",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/android/IntroToAndroid.md"
+      "src": "contents/android/IntroToAndroid.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -109,7 +120,8 @@
       "title": "REST Architectural Style",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/architecture/RESTArchitecturalStyle.md"
+      "src": "contents/architecture/RESTArchitecturalStyle.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -127,7 +139,8 @@
       "title": "Rvalue References and Move Semantics",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/c++/rvalue.md"
+      "src": "contents/c++/rvalue.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -145,7 +158,8 @@
       "title": "Code Quality Metrics",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/codeQuality/CodeQualityMetrics.md"
+      "src": "contents/codeQuality/CodeQualityMetrics.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -165,7 +179,8 @@
       "title": "Introduction to computer vision (CV)",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/computerVision/cv.md"
+      "src": "contents/computerVision/cv.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -186,7 +201,8 @@
       "title": "Introduction to Databases & Database Management Systems (DBMS)",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/data/databases.md"
+      "src": "contents/data/databases.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -205,7 +221,8 @@
       "title": "DevOps",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/devops/DevOps.md"
+      "src": "contents/devops/DevOps.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -221,7 +238,8 @@
       "title": "An Introduction to Functional Programming",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/functionalProgramming/intro.md"
+      "src": "contents/functionalProgramming/intro.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -241,7 +259,8 @@
       "title": "Introduction to Go",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/go/Go.md"
+      "src": "contents/go/Go.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -268,7 +287,8 @@
       "title": "An Introduction to CUDA",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/gpgpu/cuda.md"
+      "src": "contents/gpgpu/cuda.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -286,7 +306,8 @@
       "title": "An Introduction to GPGPU",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/gpgpu/gpgpu.md"
+      "src": "contents/gpgpu/gpgpu.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -327,7 +348,8 @@
       "title": "Introduction to Haskell",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/haskell/Haskell.md"
+      "src": "contents/haskell/Haskell.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -340,7 +362,8 @@
       "title": "Java",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/java/Java.md"
+      "src": "contents/java/Java.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -359,7 +382,8 @@
       "title": "Java Concurrency",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/java/JavaConcurrency.md"
+      "src": "contents/java/JavaConcurrency.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -375,7 +399,8 @@
       "title": "Advanced Java: Reflections",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/java/JavaReflections.md"
+      "src": "contents/java/JavaReflections.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -395,7 +420,8 @@
       "title": "Java Synchronization",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/java/JavaSynchronization.md"
+      "src": "contents/java/JavaSynchronization.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -418,7 +444,8 @@
       "title": "Java 8 Streams - An Introduction",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/java/streams-an-introduction.md"
+      "src": "contents/java/streams-an-introduction.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -432,7 +459,8 @@
       "title": "VueJs",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/javascript/Javascript-framework-VueJs.md"
+      "src": "contents/javascript/Javascript-framework-VueJs.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -443,7 +471,8 @@
       "title": "Libraries",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/javascript/Javascript-libraries.md"
+      "src": "contents/javascript/Javascript-libraries.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -460,7 +489,8 @@
       "title": "Javascript: Promises",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/javascript/Javascript-promises.md"
+      "src": "contents/javascript/Javascript-promises.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -480,7 +510,8 @@
       "title": "Writing Testable Javascript",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/javascript/javascript.md"
+      "src": "contents/javascript/javascript.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -499,7 +530,8 @@
       "title": "Null Safety in Kotlin",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/kotlin/NullSafety.md"
+      "src": "contents/kotlin/NullSafety.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -518,7 +550,8 @@
       "title": "Introduction to Kotlin",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/kotlin/kotlin.md"
+      "src": "contents/kotlin/kotlin.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -540,7 +573,8 @@
       "title": "Introduction to Node.js",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/node/nodejs.md"
+      "src": "contents/node/nodejs.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -554,7 +588,8 @@
       "title": "Introduction to Performance Optimization",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/performance/Performance.md"
+      "src": "contents/performance/Performance.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -570,7 +605,8 @@
       "title": "Performance Profiling",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/performance/PerformanceProfiling.md"
+      "src": "contents/performance/PerformanceProfiling.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -585,7 +621,8 @@
       "title": "Profiling a Desktop Application In Visual Studio 2015",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/performance/ProfilingDesktopAppVS2015.md"
+      "src": "contents/performance/ProfilingDesktopAppVS2015.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -601,7 +638,8 @@
       "title": "Agile Development",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/projectManagement/AgileDevelopment.md"
+      "src": "contents/projectManagement/AgileDevelopment.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -618,7 +656,8 @@
       "title": "Documentation",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/projectManagement/documentation.md"
+      "src": "contents/projectManagement/documentation.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -637,7 +676,8 @@
       "title": "An Introduction to Python",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/python/introduction-to-python.md"
+      "src": "contents/python/introduction-to-python.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -670,7 +710,8 @@
       "title": "Introduction to Regular Expressions",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/regex/Regex.md"
+      "src": "contents/regex/Regex.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -695,7 +736,8 @@
       "title": "Best Practices with `git`",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/revisionControl/bestPracticesGit.md"
+      "src": "contents/revisionControl/bestPracticesGit.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -712,7 +754,8 @@
       "title": "Introduction to Ruby",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/ruby/Ruby.md"
+      "src": "contents/ruby/Ruby.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -728,7 +771,8 @@
       "title": "Rust",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/rust/Rust.md"
+      "src": "contents/rust/Rust.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -745,7 +789,8 @@
       "title": "Scalable Development - An Introduction",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/scalability/scalable-development.md"
+      "src": "contents/scalability/scalable-development.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -760,7 +805,8 @@
       "title": "Security - https",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/security/Https.md"
+      "src": "contents/security/Https.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -776,7 +822,8 @@
       "title": "Cross Site Request Forgery (CSRF)",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/security/crossSiteRequestForgery/crossSiteRequestForgery.md"
+      "src": "contents/security/crossSiteRequestForgery/crossSiteRequestForgery.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -789,7 +836,8 @@
       "title": "Cross Site Scripting",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/security/crossSiteScripting/crossSiteScripting.md"
+      "src": "contents/security/crossSiteScripting/crossSiteScripting.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -803,7 +851,8 @@
       "title": "Introduction to Cryptography",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/security/cryptography.md"
+      "src": "contents/security/cryptography.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -817,7 +866,8 @@
       "title": "SQL Injection",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/security/sqlInjection.md"
+      "src": "contents/security/sqlInjection.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -832,7 +882,8 @@
       "title": "ESLint",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/staticAnalysis/ESLint.md"
+      "src": "contents/staticAnalysis/ESLint.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -855,7 +906,8 @@
       "title": "FindBugs",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/staticAnalysis/FindBugs.md"
+      "src": "contents/staticAnalysis/FindBugs.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -878,7 +930,8 @@
       "title": "PMD",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/staticAnalysis/PMD.md"
+      "src": "contents/staticAnalysis/PMD.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -898,7 +951,8 @@
       "title": "CheckStyle",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/staticAnalysis/checkStyle.md"
+      "src": "contents/staticAnalysis/checkStyle.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -918,7 +972,8 @@
       "title": "Static Analysis",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/staticAnalysis/intro.md"
+      "src": "contents/staticAnalysis/intro.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -941,7 +996,8 @@
       "title": "Swift",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/swift/welcome-to-swift.md"
+      "src": "contents/swift/welcome-to-swift.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -965,7 +1021,8 @@
       "title": "Writing Testable Code",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/testing/writing-testable-code.md"
+      "src": "contents/testing/writing-testable-code.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -981,7 +1038,8 @@
       "title": "Refining UX Design Skills",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/uix/refining-ux-skills.md"
+      "src": "contents/uix/refining-ux-skills.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -1001,7 +1059,8 @@
       "title": "UI/UX",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "contents/uix/uix.md"
+      "src": "contents/uix/uix.md",
+      "layout": "default"
     },
     {
       "headings": {
@@ -1010,7 +1069,8 @@
       "title": "Learning Resources for Software Engineering Students",
       "footer": "footer.md",
       "head": "head.md",
-      "src": "index.md"
+      "src": "index.md",
+      "layout": "default"
     }
   ]
 }

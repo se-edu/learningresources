@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,15 +48,13 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="pmd">PMD</h1>
+    <h1 id="pmd">PMD<a class="fa fa-anchor" href="#pmd"></a></h1>
     <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-    <h2 id="overview">Overview</h2>
-    <p>PMD is a static analyser for Java, JavaScript, <a href="http://Salesforce.com">Salesforce.com</a> Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector(<a href="http://pmd.sourceforge.net/pmd-4.3.0/cpd.html">CPD</a>), which helps to find
-      duplicated code, is also included as an add-on in PMD.</p>
+    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+    <p>PMD is a static analyser for Java, JavaScript, <a href="http://Salesforce.com">Salesforce.com</a> Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector(<a href="http://pmd.sourceforge.net/pmd-4.3.0/cpd.html">CPD</a>), which helps to find duplicated code, is also included as an add-on in PMD.</p>
     <p><em>Note that the links in this chapter is based on <a href="https://pmd.github.io/pmd-5.5.3/">PMD version 5.5.3</a>. You can check the latest version and documentation at its <a href="https://pmd.github.io/">GitHub Page</a>.</em></p>
-    <h2 id="features">Features</h2>
-    <p>Rules in PMD represent patterns in code. PMD is supposed to check these rules(patterns) and signal violations to programmers. For example, the <code>OverrideBothEqualsAndHashcode</code> rule requires programmers to override both <code>public boolean Object.equals(Object other)</code>,
-      and <code>public int Object.hashCode()</code>, or override neither.</p>
+    <h2 id="features">Features<a class="fa fa-anchor" href="#features"></a></h2>
+    <p>Rules in PMD represent patterns in code. PMD is supposed to check these rules(patterns) and signal violations to programmers. For example, the <code>OverrideBothEqualsAndHashcode</code> rule requires programmers to override both <code>public boolean Object.equals(Object other)</code>, and <code>public int Object.hashCode()</code>, or override neither.</p>
     <p>PMD supports checking rules for the following languages.</p>
     <ul>
       <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-java/index.html">Java</a> (includes <a href="https://pmd.github.io/pmd-5.5.3/pmd-java/index.html">JSP</a> with <a href="https://pmd.github.io/pmd-5.5.3/pmd-jsp/index.html">limitations</a>)</li>
@@ -81,7 +80,7 @@
       <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-swift/index.html">Swift</a></li>
       <li><a href="https://pmd.github.io/pmd-5.5.3/pmd-scala/index.html">Scala</a></li>
     </ul>
-    <h2 id="limitation">Limitation</h2>
+    <h2 id="limitation">Limitation<a class="fa fa-anchor" href="#limitation"></a></h2>
     <p>Limitations are almost the same as <a href="CheckStyle.md">CheckStyle</a>.</p>
     <ul>
       <li>The examined code has to be compilable. The reason is described in <a href="#how-does-it-work">How does it work</a> section.</li>
@@ -91,12 +90,12 @@
         </ul>
       </li>
     </ul>
-    <h2 id="how-to-use-it">How to use it</h2>
-    <h3 id="download">Download</h3>
-    <p>PMD can be run on both Windows and Linux/Unix operating system with the help of <a href="http://www.oracle.com/technetwork/java/javase/overview/index.html">Java JRE</a> 1.7 or higher. Refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/installing.html">How to install PMD and CPD</a>      for more details.</p>
-    <h3 id="configuration">Configuration</h3>
+    <h2 id="how-to-use-it">How to use it<a class="fa fa-anchor" href="#how-to-use-it"></a></h2>
+    <h3 id="download">Download<a class="fa fa-anchor" href="#download"></a></h3>
+    <p>PMD can be run on both Windows and Linux/Unix operating system with the help of <a href="http://www.oracle.com/technetwork/java/javase/overview/index.html">Java JRE</a> 1.7 or higher. Refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/installing.html">How to install PMD and CPD</a> for more details.</p>
+    <h3 id="configuration">Configuration<a class="fa fa-anchor" href="#configuration"></a></h3>
     <p>You can configure PMD to only include the rules that your want (see <a href="https://pmd.github.io/pmd-5.5.3/customizing/howtomakearuleset.html">How to make a new rule set</a>).</p>
-    <h3 id="suppress-warnings">Suppress Warnings</h3>
+    <h3 id="suppress-warnings">Suppress Warnings<a class="fa fa-anchor" href="#suppress-warnings"></a></h3>
     <p>PMD supports suppressing warnings in four ways:</p>
     <ul>
       <li>Annotations</li>
@@ -105,31 +104,29 @@
       <li>Violation Suppress XPath</li>
     </ul>
     <p>The details are described <a href="https://pmd.github.io/pmd-5.5.3/usage/suppressing.html">here</a>.</p>
-    <h3 id="command-line-usage">Command Line Usage</h3>
+    <h3 id="command-line-usage">Command Line Usage<a class="fa fa-anchor" href="#command-line-usage"></a></h3>
     <p>PMD can be launched by using command line with various arguments. For details, please refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/running.html">Running PMD via command line</a>.</p>
-    <h3 id="integration-with-build-automation-tools">Integration with Build Automation Tools</h3>
+    <h3 id="integration-with-build-automation-tools">Integration with Build Automation Tools<a class="fa fa-anchor" href="#integration-with-build-automation-tools"></a></h3>
     <ul>
       <li><a href="https://pmd.github.io/pmd-5.5.3/usage/ant-task.html">Ant task usage</a></li>
       <li><a href="https://docs.gradle.org/current/userguide/pmd_plugin.html">The PMD Plugin in Gradle</a></li>
       <li><a href="https://pmd.github.io/pmd-5.5.3/usage/maven-plugin.html">Maven 1 PMD plugin</a></li>
       <li><a href="https://pmd.github.io/pmd-5.5.3/usage/mvn-plugin.html">Maven 2 PMD plugin</a></li>
     </ul>
-    <h3 id="integration-with-ides">Integration with IDEs</h3>
-    <p>PMD can be integrated with most of IDEs, inlcuding BlueJ, CodeGuide, Eclipse, eclipse-pmd, Emacs, Gel, IntelliJ IDEA, IntelliJ IDEA - QAPlug, JBuilder, JCreator, JDeveloper, JEdit, Maven, Maven 2, NetBeans, TextPad, WebLOgic Workshop 8.1.x. For instruction
-      to integrate with those IDEs, please refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/integrations.html">PMD integrations</a>.</p>
-    <h2 id="available-rulesets">Available Rulesets</h2>
+    <h3 id="integration-with-ides">Integration with IDEs<a class="fa fa-anchor" href="#integration-with-ides"></a></h3>
+    <p>PMD can be integrated with most of IDEs, inlcuding BlueJ, CodeGuide, Eclipse, eclipse-pmd, Emacs, Gel, IntelliJ IDEA, IntelliJ IDEA - QAPlug, JBuilder, JCreator, JDeveloper, JEdit, Maven, Maven 2, NetBeans, TextPad, WebLOgic Workshop 8.1.x. For instruction to integrate with those IDEs, please refer to <a href="https://pmd.github.io/pmd-5.5.3/usage/integrations.html">PMD integrations</a>.</p>
+    <h2 id="available-rulesets">Available Rulesets<a class="fa fa-anchor" href="#available-rulesets"></a></h2>
     <p>There is not pre-defined rules set. You need to <a href="https://pmd.github.io/pmd-5.5.3/customizing/howtomakearuleset.html">define your rule sets</a> by yourself.</p>
     <p>PMD has organised rules into different categories. For example, the rules for Java has been categorised into 26 sections, which will help you quickly find the rules that you want.</p>
     <p>You may refer to the <a href="#features">Features</a> section to view the rules according to your languages and refer to <a href="#configuration">Configuration</a> section to configure your rulesets.</p>
-    <h2 id="how-does-it-work">How does it work</h2>
-    <p>PMD use <a href="http://javacc.org">JavaCC</a> to parse your code to a <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST(Abstract Syntax Tree)</a> and visited it recursively (<a href="https://pmd.github.io/pmd-5.4.1/customizing/howitworks.html">more details</a>).
-      Thus, one of the requirements for PMD to work is that the code must be in valid Java syntax. You can view the syntax tree by using <a href="https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html">bin/designer.bat</a></p>
-    <h2 id="customization">Customization</h2>
+    <h2 id="how-does-it-work">How does it work<a class="fa fa-anchor" href="#how-does-it-work"></a></h2>
+    <p>PMD use <a href="http://javacc.org">JavaCC</a> to parse your code to a <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST(Abstract Syntax Tree)</a> and visited it recursively (<a href="https://pmd.github.io/pmd-5.4.1/customizing/howitworks.html">more details</a>). Thus, one of the requirements for PMD to work is that the code must be in valid Java syntax. You can view the syntax tree by using <a href="https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html">bin/designer.bat</a></p>
+    <h2 id="customization">Customization<a class="fa fa-anchor" href="#customization"></a></h2>
     <ul>
       <li><a href="https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html">How to write a PMD rule</a> (A quicker way to write rule sets <a href="https://pmd.github.io/pmd-5.4.1/customizing/xpathruletutorial.html">Using XPath in PMD</a>, <a href="https://pmd.github.io/pmd-5.4.1/customizing/xpathruletutorial.html">XPath Rule tutorial</a>)</li>
       <li><a href="https://pmd.github.io/pmd-5.4.1/customizing/new-language.html">Add supports for new language</a> (<a href="https://pmd.github.io/pmd-5.4.1/customizing/cpd-parser-howto.html">Add supports for CPD</a>)</li>
     </ul>
-    <h2 id="resources">Resources</h2>
+    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
     <ul>
       <li><a href="https://pmd.github.io/">PMD</a>: PMD official website. You can download the latest version, view online documentation there.</li>
       <li><a href="https://github.com/pmd/pmd">PMD Github</a>: PMD GitHub page. You can contribute to the project or report bugs there.</li>
@@ -140,7 +137,7 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -152,4 +149,5 @@
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>

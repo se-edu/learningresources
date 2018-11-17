@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
+    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
     
     <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
     
@@ -47,7 +48,7 @@
     </nav>
   </div>
   <div class="website-content">
-    <h1 id="best-practices-with-git">Best Practices with <code>git</code></h1>
+    <h1 id="best-practices-with-git">Best Practices with <code>git</code><a class="fa fa-anchor" href="#best-practices-with-git"></a></h1>
     <p>Author(s): <a href="https://github.com/darrenwee">Darren Wee</a></p>
     <ul>
       <li><a href="#introduction">Introduction</a></li>
@@ -85,13 +86,13 @@
         </ul>
       </li>
     </ul>
-    <h1 id="introduction">Introduction</h1>
+    <h1 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction"></a></h1>
     <p><a href="https://git-scm.com/"><code>git</code></a> is a popular source code management tool and commonly used in many open-source projects, especially those on <a href="https://github.com">GitHub</a>.</p>
-    <h1 id="best-practices">Best Practices</h1>
+    <h1 id="best-practices">Best Practices<a class="fa fa-anchor" href="#best-practices"></a></h1>
     <p><code>git</code> can be an incredibly useful tool for collaboration or it can be a terrible headache. Best practices exist in order to create a common understanding between users so that the latter does not happen.</p>
     <p>Best practices are guidelines that are mostly sensible, but are still guidelines. You can always choose to ignore them although best if you have a compelling reason to do so.</p>
     <hr>
-    <h2 id="write-good-commit-messages">Write Good Commit Messages</h2>
+    <h2 id="write-good-commit-messages">Write Good Commit Messages<a class="fa fa-anchor" href="#write-good-commit-messages"></a></h2>
     <p>Good commit messages can help reviewers or other contributors to understand:</p>
     <ul>
       <li>the high-level changes made by your pull request/patch</li>
@@ -103,7 +104,7 @@
       </li>
     </ul>
     <p>They also assist you in the development process if you forget what has been done, or if you need to cherry-pick commits for elsewhere.</p>
-    <h3 id="what-constitutes-a-good-commit-message">What Constitutes a Good Commit Message</h3>
+    <h3 id="what-constitutes-a-good-commit-message">What Constitutes a Good Commit Message<a class="fa fa-anchor" href="#what-constitutes-a-good-commit-message"></a></h3>
     <p>The easiest way to attain commit message discipline is to stop putting in one-liner descriptions using <code>git commit -m &quot;Add some things to that.&quot;</code>. Instead, write a proper commit message in an editor:</p>
     <pre><code class="hljs bash"><span class="hljs-comment"># opens your editor to write a commit message properly</span>
 git add files-to-stage
@@ -158,9 +159,8 @@ git commit --amend HEAD^
         </ol>
       </li>
     </ol>
-    <p>Give an explanation for the change(s) that is detailed enough so that the reader can judge if it is a good thing to do, without reading the actual diff to determine how well the code does what the explanation promises to do. If your description starts
-      to get too long, that’s a sign that you probably need to split up your commit to finer grained pieces.</p>
-    <p>Commit messages need to be wrapped to 72 characters or less so that the entire message can be shown without overflow on a standard, 80-column terminal while leaving room for indents/nested reply indicators if you pass <code>.patch</code> or <code>.diff</code>      files via traditional mailing list (<a href="https://stackoverflow.com/a/2120040/5399892">source</a>).</p>
+    <p>Give an explanation for the change(s) that is detailed enough so that the reader can judge if it is a good thing to do, without reading the actual diff to determine how well the code does what the explanation promises to do. If your description starts to get too long, that’s a sign that you probably need to split up your commit to finer grained pieces.</p>
+    <p>Commit messages need to be wrapped to 72 characters or less so that the entire message can be shown without overflow on a standard, 80-column terminal while leaving room for indents/nested reply indicators if you pass <code>.patch</code> or <code>.diff</code> files via traditional mailing list (<a href="https://stackoverflow.com/a/2120040/5399892">source</a>).</p>
     <p>Read more: <a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p>
     <p>As a litmus test, you can try to read your commit message summary in the following manner:</p>
     <blockquote>
@@ -171,8 +171,8 @@ git commit --amend HEAD^
       <p>If applied, this commit will <code>implement getHash() functionality in HashHelper</code>.</p>
     </blockquote>
     <h4 id="examples-of-good-commit-messages">Examples of Good Commit Messages</h4>
-    <p>Adapted from <a href="https://github.com/se-edu/addressbook-level4/commits/master">se-edu/addressbook-level4</a> (<a href="https://github.com/se-edu/addressbook-level4/commit/2f4405c75cd21111952565a9706a9793b475c41e.patch">patch</a>). This commit
-      message follows the guidelines above and also includes the context of the change (how it worked before this patch) as it is necessary to understand <em>why</em> it needed to change.</p>
+    <p>Adapted from <a href="https://github.com/se-edu/addressbook-level4/commits/master">se-edu/addressbook-level4</a> (<a href="https://github.com/se-edu/addressbook-level4/commit/2f4405c75cd21111952565a9706a9793b475c41e.patch">patch</a>).
+      This commit message follows the guidelines above and also includes the context of the change (how it worked before this patch) as it is necessary to understand <em>why</em> it needed to change.</p>
     <pre class="hljs"><code>UniquePersonList#remove(Person): update return type
 
 UniquePersonList#remove(Person) returns true if the person passed into
@@ -197,7 +197,7 @@ dc_plane_state_release(), we should free it (on error) under the same
 scope as where it is created.
 </code></pre>
     <p>More examples can be found here: <a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p>
-    <h3 id="set-up-your-editor-for-commit-messages">Set Up Your Editor for Commit Messages</h3>
+    <h3 id="set-up-your-editor-for-commit-messages">Set Up Your Editor for Commit Messages<a class="fa fa-anchor" href="#set-up-your-editor-for-commit-messages"></a></h3>
     <ol>
       <li>To use your editor of choice for <code>git</code>-related functionality, e.g. <code>vim</code>, do one of either in your terminal:</li>
     </ol>
@@ -210,19 +210,16 @@ scope as where it is created.
     <pre><code class="hljs bash">autocmd Filetype gitcommit spell textwidth=72
 </code></pre>
     <hr>
-    <h2 id="always-commit-functional-code">Always Commit Functional Code</h2>
+    <h2 id="always-commit-functional-code">Always Commit Functional Code<a class="fa fa-anchor" href="#always-commit-functional-code"></a></h2>
     <p>Merges to the following must always leave the project in a working state, i.e. it can be built and run on:</p>
     <ul>
       <li><code>master</code> branch, or equivalent,</li>
       <li><code>staging</code> branch, <code>development</code> branch or equivalent, if any.</li>
     </ul>
-    <p>Changes to your own branches <em>that no one else is using</em> can have non-functioning commits. However, you may wish to <a href="#hide-the-sausage-making">hide the sausage making</a> to squash non-functioning commits into a single, functioning
-      commit before you make a pull request.</p>
-    <p>Changes to your own branches that is used by others should obey always-functioning-commits rule to minimize surprise. This is especially important if you expect your branch to be cherry-picked by another collaborator because they require a specific
-      bit of code that you wrote.</p>
-    <h3 id="stashing">Stashing</h3>
-    <p>If you need to switch between branches while in the middle of developing a commit, you can use the <code>git stash</code> command. Stashing saves the uncommitted changes made in your current working directly. This allows you to save your progress
-      without having to commit non-functioning code.</p>
+    <p>Changes to your own branches <em>that no one else is using</em> can have non-functioning commits. However, you may wish to <a href="#hide-the-sausage-making">hide the sausage making</a> to squash non-functioning commits into a single, functioning commit before you make a pull request.</p>
+    <p>Changes to your own branches that is used by others should obey always-functioning-commits rule to minimize surprise. This is especially important if you expect your branch to be cherry-picked by another collaborator because they require a specific bit of code that you wrote.</p>
+    <h3 id="stashing">Stashing<a class="fa fa-anchor" href="#stashing"></a></h3>
+    <p>If you need to switch between branches while in the middle of developing a commit, you can use the <code>git stash</code> command. Stashing saves the uncommitted changes made in your current working directly. This allows you to save your progress without having to commit non-functioning code.</p>
     <pre><code class="hljs bash"><span class="hljs-comment"># stash your work not committed to HEAD yet by pushing it onto the stash stack</span>
 git stash
 git stash push <span class="hljs-comment"># equivalent to git stash</span>
@@ -242,7 +239,7 @@ git stash list
       <li><a href="https://www.atlassian.com/git/tutorials/git-stash">git stash - Saving Changes | Atlassian Git Tutorial</a></li>
     </ul>
     <hr>
-    <h2 id="one-logical-change-per-commit">One Logical Change per Commit</h2>
+    <h2 id="one-logical-change-per-commit">One Logical Change per Commit<a class="fa fa-anchor" href="#one-logical-change-per-commit"></a></h2>
     <p>Commits are the building blocks of a codebase; each building block should contribute exactly one useful thing, like:</p>
     <ul>
       <li>adding a new function or piece of data</li>
@@ -263,8 +260,7 @@ git stash list
       <li>collaborate with others easily, e.g. by cherry-picking a single logical change instead of finding a bit of this commit and a bit of that commit</li>
       <li>package that logical change <a href="#write-good-commit-messages">with a useful commit message to explain why/how you did something</a></li>
     </ul>
-    <p>It may also become necessary to scope down what you may deem as a single logical change if it results in a very large commit, as that can also <a href="https://softwareengineering.stackexchange.com/a/10796">introduce other problems</a>. For example,
-      implementing a single, new feature can be thought of as one logical change to the codebase, but making a pull request for a single, large commit also makes the above benefits disappear.</p>
+    <p>It may also become necessary to scope down what you may deem as a single logical change if it results in a very large commit, as that can also <a href="https://softwareengineering.stackexchange.com/a/10796">introduce other problems</a>. For example, implementing a single, new feature can be thought of as one logical change to the codebase, but making a pull request for a single, large commit also makes the above benefits disappear.</p>
     <p>If you are concerned about appearances, you can always opt to <a href="#hide-the-sausage-making">hide the sausage making</a> to clean up your commit history.</p>
     <p>If you have made several overlapping changes on your working directory (e.g. forgot to commit, etc), you can always <a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">perform a patch-wise stage using <code>git add -p</code></a>.</p>
     <p>Read more:</p>
@@ -275,9 +271,8 @@ git stash list
       <li><a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">Commit only part of a file in Git</a> - this is useful to use as a cheatsheet during interactive staging</li>
     </ul>
     <hr>
-    <h2 id="hide-the-sausage-making">Hide the Sausage Making</h2>
-    <p><em>Sausage making</em> refers to the process by which code is incrementally worked on, where a series of commits (like links in a sausage) make up a branch. It is often desirable to <em>hide the sausage making</em> where the commit history is cleaned
-      up so that it looks neater and is easier to follow.</p>
+    <h2 id="hide-the-sausage-making">Hide the Sausage Making<a class="fa fa-anchor" href="#hide-the-sausage-making"></a></h2>
+    <p><em>Sausage making</em> refers to the process by which code is incrementally worked on, where a series of commits (like links in a sausage) make up a branch. It is often desirable to <em>hide the sausage making</em> where the commit history is cleaned up so that it looks neater and is easier to follow.</p>
     <p>When working on a <code>feature</code>/<code>fix</code> branch, you may:</p>
     <ul>
       <li><a href="#always-commit-functional-code">commit non-functioning code</a>, or</li>
@@ -285,7 +280,7 @@ git stash list
       <li>cherry-pick a lot of commits from other branches</li>
     </ul>
     <p>This may clutter your history with low-level details or make it convoluted to follow for a maintainer or reviewer. Like sausage, you may enjoy eating it but not the process of making it.</p>
-    <h3 id="how-to-hide-the-sausage-making">How to Hide the Sausage Making</h3>
+    <h3 id="how-to-hide-the-sausage-making">How to Hide the Sausage Making<a class="fa fa-anchor" href="#how-to-hide-the-sausage-making"></a></h3>
     <p>Hiding the sausage is typically achieved by either/both:</p>
     <ul>
       <li>performing an interactive rebase, i.e. <code>git rebase -i</code></li>
@@ -302,7 +297,7 @@ git stash list
       <li><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Git Tools - Rewriting History</a> (great reference for how to actually do this, under <em>Changing Multiple Commit Messages</em>)</li>
     </ul>
     <hr>
-    <h2 id="respect-published-history">Respect Published History</h2>
+    <h2 id="respect-published-history">Respect Published History<a class="fa fa-anchor" href="#respect-published-history"></a></h2>
     <p>Always avoid rewriting the published history unless you are very sure of what you are doing, like:</p>
     <ul>
       <li>You are working on your own branch that <em>no one else is using</em>, and
@@ -328,8 +323,7 @@ hint: See the <span class="hljs-string">'Note about fast-forwards'</span> <span 
 Your branch and <span class="hljs-string">'origin/my-branch'</span> have diverged,
 and have 3 and 5 different commit(s) each, respectively.
 </code></pre>
-    <p>You can override this by <a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">making a force push</a>, i.e. <code>git push --force</code> but that would result in rewriting the published history or overwrite
-      changes in the divergent remote commits. Observe the guidelines and ensure that the force push can be made in good faith with respect to your collaborators.</p>
+    <p>You can override this by <a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">making a force push</a>, i.e. <code>git push --force</code> but that would result in rewriting the published history or overwrite changes in the divergent remote commits. Observe the guidelines and ensure that the force push can be made in good faith with respect to your collaborators.</p>
     <p>Read more:</p>
     <ul>
       <li><a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting History - Atlassian</a></li>
@@ -337,10 +331,9 @@ and have 3 and 5 different commit(s) each, respectively.
       <li><a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">Force &quot;git push&quot; to overwrite remote files - StackOverflow</a></li>
     </ul>
     <hr>
-    <h2 id="keep-up-to-date">Keep Up To Date</h2>
-    <h3 id="working-with-remotes">Working with Remotes</h3>
-    <p><em>Remotes</em> refer to versions of the project you are working on that are hosted elsewhere, usually on the Internet. Remotes are very handy for managing collaboration, e.g. if you have to keep your code in sync with the <code>upstream</code> branch
-      of the project, or if you need to pull code from someone else which may not be merged yet.</p>
+    <h2 id="keep-up-to-date">Keep Up To Date<a class="fa fa-anchor" href="#keep-up-to-date"></a></h2>
+    <h3 id="working-with-remotes">Working with Remotes<a class="fa fa-anchor" href="#working-with-remotes"></a></h3>
+    <p><em>Remotes</em> refer to versions of the project you are working on that are hosted elsewhere, usually on the Internet. Remotes are very handy for managing collaboration, e.g. if you have to keep your code in sync with the <code>upstream</code> branch of the project, or if you need to pull code from someone else which may not be merged yet.</p>
     <p>You can have as many remotes as you want, each possibly being read-only or with read/write privileges.</p>
     <p>Remotes are managed using the <code>git remote</code> command.</p>
     <pre><code class="hljs bash"><span class="hljs-comment"># view all remotes</span>
@@ -363,7 +356,7 @@ git remote remove upstream
     <ul>
       <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Git Basics - Working with Remotes</a></li>
     </ul>
-    <h3 id="rebase-versus-merging">Rebase versus Merging</h3>
+    <h3 id="rebase-versus-merging">Rebase versus Merging<a class="fa fa-anchor" href="#rebase-versus-merging"></a></h3>
     <div class="table-responsive">
       <table class="markbind-table table table-bordered table-striped">
         <thead>
@@ -405,7 +398,7 @@ git remote remove upstream
       <li><a href="https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178">When do you use git rebase instead of git merge - StackOverflow</a> - a discussion on when to rebase and when to merge</li>
     </ul>
     <hr>
-    <h1 id="resources">Resources</h1>
+    <h1 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h1>
     <p>These are the resources used in the writing of this chapter, as well as any additional, interesting readings.</p>
     <ul>
       <li>
@@ -454,7 +447,7 @@ git remote remove upstream
         <p><a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting History - Atlassian</a></p>
       </li>
     </ul>
-    <h2 id="further-reading">Further Reading</h2>
+    <h2 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading"></a></h2>
     <ul>
       <li><a href="http://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> - discusses the underlying implementation of <code>git</code> (merkle tree)</li>
       <li><a href="https://git-scm.com/book/en/v2">Pro Git</a></li>
@@ -465,7 +458,7 @@ git remote remove upstream
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.12.0</a> on Sat, 08 Sep 2018 08:13:07 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
 </footer>
 </div>
 </body>
@@ -477,4 +470,5 @@ git remote remove upstream
     const baseUrl = '/learningresources'
 </script>
 <script src="..\..\markbind\js\setup.js"></script>
+<script src="..\..\markbind\layouts\default\scripts.js"></script>
 </html>
