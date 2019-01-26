@@ -1,30 +1,14 @@
 <span id="navbar">
-<div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-        <div class="container">
-            <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{baseUrl}}/index.html">Resources</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-<div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{{baseUrl}}/index.html">Learning Resources for Software Engineering Students</a>
-            <ul class="navbar-nav">
-            </ul>
-            <form class="navbar-form">
-                <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right ></searchbar>
-            </form>
-        </div>
-    </nav>
-</div>
+<navbar placement="top">
+  <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+  <li><a href="{{baseUrl}}/index.html" class="nav-link"><md>**Home**</md></a></li>
+  <li><a href="{{baseUrl}}/contributing.html" class="nav-link"><md>**Contribute**</md></a></li>
+  <li><a href="{{baseUrl}}/about.html" class="nav-link"><md>**About**</md></a></li>
+  <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><md>{{ fab_github }}</md></a></li>
+  <li slot="right" class="nav-link">
+    <form class="navbar-form">
+      <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right ></searchbar>
+    </form>
+  </li>
+</navbar>
 </span>

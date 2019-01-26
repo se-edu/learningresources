@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="{{baseUrl}}/css/gh-pages.css">
+<link rel="stylesheet" href="{{baseUrl}}/css/main.css">

@@ -2,13 +2,15 @@
   title: Static Analysis
   footer: footer.md
   head: head.md
+  siteNav: mainNav.md
+  pageNav: 3
 </frontmatter>
 
 {{ navbar | safe }}
 
 <div class="website-content">
 
-# Static Analysis
+# Introduction to Static Analysis
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
 

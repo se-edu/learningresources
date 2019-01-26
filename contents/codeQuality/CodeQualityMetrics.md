@@ -2,6 +2,8 @@
   title: Code Quality Metrics
   footer: footer.md
   head: head.md
+  siteNav: mainNav.md
+  pageNav: 3
 </frontmatter>
 
 {{ navbar | safe }}

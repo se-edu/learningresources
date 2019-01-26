@@ -2,13 +2,15 @@
   title: UI/UX
   footer: footer.md
   head: head.md
+  siteNav: mainNav.md
+  pageNav: 3
 </frontmatter>
 
 {{ navbar | safe }}
 
 <div class="website-content">
 
-# UI/UX
+# Introduction to UI/UX
 
 Authors: [Ang Shi Ya](https://github.com/AngShiYa), [Tan Jun Kiat](https://github.com/junkiattan)
 

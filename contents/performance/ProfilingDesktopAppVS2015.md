@@ -2,6 +2,8 @@
   title: Profiling a Desktop Application In Visual Studio 2015
   footer: footer.md
   head: head.md
+  siteNav: mainNav.md
+  pageNav: 3
 </frontmatter>
 
 {{ navbar | safe }}
