@@ -1,6 +1,6 @@
 <span id="navbar">
 <navbar placement="top">
-  <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+<a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><button type="button" class="btn btn-outline-dark"><md>More <img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"> Projects ...</md></button></a>
   <li><a href="{{baseUrl}}/index.html" class="nav-link"><md>**Home**</md></a></li>
   <li><a href="{{baseUrl}}/contributing.html" class="nav-link"><md>**Contribute**</md></a></li>
   <li><a href="{{baseUrl}}/about.html" class="nav-link"><md>**About**</md></a></li>

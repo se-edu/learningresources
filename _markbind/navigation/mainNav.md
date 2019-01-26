@@ -2,7 +2,7 @@
 <span id="toc">
 <navigation>
 
-* **Programming Languages**
+* ****Programming Languages****
   * C++
     * [Rvalue References and Move Semantics]({{baseUrl}}/contents/c++/rvalue.html)
   * [Go]({{baseUrl}}/contents/go/Go.html)
@@ -23,7 +23,7 @@
   * [Rust]({{baseUrl}}/contents/rust/Rust.html)
   * [Swift]({{baseUrl}}/contents/swift/welcome-to-swift.html)
 
-* **SE Topics**
+* ****SE Topics****
   * Architecture
     * [REST]({{baseUrl}}/contents/architecture/RESTArchitecturalStyle.html)
   * Code Quality
@@ -51,15 +51,15 @@
     * [Introduction to UI/UX]({{baseUrl}}/contents/uix/uix.html)
     * [Refining UX Design Skills]({{baseUrl}}/contents/uix/refining-ux-skills.html)
 
-* **App Frameworks**
+* ****App Frameworks****
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
   * [NodeJS]({{baseUrl}}/contents/node/nodejs.html)
   * [VueJS]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
 
-* **Tools Useful for Software Engineers**
+* ****Tools Useful for Software Engineers****
   * [Regular Expressions]({{baseUrl}}/contents/regex/Regex.html)
 
-* **Other Topics**
+* ****Other Topics****
   * [Computer Vision]({{baseUrl}}/contents/computerVision/cv.html)
   * [Databases]({{baseUrl}}/contents/data/databases.html)
   * [Machine Learning]({{baseUrl}}/contents/ai/ml.html)
