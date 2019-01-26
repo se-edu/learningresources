@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Security - https</title>
+    <title>SE-EDU/LearningResources - Security - https</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,100 +13,322 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#security-https">Security - https&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#why-do-we-need-https">Why do we need HTTPS&#x200E;</a>
+        <a class="nav-link py-1" href="#why-https-is-secure">Why HTTPS is secure&#x200E;</a>
+        <a class="nav-link py-1" href="#how-to-set-up-https">How to set up HTTPS&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#misuse-of-https">Misuse of HTTPS&#x200E;</a>
+      <a class="nav-link py-1" href="#conclusion">Conclusion&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Security
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html" class="current">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="security-https">Security - https<a class="fa fa-anchor" href="#security-https"></a></h1>
+          <p>Author: <a href="https://github.com/boxin-yang">Boxin</a></p>
+          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+          <p>HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sniffing (eavesdropping data packets). In this tutorial, we will cover four questions to have a better understanding of https. The questions are:</p>
+          <ul>
+            <li><a href="#why-do-we-need-https">Why do we need HTTPS</a></li>
+            <li><a href="#why-https-is-secure">Why HTTPS is secure</a></li>
+            <li><a href="#how-to-set-up-https">How to set up HTTPS</a></li>
+            <li><a href="#misuse-of-https">Misuse of HTTPS</a></li>
+          </ul>
+          <h3 id="why-do-we-need-https">Why do we need HTTPS<a class="fa fa-anchor" href="#why-do-we-need-https"></a></h3>
+          <p>The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such as the password or <a href="http://searchsoftwarequality.techtarget.com/definition/session-ID">session tokens</a>. Here are some examples on how a plain text could be sniffed.</p>
+          <ul>
+            <li>
+              <p>On public free wifi, a Wifi adapter in monitor mode would be able to capture all the ongoing packets to and from the wifi access point, regardless of its destination. If the traffic is transmitted over HTTP, the data sent over wifi is in plain text and the session token and password can be stolen. One famous example would be <a href="https://github.com/codebutler/firesheep">Firesheep</a>, a Firefox plugin to sniff session token used in websites such as Facebook. This has made Facebook <a href="https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920/">change its default protocol from HTTP to HTTPS</a></p>
+            </li>
+            <li>
+              <p>Our network packets usually travel through switches and routers around the globe to reach the destination. Any one of them, if compromised, could expose our network traffic to the sniffer. <a href="http://searchnetworking.techtarget.com/definition/Network-tap">Network tap</a> is an example of a device used to sniff network traffic.</p>
+            </li>
+            <li>
+              <p>Our Internet architecture relies on <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> for domain name and IP mapping and <a href="https://en.wikipedia.org/wiki/Address_Resolution_Protocol">ARP</a> for MAC address and IP mapping. None of the above is built with security in mind. Common attacks such as <a href="https://en.wikipedia.org/wiki/DNS_spoofing">DNS cache poisoning</a> or <a href="https://en.wikipedia.org/wiki/ARP_spoofing">ARP poisoning</a>
+                could redirect your traffic for monitoring.</p>
+            </li>
+          </ul>
+          <p>All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application. Therefore, we need to use HTTPS as an end to end encryption to secure our network packets.</p>
+          <h3 id="why-https-is-secure">Why HTTPS is secure<a class="fa fa-anchor" href="#why-https-is-secure"></a></h3>
+          <p>As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of <a href="https://www.digicert.com/ssl.htm">SSL</a> to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.</p>
+          <p>There are mainly 3 encryption algorithms used in HTTPS, namely RSA, Diffie Hellman and Elliptic Curve Algorithm. They are more thoroughly explained in <a href="../security/cryptography.md">Introduction to Cryptography</a> section. These algorithms prevent sniffers from decrypting packets without knowing the keys used because the best attack algorithms known at the moment run in <a href="https://en.wikipedia.org/wiki/Time_complexity#Sub-exponential_time">sub-exponential</a> time. Therefore, the attack is believed to be computationally infeasible when the keysize is large enough (e.g. 2048 bits for RSA), though it is not mathematically proven.</p>
+          <p>Thus, by using https, we can be sure that even though our network packets are transmitted over an insecure network, sniffers cannot understand the content of our encrypted packets.</p>
+          <p>Besides providing secure network traffic, HTTPS also provides server validation through Certificate Authority (CA) architecture. A detailed explanation on CA is <a href="https://www.globalsign.com/en-sg/ssl-information-center/what-are-certification-authorities-trust-hierarchies/">here</a> . In short, CA works by issuing the server a digital certificate that can only be produced by CA. When the server sends its digital certificate to the client, client browsers verify the digital certificate with CA to check whether the server is indeed the intended server. To obtain such digital certificate, the server needs to apply to CA and CA will verify the server before issuing the digital certificate.</p>
+          <h3 id="how-to-set-up-https">How to set up HTTPS<a class="fa fa-anchor" href="#how-to-set-up-https"></a></h3>
+          <p>In order set up HTTPS on your server, you would need to have:</p>
+          <ol>
+            <li>A dedicated IP address for your server.</li>
+            <li>Obtain a digital certificate from a CA.</li>
+          </ol>
+          <p>For example, one of the CA is <a href="https://www.digicert.com">digicert</a> and they provide SSL <a href="https://www.digicert.com/ssl-certificate-installation.htm">installation guide</a> for different platforms. Usually, the SSL setup could be found on the CA that you obtained a digital signature from.</p>
+          <p>However, most CAs are not free of charge. One free initiative to provide free domain validation certificates is <a href="https://letsencrypt.org/">Lets Encrypt</a>.</p>
+          <h2 id="misuse-of-https">Misuse of HTTPS<a class="fa fa-anchor" href="#misuse-of-https"></a></h2>
+          <p>Up to this moment, it seems that nothing could go wrong with HTTPS. However, in real life, there could be weakness on the implementation of HTTPS.</p>
+          <h4 id="sha-1-collision-attack">SHA-1 Collision Attack</h4>
+          <p>As aforementioned, Certificate Authority (CA) signs a digital certificate provided by the server to prove the identity of the server. However, in the real-world implementation, the CA does not sign the digital certificate directly, rather CA signs the fixed length <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">hashed digest</a> of the digital certificate for efficiency. This introduces the possibility of two different digital certificates with the same hashed digest. Thus, if the attackers manage to forge a fake digital certificate with the same hashed digest of another valid digital certificate, the browser would trust the attackers server and all the servers signed by the attackers. This loophole occurs with SHA-1 hashing algorithm and SHA-1 is no longer used in HTTPS after 2016. In 2017, Google has announced an algorithm to forge a duplicated SHA-1 hash and the report is <a href="https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html?m=1">here</a>. A more detailed explanation of this problem is found <a href="https://www.sott.net/article/275524-Why-HTTPS-and-SSL-are-not-as-secure-as-you-think">here</a>.</p>
+          <h4 id="weak-diffie-hellman-attack">Weak Diffie-Hellman Attack</h4>
+          <p>During the <a href="https://en.wikipedia.org/wiki/Cipher_suite">cipher suite negotiation</a> process of HTTPS, client and server send each other in plain text the HTTPS standard they support and the most secure standard is chosen to be used. However, this can be exploited for HTTPS downgrade by a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man in the middle attack</a>. The man in the middle could send forged cipher suite negotiation to both server and client to indicate the maximum security supported is only 512 bits Diffie Hellman and trick server and client to encrypt with 512 bits Diffie Hellman. At the moment, without knowing the keys, 512 bits Diffie Hellman algorithm could be decrypted with sufficient resources. A more detailed description could be found <a href="https://weakdh.org/">here</a></p>
+          <h4 id="session-hijacking-on-partially-protected-websites">Session Hijacking on partially protected websites</h4>
+          <p>Some websites use HTTPS only on the login page to encrypt the login credentials of users. However, this is vulnerable to <a href="https://en.wikipedia.org/wiki/Session_hijacking">session hijacking</a> attack. Most websites use cookies and session tokens to maintain a stateful connection with its users, and the session token is embedded into each packet to authenticate the identity of users. Without using HTTPS in all the websites in the domain, the packets containing session token is transmitted in plaintext and sniffers can easily obtain the session token to impersonate the victim. A demonstration of this attack on <a href="http://Qoo10.com">Qoo10.com</a> user can be found <a href="https://www.youtube.com/watch?v=BjTwNzoMUuk">here</a></p>
+          <h2 id="conclusion">Conclusion<a class="fa fa-anchor" href="#conclusion"></a></h2>
+          <p>HTTPS provides security to a web application. If the web application requires secure network traffic (e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional layer of encryption and decryption adds overhead to network traffic (though the impact is not significant). If secure network traffic is not required (e.g. University home page), HTTPS may not be used.</p>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="security-https">Security - https<a class="fa fa-anchor" href="#security-https"></a></h1>
-    <p>Author: <a href="https://github.com/boxin-yang">Boxin</a></p>
-    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-    <p>HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sniffing (eavesdropping data packets). In this tutorial, we will cover four questions to have a better understanding of https. The questions are:</p>
-    <ul>
-      <li><a href="#why-do-we-need-https">Why do we need HTTPS</a></li>
-      <li><a href="#why-https-is-secure">Why HTTPS is secure</a></li>
-      <li><a href="#how-to-set-up-https">How to set up HTTPS</a></li>
-      <li><a href="#misuse-of-https">Misuse of HTTPS</a></li>
-    </ul>
-    <h3 id="why-do-we-need-https">Why do we need HTTPS<a class="fa fa-anchor" href="#why-do-we-need-https"></a></h3>
-    <p>The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such as the password or <a href="http://searchsoftwarequality.techtarget.com/definition/session-ID">session tokens</a>. Here are some examples on how a plain text could be sniffed.</p>
-    <ul>
-      <li>
-        <p>On public free wifi, a Wifi adapter in monitor mode would be able to capture all the ongoing packets to and from the wifi access point, regardless of its destination. If the traffic is transmitted over HTTP, the data sent over wifi is in plain text and the session token and password can be stolen. One famous example would be <a href="https://github.com/codebutler/firesheep">Firesheep</a>, a Firefox plugin to sniff session token used in websites such as Facebook. This has made Facebook <a href="https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920/">change its default protocol from HTTP to HTTPS</a></p>
-      </li>
-      <li>
-        <p>Our network packets usually travel through switches and routers around the globe to reach the destination. Any one of them, if compromised, could expose our network traffic to the sniffer. <a href="http://searchnetworking.techtarget.com/definition/Network-tap">Network tap</a> is an example of a device used to sniff network traffic.</p>
-      </li>
-      <li>
-        <p>Our Internet architecture relies on <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> for domain name and IP mapping and <a href="https://en.wikipedia.org/wiki/Address_Resolution_Protocol">ARP</a> for MAC address and IP mapping. None of the above is built with security in mind. Common attacks such as <a href="https://en.wikipedia.org/wiki/DNS_spoofing">DNS cache poisoning</a> or <a href="https://en.wikipedia.org/wiki/ARP_spoofing">ARP poisoning</a>
-          could redirect your traffic for monitoring.</p>
-      </li>
-    </ul>
-    <p>All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application. Therefore, we need to use HTTPS as an end to end encryption to secure our network packets.</p>
-    <h3 id="why-https-is-secure">Why HTTPS is secure<a class="fa fa-anchor" href="#why-https-is-secure"></a></h3>
-    <p>As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of <a href="https://www.digicert.com/ssl.htm">SSL</a> to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.</p>
-    <p>There are mainly 3 encryption algorithms used in HTTPS, namely RSA, Diffie Hellman and Elliptic Curve Algorithm. They are more thoroughly explained in <a href="../security/cryptography.md">Introduction to Cryptography</a> section. These algorithms prevent sniffers from decrypting packets without knowing the keys used because the best attack algorithms known at the moment run in <a href="https://en.wikipedia.org/wiki/Time_complexity#Sub-exponential_time">sub-exponential</a> time. Therefore, the attack is believed to be computationally infeasible when the keysize is large enough (e.g. 2048 bits for RSA), though it is not mathematically proven.</p>
-    <p>Thus, by using https, we can be sure that even though our network packets are transmitted over an insecure network, sniffers cannot understand the content of our encrypted packets.</p>
-    <p>Besides providing secure network traffic, HTTPS also provides server validation through Certificate Authority (CA) architecture. A detailed explanation on CA is <a href="https://www.globalsign.com/en-sg/ssl-information-center/what-are-certification-authorities-trust-hierarchies/">here</a> . In short, CA works by issuing the server a digital certificate that can only be produced by CA. When the server sends its digital certificate to the client, client browsers verify the digital certificate with CA to check whether the server is indeed the intended server. To obtain such digital certificate, the server needs to apply to CA and CA will verify the server before issuing the digital certificate.</p>
-    <h3 id="how-to-set-up-https">How to set up HTTPS<a class="fa fa-anchor" href="#how-to-set-up-https"></a></h3>
-    <p>In order set up HTTPS on your server, you would need to have:</p>
-    <ol>
-      <li>A dedicated IP address for your server.</li>
-      <li>Obtain a digital certificate from a CA.</li>
-    </ol>
-    <p>For example, one of the CA is <a href="https://www.digicert.com">digicert</a> and they provide SSL <a href="https://www.digicert.com/ssl-certificate-installation.htm">installation guide</a> for different platforms. Usually, the SSL setup could be found on the CA that you obtained a digital signature from.</p>
-    <p>However, most CAs are not free of charge. One free initiative to provide free domain validation certificates is <a href="https://letsencrypt.org/">Lets Encrypt</a>.</p>
-    <h2 id="misuse-of-https">Misuse of HTTPS<a class="fa fa-anchor" href="#misuse-of-https"></a></h2>
-    <p>Up to this moment, it seems that nothing could go wrong with HTTPS. However, in real life, there could be weakness on the implementation of HTTPS.</p>
-    <h4 id="sha-1-collision-attack">SHA-1 Collision Attack</h4>
-    <p>As aforementioned, Certificate Authority (CA) signs a digital certificate provided by the server to prove the identity of the server. However, in the real-world implementation, the CA does not sign the digital certificate directly, rather CA signs the fixed length <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">hashed digest</a> of the digital certificate for efficiency. This introduces the possibility of two different digital certificates with the same hashed digest. Thus, if the attackers manage to forge a fake digital certificate with the same hashed digest of another valid digital certificate, the browser would trust the attackers server and all the servers signed by the attackers. This loophole occurs with SHA-1 hashing algorithm and SHA-1 is no longer used in HTTPS after 2016. In 2017, Google has announced an algorithm to forge a duplicated SHA-1 hash and the report is <a href="https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html?m=1">here</a>. A more detailed explanation of this problem is found <a href="https://www.sott.net/article/275524-Why-HTTPS-and-SSL-are-not-as-secure-as-you-think">here</a>.</p>
-    <h4 id="weak-diffie-hellman-attack">Weak Diffie-Hellman Attack</h4>
-    <p>During the <a href="https://en.wikipedia.org/wiki/Cipher_suite">cipher suite negotiation</a> process of HTTPS, client and server send each other in plain text the HTTPS standard they support and the most secure standard is chosen to be used. However, this can be exploited for HTTPS downgrade by a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man in the middle attack</a>. The man in the middle could send forged cipher suite negotiation to both server and client to indicate the maximum security supported is only 512 bits Diffie Hellman and trick server and client to encrypt with 512 bits Diffie Hellman. At the moment, without knowing the keys, 512 bits Diffie Hellman algorithm could be decrypted with sufficient resources. A more detailed description could be found <a href="https://weakdh.org/">here</a></p>
-    <h4 id="session-hijacking-on-partially-protected-websites">Session Hijacking on partially protected websites</h4>
-    <p>Some websites use HTTPS only on the login page to encrypt the login credentials of users. However, this is vulnerable to <a href="https://en.wikipedia.org/wiki/Session_hijacking">session hijacking</a> attack. Most websites use cookies and session tokens to maintain a stateful connection with its users, and the session token is embedded into each packet to authenticate the identity of users. Without using HTTPS in all the websites in the domain, the packets containing session token is transmitted in plaintext and sniffers can easily obtain the session token to impersonate the victim. A demonstration of this attack on <a href="http://Qoo10.com">Qoo10.com</a> user can be found <a href="https://www.youtube.com/watch?v=BjTwNzoMUuk">here</a></p>
-    <h2 id="conclusion">Conclusion<a class="fa fa-anchor" href="#conclusion"></a></h2>
-    <p>HTTPS provides security to a web application. If the web application requires secure network traffic (e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional layer of encryption and decryption adds overhead to network traffic (though the impact is not significant). If secure network traffic is not required (e.g. University home page), HTTPS may not be used.</p>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

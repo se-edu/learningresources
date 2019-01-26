@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Performance Profiling</title>
+    <title>SE-EDU/LearningResources - Performance Profiling</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,123 +13,346 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#performance-profiling">Performance Profiling&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
+      <a class="nav-link py-1" href="#performance-profiling-for-the-first-time">Performance Profiling For The First Time&#x200E;</a>
+      <a class="nav-link py-1" href="#advanced-topics">Advanced Topics&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#sampling-interval">Sampling Interval&#x200E;</a>
+        <a class="nav-link py-1" href="#instrumentation-overhead">Instrumentation Overhead&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#profiling-other-types-of-data">Profiling Other Types Of Data&#x200E;</a>
+      <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Performance
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="current">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="performance-profiling">Performance Profiling<a class="fa fa-anchor" href="#performance-profiling"></a></h1>
+          <p>Author: <a href="https://github.com/initialshl">Ong Heng Le</a></p>
+          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+          <p>A performance profiler is a tool which collects data (such as function timings) about
+            your program to identify the areas with performance issues, commonly used in code
+            optimization. There are two common types of performance profiling methods.</p>
+          <ul>
+            <li><strong>CPU sampling</strong>: Collects <em>samples</em> at fixed intervals, which provides an overview of your program's performance</li>
+            <li><strong>Instrumentation</strong>: Collects detailed <em>elapsed times</em> for your program's function calls</li>
+          </ul>
+          <p>Learn <a href="https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/">which profiling method to use for your program</a>
+            when choosing between CPU sampling and instrumentation.</p>
+          <h2 id="performance-profiling-for-the-first-time">Performance Profiling For The First Time<a class="fa fa-anchor" href="#performance-profiling-for-the-first-time"></a></h2>
+          <p>This article provides resources to help you identify the performance issues as you
+            perform profiling on your program for the first time. The general steps in profiling a
+            program for the first time are:</p>
+          <ol>
+            <li>Run a performance profiling session</li>
+            <li>View the performance report</li>
+            <li>Trace down to the problem</li>
+            <li>Identify areas for improvements upwards</li>
+          </ol>
+          <p>Most profilers are similar in their functionalities, user interface, and use of
+            technical terms. You may adapt the tutorials in this article to your preferred profiling
+            tools on your own project.</p>
+          <ul>
+            <li><a href="ProfilingDesktopAppVS2015.md">Profiling a Desktop Application In Visual Studio 2015</a></li>
+          </ul>
+          <h2 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h2>
+          <h3 id="sampling-interval">Sampling Interval<a class="fa fa-anchor" href="#sampling-interval"></a></h3>
+          <p>CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many
+            profilers offer the option to <strong>set a custom interval or perform sampling based on events</strong>,
+            such as page faults or system calls, in the sampling settings.</p>
+          <ul>
+            <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/ms182376.aspx">How to: Choose Sampling Events</a><br></li>
+            <li>For YourKit Java Profiler: <a href="https://www.yourkit.com/docs/java/help/sampling_settings.jsp">YourKit Java Profiler Help - CPU sampling settings</a></li>
+          </ul>
+          <h3 id="instrumentation-overhead">Instrumentation Overhead<a class="fa fa-anchor" href="#instrumentation-overhead"></a></h3>
+          <p>Instrumentation profiling incurs a substantial overhead, which is an increase in file size
+            and execution time of the program. This makes it unsuitable for large projects. In such
+            cases, it is recommended to <strong>limit instrumentation to a specific portion of your project</strong>.</p>
+          <ul>
+            <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/cc470663.aspx">How to: Limit Instrumentation to Specific Functions</a>
+              or <a href="https://msdn.microsoft.com/en-us/library/bb385752.aspx">Specific DLLs</a></li>
+          </ul>
+          <p>To reduce instrumentation overhead, some profilers may exclude <em>small functions</em>, which
+            are short functions that do not make any function calls, and treat the time as being
+            spent in their calling functions. This behavior is usually enabled by default, which may
+            be undesirable when you want to <strong>examine <em>small functions</em> carefully</strong>. Most profilers
+            offer the option to change this behavior.</p>
+          <ul>
+            <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/bb514150.aspx">How to: Exclude or Include Short Functions from Instrumentation</a></li>
+          </ul>
+          <h2 id="profiling-other-types-of-data">Profiling Other Types Of Data<a class="fa fa-anchor" href="#profiling-other-types-of-data"></a></h2>
+          <p>Other than collecting performance statistics and timing data, profilers are also able
+            to collect other information such as memory allocation and GPU usage.</p>
+          <p>For Visual Studio 2015:</p>
+          <ol>
+            <li>List of <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">Profiling Tools</a> (A <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx#Anchor_10">table</a> which shows the most suitable tool for each project)</li>
+            <li><a href="https://msdn.microsoft.com/en-us/library/2s0xxa1d.aspx">How to: Collect Performance Data for a Web Site</a> (<a href="http://ASP.NET">ASP.NET</a> and JavaScript)</li>
+            <li><a href="https://msdn.microsoft.com/en-us/library/dd264934.aspx">Collecting .NET Memory Allocation and Lifetime Data</a></li>
+            <li><a href="https://msdn.microsoft.com/en-us/library/dd265004.aspx">Collecting Thread and Process Concurrency Data</a></li>
+            <li><a href="https://msdn.microsoft.com/en-us/library/dd465169.aspx">Collecting tier interaction data</a></li>
+          </ol>
+          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
+          <ol>
+            <li>What is a software profiler?: <a href="https://msdn.microsoft.com/en-us/library/bb384493(v=vs.110).aspx">Profiling Overview</a></li>
+            <li>Common performance profiling methods: <a href="https://msdn.microsoft.com/en-us/library/dd264994.aspx">Understanding Performance Collection Methods</a></li>
+            <li>Learn the best practices in profiling: <a href="https://netbeans.org/community/magazine/html/04/profiler.html">Advanced Profiling: Theory in Practice with NetBeans IDE</a></li>
+            <li>Why do profilers exclude small functions from instrumentation by default?: <a href="https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/">Excluding Small Functions From Instrumentation</a></li>
+          </ol>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="performance-profiling">Performance Profiling<a class="fa fa-anchor" href="#performance-profiling"></a></h1>
-    <p>Author: <a href="https://github.com/initialshl">Ong Heng Le</a></p>
-    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-    <p>A performance profiler is a tool which collects data (such as function timings) about
-      your program to identify the areas with performance issues, commonly used in code
-      optimization. There are two common types of performance profiling methods.</p>
-    <ul>
-      <li><strong>CPU sampling</strong>: Collects <em>samples</em> at fixed intervals, which provides an overview of your program's performance</li>
-      <li><strong>Instrumentation</strong>: Collects detailed <em>elapsed times</em> for your program's function calls</li>
-    </ul>
-    <p>Learn <a href="https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/">which profiling method to use for your program</a>
-      when choosing between CPU sampling and instrumentation.</p>
-    <h2 id="performance-profiling-for-the-first-time">Performance Profiling For The First Time<a class="fa fa-anchor" href="#performance-profiling-for-the-first-time"></a></h2>
-    <p>This article provides resources to help you identify the performance issues as you
-      perform profiling on your program for the first time. The general steps in profiling a
-      program for the first time are:</p>
-    <ol>
-      <li>Run a performance profiling session</li>
-      <li>View the performance report</li>
-      <li>Trace down to the problem</li>
-      <li>Identify areas for improvements upwards</li>
-    </ol>
-    <p>Most profilers are similar in their functionalities, user interface, and use of
-      technical terms. You may adapt the tutorials in this article to your preferred profiling
-      tools on your own project.</p>
-    <ul>
-      <li><a href="ProfilingDesktopAppVS2015.md">Profiling a Desktop Application In Visual Studio 2015</a></li>
-    </ul>
-    <h2 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h2>
-    <h3 id="sampling-interval">Sampling Interval<a class="fa fa-anchor" href="#sampling-interval"></a></h3>
-    <p>CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many
-      profilers offer the option to <strong>set a custom interval or perform sampling based on events</strong>,
-      such as page faults or system calls, in the sampling settings.</p>
-    <ul>
-      <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/ms182376.aspx">How to: Choose Sampling Events</a><br></li>
-      <li>For YourKit Java Profiler: <a href="https://www.yourkit.com/docs/java/help/sampling_settings.jsp">YourKit Java Profiler Help - CPU sampling settings</a></li>
-    </ul>
-    <h3 id="instrumentation-overhead">Instrumentation Overhead<a class="fa fa-anchor" href="#instrumentation-overhead"></a></h3>
-    <p>Instrumentation profiling incurs a substantial overhead, which is an increase in file size
-      and execution time of the program. This makes it unsuitable for large projects. In such
-      cases, it is recommended to <strong>limit instrumentation to a specific portion of your project</strong>.</p>
-    <ul>
-      <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/cc470663.aspx">How to: Limit Instrumentation to Specific Functions</a>
-        or <a href="https://msdn.microsoft.com/en-us/library/bb385752.aspx">Specific DLLs</a></li>
-    </ul>
-    <p>To reduce instrumentation overhead, some profilers may exclude <em>small functions</em>, which
-      are short functions that do not make any function calls, and treat the time as being
-      spent in their calling functions. This behavior is usually enabled by default, which may
-      be undesirable when you want to <strong>examine <em>small functions</em> carefully</strong>. Most profilers
-      offer the option to change this behavior.</p>
-    <ul>
-      <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/bb514150.aspx">How to: Exclude or Include Short Functions from Instrumentation</a></li>
-    </ul>
-    <h2 id="profiling-other-types-of-data">Profiling Other Types Of Data<a class="fa fa-anchor" href="#profiling-other-types-of-data"></a></h2>
-    <p>Other than collecting performance statistics and timing data, profilers are also able
-      to collect other information such as memory allocation and GPU usage.</p>
-    <p>For Visual Studio 2015:</p>
-    <ol>
-      <li>List of <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">Profiling Tools</a> (A <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx#Anchor_10">table</a> which shows the most suitable tool for each project)</li>
-      <li><a href="https://msdn.microsoft.com/en-us/library/2s0xxa1d.aspx">How to: Collect Performance Data for a Web Site</a> (<a href="http://ASP.NET">ASP.NET</a> and JavaScript)</li>
-      <li><a href="https://msdn.microsoft.com/en-us/library/dd264934.aspx">Collecting .NET Memory Allocation and Lifetime Data</a></li>
-      <li><a href="https://msdn.microsoft.com/en-us/library/dd265004.aspx">Collecting Thread and Process Concurrency Data</a></li>
-      <li><a href="https://msdn.microsoft.com/en-us/library/dd465169.aspx">Collecting tier interaction data</a></li>
-    </ol>
-    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
-    <ol>
-      <li>What is a software profiler?: <a href="https://msdn.microsoft.com/en-us/library/bb384493(v=vs.110).aspx">Profiling Overview</a></li>
-      <li>Common performance profiling methods: <a href="https://msdn.microsoft.com/en-us/library/dd264994.aspx">Understanding Performance Collection Methods</a></li>
-      <li>Learn the best practices in profiling: <a href="https://netbeans.org/community/magazine/html/04/profiler.html">Advanced Profiling: Theory in Practice with NetBeans IDE</a></li>
-      <li>Why do profilers exclude small functions from instrumentation by default?: <a href="https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/">Excluding Small Functions From Instrumentation</a></li>
-    </ol>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

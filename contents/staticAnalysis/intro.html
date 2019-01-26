@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Static Analysis</title>
+    <title>SE-EDU/LearningResources - Static Analysis</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,141 +13,370 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#introduction-to-static-analysis">Introduction to Static Analysis&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
+      <a class="nav-link py-1" href="#why-static-analysis">Why Static Analysis?&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#analyse-thoroughly">Analyse Thoroughly&#x200E;</a>
+        <a class="nav-link py-1" href="#find-potential-bugs-early">Find Potential Bugs Early&#x200E;</a>
+        <a class="nav-link py-1" href="#enforce-a-standard-in-project">Enforce a Standard in Project&#x200E;</a>
+        <a class="nav-link py-1" href="#improve-code-quality">Improve Code Quality&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#limitation-of-static-analysis">Limitation of Static Analysis&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#false-positives">False positives&#x200E;</a>
+        <a class="nav-link py-1" href="#cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)&#x200E;</a>
+      <a class="nav-link py-1" href="#references">References&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Static Analysis
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html" class="current">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
-      </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="static-analysis">Static Analysis<a class="fa fa-anchor" href="#static-analysis"></a></h1>
-    <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-    <p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p>
-    <p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p>
-    <h2 id="why-static-analysis">Why Static Analysis?<a class="fa fa-anchor" href="#why-static-analysis"></a></h2>
-    <h3 id="analyse-thoroughly">Analyse Thoroughly<a class="fa fa-anchor" href="#analyse-thoroughly"></a></h3>
-    <p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.</p>
-    <h3 id="find-potential-bugs-early">Find Potential Bugs Early<a class="fa fa-anchor" href="#find-potential-bugs-early"></a></h3>
-    <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
-    <pre><code class="hljs java"><span class="hljs-keyword">switch</span>(colour) {
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="introduction-to-static-analysis">Introduction to Static Analysis<a class="fa fa-anchor" href="#introduction-to-static-analysis"></a></h1>
+          <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
+          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+          <p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p>
+          <p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p>
+          <h2 id="why-static-analysis">Why Static Analysis?<a class="fa fa-anchor" href="#why-static-analysis"></a></h2>
+          <h3 id="analyse-thoroughly">Analyse Thoroughly<a class="fa fa-anchor" href="#analyse-thoroughly"></a></h3>
+          <p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.</p>
+          <h3 id="find-potential-bugs-early">Find Potential Bugs Early<a class="fa fa-anchor" href="#find-potential-bugs-early"></a></h3>
+          <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">switch</span>(colour) {
 <span class="hljs-keyword">case</span> <span class="hljs-string">'blue'</span>:
 	value = <span class="hljs-number">1</span>;
 <span class="hljs-keyword">case</span> <span class="hljs-string">'green'</span>:
 	value = <span class="hljs-number">2</span>;
 }
 </code></pre>
-    <p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
-    <h3 id="enforce-a-standard-in-project">Enforce a Standard in Project<a class="fa fa-anchor" href="#enforce-a-standard-in-project"></a></h3>
-    <p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
-    <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
+          <p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
+          <h3 id="enforce-a-standard-in-project">Enforce a Standard in Project<a class="fa fa-anchor" href="#enforce-a-standard-in-project"></a></h3>
+          <p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
 	<span class="hljs-comment">// true</span>
 } <span class="hljs-keyword">else</span> {
 	<span class="hljs-comment">// false</span>
 }
 </code></pre>
-    <p>While others enforce the following standard:</p>
-    <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
+          <p>While others enforce the following standard:</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
 	<span class="hljs-comment">// true</span>
 }
 <span class="hljs-keyword">else</span> {
 	<span class="hljs-comment">// false</span>
 }
 </code></pre>
-    <p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
-    <h3 id="improve-code-quality">Improve Code Quality<a class="fa fa-anchor" href="#improve-code-quality"></a></h3>
-    <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
-    <pre><code class="hljs java"><span class="hljs-keyword">if</span> (isConditionTrue()) {
+          <p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
+          <h3 id="improve-code-quality">Improve Code Quality<a class="fa fa-anchor" href="#improve-code-quality"></a></h3>
+          <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (isConditionTrue()) {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
 } <span class="hljs-keyword">else</span> {
 	<span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
 }
 </code></pre>
-    <p>Majority of static analysis tools will point out that this can be simplified to:</p>
-    <pre><code class="hljs java"><span class="hljs-keyword">return</span> isConditionTrue();
+          <p>Majority of static analysis tools will point out that this can be simplified to:</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">return</span> isConditionTrue();
 </code></pre>
-    <h2 id="limitation-of-static-analysis">Limitation of Static Analysis<a class="fa fa-anchor" href="#limitation-of-static-analysis"></a></h2>
-    <h3 id="false-positives">False positives<a class="fa fa-anchor" href="#false-positives"></a></h3>
-    <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
-    <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
+          <h2 id="limitation-of-static-analysis">Limitation of Static Analysis<a class="fa fa-anchor" href="#limitation-of-static-analysis"></a></h2>
+          <h3 id="false-positives">False positives<a class="fa fa-anchor" href="#false-positives"></a></h3>
+          <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
 	<span class="hljs-comment">// logic part</span>
 } <span class="hljs-keyword">catch</span> (Throwable t) {
 	<span class="hljs-comment">// alert user</span>
 }
 </code></pre>
-    <p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected by static analysis tools is a false positive.</p>
-    <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="PMD.md">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation can be used. In this case,</p>
-    <pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"PMD.AvoidCatchingThrowable"</span>) <span class="hljs-comment">// used as fallback</span>
+          <p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected by static analysis tools is a false positive.</p>
+          <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="PMD.md">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation can be used. In this case,</p>
+          <pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"PMD.AvoidCatchingThrowable"</span>) <span class="hljs-comment">// used as fallback</span>
 </code></pre>
-    <p>is the correct way to suppress warnings.</p>
-    <h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment<a class="fa fa-anchor" href="#cannot-catch-error-introduced-in-runtime-environment"></a></h3>
-    <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases are also needed to verify the functionalities in logic, UI and etc.</p>
-    <h2 id="how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)<a class="fa fa-anchor" href="#how-to-do-static-analysis-static-analysis-tools"></a></h2>
-    <p>There are several static analysis tools that can be used to assist the process.</p>
-    <ul>
-      <li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li>
-      <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each commit.</li>
-    </ul>
-    <p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p>
-    <ul>
-      <li>
-        <p>Java</p>
-        <ul>
-          <li><a href="CheckStyle.md">CheckStyle</a></li>
-          <li><a href="PMD.md">PMD</a></li>
-          <li><a href="FindBugs.md">FindBugs</a></li>
-        </ul>
-      </li>
-      <li>
-        <p>JavaScript</p>
-        <ul>
-          <li>eslint</li>
-        </ul>
-      </li>
-    </ul>
-    <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
-    <ul>
-      <li><a href="http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li>
-    </ul>
+          <p>is the correct way to suppress warnings.</p>
+          <h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment<a class="fa fa-anchor" href="#cannot-catch-error-introduced-in-runtime-environment"></a></h3>
+          <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases are also needed to verify the functionalities in logic, UI and etc.</p>
+          <h2 id="how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)<a class="fa fa-anchor" href="#how-to-do-static-analysis-static-analysis-tools"></a></h2>
+          <p>There are several static analysis tools that can be used to assist the process.</p>
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li>
+            <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each commit.</li>
+          </ul>
+          <p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p>
+          <ul>
+            <li>
+              <p>Java</p>
+              <ul>
+                <li><a href="CheckStyle.md">CheckStyle</a></li>
+                <li><a href="PMD.md">PMD</a></li>
+                <li><a href="FindBugs.md">FindBugs</a></li>
+              </ul>
+            </li>
+            <li>
+              <p>JavaScript</p>
+              <ul>
+                <li>eslint</li>
+              </ul>
+            </li>
+          </ul>
+          <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
+          <ul>
+            <li><a href="http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

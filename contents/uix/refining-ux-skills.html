@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Refining UX Design Skills</title>
+    <title>SE-EDU/LearningResources - Refining UX Design Skills</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,160 +13,381 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#refining-ux-design-skills">Refining UX Design Skills&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#table-of-contents">Table of Contents&#x200E;</a>
+      <a class="nav-link py-1" href="#overview">Overview &#x200E;</a>
+      <a class="nav-link py-1" href="#building-a-relationship-with-a-ux-mentor">Building a relationship with a UX mentor &#x200E;</a>
+      <a class="nav-link py-1" href="#becoming-a-ux-apprentice">Becoming a UX apprentice &#x200E;</a>
+      <a class="nav-link py-1" href="#engaging-in-individual-ux-projects">Engaging in individual UX projects &#x200E;</a>
+      <a class="nav-link py-1" href="#summary">Summary &#x200E;</a>
+      <a class="nav-link py-1" href="#additional-resource-s">Additional Resource(s) &#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">UI/UX
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="current">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="refining-ux-design-skills">Refining UX Design Skills<a class="fa fa-anchor" href="#refining-ux-design-skills"></a></h1>
+          <p>Author: <a href="https://github.com/junkiattan">Tan Jun Kiat</a></p>
+          <h2 id="table-of-contents">Table of Contents<a class="fa fa-anchor" href="#table-of-contents"></a></h2>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#relationship">Building a relationship with a UX mentor</a></li>
+            <li><a href="#apprenticeship">Becoming a UX apprentice</a></li>
+            <li><a href="#engagement">Engaging in individual UX projects</a></li>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#additionalResources">Additional Resource(s)</a></li>
+          </ul>
+          <h2 id="overview">Overview <a id="overview"></a><a class="fa fa-anchor" href="#overview"></a></h2>
+          <p>As someone new to UX Design, honing your design skills is crucial to getting a UX-related career. In addition to knowing the definition of UX Design and it's stages, it is also important to know the practical aspect of starting and refining the required skillsets. This section will explain a few tactics to help you on this journey of improvement.</p>
+          <h4 id="summary-of-keypoints">Summary of keypoints</h4>
+          <ol>
+            <li>Building a relationship with a UX mentor</li>
+            <li>Becoming a UX apprentice</li>
+            <li>Engaging in individual UX projects</li>
+          </ol>
+          <p>Each keypoint represents a tactic to help you refine your UX skillsets, supplemented with the potential pitfalls of each tactic and solutions to consider.</p>
+          <h2 id="building-a-relationship-with-a-ux-mentor">Building a relationship with a UX mentor <a id="relationship"></a><a class="fa fa-anchor" href="#building-a-relationship-with-a-ux-mentor"></a></h2>
+          <p>Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding UX designer would have at the beginning. Chances are that they have already asked the same questions you are having and can therefore provide constructive feedback on workable solutions. Even if they have not tried tackled the same issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.</p>
+          <p>There are many avenues to find a UX mentor. Listed below are some links to get you started on some ways you can find a potential mentor.</p>
+          <p>Mentoring networks:</p>
+          <ol>
+            <li><a href="https://www.rookieup.com/find-a-mentor/">Find a Mentor (RookieUp)</a></li>
+            <li><a href="http://uxpa-uk.org/development/mentoring/">UXPA UK Mentoring programme</a></li>
+            <li><a href="https://www.interaction-design.org/design-league?ep=az">IDF Design League program</a></li>
+            <li><a href="https://theuxreview.co.uk/ux-mentorship-program-by-uxr/">UX Mentorship Program (The UX Review)</a></li>
+          </ol>
+          <p>Conferences</p>
+          <ol>
+            <li><a href="https://www.nngroup.com/ux-conference/">Nielsen Norman Group UX Conferences</a></li>
+          </ol>
+          <p>Local meet-ups</p>
+          <ol>
+            <li><a href="http://www.uxsg.org/">UXSG Community</a></li>
+            <li><a href="https://www.meetup.com/IxDA-Singapore/">IxDA Singapore</a></li>
+            <li><a href="https://www.meetup.com/Singapore-Lean-Startup-Circle/">Singapore Lean Startup Circle</a></li>
+            <li><a href="https://www.facebook.com/groups/dribbble.sg/">Singapore Dribbble Meetup</a></li>
+          </ol>
+          <p>If you are concerned with how to find the right mentor, check out below articles that offer tips on how to select the right mentor for yourself.</p>
+          <ol>
+            <li><a href="https://www.uxbeginner.com/how-to-find-a-ux-mentor/">How to Find a UX Mentor</a></li>
+            <li><a href="https://medium.com/@myplanet/how-and-why-you-want-to-find-a-great-design-mentor-6faa7c0fffd9">How (and Why) You Want to Find a Great Design Mentor</a></li>
+          </ol>
+          <h4 id="potential-pitfalls">Potential pitfalls</h4>
+          <p><em>Unresponsive or ineffective mentors</em>: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.</p>
+          <h2 id="becoming-a-ux-apprentice">Becoming a UX apprentice <a id="apprenticeship"></a><a class="fa fa-anchor" href="#becoming-a-ux-apprentice"></a></h2>
+          <p>This tactic may sound similar to the first one, but apprenticeship here connotes a stronger meaning for a formal learning experience. While the previous point talks about getting on-the-job advice from more experienced individuals, this tactic mainly discusses learning bootcamps that focuses on bringing an individual from &quot;UX Zero&quot; to &quot;UX Hero&quot; within the span of a few months.</p>
+          <p>Bootcamps can be classified into online or in-person, each with its advantages and disadvantages.</p>
+          <h4 id="online">Online</h4>
+          <p>Broadly speaking, the main advantages of online courses are it's convenience and price. Online courses cater to students globally and are generally more affordable than in-person courses. Most online courses are also self-paced based on each student's schedule. However, online courses lack the in-person interactions which can impact the learning experience. Completing online courses also requires long term self-discipline, which places more responsibility on the student. Hence, completion rates are generally not as high compared to in-person courses.</p>
+          <h4 id="in-person">In-person</h4>
+          <p>The main advantages of in-person courses are the interactions, which can help to solidify learning experiences and concepts. For UX Design specifically, students might benefit learning skills like drafting user-scenarios or prototyping with in-class guidance rather than through the web. As a result of in-person learning and collaboration, students would also be more motivated and completion rates for in-person courses are higher in general. However, such courses are limited by price and their locations.</p>
+          <h4 id="recommendations">Recommendations</h4>
+          <p>There are many bootcamps of both classifications for considerations. I have listed a few famous ones below for consideration that are more applicable for Singaporean students.</p>
+          <p>Online:</p>
+          <ol>
+            <li><a href="https://careerfoundry.com/en/courses/become-a-ux-designer/">UX Design (Career Foundry)</a></li>
+            <li><a href="https://www.bloc.io/designer-track">Designer Track (Bloc)</a></li>
+            <li><a href="http://designation.io/">UX Design Bootcamp (Designation)</a></li>
+            <li><a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp">UX Design Course (BrainStation)</a></li>
+          </ol>
+          <p>In-person:</p>
+          <ol>
+            <li><a href="https://generalassemb.ly/education/user-experience-design-immersive">UX Design Immersive (General Assembly)</a></li>
+            <li><a href="https://sg.alphacamp.co/full-time-product-design/">Product Design (Alpha Camp)</a></li>
+            <li><a href="https://www.hyperisland.com/programs-and-courses/human-centered-design">Human Centered Design (Hyper Island)</a></li>
+          </ol>
+          <h4 id="potential-pitfalls-2">Potential pitfalls</h4>
+          <p><em>Ineffective learning experiences</em>: A common mistake is signing up for any program thinking that all UX Design programs are the same. The curriculum of most courses were developed separately, hence their teaching methodology and focus would be different from each other. Consider requesting the course syllabus for each couse and asking a few questions:</p>
+          <ul>
+            <li>What kinds of portfolio deliverables will you produce through the program? Will you actually produce things you can showcase as evidence of your problem-solving skills?</li>
+            <li>Does the program have a trusted network of potential employers that you can be connected with?</li>
+            <li>How practical are the experiences promised by the program? How conceptual? How product-based? How process-based?</li>
+          </ul>
+          <p>Be honest with your expectations on what you wish to get out of the course and find a suitable one based on your answers to the questions above.</p>
+          <h2 id="engaging-in-individual-ux-projects">Engaging in individual UX projects <a id="engagement"></a><a class="fa fa-anchor" href="#engaging-in-individual-ux-projects"></a></h2>
+          <p>This is the tactic that shows your proactiveness and desire to excel in UX Design. Whether you have a mentor or have participated in a UX Bootcamp, nothing shows your commitment to UX Design more than if you had further honed those learned skills in actual UX projects.</p>
+          <p>Find a local organisation with a website/app that you believe needs design help. Approach them via call/email to let them know that you are new to design but would like to gain some experience by providing advice on how certain aspects of their websites can be improved, bearing in mind that it's good to always frame design issues as business issues. Afterwards, simply treat it as your own UX project and work with the organisation to produce value-added content such as prototypes that can help to showcase your ideas. By doing it well, you can gain experience and even add value to your resume.</p>
+          <p>Listed below are some examples of UX projects that can be self-initiated.</p>
+          <ol>
+            <li><a href="https://www.rookieup.com/blog/10-uxui-projects-help-build-portfolio/">10 UX/UI Projects to Help You Build Your Portfolio</a></li>
+            <li><a href="https://www.uxbeginner.com/5-hidden-sources-of-ux-portfolio-projects/">5 Hidden Sources of UX Portfolio Projects</a></li>
+            <li><a href="http://thehipperelement.com/post/145959249463/two-projects-to-hone-your-ux-skills">Two Projects to Hone your UX Skills</a></li>
+          </ol>
+          <h4 id="potential-pitfalls-3">Potential pitfalls:</h4>
+          <p><em>Projects that don’t count as legitimate UX experience</em>: It is important to be careful of the type of projects you end up taking. Producing content for non-digital media, such as a brochure or an advertisement, would not be as relevant as producing wireframes for a website. Furthermore, even with a relevant UX experience, it is crucial to be able to link your work to communicate the following points:</p>
+          <ul>
+            <li>How you helped the team balance user goals and business goals</li>
+            <li>How you analyzed the business and technology constraints</li>
+            <li>How you collaborated with non-designers</li>
+            <li>How you transformed user research and quantitative data into actionable insights for the team</li>
+            <li>How you worked with the team to resolve unexpected challenges</li>
+          </ul>
+          <p>Applying UX skills and being able to communicate your ideas/results clearly to your clients based on the questions listed above helps you to sell the true value of your design work.</p>
+          <h2 id="summary">Summary <a id="summary"></a><a class="fa fa-anchor" href="#summary"></a></h2>
+          <p>Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Therefore, knowing the tactics and solutions to common pitfalls would definitely help clarify the steps needed to refine your UX skills. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design.</p>
+          <p>Know that there are many others before you who were new but successfully went into UX Design through their tenacity and hard work. Check out the below links for some success stories of individuals who started with zero experience but managed to secure full-time UX jobs. Use those stories as inspiration to motivate your own UX journey!</p>
+          <ul>
+            <li><a href="https://blog.prototypr.io/how-i-landed-a-job-in-ux-design-with-no-degree-or-work-experience-ca22c22a1c68">How I landed a job in UX Design with no degree or work experience</a></li>
+            <li><a href="https://medium.com/capitalonedesign/how-i-landed-a-ux-job-in-8-months-without-work-experience-or-a-degree-a057d32df1f9">How I Landed a UX Job in 8 Months Without Work Experience or a Degree</a></li>
+          </ul>
+          <h2 id="additional-resource-s">Additional Resource(s) <a id="additionalResources"></a><a class="fa fa-anchor" href="#additional-resource-s"></a></h2>
+          <ol>
+            <li><a href="http://interface.sg/">List of Meetups/Conferences/Resources in Singapore</a></li>
+          </ol>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="refining-ux-design-skills">Refining UX Design Skills<a class="fa fa-anchor" href="#refining-ux-design-skills"></a></h1>
-    <p>Author: <a href="https://github.com/junkiattan">Tan Jun Kiat</a></p>
-    <h2 id="table-of-contents">Table of Contents<a class="fa fa-anchor" href="#table-of-contents"></a></h2>
-    <ul>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#relationship">Building a relationship with a UX mentor</a></li>
-      <li><a href="#apprenticeship">Becoming a UX apprentice</a></li>
-      <li><a href="#engagement">Engaging in individual UX projects</a></li>
-      <li><a href="#summary">Summary</a></li>
-      <li><a href="#additionalResources">Additional Resource(s)</a></li>
-    </ul>
-    <h2 id="overview">Overview <a id="overview"></a><a class="fa fa-anchor" href="#overview"></a></h2>
-    <p>As someone new to UX Design, honing your design skills is crucial to getting a UX-related career. In addition to knowing the definition of UX Design and it's stages, it is also important to know the practical aspect of starting and refining the required skillsets. This section will explain a few tactics to help you on this journey of improvement.</p>
-    <h4 id="summary-of-keypoints">Summary of keypoints</h4>
-    <ol>
-      <li>Building a relationship with a UX mentor</li>
-      <li>Becoming a UX apprentice</li>
-      <li>Engaging in individual UX projects</li>
-    </ol>
-    <p>Each keypoint represents a tactic to help you refine your UX skillsets, supplemented with the potential pitfalls of each tactic and solutions to consider.</p>
-    <h2 id="building-a-relationship-with-a-ux-mentor">Building a relationship with a UX mentor <a id="relationship"></a><a class="fa fa-anchor" href="#building-a-relationship-with-a-ux-mentor"></a></h2>
-    <p>Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding UX designer would have at the beginning. Chances are that they have already asked the same questions you are having and can therefore provide constructive feedback on workable solutions. Even if they have not tried tackled the same issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.</p>
-    <p>There are many avenues to find a UX mentor. Listed below are some links to get you started on some ways you can find a potential mentor.</p>
-    <p>Mentoring networks:</p>
-    <ol>
-      <li><a href="https://www.rookieup.com/find-a-mentor/">Find a Mentor (RookieUp)</a></li>
-      <li><a href="http://uxpa-uk.org/development/mentoring/">UXPA UK Mentoring programme</a></li>
-      <li><a href="https://www.interaction-design.org/design-league?ep=az">IDF Design League program</a></li>
-      <li><a href="https://theuxreview.co.uk/ux-mentorship-program-by-uxr/">UX Mentorship Program (The UX Review)</a></li>
-    </ol>
-    <p>Conferences</p>
-    <ol>
-      <li><a href="https://www.nngroup.com/ux-conference/">Nielsen Norman Group UX Conferences</a></li>
-    </ol>
-    <p>Local meet-ups</p>
-    <ol>
-      <li><a href="http://www.uxsg.org/">UXSG Community</a></li>
-      <li><a href="https://www.meetup.com/IxDA-Singapore/">IxDA Singapore</a></li>
-      <li><a href="https://www.meetup.com/Singapore-Lean-Startup-Circle/">Singapore Lean Startup Circle</a></li>
-      <li><a href="https://www.facebook.com/groups/dribbble.sg/">Singapore Dribbble Meetup</a></li>
-    </ol>
-    <p>If you are concerned with how to find the right mentor, check out below articles that offer tips on how to select the right mentor for yourself.</p>
-    <ol>
-      <li><a href="https://www.uxbeginner.com/how-to-find-a-ux-mentor/">How to Find a UX Mentor</a></li>
-      <li><a href="https://medium.com/@myplanet/how-and-why-you-want-to-find-a-great-design-mentor-6faa7c0fffd9">How (and Why) You Want to Find a Great Design Mentor</a></li>
-    </ol>
-    <h4 id="potential-pitfalls">Potential pitfalls</h4>
-    <p><em>Unresponsive or ineffective mentors</em>: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.</p>
-    <h2 id="becoming-a-ux-apprentice">Becoming a UX apprentice <a id="apprenticeship"></a><a class="fa fa-anchor" href="#becoming-a-ux-apprentice"></a></h2>
-    <p>This tactic may sound similar to the first one, but apprenticeship here connotes a stronger meaning for a formal learning experience. While the previous point talks about getting on-the-job advice from more experienced individuals, this tactic mainly discusses learning bootcamps that focuses on bringing an individual from &quot;UX Zero&quot; to &quot;UX Hero&quot; within the span of a few months.</p>
-    <p>Bootcamps can be classified into online or in-person, each with its advantages and disadvantages.</p>
-    <h4 id="online">Online</h4>
-    <p>Broadly speaking, the main advantages of online courses are it's convenience and price. Online courses cater to students globally and are generally more affordable than in-person courses. Most online courses are also self-paced based on each student's schedule. However, online courses lack the in-person interactions which can impact the learning experience. Completing online courses also requires long term self-discipline, which places more responsibility on the student. Hence, completion rates are generally not as high compared to in-person courses.</p>
-    <h4 id="in-person">In-person</h4>
-    <p>The main advantages of in-person courses are the interactions, which can help to solidify learning experiences and concepts. For UX Design specifically, students might benefit learning skills like drafting user-scenarios or prototyping with in-class guidance rather than through the web. As a result of in-person learning and collaboration, students would also be more motivated and completion rates for in-person courses are higher in general. However, such courses are limited by price and their locations.</p>
-    <h4 id="recommendations">Recommendations</h4>
-    <p>There are many bootcamps of both classifications for considerations. I have listed a few famous ones below for consideration that are more applicable for Singaporean students.</p>
-    <p>Online:</p>
-    <ol>
-      <li><a href="https://careerfoundry.com/en/courses/become-a-ux-designer/">UX Design (Career Foundry)</a></li>
-      <li><a href="https://www.bloc.io/designer-track">Designer Track (Bloc)</a></li>
-      <li><a href="http://designation.io/">UX Design Bootcamp (Designation)</a></li>
-      <li><a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp">UX Design Course (BrainStation)</a></li>
-    </ol>
-    <p>In-person:</p>
-    <ol>
-      <li><a href="https://generalassemb.ly/education/user-experience-design-immersive">UX Design Immersive (General Assembly)</a></li>
-      <li><a href="https://sg.alphacamp.co/full-time-product-design/">Product Design (Alpha Camp)</a></li>
-      <li><a href="https://www.hyperisland.com/programs-and-courses/human-centered-design">Human Centered Design (Hyper Island)</a></li>
-    </ol>
-    <h4 id="potential-pitfalls-2">Potential pitfalls</h4>
-    <p><em>Ineffective learning experiences</em>: A common mistake is signing up for any program thinking that all UX Design programs are the same. The curriculum of most courses were developed separately, hence their teaching methodology and focus would be different from each other. Consider requesting the course syllabus for each couse and asking a few questions:</p>
-    <ul>
-      <li>What kinds of portfolio deliverables will you produce through the program? Will you actually produce things you can showcase as evidence of your problem-solving skills?</li>
-      <li>Does the program have a trusted network of potential employers that you can be connected with?</li>
-      <li>How practical are the experiences promised by the program? How conceptual? How product-based? How process-based?</li>
-    </ul>
-    <p>Be honest with your expectations on what you wish to get out of the course and find a suitable one based on your answers to the questions above.</p>
-    <h2 id="engaging-in-individual-ux-projects">Engaging in individual UX projects <a id="engagement"></a><a class="fa fa-anchor" href="#engaging-in-individual-ux-projects"></a></h2>
-    <p>This is the tactic that shows your proactiveness and desire to excel in UX Design. Whether you have a mentor or have participated in a UX Bootcamp, nothing shows your commitment to UX Design more than if you had further honed those learned skills in actual UX projects.</p>
-    <p>Find a local organisation with a website/app that you believe needs design help. Approach them via call/email to let them know that you are new to design but would like to gain some experience by providing advice on how certain aspects of their websites can be improved, bearing in mind that it's good to always frame design issues as business issues. Afterwards, simply treat it as your own UX project and work with the organisation to produce value-added content such as prototypes that can help to showcase your ideas. By doing it well, you can gain experience and even add value to your resume.</p>
-    <p>Listed below are some examples of UX projects that can be self-initiated.</p>
-    <ol>
-      <li><a href="https://www.rookieup.com/blog/10-uxui-projects-help-build-portfolio/">10 UX/UI Projects to Help You Build Your Portfolio</a></li>
-      <li><a href="https://www.uxbeginner.com/5-hidden-sources-of-ux-portfolio-projects/">5 Hidden Sources of UX Portfolio Projects</a></li>
-      <li><a href="http://thehipperelement.com/post/145959249463/two-projects-to-hone-your-ux-skills">Two Projects to Hone your UX Skills</a></li>
-    </ol>
-    <h4 id="potential-pitfalls-3">Potential pitfalls:</h4>
-    <p><em>Projects that don’t count as legitimate UX experience</em>: It is important to be careful of the type of projects you end up taking. Producing content for non-digital media, such as a brochure or an advertisement, would not be as relevant as producing wireframes for a website. Furthermore, even with a relevant UX experience, it is crucial to be able to link your work to communicate the following points:</p>
-    <ul>
-      <li>How you helped the team balance user goals and business goals</li>
-      <li>How you analyzed the business and technology constraints</li>
-      <li>How you collaborated with non-designers</li>
-      <li>How you transformed user research and quantitative data into actionable insights for the team</li>
-      <li>How you worked with the team to resolve unexpected challenges</li>
-    </ul>
-    <p>Applying UX skills and being able to communicate your ideas/results clearly to your clients based on the questions listed above helps you to sell the true value of your design work.</p>
-    <h2 id="summary">Summary <a id="summary"></a><a class="fa fa-anchor" href="#summary"></a></h2>
-    <p>Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Therefore, knowing the tactics and solutions to common pitfalls would definitely help clarify the steps needed to refine your UX skills. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design.</p>
-    <p>Know that there are many others before you who were new but successfully went into UX Design through their tenacity and hard work. Check out the below links for some success stories of individuals who started with zero experience but managed to secure full-time UX jobs. Use those stories as inspiration to motivate your own UX journey!</p>
-    <ul>
-      <li><a href="https://blog.prototypr.io/how-i-landed-a-job-in-ux-design-with-no-degree-or-work-experience-ca22c22a1c68">How I landed a job in UX Design with no degree or work experience</a></li>
-      <li><a href="https://medium.com/capitalonedesign/how-i-landed-a-ux-job-in-8-months-without-work-experience-or-a-degree-a057d32df1f9">How I Landed a UX Job in 8 Months Without Work Experience or a Degree</a></li>
-    </ul>
-    <h2 id="additional-resources">Additional Resource(s) <a id="additionalResources"></a><a class="fa fa-anchor" href="#additional-resources"></a></h2>
-    <ol>
-      <li><a href="http://interface.sg/">List of Meetups/Conferences/Resources in Singapore</a></li>
-    </ol>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

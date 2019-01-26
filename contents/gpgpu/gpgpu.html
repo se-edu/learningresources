@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>An Introduction to GPGPU</title>
+    <title>SE-EDU/LearningResources - An Introduction to GPGPU</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,122 +13,347 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#an-introduction-to-gpgpu">An Introduction to GPGPU&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#1-gpgpu">§ 1. GPGPU&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#1-1-what-is-gpgpu">§ 1.1 What is GPGPU?&#x200E;</a>
+        <a class="nav-link py-1" href="#1-2-why-bother-with-parallel-processing">§ 1.2 Why bother with parallel processing?&#x200E;</a>
+        <a class="nav-link py-1" href="#1-3-aren-t-multicore-cp-us-enough">§ 1.3 Aren't multicore CPUs enough?&#x200E;</a>
+        <a class="nav-link py-1" href="#1-4-what-are-the-challenges-with-gpgpu">§ 1.4 What are the challenges with GPGPU?&#x200E;</a>
+        <a class="nav-link py-1" href="#1-5-implementations">§ 1.5 Implementations&#x200E;</a>
+        <a class="nav-link py-1" href="#1-6-gpgpu-in-action">§ 1.6 GPGPU in action&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#2-further-readings">§ 2. Further Readings&#x200E;</a>
+      <a class="nav-link py-1" href="#3-references">§ 3. References&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Multi-Threading
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="current">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="an-introduction-to-gpgpu">An Introduction to GPGPU<a class="fa fa-anchor" href="#an-introduction-to-gpgpu"></a></h1>
+          <h6 id="authors-pierce-anderson-fu-nguyen-quoc-bao">Authors: <a href="https://github.com/PierceAndy">Pierce Anderson Fu</a>, <a href="https://github.com/bqnguyen94">Nguyen Quoc Bao</a></h6>
+          <ul>
+            <li><a href="#-1-gpgpu">GPGPU</a>
+              <ul>
+                <li><a href="#-11-what-is-gpgpu">What is GPGPU?</a></li>
+                <li><a href="#-12-why-bother-with-parallel-processing">Why bother with parallel processing?</a></li>
+                <li><a href="#-13-arent-multicore-cpus-enough">Aren't multicore CPUs enough?</a></li>
+                <li><a href="#-14-what-are-the-challenges-with-gpgpu">What are the challenges with GPGPU?</a></li>
+                <li><a href="#-15-implementations">Implementations</a></li>
+                <li><a href="#-16-gpgpu-in-action">GPGPU in action</a></li>
+              </ul>
+            </li>
+            <li><a href="#-2-further-readings">Further Readings</a></li>
+            <li><a href="#-3-references">References</a></li>
+          </ul>
+          <h2 id="1-gpgpu">§ 1. GPGPU<a class="fa fa-anchor" href="#1-gpgpu"></a></h2>
+          <h3 id="1-1-what-is-gpgpu">§ 1.1 What is GPGPU?<a class="fa fa-anchor" href="#1-1-what-is-gpgpu"></a></h3>
+          <p>GPGPU stands for General-purpose computing on graphics processing units. It is the use of a graphics processing unit (GPU), which typically handles computation only for computer graphics, to perform computation in applications traditionally handled by the central processing unit (CPU).<sup><a href="#footnote1">[1]</a></sup></p>
+          <p>Simply put, it's a kind of parallel processing where we're trying to exploit the data-parallel hardware on GPUs to improve the throughput of our computers.</p>
+          <h3 id="1-2-why-bother-with-parallel-processing">§ 1.2 Why bother with parallel processing?<a class="fa fa-anchor" href="#1-2-why-bother-with-parallel-processing"></a></h3>
+          <p>Moore's law is the observation made by Gordon Moore that the density of transistors in an integrated circuit board doubles approximately every two years. It has long been co-opted by the semiconductor industry as a target, and consumers have taken this growth for granted.</p>
+          <p>Because it suggests exponential growth, it is unsustainable and it cannot be expected to continue indefinitely. In the words of Moore himself, &quot;It can't continue forever.&quot;.<sup><a href="#footnote2">[2]</a></sup> There are hard physical limits to this scaling such as heat dissipation rate<sup><a href="#footnote3">[3]</a></sup> and size of microprocessor features.<sup><a href="#footnote4">[4]</a></sup></p>
+          <p>As software engineers, this means that free and regular performance gains can no longer be expected.<sup><a href="#footnote5">[5]</a></sup> To fully exploit CPU throughput gains, we need to code differently.</p>
+          <h3 id="1-3-aren-t-multicore-cp-us-enough">§ 1.3 Aren't multicore CPUs enough?<a class="fa fa-anchor" href="#1-3-aren-t-multicore-cp-us-enough"></a></h3>
+          <p>Between CPUs and GPUs, there are differences in <strong>scale</strong> and <strong>architecture</strong>.</p>
+          <ul>
+            <li>In terms of <strong>scale</strong>, CPUs only have several cores while GPUs house up to thousands of cores.</li>
+            <li>In terms of <strong>architecture</strong>, CPUs are designed to handle sequential processing and branches effectively, while GPUs excel at performing simpler computations on large amounts of data.</li>
+          </ul>
+          <p>This means that CPUs and GPUs excel at different tasks. You'll typically want to utilize GPGPU on tasks that are data parallel and compute intensive (e.g. graphics, matrix operations).</p>
+          <blockquote>
+            <h5 id="definitions">Definitions:</h5>
+            <p><em>Data parallelism</em> refers to how a processor executes the same operation on different data elements simultaneously.</p>
+            <p><em>Compute intensive</em> refers to how the algorithm will have to process lots of data elements.</p>
+          </blockquote>
+          <h3 id="1-4-what-are-the-challenges-with-gpgpu">§ 1.4 What are the challenges with GPGPU?<a class="fa fa-anchor" href="#1-4-what-are-the-challenges-with-gpgpu"></a></h3>
+          <p>Not all problems are inherently parallelizable.</p>
+          <p>The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that they don't handle branches and inter-thread communication well.</p>
+          <h3 id="1-5-implementations">§ 1.5 Implementations<a class="fa fa-anchor" href="#1-5-implementations"></a></h3>
+          <ul>
+            <li>CUDA: <a href="http://www.nvidia.com/object/cuda_home_new.html">Official website</a></li>
+            <li>OpenCL: <a href="https://www.khronos.org/opencl/">Official website</a></li>
+          </ul>
+          <h3 id="1-6-gpgpu-in-action">§ 1.6 GPGPU in action<a class="fa fa-anchor" href="#1-6-gpgpu-in-action"></a></h3>
+          <p>The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup><a href="#footnote6">[6]</a></sup>. The Pascal architecture is used in many desktop computers, data centres, and supercomputers<sup><a href="#footnote7">[7]</a></sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.</p>
+          <p><a href="jetson_tx2.jpg" target="_self"><img src="jetson_tx2.jpg" alt="" class="img-fluid" title="NVIDIA's Jetson TX2"></a></p>
+          <p><em><a href="https://devblogs.nvidia.com/jetson-tx2-delivers-twice-intelligence-edge/">NVIDIA Jetson TX2 embedded system-on-module with Thermal Transfer Plate (TTP)</a></em></p>
+          <p>Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup><a href="#footnote6">[6]</a></sup>, the TX2 is capable of intensive parallel computational tasks such as real-time vision processing or deploying deep neural networks, allowing mobile platforms to solve complex, real-world problems.</p>
+          <p><a href="drivenet.jpg" target="_self"><img src="drivenet.jpg" alt="" class="img-fluid" title="NVIDIA DRIVENet Demo"></a></p>
+          <p><em><a href="https://www.youtube.com/watch?v=HJ58dbd5g8g">CES 2016: NVIDIA DRIVENet Demo - Visualizing a Self-Driving Future</a></em></p>
+          <p>Compatible with a range of components and large ecosystem products<sup><a href="#footnote8">[8]</a></sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup><a href="#footnote9">[9]</a></sup>.</p>
+          <h2 id="2-further-readings">§ 2. Further Readings<a class="fa fa-anchor" href="#2-further-readings"></a></h2>
+          <ul>
+            <li><a href="http://www.gotw.ca/publications/concurrency-ddj.htm">How concurrency is the next big change in software development since OO</a></li>
+            <li><a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing">Official CUDA C programming guide: What GPUs excel at processing, and why</a></li>
+            <li><a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture">Official CUDA C programming guide: Architecture of NVIDIA GPUs</a></li>
+            <li><a href="https://github.com/nus-oss/lightningtalks/issues/10">Lightning talk slides: An Introduction to GPGPU</a></li>
+            <li><a href="cuda.md">se-edu's learning resource on CUDA</a></li>
+          </ul>
+          <h2 id="3-references">§ 3. References<a class="fa fa-anchor" href="#3-references"></a></h2>
+          <p><a name="footnote1">[1]</a>: <a href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units</a><br>
+            <a name="footnote2">[2]</a>: <a href="http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/">http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/</a><br>
+            <a name="footnote3">[3]</a>: <a href="http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf">http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf</a><br>
+            <a name="footnote4">[4]</a>: <a href="https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/">https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/</a><br>
+            <a name="footnote5">[5]</a>: <a href="http://www.gotw.ca/publications/concurrency-ddj.htm">http://www.gotw.ca/publications/concurrency-ddj.htm</a><br>
+            <a name="footnote6">[6]</a>: <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/">https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/</a><br>
+            <a name="footnote7">[7]</a>: <a href="https://en.wikipedia.org/wiki/Tegra#Tegra_X1/">https://en.wikipedia.org/wiki/Tegra#Tegra_X1/</a><br>
+            <a name="footnote8">[8]</a>: <a href="https://elinux.org/Jetson_TX2#Ecosystem_Products">https://elinux.org/Jetson_TX2#Ecosystem_Products</a><br>
+            <a name="footnote9">[9]</a>: <a href="https://developer.nvidia.com/embedded/learn/success-stories">https://developer.nvidia.com/embedded/learn/success-stories</a><br></p>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="an-introduction-to-gpgpu">An Introduction to GPGPU<a class="fa fa-anchor" href="#an-introduction-to-gpgpu"></a></h1>
-    <h6 id="authors-pierce-anderson-fu-nguyen-quoc-bao">Authors: <a href="https://github.com/PierceAndy">Pierce Anderson Fu</a>, <a href="https://github.com/bqnguyen94">Nguyen Quoc Bao</a></h6>
-    <ul>
-      <li><a href="#-1-gpgpu">GPGPU</a>
-        <ul>
-          <li><a href="#-11-what-is-gpgpu">What is GPGPU?</a></li>
-          <li><a href="#-12-why-bother-with-parallel-processing">Why bother with parallel processing?</a></li>
-          <li><a href="#-13-arent-multicore-cpus-enough">Aren't multicore CPUs enough?</a></li>
-          <li><a href="#-14-what-are-the-challenges-with-gpgpu">What are the challenges with GPGPU?</a></li>
-          <li><a href="#-15-implementations">Implementations</a></li>
-          <li><a href="#-16-gpgpu-in-action">GPGPU in action</a></li>
-        </ul>
-      </li>
-      <li><a href="#-2-further-readings">Further Readings</a></li>
-      <li><a href="#-3-references">References</a></li>
-    </ul>
-    <h2 id="1-gpgpu">§ 1. GPGPU<a class="fa fa-anchor" href="#1-gpgpu"></a></h2>
-    <h3 id="11-what-is-gpgpu">§ 1.1 What is GPGPU?<a class="fa fa-anchor" href="#11-what-is-gpgpu"></a></h3>
-    <p>GPGPU stands for General-purpose computing on graphics processing units. It is the use of a graphics processing unit (GPU), which typically handles computation only for computer graphics, to perform computation in applications traditionally handled by the central processing unit (CPU).<sup><a href="#footnote1">[1]</a></sup></p>
-    <p>Simply put, it's a kind of parallel processing where we're trying to exploit the data-parallel hardware on GPUs to improve the throughput of our computers.</p>
-    <h3 id="12-why-bother-with-parallel-processing">§ 1.2 Why bother with parallel processing?<a class="fa fa-anchor" href="#12-why-bother-with-parallel-processing"></a></h3>
-    <p>Moore's law is the observation made by Gordon Moore that the density of transistors in an integrated circuit board doubles approximately every two years. It has long been co-opted by the semiconductor industry as a target, and consumers have taken this growth for granted.</p>
-    <p>Because it suggests exponential growth, it is unsustainable and it cannot be expected to continue indefinitely. In the words of Moore himself, &quot;It can't continue forever.&quot;.<sup><a href="#footnote2">[2]</a></sup> There are hard physical limits to this scaling such as heat dissipation rate<sup><a href="#footnote3">[3]</a></sup> and size of microprocessor features.<sup><a href="#footnote4">[4]</a></sup></p>
-    <p>As software engineers, this means that free and regular performance gains can no longer be expected.<sup><a href="#footnote5">[5]</a></sup> To fully exploit CPU throughput gains, we need to code differently.</p>
-    <h3 id="13-arent-multicore-cpus-enough">§ 1.3 Aren't multicore CPUs enough?<a class="fa fa-anchor" href="#13-arent-multicore-cpus-enough"></a></h3>
-    <p>Between CPUs and GPUs, there are differences in <strong>scale</strong> and <strong>architecture</strong>.</p>
-    <ul>
-      <li>In terms of <strong>scale</strong>, CPUs only have several cores while GPUs house up to thousands of cores.</li>
-      <li>In terms of <strong>architecture</strong>, CPUs are designed to handle sequential processing and branches effectively, while GPUs excel at performing simpler computations on large amounts of data.</li>
-    </ul>
-    <p>This means that CPUs and GPUs excel at different tasks. You'll typically want to utilize GPGPU on tasks that are data parallel and compute intensive (e.g. graphics, matrix operations).</p>
-    <blockquote>
-      <h5 id="definitions">Definitions:</h5>
-      <p><em>Data parallelism</em> refers to how a processor executes the same operation on different data elements simultaneously.</p>
-      <p><em>Compute intensive</em> refers to how the algorithm will have to process lots of data elements.</p>
-    </blockquote>
-    <h3 id="14-what-are-the-challenges-with-gpgpu">§ 1.4 What are the challenges with GPGPU?<a class="fa fa-anchor" href="#14-what-are-the-challenges-with-gpgpu"></a></h3>
-    <p>Not all problems are inherently parallelizable.</p>
-    <p>The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that they don't handle branches and inter-thread communication well.</p>
-    <h3 id="15-implementations">§ 1.5 Implementations<a class="fa fa-anchor" href="#15-implementations"></a></h3>
-    <ul>
-      <li>CUDA: <a href="http://www.nvidia.com/object/cuda_home_new.html">Official website</a></li>
-      <li>OpenCL: <a href="https://www.khronos.org/opencl/">Official website</a></li>
-    </ul>
-    <h3 id="16-gpgpu-in-action">§ 1.6 GPGPU in action<a class="fa fa-anchor" href="#16-gpgpu-in-action"></a></h3>
-    <p>The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup><a href="#footnote6">[6]</a></sup>. The Pascal architecture is used in many desktop computers, data centres, and supercomputers<sup><a href="#footnote7">[7]</a></sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.</p>
-    <p><a href="jetson_tx2.jpg" target="_self"><img src="jetson_tx2.jpg" alt="" class="img-fluid" title="NVIDIA's Jetson TX2"></a></p>
-    <p><em><a href="https://devblogs.nvidia.com/jetson-tx2-delivers-twice-intelligence-edge/">NVIDIA Jetson TX2 embedded system-on-module with Thermal Transfer Plate (TTP)</a></em></p>
-    <p>Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup><a href="#footnote6">[6]</a></sup>, the TX2 is capable of intensive parallel computational tasks such as real-time vision processing or deploying deep neural networks, allowing mobile platforms to solve complex, real-world problems.</p>
-    <p><a href="drivenet.jpg" target="_self"><img src="drivenet.jpg" alt="" class="img-fluid" title="NVIDIA DRIVENet Demo"></a></p>
-    <p><em><a href="https://www.youtube.com/watch?v=HJ58dbd5g8g">CES 2016: NVIDIA DRIVENet Demo - Visualizing a Self-Driving Future</a></em></p>
-    <p>Compatible with a range of components and large ecosystem products<sup><a href="#footnote8">[8]</a></sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup><a href="#footnote9">[9]</a></sup>.</p>
-    <h2 id="2-further-readings">§ 2. Further Readings<a class="fa fa-anchor" href="#2-further-readings"></a></h2>
-    <ul>
-      <li><a href="http://www.gotw.ca/publications/concurrency-ddj.htm">How concurrency is the next big change in software development since OO</a></li>
-      <li><a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing">Official CUDA C programming guide: What GPUs excel at processing, and why</a></li>
-      <li><a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture">Official CUDA C programming guide: Architecture of NVIDIA GPUs</a></li>
-      <li><a href="https://github.com/nus-oss/lightningtalks/issues/10">Lightning talk slides: An Introduction to GPGPU</a></li>
-      <li><a href="cuda.md">se-edu's learning resource on CUDA</a></li>
-    </ul>
-    <h2 id="3-references">§ 3. References<a class="fa fa-anchor" href="#3-references"></a></h2>
-    <p><a name="footnote1">[1]</a>: <a href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units</a><br>
-      <a name="footnote2">[2]</a>: <a href="http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/">http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/</a><br>
-      <a name="footnote3">[3]</a>: <a href="http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf">http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf</a><br>
-      <a name="footnote4">[4]</a>: <a href="https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/">https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/</a><br>
-      <a name="footnote5">[5]</a>: <a href="http://www.gotw.ca/publications/concurrency-ddj.htm">http://www.gotw.ca/publications/concurrency-ddj.htm</a><br>
-      <a name="footnote6">[6]</a>: <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/">https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/</a><br>
-      <a name="footnote7">[7]</a>: <a href="https://en.wikipedia.org/wiki/Tegra#Tegra_X1/">https://en.wikipedia.org/wiki/Tegra#Tegra_X1/</a><br>
-      <a name="footnote8">[8]</a>: <a href="https://elinux.org/Jetson_TX2#Ecosystem_Products">https://elinux.org/Jetson_TX2#Ecosystem_Products</a><br>
-      <a name="footnote9">[9]</a>: <a href="https://developer.nvidia.com/embedded/learn/success-stories">https://developer.nvidia.com/embedded/learn/success-stories</a><br></p>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

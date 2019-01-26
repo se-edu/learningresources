@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Code Quality Metrics</title>
+    <title>SE-EDU/LearningResources - Code Quality Metrics</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,141 +13,366 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#code-quality-metrics">Code Quality Metrics&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
+      <a class="nav-link py-1" href="#examples-of-metrics">Examples of Metrics&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#complexity-metrics">Complexity Metrics&#x200E;</a>
+        <a class="nav-link py-1" href="#class-design-metrics">Class Design Metrics&#x200E;</a>
+        <a class="nav-link py-1" href="#package-design-metrics">Package Design Metrics&#x200E;</a>
+        <a class="nav-link py-1" href="#seemingly-trivial-metrics">Seemingly Trivial Metrics&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#define-your-own-metric">Define Your Own Metric&#x200E;</a>
+      <a class="nav-link py-1" href="#making-sense-of-it">Making Sense of It&#x200E;</a>
+      <a class="nav-link py-1" href="#code-quality-metrics-tools">Code Quality Metrics Tools&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Code Quality
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="current">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="code-quality-metrics">Code Quality Metrics<a class="fa fa-anchor" href="#code-quality-metrics"></a></h1>
+          <p>Authors: <a href="https://github.com/wkurniawan07">Wilson Kurniawan</a></p>
+          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+          <ul>
+            <li>It is undisputed that developers, code reviewers, testers, QA team members, and software architects alike want code to be as simple, understandable, and (put more positive adjectives here) as possible.</li>
+            <li>It is, however, disputable how &quot;simple&quot;, &quot;understandable&quot;, etc. is defined, because they are all qualitative. What is &quot;...&quot; for one person may not be so &quot;...&quot; for another; in fact, it may not be so for that person three months later.</li>
+          </ul>
+          <p>A quantitative approach needs to be adopted to measure those qualities precisely. <strong>Code Quality Metrics</strong> is the answer. It provides a <strong>quantitative measure</strong> of the quality of a piece of code.</p>
+          <blockquote>
+            <p>Since quantitative measurements are essential in all sciences, there is a continuous effort by computer science practitioners and theoreticians to bring similar approaches to software development.
+              The goal is obtaining objective, reproducible and quantifiable measurements, which may have numerous valuable applications in schedule and budget planning, cost estimation, quality assurance testing, software debugging, software performance optimization, and optimal personnel task assignments.</p>
+            <p><a href="https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics">https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics</a></p>
+          </blockquote>
+          <p>In fact, <a href="https://thesai.org/Downloads/Volume3No1/Paper%2021-Survey%20on%20Impact%20of%20Software%20Metrics%20on%20Software%20Quality.pdf">the Boeing 777 project attributed its success to excellent usage of Quality Metrics (both code and non-code)</a>.</p>
+          <p><em>Note that the term &quot;Code Quality&quot; here is scoped to be the readability, understandability, and maintainability of the code. While performance can be considered a legitimate basis for some metrics (e.g. time taken to run certain operations, based on profiling), it is not considered for this purpose.</em></p>
+          <h2 id="examples-of-metrics">Examples of Metrics<a class="fa fa-anchor" href="#examples-of-metrics"></a></h2>
+          <h3 id="complexity-metrics">Complexity Metrics<a class="fa fa-anchor" href="#complexity-metrics"></a></h3>
+          <p>Complexity metrics measure how &quot;complex&quot; methods, classes, packages, etc. are. &quot;Complex&quot; here is defined as difficult to understand and difficult to maintain.</p>
+          <p>They are arguably the most useful metrics for the largest number of developers because they are the easiest to grasp, the most directly relevant to the coding activity, and applicable to most/all programming languages.</p>
+          <ul>
+            <li>The most well-known complexity metric is <strong>Cyclomatic Complexity (CC)</strong>, invented by Thomas McCabe in 1976. CC corresponds to the <strong>minimum number of test cases needed to achieve 100% branch coverage</strong>. <a href="http://www.whiteboxtest.com/cyclomatic-complexity.php">Here</a> is an excellent explanation on how to make use of it to measure your code quality.</li>
+            <li>An alternative, less well-known, harder to calculate complexity metric is <strong>NPath Complexity (NC)</strong>, invented by Brian A. Nejmeh in 1988. NC corresponds to the <strong>minimum number of test cases needed to achieve 100% path coverage</strong>.</li>
+          </ul>
+          <blockquote>
+            <p><a href="http://www.literateprogramming.com/mccabe.pdf">Here</a> is the original paper by McCabe, and <a href="http://dl.acm.org/citation.cfm?doid=42372.42379">here</a> is the original paper by Nejmeh.</p>
+          </blockquote>
+          <p>These complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.</p>
+          <h3 id="class-design-metrics">Class Design Metrics<a class="fa fa-anchor" href="#class-design-metrics"></a></h3>
+          <p>Class design metrics measure how &quot;well-designed&quot; a class is. &quot;Well-designed&quot; here is defined as conformance to good software engineering principles such as high cohesion, low coupling, promoting encapsulation and information hiding. Well-designed classes promote reuse and ease maintenance effort.</p>
+          <p>Metrics on this level are more applicable for QA team members and software architects, but still hold some relevance to students and junior developers who have to design a class-level API.</p>
+          <p>The most well-accepted metrics for class design are <a href="http://www.virtualmachinery.com/sidebar3.htm"><strong>The Chidamber and Kemerer Metrics</strong></a>:</p>
+          <ul>
+            <li>Weighted Methods per Class (WMC)</li>
+            <li>Coupling Between Objects (CBO)</li>
+            <li>Response For Class (RFC)</li>
+            <li>Lack of Cohesion of Methods (LCOM)</li>
+            <li>Depth of Inheritance Tree (DIT)</li>
+            <li>Number of Children (NOC)</li>
+          </ul>
+          <h3 id="package-design-metrics">Package Design Metrics<a class="fa fa-anchor" href="#package-design-metrics"></a></h3>
+          <p>Package design metrics measure how &quot;well-designed&quot; a package is. &quot;Well-designed&quot; here is similarly defined as the one in class design metrics. Metrics on this level are mostly applicable only for QA team members and software architects.</p>
+          <p>The most well-accepted metrics for package design are <a href="http://www.virtualmachinery.com/jhawkmetricssyspack.htm"><strong>&quot;the group of five&quot;</strong></a>:</p>
+          <ul>
+            <li>Afferent Coupling (Ca)</li>
+            <li>Efferent Coupling (Ce)</li>
+            <li>Instability (I)</li>
+            <li>Abstractness (A)</li>
+            <li>Distance from Main Sequence (D)</li>
+          </ul>
+          <h3 id="seemingly-trivial-metrics">Seemingly Trivial Metrics<a class="fa fa-anchor" href="#seemingly-trivial-metrics"></a></h3>
+          <p>The previous sections have introduced mostly new concepts that are foreign to many developers.
+            However, measures that are seemingly trivial and easy-to-overlook can also count as metrics, such as the following:</p>
+          <ul>
+            <li>Number of lines of codes in a class/method/...</li>
+            <li>Number of methods in a class</li>
+            <li>Number of fields in a class</li>
+            <li>Number of parameters in a method</li>
+            <li>Nesting depth of a method</li>
+            <li>Code coverage</li>
+            <li>Percentage of comments</li>
+            <li>Percentage of code duplication</li>
+          </ul>
+          <h2 id="define-your-own-metric">Define Your Own Metric<a class="fa fa-anchor" href="#define-your-own-metric"></a></h2>
+          <p>You would have noticed that these metrics are self-formulated rather than being inherent properties of a piece of software, and you are right.</p>
+          <p>You might then ask: can I define my own code quality metric? Yes, you can. <a href="http://www.developer.com/tech/article.php/3644656/Software-Quality-Metrics.htm">This page</a> has a good guide on how to formulate your own metric.</p>
+          <h2 id="making-sense-of-it">Making Sense of It<a class="fa fa-anchor" href="#making-sense-of-it"></a></h2>
+          <p>Any code quality metric is as good as how it is used; without context, it is merely a number. <strong>Do not</strong> use any metric just for the sake of it.</p>
+          <ul>
+            <li>It makes little sense to say: &quot;This method has a CC value of 42. It is bad.&quot;</li>
+            <li>It makes more sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it, and it is bad.&quot;</li>
+            <li>It makes the most sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it. This indicates an overly complex method, and it will be difficult to maintain in the long run. Try to separate it to calls of a few methods of CC value of 10 or less each; that way we can better design test cases for those smaller methods and achieve perfect coverage.&quot;</li>
+          </ul>
+          <p><a href="http://homepages.dcc.ufmg.br/~figueiredo/disciplinas/lectures/detection-strategy-examples_v01.pdf">Here</a> is an excellent example of how different metrics are used to determine which classes/methods need some maintenance works.</p>
+          <h2 id="code-quality-metrics-tools">Code Quality Metrics Tools<a class="fa fa-anchor" href="#code-quality-metrics-tools"></a></h2>
+          <p>Measuring complexity (relevant to most developers):</p>
+          <ul>
+            <li>Java: <a href="https://pmd.github.io">PMD</a></li>
+            <li>JavaScript: <a href="http://eslint.org">ESLint</a></li>
+            <li>C#: <a href="https://blogs.msdn.microsoft.com/zainnab/2011/05/17/code-metrics-cyclomatic-complexity/">Visual Studio Code Analysis</a></li>
+            <li>Python: <a href="https://pypi.python.org/pypi/radon">radon</a></li>
+            <li>Ruby: <a href="http://batsov.com/rubocop/">RuboCop</a></li>
+            <li>PHP: <a href="https://phpmd.org">PHPMD</a></li>
+          </ul>
+          <p>Measuring design (relevant to architects, QA team), most of them commercial:</p>
+          <ul>
+            <li>Java: <a href="http://www.jarchitect.com">JArchitect</a></li>
+            <li>C#: <a href="http://www.ndepend.com">NDepend</a></li>
+            <li>PHP: <a href="https://pdepend.org">PHP Depend</a></li>
+          </ul>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="code-quality-metrics">Code Quality Metrics<a class="fa fa-anchor" href="#code-quality-metrics"></a></h1>
-    <p>Authors: <a href="https://github.com/wkurniawan07">Wilson Kurniawan</a></p>
-    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-    <ul>
-      <li>It is undisputed that developers, code reviewers, testers, QA team members, and software architects alike want code to be as simple, understandable, and (put more positive adjectives here) as possible.</li>
-      <li>It is, however, disputable how &quot;simple&quot;, &quot;understandable&quot;, etc. is defined, because they are all qualitative. What is &quot;...&quot; for one person may not be so &quot;...&quot; for another; in fact, it may not be so for that person three months later.</li>
-    </ul>
-    <p>A quantitative approach needs to be adopted to measure those qualities precisely. <strong>Code Quality Metrics</strong> is the answer. It provides a <strong>quantitative measure</strong> of the quality of a piece of code.</p>
-    <blockquote>
-      <p>Since quantitative measurements are essential in all sciences, there is a continuous effort by computer science practitioners and theoreticians to bring similar approaches to software development.
-        The goal is obtaining objective, reproducible and quantifiable measurements, which may have numerous valuable applications in schedule and budget planning, cost estimation, quality assurance testing, software debugging, software performance optimization, and optimal personnel task assignments.</p>
-      <p><a href="https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics">https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics</a></p>
-    </blockquote>
-    <p>In fact, <a href="https://thesai.org/Downloads/Volume3No1/Paper%2021-Survey%20on%20Impact%20of%20Software%20Metrics%20on%20Software%20Quality.pdf">the Boeing 777 project attributed its success to excellent usage of Quality Metrics (both code and non-code)</a>.</p>
-    <p><em>Note that the term &quot;Code Quality&quot; here is scoped to be the readability, understandability, and maintainability of the code. While performance can be considered a legitimate basis for some metrics (e.g. time taken to run certain operations, based on profiling), it is not considered for this purpose.</em></p>
-    <h2 id="examples-of-metrics">Examples of Metrics<a class="fa fa-anchor" href="#examples-of-metrics"></a></h2>
-    <h3 id="complexity-metrics">Complexity Metrics<a class="fa fa-anchor" href="#complexity-metrics"></a></h3>
-    <p>Complexity metrics measure how &quot;complex&quot; methods, classes, packages, etc. are. &quot;Complex&quot; here is defined as difficult to understand and difficult to maintain.</p>
-    <p>They are arguably the most useful metrics for the largest number of developers because they are the easiest to grasp, the most directly relevant to the coding activity, and applicable to most/all programming languages.</p>
-    <ul>
-      <li>The most well-known complexity metric is <strong>Cyclomatic Complexity (CC)</strong>, invented by Thomas McCabe in 1976. CC corresponds to the <strong>minimum number of test cases needed to achieve 100% branch coverage</strong>. <a href="http://www.whiteboxtest.com/cyclomatic-complexity.php">Here</a> is an excellent explanation on how to make use of it to measure your code quality.</li>
-      <li>An alternative, less well-known, harder to calculate complexity metric is <strong>NPath Complexity (NC)</strong>, invented by Brian A. Nejmeh in 1988. NC corresponds to the <strong>minimum number of test cases needed to achieve 100% path coverage</strong>.</li>
-    </ul>
-    <blockquote>
-      <p><a href="http://www.literateprogramming.com/mccabe.pdf">Here</a> is the original paper by McCabe, and <a href="http://dl.acm.org/citation.cfm?doid=42372.42379">here</a> is the original paper by Nejmeh.</p>
-    </blockquote>
-    <p>These complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.</p>
-    <h3 id="class-design-metrics">Class Design Metrics<a class="fa fa-anchor" href="#class-design-metrics"></a></h3>
-    <p>Class design metrics measure how &quot;well-designed&quot; a class is. &quot;Well-designed&quot; here is defined as conformance to good software engineering principles such as high cohesion, low coupling, promoting encapsulation and information hiding. Well-designed classes promote reuse and ease maintenance effort.</p>
-    <p>Metrics on this level are more applicable for QA team members and software architects, but still hold some relevance to students and junior developers who have to design a class-level API.</p>
-    <p>The most well-accepted metrics for class design are <a href="http://www.virtualmachinery.com/sidebar3.htm"><strong>The Chidamber and Kemerer Metrics</strong></a>:</p>
-    <ul>
-      <li>Weighted Methods per Class (WMC)</li>
-      <li>Coupling Between Objects (CBO)</li>
-      <li>Response For Class (RFC)</li>
-      <li>Lack of Cohesion of Methods (LCOM)</li>
-      <li>Depth of Inheritance Tree (DIT)</li>
-      <li>Number of Children (NOC)</li>
-    </ul>
-    <h3 id="package-design-metrics">Package Design Metrics<a class="fa fa-anchor" href="#package-design-metrics"></a></h3>
-    <p>Package design metrics measure how &quot;well-designed&quot; a package is. &quot;Well-designed&quot; here is similarly defined as the one in class design metrics. Metrics on this level are mostly applicable only for QA team members and software architects.</p>
-    <p>The most well-accepted metrics for package design are <a href="http://www.virtualmachinery.com/jhawkmetricssyspack.htm"><strong>&quot;the group of five&quot;</strong></a>:</p>
-    <ul>
-      <li>Afferent Coupling (Ca)</li>
-      <li>Efferent Coupling (Ce)</li>
-      <li>Instability (I)</li>
-      <li>Abstractness (A)</li>
-      <li>Distance from Main Sequence (D)</li>
-    </ul>
-    <h3 id="seemingly-trivial-metrics">Seemingly Trivial Metrics<a class="fa fa-anchor" href="#seemingly-trivial-metrics"></a></h3>
-    <p>The previous sections have introduced mostly new concepts that are foreign to many developers.
-      However, measures that are seemingly trivial and easy-to-overlook can also count as metrics, such as the following:</p>
-    <ul>
-      <li>Number of lines of codes in a class/method/...</li>
-      <li>Number of methods in a class</li>
-      <li>Number of fields in a class</li>
-      <li>Number of parameters in a method</li>
-      <li>Nesting depth of a method</li>
-      <li>Code coverage</li>
-      <li>Percentage of comments</li>
-      <li>Percentage of code duplication</li>
-    </ul>
-    <h2 id="define-your-own-metric">Define Your Own Metric<a class="fa fa-anchor" href="#define-your-own-metric"></a></h2>
-    <p>You would have noticed that these metrics are self-formulated rather than being inherent properties of a piece of software, and you are right.</p>
-    <p>You might then ask: can I define my own code quality metric? Yes, you can. <a href="http://www.developer.com/tech/article.php/3644656/Software-Quality-Metrics.htm">This page</a> has a good guide on how to formulate your own metric.</p>
-    <h2 id="making-sense-of-it">Making Sense of It<a class="fa fa-anchor" href="#making-sense-of-it"></a></h2>
-    <p>Any code quality metric is as good as how it is used; without context, it is merely a number. <strong>Do not</strong> use any metric just for the sake of it.</p>
-    <ul>
-      <li>It makes little sense to say: &quot;This method has a CC value of 42. It is bad.&quot;</li>
-      <li>It makes more sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it, and it is bad.&quot;</li>
-      <li>It makes the most sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it. This indicates an overly complex method, and it will be difficult to maintain in the long run. Try to separate it to calls of a few methods of CC value of 10 or less each; that way we can better design test cases for those smaller methods and achieve perfect coverage.&quot;</li>
-    </ul>
-    <p><a href="http://homepages.dcc.ufmg.br/~figueiredo/disciplinas/lectures/detection-strategy-examples_v01.pdf">Here</a> is an excellent example of how different metrics are used to determine which classes/methods need some maintenance works.</p>
-    <h2 id="code-quality-metrics-tools">Code Quality Metrics Tools<a class="fa fa-anchor" href="#code-quality-metrics-tools"></a></h2>
-    <p>Measuring complexity (relevant to most developers):</p>
-    <ul>
-      <li>Java: <a href="https://pmd.github.io">PMD</a></li>
-      <li>JavaScript: <a href="http://eslint.org">ESLint</a></li>
-      <li>C#: <a href="https://blogs.msdn.microsoft.com/zainnab/2011/05/17/code-metrics-cyclomatic-complexity/">Visual Studio Code Analysis</a></li>
-      <li>Python: <a href="https://pypi.python.org/pypi/radon">radon</a></li>
-      <li>Ruby: <a href="http://batsov.com/rubocop/">RuboCop</a></li>
-      <li>PHP: <a href="https://phpmd.org">PHPMD</a></li>
-    </ul>
-    <p>Measuring design (relevant to architects, QA team), most of them commercial:</p>
-    <ul>
-      <li>Java: <a href="http://www.jarchitect.com">JArchitect</a></li>
-      <li>C#: <a href="http://www.ndepend.com">NDepend</a></li>
-      <li>PHP: <a href="https://pdepend.org">PHP Depend</a></li>
-    </ul>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Introduction to Android App Development</title>
+    <title>SE-EDU/LearningResources - Introduction to Android App Development</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,145 +13,376 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#introduction-to-android-app-development">Introduction to Android App Development&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#1-getting-started">1. Getting Started&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#1-1-what-is-android">1.1 What is Android?&#x200E;</a>
+        <a class="nav-link py-1" href="#1-2-why-android">1.2 Why Android?&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#1-3-why-should-i-make-native-android-apps">1.3 Why should I make native Android apps?&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#1-4-develop-your-first-app-today">1.4 Develop your first app today!&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#2-android-is-not-magic">2. Android is not magic&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#2-1-app-components">2.1 App Components&#x200E;</a>
+        <a class="nav-link py-1" href="#2-2-activity-lifecycle">2.2 Activity Lifecycle&#x200E;</a>
+        <a class="nav-link py-1" href="#2-3-the-architecture-of-android">2.3 The Architecture of Android&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#3-useful-android-developer-tools">3. Useful Android Developer Tools&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#3-1-testing">3.1 Testing&#x200E;</a>
+        <a class="nav-link py-1" href="#3-2-debugging">3.2 Debugging&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#4-further-readings">4. Further Readings&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html" class="current">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
-      </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="introduction-to-android-app-development">Introduction to Android App Development<a class="fa fa-anchor" href="#introduction-to-android-app-development"></a></h1>
-    <p>Authors: <a href="https://github.com/leeyh20">Lee Yan Hwa</a></p>
-    <ul>
-      <li><a href="#1-getting-started">Getting Started</a>
-        <ul>
-          <li><a href="#11-what-is-android">What is Android?</a></li>
-          <li><a href="#12-why-android">Why Android?</a></li>
-          <li><a href="#13-why-should-i-make-native-android-apps">Why should I make native Android apps?</a></li>
-          <li><a href="#14-develop-your-first-app-today">Develop your first app today!</a></li>
-        </ul>
-      </li>
-      <li><a href="#2-android-is-not-magic">Android is not magic</a>
-        <ul>
-          <li><a href="#21-app-components">App Components</a></li>
-          <li><a href="#22-activity-lifecycle">Activity Lifecycle</a></li>
-          <li><a href="#23-the-architecture-of-android">The Architecture of Android</a></li>
-        </ul>
-      </li>
-      <li><a href="#3-useful-android-developer-tools">Useful Android Developer Tools</a>
-        <ul>
-          <li><a href="#31-testing">Testing</a></li>
-          <li><a href="#32-debugging">Debugging</a></li>
-        </ul>
-      </li>
-      <li><a href="#4-further-readings">Further Readings</a></li>
-    </ul>
-    <h2 id="1-getting-started">1. Getting Started<a class="fa fa-anchor" href="#1-getting-started"></a></h2>
-    <h3 id="11-what-is-android">1.1 What is Android?<a class="fa fa-anchor" href="#11-what-is-android"></a></h3>
-    <p>Android is a Linux-based mobile phone operating system (OS) that was acquired by Google in 2005 and was launched in 2008. Not only does it power phones, it is already the OS of watches, televisions and even car stereo systems.</p>
-    <p>The Android mascot is a green robot.</p>
-    <p><a href="https://developer.android.com/images/brand/Android_Robot_100.png" target="_self"><img src="https://developer.android.com/images/brand/Android_Robot_100.png" alt="" class="img-fluid"></a></p>
-    <p>The source code of Android is made available through the <a href="https://source.android.com/">Android Open Source Project</a> (AOSP). The original AOSP code is used mainly on the Nexus and Pixel phones that are developed by Google themselves. The AOSP code is then customized and adapted by original equipment manufacturers (OEMs), such as Samsung and Sony, to run on their respective phones. There is a list of OEMs <a href="https://www.android.com/certified/partners/">here</a>. This is why the same Android OS looks very different on phones made by the different OEMs. Unlike iOS, which is only found on iPhones and iPads, there is a huge variety of phones that run the Android OS.</p>
-    <p>The official way to download apps on the Android OS is to use the Google Play Store. However, it is also possible to download an Android Package Kit (APK) and install the app directly onto your Android device. However, you should be careful when downloading such APK files.</p>
-    <h3 id="12-why-android">1.2 Why Android?<a class="fa fa-anchor" href="#12-why-android"></a></h3>
-    <p>Why should we develop apps for Android? This is because Android has become the <a href="https://developer.android.com/about/android.html">world's most popular mobile platform</a>. The popularity of Android cannot be denied. The Google Play Store currently has around 3 million apps as of 2017 (<a href="http://www.businessofapps.com/data/app-statistics/">source</a>). It's a great time to step into the world of developing Android apps!</p>
-    <p>Android phones range from the premium Samsung phones to the lower-end handsets such as Huawei's budget Honor phones. Thus Android's edge over iOS is that it is not only popular in established markets, but it is hugely popular in emerging markets such as India and China. Thus by developing an app for Android, you will be able to reach a wider range of audience for your app. Additionally, it is cheaper to get your app onto Google Play Store - there is only a one-time registration fee while you will have to pay a yearly fee to join the Apple Developer Program. Furthermore, Android being Open Source also means that it is well-known for its &quot;openness&quot;. Overall, there are less restrictions for developers and it is easier to get your apps approved on the Google Play Store. Plus, you even need to have Mac to publish apps onto the Apple App Store - Google does not have such restrictions.</p>
-    <p>However, having a wide variety of Android phones is a double-edged sword. The Android ecosystem is quite <a href="https://www.androidauthority.com/android-version-distribution-748439/">fragmented</a>, with mainly 5 Android versions being installed in Android devices today. It is also more difficult to test Android apps because these apps have to work on all these different devices and it is impossible to test on all Android phones. Your app will have to cater to a wider range of phones with <a href="https://stackoverflow.com/questions/7587854/is-there-a-list-of-screen-resolutions-for-all-android-based-phones-and-tablets">different resolutions</a> and pixel density. It is also tougher to get your apps noticed on the Google Play Store due to a huge number of apps being released everyday. Often, you will have to get featured by Google Play Store and be placed on the main page before anyone will notice your app.</p>
-    <h2 id="13-why-should-i-make-native-android-apps">1.3 Why should I make native Android apps?<a class="fa fa-anchor" href="#13-why-should-i-make-native-android-apps"></a></h2>
-    <p>There are many ways to develop an app. Native apps are those created specifically for the mobile operating system. For Android, it means that you will use Java or Kotlin with the Android SDK and Google's official tools like Android Studio, just like how it is detailed in this book chapter.</p>
-    <p>So you might then consider developing a web app instead, or even a <a href="https://developers.google.com/web/progressive-web-apps/">progressive web app</a> which are loaded in browsers like Chrome and Firefox, using Javascript, CSS and HTML. This means that the user does not need to download your app and your app can directly be accessed from the web. However, web apps often use the same user interface for both Apple and Android phones and this might not feel integrated with the rest of the phone because Apple and Android apps usually use <a href="https://medium.com/@vedantha/interaction-design-patterns-ios-vs-android-111055f8a9b7">different interaction design patterns</a>. Additionally, web apps often suffer from the lack of functionality. Thus web apps will not fully replace the need for native Android apps.</p>
-    <p>Then, there are <a href="https://blog.techmagic.co/native-vs-hybrid-apps/">hybrid apps</a>. Creating a hybrid app using hybrid mobile frameworks such as Ionic and React Native allow us to develop for both Android and Apple at the same time (just like web apps), while allowing us to access device-only features such as the camera or GPS. Indeed, a cross-platform approach is appealing for people looking to quickly develop an app. However, you might end up using more time trying to tweak the app to improve its performance and UI to suit both platforms. Developing a native app is still the best way to ensure performance, security, a responsive and integrated user interface and access to native APIs.</p>
-    <p>Until hybrid mobile frameworks catch up with native apps and can fully replace native development, there are often more benefits to developing native apps.</p>
-    <h3 id="14-develop-your-first-app-today">1.4 Develop your first app today!<a class="fa fa-anchor" href="#14-develop-your-first-app-today"></a></h3>
-    <p>The official programming language for Android development is Java, however, Android announced its support for Kotlin in 2017(<a href="https://android-developers.googleblog.com/2017/05/android-announces-support-for-kotlin.html">source</a>). Fret not, even if you are not an expert in either of those programming languages, you still can learn how to create your first app. Here's how.</p>
-    <ul>
-      <li>Start by downloading the latest version of <a href="https://developer.android.com/studio/index.html">Android Studio</a>, the official IDE for Android. The installation should come with the Android Software Development Kit (SDK) needed for Android development.</li>
-      <li>Build your first app by going through the 'App Basics' tutorials at Google's Developer Guides <a href="https://developer.android.com/training/basics/firstapp/index.html">here</a>. If you prefer to watch a video instead of reading text, check out the <a href="https://www.udacity.com/course/new-android-fundamentals--ud851">free Udacity course on Android Fundamentals</a>, which is the first course of their <a href="https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801">Android Developer Nanodegree</a>.</li>
-      <li>For more experienced programmers, popular Android development courses include those by Stanford at <a href="http://web.stanford.edu/class/cs193a/">their Android App Development module page</a> and <a href="https://www.udemy.com/courses/search/?q=android&amp;src=ukw">Udemy's paid courses</a>. A good book for Android would be the <a href="https://www.bignerdranch.com/books/android-programming/">Android Programming: The Big Nerd Ranch Guide</a>.</li>
-      <li>To learn Android development at your own pace, check out the comprehensive <a href="http://www.vogella.com/tutorials/android.html">Vogella Android tutorials</a>, which cover almost everything you would need to know. There are also open-source crowdsourced <a href="https://guides.codepath.com/android">guides by CodePath</a>.</li>
-    </ul>
-    <h2 id="2-android-is-not-magic">2. Android is not magic<a class="fa fa-anchor" href="#2-android-is-not-magic"></a></h2>
-    <p>Here is a quick preview of some basic Android concepts to whet your appetite and to demystify Android app development!</p>
-    <h3 id="21-app-components">2.1 App Components<a class="fa fa-anchor" href="#21-app-components"></a></h3>
-    <p>App components are building blocks of an Android app. You can easily build an Android app with App components, even if you are not an UI/UX master!
-      Some app component examples include:</p>
-    <h4 id="activities">Activities</h4>
-    <p>An <code>Activity</code> represents a single screen with a user interface. For example, an event app could have an <code>Activity</code> to login, an <code>Activity</code> to view the event schedule and another <code>Activity</code> to search for locations.</p>
-    <h4 id="layouts">Layouts</h4>
-    <p><code>Layouts</code> defines a user interface structure for an <code>Activity</code>. They specify how each child <code>View</code> will be placed. For example, <a href="https://developer.android.com/training/constraint-layout/index.html">ConstraintLayout</a> allows you to define constraints between views that will lead to a more responsive UI. Often, apps also need to display a scrolling list of elements and this is where <a href="https://developer.android.com/guide/topics/ui/layout/recyclerview.html">RecyclerView</a> comes in handy. The <code>RecyclerView</code> is very versatile. It can be used to easily create apps like the one below:</p>
-    <p><a href="https://i.imgur.com/vbIL5HA.gif" target="_self"><img src="https://i.imgur.com/vbIL5HA.gif" alt="" class="img-fluid"></a></p>
-    <p>(<a href="https://i.imgur.com/vbIL5HA.gif">Image</a> from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>)</p>
-    <p>It can also be used to create apps that will benefit from a Grid or Staggered Grid. For example, to have a Staggered Grid, you just need a few lines of Java code as seen below:</p>
-    <pre><code class="hljs Java"><span class="hljs-comment">// First parameter is number of columns and second param is orientation i.e Vertical or Horizontal</span>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="introduction-to-android-app-development">Introduction to Android App Development<a class="fa fa-anchor" href="#introduction-to-android-app-development"></a></h1>
+          <p>Authors: <a href="https://github.com/leeyh20">Lee Yan Hwa</a></p>
+          <ul>
+            <li><a href="#1-getting-started">Getting Started</a>
+              <ul>
+                <li><a href="#11-what-is-android">What is Android?</a></li>
+                <li><a href="#12-why-android">Why Android?</a></li>
+                <li><a href="#13-why-should-i-make-native-android-apps">Why should I make native Android apps?</a></li>
+                <li><a href="#14-develop-your-first-app-today">Develop your first app today!</a></li>
+              </ul>
+            </li>
+            <li><a href="#2-android-is-not-magic">Android is not magic</a>
+              <ul>
+                <li><a href="#21-app-components">App Components</a></li>
+                <li><a href="#22-activity-lifecycle">Activity Lifecycle</a></li>
+                <li><a href="#23-the-architecture-of-android">The Architecture of Android</a></li>
+              </ul>
+            </li>
+            <li><a href="#3-useful-android-developer-tools">Useful Android Developer Tools</a>
+              <ul>
+                <li><a href="#31-testing">Testing</a></li>
+                <li><a href="#32-debugging">Debugging</a></li>
+              </ul>
+            </li>
+            <li><a href="#4-further-readings">Further Readings</a></li>
+          </ul>
+          <h2 id="1-getting-started">1. Getting Started<a class="fa fa-anchor" href="#1-getting-started"></a></h2>
+          <h3 id="1-1-what-is-android">1.1 What is Android?<a class="fa fa-anchor" href="#1-1-what-is-android"></a></h3>
+          <p>Android is a Linux-based mobile phone operating system (OS) that was acquired by Google in 2005 and was launched in 2008. Not only does it power phones, it is already the OS of watches, televisions and even car stereo systems.</p>
+          <p>The Android mascot is a green robot.</p>
+          <p><a href="https://developer.android.com/images/brand/Android_Robot_100.png" target="_self"><img src="https://developer.android.com/images/brand/Android_Robot_100.png" alt="" class="img-fluid"></a></p>
+          <p>The source code of Android is made available through the <a href="https://source.android.com/">Android Open Source Project</a> (AOSP). The original AOSP code is used mainly on the Nexus and Pixel phones that are developed by Google themselves. The AOSP code is then customized and adapted by original equipment manufacturers (OEMs), such as Samsung and Sony, to run on their respective phones. There is a list of OEMs <a href="https://www.android.com/certified/partners/">here</a>. This is why the same Android OS looks very different on phones made by the different OEMs. Unlike iOS, which is only found on iPhones and iPads, there is a huge variety of phones that run the Android OS.</p>
+          <p>The official way to download apps on the Android OS is to use the Google Play Store. However, it is also possible to download an Android Package Kit (APK) and install the app directly onto your Android device. However, you should be careful when downloading such APK files.</p>
+          <h3 id="1-2-why-android">1.2 Why Android?<a class="fa fa-anchor" href="#1-2-why-android"></a></h3>
+          <p>Why should we develop apps for Android? This is because Android has become the <a href="https://developer.android.com/about/android.html">world's most popular mobile platform</a>. The popularity of Android cannot be denied. The Google Play Store currently has around 3 million apps as of 2017 (<a href="http://www.businessofapps.com/data/app-statistics/">source</a>). It's a great time to step into the world of developing Android apps!</p>
+          <p>Android phones range from the premium Samsung phones to the lower-end handsets such as Huawei's budget Honor phones. Thus Android's edge over iOS is that it is not only popular in established markets, but it is hugely popular in emerging markets such as India and China. Thus by developing an app for Android, you will be able to reach a wider range of audience for your app. Additionally, it is cheaper to get your app onto Google Play Store - there is only a one-time registration fee while you will have to pay a yearly fee to join the Apple Developer Program. Furthermore, Android being Open Source also means that it is well-known for its &quot;openness&quot;. Overall, there are less restrictions for developers and it is easier to get your apps approved on the Google Play Store. Plus, you even need to have Mac to publish apps onto the Apple App Store - Google does not have such restrictions.</p>
+          <p>However, having a wide variety of Android phones is a double-edged sword. The Android ecosystem is quite <a href="https://www.androidauthority.com/android-version-distribution-748439/">fragmented</a>, with mainly 5 Android versions being installed in Android devices today. It is also more difficult to test Android apps because these apps have to work on all these different devices and it is impossible to test on all Android phones. Your app will have to cater to a wider range of phones with <a href="https://stackoverflow.com/questions/7587854/is-there-a-list-of-screen-resolutions-for-all-android-based-phones-and-tablets">different resolutions</a> and pixel density. It is also tougher to get your apps noticed on the Google Play Store due to a huge number of apps being released everyday. Often, you will have to get featured by Google Play Store and be placed on the main page before anyone will notice your app.</p>
+          <h2 id="1-3-why-should-i-make-native-android-apps">1.3 Why should I make native Android apps?<a class="fa fa-anchor" href="#1-3-why-should-i-make-native-android-apps"></a></h2>
+          <p>There are many ways to develop an app. Native apps are those created specifically for the mobile operating system. For Android, it means that you will use Java or Kotlin with the Android SDK and Google's official tools like Android Studio, just like how it is detailed in this book chapter.</p>
+          <p>So you might then consider developing a web app instead, or even a <a href="https://developers.google.com/web/progressive-web-apps/">progressive web app</a> which are loaded in browsers like Chrome and Firefox, using Javascript, CSS and HTML. This means that the user does not need to download your app and your app can directly be accessed from the web. However, web apps often use the same user interface for both Apple and Android phones and this might not feel integrated with the rest of the phone because Apple and Android apps usually use <a href="https://medium.com/@vedantha/interaction-design-patterns-ios-vs-android-111055f8a9b7">different interaction design patterns</a>. Additionally, web apps often suffer from the lack of functionality. Thus web apps will not fully replace the need for native Android apps.</p>
+          <p>Then, there are <a href="https://blog.techmagic.co/native-vs-hybrid-apps/">hybrid apps</a>. Creating a hybrid app using hybrid mobile frameworks such as Ionic and React Native allow us to develop for both Android and Apple at the same time (just like web apps), while allowing us to access device-only features such as the camera or GPS. Indeed, a cross-platform approach is appealing for people looking to quickly develop an app. However, you might end up using more time trying to tweak the app to improve its performance and UI to suit both platforms. Developing a native app is still the best way to ensure performance, security, a responsive and integrated user interface and access to native APIs.</p>
+          <p>Until hybrid mobile frameworks catch up with native apps and can fully replace native development, there are often more benefits to developing native apps.</p>
+          <h3 id="1-4-develop-your-first-app-today">1.4 Develop your first app today!<a class="fa fa-anchor" href="#1-4-develop-your-first-app-today"></a></h3>
+          <p>The official programming language for Android development is Java, however, Android announced its support for Kotlin in 2017(<a href="https://android-developers.googleblog.com/2017/05/android-announces-support-for-kotlin.html">source</a>). Fret not, even if you are not an expert in either of those programming languages, you still can learn how to create your first app. Here's how.</p>
+          <ul>
+            <li>Start by downloading the latest version of <a href="https://developer.android.com/studio/index.html">Android Studio</a>, the official IDE for Android. The installation should come with the Android Software Development Kit (SDK) needed for Android development.</li>
+            <li>Build your first app by going through the 'App Basics' tutorials at Google's Developer Guides <a href="https://developer.android.com/training/basics/firstapp/index.html">here</a>. If you prefer to watch a video instead of reading text, check out the <a href="https://www.udacity.com/course/new-android-fundamentals--ud851">free Udacity course on Android Fundamentals</a>, which is the first course of their <a href="https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801">Android Developer Nanodegree</a>.</li>
+            <li>For more experienced programmers, popular Android development courses include those by Stanford at <a href="http://web.stanford.edu/class/cs193a/">their Android App Development module page</a> and <a href="https://www.udemy.com/courses/search/?q=android&amp;src=ukw">Udemy's paid courses</a>. A good book for Android would be the <a href="https://www.bignerdranch.com/books/android-programming/">Android Programming: The Big Nerd Ranch Guide</a>.</li>
+            <li>To learn Android development at your own pace, check out the comprehensive <a href="http://www.vogella.com/tutorials/android.html">Vogella Android tutorials</a>, which cover almost everything you would need to know. There are also open-source crowdsourced <a href="https://guides.codepath.com/android">guides by CodePath</a>.</li>
+          </ul>
+          <h2 id="2-android-is-not-magic">2. Android is not magic<a class="fa fa-anchor" href="#2-android-is-not-magic"></a></h2>
+          <p>Here is a quick preview of some basic Android concepts to whet your appetite and to demystify Android app development!</p>
+          <h3 id="2-1-app-components">2.1 App Components<a class="fa fa-anchor" href="#2-1-app-components"></a></h3>
+          <p>App components are building blocks of an Android app. You can easily build an Android app with App components, even if you are not an UI/UX master!
+            Some app component examples include:</p>
+          <h4 id="activities">Activities</h4>
+          <p>An <code>Activity</code> represents a single screen with a user interface. For example, an event app could have an <code>Activity</code> to login, an <code>Activity</code> to view the event schedule and another <code>Activity</code> to search for locations.</p>
+          <h4 id="layouts">Layouts</h4>
+          <p><code>Layouts</code> defines a user interface structure for an <code>Activity</code>. They specify how each child <code>View</code> will be placed. For example, <a href="https://developer.android.com/training/constraint-layout/index.html">ConstraintLayout</a> allows you to define constraints between views that will lead to a more responsive UI. Often, apps also need to display a scrolling list of elements and this is where <a href="https://developer.android.com/guide/topics/ui/layout/recyclerview.html">RecyclerView</a> comes in handy. The <code>RecyclerView</code> is very versatile. It can be used to easily create apps like the one below:</p>
+          <p><a href="https://i.imgur.com/vbIL5HA.gif" target="_self"><img src="https://i.imgur.com/vbIL5HA.gif" alt="" class="img-fluid"></a></p>
+          <p>(<a href="https://i.imgur.com/vbIL5HA.gif">Image</a> from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>)</p>
+          <p>It can also be used to create apps that will benefit from a Grid or Staggered Grid. For example, to have a Staggered Grid, you just need a few lines of Java code as seen below:</p>
+          <pre><code class="hljs Java"><span class="hljs-comment">// First parameter is number of columns and second param is orientation i.e Vertical or Horizontal</span>
 StaggeredGridLayoutManager gridLayoutManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">2</span>, StaggeredGridLayoutManager.VERTICAL);
 <span class="hljs-comment">// Attach the layout manager to the recycler view</span>
 recyclerView.setLayoutManager(gridLayoutManager);
 </code></pre>
-    <p>Sample code is from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>.</p>
-    <p>The app with a Staggered Grid will then look like this:</p>
-    <p><a href="https://i.imgur.com/AlANFgj.png" target="_self"><img src="https://i.imgur.com/AlANFgj.png" alt="" class="img-fluid"></a></p>
-    <p>(<a href="https://i.imgur.com/AlANFgj.png">Image</a> from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>)</p>
-    <p>You can also build a <code>Layout</code> easily using <a href="https://developer.android.com/studio/write/layout-editor.html">Android Layout Editor</a>.
-      For further information, Google I/O 2016 introduces <code>Layouts</code> in <a href="https://www.youtube.com/watch?v=sO9aX87hq9c&amp;t=207s">this video</a>.</p>
-    <h4 id="fragments">Fragments</h4>
-    <p><code>Fragments</code> are like 'sub activities' that allow for code reuse in different activities. Tablets and handsets can choose to display these fragments differently due to the difference in screen size, thus with Fragments, you can easily cater for mobile devices with different resolutions!</p>
-    <p><a href="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" target="_self"><img src="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" alt="" class="img-fluid"></a></p>
-    <p>(Image from <a href="https://github.com/codepath/android_guides/wiki/Creating-and-Using-Fragments">Codepath</a>)</p>
-    <p>Learn more about <code>Fragments</code> in <a href="https://www.youtube.com/watch?v=k3IT-IJ0J98&amp;t=618s">this video from Google I/O 2016</a>.</p>
-    <h3 id="22-activity-lifecycle">2.2 Activity Lifecycle<a class="fa fa-anchor" href="#22-activity-lifecycle"></a></h3>
-    <p>You might wonder, how can I deal with scenarios where the user switch to another app? What if they rotate their phone? Don't worry, you will have control over your app as the user interacts with your app differently. Control is given to you using the <code>Activity Lifecycle</code>. With the <code>Activity Lifecycle</code>, your app can be notified every time the app changes its state, for example, when the app is being paused.</p>
-    <p><a href="https://developer.android.com/guide/components/images/activity_lifecycle.png" target="_self"><img src="https://developer.android.com/guide/components/images/activity_lifecycle.png" alt="" class="img-fluid"></a></p>
-    <p>(<a href="https://developer.android.com/guide/components/images/activity_lifecycle.png">Image</a> from Google)</p>
-    <h3 id="23-the-architecture-of-android">2.3 The Architecture of Android<a class="fa fa-anchor" href="#23-the-architecture-of-android"></a></h3>
-    <p>Developing for Android used to be a daunting task as apps needed to be reactive to data changes, responsive to users and yet deal with the entire <code>Activity Lifecycle</code>. At Google I/O 2017, <a href="https://developer.android.com/topic/libraries/architecture/index.html">Architecture Components</a> were introduced to help developers solve common issues by following best practices and implementing recommended architecture, so you can focus on building better apps!</p>
-    <h2 id="3-useful-android-developer-tools">3. Useful Android Developer Tools<a class="fa fa-anchor" href="#3-useful-android-developer-tools"></a></h2>
-    <p>Android is a huge eco-system with a large developer community. Combined with the fact that it is Open Source, it is unsurprising to know that there are many useful developer tools for Android out there.</p>
-    <h3 id="31-testing">3.1 Testing<a class="fa fa-anchor" href="#31-testing"></a></h3>
-    <p>Testing used to be a nightmare for app development but since 2017, Test-driven development was <a href="https://www.youtube.com/watch?v=pK7W5npkhho">encouraged</a> by Google in their Google I/O 2017 due to the release of the <code>Android Testing Support Library</code>. You can read more about the library <a href="https://developer.android.com/topic/libraries/testing-support-library/index.html">here</a>. Now that we can do testing easily, we can build more reliable apps!</p>
-    <h4 id="unit-testing-and-mocking">Unit Testing and Mocking</h4>
-    <p>Mocking is usually needed in unit testing to simulate the behaviour of real objects (that are dependencies) to verify the behaviour of the object that you are testing. In Android app development, <a href="http://site.mockito.org/">Mockito</a>, a popular mocking library for unit tests in Java, is often used. However, due to the difficulty of mocking the Android SDK to create unit tests, <a href="http://robolectric.org/">Robolectric</a> was developed to solve this issue. Robolectric can still be used alongside Mockito. The benefit of Robolectric is that it handles emulation UI code such that tests that rely on the UI can be run on the Java Virtual Machine (JVM) rather than having to run them on an emulator. In other words, tests can be written and run faster.</p>
-    <h4 id="integration-testing">Integration Testing</h4>
-    <p>Integration testing and end-to-end testing is usually done using <a href="https://developer.android.com/training/testing/espresso/index.html">Espresso</a>. You can even record your own UI tests using the <a href="https://developer.android.com/studio/test/espresso-test-recorder.html">Espresso Test Recorder</a> to save time! Be sure to check out the Espresso <a href="https://developer.android.com/training/testing/espresso/cheat-sheet.html">cheatsheet</a> for easy writing of tests.</p>
-    <h3 id="32-debugging">3.2 Debugging<a class="fa fa-anchor" href="#32-debugging"></a></h3>
-    <h4 id="on-device-developer-options">On-Device Developer Options</h4>
-    <img src="https://developer.android.com/studio/images/run/dev-options-pixel_2x.png" width="250">
-    <p>(<a href="https://developer.android.com/studio/images/run/dev-options-pixel_2x.png">Image</a> from Google)</p>
-    <p>Developer Options is a great tool for developers (and Android power users) to make system configurations and profile and debug apps. To enable it, just go to <code>Settings</code> and tap the <code>Build Number</code> 7 times on any Android phone.</p>
-    <h4 id="android-studio">Android Studio</h4>
-    <p>Android Studio provides an in-house debugger and also an Android Emulator that uses an Android Virtual Device (AVD) that models a device type. For example, you can test your app on an AVD configuration for the Nexus 5X phone. You can also target the Android version that the phone should use. Each AVD will have a dedicated storage area on your machine. The AVD Manager in Android Studio allows you to create and manage AVDs.</p>
-    <p><a href="https://developer.android.com/studio/images/run/avd-manager_2x.png" target="_self"><img src="https://developer.android.com/studio/images/run/avd-manager_2x.png" alt="" class="img-fluid"></a></p>
-    <p>(<a href="https://developer.android.com/studio/images/run/avd-manager_2x.png">Image</a> from Google)</p>
-    <h4 id="android-debug-bridge-adb">Android Debug Bridge (adb)</h4>
-    <p>Android Debug Bridge (adb) is a useful advanced command-line tool included with the Android Software Development Kit (SDK). It allows you to communicate with an Android device by issuing commands such as:</p>
-    <pre class="hljs"><code>adb install C:\package.apk – Installs the package located at C:\package.apk on your computer on your device.
+          <p>Sample code is from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>.</p>
+          <p>The app with a Staggered Grid will then look like this:</p>
+          <p><a href="https://i.imgur.com/AlANFgj.png" target="_self"><img src="https://i.imgur.com/AlANFgj.png" alt="" class="img-fluid"></a></p>
+          <p>(<a href="https://i.imgur.com/AlANFgj.png">Image</a> from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>)</p>
+          <p>You can also build a <code>Layout</code> easily using <a href="https://developer.android.com/studio/write/layout-editor.html">Android Layout Editor</a>.
+            For further information, Google I/O 2016 introduces <code>Layouts</code> in <a href="https://www.youtube.com/watch?v=sO9aX87hq9c&amp;t=207s">this video</a>.</p>
+          <h4 id="fragments">Fragments</h4>
+          <p><code>Fragments</code> are like 'sub activities' that allow for code reuse in different activities. Tablets and handsets can choose to display these fragments differently due to the difference in screen size, thus with Fragments, you can easily cater for mobile devices with different resolutions!</p>
+          <p><a href="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" target="_self"><img src="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" alt="" class="img-fluid"></a></p>
+          <p>(Image from <a href="https://github.com/codepath/android_guides/wiki/Creating-and-Using-Fragments">Codepath</a>)</p>
+          <p>Learn more about <code>Fragments</code> in <a href="https://www.youtube.com/watch?v=k3IT-IJ0J98&amp;t=618s">this video from Google I/O 2016</a>.</p>
+          <h3 id="2-2-activity-lifecycle">2.2 Activity Lifecycle<a class="fa fa-anchor" href="#2-2-activity-lifecycle"></a></h3>
+          <p>You might wonder, how can I deal with scenarios where the user switch to another app? What if they rotate their phone? Don't worry, you will have control over your app as the user interacts with your app differently. Control is given to you using the <code>Activity Lifecycle</code>. With the <code>Activity Lifecycle</code>, your app can be notified every time the app changes its state, for example, when the app is being paused.</p>
+          <p><a href="https://developer.android.com/guide/components/images/activity_lifecycle.png" target="_self"><img src="https://developer.android.com/guide/components/images/activity_lifecycle.png" alt="" class="img-fluid"></a></p>
+          <p>(<a href="https://developer.android.com/guide/components/images/activity_lifecycle.png">Image</a> from Google)</p>
+          <h3 id="2-3-the-architecture-of-android">2.3 The Architecture of Android<a class="fa fa-anchor" href="#2-3-the-architecture-of-android"></a></h3>
+          <p>Developing for Android used to be a daunting task as apps needed to be reactive to data changes, responsive to users and yet deal with the entire <code>Activity Lifecycle</code>. At Google I/O 2017, <a href="https://developer.android.com/topic/libraries/architecture/index.html">Architecture Components</a> were introduced to help developers solve common issues by following best practices and implementing recommended architecture, so you can focus on building better apps!</p>
+          <h2 id="3-useful-android-developer-tools">3. Useful Android Developer Tools<a class="fa fa-anchor" href="#3-useful-android-developer-tools"></a></h2>
+          <p>Android is a huge eco-system with a large developer community. Combined with the fact that it is Open Source, it is unsurprising to know that there are many useful developer tools for Android out there.</p>
+          <h3 id="3-1-testing">3.1 Testing<a class="fa fa-anchor" href="#3-1-testing"></a></h3>
+          <p>Testing used to be a nightmare for app development but since 2017, Test-driven development was <a href="https://www.youtube.com/watch?v=pK7W5npkhho">encouraged</a> by Google in their Google I/O 2017 due to the release of the <code>Android Testing Support Library</code>. You can read more about the library <a href="https://developer.android.com/topic/libraries/testing-support-library/index.html">here</a>. Now that we can do testing easily, we can build more reliable apps!</p>
+          <h4 id="unit-testing-and-mocking">Unit Testing and Mocking</h4>
+          <p>Mocking is usually needed in unit testing to simulate the behaviour of real objects (that are dependencies) to verify the behaviour of the object that you are testing. In Android app development, <a href="http://site.mockito.org/">Mockito</a>, a popular mocking library for unit tests in Java, is often used. However, due to the difficulty of mocking the Android SDK to create unit tests, <a href="http://robolectric.org/">Robolectric</a> was developed to solve this issue. Robolectric can still be used alongside Mockito. The benefit of Robolectric is that it handles emulation UI code such that tests that rely on the UI can be run on the Java Virtual Machine (JVM) rather than having to run them on an emulator. In other words, tests can be written and run faster.</p>
+          <h4 id="integration-testing">Integration Testing</h4>
+          <p>Integration testing and end-to-end testing is usually done using <a href="https://developer.android.com/training/testing/espresso/index.html">Espresso</a>. You can even record your own UI tests using the <a href="https://developer.android.com/studio/test/espresso-test-recorder.html">Espresso Test Recorder</a> to save time! Be sure to check out the Espresso <a href="https://developer.android.com/training/testing/espresso/cheat-sheet.html">cheatsheet</a> for easy writing of tests.</p>
+          <h3 id="3-2-debugging">3.2 Debugging<a class="fa fa-anchor" href="#3-2-debugging"></a></h3>
+          <h4 id="on-device-developer-options">On-Device Developer Options</h4>
+          <img src="https://developer.android.com/studio/images/run/dev-options-pixel_2x.png" width="250">
+          <p>(<a href="https://developer.android.com/studio/images/run/dev-options-pixel_2x.png">Image</a> from Google)</p>
+          <p>Developer Options is a great tool for developers (and Android power users) to make system configurations and profile and debug apps. To enable it, just go to <code>Settings</code> and tap the <code>Build Number</code> 7 times on any Android phone.</p>
+          <h4 id="android-studio">Android Studio</h4>
+          <p>Android Studio provides an in-house debugger and also an Android Emulator that uses an Android Virtual Device (AVD) that models a device type. For example, you can test your app on an AVD configuration for the Nexus 5X phone. You can also target the Android version that the phone should use. Each AVD will have a dedicated storage area on your machine. The AVD Manager in Android Studio allows you to create and manage AVDs.</p>
+          <p><a href="https://developer.android.com/studio/images/run/avd-manager_2x.png" target="_self"><img src="https://developer.android.com/studio/images/run/avd-manager_2x.png" alt="" class="img-fluid"></a></p>
+          <p>(<a href="https://developer.android.com/studio/images/run/avd-manager_2x.png">Image</a> from Google)</p>
+          <h4 id="android-debug-bridge-adb">Android Debug Bridge (adb)</h4>
+          <p>Android Debug Bridge (adb) is a useful advanced command-line tool included with the Android Software Development Kit (SDK). It allows you to communicate with an Android device by issuing commands such as:</p>
+          <pre class="hljs"><code>adb install C:\package.apk – Installs the package located at C:\package.apk on your computer on your device.
 
 adb uninstall package.name – Uninstalls the package with package.name from your device. For example, you’d use the name com.rovio.angrybirds to uninstall the Angry Birds app.
 
@@ -161,33 +392,37 @@ adb pull /sdcard/file C:\file – Pulls a file from your device to your computer
 
 adb logcat – View your Android device’s log. Can be useful for debugging apps.
 </code></pre>
-    <p>Command examples from <a href="https://www.howtogeek.com/125769/how-to-install-and-use-abd-the-android-debug-bridge-utility/">How-To Geek</a>.</p>
-    <h2 id="4-further-readings">4. Further Readings<a class="fa fa-anchor" href="#4-further-readings"></a></h2>
-    <p>Going further, it will be useful to know more about:</p>
-    <ul>
-      <li><a href="https://firebase.google.com/">Firebase</a>, a mobile platform provided by Google that provides various services to grow and monetise your app.</li>
-      <li><a href="https://blog.mindorks.com/rxjava-anatomy-what-is-rxjava-how-rxjava-is-designed-and-how-rxjava-works-d357b3aca586">Reactive Programming with RxJava</a>.</li>
-      <li><a href="https://medium.com/@kevalpatel2106/code-your-next-android-app-using-rxjava-d1db30ac9fcc">RxJava</a>, a Java VM implementation of ReactiveX (Reactive Extensions): a library for composing asynchronous and event-based programs by using observable sequences.</li>
-      <li><a href="https://realm.io/">Realm</a>, a NoSQL object-orientated mobile database system.</li>
-      <li><a href="https://developer.android.com/studio/command-line/adb.html">Android Debug Bridge</a>, a powerful command line tool for Android.</li>
-      <li><a href="https://academy.realm.io/posts/chiu-ki-chan-advanced-android-espresso-testing/">Advanced Android Expresso</a>, the automated testing tool for Android UI tests.</li>
-    </ul>
-    <p>Other useful links:</p>
-    <ul>
-      <li><a href="https://www.androidauthority.com">Android Authority</a></li>
-      <li><a href="https://www.androidcentral.com/">Android Central</a></li>
-    </ul>
+          <p>Command examples from <a href="https://www.howtogeek.com/125769/how-to-install-and-use-abd-the-android-debug-bridge-utility/">How-To Geek</a>.</p>
+          <h2 id="4-further-readings">4. Further Readings<a class="fa fa-anchor" href="#4-further-readings"></a></h2>
+          <p>Going further, it will be useful to know more about:</p>
+          <ul>
+            <li><a href="https://firebase.google.com/">Firebase</a>, a mobile platform provided by Google that provides various services to grow and monetise your app.</li>
+            <li><a href="https://blog.mindorks.com/rxjava-anatomy-what-is-rxjava-how-rxjava-is-designed-and-how-rxjava-works-d357b3aca586">Reactive Programming with RxJava</a>.</li>
+            <li><a href="https://medium.com/@kevalpatel2106/code-your-next-android-app-using-rxjava-d1db30ac9fcc">RxJava</a>, a Java VM implementation of ReactiveX (Reactive Extensions): a library for composing asynchronous and event-based programs by using observable sequences.</li>
+            <li><a href="https://realm.io/">Realm</a>, a NoSQL object-orientated mobile database system.</li>
+            <li><a href="https://developer.android.com/studio/command-line/adb.html">Android Debug Bridge</a>, a powerful command line tool for Android.</li>
+            <li><a href="https://academy.realm.io/posts/chiu-ki-chan-advanced-android-espresso-testing/">Advanced Android Expresso</a>, the automated testing tool for Android UI tests.</li>
+          </ul>
+          <p>Other useful links:</p>
+          <ul>
+            <li><a href="https://www.androidauthority.com">Android Authority</a></li>
+            <li><a href="https://www.androidcentral.com/">Android Central</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

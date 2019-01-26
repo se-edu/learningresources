@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Writing Testable Code</title>
+    <title>SE-EDU/LearningResources - Writing Testable Code</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,160 +13,397 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#writing-testable-code">Writing Testable Code&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No seams for isolating the class under test&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do actual work in constructors&#x200E;</a>
+        <a class="nav-link py-1" href="#rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't mix object construction with application logic&#x200E;</a>
+        <a class="nav-link py-1" href="#rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't mix Service Objects with Value Objects&#x200E;</a>
+        <a class="nav-link py-1" href="#rule-4-avoid-static-methods">Rule #4: Avoid Static Methods&#x200E;</a>
+        <a class="nav-link py-1" href="#rule-5-favor-composition-over-inheritance">Rule #5: Favor composition over inheritance&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#flaw-2-brittle-global-state-and-singleton">Flaw #2: Brittle Global State &amp; Singleton&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#rule-1-avoid-global-states">Rule #1: Avoid Global States&#x200E;</a>
+        <a class="nav-link py-1" href="#rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't look for things. Ask for things.&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#flaw-4-class-does-too-much">Flaw #4: Class does too much&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#rule-1-avoid-mixing-of-concerns">Rule #1: Avoid mixing of concerns&#x200E;</a>
+        <a class="nav-link py-1" href="#rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor polymorphism over conditionals&#x200E;</a>
+      </nav>
     </nav>
+    <a class="nav-link py-1" href="#concluding-notes">Concluding Notes&#x200E;</a>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Testing
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html" class="current">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="writing-testable-code">Writing Testable Code<a class="fa fa-anchor" href="#writing-testable-code"></a></h1>
+          <p>When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented programs.</p>
+          <p>This article compiles multiple posts from <a href="https://testing.googleblog.com">Google Testing Blog</a> on how to write more unit-testable code. It explains <a href="https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html">four common flaws</a> in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.</p>
+          <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No seams for isolating the class under test<a class="fa fa-anchor" href="#flaw-1-no-seams-for-isolating-the-class-under-test"></a></h2>
+          <p>Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.</p>
+          <p>To create seams in your code, you need to acquire your dependency via <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. You inject real object for production and <a href="https://www.martinfowler.com/bliki/TestDouble.html">test doubles</a> for testing. For example, if a class depends on some database connection to retrieve some user data, you can inject a fake database connection to always return prepared data immediately without really performing any database operation.</p>
+          <p>That is the basic idea for how seams can help in unit testing. Below are five rules you can follow to create seams in your code.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a></p>
+          <h3 id="rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do actual work in constructors<a class="fa fa-anchor" href="#rule-1-don-t-do-actual-work-in-constructors"></a></h3>
+          <h4 id="warning-signs">Warning Signs</h4>
+          <ul>
+            <li><code>new</code> keyword in a constructor or at field declaration</li>
+            <li>Code does complex object graph construction inside a constructor rather than using a factory or builder</li>
+            <li>Anything more than field assignment in constructors</li>
+          </ul>
+          <p>Any work you do in a constructor needs to successfully navigate through in every test (not just the direct test, but also any related test which tries to instantiate your class indirectly as part of some larger object graph).</p>
+          <p>In short, the constructor's job is to assign the dependencies to fields. And that's all.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+          <h3 id="rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't mix object construction with application logic<a class="fa fa-anchor" href="#rule-2-don-t-mix-object-construction-with-application-logic"></a></h3>
+          <h4 id="warning-signs-2">Warning Signs</h4>
+          <ul>
+            <li>Create objects using <code>new</code> keyword freely anywhere in your code</li>
+          </ul>
+          <p>You should have two kinds of classes in your application.</p>
+          <p>First, <strong><a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factories</a></strong>, where all <code>new</code> operators reside in, are in charge of constructing objects, and nothing else.</p>
+          <p>The other, <strong>application classes</strong>, are devoid of <code>new</code> operators. Instead of creating object, they simply ask for them. This makes it easier to test the application logic by replacing the real classes for test doubles.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+          <h3 id="rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't mix Service Objects with Value Objects<a class="fa fa-anchor" href="#rule-3-don-t-mix-service-objects-with-value-objects"></a></h3>
+          <p>Value objects are your <strong>model</strong> objects, like <code>User</code>, <code>Email</code>, <code>CreditCard</code>.</p>
+          <ol>
+            <li>They are (or should be) very easy to construct. And they should never take a service object in its constructor (since otherwise it is not easy to construct).</li>
+            <li>You can freely create value objects with the &quot;new&quot; operator directly in line with your business logic (exception to previous rule) since they are leafs of your application graph).</li>
+            <li>They are <strong>never mocked</strong>.</li>
+          </ol>
+          <p>Service objects, on the other hand, are your <strong>logic</strong> objects, like <code>UserAuthenticator</code>, <code>MailServer</code>, <code>CreditCardProcessor</code>. Compared to value objects,</p>
+          <ol>
+            <li>Service objects are harder to construct. And their constructors ask for lots of other objects for collaboration.</li>
+            <li>Service objects are harder to construct and as a result are never constructed with a new operator in-line, (instead use factory / DI-framework) for the object graph construction.
+              <strong>Note</strong>: service objects don't take value objects in their constructors since DI-frameworks tend to be unaware about the how to create a value objects.</li>
+            <li>Service objects are harder to test since they are all about collaboration and as a result we are forced to use mocking, something which we want to minimize.</li>
+          </ol>
+          <p>Clearly, they are very different in their nature and usage. Mixing the two creates a hybrid which has no advantages of value-objects and all the baggage of service-object.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+          <h3 id="rule-4-avoid-static-methods">Rule #4: Avoid Static Methods<a class="fa fa-anchor" href="#rule-4-avoid-static-methods"></a></h3>
+          <p>Static methods are procedural code. You can write your program in an OO language only using static methods, with one calling another, then it is not an OOP application but a procedural application. There is <em>no way</em> to unit test procedure application because there is no seams for you to divert the normal execution flow.</p>
+          <p>You can remove the static methods as below:</p>
+          <ol>
+            <li>If the static method has arguments, chances are you can move the method as an instance method to one of the method's arguments. (As in <code>method(a,b)</code> becomes <code>a.method(b)</code>)</li>
+            <li>If the static method takes no arguments, either it returns a constant in which case there is nothing to test; or it accesses <a href="#rule-2-avoid-singletons">global state</a>, which is bad.</li>
+          </ol>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+          <h3 id="rule-5-favor-composition-over-inheritance">Rule #5: Favor composition over inheritance<a class="fa fa-anchor" href="#rule-5-favor-composition-over-inheritance"></a></h3>
+          <p>At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.</p>
+          <p>Wrongly used inheritance clutters the focus of test because you need to mock out the your parent classes' irrelevant dependencies, too. For example,</p>
+          <p>Inheriting from AuthenticatedServlet will make your sub-class very hard to test since every test will have to mock out the authentication. But what if AuthenticatedServlet inherits from DbTransactionServlet? (that gets so much harder)</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+          <h2 id="flaw-2-brittle-global-state-and-singleton">Flaw #2: Brittle Global State &amp; Singleton<a class="fa fa-anchor" href="#flaw-2-brittle-global-state-and-singleton"></a></h2>
+          <h3 id="rule-1-avoid-global-states">Rule #1: Avoid Global States<a class="fa fa-anchor" href="#rule-1-avoid-global-states"></a></h3>
+          <h4 id="warning-signs-3">Warning Signs</h4>
+          <ul>
+            <li>Adding or using static fields or static methods</li>
+            <li>Adding or using registries</li>
+            <li>Using <code>System.currentTimeMillis()</code>, <code>new Date()</code> or <code>Math.random()</code></li>
+          </ul>
+          <p>Global states are a bad idea because they make the code hard to understand and reason about.</p>
+          <p>Moreover, they cause problems for testing because global states are persistent throughout the lifetime of a JVM instance. In unit testing, we have one JVM instance to run all tests (instead one JVM for one test, for performance reason). Thus the global states are persistent from tests to tests. Now, if some tests expect the global states to be in state A, while some other tests expect the global states to be in state B. In this scenario, you cannot run the tests in parallel, otherwise your tests will become flaky (sometimes pass, sometimes fail) because the order of tests matters.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+          <h3 id="rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern<a class="fa fa-anchor" href="#rule-2-avoid-singleton-pattern"></a></h3>
+          <p>Singleton Pattern, despite being a well-know design patter, are global states in sheep's clothing. They have <strong>globally</strong> accessible <code>getInstance()</code> method and a private singleton object (which is the global state).</p>
+          <p>Another problem about Singleton Pattern is that they are globally accessible, thus any method can access them inside the code without explicitly declaring in its API. In other words, the API lied about its dependency!</p>
+          <p><strong>Note</strong> singletons (with lowercase s) are valid and sometimes very useful, which you can enforce their singleton identities by enforcing their constructors are called only once in the application. However, Singleton Pattern (with uppercase S) is almost always causing undesirable global states, which you should avoid. Only few examples of Singleton Pattern, including Constants and Logging, are acceptable since they don't affect the application logic.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html">Singletons are Pathological Liars</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+          <h2 id="flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators<a class="fa fa-anchor" href="#flaw-3-dig-into-collaborators"></a></h2>
+          <h3 id="rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't look for things. Ask for things.<a class="fa fa-anchor" href="#rule-1-don-t-look-for-things-ask-for-things"></a></h3>
+          <h4 id="warning-signs-4">Warning Signs</h4>
+          <ul>
+            <li>Objects are passed in but never used directly (only used to get access to other objects)</li>
+            <li><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> violation: method call chain walks an object graph with more than one dot. (e.g. <code>a.getB().getC().doSomething()</code>)</li>
+          </ul>
+          <p>The Law of Demeter can be summarized as &quot;only talk to your <strong>immediate</strong> friends&quot;.</p>
+          <p>Previously we mentioned the importance of dependency injection for creating seams in <a href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: no seams for isolating the class under test</a>. Here we emphasize on injecting only those <strong>direct dependency</strong>.</p>
+          <p>Let's use an example to illustrate why <strong>indirect</strong> dependency hurts testability:</p>
+          <p>Say you have an Authenticator class which needs a <code>Config</code> object, do you pass in a path to the configuration file, or just pass in a <code>Config</code> object? Since what you need is a <code>Config</code> object, not a file path, an example of indirect dependency will be you pass in a path to the configuration file, and read a <code>Config</code> object from the path. To test Authenticator, you have to first write some configuration to a file, pass the file path to Authenticator, and let it read a <code>Config</code> itself. Versus you can directly create a <code>Config</code> object and pass it to Authenticator using direct dependency.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+          <h2 id="flaw-4-class-does-too-much">Flaw #4: Class does too much<a class="fa fa-anchor" href="#flaw-4-class-does-too-much"></a></h2>
+          <p>To extreme, it becomes an anti-pattern, <a href="https://en.wikipedia.org/wiki/God_object">God Object</a>.</p>
+          <h3 id="rule-1-avoid-mixing-of-concerns">Rule #1: Avoid mixing of concerns<a class="fa fa-anchor" href="#rule-1-avoid-mixing-of-concerns"></a></h3>
+          <h4 id="warning-signs-5">Warning Signs:</h4>
+          <ul>
+            <li>summing up what the class does includes the word &quot;and&quot;</li>
+            <li>class has fields that are only used in some methods (objects hiding inside)</li>
+            <li>class has static methods that only operate on parameters (methods should be instance methods of one of the parameters)</li>
+          </ul>
+          <p>These classes are hard to test since there are multiple objects hiding inside of them and as a result you are testing all of the objects at once.</p>
+          <p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a> also requires you to have classes with one concern (one reason to change), because these classes are simpler to understand what they are doing and easier to unit test.</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
+          <h3 id="rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor polymorphism over conditionals<a class="fa fa-anchor" href="#rule-2-favor-polymorphism-over-conditionals"></a></h3>
+          <h4 id="warning-signs-6">Warning Signs:</h4>
+          <ul>
+            <li>Class has the same <code>switch</code> or <code>if</code> conditions in many places</li>
+          </ul>
+          <p>For a detailed code example, please refer to this <a href="http://stackoverflow.com/a/234491/3522482">Stack Overflow answer</a>.</p>
+          <p>From the answer, if you have one switch statement based on an internal field you probably have the same switch in multiple places. This causes problems when you add a new case as you have to update all the switch statements.</p>
+          <p>By using polymorphism, you get the same functionality and because a new case is a new class you don't have to search your code for things that need to be updated. It is all isolated for each class.</p>
+          <p>This closely follows with <a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open Closed Principle</a> because you can ship this abstract parent class (<strong>closed for modification</strong>) as part of your binary library, but people can still extend the functionality by adding new child classes (<strong>open for extension</strong>).</p>
+          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
+          <h1 id="concluding-notes">Concluding Notes<a class="fa fa-anchor" href="#concluding-notes"></a></h1>
+          <p>This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.</p>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="writing-testable-code">Writing Testable Code<a class="fa fa-anchor" href="#writing-testable-code"></a></h1>
-    <p>When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented programs.</p>
-    <p>This article compiles multiple posts from <a href="https://testing.googleblog.com">Google Testing Blog</a> on how to write more unit-testable code. It explains <a href="https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html">four common flaws</a> in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.</p>
-    <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No seams for isolating the class under test<a class="fa fa-anchor" href="#flaw-1-no-seams-for-isolating-the-class-under-test"></a></h2>
-    <p>Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.</p>
-    <p>To create seams in your code, you need to acquire your dependency via <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. You inject real object for production and <a href="https://www.martinfowler.com/bliki/TestDouble.html">test doubles</a> for testing. For example, if a class depends on some database connection to retrieve some user data, you can inject a fake database connection to always return prepared data immediately without really performing any database operation.</p>
-    <p>That is the basic idea for how seams can help in unit testing. Below are five rules you can follow to create seams in your code.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a></p>
-    <h3 id="rule-1-dont-do-actual-work-in-constructors">Rule #1: Don't do actual work in constructors<a class="fa fa-anchor" href="#rule-1-dont-do-actual-work-in-constructors"></a></h3>
-    <h4 id="warning-signs">Warning Signs</h4>
-    <ul>
-      <li><code>new</code> keyword in a constructor or at field declaration</li>
-      <li>Code does complex object graph construction inside a constructor rather than using a factory or builder</li>
-      <li>Anything more than field assignment in constructors</li>
-    </ul>
-    <p>Any work you do in a constructor needs to successfully navigate through in every test (not just the direct test, but also any related test which tries to instantiate your class indirectly as part of some larger object graph).</p>
-    <p>In short, the constructor's job is to assign the dependencies to fields. And that's all.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-    <h3 id="rule-2-dont-mix-object-construction-with-application-logic">Rule #2: Don't mix object construction with application logic<a class="fa fa-anchor" href="#rule-2-dont-mix-object-construction-with-application-logic"></a></h3>
-    <h4 id="warning-signs-2">Warning Signs</h4>
-    <ul>
-      <li>Create objects using <code>new</code> keyword freely anywhere in your code</li>
-    </ul>
-    <p>You should have two kinds of classes in your application.</p>
-    <p>First, <strong><a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factories</a></strong>, where all <code>new</code> operators reside in, are in charge of constructing objects, and nothing else.</p>
-    <p>The other, <strong>application classes</strong>, are devoid of <code>new</code> operators. Instead of creating object, they simply ask for them. This makes it easier to test the application logic by replacing the real classes for test doubles.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-    <h3 id="rule-3-dont-mix-service-objects-with-value-objects">Rule #3: Don't mix Service Objects with Value Objects<a class="fa fa-anchor" href="#rule-3-dont-mix-service-objects-with-value-objects"></a></h3>
-    <p>Value objects are your <strong>model</strong> objects, like <code>User</code>, <code>Email</code>, <code>CreditCard</code>.</p>
-    <ol>
-      <li>They are (or should be) very easy to construct. And they should never take a service object in its constructor (since otherwise it is not easy to construct).</li>
-      <li>You can freely create value objects with the &quot;new&quot; operator directly in line with your business logic (exception to previous rule) since they are leafs of your application graph).</li>
-      <li>They are <strong>never mocked</strong>.</li>
-    </ol>
-    <p>Service objects, on the other hand, are your <strong>logic</strong> objects, like <code>UserAuthenticator</code>, <code>MailServer</code>, <code>CreditCardProcessor</code>. Compared to value objects,</p>
-    <ol>
-      <li>Service objects are harder to construct. And their constructors ask for lots of other objects for collaboration.</li>
-      <li>Service objects are harder to construct and as a result are never constructed with a new operator in-line, (instead use factory / DI-framework) for the object graph construction.
-        <strong>Note</strong>: service objects don't take value objects in their constructors since DI-frameworks tend to be unaware about the how to create a value objects.</li>
-      <li>Service objects are harder to test since they are all about collaboration and as a result we are forced to use mocking, something which we want to minimize.</li>
-    </ol>
-    <p>Clearly, they are very different in their nature and usage. Mixing the two creates a hybrid which has no advantages of value-objects and all the baggage of service-object.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-    <h3 id="rule-4-avoid-static-methods">Rule #4: Avoid Static Methods<a class="fa fa-anchor" href="#rule-4-avoid-static-methods"></a></h3>
-    <p>Static methods are procedural code. You can write your program in an OO language only using static methods, with one calling another, then it is not an OOP application but a procedural application. There is <em>no way</em> to unit test procedure application because there is no seams for you to divert the normal execution flow.</p>
-    <p>You can remove the static methods as below:</p>
-    <ol>
-      <li>If the static method has arguments, chances are you can move the method as an instance method to one of the method's arguments. (As in <code>method(a,b)</code> becomes <code>a.method(b)</code>)</li>
-      <li>If the static method takes no arguments, either it returns a constant in which case there is nothing to test; or it accesses <a href="#rule-2-avoid-singletons">global state</a>, which is bad.</li>
-    </ol>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-    <h3 id="rule-5-favor-composition-over-inheritance">Rule #5: Favor composition over inheritance<a class="fa fa-anchor" href="#rule-5-favor-composition-over-inheritance"></a></h3>
-    <p>At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.</p>
-    <p>Wrongly used inheritance clutters the focus of test because you need to mock out the your parent classes' irrelevant dependencies, too. For example,</p>
-    <p>Inheriting from AuthenticatedServlet will make your sub-class very hard to test since every test will have to mock out the authentication. But what if AuthenticatedServlet inherits from DbTransactionServlet? (that gets so much harder)</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-    <h2 id="flaw-2-brittle-global-state-singleton">Flaw #2: Brittle Global State &amp; Singleton<a class="fa fa-anchor" href="#flaw-2-brittle-global-state-singleton"></a></h2>
-    <h3 id="rule-1-avoid-global-states">Rule #1: Avoid Global States<a class="fa fa-anchor" href="#rule-1-avoid-global-states"></a></h3>
-    <h4 id="warning-signs-3">Warning Signs</h4>
-    <ul>
-      <li>Adding or using static fields or static methods</li>
-      <li>Adding or using registries</li>
-      <li>Using <code>System.currentTimeMillis()</code>, <code>new Date()</code> or <code>Math.random()</code></li>
-    </ul>
-    <p>Global states are a bad idea because they make the code hard to understand and reason about.</p>
-    <p>Moreover, they cause problems for testing because global states are persistent throughout the lifetime of a JVM instance. In unit testing, we have one JVM instance to run all tests (instead one JVM for one test, for performance reason). Thus the global states are persistent from tests to tests. Now, if some tests expect the global states to be in state A, while some other tests expect the global states to be in state B. In this scenario, you cannot run the tests in parallel, otherwise your tests will become flaky (sometimes pass, sometimes fail) because the order of tests matters.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-    <h3 id="rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern<a class="fa fa-anchor" href="#rule-2-avoid-singleton-pattern"></a></h3>
-    <p>Singleton Pattern, despite being a well-know design patter, are global states in sheep's clothing. They have <strong>globally</strong> accessible <code>getInstance()</code> method and a private singleton object (which is the global state).</p>
-    <p>Another problem about Singleton Pattern is that they are globally accessible, thus any method can access them inside the code without explicitly declaring in its API. In other words, the API lied about its dependency!</p>
-    <p><strong>Note</strong> singletons (with lowercase s) are valid and sometimes very useful, which you can enforce their singleton identities by enforcing their constructors are called only once in the application. However, Singleton Pattern (with uppercase S) is almost always causing undesirable global states, which you should avoid. Only few examples of Singleton Pattern, including Constants and Logging, are acceptable since they don't affect the application logic.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html">Singletons are Pathological Liars</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-    <h2 id="flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators<a class="fa fa-anchor" href="#flaw-3-dig-into-collaborators"></a></h2>
-    <h3 id="rule-1-dont-look-for-things-ask-for-things">Rule #1: Don't look for things. Ask for things.<a class="fa fa-anchor" href="#rule-1-dont-look-for-things-ask-for-things"></a></h3>
-    <h4 id="warning-signs-4">Warning Signs</h4>
-    <ul>
-      <li>Objects are passed in but never used directly (only used to get access to other objects)</li>
-      <li><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> violation: method call chain walks an object graph with more than one dot. (e.g. <code>a.getB().getC().doSomething()</code>)</li>
-    </ul>
-    <p>The Law of Demeter can be summarized as &quot;only talk to your <strong>immediate</strong> friends&quot;.</p>
-    <p>Previously we mentioned the importance of dependency injection for creating seams in <a href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: no seams for isolating the class under test</a>. Here we emphasize on injecting only those <strong>direct dependency</strong>.</p>
-    <p>Let's use an example to illustrate why <strong>indirect</strong> dependency hurts testability:</p>
-    <p>Say you have an Authenticator class which needs a <code>Config</code> object, do you pass in a path to the configuration file, or just pass in a <code>Config</code> object? Since what you need is a <code>Config</code> object, not a file path, an example of indirect dependency will be you pass in a path to the configuration file, and read a <code>Config</code> object from the path. To test Authenticator, you have to first write some configuration to a file, pass the file path to Authenticator, and let it read a <code>Config</code> itself. Versus you can directly create a <code>Config</code> object and pass it to Authenticator using direct dependency.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-    <h2 id="flaw-4-class-does-too-much">Flaw #4: Class does too much<a class="fa fa-anchor" href="#flaw-4-class-does-too-much"></a></h2>
-    <p>To extreme, it becomes an anti-pattern, <a href="https://en.wikipedia.org/wiki/God_object">God Object</a>.</p>
-    <h3 id="rule-1-avoid-mixing-of-concerns">Rule #1: Avoid mixing of concerns<a class="fa fa-anchor" href="#rule-1-avoid-mixing-of-concerns"></a></h3>
-    <h4 id="warning-signs-5">Warning Signs:</h4>
-    <ul>
-      <li>summing up what the class does includes the word &quot;and&quot;</li>
-      <li>class has fields that are only used in some methods (objects hiding inside)</li>
-      <li>class has static methods that only operate on parameters (methods should be instance methods of one of the parameters)</li>
-    </ul>
-    <p>These classes are hard to test since there are multiple objects hiding inside of them and as a result you are testing all of the objects at once.</p>
-    <p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a> also requires you to have classes with one concern (one reason to change), because these classes are simpler to understand what they are doing and easier to unit test.</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-    <h3 id="rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor polymorphism over conditionals<a class="fa fa-anchor" href="#rule-2-favor-polymorphism-over-conditionals"></a></h3>
-    <h4 id="warning-signs-6">Warning Signs:</h4>
-    <ul>
-      <li>Class has the same <code>switch</code> or <code>if</code> conditions in many places</li>
-    </ul>
-    <p>For a detailed code example, please refer to this <a href="http://stackoverflow.com/a/234491/3522482">Stack Overflow answer</a>.</p>
-    <p>From the answer, if you have one switch statement based on an internal field you probably have the same switch in multiple places. This causes problems when you add a new case as you have to update all the switch statements.</p>
-    <p>By using polymorphism, you get the same functionality and because a new case is a new class you don't have to search your code for things that need to be updated. It is all isolated for each class.</p>
-    <p>This closely follows with <a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open Closed Principle</a> because you can ship this abstract parent class (<strong>closed for modification</strong>) as part of your binary library, but people can still extend the functionality by adding new child classes (<strong>open for extension</strong>).</p>
-    <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-    <h1 id="concluding-notes">Concluding Notes<a class="fa fa-anchor" href="#concluding-notes"></a></h1>
-    <p>This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.</p>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

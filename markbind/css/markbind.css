@@ -5,7 +5,14 @@ blockquote {
 }
 
 code {
+    background: #f8f8f8;
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
     word-break: normal;
+}
+
+pre.hljs > code {
+    background: none;
 }
 
 pre > code.hljs {
@@ -17,6 +24,14 @@ pre > code.hljs {
     border-radius: 5px;
 }
 
+kbd {
+    background-color: #fafbfc;
+    border: 1px solid #c6cbd1;
+    border-bottom-color: #959da5;
+    box-shadow: inset 0 -1px 0 #959da5;
+    color: #444d56;
+}
+
 .btn:active,
 .btn:focus {
     box-shadow: none !important;
@@ -25,15 +40,23 @@ pre > code.hljs {
 
 .fa.fa-anchor {
     color: #ccc;
-    display: none;
+    display: inline;
     font-size: 14px;
     margin-left: 10px;
     padding: 3px;
     text-decoration: none;
+    visibility: hidden;
 }
 
 .fa.fa-anchor:hover {
     color: #555;
+}
+
+code.hljs.inline {
+    background: #f8f8f8;
+    color: #333;
+    display: initial;
+    padding: 0px;
 }
 
 .markbind-table {
@@ -104,4 +127,34 @@ footer {
 
 #flex-div {
     flex: 1;
+}
+
+/* Scrollbar */
+
+.slim-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.slim-scroll::-webkit-scrollbar-thumb {
+    background: #808080;
+    border-radius: 20px;
+}
+
+.slim-scroll::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+}
+
+.slim-scroll-blue::-webkit-scrollbar {
+    width: 5px;
+}
+
+.slim-scroll-blue::-webkit-scrollbar-thumb {
+    background: #00b0ef;
+    border-radius: 20px;
+}
+
+.slim-scroll-blue::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
 }

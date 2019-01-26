@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>An Introduction to Python</title>
+    <title>SE-EDU/LearningResources - An Introduction to Python</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,89 +13,311 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#an-introduction-to-python">An Introduction to Python&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#getting-started-with-python">Getting started with Python&#x200E;</a>
+      <a class="nav-link py-1" href="#python-2-vs-python-3">Python 2 vs Python 3&#x200E;</a>
+      <a class="nav-link py-1" href="#virtual-environment">Virtual Environment&#x200E;</a>
+      <a class="nav-link py-1" href="#common-data-structures">Common Data Structures&#x200E;</a>
+      <a class="nav-link py-1" href="#indexing-and-slicing">Indexing and Slicing&#x200E;</a>
+      <a class="nav-link py-1" href="#object-oriented-programming-in-python">Object Oriented Programming in Python&#x200E;</a>
+      <a class="nav-link py-1" href="#functional-programming">Functional Programming&#x200E;</a>
+      <a class="nav-link py-1" href="#python-for-data-science">Python for Data Science&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#tutorials">Tutorials&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#gotchas">Gotchas&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html" class="current">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
-      </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="an-introduction-to-python">An Introduction to Python<a class="fa fa-anchor" href="#an-introduction-to-python"></a></h1>
-    <p>Authors: <a href="https://www.linkedin.com/in/samsontmr/">Samson Tan Min Rong</a>, <a href="https://www.github.com/Crphang">Phang Chun Rong</a></p>
-    <p>Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.</p>
-    <h2 id="getting-started-with-python">Getting started with Python<a class="fa fa-anchor" href="#getting-started-with-python"></a></h2>
-    <p>If you're a programmer looking to get in on the Python action, check out <a href="https://developers.google.com/edu/python/">Google's Python class</a>, which will introduce you to Python's concepts and core data structures like lists, dictionaries, and strings!</p>
-    <p>For absolute beginners, check out <a href="https://www.youtube.com/watch?v=N4mEzFDjqtA">this video</a> by Derek Banas where he covers everything from installing Python and the basics to more advanced concepts like Inheritance and Polymorphism in under an hour! If you'd prefer to read, check out <a href="http://thepythonguru.com/">Python Guru</a> which has plenty of code samples to help you along.</p>
-    <p>Both newbies and experienced programmers can also benefit from <a href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a>, which aims to introduce readers to Python's unique features and style.</p>
-    <h2 id="python-2-vs-python-3">Python 2 vs Python 3<a class="fa fa-anchor" href="#python-2-vs-python-3"></a></h2>
-    <p>Despite obvious similarities in two Python versions, Python 3's intentional backward incompatibility makes choosing to learn Python 3 over Python 2 a tough problem for both new and experienced Python programmers. Some concerns include the lack of popular Python 2 packages in Python 3 as well as changes in some Python built-in libraries that might break existing systems. One example is that a simple <code>print 'Hello World'</code> that runs perfectly in Python 2 will cause a syntax error in Python 3.</p>
-    <p>Read more in this Digital Ocean's <a href="https://www.digitalocean.com/community/tutorials/python-2-vs-python-3-practical-considerations-2">post</a> to understand this conundrum of choosing between Python 2 and Python 3 better. If you choose to learn both Python 2 and Python 3, take a look at some of these important <a href="https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/">changes</a> to avoid <a href="#gotchas">gotchas</a> due to version differences.</p>
-    <p>Overall, it is recommended to learn Python 3 as a beginner today as it has been <a href="https://www.python.org/download/releases/3.0/">10 years since Python 3 debuted</a>. This stance is also <a href="http://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html#why-is-python-3-considered-a-better-language-to-teach-beginning-programmers">supported</a> by core members of Python. Moreover, unlike the early days of Python 3's release, many popular packages from Python 2 now support Python 3 as well. Since Python 2 is a legacy language while Python 3 is in active development, it would be better to learn Python 3 today.</p>
-    <h2 id="virtual-environment">Virtual Environment<a class="fa fa-anchor" href="#virtual-environment"></a></h2>
-    <p>When starting new projects or hopping onto existing Python repositories, you are recommended to install dependencies using a <a href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a> to avoid dependency conflicts. This is a good practice especially when managing dependencies from different projects which may rely on different Python versions and packages.</p>
-    <p>The <a href="https://docs.python.org/3/tutorial/venv.html">official Python documentation</a> gives instructions on the standard way of creating a virtual environment - defining a directory location and activating it. However, you can consider using other libraries that can make this process smoother. Some of the most popular ones are:</p>
-    <ul>
-      <li><a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html">virtualenvwrapper</a> - Allows you to define all environments in a single place instead of having to manage the different environments in your local system.</li>
-      <li><a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>. <code>pyenv</code> allows easy management of different Python versions and <code>pyenv-virtualenv</code> allows managing virtualenv associated to the Python versions managed by <code>pyenv</code>.</li>
-    </ul>
-    <h2 id="common-data-structures">Common Data Structures<a class="fa fa-anchor" href="#common-data-structures"></a></h2>
-    <p>Strings, lists, and dictionaries belong to a type of class known as <code>Iterables</code>. An <code>Iterable</code> is defined by Python to be &quot;an object capable of returning its members one at a time&quot;.</p>
-    <p>Due to their versatility you'll often find that strings, lists, and dictionaries are all you'll ever need. However, there may come a time when you'll need to create your own <code>Iterable</code> data structure. If that's the case, you may want to delve into the inner workings of <code>Iterable</code> classes, check out <a href="https://excess.org/article/2013/02/itergen1/">Iterables, Iterators and Generators</a> by Ian Ward. He begins by explaining the <code>Iterable</code> class, then goes into the <code>Iterator</code> and <code>Generator</code> classes, both of which are powerful tools in Python.</p>
-    <h2 id="indexing-and-slicing">Indexing and Slicing<a class="fa fa-anchor" href="#indexing-and-slicing"></a></h2>
-    <p>Accessing an element in a list using its index is known as indexing, e.g. <code>my_list[0]</code> returns the first element of my_list (Iterables are zero-indexed—their first index is 0). Slicing, on the other hand, allows us to access a range of elements in a list. Extended slicing extends this functionality by introducing a step parameter, enabling operations like accessing every other element. Read more about this in a blog post on <a href="https://samsontmr.github.io/Slicing-and-Dicing/">indexing and slicing</a> in Python! There, I also explain the basics of list comprehension, a type of syntactic sugar for transforming lists. Trey Hunner gives an in-depth explanation <a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/">here</a> using the for-loops we all know and love.</p>
-    <h2 id="object-oriented-programming-in-python">Object Oriented Programming in Python<a class="fa fa-anchor" href="#object-oriented-programming-in-python"></a></h2>
-    <p>While Python is really useful for cranking out small scripts, we often want to use it to build fully fledged applications too. When this happens, <a href="https://en.wikipedia.org/wiki/Procedural_programming">programming procedurally</a> results in major readability and maintenance issues—especially when your code starts breaking and you're trying to figure out why!</p>
-    <p>This is where Object Oriented Programming comes in, offering a way to think about your program and organizing it into readable chunks. Jeff Knupp gives an introduction to <a href="https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/">Python Classes and OOP</a> here, introducing concepts like static vs instance attributes, inheritance, abstract classes, and the Liskov Substitution Principle.</p>
-    <h2 id="functional-programming">Functional Programming<a class="fa fa-anchor" href="#functional-programming"></a></h2>
-    <p>In addition to scripting and OOP, Python also supports <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536#.70kgem2gc">functional programming</a>, a completely different paradigm from OOP and procedural programming. Where procedural programming and OOP makes heavy use of states, functional programming eschews them completely. In this paradigm, the result of a function is wholly dependent on its arguments.</p>
-    <p><em>&quot;Why would I want to relearn how to code?!&quot;</em>, you may ask. Big Data's increasing relevance has thrown the spotlight on distributed systems and concurrency techniques. No prizes for guessing which programming paradigm is most amenable to the implementation of these systems. <a href="http://www.python-course.eu/python3_lambda.php">Here</a> is a great introduction to the tools at the heart of functional programming in Python 3: <code>map</code>, <code>filter</code>, <code>reduce</code>, and <code>lambda</code>.</p>
-    <p>An alternative way of doing functional programming in Python using list comprehensions to replace the <code>map</code>, <code>filter</code>, and <code>reduce</code> functions. <a href="http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html">Here</a> is a comparison of both methods, complete with examples!</p>
-    <h2 id="python-for-data-science">Python for Data Science<a class="fa fa-anchor" href="#python-for-data-science"></a></h2>
-    <p>Data Science seems to be all the rage recently, so you'll be glad to know that Python has become a major player in the field of Data Science, rivalled mainly by R. Some commonly used Python libraries in Data Science include <a href="http://pandas.pydata.org/">pandas</a> for data management and manipulation, <a href="http://www.numpy.org/">numpy</a> and <a href="http://www.scipy.org/">scipy</a> for scientific computing, <a href="http://scikit-learn.org/">scikit-learn</a> for general machine learning and <a href="http://matplotlib.org/">matplotlib</a> for data visualization.</p>
-    <h3 id="tutorials">Tutorials<a class="fa fa-anchor" href="#tutorials"></a></h3>
-    <p>To get started, take a look at:</p>
-    <ul>
-      <li><a href="https://samsontmr.github.io/Sentimental-Pandas/">Introduction to pandas</a></li>
-      <li><a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">Numpy Quickstart Guide</a></li>
-      <li><a href="http://matplotlib.org/users/tutorials.html#introductory">matplotlib Tutorials</a></li>
-      <li><a href="http://scikit-learn.org/stable/tutorial/basic/tutorial.html">scikit-learn Basics</a></li>
-      <li><a href="http://scikit-learn.org/stable/tutorial/index.html">scikit-learn Machine Learning tutorials</a> are also available for those looking to pick up machine learning.
-        <ul>
-          <li>If you learn best by working on projects, fret not! <a href="http://kaggle.com">Kaggle</a> is a treasure trove of real-world datasets that you can hone your data science skills on.</li>
-        </ul>
-      </li>
-    </ul>
-    <h2 id="gotchas">Gotchas<a class="fa fa-anchor" href="#gotchas"></a></h2>
-    <p>Like most other languages, Python has its own set of common gotchas that can really frustrate newbie Python programmers due to the unintended bugs. Let's consider this common pitfall that many Python programmers encounter.</p>
-    <pre><code class="hljs Python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append_to</span><span class="hljs-params">(element, to=[])</span>:</span>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="an-introduction-to-python">An Introduction to Python<a class="fa fa-anchor" href="#an-introduction-to-python"></a></h1>
+          <p>Authors: <a href="https://www.linkedin.com/in/samsontmr/">Samson Tan Min Rong</a>, <a href="https://www.github.com/Crphang">Phang Chun Rong</a></p>
+          <p>Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.</p>
+          <h2 id="getting-started-with-python">Getting started with Python<a class="fa fa-anchor" href="#getting-started-with-python"></a></h2>
+          <p>If you're a programmer looking to get in on the Python action, check out <a href="https://developers.google.com/edu/python/">Google's Python class</a>, which will introduce you to Python's concepts and core data structures like lists, dictionaries, and strings!</p>
+          <p>For absolute beginners, check out <a href="https://www.youtube.com/watch?v=N4mEzFDjqtA">this video</a> by Derek Banas where he covers everything from installing Python and the basics to more advanced concepts like Inheritance and Polymorphism in under an hour! If you'd prefer to read, check out <a href="http://thepythonguru.com/">Python Guru</a> which has plenty of code samples to help you along.</p>
+          <p>Both newbies and experienced programmers can also benefit from <a href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a>, which aims to introduce readers to Python's unique features and style.</p>
+          <h2 id="python-2-vs-python-3">Python 2 vs Python 3<a class="fa fa-anchor" href="#python-2-vs-python-3"></a></h2>
+          <p>Despite obvious similarities in two Python versions, Python 3's intentional backward incompatibility makes choosing to learn Python 3 over Python 2 a tough problem for both new and experienced Python programmers. Some concerns include the lack of popular Python 2 packages in Python 3 as well as changes in some Python built-in libraries that might break existing systems. One example is that a simple <code>print 'Hello World'</code> that runs perfectly in Python 2 will cause a syntax error in Python 3.</p>
+          <p>Read more in this Digital Ocean's <a href="https://www.digitalocean.com/community/tutorials/python-2-vs-python-3-practical-considerations-2">post</a> to understand this conundrum of choosing between Python 2 and Python 3 better. If you choose to learn both Python 2 and Python 3, take a look at some of these important <a href="https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/">changes</a> to avoid <a href="#gotchas">gotchas</a> due to version differences.</p>
+          <p>Overall, it is recommended to learn Python 3 as a beginner today as it has been <a href="https://www.python.org/download/releases/3.0/">10 years since Python 3 debuted</a>. This stance is also <a href="http://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html#why-is-python-3-considered-a-better-language-to-teach-beginning-programmers">supported</a> by core members of Python. Moreover, unlike the early days of Python 3's release, many popular packages from Python 2 now support Python 3 as well. Since Python 2 is a legacy language while Python 3 is in active development, it would be better to learn Python 3 today.</p>
+          <h2 id="virtual-environment">Virtual Environment<a class="fa fa-anchor" href="#virtual-environment"></a></h2>
+          <p>When starting new projects or hopping onto existing Python repositories, you are recommended to install dependencies using a <a href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a> to avoid dependency conflicts. This is a good practice especially when managing dependencies from different projects which may rely on different Python versions and packages.</p>
+          <p>The <a href="https://docs.python.org/3/tutorial/venv.html">official Python documentation</a> gives instructions on the standard way of creating a virtual environment - defining a directory location and activating it. However, you can consider using other libraries that can make this process smoother. Some of the most popular ones are:</p>
+          <ul>
+            <li><a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html">virtualenvwrapper</a> - Allows you to define all environments in a single place instead of having to manage the different environments in your local system.</li>
+            <li><a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>. <code>pyenv</code> allows easy management of different Python versions and <code>pyenv-virtualenv</code> allows managing virtualenv associated to the Python versions managed by <code>pyenv</code>.</li>
+          </ul>
+          <h2 id="common-data-structures">Common Data Structures<a class="fa fa-anchor" href="#common-data-structures"></a></h2>
+          <p>Strings, lists, and dictionaries belong to a type of class known as <code>Iterables</code>. An <code>Iterable</code> is defined by Python to be &quot;an object capable of returning its members one at a time&quot;.</p>
+          <p>Due to their versatility you'll often find that strings, lists, and dictionaries are all you'll ever need. However, there may come a time when you'll need to create your own <code>Iterable</code> data structure. If that's the case, you may want to delve into the inner workings of <code>Iterable</code> classes, check out <a href="https://excess.org/article/2013/02/itergen1/">Iterables, Iterators and Generators</a> by Ian Ward. He begins by explaining the <code>Iterable</code> class, then goes into the <code>Iterator</code> and <code>Generator</code> classes, both of which are powerful tools in Python.</p>
+          <h2 id="indexing-and-slicing">Indexing and Slicing<a class="fa fa-anchor" href="#indexing-and-slicing"></a></h2>
+          <p>Accessing an element in a list using its index is known as indexing, e.g. <code>my_list[0]</code> returns the first element of my_list (Iterables are zero-indexed—their first index is 0). Slicing, on the other hand, allows us to access a range of elements in a list. Extended slicing extends this functionality by introducing a step parameter, enabling operations like accessing every other element. Read more about this in a blog post on <a href="https://samsontmr.github.io/Slicing-and-Dicing/">indexing and slicing</a> in Python! There, I also explain the basics of list comprehension, a type of syntactic sugar for transforming lists. Trey Hunner gives an in-depth explanation <a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/">here</a> using the for-loops we all know and love.</p>
+          <h2 id="object-oriented-programming-in-python">Object Oriented Programming in Python<a class="fa fa-anchor" href="#object-oriented-programming-in-python"></a></h2>
+          <p>While Python is really useful for cranking out small scripts, we often want to use it to build fully fledged applications too. When this happens, <a href="https://en.wikipedia.org/wiki/Procedural_programming">programming procedurally</a> results in major readability and maintenance issues—especially when your code starts breaking and you're trying to figure out why!</p>
+          <p>This is where Object Oriented Programming comes in, offering a way to think about your program and organizing it into readable chunks. Jeff Knupp gives an introduction to <a href="https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/">Python Classes and OOP</a> here, introducing concepts like static vs instance attributes, inheritance, abstract classes, and the Liskov Substitution Principle.</p>
+          <h2 id="functional-programming">Functional Programming<a class="fa fa-anchor" href="#functional-programming"></a></h2>
+          <p>In addition to scripting and OOP, Python also supports <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536#.70kgem2gc">functional programming</a>, a completely different paradigm from OOP and procedural programming. Where procedural programming and OOP makes heavy use of states, functional programming eschews them completely. In this paradigm, the result of a function is wholly dependent on its arguments.</p>
+          <p><em>&quot;Why would I want to relearn how to code?!&quot;</em>, you may ask. Big Data's increasing relevance has thrown the spotlight on distributed systems and concurrency techniques. No prizes for guessing which programming paradigm is most amenable to the implementation of these systems. <a href="http://www.python-course.eu/python3_lambda.php">Here</a> is a great introduction to the tools at the heart of functional programming in Python 3: <code>map</code>, <code>filter</code>, <code>reduce</code>, and <code>lambda</code>.</p>
+          <p>An alternative way of doing functional programming in Python using list comprehensions to replace the <code>map</code>, <code>filter</code>, and <code>reduce</code> functions. <a href="http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html">Here</a> is a comparison of both methods, complete with examples!</p>
+          <h2 id="python-for-data-science">Python for Data Science<a class="fa fa-anchor" href="#python-for-data-science"></a></h2>
+          <p>Data Science seems to be all the rage recently, so you'll be glad to know that Python has become a major player in the field of Data Science, rivalled mainly by R. Some commonly used Python libraries in Data Science include <a href="http://pandas.pydata.org/">pandas</a> for data management and manipulation, <a href="http://www.numpy.org/">numpy</a> and <a href="http://www.scipy.org/">scipy</a> for scientific computing, <a href="http://scikit-learn.org/">scikit-learn</a> for general machine learning and <a href="http://matplotlib.org/">matplotlib</a> for data visualization.</p>
+          <h3 id="tutorials">Tutorials<a class="fa fa-anchor" href="#tutorials"></a></h3>
+          <p>To get started, take a look at:</p>
+          <ul>
+            <li><a href="https://samsontmr.github.io/Sentimental-Pandas/">Introduction to pandas</a></li>
+            <li><a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">Numpy Quickstart Guide</a></li>
+            <li><a href="http://matplotlib.org/users/tutorials.html#introductory">matplotlib Tutorials</a></li>
+            <li><a href="http://scikit-learn.org/stable/tutorial/basic/tutorial.html">scikit-learn Basics</a></li>
+            <li><a href="http://scikit-learn.org/stable/tutorial/index.html">scikit-learn Machine Learning tutorials</a> are also available for those looking to pick up machine learning.
+              <ul>
+                <li>If you learn best by working on projects, fret not! <a href="http://kaggle.com">Kaggle</a> is a treasure trove of real-world datasets that you can hone your data science skills on.</li>
+              </ul>
+            </li>
+          </ul>
+          <h2 id="gotchas">Gotchas<a class="fa fa-anchor" href="#gotchas"></a></h2>
+          <p>Like most other languages, Python has its own set of common gotchas that can really frustrate newbie Python programmers due to the unintended bugs. Let's consider this common pitfall that many Python programmers encounter.</p>
+          <pre><code class="hljs Python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append_to</span><span class="hljs-params">(element, to=[])</span>:</span>
     to.append(element)
     <span class="hljs-keyword">return</span> to
 
@@ -105,23 +327,27 @@ print(my_list) <span class="hljs-comment"># [12]</span>
 my_other_list = append_to(<span class="hljs-number">42</span>)
 print(my_other_list) <span class="hljs-comment"># [12,42]</span>
 </code></pre>
-    <p>Looking at the above example, one might think that <code>my_other_list</code> will be <code>[42]</code> but actually is <code>[12,42]</code>. The reason is because Python's default arguments, in this case <code>to = []</code>, are evaluated only once when the function is defined.</p>
-    <p>Learning how to avoid such pitfalls is one huge step towards being a productive Python programmer. Here are some other guides that state some common gotchas and how to avoid them:</p>
-    <ul>
-      <li><a href="https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make">Top 10 Common Mistakes of Python Programmers</a></li>
-      <li><a href="https://sopython.com/wiki/Common_Gotchas_In_Python">Common Python Gotchas</a></li>
-    </ul>
+          <p>Looking at the above example, one might think that <code>my_other_list</code> will be <code>[42]</code> but actually is <code>[12,42]</code>. The reason is because Python's default arguments, in this case <code>to = []</code>, are evaluated only once when the function is defined.</p>
+          <p>Learning how to avoid such pitfalls is one huge step towards being a productive Python programmer. Here are some other guides that state some common gotchas and how to avoid them:</p>
+          <ul>
+            <li><a href="https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make">Top 10 Common Mistakes of Python Programmers</a></li>
+            <li><a href="https://sopython.com/wiki/Common_Gotchas_In_Python">Common Python Gotchas</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

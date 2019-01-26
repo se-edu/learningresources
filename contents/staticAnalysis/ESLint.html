@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ESLint</title>
+    <title>SE-EDU/LearningResources - ESLint</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,67 +13,283 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#es-lint">ESLint&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
+      <a class="nav-link py-1" href="#rules">Rules&#x200E;</a>
+      <a class="nav-link py-1" href="#setting-up">Setting Up&#x200E;</a>
+      <a class="nav-link py-1" href="#usage">Usage&#x200E;</a>
+      <a class="nav-link py-1" href="#plugins">Plugins&#x200E;</a>
+      <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
     </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Static Analysis
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="current">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
-      </div>
-    </nav>
-  </div>
-  <div class="website-content">
-    <h1 id="eslint">ESLint<a class="fa fa-anchor" href="#eslint"></a></h1>
-    <p>Author: <a href="https://github.com/nus-cs3281/2018/blob/master/students/nicholasChua/nicholasChua-Resume.md">Nicholas Chua</a></p>
-    <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-    <p><a href="https://eslint.org/docs/about/">ESLint</a> is an open source JavaScript linter.</p>
-    <p>Code linting is a type of static analysis that helps find problematic patterns or code that does not follow a certain style guideline. JavaScript, being a loosely-typed, interpreted language, is prone to developer errors and therefore linting is especially important when working with JavaScript.</p>
-    <p>ESLint is shipped with a wide range of <a href="https://eslint.org/docs/rules/">built-in rules</a> that can be configured on installation. It also offers flexibility by allowing importing your own custom rules via <a href="https://eslint.org/docs/developer-guide/working-with-plugins">plugins</a>.</p>
-    <h2 id="rules">Rules<a class="fa fa-anchor" href="#rules"></a></h2>
-    <p>ESLint comes shipped with <a href="https://eslint.org/docs/rules/">built-in rules</a> that can be <a href="#setting-up">configured</a> to suit your needs.</p>
-    <p>An example of a rule would be <a href="https://eslint.org/docs/rules/brace-style"><code>brace-style</code></a>. It enforces a specific placement of braces relative to the control statement and body. Brace style is based on preference or organization standards, and ESLint has options to enforce the brace style of your choice. They include:</p>
-    <p><a href="https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)">One true brace style (1TBS)</a></p>
-    <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo) {
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="es-lint">ESLint<a class="fa fa-anchor" href="#es-lint"></a></h1>
+          <p>Author: <a href="https://github.com/nus-cs3281/2018/blob/master/students/nicholasChua/nicholasChua-Resume.md">Nicholas Chua</a></p>
+          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+          <p><a href="https://eslint.org/docs/about/">ESLint</a> is an open source JavaScript linter.</p>
+          <p>Code linting is a type of static analysis that helps find problematic patterns or code that does not follow a certain style guideline. JavaScript, being a loosely-typed, interpreted language, is prone to developer errors and therefore linting is especially important when working with JavaScript.</p>
+          <p>ESLint is shipped with a wide range of <a href="https://eslint.org/docs/rules/">built-in rules</a> that can be configured on installation. It also offers flexibility by allowing importing your own custom rules via <a href="https://eslint.org/docs/developer-guide/working-with-plugins">plugins</a>.</p>
+          <h2 id="rules">Rules<a class="fa fa-anchor" href="#rules"></a></h2>
+          <p>ESLint comes shipped with <a href="https://eslint.org/docs/rules/">built-in rules</a> that can be <a href="#setting-up">configured</a> to suit your needs.</p>
+          <p>An example of a rule would be <a href="https://eslint.org/docs/rules/brace-style"><code>brace-style</code></a>. It enforces a specific placement of braces relative to the control statement and body. Brace style is based on preference or organization standards, and ESLint has options to enforce the brace style of your choice. They include:</p>
+          <p><a href="https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)">One true brace style (1TBS)</a></p>
+          <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo) {
   bar();
 } <span class="hljs-keyword">else</span> {
   baz();
 }
 </code></pre>
-    <p><a href="https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup">Stroustrup</a></p>
-    <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo) {
+          <p><a href="https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup">Stroustrup</a></p>
+          <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo) {
   bar();
 }
 <span class="hljs-keyword">else</span> {
   baz();
 }
 </code></pre>
-    <p><a href="https://en.wikipedia.org/wiki/Indentation_style#Allman_style">Allman</a></p>
-    <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo)
+          <p><a href="https://en.wikipedia.org/wiki/Indentation_style#Allman_style">Allman</a></p>
+          <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo)
 {
   bar();
 }
@@ -82,79 +298,83 @@
   baz();
 }
 </code></pre>
-    <p>An additional option <code>allowSingleLine</code> can be enabled to allow opening and closing braces for a block to be on the same line:</p>
-    <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo) { bar(); }
+          <p>An additional option <code>allowSingleLine</code> can be enabled to allow opening and closing braces for a block to be on the same line:</p>
+          <pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo) { bar(); }
 <span class="hljs-keyword">else</span> { baz(); }
 </code></pre>
-    <p>If you are unsure about the options of the rule you want to change, you can refer to the comprehensive <a href="https://eslint.org/docs/rules/">rule documentation</a>.</p>
-    <h2 id="setting-up">Setting Up<a class="fa fa-anchor" href="#setting-up"></a></h2>
-    <p>After <a href="https://eslint.org/docs/user-guide/getting-started#installation-and-usage">installing with npm</a>, ESLint can be configured in <a href="https://eslint.org/docs/user-guide/configuring#configuring-rules">two ways</a>:</p>
-    <p><strong>Single configuration file</strong>. In this example, the rule is configured in <code>.eslintrc.json</code> and enforces all braces in the <strong>project</strong> to follow Allman style:</p>
-    <pre><code class="hljs json">{
+          <p>If you are unsure about the options of the rule you want to change, you can refer to the comprehensive <a href="https://eslint.org/docs/rules/">rule documentation</a>.</p>
+          <h2 id="setting-up">Setting Up<a class="fa fa-anchor" href="#setting-up"></a></h2>
+          <p>After <a href="https://eslint.org/docs/user-guide/getting-started#installation-and-usage">installing with npm</a>, ESLint can be configured in <a href="https://eslint.org/docs/user-guide/configuring#configuring-rules">two ways</a>:</p>
+          <p><strong>Single configuration file</strong>. In this example, the rule is configured in <code>.eslintrc.json</code> and enforces all braces in the <strong>project</strong> to follow Allman style:</p>
+          <pre><code class="hljs json">{
   <span class="hljs-attr">"rules"</span>: {
     <span class="hljs-attr">"brace-style"</span>: [<span class="hljs-string">"error"</span>, <span class="hljs-string">"allman"</span>]
   }
 }
 </code></pre>
-    <p><strong>Configuration comments</strong> inside your file. In this example, the comments enforces all braces in the <strong>file</strong> to follow Allman style:</p>
-    <pre><code class="hljs js"><span class="hljs-comment">/* eslint brace-style: ["error", "allman"] */</span>
+          <p><strong>Configuration comments</strong> inside your file. In this example, the comments enforces all braces in the <strong>file</strong> to follow Allman style:</p>
+          <pre><code class="hljs js"><span class="hljs-comment">/* eslint brace-style: ["error", "allman"] */</span>
 <span class="hljs-keyword">if</span> (foo === bar) { <span class="hljs-comment">// should be on the next line</span>
   <span class="hljs-keyword">return</span>;
 }
 </code></pre>
-    <p>Linting output:</p>
-    <pre><code class="hljs shell"> 1:10  error  Opening curly brace appears on the same line as controlling statement  brace-style
+          <p>Linting output:</p>
+          <pre><code class="hljs shell"> 1:10  error  Opening curly brace appears on the same line as controlling statement  brace-style
 </code></pre>
-    <br>
-    <p><strong>NOTE</strong>: That specifying the rule option as &quot;error&quot; will result in the exit code of 1 when the rule is violated. If you wish for ESLint to alert you but not fail the linting, you may set it to &quot;warn&quot;:</p>
-    <pre><code class="hljs js"><span class="hljs-comment">/* eslint brace-style: ["warn", "allman"] */</span>
+          <br>
+          <p><strong>NOTE</strong>: That specifying the rule option as &quot;error&quot; will result in the exit code of 1 when the rule is violated. If you wish for ESLint to alert you but not fail the linting, you may set it to &quot;warn&quot;:</p>
+          <pre><code class="hljs js"><span class="hljs-comment">/* eslint brace-style: ["warn", "allman"] */</span>
 <span class="hljs-keyword">if</span> (foo === bar) { <span class="hljs-comment">// warning displayed but does not affect exit code</span>
   <span class="hljs-keyword">return</span>;
 }
 </code></pre>
-    <p>Linting output:</p>
-    <pre><code class="hljs shell">1:10  warning  Opening curly brace appears on the same line as controlling statement  brace-style
+          <p>Linting output:</p>
+          <pre><code class="hljs shell">1:10  warning  Opening curly brace appears on the same line as controlling statement  brace-style
 </code></pre>
-    <br>
-    <p>If you are not sure what rules to add to your project, you can import <a href="https://eslint.org/docs/developer-guide/shareable-configs">configurations</a> published by more experienced developers or organizations.</p>
-    <p>Here are some popular style guide's configurations:</p>
-    <ul>
-      <li><a href="https://www.npmjs.com/package/eslint-config-airbnb">Airbnb</a></li>
-      <li><a href="https://www.npmjs.com/package/eslint-config-standard">Standard</a></li>
-      <li><a href="https://www.npmjs.com/package/eslint-config-google">Google</a></li>
-    </ul>
-    <p>At the same time, ESLint allows you to disable rules for <a href="https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories">specific files and directories</a> or for <a href="https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments">specific lines</a>.</p>
-    <h2 id="usage">Usage<a class="fa fa-anchor" href="#usage"></a></h2>
-    <p>Once configured, you can lint your files with <a href="https://eslint.org/docs/user-guide/command-line-interface">terminal commands</a> and you can add <a href="https://eslint.org/docs/user-guide/command-line-interface#options">options</a> to the command based on your needs. A useful example would be the <code>--fix</code> flag which can be used to fix all fixable errors in your code.</p>
-    <pre class="hljs"><code>$ eslint --fix file.js
+          <br>
+          <p>If you are not sure what rules to add to your project, you can import <a href="https://eslint.org/docs/developer-guide/shareable-configs">configurations</a> published by more experienced developers or organizations.</p>
+          <p>Here are some popular style guide's configurations:</p>
+          <ul>
+            <li><a href="https://www.npmjs.com/package/eslint-config-airbnb">Airbnb</a></li>
+            <li><a href="https://www.npmjs.com/package/eslint-config-standard">Standard</a></li>
+            <li><a href="https://www.npmjs.com/package/eslint-config-google">Google</a></li>
+          </ul>
+          <p>At the same time, ESLint allows you to disable rules for <a href="https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories">specific files and directories</a> or for <a href="https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments">specific lines</a>.</p>
+          <h2 id="usage">Usage<a class="fa fa-anchor" href="#usage"></a></h2>
+          <p>Once configured, you can lint your files with <a href="https://eslint.org/docs/user-guide/command-line-interface">terminal commands</a> and you can add <a href="https://eslint.org/docs/user-guide/command-line-interface#options">options</a> to the command based on your needs. A useful example would be the <code>--fix</code> flag which can be used to fix all fixable errors in your code.</p>
+          <pre class="hljs"><code>$ eslint --fix file.js
 </code></pre>
-    <br>
-    <p>ESLint can be easily integrated with your build tool of choice. Here are some <a href="https://eslint.org/docs/user-guide/integrations#build-tools">plugins</a> for some popular build tools. ESLint can also work with Continuous Integration tools like Travis, AppVeyor and CircleCI. Configuration is explained in this <a href="https://medium.com/jason-feng/travis-ci-guide-bdc03b3dbc9d">example using Travis</a>. You can also learn how to automate ESLint to <a href="https://medium.com/the-node-js-collection/why-and-how-to-use-eslint-in-your-project-742d0bc61ed7">run every time you commit</a>.</p>
-    <br>
-    <p>ESLint also has <a href="https://eslint.org/docs/user-guide/integrations#editors">editor integrations</a> such as error highlighting in many popular editors like Atom and WebStorm.</p>
-    <p><a href="https://atom.io/packages/linter-eslint">ESLint Package for Atom</a></p>
-    <p><a href="https://imgur.com/6Nrj4NV.png" target="_self"><img src="https://imgur.com/6Nrj4NV.png" alt="" class="img-fluid"></a></p>
-    <h2 id="plugins">Plugins<a class="fa fa-anchor" href="#plugins"></a></h2>
-    <p>Custom rules can be <a href="https://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin">imported</a> via Plugins. You can <a href="https://eslint.org/docs/developer-guide/working-with-plugins">learn how to write your own</a> or <a href="https://www.npmjs.com/browse/keyword/eslintplugin">use existing ones</a> that are already published to npm.</p>
-    <p>A popular plugin would be <a href="https://github.com/wix/eslint-plugin-lodash">eslint-plugin-lodash</a> which is meant to enforce good practices and styling with the utility library <a href="https://lodash.com/">Lodash</a>. You can checkout other plugins <a href="https://github.com/dustinspecker/awesome-eslint#plugins">here</a>.</p>
-    <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
-    <ul>
-      <li><a href="https://eslint.org/">ESLint</a></li>
-      <li><a href="https://github.com/eslint/eslint">ESLint Github</a>: You can contribute to the project but remember to read their <a href="https://eslint.org/docs/developer-guide/contributing/">guidelines</a> first</li>
-      <li><a href="https://docs.npmjs.com/misc/developers">npm Developer Guide</a>: If you're writing your own custom rules/configs, you need to know how to publish them on npm.</li>
-      <li><a href="https://github.com/dustinspecker/awesome-eslint">Awesome ESLint</a>: repository for ESLint configs, plugins and other useful links.</li>
-    </ul>
+          <br>
+          <p>ESLint can be easily integrated with your build tool of choice. Here are some <a href="https://eslint.org/docs/user-guide/integrations#build-tools">plugins</a> for some popular build tools. ESLint can also work with Continuous Integration tools like Travis, AppVeyor and CircleCI. Configuration is explained in this <a href="https://medium.com/jason-feng/travis-ci-guide-bdc03b3dbc9d">example using Travis</a>. You can also learn how to automate ESLint to <a href="https://medium.com/the-node-js-collection/why-and-how-to-use-eslint-in-your-project-742d0bc61ed7">run every time you commit</a>.</p>
+          <br>
+          <p>ESLint also has <a href="https://eslint.org/docs/user-guide/integrations#editors">editor integrations</a> such as error highlighting in many popular editors like Atom and WebStorm.</p>
+          <p><a href="https://atom.io/packages/linter-eslint">ESLint Package for Atom</a></p>
+          <p><a href="https://imgur.com/6Nrj4NV.png" target="_self"><img src="https://imgur.com/6Nrj4NV.png" alt="" class="img-fluid"></a></p>
+          <h2 id="plugins">Plugins<a class="fa fa-anchor" href="#plugins"></a></h2>
+          <p>Custom rules can be <a href="https://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin">imported</a> via Plugins. You can <a href="https://eslint.org/docs/developer-guide/working-with-plugins">learn how to write your own</a> or <a href="https://www.npmjs.com/browse/keyword/eslintplugin">use existing ones</a> that are already published to npm.</p>
+          <p>A popular plugin would be <a href="https://github.com/wix/eslint-plugin-lodash">eslint-plugin-lodash</a> which is meant to enforce good practices and styling with the utility library <a href="https://lodash.com/">Lodash</a>. You can checkout other plugins <a href="https://github.com/dustinspecker/awesome-eslint#plugins">here</a>.</p>
+          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
+          <ul>
+            <li><a href="https://eslint.org/">ESLint</a></li>
+            <li><a href="https://github.com/eslint/eslint">ESLint Github</a>: You can contribute to the project but remember to read their <a href="https://eslint.org/docs/developer-guide/contributing/">guidelines</a> first</li>
+            <li><a href="https://docs.npmjs.com/misc/developers">npm Developer Guide</a>: If you're writing your own custom rules/configs, you need to know how to publish them on npm.</li>
+            <li><a href="https://github.com/dustinspecker/awesome-eslint">Awesome ESLint</a>: repository for ESLint configs, plugins and other useful links.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>

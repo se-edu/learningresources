@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Introduction to Kotlin</title>
+    <title>SE-EDU/LearningResources - Introduction to Kotlin</title>
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
@@ -13,85 +13,307 @@
     <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
     <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
     <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    
-    <link rel="stylesheet" href="/learningresources/css/gh-pages.css">
+    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
+    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
-    <div id="content-wrapper">
-  <div id="seedu-header">
-    <nav class="navbar navbar-lg navbar-expand navbar-light bg-lighter">
-      <div class="container">
-        <a class="navbar-brand" href="https://se-edu.github.io/"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU"></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/learningresources/index.html">Resources</a></li>
-        </ul>
-      </div>
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#introduction-to-kotlin">Introduction to Kotlin&#x200E;</a>
+    <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
+    <a class="nav-link py-1" href="#why-kotlin">Why Kotlin?&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#concise">Concise&#x200E;</a>
+      <a class="nav-link py-1" href="#safe">Safe&#x200E;</a>
+      <a class="nav-link py-1" href="#interoperable">Interoperable&#x200E;</a>
+      <a class="nav-link py-1" href="#tool-friendly">Tool Friendly&#x200E;</a>
     </nav>
-  </div>
-  <div id="site-header">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/learningresources/index.html">Learning Resources for Software Engineering Students</a>
-        <ul class="navbar-nav"></ul>
-        <form class="navbar-form">
-          <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-        </form>
-      </div>
+    <a class="nav-link py-1" href="#kotlin-for-android-apps">Kotlin for Android Apps&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#advantages-of-shifting-to-kotlin">Advantages of Shifting to Kotlin&#x200E;</a>
+      <a class="nav-link py-1" href="#drawbacks-of-shifting-to-kotlin">Drawbacks of Shifting to Kotlin&#x200E;</a>
     </nav>
+    <a class="nav-link py-1" href="#resources-to-learn-kotlin">Resources to learn Kotlin&#x200E;</a>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong>Programming Languages</strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">Kotlin
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html" class="current">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>SE Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>App Frameworks</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Tools Useful for Software Engineers</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong>Other Topics</strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
   </div>
-  <div class="website-content">
-    <h1 id="introduction-to-kotlin">Introduction to Kotlin<a class="fa fa-anchor" href="#introduction-to-kotlin"></a></h1>
-    <p>Author: <a href="https://github.com/tshradheya">Shradheya Thakre</a></p>
-    <p><strong>Chapter contents</strong></p>
-    <ul>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#why-kotlin">Why Kotlin?</a>
-        <ul>
-          <li><a href="#concise">Concise</a></li>
-          <li><a href="#safe">Safe</a></li>
-          <li><a href="#interoperable">Interoperable</a></li>
-          <li><a href="#tool-friendly">Tool Friendly</a></li>
-        </ul>
-      </li>
-      <li><a href="#kotlin-for-android-apps">Kotlin for Android Apps</a>
-        <ul>
-          <li><a href="#advantages-of-shifting-to-kotlin">Advantages of Shifting to Kotlin</a></li>
-          <li><a href="#drawbacks-of-shifting-to-kotlin">Drawbacks of Shifting to Kotlin</a></li>
-        </ul>
-      </li>
-      <li><a href="#resources-to-learn-kotlin">Resources to learn Kotlin</a></li>
-    </ul>
-    <h1 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h1>
-    <p>Kotlin is a general purpose, open source, statically typed programming language for the JVM and Android that combines object-oriented and functional programming features.</p>
-    <h1 id="why-kotlin">Why Kotlin?<a class="fa fa-anchor" href="#why-kotlin"></a></h1>
-    <h3 id="concise">Concise<a class="fa fa-anchor" href="#concise"></a></h3>
-    <p>Highly reduces the amount of boilerplate code.</p>
-    <ul>
-      <li>A Java object with getters, setters, equals(), hashCode(), toString() and copy() can be created in a single line in Kotlin</li>
-    </ul>
-    <pre><code class="hljs kotlin"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span></span>(<span class="hljs-keyword">val</span> name: String, <span class="hljs-keyword">val</span> email: String, <span class="hljs-keyword">val</span> company: String)
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top">
+          <a slot="brand" href="https://se-edu.github.io" title="SE-EDU Home" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
+          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
+          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <div class="website-content">
+          <h1 id="introduction-to-kotlin">Introduction to Kotlin<a class="fa fa-anchor" href="#introduction-to-kotlin"></a></h1>
+          <p>Author: <a href="https://github.com/tshradheya">Shradheya Thakre</a></p>
+          <p><strong>Chapter contents</strong></p>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#why-kotlin">Why Kotlin?</a>
+              <ul>
+                <li><a href="#concise">Concise</a></li>
+                <li><a href="#safe">Safe</a></li>
+                <li><a href="#interoperable">Interoperable</a></li>
+                <li><a href="#tool-friendly">Tool Friendly</a></li>
+              </ul>
+            </li>
+            <li><a href="#kotlin-for-android-apps">Kotlin for Android Apps</a>
+              <ul>
+                <li><a href="#advantages-of-shifting-to-kotlin">Advantages of Shifting to Kotlin</a></li>
+                <li><a href="#drawbacks-of-shifting-to-kotlin">Drawbacks of Shifting to Kotlin</a></li>
+              </ul>
+            </li>
+            <li><a href="#resources-to-learn-kotlin">Resources to learn Kotlin</a></li>
+          </ul>
+          <h1 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h1>
+          <p>Kotlin is a general purpose, open source, statically typed programming language for the JVM and Android that combines object-oriented and functional programming features.</p>
+          <h1 id="why-kotlin">Why Kotlin?<a class="fa fa-anchor" href="#why-kotlin"></a></h1>
+          <h3 id="concise">Concise<a class="fa fa-anchor" href="#concise"></a></h3>
+          <p>Highly reduces the amount of boilerplate code.</p>
+          <ul>
+            <li>A Java object with getters, setters, equals(), hashCode(), toString() and copy() can be created in a single line in Kotlin</li>
+          </ul>
+          <pre><code class="hljs kotlin"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span></span>(<span class="hljs-keyword">val</span> name: String, <span class="hljs-keyword">val</span> email: String, <span class="hljs-keyword">val</span> company: String)
 </code></pre>
-    <ul>
-      <li>Assigning values based on ranges is much simpler than Java. Below are extracts of code with similar logic in Java and Kotlin:</li>
-    </ul>
-    <p><strong>Kotlin</strong></p>
-    <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> quartile: <span class="hljs-built_in">Int</span>
+          <ul>
+            <li>Assigning values based on ranges is much simpler than Java. Below are extracts of code with similar logic in Java and Kotlin:</li>
+          </ul>
+          <p><strong>Kotlin</strong></p>
+          <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> quartile: <span class="hljs-built_in">Int</span>
 quartile = <span class="hljs-keyword">when</span> (playPercentage) {
     <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">24</span> -&gt; <span class="hljs-number">0</span>
     <span class="hljs-keyword">in</span> <span class="hljs-number">25</span>..<span class="hljs-number">49</span> -&gt; <span class="hljs-number">1</span>
     ...
 }
 </code></pre>
-    <p><strong>Java</strong></p>
-    <pre><code class="hljs java"><span class="hljs-keyword">int</span> quartile;
+          <p><strong>Java</strong></p>
+          <pre><code class="hljs java"><span class="hljs-keyword">int</span> quartile;
 <span class="hljs-keyword">if</span>(playPercentage &gt;= <span class="hljs-number">0</span> &amp;&amp; playPercentage &lt;= <span class="hljs-number">24</span>) {
     quartile = <span class="hljs-number">0</span>;
 } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(playPercentage &gt;= <span class="hljs-number">25</span> &amp;&amp; playPercentage &lt;= <span class="hljs-number">49</span>) {
@@ -99,62 +321,66 @@ quartile = <span class="hljs-keyword">when</span> (playPercentage) {
 }
 ...
 </code></pre>
-    <h3 id="safe">Safe<a class="fa fa-anchor" href="#safe"></a></h3>
-    <p>Kotlin protects you from mistakenly operating on <a href="https://kotlinlang.org/docs/reference/null-safety.html">nullable</a> types</p>
-    <ul>
-      <li>Get compilation error when you mistakenly try operating on nullable types</li>
-    </ul>
-    <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> name: String? = <span class="hljs-literal">null</span>    <span class="hljs-comment">// Nullable type</span>
+          <h3 id="safe">Safe<a class="fa fa-anchor" href="#safe"></a></h3>
+          <p>Kotlin protects you from mistakenly operating on <a href="https://kotlinlang.org/docs/reference/null-safety.html">nullable</a> types</p>
+          <ul>
+            <li>Get compilation error when you mistakenly try operating on nullable types</li>
+          </ul>
+          <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> name: String? = <span class="hljs-literal">null</span>    <span class="hljs-comment">// Nullable type</span>
 println(name.length())      <span class="hljs-comment">// Compilation error</span>
 </code></pre>
-    <h3 id="interoperable">Interoperable<a class="fa fa-anchor" href="#interoperable"></a></h3>
-    <ul>
-      <li>Target either the JVM or JavaScript. Write code in Kotlin and decide where you want to deploy</li>
-    </ul>
-    <pre><code class="hljs kotlin"><span class="hljs-keyword">import</span> kotlin.browser.window
+          <h3 id="interoperable">Interoperable<a class="fa fa-anchor" href="#interoperable"></a></h3>
+          <ul>
+            <li>Target either the JVM or JavaScript. Write code in Kotlin and decide where you want to deploy</li>
+          </ul>
+          <pre><code class="hljs kotlin"><span class="hljs-keyword">import</span> kotlin.browser.window
 <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onLoad</span><span class="hljs-params">()</span></span> {
     window.document.body!!.innerHTML += <span class="hljs-string">"&lt;br/&gt;Hello, Kotlin!"</span>
 }
 </code></pre>
-    <ul>
-      <li>You can literally continue work on your old Java projects using Kotlin. All your favorite Java frameworks are still available, and whatever framework you’ll write in Kotlin can be easily adopted by other Java developers</li>
-    </ul>
-    <h3 id="tool-friendly">Tool Friendly<a class="fa fa-anchor" href="#tool-friendly"></a></h3>
-    <p>Hyperbolically, a programming language is only as good as what its tools can provide. This is why the advantage of using Kotlin is the built-in language support from IntelliJ. Any Java IDE for e.g. IntelliJ, Eclipse and Android Studio, can be used to write and compile Kotlin code. It also contains the aforementioned Java-to-Kotlin converter and code generators for Java and JavaScript from Kotlin code.</p>
-    <h1 id="kotlin-for-android-apps">Kotlin for Android Apps<a class="fa fa-anchor" href="#kotlin-for-android-apps"></a></h1>
-    <p>While Java is one of the world's most widely used programming languages and is pretty much the official language of Android development, there are many reasons why Java might not always be the best option for your Android projects.</p>
-    <p>The biggest issue is that Java isn’t a modern language, and although Java 8 was a huge step forward for the platform, introducing lots of features that developers had been waiting for (including lambda functions), at the time of writing Android only supports a subset of Java 8 features.</p>
-    <h3 id="advantages-of-shifting-to-kotlin">Advantages of Shifting to Kotlin<a class="fa fa-anchor" href="#advantages-of-shifting-to-kotlin"></a></h3>
-    <ul>
-      <li>Interchangeability With Java</li>
-      <li>Easy learning curve</li>
-      <li>Combine the best of functional and procedural programming</li>
-      <li>First-class Android Studio support</li>
-      <li>More concise code</li>
-    </ul>
-    <h3 id="drawbacks-of-shifting-to-kotlin">Drawbacks of Shifting to Kotlin<a class="fa fa-anchor" href="#drawbacks-of-shifting-to-kotlin"></a></h3>
-    <ul>
-      <li>Extra runtime size due to increase in size of <code>.apk</code></li>
-      <li>Initial readability of code may be hindered for core Java developers</li>
-      <li>Smaller community support</li>
-    </ul>
-    <h1 id="resources-to-learn-kotlin">Resources to learn Kotlin<a class="fa fa-anchor" href="#resources-to-learn-kotlin"></a></h1>
-    <ul>
-      <li><a href="https://developer.android.com/kotlin/resources.html">Official Resources by Android</a></li>
-      <li><a href="https://kotlinlang.org/docs/reference/">Kotlin Documentation</a></li>
-      <li><a href="https://github.com/MindorksOpenSource/from-java-to-kotlin">Cheatsheet for shifiting from Java to Kotlin</a></li>
-    </ul>
+          <ul>
+            <li>You can literally continue work on your old Java projects using Kotlin. All your favorite Java frameworks are still available, and whatever framework you’ll write in Kotlin can be easily adopted by other Java developers</li>
+          </ul>
+          <h3 id="tool-friendly">Tool Friendly<a class="fa fa-anchor" href="#tool-friendly"></a></h3>
+          <p>Hyperbolically, a programming language is only as good as what its tools can provide. This is why the advantage of using Kotlin is the built-in language support from IntelliJ. Any Java IDE for e.g. IntelliJ, Eclipse and Android Studio, can be used to write and compile Kotlin code. It also contains the aforementioned Java-to-Kotlin converter and code generators for Java and JavaScript from Kotlin code.</p>
+          <h1 id="kotlin-for-android-apps">Kotlin for Android Apps<a class="fa fa-anchor" href="#kotlin-for-android-apps"></a></h1>
+          <p>While Java is one of the world's most widely used programming languages and is pretty much the official language of Android development, there are many reasons why Java might not always be the best option for your Android projects.</p>
+          <p>The biggest issue is that Java isn’t a modern language, and although Java 8 was a huge step forward for the platform, introducing lots of features that developers had been waiting for (including lambda functions), at the time of writing Android only supports a subset of Java 8 features.</p>
+          <h3 id="advantages-of-shifting-to-kotlin">Advantages of Shifting to Kotlin<a class="fa fa-anchor" href="#advantages-of-shifting-to-kotlin"></a></h3>
+          <ul>
+            <li>Interchangeability With Java</li>
+            <li>Easy learning curve</li>
+            <li>Combine the best of functional and procedural programming</li>
+            <li>First-class Android Studio support</li>
+            <li>More concise code</li>
+          </ul>
+          <h3 id="drawbacks-of-shifting-to-kotlin">Drawbacks of Shifting to Kotlin<a class="fa fa-anchor" href="#drawbacks-of-shifting-to-kotlin"></a></h3>
+          <ul>
+            <li>Extra runtime size due to increase in size of <code>.apk</code></li>
+            <li>Initial readability of code may be hindered for core Java developers</li>
+            <li>Smaller community support</li>
+          </ul>
+          <h1 id="resources-to-learn-kotlin">Resources to learn Kotlin<a class="fa fa-anchor" href="#resources-to-learn-kotlin"></a></h1>
+          <ul>
+            <li><a href="https://developer.android.com/kotlin/resources.html">Official Resources by Android</a></li>
+            <li><a href="https://kotlinlang.org/docs/reference/">Kotlin Documentation</a></li>
+            <li><a href="https://github.com/MindorksOpenSource/from-java-to-kotlin">Cheatsheet for shifiting from Java to Kotlin</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.14.1</a> on Sat, 17 Nov 2018 07:33:49 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 10:57:57 GMT]</small></div>
 </footer>
 </div>
 </body>
 <script src="..\..\markbind\js\vue.min.js"></script>
 <script src="..\..\markbind\js\vue-strap.min.js"></script>
+<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
 <script src="..\..\markbind\js\polyfill.min.js"></script>
 <script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
 <script>
