@@ -49,6 +49,11 @@ You can also add new topics or update existing content:
 * **Prefer visuals rather than long paragraphs.**
 * **Some of the existing articles might not follow the above guidelines** (the guidelines emerged over time). Feel free to revise existing content to fit the guidelines.
 
+<box type="tip">
+
+A fairly decent example of applying the above guidelines can be found in the article [_Introduction to Go_]({{ baseUrl }}/contents/go/Go.html).
+</box>
+
 
 
 </div>

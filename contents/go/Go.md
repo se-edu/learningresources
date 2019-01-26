@@ -14,18 +14,6 @@
 
 Author(s): [Cara Leong](https://github.com/craaaa)
 
-- [What Is Go?](#what-is-go)
-- [Why Learn Go?](#why-learn-go)
-- [What Makes Go Special?](#what-makes-go-special)
-	- [Declaring Variables](#declaring-variables)
-	- [Concurrency](#concurrency)
-	- [Error Handling](#error-handling)
-	- [`defer`](#defer)
-	- [Interfaces](#interfaces)
-	- [Canonical Coding Style](#canonical-coding-style)
-- [How Do I Start Using Go?](#how-do-i-start-using-go)
-	- [Useful Resources](#useful-resources)
-
 ## What Is Go?
 Go (also known as `golang`) is a compiled, statically-typed, garbage-collected language that has special memory safety and concurrent programming features. Born out of frustration with the available languages (e.g. C, C++, Java) and environments for systems programming, Go was [conceptualized by programmers at Google](https://talks.golang.org/2012/splash.article) who sought to create a single language that was efficient to write, build and execute. Go also supports newer developments in computing such as multicore processors and network systems.
 
@@ -38,10 +26,9 @@ Go (also known as `golang`) is a compiled, statically-typed, garbage-collected l
 
 Of course, Go is [not a perfect language](https://github.com/ksimka/go-is-not-good). However, for some people, Go may be exactly the right language to pick up! If you're unconvinced about how you can learn and use Go, you can use [the Go playground](https://play.golang.org/) to write, build and execute code without installing Go on your machine.
 
-## What Makes Go Special?
 As it builds on the foundations set by many popular and widely-used languages such as C, C++, Java and Python, much of Go's syntax draws from existing implementations and will be familiar to programmers looking to learn an additional language. However, Go also diverges explicitly from these other languages. Listed below are some features that make Go unique!
 
-### Declaring Variables
+### Benefit: Better Variable Declarations
 One immediately obvious difference between Go and other languages is that Go declares its variables in the format `var variableName (variableType)`, with the variable's type declared to the right of the variable name, as follows:
 
 ```go
@@ -69,7 +56,7 @@ Thus, we see that there are several potential ways to declare a variable in Go. 
 
 Go's syntax for more complex types such as pointers, arrays and structs is also somewhat idiosyncratic, and can be explored in this [Go blog article](https://blog.golang.org/gos-declaration-syntax), or with the help of [this tutorial on pointers](http://www.golang-book.com/books/intro/8) and [this tutorial on structs](https://www.golang-book.com/books/intro/9).
 
-### Concurrency
+### Benefit: Better Support for Concurrency
 One of Go's special features is its focus on implementing concurrency simply and well. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.
 
 #### Goroutines
@@ -147,7 +134,7 @@ func main() {
 
 If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's [basic](https://www.youtube.com/watch?v=f6kdp27TYZs) and [advanced concurrency patterns](https://www.youtube.com/watch?v=QDDwwePbDtw). This [code walkthrough](https://golang.org/doc/codewalk/sharemem/) provides an annotated example of how Go's memory-sharing principles can be applied in practice.
 
-### Error Handling
+### Benefit: Better Error Handling
 Error handling in Go is performed using multiple returns. On any function that can fail, the function's last return type should always be of the type `error`. For example, the `os.Open` function returns a non-nil error value when it fails to open a file.
 
 ```go
@@ -184,7 +171,7 @@ To deal with unexpected errors, Go also provides two mechanisms: `panic` and `re
 
 More information on error handling can be found on the [Go blog](https://blog.golang.org/error-handling-and-go) or [Go wiki](https://github.com/golang/go/wiki/PanicAndRecover).
 
-### `defer`
+### Benefit: `defer` Execution
 As opposed to traditional control flow mechanisms such as `if`, `for` and `switch`, which execute functions immediately, Go's `defer` keyword pushes a function call to a list, and only executes all functions on the list after the surrounding function returns. In the following example, `defer` adds two print functions to the stack of deferred functions. After `foo` finishes executing, the deferred functions are executed in last-in-first-out order.
 
 ```go
@@ -197,7 +184,7 @@ func foo() {
 
 `defer` is frequently used for clean-up actions, such as to [close files](https://gobyexample.com/defer). Deferred functions run on [panicking goroutines](#error-handling) as well, which makes them useful for recovering from `panic`.
 
-### Interfaces
+### Benefit: Good Support for Interfaces
 Although Go has types and methods and allows pseudo-object-oriented style of programming, type hierarchy does not exist in Go. Instead, Go uses interfaces to specify methods that types should implement, favouring composition over inheritance. Types do not need to explicitly specify which interfaces are implemented. Instead, types implement interfaces by implementing the methods in the interface.
 
 In the example below, the `Rectangle` type implements the interface `TwoDimensional` by implementing the methods `area()` and `perim()` that are specified in the interface. Thus, instances of `Rectangle` can be used as arguments to `price`. 
@@ -252,7 +239,7 @@ One benefit of using a system where interface implementations need not be stated
 Some resources to get started with Go interfaces include [this blog post](https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c) introducing Go interfaces and code examples on
 [how interfaces (including the empty interface) are used in practice](https://www.calhoun.io/how-do-interfaces-work-in-go/). For a more extensive look at how object-oriented programming is done in Go, you can refer to this [comparison of Go's OOP style with that of other languages](https://flaviocopes.com/golang-is-go-object-oriented/), [Go's official FAQ on OOP](https://golang.org/doc/faq#Is_Go_an_object-oriented_language), or this [tutorial on OOP in Go](https://code.tutsplus.com/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540).
 
-### Canonical Coding Style
+### Benefit: Canonical Coding Style
 Formatting in Go is enforced by running `go fmt`, which will align your source code with the language-wide standard style of indentation and vertical alignment. Thus, given the following code:
 
 ```go
@@ -273,11 +260,11 @@ Variations on `go fmt` may be of use, and can be found in the [Go documentation]
 
 Go also enforces good coding practices, for instance, by refusing to build projects that declare of unused variables or imports. Such enforcement, along with a clear, unified and extensive [treatise on coding conventions in Go](https://golang.org/doc/effective_go.html), have manifested in a reasonably stable Go coding style.
 
-## How Do I Start Using Go?
+## How to Get Started with Go?
 
 Go provides its own [installation guide](https://golang.org/doc/install) and an interactive [ tour of Go](https://tour.golang.org/). These are useful and highly comprehensive resources for programmers looking to learn the syntax and style of Go. For those who prefer to read existing code examples, [Go by Example](https://gobyexample.com/) is a collection of code samples covering a wide variety of features in Go, and includes line-by-line explanations of the code. For those looking for a quick crash course on Go syntax, the Learn X In Y Minutes [Go cheatsheet](https://learnxinyminutes.com/docs/go/) may also be a good starting point.
 
-### Useful Resources
+### Where to Go from Here?
 Go's development team is heavily involved in documenting and growing the Go language and community. If you are keen to learn more about Go, here are some resources to help you get started:
 
 - [The Go FAQ](https://golang.org/doc/faq) - answers common questions about the language's history, usage, design and more
