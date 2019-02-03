@@ -70,6 +70,11 @@
 
 <div id="flex-body">
   <div id="site-nav">
+    <div class="indented">
+      <form class="navbar-form">
+        <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-left=""></searchbar>
+      </form>
+    </div>
     <span id="toc">
       <ul style="list-style-type: none; margin-left:-1em">
         <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
@@ -82,21 +87,21 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html">Rvalue References and Move Semantics</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html">Go</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html">Haskell</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
               <li style="margin-top: 10px"><button class="dropdown-btn">Java
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html">Java Streams</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html">Java Reflection</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
                   </ul>
                 </div>
               </li>
@@ -105,8 +110,8 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html">Writing Testable JavaScript Code</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html">Javascript Promises</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
                   </ul>
                 </div>
               </li>
@@ -115,15 +120,15 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html">Introduction to Kotlin</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html">Null Safety In Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html">Python</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html">Ruby</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html">Rust</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html">Swift</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
             </ul>
           </div>
         </li>
@@ -137,7 +142,7 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html">REST</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
                   </ul>
                 </div>
               </li>
@@ -146,19 +151,19 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html">Code Quality Metrics</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html">Documentation</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html">Functional Programming</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
               <li style="margin-top: 10px"><button class="dropdown-btn">Performance
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html">Introduction to Performance Optimization</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html">Performance Profiling</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
                   </ul>
                 </div>
               </li>
@@ -167,8 +172,8 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html">Agile Development</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html">DevOps</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
                   </ul>
                 </div>
               </li>
@@ -177,21 +182,21 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html">Best Practices with git</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html">Scalability</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
               <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html">Introduction to Static Analysis</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html">ESLint</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
                   </ul>
                 </div>
               </li>
@@ -200,7 +205,7 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html">Writing Testable Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
                   </ul>
                 </div>
               </li>
@@ -209,8 +214,8 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html">Introduction to UI/UX</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html">Refining UX Design Skills</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
                   </ul>
                 </div>
               </li>
@@ -222,9 +227,9 @@
               <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
           <div class="dropdown-container">
             <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html">Android</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html">NodeJS</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html">VueJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
             </ul>
           </div>
         </li>
@@ -233,7 +238,7 @@
               <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
           <div class="dropdown-container dropdown-container-open">
             <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html" class="current">Regular Expressions</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a current">Regular Expressions</a></li>
             </ul>
           </div>
         </li>
@@ -242,16 +247,16 @@
               <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
           <div class="dropdown-container">
             <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html">Computer Vision</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html">Databases</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html">Machine Learning</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html" class="site-nav__a">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
               <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html">GPGPU</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html">CUDA</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
                   </ul>
                 </div>
               </li>
@@ -260,11 +265,11 @@
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html">Cross Site Request Forgery</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html">Cross Site Scripting</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html">Cryptography</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html">HTTPS</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html">SQL Injection</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
                   </ul>
                 </div>
               </li>
@@ -272,7 +277,8 @@
           </div>
         </li>
       </ul>
-    </span></div>
+    </span>
+  </div>
   <div id="site-nav-btn-wrap">
     <div id="site-nav-btn">
       <div class="menu-top-bar"></div>
@@ -284,17 +290,21 @@
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
         <navbar placement="top">
-          <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><button type="button" class="btn btn-outline-dark"><span>More <img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"> Projects ...</span></button></a>
-          <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-          <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contribute</strong></span></a></li>
-          <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-          <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span class="fab fa-github"></span></span></a></li>
-          <li slot="right" class="nav-link">
-            <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search" :on-hit="searchCallback" menu-align-right=""></searchbar>
-            </form>
-          </li>
+          <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
+          <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
+          <li><a href="https://se-edu.github.io/addressbook-level3/" class="nav-link"><span>AB-3</span></a></li>
+          <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
+          <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
+          <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
+          <dropdown text="Resources" class="nav-link">
+            <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
+            <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
+            <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
+            <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+          </dropdown>
         </navbar>
+        <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
         <div class="website-content">
           <h1 id="introduction-to-regular-expressions">Introduction to Regular Expressions<a class="fa fa-anchor" href="#introduction-to-regular-expressions"></a></h1>
           <p>Authors: Jamos Tay</p>
@@ -329,7 +339,7 @@
           <p>Firstly, the phone number may start with a country code 65. This criterion is embedded in <code>(65)?</code>. The first part, <code>(65)</code>, matches the country code. The question mark <code>?</code> means that the <code>(65)</code> that comes before it is optional.</p>
           <p>Secondly, a phone number must have 8 digits. This is specified by <code>[\d]{8}</code>. <code>[\d]</code> matches a single digit from 0-9, and <code>{8}</code> means that <code>[\d]</code> is repeated 8 times. Putting them together, <code>[\d]{8}</code> matches a string of 8 digits.</p>
           <p>As we can see, the pattern <code>(65)?[\d]{8}</code> when translated to simple English, means 'Look for a string of 8 numerical digits, that may have an extra <code>65</code> in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:</p>
-          <pre class="hljs"><code>6591234567
+          <pre><code class="hljs">6591234567
 87775555
 67777188
 </code></pre>
@@ -479,22 +489,22 @@
             <li>Return when a match is found, or if no match is found.</li>
           </ol>
           <p>For example, for the regex <code>light</code> against the sentence <code>He likes light lightbulbs.</code>:</p>
-          <pre class="hljs"><code>He likes light lightbulbs.
+          <pre><code class="hljs">He likes light lightbulbs.
 ^
 light
 </code></pre>
           <p>First, the engine checks against the start of the string, <code>H</code> against <code>l</code>. This doesn't match, so the engine moves on to <code>e</code>, then <code></code>, and so on.</p>
-          <pre class="hljs"><code>He likes light lightbulbs.
+          <pre><code class="hljs">He likes light lightbulbs.
    ^
    light
 </code></pre>
           <p>Once it reaches the first <code>l</code>, it sees a match, consumes the <code>l</code> and starts comparing the rest of the string.</p>
-          <pre class="hljs"><code>He likes light lightbulbs.
+          <pre><code class="hljs">He likes light lightbulbs.
      ^
    light
 </code></pre>
           <p>However, when it reaches <code>k</code>, it finds a different character so it knows it's not a match. It then starts again from <code>i</code> (the letter after <code>l</code>).</p>
-          <pre class="hljs"><code>He likes light lightbulbs.
+          <pre><code class="hljs">He likes light lightbulbs.
          ^
          light
 </code></pre>
@@ -502,23 +512,23 @@ light
           <p>Of course, more complex Regex functions will require more steps, but this will give you a rough understanding of the engine for now.</p>
           <h2 id="greedy-operators">Greedy Operators<a class="fa fa-anchor" href="#greedy-operators"></a></h2>
           <p>The operators <code>{}</code>, <code>*</code> and <code>+</code> are called greedy operators because they try to match as many characters as possible. For example, for the regex <code>b.*</code> against the string <code>baaaaaa</code>:</p>
-          <pre class="hljs"><code>baaaaaaaaa
+          <pre><code class="hljs">baaaaaaaaa
  ^
 ba
 </code></pre>
           <p>Although a suitable match (<code>ba</code>) has already been found, the engine sees that it can match against a longer string of <code>a</code>s. It will instead return the match <code>baaaaaaaaa</code>, matching the entire string.</p>
           <p>But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex <code>c.*ed</code> against the string <code>contested</code> (Let <code>.....</code> represent <code>.+</code>).</p>
-          <pre class="hljs"><code>contested
+          <pre><code class="hljs">contested
         ^
 c........ed
 </code></pre>
           <p>Remember that <code>.*</code> matches any number of characters, and this includes the <code>ed</code> at the back! The entire string is matched by <code>c.*</code>, leaving no characters left for <code>ed</code>. This obviously doesn't match, so the engine backtracks one step:</p>
-          <pre class="hljs"><code>contested
+          <pre><code class="hljs">contested
         ^
 c.......ed
 </code></pre>
           <p>As we can see, <code>e</code> still doesn't match <code>d</code>, so we take another step back:</p>
-          <pre class="hljs"><code>contested
+          <pre><code class="hljs">contested
        ^
 c......ed
 </code></pre>
@@ -528,7 +538,7 @@ c......ed
           <p>Match a person's full name: <code>(Anderson.*Cooper)</code> <br>
             Text: <code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</code></p>
           <p>This looks like a simple matching at first glance, but look at what happens:</p>
-          <pre class="hljs"><code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)
+          <pre><code class="hljs">Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)
                ^
                Anderson..............................................
 </code></pre>
@@ -541,32 +551,32 @@ c......ed
             E.g.: <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></p>
           <p>This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?</p>
           <p>The problem occurs because <code>.</code> matches any character. This also includes the comma separating the group. This is what happens when the first set of <code>(.+,)</code> is parsed:</p>
-          <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [.........................,
 [.+                       ,
 </code></pre>
           <p>The first group keeps everything as its data group. Now, it tries to find the second <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks:</p>
-          <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [......................,..,
 [.+                    ,.+,
 </code></pre>
           <p>This time the first and second groups are matched. Now, it tries to find the <strong>third</strong> <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks yet again. So we move the first <code>(.+,)</code> back:</p>
-          <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [...................,
 [.+                 ,
 </code></pre>
           <p>Now, what happens? Well, the second <code>(.+,)</code> is greedy, so it actually matches the last comma instead!</p>
-          <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ^
 [...................,.....,
 [.+                 ,.+   ,
 </code></pre>
           <p>As we can see, by chaining repeated groups, it actually causes cascading levels of backtracking, which leads to very poor performance, even with short strings. For this case, we can observe that each comma is either included in the regex or not included in the match, and every possible combination of included and not included combinations will appear at least once. That means the complexity is equal to the number of possible ways n commas can be either included or not included, or O(2<sup>n</sup>). This is a Very Bad Thing™!</p>
           <p>This problem can be exacerbated by the one mentioned previously. Imagine if your text looked like this:</p>
-          <pre class="hljs"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)
+          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)
 [...................................................,
 </code></pre>
           <p>The extra parts of the string will be matched each time, and we can only imagine how long that will take.</p>
@@ -599,7 +609,7 @@ c......ed
             <p>Use <code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code></p>
           </blockquote>
           <p>A greedy quantifier <code>+</code> or <code>*</code> can be turned into a lazy quantifier by adding an extra <code>?</code> behind it, i.e. (<code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code>). A lazy quantifier works similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our <code>contested</code> example, if we replaced <code>c.+d</code> with <code>c.+?d</code>, the engine would stop matching the <code>.+</code> here:</p>
-          <pre class="hljs"><code>contested
+          <pre><code class="hljs">contested
   ^
 c.ed
 </code></pre>
@@ -633,7 +643,7 @@ c.ed
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.0</a> on Sat, 26 Jan 2019 14:59:24 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:08:16 GMT]</small></div>
 </footer>
 </div>
 </body>

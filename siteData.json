@@ -1133,12 +1133,11 @@
       "layout": "default"
     },
     {
-      "headings": {
-        "learning-resources-for-software-engineering-students": "Learning Resources for Software Engineering Students"
-      },
+      "headings": {},
       "title": "Learning Resources for Software Engineering Students",
       "footer": "footer.md",
       "head": "head.md",
+      "siteNav": "mainNav.md",
       "src": "index.md",
       "layout": "default"
     }
