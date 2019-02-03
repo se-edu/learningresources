@@ -2,13 +2,12 @@
   title: "Learning Resources for Software Engineering Students"
   footer: footer.md
   head: head.md
+  siteNav: mainNav.md
 </frontmatter>
 
 {{ navbar | safe }}
 
 <div class="website-content">
-
-# Learning Resources for Software Engineering Students
 
 <span class="lead">This [SE-EDU](https://se-edu.github.io) sub-project is **a collection of Software Engineering learning resources especially suitable for SE students**. </span>
 
