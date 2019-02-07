@@ -71,6 +71,7 @@
     * [Cross Site Scripting]({{baseUrl}}/contents/security/crossSiteScripting/crossSiteScripting.html)
     * [Cryptography]({{baseUrl}}/contents/security/cryptography.html)
     * [HTTPS]({{baseUrl}}/contents/security/Https.html)
+    * [Password Storage]({{baseUrl}}/contents/security/passwordStorage.html)
     * [SQL Injection]({{baseUrl}}/contents/security/sqlInjection.html)
 
 </navigation>
