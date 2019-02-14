@@ -12,7 +12,7 @@
 
 # Javascript: Promises
 
-Author: Daniel Berzin Chua
+Author: Daniel Berzin Chua, Metta Ong
 
 ## Why Promises?
 
@@ -86,53 +86,128 @@ These situations correspond to the 3 states of Promises in Javascript.
 Promises provide the ability to specify how the execution of some part of your code would depend on the status of an asynchronous operation. It can now wait for the asynchronous operation to resolve first before doing any work on its result.
 
 ## Quickstart
+Here, we will be showing you some sample code to get started with promises. We understand there is some style of programming you are used to. So here, we are giving you a few examples, first in the style are are familar with, then switching over to promises.
 
-Let's return to the setTimeout example at the beginning and rewrite that with promises.
+### From callbacks to promises
+Say we have two pretty long and intensive functions, `getData()` and `filterData()`. You will have to get the data from some server using `getData()`, then process it using `filterData()`, all before you can start displaying the results.
+
+And how would such functions be implemented without promises, using the callback method? The callback method ultilizes the fact that we can easily pass functions into javscript as parameters and then use them within the function, effectively "passing" any form of data out, without explicitly returning any value.
+
+We will implement the above use case in the "callback style" (mimicking the long and intensiveness of the functions using `setTimeout`):
 
 ```javascript
-function update() {
-    return new Promise((resolve, reject) => {
-        var x = "I have not been updated";
-        setTimeout(function() {
-            x = "I have been updated";
-            resolve(x);
+function intenseWait(val, callback) {
+    // return val after a short wait
+    setTimeout(function(){
+        callback(val);
+    }, 1000);
+}
+
+/** The very long calls **/
+function getData(callback) {
+    intenseWait('some random data', callback);
+}
+
+function filterData(data, callback) {
+    intenseWait(data.split(' '), callback);
+}
+
+function main() {
+    getData(function(data){
+        filterData(function(filtered){
+            // will print array of splited text
+            console.log(filtered);
+        })
+    });
+}
+
+main();
+```
+
+Now we will rewrite the whole thing in the "promise style". We will be using the same function and variable names, this will let you see how exactly promise works, as opposed to the callback style that you might be more familar with.
+
+```javascript
+function intensewait(val) {
+    // return val after a short wait
+    return new promise(resolve => {
+        settimeout(function(){
+            resolve(val);
         }, 1000);
     });
 }
 
-update().then(result => console.log(result));
-```
-
-The first step of creating a Promise involves invoking the `Promise` constructor which takes in just 1 parameter known as the executor function. This is the function that will be executed by the Promise. This function has two parameters: resolve, reject. In our example, we only use the resolve function to indicate that our promise has executed successfully with the result `x`. The reject function may be used to indicate that some error has occured during execution.
-
-After defining the function, we call it, and we call another function `.then()` upon the result. `.then()` is used to consume the result from a fulfilled Promise and act on it. In this case, we are using it to log our result. More importantly, it lets us chain promises to avoid the deep nesting known as callback hell.
-
-Here's the callback hell code rewritten with Promises.
-
-```javascript
-function update(numTimes) {
-    return new Promise((resolve, reject) => {
-        var x = "I have not been updated";
-        setTimeout(function() {
-            x = "I have been updated " + numTimes + " times.";
-            console.log(x);
-            resolve(numTimes);
-        }, 1000);
-    });
+/** note these funcs now return a promise **/
+function getdata() {
+    return intensewait('some random data');
 }
 
-update(1)
-    .then((result) => update(result + 1))
-    .then((result) => update(result + 1));
-```
+function filterdata(data, callback) {
+    return intensewait(data.split(' '));
+}
 
-Now we update our function to take in a parameter `numTimes` so that we can log how many times `x` was updated. `then()` will return a Promise, which you can then again call `.then()`. By doing this, we can chain our Promises and ensure that execution of the code goes in the order that we require. In addition, it also allows your variables to be correctly passed down, ensuring that you will not have to deal with any undefined variables along the way.
+function main() {
+    return getdata()
+        .then(data => filterdata(data))
+        .then(fltered => console.log(filtered));
+}
+
+main();
+```
 
 Using Promises helps your code to be clean and easy to read, which makes it easy for anyone to instantly know what the code does, instead of having to trace through the code written with callbacks.
 
-## How Promises are used
+### The iterative style of promises
 
-There are many interesting ways to use Promises. Here we cover HTTP requests in Javascript, and Disk I/O in Node.js. No prior knowledge of Node.js is necessary.
+The "promise style", with all the `.then()` to pass data from one function to the next, it is kinda like functional programming. The original promise is passed from one `.then()` to the other, and with each `.then()`, a new promise is returned for the next `.then()` to work on.
+
+There is probably a small group of you out there is the confused by the whole block of text above. And that is exactly why they have the "async await" style of using promises. Well, callbacks aint exactly for everybody.
+
+The `async` keyword ensures that the function returns a promise, and as for `await`, you can think of it as waiting for some promise to return the value before continuing. So back to the same example.
+
+So here is the code in the "promise style".
+
+```javascript
+function intensewait(val) {
+    // return val after a short wait
+    return new promise(resolve => {
+        settimeout(function(){
+            resolve(val);
+        }, 1000);
+    });
+}
+
+function getdata() {
+    return intensewait('some random data');
+}
+
+function filterdata(data, callback) {
+    return intensewait(data.split(' '));
+}
+
+/** changes only required in main **/
+function main() {
+    return getdata()
+        .then(data => filterdata(data))
+        .then(fltered => console.log(filtered));
+}
+
+main();
+```
+
+Using the "async await" style, only the `main()` function needs to be changed. After the change, you will realize that the code becomes much simpler to understand. There is a clear improvement in clarity and readability.
+
+```javscript
+async function main() {
+    const data = await getdata();
+    const filtered = await filterdata(data);
+
+    console.log(filtered);
+}
+```
+
+`async` ensures that `main()` returns a promise. In our case, this will cause `main()` to return with `undefined` (equivalent to running `Promise.resolve()`).
+
+In the "promise" style, we handle errors using the `.catch()` block. However when using the "async await" style, we handle the errors using the more convention `try ... catch` block. These can be explored further in the readings listed at the end of this post.
 
 ### HTTP Requests
 
@@ -195,9 +270,10 @@ In addition, there are other libraries such as [Bluebird](http://bluebirdjs.com/
 
 ## Further Reading
 
-You may read more about Promises, and how to use them at the following 2 websites:
+You may read more about Promises, and how to use them at the following pages:
 
-[JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/primers/promises)
-[JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
+- [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/primers/promises)
+- [JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
+- [Javascript Async/Await](https://javascript.info/async-await)
 
 </div>
