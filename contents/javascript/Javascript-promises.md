@@ -209,6 +209,7 @@ async function main() {
 
 In the "promise" style, we handle errors using the `.catch()` block. However when using the "async await" style, we handle the errors using the more convention `try ... catch` block. These can be explored further in the readings listed at the end of this post.
 
+## How Promises are used
 ### HTTP Requests
 
 Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for the response to be returned.
