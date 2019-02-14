@@ -25,7 +25,6 @@ To illustrate this problem in code, we'll use `setTimeout()`. This is an asynchr
 You would probably expect `console.log(x)` to print `I have been updated` after 1 second has passed. Unfortunately, it prints `I have not been updated.` Give it a try in Google Chrome's developer console.
 
 ```javascript
-
 var x = "I have not been updated";
 
 setTimeout(function (){
@@ -33,26 +32,22 @@ setTimeout(function (){
 }, 1000);
 
 console.log(x);
-
 ```
 
 To fix this problem, we can simply shift the `console.log(x)` into the callback to get the expected result. It will now print the correct value.
 
 ```javascript
-
 var x = "I have not been updated";
 
 setTimeout(function (){
     x = "I have been updated";
     console.log(x);
 }, 1000);
-
 ```
 
-However, this fix will only go so far. If we had another `setTimeout()` that depended on the result of the earlier `setTimeout()`, we would have to nest the functions within each other which would make for unreadable code as follows. 
+However, this fix will only go so far. If we had another `setTimeout()` that depended on the result of the earlier `setTimeout()`, we would have to nest the functions within each other which would make for unreadable code as follows.
 
 ```javascript
-
 var x = "I have not been updated";
 
 setTimeout(function (){
@@ -68,8 +63,8 @@ setTimeout(function (){
         }, 1000);
     }, 1000);
 }, 1000);
-
 ```
+
 This is what's infamously known as callback hell. It's a natural result of using too many callbacks, as this would result in the code becoming deeply nested. It would be difficult for anyone to read your code and to understand what exactly is going on.
 
 We can instead use Promises for cleaner code that would be easier to read, write and debug.
@@ -79,6 +74,7 @@ We can instead use Promises for cleaner code that would be easier to read, write
 The following example is adapted from [JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies).
 
 Promises in Javascript behave the same way as Promises do in real life. Imagine that your friend promises to return you money that you have lent him. At the time this promise was made, you would not know if your friend would really return your money. Your friend could either return your money on time, or he could just not do it.
+
 These situations correspond to the 3 states of Promises in Javascript.
 
 | State | Description |
@@ -91,10 +87,9 @@ Promises provide the ability to specify how the execution of some part of your c
 
 ## Quickstart
 
-Let's return to the setTimeout example at the beginning and rewrite that with promises. 
+Let's return to the setTimeout example at the beginning and rewrite that with promises.
 
 ```javascript
-
 function update() {
     return new Promise((resolve, reject) => {
         var x = "I have not been updated";
@@ -106,17 +101,15 @@ function update() {
 }
 
 update().then(result => console.log(result));
-
 ```
 
-The first step of creating a Promise involves invoking the `Promise` constructor which takes in just 1 parameter known as the executor function. This is the function that will be executed by the Promise. This function has two parameters: resolve, reject. In our example, we only use the resolve function to indicate that our promise has executed successfully with the result `x`. The reject function may be used to indicate that some error has occured during execution. 
+The first step of creating a Promise involves invoking the `Promise` constructor which takes in just 1 parameter known as the executor function. This is the function that will be executed by the Promise. This function has two parameters: resolve, reject. In our example, we only use the resolve function to indicate that our promise has executed successfully with the result `x`. The reject function may be used to indicate that some error has occured during execution.
 
 After defining the function, we call it, and we call another function `.then()` upon the result. `.then()` is used to consume the result from a fulfilled Promise and act on it. In this case, we are using it to log our result. More importantly, it lets us chain promises to avoid the deep nesting known as callback hell.
 
 Here's the callback hell code rewritten with Promises.
 
 ```javascript
-
 function update(numTimes) {
     return new Promise((resolve, reject) => {
         var x = "I have not been updated";
@@ -128,9 +121,9 @@ function update(numTimes) {
     });
 }
 
-update(1).then((result) => update(result + 1))
-.then((result) => update(result + 1));
-
+update(1)
+    .then((result) => update(result + 1))
+    .then((result) => update(result + 1));
 ```
 
 Now we update our function to take in a parameter `numTimes` so that we can log how many times `x` was updated. `then()` will return a Promise, which you can then again call `.then()`. By doing this, we can chain our Promises and ensure that execution of the code goes in the order that we require. In addition, it also allows your variables to be correctly passed down, ensuring that you will not have to deal with any undefined variables along the way.
@@ -150,7 +143,6 @@ The following code sends a GET request to a URL and logs the body of the respons
 Code adapted from [Promise MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ```javascript
-
 function fetchPage(url) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -164,7 +156,6 @@ function fetchPage(url) {
 fetchPage('path/to/resource')
     .then(response => console.log(response))
     .catch(err => console.log(err));
-
 ```
 
 ### Disk I/O
@@ -172,7 +163,6 @@ fetchPage('path/to/resource')
 Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.
 
 ```javascript
-
 const fs = require('fs');   // this is the in-built filesystem module from Node.js
 
 function readFileWithPromise(filePath) {
@@ -191,7 +181,6 @@ function readFileWithPromise(filePath) {
 readFileWithPromise('path/to/file')
     .then(data => console.log(data))
     .catch(err => console.log(err));
-
 ```
 
 ## Other functions
