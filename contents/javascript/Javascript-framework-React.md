@@ -1,5 +1,5 @@
 <frontmatter>
-  title: ReactJs
+  title: React
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
@@ -26,7 +26,8 @@ React abstracts away the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/
 
 ### Why React?
 
-React has taken the world of front-end development by storm. Let's see what makes it so popular.
+React allows developers to create large web applications which can change data, without reloading the page. The main purpose of React is to be fast, scalable, and simple. 
+Some of its benefits are described in detail below.
 
 #### React is Declarative
 
@@ -41,7 +42,7 @@ You can see React's declarative approach in action in the sandbox below:
 
 The sandbox above is editable. You can play around with the application `state` and see how the view automatically gets updated. 
 
-Now you can see that with React, you just need to specify *what* you want to do when the application data changes. React will efficiently update and render just the right view components without you having to interact with the DOM. 
+Notice that with React, you just need to specify *what* you want to do when the application data changes. React will efficiently update and render just the right view components without you having to interact with the DOM. 
 
 #### React is Component-Based
 
@@ -78,12 +79,30 @@ Those are the three main benefits of React. Other advantages are as follows:
  - It is a constantly developing open-source library that is backed by Facebook, so you can be sure of getting community support.
  - If your application is large, you can manage its state conveniently using [Redux](https://redux.js.org/introduction/getting-started). Note that Redux can be used with any other view library, but it is mostly used with React. Hence, there are more resources for learning React + Redux.
 
-Like any other framework, React has its disadvantages, which are as follows:
+### Why not React?
+
+Like any other library, React has its disadvantages, which are as follows:
  - The high pace of development means that you would need to regularly relearn how to do things.
  - The huge number of tools you can integrate with React don't always have comprehensive documentation.
  - React is just a UI library. As React only allows one-way data binding, you would need to use [Flux](https://github.com/facebook/flux), a new application architecture introduced by Facebook that favours unidirectional data flow. 
- However, if you prefer working with the MVC pattern, you should consider Angular or Vue instead of React.
-  
+ However, if you prefer working with the MVC pattern, you should consider a framework that lets you use it.
+
+#### React and other Competing Alternatives
+
+There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are [Angular](https://angular.io/) and [Vue](https://vuejs.org/).
+
+How do you decide which one to use? Here are some resources to help you choose between them:
+- [React, Angular, Vue: What they can do and which one is for you](https://blog.teamtreehouse.com/react-angular-vue) - guidelines for choosing which technology to learn.
+- [Angular vs Vue vs React](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/) - in addition to comparing the three technologies, this article aims to give a general structure for comparing JavaScript frameworks and libraries. Hence, you can use this structure to choose between any new frameworks that may arrive in the future.
+- [State of JS 2018: Front-end Frameworks](https://2018.stateofjs.com/front-end-frameworks/overview/) - survey comparing the average salaries, company size, developer satisfaction, etc. for the most used JavaScript front-end technologies as of 2018.
+
+React is best suited for projects that have a lot of user interactions that manipulate the DOM extensively. 
+You should choose React if you want the flexibility to choose your application's stack, as it is not opinionated.
+Additionally, if you need a mobile version for your app, React Native will make the development process considerably faster as most of the React code in your web version can be reused. 
+
+However, if you prefer out-of-the-box solutions with a strong application structure, you should consider other alternatives like Angular or Vue. Additionally, you should prefer these alternatives if you want to follow
+the traditional MVC framework, as integrating React into an MVC framework will require additional configurations.
+
 Every framework has its pros and cons, but hopefully you have managed to see that React removes some of the complexity that comes with building user interfaces (see [this](https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome) blog post for a more elaborate explanation). 
 
 ### How to get started with React?
@@ -107,7 +126,7 @@ As React is a fairly popular library, you can find a lot of comprehensive resour
  - The React [blog](https://reactjs.org/blog/) - updates about React's latest features will be available here.
  - A list of [project ideas](https://flaviocopes.com/sample-app-ideas/) to build using React - if you prefer learning by building simple applications.  
 
-React also has a community of millions of developers that are active on [Stack Overflow](https://stackoverflow.com/questions/tagged/reactjs)
+React also has a [community](https://reactjs.org/community/support.html) of millions of developers that are active on [Stack Overflow](https://stackoverflow.com/questions/tagged/reactjs)
 and discussion forums like [Dev](https://dev.to/t/react) and [Hashnode](https://hashnode.com/n/reactjs).
 
 Lastly, if you want to know what to learn after getting familiar with React, here is a comprehensive [roadmap](https://github.com/adam-golab/react-developer-roadmap) that you can follow to become a full-fledged React developer.
