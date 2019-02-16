@@ -21,6 +21,7 @@
   * [Python]({{baseUrl}}/contents/python/introduction-to-python.html)
   * [Ruby]({{baseUrl}}/contents/ruby/Ruby.html)
   * [Rust]({{baseUrl}}/contents/rust/Rust.html)
+  * [Scala]({{baseUrl}}/contents/scala/Scala.html)
   * [Swift]({{baseUrl}}/contents/swift/welcome-to-swift.html)
 
 * ****SE Topics****
