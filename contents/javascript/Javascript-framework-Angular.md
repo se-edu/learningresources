@@ -25,6 +25,14 @@ The library provides a number of features that make it trivial to implement the 
 
 With Angular, designers can use HTML as the template language and it allows for the extension of HTML's syntax to convey the application's components effortlessly. Angular makes much of the code you would otherwise have to write, completely redundant.
 
+## What are the different versions of Angular?
+
+AngularJS or Angular1 is a JavaScript front-end framework developed by Google whereas Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.
+There have been 5 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5 and the latest one being Angular6.
+There are key differences between the various versions as Google tried to enhance the tool given the fierce competition from React and Vue. 
+More details about the differences can be found in the this [Quora](https://www.quora.com/What-are-the-different-versions-of-AngularJS) post.
+
+
 
 ## Why learn Angular?
 
@@ -61,7 +69,7 @@ $("#textbox").numericTextBox({
 
 In the code above, jQuery was instructed to find a DOM element with an id of textbox, then call the extension method numericTextBox and pass in the various parameters that configure the initial value, ranges, etc.
 
-On the other hand, using Angular, your code would look something like this:
+On the other hand, using Angular4, your code would look something like this:
 ```
 <input numerictextbox k-min="-10" k-max="100" k-step="0.75"
   k-format="n" k-decimals="3"/>
@@ -78,7 +86,7 @@ Angular framework is embedded with original MVC (Model-View-Controller) software
 
 Rather, it only asks to divide the app and takes care of everything else. Therefore, Angular and MVVM (Model-View-View-Model) design structure are quite similar. Angular ensures easy development as it eliminates the need for unnecessary code. It has a simplified MVC architecture, which makes writing getters and setters needless.
 All in all, developers are promised less coding, along with lighter and faster apps. This is very important for enterprise web applications.
-And according to a <a href="https://blog.qburst.com/2017/05/make-your-apps-load-faster-with-angular-2/">survey</a>, every 100-millisecond improvement in page loading speed led to 1% increase in revenue for Amazon.
+>According to a <a href="https://blog.qburst.com/2017/05/make-your-apps-load-faster-with-angular-2/">survey</a>, every 100-millisecond improvement in page loading speed led to 1% increase in revenue for Amazon.
 
 
 ### What does an Angular app look like?
@@ -134,12 +142,12 @@ The sheer number of new concepts is confusing to newcomers. And even after you�
 
 2. **Opiniated Framework** - Angular tells developers how to structure their application. While libraries like React allow engineers the freedom to choose any third party library to integrate into their application.
 
-3. ** Performance** - In the past, Dynamic applications written in Angular didn’t always perform that well. Complex SPAs could be laggy and inconvenient to use due to their size. 
+3. **Performance** - In the past, Dynamic applications written in Angular did not always perform that well even though improvements have been made recently. Complex SPAs could be laggy and inconvenient to use due to their size. 
 
 ### Angular when compared with other popular frontend frameworks
 
 
-There are many frontend frameworks out that many developers prefer over Angular. Two of the most popular tools are <a href="https://reactjs.org/">React</a> and <a href="https://vuejs.org/">Vue</a>.
+There are many frontend frameworks out there that many developers prefer over Angular. Two of the most popular tools are <a href="https://reactjs.org/">React</a> and <a href="https://vuejs.org/">Vue</a>.
 
 Choosing a tech stack sometimes becomes a tedious task as you need to take every factor into consideration including budget, time, app size, end-users, project objectives, and resources.
 
@@ -153,7 +161,7 @@ Similarly, Vue offers us some advantages, like flexibility, simplistic structure
 
 Every framework has its own pros and cons, meaning it all depends on the developers skills, requirements of the application and many factors like scalability, maintenance, familiarity etc. There are many great tools for developers to choose. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
 
-1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - a brief comparison
+1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend frameworks
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue
 3. [Angular vs React](https://programmingwithmosh.com/react/react-vs-angular/) - A comprehensive comparison between React and Angular
 
@@ -165,11 +173,12 @@ Every framework has its own pros and cons, meaning it all depends on the develop
 
 3. [Here](https://github.com/angular/angular) is a link to the official Angular framework maintained by Google. You could even open a PR and start contributing!
 
-4. You can also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
+4. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
 
 ### Where to Go from Here?
 
-With Angular you’re not getting the world’s easiest-to-use framework, but you are getting an incredibly robust, well-documented, and battle-tested framework used by millions of developers to create powerful applications. The Angular community is enormous, and help is readily available via Google searches, Stack Overflow, and all around the web.
+With Angular you’re not getting the world’s easiest-to-use framework, but you are getting an incredibly robust, well-documented, reliable and effective framework used by millions of developers to create powerful applications. The Angular community is enormous, and help is readily available via Google searches, Stack Overflow, and all around the web.
+
 There are many online resources and tutorials online that can help you ease into the Angular world.
 
 - [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
