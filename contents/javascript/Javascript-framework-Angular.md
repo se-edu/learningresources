@@ -47,6 +47,8 @@ TypeScript was created and is maintained by Microsoft, and has been <a href="htt
                                                   
 3. **Google Long-Term Support.** Some software engineers consider the mere fact that Angular is supported by Google a major advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology. Igor Minar and Steven Fuin, the engineers behind Angular, confirmed this commitment in the <a href="https://medium.com/google-developer-experts/my-picks-from-ng-conf-2017-d971842c0d05">ng-conf 2017 Keynote</a>. 
 
+[source](https://hackr.io/blog/why-should-you-learn-angular-in-2018)
+
 ### Benefit: Angular provides a declarative user interface.
 
 Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more instinctive and less convoluted than defining the interface procedurally in JavaScript. How does it help? You don’t need to invest your time in program flows and in deciding what loads first. Define what you require and Angular will take care of it. Plus you can bring in many more UI developers when the opinion is written in HTML.
@@ -88,6 +90,17 @@ Rather, it only asks to divide the app and takes care of everything else. Theref
 All in all, developers are promised less coding, along with lighter and faster apps. This is very important for enterprise web applications.
 >According to a <a href="https://blog.qburst.com/2017/05/make-your-apps-load-faster-with-angular-2/">survey</a>, every 100-millisecond improvement in page loading speed led to 1% increase in revenue for Amazon.
 
+### Benefit: Angular CLI
+
+At `ng-conf` 2016 the Angular team announced the Angular CLI, a Command Line Interface that helps lower the barriers to getting started with Angular.
+The Angular CLI helps us cut down the [JavaScript fatigue](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f) and lets us focus on what we like the most: writing code.
+
+> npm install -g @angular/cli
+
+Running the above command installs the Angular CLI and gives you a lot more control over your project. It also enforces "best practices" in terms of code quality.
+[This](https://yipee.io/2017/09/5-reasons-you-should-be-using-the-angular-cli-for-your-next-angular-application/) article lays down the main advantages of using Angular CLI.
+
+[source](https://www.amadousall.com/why-you-should-use-angular-cli/)
 
 ### What does an Angular app look like?
 
@@ -143,6 +156,8 @@ The sheer number of new concepts is confusing to newcomers. And even after you�
 2. **Opiniated Framework** - Angular tells developers how to structure their application. While libraries like React allow engineers the freedom to choose any third party library to integrate into their application.
 
 3. **Performance** - In the past, Dynamic applications written in Angular did not always perform that well even though improvements have been made recently. Complex SPAs could be laggy and inconvenient to use due to their size. 
+
+[source](https://www.altexsoft.com/blog/engineering/the-good-and-the-bad-of-angular-development/)
 
 ### Angular when compared with other popular frontend frameworks
 
