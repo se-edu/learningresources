@@ -19,7 +19,7 @@ Author(s): [Ronak Lakhotia](https://github.com/RonakLakhotia)
 Angular is an open-source frontend Javascript framework that helps you build <a href="https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html"> Single Page Web Applications</a>.
 The library provides a number of features that make it trivial to implement the complex requirements of modern applications, such as data binding, routing, and animations. Angular is maintained by Google, as well as a community of individual developers
 
->Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project called <angular /> that would help developers, as well as designers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
+>Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers, as well as designers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
 >
 >Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a>. 
 
@@ -30,7 +30,7 @@ With Angular, designers can use HTML as the template language and it allows for 
 AngularJS or Angular1 is a JavaScript front-end framework developed by Google whereas Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.
 There have been 5 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5 and the latest one being Angular6.
 There are key differences between the various versions as Google tried to enhance the tool given the fierce competition from React and Vue. 
-More details about the differences can be found in the this [Quora](https://www.quora.com/What-are-the-different-versions-of-AngularJS) post.
+More details about the differences can be found in this [Quora](https://www.quora.com/What-are-the-different-versions-of-AngularJS) post.
 
 
 
@@ -51,7 +51,7 @@ TypeScript was created and is maintained by Microsoft, and has been <a href="htt
 
 ### Benefit: Angular provides a declarative user interface.
 
-Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more instinctive and less convoluted than defining the interface procedurally in JavaScript. How does it help? You don’t need to invest your time in program flows and in deciding what loads first. Define what you require and Angular will take care of it. Plus you can bring in many more UI developers when the opinion is written in HTML.
+Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more instinctive and less convoluted than defining the interface procedurally in JavaScript. How does it help? You don’t need to invest your time in program flows and in deciding what loads first. Define what you require and Angular will take care of it. Plus you can bring in many more UI developers as and when required.
 Directives are Angular’s way of bringing additional functionality to HTML. In other words, declarative code enables you to describe what you want done without worrying about how.
 
 Lets see a working example. 
@@ -82,7 +82,7 @@ Rather than spending time on how the program flows and what should get loaded fi
 
 ### Benefit: Simplified MVC pattern and reduced coding.
 
-Angular framework is embedded with original MVC (Model-View-Controller) software architectural setup. However, it is not according to the established standards. Angular does not ask developers to split an application into different MVC components and build a code that could unite them.
+Angular framework is embedded with original MVC (Model-View-Controller) software architectural setup. However, it is not according to the established standards. Angular does not ask developers to split an application into different MVC components and write code that could unite them.
 
 ![MVC Pattern](https://www.grazitti.com/assets/2018/06/reasons-5.jpg)
 
