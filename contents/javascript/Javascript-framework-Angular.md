@@ -17,13 +17,11 @@ Author(s): [Ronak Lakhotia](https://github.com/RonakLakhotia)
 ## What Is Angular?
 
 Angular is an open-source frontend Javascript framework that helps you build <a href="https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html"> Single Page Web Applications</a>.
-The library provides a number of features that make it trivial to implement the complex requirements of modern applications, such as data binding, routing, and animations. Angular is maintained by Google, as well as a community of individual developers
+The framework is designed to better engineer applications with a [model–view–controller (MVC) capability](https://www.tutorialsteacher.com/mvc/mvc-architecture) in an effort to make development and testing easier. Angular is maintained by Google, as well as a community of individual developers.
 
 >Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers, as well as designers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
 >
 >Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a>. 
-
-With Angular, designers can use HTML as the template language and it allows for the extension of HTML's syntax to convey the application's components effortlessly. Angular makes much of the code you would otherwise have to write, completely redundant.
 
 ## What are the different versions of Angular?
 
