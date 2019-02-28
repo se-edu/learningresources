@@ -40,9 +40,10 @@ Angular is not the world’s simplest framework, and it takes time to understand
 But once you do, there are some really powerful things you can do in a surprisingly small amount of code.
 
 1. **Angular supports Single Page Applications.** Single Page Applications are a type of web applications that load a single HTML page, and the page is updated dynamically according to the interaction of the user. SPAs can communicate with the back-end servers without refreshing the full web page, for loading data in the application. They provide better user experience and also eases the development process.
-                                                  The fact that Angular supports the development of SPAs, makes it worth learning!
+The fact that Angular supports the development of SPAs, makes it worth learning!
  
 2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superscript for JavaScript, which ensures higher security as it supports types (primitives, interfaces, etc.). It helps catch and eliminate errors early when writing the code or performing maintenance tasks. This language ensures improved navigation, refactoring, and autocompletion services thereby easing the development process for engineers. You can even opt out of its inbuilt features when needed.
+
 TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore it’s not much of a risk to incorporate TypeScript in to your application development. It’s not going anywhere.
                                                   
 3. **Google Long-Term Support.** Some software engineers consider the mere fact that Angular is supported by Google a major advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology. Igor Minar and Steven Fuin, the engineers behind Angular, confirmed this commitment in the <a href="https://medium.com/google-developer-experts/my-picks-from-ng-conf-2017-d971842c0d05">ng-conf 2017 Keynote</a>. 
