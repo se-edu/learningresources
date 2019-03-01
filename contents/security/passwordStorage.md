@@ -28,7 +28,13 @@ It is a cryptography term generally referring to text before encyption or after 
   </div>
 </popover>
 
-While usernames are typically public information, thus encrypting them is not as important, passwords are typically secret information and require encryption. If passwords are stored in plaintext and your server's database is ever compromised, attackers can easily use the stored plaintext passwords to login as the user and potentially access other functionality. This grants the attacker more power than just reading values off the database and being unable to read them if they were encrypted.
+While usernames are typically public information, thus <trigger for="pop:encrypt">encrypting</trigger> them is not as important, passwords are typically secret information and require encryption. If passwords are stored in plaintext and your server's database is ever compromised, attackers can easily use the stored plaintext passwords to login as the user and potentially access other functionality. This grants the attacker more power than just reading values off the database and being unable to read them if they were encrypted.
+
+<popover id="pop:encrypt" title="Encryption refers to the process of changing a message such that it becomes essentially random text." placement="top">
+  <div slot="content">
+ The opposite process is called decryption, which converts the text back into the original message.
+  </div>
+</popover>
 
 In addition,
 * Your employees can see the passwords of your users. If your employees are ever compromised, they might be willing to simply leak the password.
@@ -36,8 +42,10 @@ In addition,
 
 To prevent all of these measures, it is good to perform hashing on passwords. Unlike encryption, hashing is a <trigger for="pop:oneway">one-way function</trigger>. This means that an attacker cannot decrypt the encrypted password to retrieve the original password, thus ensuring that all of the above vulnerabilities isn't possible.
 
-<popover id="pop:oneway" title="A one way function is a function that is easy to compute in one way, but is close to impossible to compute the other way." placement="top">
-<div slot="content"></div>
+<popover id="pop:oneway" title="" placement="top">
+<div slot="content">
+	A one way function is a function that is easy to compute in one way, but is close to impossible to compute the other way.
+</div>
 </popover>
 
 ## What is hashing?
@@ -77,7 +85,7 @@ One question that is commonly asked by developers is where to store the salt. Th
 
 If an attacker has already gained access to the entire application, then he already has all the information hat he coculd possibly get. He would have access to all of your application's data, including data from your users or from any analytics software that you might be running. However, by adding salt and hashing your passwords, the attacker still doesn't know your customer's passwords and could take years to find out. Otherwise, since 59% of people use the same password across multiple sites<sup>1</sup>, the attacker could quickly try other websites such as banks to attempt to break into those accounts, which can yield great financial return.
 
-Additionally, when a user signed up on your website and provided you a password, they implicitly trusted you to keep that information safe and secure for them, and in a sense you have a responsibility to keep their passwords secure as well. By doing proper password storage, if your servers ever get breached, you can assure your customers that their passwords is properly secured and maintain some of their trust in you.
+Additionally, when a user signed up on your website and provided you a password, they implicitly trusted you to keep that information safe and secure for them, and in a sense you have a responsibility to keep their passwords secure as well. By doing proper password storage, if your servers ever get breached, you can assure your customers that their passwords are properly secured and maintain some of their trust in you.
 
 ## Word of warning
 
