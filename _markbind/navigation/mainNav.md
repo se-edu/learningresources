@@ -33,6 +33,7 @@
   * Performance
     * [Introduction to Performance Optimization]({{baseUrl}}/contents/performance/Performance.html)
     * [Performance Profiling]({{baseUrl}}/contents/performance/PerformanceProfiling.html)
+    * [Web Performance]({{baseUrl}}/contents/performance/WebPerformance.html)
   * Project Management
     * [Agile Development]({{baseUrl}}/contents/projectManagement/AgileDevelopment.html)
     * [DevOps]({{baseUrl}}/contents/devops/DevOps.html)
