@@ -6,6 +6,8 @@
   pageNav: 3
 </frontmatter>
 
+{{ navbar | safe }}
+
 <div class="website-content">
 
 # Web Performance
