@@ -16,8 +16,8 @@ Author(s): [Ronak Lakhotia](https://github.com/RonakLakhotia)
 
 ## What Is Angular?
 
-Angular is an open-source frontend Javascript framework that helps you build <a href="https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html"> Single Page Web Applications</a>.
-The framework is designed to better engineer applications with a [model–view–controller (MVC) capability](https://www.tutorialsteacher.com/mvc/mvc-architecture) in an effort to make development and testing easier. Angular is maintained by Google, as well as a community of individual developers.
+Angular is an open-source frontend Javascript framework that helps you build <tooltip content="Web apps that are more responsive to user interactions ">Single Page Web Applications</tooltip>.
+The framework is designed to better engineer applications in an effort to make development and testing easier for enterprise web applications. Angular is maintained by Google, as well as a community of individual developers.
 
 >Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers, as well as designers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
 >
@@ -28,23 +28,24 @@ The framework is designed to better engineer applications with a [model–view�
 AngularJS or Angular1 is a JavaScript front-end framework developed by Google whereas Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.
 There have been 5 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5 and the latest one being Angular6.
 There are key differences between the various versions as Google tried to enhance the tool given the fierce competition from React and Vue. 
-More details about the differences can be found in this [Quora](https://www.quora.com/What-are-the-different-versions-of-AngularJS) post.
+
+[source](https://www.quora.com/What-are-the-different-versions-of-AngularJS)
 
 
 
 ## Why learn Angular?
 
 Angular is not the world’s simplest framework, and it takes time to understand some of the concepts that Angular has to offer.
-But once you do, there are some really powerful things you can do in a surprisingly small amount of code.
+But once you do, Angular makes it easier to create rich and interactive user interfaces. 
 
-1. **Angular supports Single Page Applications.** Single Page Applications are a type of web applications that load a single HTML page, and the page is updated dynamically according to the interaction of the user. SPAs can communicate with the back-end servers without refreshing the full web page, for loading data in the application. They provide better user experience and also eases the development process.
-The fact that Angular supports the development of SPAs, makes it worth learning!
+1. **Angular supports Single Page Applications.** Single Page Applications are a type of web applications that load a single HTML page, and the page is updated dynamically according to the interaction of the user. SPAs can communicate with the back-end servers without refreshing the full web page, for loading data in the application. They provide a better user experience.
+The fact that Angular supports the development of SPAs, is a good reason to learn the framework.
  
-2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superscript for JavaScript, which ensures higher security as it supports types (primitives, interfaces, etc.). It helps catch and eliminate errors early when writing the code or performing maintenance tasks. This language ensures improved navigation, refactoring, and autocompletion services thereby easing the development process for engineers. You can even opt out of its inbuilt features when needed.
+2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superscript of JavaScript. It helps catch errors early when writing the code or performing maintenance tasks. This language improves security by providing services like navigation, refactoring, and autocompletion thereby easing the development process for engineers. You can also opt out of its inbuilt features when needed.
 
-TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore it’s not much of a risk to incorporate TypeScript in to your application development. It’s not going anywhere.
+TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore it’s not much of a risk to incorporate TypeScript into your application development. It’s not going anywhere.
                                                   
-3. **Google Long-Term Support.** Some software engineers consider the mere fact that Angular is supported by Google a major advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology. Igor Minar and Steven Fuin, the engineers behind Angular, confirmed this commitment in the <a href="https://medium.com/google-developer-experts/my-picks-from-ng-conf-2017-d971842c0d05">ng-conf 2017 Keynote</a>. 
+3. **Google Long-Term Support.** Some software engineers consider the fact that Angular is supported by Google an advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology. Igor Minar and Steven Fuin, the engineers behind Angular, confirmed this commitment in the <a href="https://medium.com/google-developer-experts/my-picks-from-ng-conf-2017-d971842c0d05">ng-conf 2017 Keynote</a>. 
 
 [source](https://hackr.io/blog/why-should-you-learn-angular-in-2018)
 
@@ -195,6 +196,7 @@ With Angular you’re not getting the world’s easiest-to-use framework, but yo
 
 There are many online resources and tutorials online that can help you ease into the Angular world.
 
+- [Single Page Applications Explained](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html)
 - [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
 - [StackOverflow Questions](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - Top voted questions on Angular
 - [Angular in depth](https://blog.angularindepth.com/) - Advanced concepts in Angular explained
