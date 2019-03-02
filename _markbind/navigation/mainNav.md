@@ -64,7 +64,7 @@
   * [Computer Vision]({{baseUrl}}/contents/computerVision/cv.html)
   * Databases
     * [DBMS]({{baseUrl}}/contents/data/databases/databases.html)
-    * [MySQL]({{baseUrl}}/contents/data/mysql/MySQL.html)
+    * [SQL]({{baseUrl}}/contents/data/sql/SQL.html)
   * [Machine Learning]({{baseUrl}}/contents/ai/ml.html)
   * Multi-Threading
     * [GPGPU]({{baseUrl}}/contents/gpgpu/gpgpu.html)
