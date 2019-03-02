@@ -21,7 +21,7 @@ Though you can choose to just use a text file to store your data, this will not 
 
 <tooltip content="My Structured Query Language(SQL)">MySQL</tooltip> is a free and open source database software that is currently sponsored and controlled by the [Oracle Corporation](https://www.zdnet.com/article/mysql-why-the-open-source-database-is-better-off-under-oracle/). Technically, it is a <tooltip content="Relational DataBase Management System">**RDBMS**</tooltip> that is based on the <tooltip content="Structured Query Language">SQL</tooltip> language and is widely used in many small and big companies. According to their [official website](https://www.mysql.com/why-mysql/), this includes companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
-<box type="tip">
+<box type="info">
 	SQL is a standard language for relational database operations- storing, retrieving and updating data. There are several database platforms that use SQL (such as MySQL, PostgreSQL, Microsoft SQL Server and more), but each has a slightly different syntax.
 </box>
 
@@ -68,7 +68,7 @@ Though storage engines like MySQL perform well with read operations, it *can* be
 This is what a basic MySQL query (or command) for retrieving information from a data table looks like:
 
 <box type="tip">
-  The uppercase words in this query are called clauses and are MySQL keywords.
+  The uppercase words in this query are clauses or statements, and are MySQL keywords.
 </box>
 
 ```
@@ -84,25 +84,29 @@ ORDER BY column_name(s);
 
 Let's understand what the above query means by using an example to make it more concrete.
 
-Suppose have the data table shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by number of students.
+Suppose have the data table `Students` shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by number of students.
 
 | ID | Name  | Course |
 | -- | ----- | ------ |
 | 1  | Alex  | CS202  |
 | 2  | Bob   | MA303  |
-| 3  | Cathy | CS101  |
+| 3  | Cathy | CS202  |
 | 4  | Daren | CS202  |
 | 5  | Ellie | CS101  |
 | 6  | Fred  | MA303  |
 | 7  | Gary  | CS101  |
 | 8  | Henry | CS404  |
 
-From the data in our table above, entries 2, 3 and 8 should not be considered in the output as they do not meet the criteria. So, the expected output is:
+Table 1. `Students` table
+
+From the data in our table above, entries 2, 6 and 8 should not be considered in the output as they do not meet the criteria. So, the expected output is:
 
 | Course | num |
 | ------ | --- |
-| CS202  | 2   |
-| CS101  | 3   |
+| CS101  | 2   |
+| CS202  | 3   |
+
+Table 2. Expected output
 
 The corresponding query will be:
 
@@ -123,22 +127,73 @@ An important thing to note here is that queries aren't executed from top to bott
 
 As you can see, the `FROM` clause is processed first while the `SELECT` clause which appears at the start is processed much later.
 
-Now, let's go through each clause, one by one, in the order that they are executed.
+Now, let's go through each clause in the query, in the order that they are executed.
 
-1. `FROM Students`
+#### 1. `FROM Students`
 
-2. `WHERE Course LIKE 'CS%'`
+This clause means that we use the `Students` table as the data source for our query.
+The <tooltip content="See 5. SELECT ... below">result-set</tooltip> still looks the same as the original `Students` table (Table 1).
 
-3. `GROUP BY Course`
+#### 2. `WHERE Course LIKE 'CS%'`
 
-4. `HAVING COUNT(*) > 1`
+This is a conditional clause. `LIKE` is a MySQL keyword that is used for pattern matching. The `%` means any string of any length.
 
-5. `SELECT Course, COUNT(*) num`
+So, in this clause, we are filtering the `Student` table rows such that the row's `Course` has a prefix `CS`. So entries 2 and 6 are removed from consideration. Now, our result-set looks like this:
 
-6. `ORDER BY num`
+| ID | Name  | Course |
+| -- | ----- | ------ |
+| 1  | Alex  | CS202  |
+| 3  | Cathy | CS202  |
+| 4  | Daren | CS202  |
+| 5  | Ellie | CS101  |
+| 7  | Gary  | CS101  |
+| 8  | Henry | CS404  |
+Table 3. Filtered result after `WHERE`
+
+#### 3. `GROUP BY Course`
+
+This is used to group the result set, and is often used with aggregate functions (like COUNT, MAX, AVG etc.).
+
+In this query, we are essentially grouping into 3 "groups": `CS101` group (IDs 5 and 7), `CS202` group (IDs  1, 3, and 4), and `CS404` group (ID 8).
+
+#### 4. `HAVING COUNT(*) > 1`
+This is a conditional clause that is used with aggregate functions. `COUNT(*)` is an aggregate function that returns the number of rows in each "group".
+
+So, this clause will filter out the `CS404` group since it has a count of 1, and doesn't satisfy the condition.
+
+#### 5. `SELECT Course, COUNT(*) num`
+The `SELECT` statement is used for choosing the data to display. The returned data is stored in a result table, called the **result-set**.
+
+In this statement, we choose the `Course` and its count, `num` to be the result-set that is to be displayed. Adding `num` after `COUNT(*)` means that it is an alias for `COUNT(*)`. The result-set will look like this:
+
+| Course | num |
+| ------ | --- |
+| CS202  | 3   |
+| CS101  | 2   |
+Table 4. Result-set after `SELECT`
+
+<box type="info">
+  Since, we have used a `GROUP BY` clause, we cannot `SELECT` data from individual attributes (like `ID` or `Name`) that is not part of the aggregate data generated in the group (like `Course`).
+</box>
+
+#### 6. `ORDER BY num`
+
+Finally, we need to sort our result entries. We use the `ORDER BY` clause (which sorts in ascending order by default) for doing so.
+
+In this clause, we order the result-set in ascending order based on the `num` attribute (column). So, our final output is:
+
+| Course | num |
+| ------ | --- |
+| CS101  | 2   |
+| CS202  | 3   |
+Table 4. Final result after `ORDER BY`
 
 
-You can experiment with this example on [DB Fiddle](https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/1) by entering queries into the `Query SQL` pane and then clicking `Run`.
+This is the same as our expected output from Table 2!
+
+<box type="info">
+  You can experiment with this example on [DB Fiddle](https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/2) by entering queries into the `Query SQL` pane and then clicking `Run`.
+</box>
 
 The example shown here is relatively simple. Typical MySQL queries have the capability to be much more complex as there are a lot of clauses, functions and operators that are not covered here.
 
