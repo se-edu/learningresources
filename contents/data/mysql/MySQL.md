@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Introduction to MySQL
+  title: Introduction to SQL
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
@@ -10,62 +10,62 @@
 
 <div class="website-content">
 
-# Introduction to MySQL
+# Introduction to SQL
 
 Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 
-## What is MySQL?
+## What is SQL?
 
 Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
 Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
 
-<tooltip content="My Structured Query Language (SQL)">MySQL</tooltip> is a free and open source database software that is currently sponsored and controlled by the [Oracle Corporation](https://www.zdnet.com/article/mysql-why-the-open-source-database-is-better-off-under-oracle/). Technically, it is a <tooltip content="Relational DataBase Management System">**RDBMS**</tooltip> that is based on the <tooltip content="Structured Query Language">SQL</tooltip> language and is widely used in many small and big companies. According to their [official website](https://www.mysql.com/why-mysql/), this includes companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
+SQL is a special-purpose programming language designed for managing (storing, querying and manipulating) data in a relational database. Several <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
 
-<box type="info">
-	SQL is a standard language for relational database operations- storing, retrieving and updating data. There are several database platforms that use SQL (such as MySQL, PostgreSQL, Microsoft SQL Server and more), but each has a slightly different syntax.
+SQL distributions are widely used in many small and big companies. According to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
+
+<box type="tip">
+  Many online resources refer to Microsoft SQL Server as SQL. So, keep that in mind before you start making conclusions about the characteristics and features of SQL, the language.
 </box>
 
 ---
 
-## Why learn MySQL?
+## Why learn SQL?
 
-Being open source and one of the first DBMSs, MySQL rose to popularity in its early days. It ended up being a core component of the <tooltip content="Linux OS, Apache Server, MySQL RDBMS, PHP  language">LAMP</tooltip> web application stack (and many others).
-Here are some of the main reasons behind the widespread adoption of MySQL and why it still remains popular today.
+Being open source and one of the first DBMSs, MySQL increased the popularity of SQL in its early days. It ended up being a core component of the <tooltip content="Linux OS, Apache Server, MySQL RDBMS, PHP  language">LAMP</tooltip> web application stack (and many others).
+Here are some of the main reasons behind the widespread adoption of SQL and why it still remains popular today.
 
 ### Easy to learn
 
-MySQL is very easy to learn, even for beginners who do not have any prior experience with databases. Since it has been around for well over a decade, there are many good books and online resources to learn from.
-In addition, it has a huge support community (such as the [official forum](https://forums.mysql.com/) and [Stack Overflow](https://stackoverflow.com/questions/tagged/mysql)) which can prove useful when you run into problems while using MySQL.
+SQL is very easy to learn, even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
+In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql), the [official forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
 
 ### Free of cost
 
-Since it is an open source software, you do not have to pay to use MySQL. It even comes with official (MySQL Workbench) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
+One of the benefits (and reasons) for SQL's popularity is that there are free distributions available (like MySQL, PostgreSQL and SQLite) as well as paid ones (like Microsoft SQL Server and Oracle) that come with more functionality.
+
+One such distribution is MySQL. Since it is an open source software, you do not have to pay to use MySQL. It even comes with official (MySQL Workbench) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
 
 ### Compatibility
 
-MySQL works on many operating systems and more importantly, with many languages. These include languages from PHP, PERL, C++, Ruby, Java to *relatively* newer ones like Python, JavaScript (Node.js) and Go.
+SQL distributions work on many operating systems and more importantly, can be integrated many languages. This includes languages from PHP, PERL, C++, Ruby and Java to *relatively "newer"* ones like Python, JavaScript (Node.js) and Go.
+In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and [JDoodle](https://www.jdoodle.com/execute-sql-online) make it easy to learn or use the SQL language quickly without the hassle of setting up anything.
 
-### Secure
+## Disadvantages
 
-MySQL ensures data security in terms of data backup and data protection.  As compared to NoSQL databases, MySQL (and relational databases) provide better guarantees for data consistency. In terms of security, unauthorized access to data is prevented through encryption and user blocking capabilities, and safer connections are possible through SSH and SSL.
+At the same time, SQL is not without its problems. In general, the biggest problem concerns the features of SQL.
 
-### Disadvantages
+Although SQL databases uses established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions add proprietary extensions to the standard SQL to ensure customer lock-in.
+Thus, the available feature set varies according to the SQL distribution that you are using. This can make it confusing and frustrating to use SQL when switching across distributions.
 
-At the same time, MySQL is not without its problems:
+Apart from that, most **SQL** problems are not uniformly applicable to all of its distributions.
 
-- **Features**:
-MySQL can lack features such as full outer joins and full-text search, depending on the database engine. As a consequence of being simple, MySQL is not as powerful as something like PostgreSQL, for example, which has a lot more features and customizability.
-
-- **Concurrency**:
-Though storage engines like MySQL perform well with read operations, it *can* be problematic when there are concurrent read-write operations. A symptom of this concurrency issue would be a sudden slowdown of a well-optimized query.
+For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing transactions isolation.
 
 ---
 
-## How does MySQL work?
+## How does SQL work?
 
-SQL (Structured Query Language) is a standard language that is used for the access and manipulation of databases. Several DBMS distributions (like MySQL, Oracle, SQL Server, PostgreSQL) use the SQL language. The syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
-
-Now that that's out of the way, let's jump into what a basic **MySQL query** (or "command") for retrieving information from a data table looks like:
+Let's look at what a basic **SQL query** (or "command") for retrieving information from a data table looks like:
 
 ```
 SELECT column_name(s)
@@ -77,7 +77,7 @@ ORDER BY column_name(s);
 ```
 
 <box type="tip">
-  The uppercase words in this query are clauses or statements, and are MySQL keywords.
+  The uppercase words in this query are clauses or statements, and are SQL keywords.
 </box>
 
 ### Breaking down the clauses
@@ -138,7 +138,7 @@ The <tooltip content="See 5. SELECT ... below">result-set</tooltip> still looks 
 
 #### 2. `WHERE Course LIKE 'CS%'`
 
-This is a conditional clause. `LIKE` is a MySQL keyword that is used for pattern matching. The `%` means any string of any length.
+This is a conditional clause. `LIKE` is a SQL keyword that is used for pattern matching. The `%` means any string of any length.
 
 So, in this clause, we are filtering the `Student` table rows such that the row's `Course` has a prefix `CS`. So entries 2 and 6 are removed from consideration. Now, our result-set looks like this:
 
@@ -197,42 +197,45 @@ This is the same as our expected output from Table 2!
   You can experiment with this example on <a href="https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/2">DB Fiddle</a> by entering queries into the <code>Query SQL</code> pane and then clicking the <code>Run</code> icon.
 </box>
 
-The example shown here is relatively simple. Typical MySQL queries have the capability to be much more complex as there are a lot of clauses, functions and operators that are not covered here.
+The example shown here is relatively simple. Typical SQL queries have the capability to be much more complex as there are a lot of clauses, functions and operators that are not covered here.
 
 ---
 
-## How to get started with MySQL?
+## How to get started with SQL?
 
-MySQL has been around for a long time and hence, you can find really good books and resources to learn it well. However, these resources can be overwhelming. So, you can decide which parts you want to learn as you will likely not need to know everything to get started with using a MySQL database.
+The first thing to do is to choose a SQL distribution. You can either just use an online SQL playground or install a dedicated application. My suggestion would be to use either MySQL or SQLite online.
+SQL has been around for a long time and hence, you can find really good books and resources to learn it well. However, these resources can be overwhelming. So, you can decide which parts you want to learn as you will likely not need to know everything to get started with using a SQL database.
 
-If you are a complete beginner when it comes to databases, this sequence of steps will prove useful. Depending on your prior experience, you can choose to skip the earlier steps.
+Here are some recommended resources that you can use to start learning SQL:
 
-1. Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts of [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect.
-2. Install MySQL. You can refer to an [official guide](https://dev.mysql.com/doc/workbench/en/wb-windows.html) or one from a [third party website](https://www.tutorialspoint.com/mysql/mysql-installation.htm).
-3. Learn how to set up a database and use the basic queries by going through a [guide](https://www.guru99.com/how-to-create-a-database.html).
-4. Integrate the database with your preferred language. You can use the [mysql](http://www.mysqltutorial.org/mysql-nodejs/) module for Node.js, [JDBC](http://www.mysqltutorial.org/mysql-jdbc-tutorial/) for Java, and [MySQL Connector](http://www.mysqltutorial.org/python-mysql/) for Python.
+- Khan Academy offers a very good [SQL course](https://www.khanacademy.org/computing/computer-programming/sql) for free. It has a mix of videos, text and exercises that you can choose to do at your own pace. It is well organized and even provides summary notes and documentation.
+
+- W3Schools offers an interactive written tutorial for [SQL](https://www.w3schools.com/sql/default.asp).
+
+- You can also use a [SQL Quick Reference Guide](https://www.w3schools.com/sql/sql_ref_mysql.asp) to look up information quickly once you're familiar with the language.
+
+- Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts of [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect. This is not essential, but will give you a better high-level understanding before diving in to programming.
 
 ---
 
 ## Where to go from here?
 
-- [Guru99](https://www.guru99.com/introduction-to-database-sql.html) and [MySQLTutorial.org](http://www.mysqltutorial.org/basic-mysql-tutorial.aspx) have good guides for the entire learning process, from basic concepts to setting up and learning MySQL.
+Look into SQL distributions and decide which one you want to work with. You can start by comparing the 3 distributions mentioned [here](https://blog.udemy.com/oracle-vs-mysql-vs-sql-server/) (and [here](https://db-engines.com/en/system/Microsoft+SQL+Server%3BMySQL%3BOracle)) and work from there. Then, try to set up a RDBMS and integrate it with an application. This will give you good experience and exposure to how databases are used in practice.
 
-- You can refer to the [official guide](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html) to get a more comprehensive understanding of MySQL and its capabilities.
+For example:
 
-- W3Schools offers an interactive tutorial for [SQL](https://www.w3schools.com/sql/default.asp) (and MySQL). They also have [MySQL Node.js](https://www.w3schools.com/nodejs/nodejs_mysql.asp) and [MySQL Python](https://www.w3schools.com/python/python_mysql_getstarted.asp) for learning how to integrate MySQL with Node.js and Python respectively.
+  - [Guru99](https://www.guru99.com/introduction-to-database-sql.html) has a good DBMS guide that uses MySQL. It covers the entire learning process, from basic database concepts to setting up and using MySQL.
 
-- You can also use Quick Reference guides to just look up information quickly once you're familiar with the language:
-  - [SQL Quick Reference](https://www.w3schools.com/sql/sql_ref_mysql.asp)
-  - [MySQL Datatypes](https://www.w3schools.com/sql/sql_datatypes.asp)
-  - [MySQL functions](https://www.w3schools.com/sql/sql_ref_mysql.asp)
+  - Integrate a database (MySQl, PostgreSQL etc.) with your preferred language. For MySQL, you can use the [mysql](http://www.mysqltutorial.org/mysql-nodejs/) module for Node.js, [JDBC](http://www.mysqltutorial.org/mysql-jdbc-tutorial/) for Java, and [MySQL Connector](http://www.mysqltutorial.org/python-mysql/) for Python.
+
+  - W3Schools have interactive written tutorials such as [MySQL Node.js](https://www.w3schools.com/nodejs/nodejs_mysql.asp) and [MySQL Python](https://www.w3schools.com/python/python_mysql_getstarted.asp), for learning how to integrate MySQL with Node.js and Python respectively.
 
 ---
 
 ## References
 
-- [Official MySQL website](https://www.mysql.com/)
+- [SQL capabilities](https://www.databasejournal.com/sqletc/article.php/3915331/Top-10-SQL-Hierarchical-Data-Processing-Capabilities.htm)
 - [Why MySQL is popular](https://www.fromdev.com/2017/03/what-is-mysql-why-is-it-so-popular.html)
-- [Reasons and challenges for choosing MySQL](https://dataconomy.com/2017/04/5-reasons-challenges-mysql/)
+- [Advantages and disadvantages of SQL](https://www.quora.com/What-are-the-advantages-and-disadvantages-of-SQL)
 - [MySQL and PostgreSQL differences](http://mwiki.gichd.org/IM/Difference_MySQL_PostGreSQL)
 - [Execution order of SQL query](https://www.designcise.com/web/tutorial/what-is-the-order-of-execution-of-an-sql-query)
