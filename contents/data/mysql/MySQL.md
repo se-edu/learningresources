@@ -64,6 +64,22 @@ Though storage engines like MySQL perform well with read operations, it *can* be
 ## How to get started with MySQL?
 
 ## Where to go from here?
+
+- [Guru99](https://www.guru99.com/introduction-to-database-sql.html) has a good guide for the entire process, from basic concepts to setting up and learning MySQL.
+
+- You can always refer to the [official guide](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html) to get a more comprehensive understanding of MySQL and its capabilities.
+
+- W3Schools offers interactive tutorials for [SQL](https://www.w3schools.com/sql/default.asp)(and MySQL), [MySQL Node.js](https://www.w3schools.com/nodejs/nodejs_mysql.asp), [MySQL Python](https://www.w3schools.com/python/python_mysql_getstarted.asp)
+
+- You can also use Quick Reference guides to just look up information quickly once you're familiar with the language:
+  - [SQL Quick Reference](https://www.w3schools.com/sql/sql_ref_mysql.asp)
+  - There is a section for MySQL Datatypes [here]](https://www.w3schools.com/sql/sql_datatypes.asp)
+  - [MySQL functions](https://www.w3schools.com/sql/sql_ref_mysql.asp)
+
+---
+
 ## References
 
 - [Official MySQL website](https://www.mysql.com/)
+- [Why MySQL is popular](https://www.fromdev.com/2017/03/what-is-mysql-why-is-it-so-popular.html)
+- [Reasons and challenges for choosing MySQL](https://dataconomy.com/2017/04/5-reasons-challenges-mysql/)
