@@ -41,20 +41,20 @@ Here are some steps that web developers can take to reduce the amount of Javascr
 - Use [code splitting](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/) to load only the Javascript required for the page being accessed.
 - Remove unused code (often parts of libraries that are not used in the application) with [tree shaking](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/).
 - Ensure that the delivered Javascript is [minified](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/javascript-startup-optimization/).
-- Create [performance budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) that specify the maximum size of Javascript payloads,and [enforce them](https://web.dev/fast/incorporate-performance-budgets-into-your-build-tools) to ensure that the size of your Javascript payloads remain under control.
+- Create [performance budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) that specify the maximum size of Javascript payloads, and [enforce them](https://web.dev/fast/incorporate-performance-budgets-into-your-build-tools) to ensure that the size of your Javascript payloads remain under control.
 
 **Optimize Images**
 
-Images form a [significant portion](https://httparchive.org/reports/page-weight) of the resources loaded on web applications. A significant amount of time and bandwidth is used to load images, making the site feel slower to users. To improve performance, Web developers should thus try to reduce the amount of bandwidth used to load images.
+Images form a [significant portion](https://httparchive.org/reports/page-weight) of the resources loaded on web applications. To improve performance and speed up the site for users, web developers should thus try to reduce the amount of bandwidth used to load images.
 
 Images can be optimized for the web in the following ways:
 - Use the [correct file format](https://medium.com/beginners-guide-to-mobile-web-development/web-image-formats-googles-webp-17e2fe5fc53e) for your images.
 - [Compress your images](https://www.html5rocks.com/en/tutorials/speed/img-compression/) to reduce the amount of data that needs to be loaded. Be careful to strike a balance between image size and quality for optimal user experience.
-- Deliver [appropriately sized images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) based on the resolution of the client device. This avoids smaller (often mobile or lower-end) devices from wasting bandwidth loading large images that cannot be displayed at their full quality on the device.
+- Deliver [appropriately sized images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) based on the resolution of the client device. This prevents smaller (often mobile or lower-end) devices from wasting bandwidth loading large images that cannot be displayed at their full resolution on the device.
 
 **Progressive Loading**
 
-The sooner the user sees content being displayed on the page, the faster he perceives the site to be. One way to reduce the time taken for content to be shown is to include only the critical parts of the page in the initial render, and progressively load the remaining resources and update the page as they become available. Though the page may not contain all the content upon the initial render, the partial render makes the site feel faster and more responsive to the user.
+The sooner the user sees content being displayed on the page, the faster they perceives the site to be. One way to reduce the time taken for content to be shown is to include only the critical parts of the page in the initial render, and progressively load the remaining resources and update the page as they become available. Though the page may not contain all the content upon the initial render, the partial render makes the site feel faster and more responsive to the user.
 
 Here are several ways how progressive loading can be effectively applied:
 - Load only the [most critical content](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) as part of the initial render, and fetch remaining resources asynchronously after the render. [Code splitting](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/) can also be helpful here to reduce the amount of Javascript that needs to be loaded for the initial render.
