@@ -6,28 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - VueJs</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
     <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
 
   <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
-    <a class="nav-link py-1" href="#vue-js">VueJs&#x200E;</a>
+    <a class="nav-link py-1" href="#vuejs">VueJs&#x200E;</a>
     <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
-      <a class="nav-link py-1" href="#creating-a-simple-project-in-vue-js">Creating a Simple Project in VueJs&#x200E;</a>
-      <a class="nav-link py-1" href="#advantages-and-disadvantages-of-vue-js">Advantages and Disadvantages of VueJs&#x200E;</a>
-      <a class="nav-link py-1" href="#links-to-vue-js-tutorials-and-practices">Links to VueJs tutorials and practices&#x200E;</a>
+      <a class="nav-link py-1" href="#creating-a-simple-project-in-vuejs">Creating a Simple Project in VueJs&#x200E;</a>
+      <a class="nav-link py-1" href="#advantages-and-disadvantages-of-vuejs">Advantages and Disadvantages of VueJs&#x200E;</a>
+      <a class="nav-link py-1" href="#links-to-vuejs-tutorials-and-practices">Links to VueJs tutorials and practices&#x200E;</a>
       <a class="nav-link py-1" href="#references">References&#x200E;</a>
     </nav>
 
@@ -249,7 +249,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -257,7 +257,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -265,20 +266,20 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
         <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
         <div class="website-content">
-          <h1 id="vue-js">VueJs<a class="fa fa-anchor" href="#vue-js"></a></h1>
+          <h1 id="vuejs">VueJs<a class="fa fa-anchor" href="#vuejs"></a></h1>
           <p>Author: <a href="https://github.com/LuLechuan">Lu Lechuan</a></p>
           <p>VueJs (also known as Vue) is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainablity.</p>
-          <h2 id="creating-a-simple-project-in-vue-js">Creating a Simple Project in VueJs<a class="fa fa-anchor" href="#creating-a-simple-project-in-vue-js"></a></h2>
+          <h2 id="creating-a-simple-project-in-vuejs">Creating a Simple Project in VueJs<a class="fa fa-anchor" href="#creating-a-simple-project-in-vuejs"></a></h2>
           <h4 id="installation">Installation</h4>
           <p>There are <a href="https://vuejs.org/v2/guide/installation.html">multiple ways to install VueJs</a> and they are all easy. For example, one of the easiest ways is to run the npm command <code>$ npm install vue</code>.</p>
           <p>Apart from installing VueJs, you can install <a href="https://github.com/vuejs/vue-devtools#vue-devtools">VueJs development tools</a> in your browser. This will allow you to inspect and debug the components that use VueJs in your projects.</p>
-          <h4 id="hello-world-in-vue-js">HelloWorld in VueJs</h4>
+          <h4 id="helloworld-in-vuejs">HelloWorld in VueJs</h4>
           <p>This is a minimal example to show how easy it is to integrate VueJs into your web project:<br><br>
             The main HTML file</p>
           <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
@@ -325,8 +326,8 @@
           <blockquote>
             <h2>Hello World<a class="fa fa-anchor" href="#undefined"></a></h2>
           </blockquote>
-          <h2 id="advantages-and-disadvantages-of-vue-js">Advantages and Disadvantages of VueJs<a class="fa fa-anchor" href="#advantages-and-disadvantages-of-vue-js"></a></h2>
-          <h4 id="advantages-of-vue-js">Advantages of VueJs</h4>
+          <h2 id="advantages-and-disadvantages-of-vuejs">Advantages and Disadvantages of VueJs<a class="fa fa-anchor" href="#advantages-and-disadvantages-of-vuejs"></a></h2>
+          <h4 id="advantages-of-vuejs">Advantages of VueJs</h4>
           <ol>
             <li>
               <p><strong>Approachable:</strong><br>
@@ -384,7 +385,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
                 VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.</p>
             </li>
           </ol>
-          <h4 id="disadvantages-of-vue-js">Disadvantages of VueJs</h4>
+          <h4 id="disadvantages-of-vuejs">Disadvantages of VueJs</h4>
           <ol>
             <li>
               <p><strong>Relatively small size community:</strong><br>
@@ -395,12 +396,12 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
                 A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.</p>
             </li>
           </ol>
-          <h4 id="detailed-comparison-of-vue-js-with-other-java-script-frameworks-can-be-found-from">Detailed Comparison of VueJs with other JavaScript frameworks can be found from:</h4>
+          <h4 id="detailed-comparison-of-vuejs-with-other-javascript-frameworks-can-be-found-from">Detailed Comparison of VueJs with other JavaScript frameworks can be found from:</h4>
           <ul>
             <li><a href="https://vuejs.org/v2/guide/comparison.html">Vue Guild: Comparison with Other Frameworks</a></li>
             <li><a href="https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176">Angular vs React vs Vue</a></li>
           </ul>
-          <h2 id="links-to-vue-js-tutorials-and-practices">Links to VueJs tutorials and practices<a class="fa fa-anchor" href="#links-to-vue-js-tutorials-and-practices"></a></h2>
+          <h2 id="links-to-vuejs-tutorials-and-practices">Links to VueJs tutorials and practices<a class="fa fa-anchor" href="#links-to-vuejs-tutorials-and-practices"></a></h2>
           <ul>
             <li><a href="https://vuejs.org/">VueSchool</a></li>
             <li><a href="https://laracasts.com/series/learn-vue-2-step-by-step">Laracast</a></li>
@@ -418,18 +419,19 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

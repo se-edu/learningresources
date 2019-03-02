@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - Java Concurrency</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -259,7 +259,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -267,7 +267,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -275,7 +276,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -373,7 +374,7 @@
             <li>Thread A stores the value of 1 to the counter variable</li>
             <li>Thread B stores the value of -1 to the counter variable and overwrites the previous value stored by Thread A</li>
           </ol>
-          <p><a href="thread_interference.png" target="_self"><img src="thread_interference.png" alt="" class="img-fluid"></a></p>
+          <p><a href="thread_interference.png" target="_self"><img src="thread_interference.png" alt class="img-fluid"></a></p>
           <p>Without thread interference, the expected value of the counter variable would be 0, since one thread increments it while the other decrements it. But with thread interference, the value of counter is simply the value written by the last thread. This is due to the unpredictable nature of threads as there is no way to know when the operating system switches between the two threads.</p>
           <p>To solve this issue of interference, the keyword <code>synchronized</code> is used to ensure that method or block of code can only be accessed by one thread at a time. This is done through the use of the intrinsic lock system, a mechanism put in place by Java to control access to a shared resource. Simply put, each object has it's own intrinsic lock which:</p>
           <ul>
@@ -381,7 +382,7 @@
             <li>prevents any other thread from working on it while it's lock has been acquired</li>
           </ul>
           <p>This can be illustrated by the following image where once Thread 2 (T2) acquires the lock for the synchronized block of code, the other two threads (T1 and T3) must wait for the synchronized block of code to release it's lock once T2 to complete its execution:</p>
-          <p><a href="http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" target="_self"><img src="http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" alt="" class="img-fluid"></a></p>
+          <p><a href="http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" target="_self"><img src="http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" alt class="img-fluid"></a></p>
           <p>For a deeper look, see the <a href="../java/JavaSynchronization.md">Java Synchronisation</a> section.</p>
           <h3 id="executors">Executors<a class="fa fa-anchor" href="#executors"></a></h3>
           <p>While it is easy to create one or two threads and run them, it becomes a problem when your application requires creating 20 or 30 threads for running tasks concurrently. This is where the <code>Executors</code> class comes in. It helps you with:</p>
@@ -412,7 +413,7 @@
             </li>
           </ul>
           <p>Shown below is an image to illustrate how <code>ExecutorService</code> and <code>ThreadPools</code> are connected (Do note that the <code>Executor</code> is not in the image as it creates the <code>ExecutorService</code>):
-            <a href="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" target="_self"><img src="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" alt="" class="img-fluid"></a></p>
+            <a href="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" target="_self"><img src="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" alt class="img-fluid"></a></p>
           <p>A simple example of using the <code>Executors</code> class is shown below where after passing in the task to be executed, it is automatically managed by the <code>ExecutorService</code>. For a more detailed look at the workflow of the <code>ExecutorService</code>, see this <a href="https://www.callicoder.com/java-executor-service-and-thread-pool-tutorial/">in-depth tutorial</a>.</p>
           <pre><code class="hljs java">ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">10</span>); 
 executor.execute(() -&gt; {  
@@ -504,18 +505,19 @@ executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thre
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - An Introduction to GPGPU</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -29,7 +29,7 @@
       <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
         <a class="nav-link py-1" href="#1-1-what-is-gpgpu">§ 1.1 What is GPGPU?&#x200E;</a>
         <a class="nav-link py-1" href="#1-2-why-bother-with-parallel-processing">§ 1.2 Why bother with parallel processing?&#x200E;</a>
-        <a class="nav-link py-1" href="#1-3-aren-t-multicore-cp-us-enough">§ 1.3 Aren't multicore CPUs enough?&#x200E;</a>
+        <a class="nav-link py-1" href="#1-3-aren-t-multicore-cpus-enough">§ 1.3 Aren't multicore CPUs enough?&#x200E;</a>
         <a class="nav-link py-1" href="#1-4-what-are-the-challenges-with-gpgpu">§ 1.4 What are the challenges with GPGPU?&#x200E;</a>
         <a class="nav-link py-1" href="#1-5-implementations">§ 1.5 Implementations&#x200E;</a>
         <a class="nav-link py-1" href="#1-6-gpgpu-in-action">§ 1.6 GPGPU in action&#x200E;</a>
@@ -256,7 +256,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -264,7 +264,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -272,7 +273,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -302,7 +303,7 @@
           <p>Moore's law is the observation made by Gordon Moore that the density of transistors in an integrated circuit board doubles approximately every two years. It has long been co-opted by the semiconductor industry as a target, and consumers have taken this growth for granted.</p>
           <p>Because it suggests exponential growth, it is unsustainable and it cannot be expected to continue indefinitely. In the words of Moore himself, &quot;It can't continue forever.&quot;.<sup><a href="#footnote2">[2]</a></sup> There are hard physical limits to this scaling such as heat dissipation rate<sup><a href="#footnote3">[3]</a></sup> and size of microprocessor features.<sup><a href="#footnote4">[4]</a></sup></p>
           <p>As software engineers, this means that free and regular performance gains can no longer be expected.<sup><a href="#footnote5">[5]</a></sup> To fully exploit CPU throughput gains, we need to code differently.</p>
-          <h3 id="1-3-aren-t-multicore-cp-us-enough">§ 1.3 Aren't multicore CPUs enough?<a class="fa fa-anchor" href="#1-3-aren-t-multicore-cp-us-enough"></a></h3>
+          <h3 id="1-3-aren-t-multicore-cpus-enough">§ 1.3 Aren't multicore CPUs enough?<a class="fa fa-anchor" href="#1-3-aren-t-multicore-cpus-enough"></a></h3>
           <p>Between CPUs and GPUs, there are differences in <strong>scale</strong> and <strong>architecture</strong>.</p>
           <ul>
             <li>In terms of <strong>scale</strong>, CPUs only have several cores while GPUs house up to thousands of cores.</li>
@@ -324,10 +325,10 @@
           </ul>
           <h3 id="1-6-gpgpu-in-action">§ 1.6 GPGPU in action<a class="fa fa-anchor" href="#1-6-gpgpu-in-action"></a></h3>
           <p>The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup><a href="#footnote6">[6]</a></sup>. The Pascal architecture is used in many desktop computers, data centres, and supercomputers<sup><a href="#footnote7">[7]</a></sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.</p>
-          <p><a href="jetson_tx2.jpg" target="_self"><img src="jetson_tx2.jpg" alt="" class="img-fluid" title="NVIDIA's Jetson TX2"></a></p>
+          <p><a href="jetson_tx2.jpg" target="_self"><img src="jetson_tx2.jpg" alt class="img-fluid" title="NVIDIA's Jetson TX2"></a></p>
           <p><em><a href="https://devblogs.nvidia.com/jetson-tx2-delivers-twice-intelligence-edge/">NVIDIA Jetson TX2 embedded system-on-module with Thermal Transfer Plate (TTP)</a></em></p>
           <p>Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup><a href="#footnote6">[6]</a></sup>, the TX2 is capable of intensive parallel computational tasks such as real-time vision processing or deploying deep neural networks, allowing mobile platforms to solve complex, real-world problems.</p>
-          <p><a href="drivenet.jpg" target="_self"><img src="drivenet.jpg" alt="" class="img-fluid" title="NVIDIA DRIVENet Demo"></a></p>
+          <p><a href="drivenet.jpg" target="_self"><img src="drivenet.jpg" alt class="img-fluid" title="NVIDIA DRIVENet Demo"></a></p>
           <p><em><a href="https://www.youtube.com/watch?v=HJ58dbd5g8g">CES 2016: NVIDIA DRIVENet Demo - Visualizing a Self-Driving Future</a></em></p>
           <p>Compatible with a range of components and large ecosystem products<sup><a href="#footnote8">[8]</a></sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup><a href="#footnote9">[9]</a></sup>.</p>
           <h2 id="2-further-readings">§ 2. Further Readings<a class="fa fa-anchor" href="#2-further-readings"></a></h2>
@@ -356,18 +357,19 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

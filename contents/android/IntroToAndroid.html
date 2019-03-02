@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - Introduction to Android App Development</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -266,7 +266,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -274,7 +274,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -282,7 +283,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -318,7 +319,7 @@
           <h3 id="1-1-what-is-android">1.1 What is Android?<a class="fa fa-anchor" href="#1-1-what-is-android"></a></h3>
           <p>Android is a Linux-based mobile phone operating system (OS) that was acquired by Google in 2005 and was launched in 2008. Not only does it power phones, it is already the OS of watches, televisions and even car stereo systems.</p>
           <p>The Android mascot is a green robot.</p>
-          <p><a href="https://developer.android.com/images/brand/Android_Robot_100.png" target="_self"><img src="https://developer.android.com/images/brand/Android_Robot_100.png" alt="" class="img-fluid"></a></p>
+          <p><a href="https://developer.android.com/images/brand/Android_Robot_100.png" target="_self"><img src="https://developer.android.com/images/brand/Android_Robot_100.png" alt class="img-fluid"></a></p>
           <p>The source code of Android is made available through the <a href="https://source.android.com/">Android Open Source Project</a> (AOSP). The original AOSP code is used mainly on the Nexus and Pixel phones that are developed by Google themselves. The AOSP code is then customized and adapted by original equipment manufacturers (OEMs), such as Samsung and Sony, to run on their respective phones. There is a list of OEMs <a href="https://www.android.com/certified/partners/">here</a>. This is why the same Android OS looks very different on phones made by the different OEMs. Unlike iOS, which is only found on iPhones and iPads, there is a huge variety of phones that run the Android OS.</p>
           <p>The official way to download apps on the Android OS is to use the Google Play Store. However, it is also possible to download an Android Package Kit (APK) and install the app directly onto your Android device. However, you should be careful when downloading such APK files.</p>
           <h3 id="1-2-why-android">1.2 Why Android?<a class="fa fa-anchor" href="#1-2-why-android"></a></h3>
@@ -347,7 +348,7 @@
           <p>An <code>Activity</code> represents a single screen with a user interface. For example, an event app could have an <code>Activity</code> to login, an <code>Activity</code> to view the event schedule and another <code>Activity</code> to search for locations.</p>
           <h4 id="layouts">Layouts</h4>
           <p><code>Layouts</code> defines a user interface structure for an <code>Activity</code>. They specify how each child <code>View</code> will be placed. For example, <a href="https://developer.android.com/training/constraint-layout/index.html">ConstraintLayout</a> allows you to define constraints between views that will lead to a more responsive UI. Often, apps also need to display a scrolling list of elements and this is where <a href="https://developer.android.com/guide/topics/ui/layout/recyclerview.html">RecyclerView</a> comes in handy. The <code>RecyclerView</code> is very versatile. It can be used to easily create apps like the one below:</p>
-          <p><a href="https://i.imgur.com/vbIL5HA.gif" target="_self"><img src="https://i.imgur.com/vbIL5HA.gif" alt="" class="img-fluid"></a></p>
+          <p><a href="https://i.imgur.com/vbIL5HA.gif" target="_self"><img src="https://i.imgur.com/vbIL5HA.gif" alt class="img-fluid"></a></p>
           <p>(<a href="https://i.imgur.com/vbIL5HA.gif">Image</a> from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>)</p>
           <p>It can also be used to create apps that will benefit from a Grid or Staggered Grid. For example, to have a Staggered Grid, you just need a few lines of Java code as seen below:</p>
           <pre><code class="hljs Java"><span class="hljs-comment">// First parameter is number of columns and second param is orientation i.e Vertical or Horizontal</span>
@@ -357,18 +358,18 @@ recyclerView.setLayoutManager(gridLayoutManager);
 </code></pre>
           <p>Sample code is from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>.</p>
           <p>The app with a Staggered Grid will then look like this:</p>
-          <p><a href="https://i.imgur.com/AlANFgj.png" target="_self"><img src="https://i.imgur.com/AlANFgj.png" alt="" class="img-fluid"></a></p>
+          <p><a href="https://i.imgur.com/AlANFgj.png" target="_self"><img src="https://i.imgur.com/AlANFgj.png" alt class="img-fluid"></a></p>
           <p>(<a href="https://i.imgur.com/AlANFgj.png">Image</a> from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>)</p>
           <p>You can also build a <code>Layout</code> easily using <a href="https://developer.android.com/studio/write/layout-editor.html">Android Layout Editor</a>.
             For further information, Google I/O 2016 introduces <code>Layouts</code> in <a href="https://www.youtube.com/watch?v=sO9aX87hq9c&amp;t=207s">this video</a>.</p>
           <h4 id="fragments">Fragments</h4>
           <p><code>Fragments</code> are like 'sub activities' that allow for code reuse in different activities. Tablets and handsets can choose to display these fragments differently due to the difference in screen size, thus with Fragments, you can easily cater for mobile devices with different resolutions!</p>
-          <p><a href="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" target="_self"><img src="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" alt="" class="img-fluid"></a></p>
+          <p><a href="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" target="_self"><img src="https://camo.githubusercontent.com/b768afff0888fcb8cbe1704b0609b53110276969/687474703a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f66756e64616d656e74616c732f667261676d656e74732e706e67" alt class="img-fluid"></a></p>
           <p>(Image from <a href="https://github.com/codepath/android_guides/wiki/Creating-and-Using-Fragments">Codepath</a>)</p>
           <p>Learn more about <code>Fragments</code> in <a href="https://www.youtube.com/watch?v=k3IT-IJ0J98&amp;t=618s">this video from Google I/O 2016</a>.</p>
           <h3 id="2-2-activity-lifecycle">2.2 Activity Lifecycle<a class="fa fa-anchor" href="#2-2-activity-lifecycle"></a></h3>
           <p>You might wonder, how can I deal with scenarios where the user switch to another app? What if they rotate their phone? Don't worry, you will have control over your app as the user interacts with your app differently. Control is given to you using the <code>Activity Lifecycle</code>. With the <code>Activity Lifecycle</code>, your app can be notified every time the app changes its state, for example, when the app is being paused.</p>
-          <p><a href="https://developer.android.com/guide/components/images/activity_lifecycle.png" target="_self"><img src="https://developer.android.com/guide/components/images/activity_lifecycle.png" alt="" class="img-fluid"></a></p>
+          <p><a href="https://developer.android.com/guide/components/images/activity_lifecycle.png" target="_self"><img src="https://developer.android.com/guide/components/images/activity_lifecycle.png" alt class="img-fluid"></a></p>
           <p>(<a href="https://developer.android.com/guide/components/images/activity_lifecycle.png">Image</a> from Google)</p>
           <h3 id="2-3-the-architecture-of-android">2.3 The Architecture of Android<a class="fa fa-anchor" href="#2-3-the-architecture-of-android"></a></h3>
           <p>Developing for Android used to be a daunting task as apps needed to be reactive to data changes, responsive to users and yet deal with the entire <code>Activity Lifecycle</code>. At Google I/O 2017, <a href="https://developer.android.com/topic/libraries/architecture/index.html">Architecture Components</a> were introduced to help developers solve common issues by following best practices and implementing recommended architecture, so you can focus on building better apps!</p>
@@ -387,7 +388,7 @@ recyclerView.setLayoutManager(gridLayoutManager);
           <p>Developer Options is a great tool for developers (and Android power users) to make system configurations and profile and debug apps. To enable it, just go to <code>Settings</code> and tap the <code>Build Number</code> 7 times on any Android phone.</p>
           <h4 id="android-studio">Android Studio</h4>
           <p>Android Studio provides an in-house debugger and also an Android Emulator that uses an Android Virtual Device (AVD) that models a device type. For example, you can test your app on an AVD configuration for the Nexus 5X phone. You can also target the Android version that the phone should use. Each AVD will have a dedicated storage area on your machine. The AVD Manager in Android Studio allows you to create and manage AVDs.</p>
-          <p><a href="https://developer.android.com/studio/images/run/avd-manager_2x.png" target="_self"><img src="https://developer.android.com/studio/images/run/avd-manager_2x.png" alt="" class="img-fluid"></a></p>
+          <p><a href="https://developer.android.com/studio/images/run/avd-manager_2x.png" target="_self"><img src="https://developer.android.com/studio/images/run/avd-manager_2x.png" alt class="img-fluid"></a></p>
           <p>(<a href="https://developer.android.com/studio/images/run/avd-manager_2x.png">Image</a> from Google)</p>
           <h4 id="android-debug-bridge-adb">Android Debug Bridge (adb)</h4>
           <p>Android Debug Bridge (adb) is a useful advanced command-line tool included with the Android Software Development Kit (SDK). It allows you to communicate with an Android device by issuing commands such as:</p>
@@ -425,18 +426,19 @@ adb logcat – View your Android device’s log. Can be useful for debugging app
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

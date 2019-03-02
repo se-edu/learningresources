@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - Writing Testable Javascript</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -25,7 +25,7 @@
   <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
     <a class="nav-link py-1" href="#writing-testable-javascript">Writing Testable Javascript&#x200E;</a>
     <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
-      <a class="nav-link py-1" href="#writing-testable-java-script">Writing testable JavaScript&#x200E;</a>
+      <a class="nav-link py-1" href="#writing-testable-javascript-2">Writing testable JavaScript&#x200E;</a>
       <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
         <a class="nav-link py-1" href="#avoid-coupling-with-selectors">Avoid coupling with selectors&#x200E;</a>
         <a class="nav-link py-1" href="#split-business-logic-and-presentation-code">Split business logic and presentation code&#x200E;</a>
@@ -260,7 +260,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -268,7 +268,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -276,7 +277,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -287,7 +288,7 @@
           <p>JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing.</p>
           <p>That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.</p>
           <p>Good JavaScript code should be testable and reusable.</p>
-          <h2 id="writing-testable-java-script">Writing testable JavaScript<a class="fa fa-anchor" href="#writing-testable-java-script"></a></h2>
+          <h2 id="writing-testable-javascript-2">Writing testable JavaScript<a class="fa fa-anchor" href="#writing-testable-javascript-2"></a></h2>
           <h3 id="avoid-coupling-with-selectors">Avoid coupling with selectors<a class="fa fa-anchor" href="#avoid-coupling-with-selectors"></a></h3>
           <p>When writing front end code we would encounter code that manipulates the document object model (DOM). Let's look at one such example.</p>
           <pre><code class="hljs js"><span class="hljs-keyword">var</span> DIV_STATUS_MESSAGE = <span class="hljs-string">'#statusMessagesToUser'</span>;
@@ -353,7 +354,7 @@ $.ajax({
     ...
 }
 </code></pre>
-          <p>Of course, this may be a problem if two Javascript functions have the same name, as they are all in the global scope. This is where the module pattern (see: <a href="">Namespacing in Javascript</a>) can be used.</p>
+          <p>Of course, this may be a problem if two Javascript functions have the same name, as they are all in the global scope. This is where the module pattern (see: <a href>Namespacing in Javascript</a>) can be used.</p>
           <pre><code class="hljs js"><span class="hljs-keyword">var</span> myApp = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
 
     <span class="hljs-keyword">var</span> id= <span class="hljs-number">0</span>;
@@ -432,7 +433,7 @@ getTodo(counter, todos);
           <pre><code class="hljs js">createPopUp(<span class="hljs-string">'Warning'</span>, <span class="hljs-string">'This will delete everything!'</span>, dangerStatus, { <span class="hljs-attr">bodyColor</span>: <span class="hljs-string">'red'</span> });
 </code></pre>
           <h3 id="understand-method-chaining">Understand method chaining<a class="fa fa-anchor" href="#understand-method-chaining"></a></h3>
-          <p>Method chaining is syntax such as <code>array.concat([1, 2]).push(1).filter(isEven)</code>. It is also sometimes referred to as the fluent interface. (see: <a href="">Method Chaining in JavaScript</a>)</p>
+          <p>Method chaining is syntax such as <code>array.concat([1, 2]).push(1).filter(isEven)</code>. It is also sometimes referred to as the fluent interface. (see: <a href>Method Chaining in JavaScript</a>)</p>
           <p>It is achieved by returning the object itself in the call.</p>
           <pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = {
     <span class="hljs-attr">save</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -478,18 +479,19 @@ bob.save();
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

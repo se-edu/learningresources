@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - Swift</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -42,7 +42,7 @@
       <a class="nav-link py-1" href="#protocol-oriented-programming">Protocol Oriented Programming&#x200E;</a>
       <a class="nav-link py-1" href="#extensions">Extensions&#x200E;</a>
       <a class="nav-link py-1" href="#automatic-reference-counting">Automatic Reference Counting&#x200E;</a>
-      <a class="nav-link py-1" href="#cocoa-pods">CocoaPods&#x200E;</a>
+      <a class="nav-link py-1" href="#cocoapods">CocoaPods&#x200E;</a>
     </nav>
 
   </nav>
@@ -263,7 +263,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -271,7 +271,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -279,7 +280,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -323,7 +324,7 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
 }
 </code></pre>
           <p>Without Optionals, you might consider using -1 to indicate that there was no such album. But if someone else uses this function, how does he know that -1 means &quot;no such album&quot;? Wouldn't it be better if we could return nil?</p>
-          <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int</span>? {
+          <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int?</span> {
     <span class="hljs-keyword">switch</span> name {
     <span class="hljs-keyword">case</span> <span class="hljs-string">"Taylor Swift"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2006</span>
     <span class="hljs-keyword">case</span> <span class="hljs-string">"Fearless"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2008</span>
@@ -508,7 +509,7 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
           <p>Essentially, when an instance of a class is created, a chunk of memory is allocated to it until it is no longer strongly referenced by anything. References are strong by default. Thus, if we have an Object A (a <code>UIViewController</code>) that creates an Object B (a <code>UIAlertController</code>), B would be strongly referenced by A. However, B might also need access to a variable in A, such that A may be strongly referenced by B, resulting in a reference cycle.</p>
           <p>Reference cycles are bad, because they cause memory leaks. Even though A and B are no longer needed eventually, A and B will still sit in memory since they are both strongly referenced by each other. This is why we need the <code>strong</code>, <code>weak</code> and <code>unowned</code> keywords, to resolve reference cycles.</p>
           <p>Here is an <a href="https://krakendev.io/blog/weak-and-unowned-references-in-swift">article</a> with greater in-depth explanation and examples.</p>
-          <h2 id="cocoa-pods">CocoaPods<a class="fa fa-anchor" href="#cocoa-pods"></a></h2>
+          <h2 id="cocoapods">CocoaPods<a class="fa fa-anchor" href="#cocoapods"></a></h2>
           <p>When you have been working on a Swift project for a while and start to think &quot;Hmm... Someone has probably done something like this before&quot; or &quot;This is a common problem and there should be a library for this&quot;, check out <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a>, THE package/library manager for Swift.</p>
         </div>
       </div>
@@ -518,18 +519,19 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

@@ -33,10 +33,38 @@ function setupAnchors() {
   });
 }
 
+function updateSearchData(vm) {
+  jQuery.getJSON(`${baseUrl}/siteData.json`)
+    .then((siteData) => {
+      // eslint-disable-next-line no-param-reassign
+      vm.searchData = siteData.pages;
+    });
+}
+
+const MarkBind = {
+  executeAfterSetupScripts: jQuery.Deferred(),
+};
+
+MarkBind.afterSetup = (func) => {
+  if (document.readyState !== 'loading') {
+    func();
+  } else {
+    MarkBind.executeAfterSetupScripts.then(func);
+  }
+};
+
+function removeTemporaryStyles() {
+  jQuery('.temp-navbar').removeClass('temp-navbar');
+  jQuery('.temp-dropdown').removeClass('temp-dropdown');
+  jQuery('.temp-dropdown-placeholder').remove();
+}
+
 function executeAfterMountedRoutines() {
   flattenModals();
   scrollToUrlAnchorHeading();
   setupAnchors();
+  removeTemporaryStyles();
+  MarkBind.executeAfterSetupScripts.resolve();
 }
 
 function setupSiteNav() {
@@ -80,11 +108,7 @@ function setup() {
   setupPageNav();
 }
 
-function setupWithSearch(siteData) {
-  if (!siteData.enableSearch) {
-    setup();
-    return;
-  }
+function setupWithSearch() {
   const { searchbar } = VueStrap.components;
   // eslint-disable-next-line no-unused-vars
   const vm = new Vue({
@@ -94,7 +118,7 @@ function setupWithSearch(siteData) {
     },
     data() {
       return {
-        searchData: siteData.pages,
+        searchData: [],
       };
     },
     methods: {
@@ -106,12 +130,15 @@ function setupWithSearch(siteData) {
     },
     mounted() {
       executeAfterMountedRoutines();
+      updateSearchData(this);
     },
   });
   setupSiteNav();
   setupPageNav();
 }
 
-jQuery.getJSON(`${baseUrl}/siteData.json`)
-  .then(siteData => setupWithSearch(siteData))
-  .catch(() => setup());
+if (enableSearch) {
+  setupWithSearch();
+} else {
+  setup();
+}

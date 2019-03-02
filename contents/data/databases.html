@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - Introduction to Databases &amp; Database Management Systems (DBMS)</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -25,7 +25,7 @@
   <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
     <a class="nav-link py-1" href="#introduction-to-databases-and-database-management-systems-dbms">Introduction to Databases &amp; Database Management Systems (DBMS)&#x200E;</a>
     <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
-      <a class="nav-link py-1" href="#why-learn-databases-and-dbm-ses">Why learn databases and DBMSes?&#x200E;</a>
+      <a class="nav-link py-1" href="#why-learn-databases-and-dbmses">Why learn databases and DBMSes?&#x200E;</a>
       <a class="nav-link py-1" href="#introduction">Introduction&#x200E;</a>
       <a class="nav-link py-1" href="#database-models">Database models&#x200E;</a>
       <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
@@ -263,7 +263,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -271,7 +271,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -279,7 +280,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -287,12 +288,12 @@
         <div class="website-content">
           <h1 id="introduction-to-databases-and-database-management-systems-dbms">Introduction to Databases &amp; Database Management Systems (DBMS)<a class="fa fa-anchor" href="#introduction-to-databases-and-database-management-systems-dbms"></a></h1>
           <p>Authors: <a href="https://github.com/Skaty">Syed Abdullah</a></p>
-          <h2 id="why-learn-databases-and-dbm-ses">Why learn databases and DBMSes?<a class="fa fa-anchor" href="#why-learn-databases-and-dbm-ses"></a></h2>
+          <h2 id="why-learn-databases-and-dbmses">Why learn databases and DBMSes?<a class="fa fa-anchor" href="#why-learn-databases-and-dbmses"></a></h2>
           <p>The programs that we create would handle data in some way or another. Be it a simple calculator application that tabulates user calculations (and maybe store them in a log of recent calculation) or a cluster of servers that handle indexing of a large number of documents. Data is what is worked on by any program, the inputs and outputs of a program or even a simple function are data.</p>
           <p>As our programs get larger and the data that is worked on becomes much more complex, there needs to be a way for us to systematically store and access data that is being worked on. It could be a crude structure, designed specifically for a particular use case or something that is more standardised, for instance, an application that handles data.</p>
           <p>This notion of structuring data and providing an easy to use abstraction for accessing, storing and performing mundane operations on data (for instance, sorting them) is what this guide will cover.</p>
           <h2 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction"></a></h2>
-          <p><a href="images/db-dbms-relation.png" target="_self"><img src="images/db-dbms-relation.png" alt="" class="img-fluid"></a></p>
+          <p><a href="images/db-dbms-relation.png" target="_self"><img src="images/db-dbms-relation.png" alt class="img-fluid"></a></p>
           <p>A <strong>database</strong> is a collection of data. While any data in a medium can theoretically be a database (for instance, scribbling on a piece of paper), databases in the context of this chapter typically involve data that are organised in some manner.</p>
           <p>Programs generally do not access the raw data directly. Instead, a <strong>database management system (DBMS)</strong> is used, which will handle the storage, retrieval and updating of the data.</p>
           <p>Sometimes people use the term database to refer to a DBMS. However, to avoid any confusion, this guide will use these terms as defined above.</p>
@@ -461,18 +462,19 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

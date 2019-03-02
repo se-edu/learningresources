@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - Introduction to computer vision (CV)</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -260,7 +260,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -268,7 +268,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -276,7 +277,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -333,12 +334,12 @@
           <p>This section introduces some of those core problems, and cites working examples for demonstration purposes. The examples use Open Source Computer Vision library (OpenCV) - containing implemented algorithm packages and utility functions for building computer vision applications. It is freely distributed and licensed for both academic and commercial use. The code examples cited in this section are written in Python, but OpenCV has API supports for C++ and Java as well.</p>
           <h3 id="image-transformations">Image Transformations<a class="fa fa-anchor" href="#image-transformations"></a></h3>
           <p>In many applications, image transformation is often the first step that standardizes the input and allows the application to subsequently perform more complex analysis.</p>
-          <p><a href="image-transformation.png" target="_self"><img src="image-transformation.png" alt="" class="img-fluid" title="CamScanner Image Warpping"></a></p>
+          <p><a href="image-transformation.png" target="_self"><img src="image-transformation.png" alt class="img-fluid" title="CamScanner Image Warpping"></a></p>
           <p><em><a href="https://www.camscanner.com/">Affine Transformation</a></em></p>
           <p>The most common transformations are scaling - resizing of image, translation - shifting of selected zones in image, rotation of image for an angle, and affine transformation - a combination of scaling, rotating, and translation, that reserves parallel lines in the original image.<sup><a href="#footnote7">[7]</a></sup></p>
           <p><strong>Example:</strong> Perspective Warping using OpenCV</p>
           <p><em>This example is extracted from &quot;Building a Pokedex in Python: OpenCV and Perspective Warping&quot; tutorial originally published on PyImageSearch on May 5, 2014. Refer to original tutorial <a href="https://www.pyimagesearch.com/2014/05/05/building-pokedex-python-opencv-perspective-warping-step-5-6/">here</a>. All pictures and code snippets in this example belong to its original author, Adrian Rosebrock.</em></p>
-          <p><a href="image-transformation-example-1.jpg" target="_self"><img src="image-transformation-example-1.jpg" alt="" class="img-fluid" title="Perspective Warpping"></a></p>
+          <p><a href="image-transformation-example-1.jpg" target="_self"><img src="image-transformation-example-1.jpg" alt class="img-fluid" title="Perspective Warpping"></a></p>
           <p>Suppose we have the picture of the Gameboy on the left, and we want to crop out just the game screen like the right side of the picture above. Notice that on the left the screen is slightly skewed, and we want to project it upright.</p>
           <p>First of all, we need to have the coordinates of the 4 corners of the screen. This can be entered by hand, as OpenCV has helper functions for capturing mouse input; for example, user can use the mouse to click on the 4 corners of the game screen one by one and the application captures the coordinates of the clicked points. See more <a href="https://docs.opencv.org/3.3.0/db/d5b/tutorial_py_mouse_handling.html">here</a>. Then, we map the skewed image to a another rectangle frame pixel by pixel.</p>
           <pre><code class="hljs python"><span class="hljs-comment"># We use numpy - a library for scientific computing with Python.</span>
@@ -371,10 +372,10 @@ warp = cv2.warpPerspective(orig, M, (width, height))
 </code></pre>
           <h3 id="image-classification">Image Classification<a class="fa fa-anchor" href="#image-classification"></a></h3>
           <p>Image classification refers to the task of identifying the object present in an image. Typically, a predetermined set of possible objects is given and the classification of the image is the object that is most likely to exist in it.<sup><a href="#footnote6">[6]</a></sup></p>
-          <p><a href="image-classification-1.png" target="_self"><img src="image-classification-1.png" alt="" class="img-fluid" title="Cat Classified"></a></p>
+          <p><a href="image-classification-1.png" target="_self"><img src="image-classification-1.png" alt class="img-fluid" title="Cat Classified"></a></p>
           <p><em><a href="http://cs231n.github.io/classification/">source</a></em></p>
           <p>Image classification is often paired with object localization, which is the task of finding where in the image the object is. Many more complex problems in computer vision, such as object detection and segmentation, can be reduced to image classification and localization.<sup><a href="#footnote6">[6]</a></sup></p>
-          <p><a href="image-classification-2.png" target="_self"><img src="image-classification-2.png" alt="" class="img-fluid" title="Cat Localized"></a></p>
+          <p><a href="image-classification-2.png" target="_self"><img src="image-classification-2.png" alt class="img-fluid" title="Cat Localized"></a></p>
           <p><em><a href="http://cs231n.github.io/classification/">Fei-Fei Li, Andrej Karpathy &amp; Justin Johnson (2016) cs231n, Lecture 8 - Slide 8, Spatial Localization and Detection (01/02/2016)</a></em></p>
           <p>At the moment, there already exist classification/localization models that surpass trained humans. For example, in the 2014 ImageNet Large Scale Visual Recognition Challenge (ILSVRC),</p>
           <blockquote>
@@ -411,11 +412,11 @@ cv2.putText(image, text, (<span class="hljs-number">5</span>, <span class="hljs-
 			<span class="hljs-number">0.7</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)
 </code></pre>
           <p>Some results:</p>
-          <p><a href="image-classification-example-1.jpg" target="_self"><img src="image-classification-example-1.jpg" alt="" class="img-fluid" title="Beagle Classification"></a></p>
-          <p><a href="image-classification-example-2.jpg" target="_self"><img src="image-classification-example-2.jpg" alt="" class="img-fluid" title="Traffic Light Classification"></a></p>
+          <p><a href="image-classification-example-1.jpg" target="_self"><img src="image-classification-example-1.jpg" alt class="img-fluid" title="Beagle Classification"></a></p>
+          <p><a href="image-classification-example-2.jpg" target="_self"><img src="image-classification-example-2.jpg" alt class="img-fluid" title="Traffic Light Classification"></a></p>
           <h3 id="object-detection">Object Detection<a class="fa fa-anchor" href="#object-detection"></a></h3>
           <p>Object detection, as the name suggests, detects objects within an image. It combines image classification and localization in a sense that it gives the classification and bounding box (localization) of object in an image, but it does this to all instance of every known type of objects found in the image, instead of assuming only one type is present.<sup><a href="#footnote9">[9]</a></sup></p>
-          <p><a href="object-detection.png" target="_self"><img src="object-detection.png" alt="" class="img-fluid" title="Object detected"></a></p>
+          <p><a href="object-detection.png" target="_self"><img src="object-detection.png" alt class="img-fluid" title="Object detected"></a></p>
           <p><em><a href="https://github.com/tensorflow/models/tree/master/research/object_detection">source</a></em></p>
           <p>Obviously, object detection requires tremendous computing power compared to classification/localization; a naïve approach is to repeatedly classify and localize for every pixel in the image. In recent years, breakthroughs have been made towards a quicker and more efficient detecting algorithms, such as sharing computation on a whole image as can be seen in YOLO, SSD, and R-FCN. Notably, in 2016, the YOLO system named 'YOLO9000' was able to achieve real-time detection on motion pictures, and even able to detect object categories that it had never been trained for.<sup><a href="#footnote9">[9]</a></sup></p>
           <p><strong>Example:</strong> Cat detection with OpenCV</p>
@@ -442,11 +443,11 @@ rects = detector.detectMultiScale(gray, scaleFactor=<span class="hljs-number">1.
 		cv2.FONT_HERSHEY_SIMPLEX, <span class="hljs-number">0.55</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)
 </code></pre>
           <p>Some results:</p>
-          <p><a href="object-detection-example-1.jpg" target="_self"><img src="object-detection-example-1.jpg" alt="" class="img-fluid" title="Cat Detection"></a></p>
-          <p><a href="object-detection-example-2.jpg" target="_self"><img src="object-detection-example-2.jpg" alt="" class="img-fluid" title="Cat Detection"></a></p>
+          <p><a href="object-detection-example-1.jpg" target="_self"><img src="object-detection-example-1.jpg" alt class="img-fluid" title="Cat Detection"></a></p>
+          <p><a href="object-detection-example-2.jpg" target="_self"><img src="object-detection-example-2.jpg" alt class="img-fluid" title="Cat Detection"></a></p>
           <h3 id="object-tracking">Object Tracking<a class="fa fa-anchor" href="#object-tracking"></a></h3>
           <p>Object tracking is the process of following and establishing the movement of a specific object of interest in a sequential set of images - typically a video clip or a real-time camera feed.<sup><a href="#footnote10">[10]</a></sup> It is crucial for autonomous driving systems such as self-driving cars or unmanned aerial vehicles (UAVs).</p>
-          <p><a href="object-tracking.png" target="_self"><img src="object-tracking.png" alt="" class="img-fluid" title="Object tracked"></a></p>
+          <p><a href="object-tracking.png" target="_self"><img src="object-tracking.png" alt class="img-fluid" title="Object tracked"></a></p>
           <p><em><a href="https://docs.opencv.org/3.3.1/">Tracking movement of cars with OpenCV</a></em></p>
           <p>Object tracking algorithms can be divided into 2 categories: those applied to still backgrounds, and those to moving image frames such as those from a car camera.<sup><a href="#footnote6">[6]</a></sup> Algorithms in the former category typically compare subsequent images, extract the difference and deduce the movements, if any. Notable in this category are Optical Flow and the Waterfall algorithms.<sup><a href="#footnote6">[6]</a></sup> Moving image sources on the other hand require the tracking system to learn the relationships between each object's motion and the surroundings.<sup><a href="#footnote4">[4]</a></sup> In any case, all tracking systems require an initial detection of the object to track.<sup><a href="#footnote6">[6]</a></sup></p>
           <p><strong>Example:</strong> Background subtraction for tracking with OpenCV</p>
@@ -478,13 +479,13 @@ fgbg = cv2.createBackgroundSubtractorMOG()
 </code></pre>
           <p>Some results:</p>
           <p>Original frame:</p>
-          <p><a href="object-tracking-example-1.jpg" target="_self"><img src="object-tracking-example-1.jpg" alt="" class="img-fluid" title="Original Frame"></a></p>
+          <p><a href="object-tracking-example-1.jpg" target="_self"><img src="object-tracking-example-1.jpg" alt class="img-fluid" title="Original Frame"></a></p>
           <p>With <code>BackgroundSubtractorMOG</code>:</p>
-          <p><a href="object-tracking-example-2.jpg" target="_self"><img src="object-tracking-example-2.jpg" alt="" class="img-fluid" title="MOG"></a></p>
+          <p><a href="object-tracking-example-2.jpg" target="_self"><img src="object-tracking-example-2.jpg" alt class="img-fluid" title="MOG"></a></p>
           <p>With <code>BackgroundSubtractorMOG2</code>:</p>
-          <p><a href="object-tracking-example-3.jpg" target="_self"><img src="object-tracking-example-3.jpg" alt="" class="img-fluid" title="MOG2"></a></p>
+          <p><a href="object-tracking-example-3.jpg" target="_self"><img src="object-tracking-example-3.jpg" alt class="img-fluid" title="MOG2"></a></p>
           <p>With <code>BackgroundSubtractorGMG</code>:</p>
-          <p><a href="object-tracking-example-4.jpg" target="_self"><img src="object-tracking-example-4.jpg" alt="" class="img-fluid" title="GMG"></a></p>
+          <p><a href="object-tracking-example-4.jpg" target="_self"><img src="object-tracking-example-4.jpg" alt class="img-fluid" title="GMG"></a></p>
           <h2 id="gpu-accelerated-cv">GPU-accelerated CV<a class="fa fa-anchor" href="#gpu-accelerated-cv"></a></h2>
           <p>For computer vision systems, digital images are often translated into matrices, whose nature depends on the chosen color presentation. For example, an image in the RGB (Red, Green, Blue) color space will be presented by 3 matrices, each contains the color intensity of the individual pixels with regards to red, green, or blue. There are other color representations, such as the CMYK or the HSV that annotates the pixels' Hue, Saturation, and Value.<sup><a href="#footnote1">[1]</a></sup></p>
           <p>Underneath, all computer vision algorithms deal with images as matrices, thus employ theories in Linear Algebra to process images. In computer hardware, there is a class of computing units that specializes in matrix operations called the Graphics Processing Units (GPUs) - their main purpose is to speed up heavy graphical tasks such as video rendering, gaming, or 3D modelling. Therefore, GPUs are well-suited to serve as computer vision computing units.<sup><a href="#footnote11">[11]</a></sup></p>
@@ -552,18 +553,19 @@ fgbg = cv2.createBackgroundSubtractorMOG()
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

@@ -6,27 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - DevOps</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
     <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
 
   <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
-    <a class="nav-link py-1" href="#dev-ops">DevOps&#x200E;</a>
+    <a class="nav-link py-1" href="#devops">DevOps&#x200E;</a>
     <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
-      <a class="nav-link py-1" href="#what-is-dev-ops">What is DevOps?&#x200E;</a>
-      <a class="nav-link py-1" href="#aspects-of-dev-ops">Aspects of DevOps&#x200E;</a>
+      <a class="nav-link py-1" href="#what-is-devops">What is DevOps?&#x200E;</a>
+      <a class="nav-link py-1" href="#aspects-of-devops">Aspects of DevOps&#x200E;</a>
       <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
         <a class="nav-link py-1" href="#code-development-and-review">Code Development &amp; Review&#x200E;</a>
         <a class="nav-link py-1" href="#build-and-test-automation">Build &amp; Test Automation&#x200E;</a>
@@ -259,7 +259,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -267,7 +267,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -275,15 +276,15 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
         <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
         <div class="website-content">
-          <h1 id="dev-ops">DevOps<a class="fa fa-anchor" href="#dev-ops"></a></h1>
+          <h1 id="devops">DevOps<a class="fa fa-anchor" href="#devops"></a></h1>
           <p>Authors: <a href="https://github.com/whipermr5">John Yong</a></p>
-          <h2 id="what-is-dev-ops">What is DevOps?<a class="fa fa-anchor" href="#what-is-dev-ops"></a></h2>
+          <h2 id="what-is-devops">What is DevOps?<a class="fa fa-anchor" href="#what-is-devops"></a></h2>
           <blockquote>
             <p>“DevOps is the practice of operations and development engineers participating together in the entire service lifecycle, from design through the development process to production support.” — <a href="https://theagileadmin.com/what-is-devops/">the agile admin</a></p>
           </blockquote>
@@ -292,7 +293,7 @@
           <blockquote>
             <p>Tip: for a comprehensive discussion of what DevOps is and is not, refer to <em>the agile admin</em>'s article, <a href="https://theagileadmin.com/what-is-devops/">What Is DevOps?</a></p>
           </blockquote>
-          <h2 id="aspects-of-dev-ops">Aspects of DevOps<a class="fa fa-anchor" href="#aspects-of-dev-ops"></a></h2>
+          <h2 id="aspects-of-devops">Aspects of DevOps<a class="fa fa-anchor" href="#aspects-of-devops"></a></h2>
           <p>While DevOps is predominantly an organisational culture and mindset, there are several aspects it covers that you, as a software engineering student, need to be familiar with before entering the industry. These are outlined in the DevOps toolchain (<a href="https://en.wikipedia.org/wiki/DevOps#DevOps_toolchain">source</a>):</p>
           <ol>
             <li>Code</li>
@@ -392,18 +393,19 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

@@ -6,28 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - FindBugs</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
     <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
 
   <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
-    <a class="nav-link py-1" href="#find-bugs">FindBugs&#x200E;</a>
+    <a class="nav-link py-1" href="#findbugs">FindBugs&#x200E;</a>
     <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
       <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
       <a class="nav-link py-1" href="#features">Features&#x200E;</a>
-      <a class="nav-link py-1" href="#examples-of-bugs-that-can-be-found-using-find-bugs">Examples of Bugs that can be found using FindBugs&#x200E;</a>
+      <a class="nav-link py-1" href="#examples-of-bugs-that-can-be-found-using-findbugs">Examples of Bugs that can be found using FindBugs&#x200E;</a>
       <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
         <a class="nav-link py-1" href="#incorrectly-overriding-methods">Incorrectly overriding methods&#x200E;</a>
         <a class="nav-link py-1" href="#find-hash-equals-mismatch">Find hash-equals mismatch&#x200E;</a>
@@ -40,7 +40,7 @@
         <a class="nav-link py-1" href="#suppress-warnings">Suppress Warnings&#x200E;</a>
         <a class="nav-link py-1" href="#running">Running&#x200E;</a>
       </nav>
-      <a class="nav-link py-1" href="#spot-bugs-the-successor-of-findbugs">SpotBugs - The successor of Findbugs&#x200E;</a>
+      <a class="nav-link py-1" href="#spotbugs-the-successor-of-findbugs">SpotBugs - The successor of Findbugs&#x200E;</a>
       <a class="nav-link py-1" href="#advanced-topics">Advanced Topics&#x200E;</a>
       <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
     </nav>
@@ -263,7 +263,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -271,7 +271,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -279,13 +280,13 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
         <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
         <div class="website-content">
-          <h1 id="find-bugs">FindBugs<a class="fa fa-anchor" href="#find-bugs"></a></h1>
+          <h1 id="findbugs">FindBugs<a class="fa fa-anchor" href="#findbugs"></a></h1>
           <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a>, <a href="https://github.com/tshradheya">Shradheya Thakre</a></p>
           <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
           <p>FindBugs is a static analysis tool to find bugs in <strong>Java</strong> programs. It looks for 'bug patterns' in the code and signals possible violations. Potential errors are classified in four ranks:</p>
@@ -311,7 +312,7 @@
           </ol>
           <p>Refer to <a href="http://findbugs.sourceforge.net/bugDescriptions.html">FindBugs official documentation</a> for a comprehensive list of bugs and the explanation of each bug.</p>
           <p>FindBugs analyses bytecode in compiled Java <code>.class</code> file and checks multiple files at the same time. This is unlike <a href="checkStyle.md">CheckStyle</a> or <a href="PMD.md">PMD</a> which can only check files one by one and analyse Java source code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is <code>RCN: Redundant nullcheck of value known to be non-null</code>. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the <code>nullcheck</code> for the variable is redundant or not.</p>
-          <h2 id="examples-of-bugs-that-can-be-found-using-find-bugs">Examples of Bugs that can be found using FindBugs<a class="fa fa-anchor" href="#examples-of-bugs-that-can-be-found-using-find-bugs"></a></h2>
+          <h2 id="examples-of-bugs-that-can-be-found-using-findbugs">Examples of Bugs that can be found using FindBugs<a class="fa fa-anchor" href="#examples-of-bugs-that-can-be-found-using-findbugs"></a></h2>
           <h3 id="incorrectly-overriding-methods">Incorrectly overriding methods<a class="fa fa-anchor" href="#incorrectly-overriding-methods"></a></h3>
           <p>Consider the following code:</p>
           <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>{
@@ -372,7 +373,7 @@
             <li><a href="https://plugins.jetbrains.com/plugin/3847-findbugs-idea">IntelliJ Integration</a></li>
             <li><a href="https://netbeans.org/kb/docs/java/code-inspect.html">NetBeans Integration</a></li>
           </ul>
-          <h2 id="spot-bugs-the-successor-of-findbugs">SpotBugs - The successor of Findbugs<a class="fa fa-anchor" href="#spot-bugs-the-successor-of-findbugs"></a></h2>
+          <h2 id="spotbugs-the-successor-of-findbugs">SpotBugs - The successor of Findbugs<a class="fa fa-anchor" href="#spotbugs-the-successor-of-findbugs"></a></h2>
           <p>On November 2016, FindBugs was <a href="https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2016-November/004321.html">declared dead</a> and <a href="https://spotbugs.github.io/">SpotBugs</a> was <a href="https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2017-September/004383.html">declared as its successor</a> in September 2017.</p>
           <p>The current projects using <code>FindBugs</code> can make a shift to <code>SpotBugs</code> by following the <a href="http://spotbugs.readthedocs.io/en/latest/migration.html">migration manual</a></p>
           <h2 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h2>
@@ -396,18 +397,19 @@
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>

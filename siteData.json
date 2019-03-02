@@ -13,7 +13,8 @@
       "headings": {
         "about-us": "About Us",
         "contact": "Contact",
-        "license": "License"
+        "license": "License",
+        "acknowledgements": "Acknowledgements"
       },
       "title": "About Us",
       "footer": "footer.md",
@@ -172,7 +173,7 @@
     {
       "headings": {
         "introduction-to-databases-and-database-management-systems-dbms": "Introduction to Databases &amp; Database Management Systems (DBMS)",
-        "why-learn-databases-and-dbm-ses": "Why learn databases and DBMSes?",
+        "why-learn-databases-and-dbmses": "Why learn databases and DBMSes?",
         "introduction": "Introduction",
         "database-models": "Database models",
         "why-are-there-different-models": "Why are there different models?",
@@ -195,9 +196,9 @@
     },
     {
       "headings": {
-        "dev-ops": "DevOps",
-        "what-is-dev-ops": "What is DevOps?",
-        "aspects-of-dev-ops": "Aspects of DevOps",
+        "devops": "DevOps",
+        "what-is-devops": "What is DevOps?",
+        "aspects-of-devops": "Aspects of DevOps",
         "code-development-and-review": "Code Development &amp; Review",
         "build-and-test-automation": "Build &amp; Test Automation",
         "deployment-and-infrastructure": "Deployment &amp; Infrastructure",
@@ -265,16 +266,16 @@
         "1-2-cuda-terminologies": "§ 1.2 CUDA Terminologies",
         "1-3-kernel-implementations-in-c": "§ 1.3 Kernel Implementations in C",
         "1-4-introductory-tutorial": "§ 1.4 Introductory Tutorial",
-        "2-py-cuda": "§ 2. PyCUDA",
-        "2-1-what-is-py-cuda": "§ 2.1 What is PyCUDA?",
+        "2-pycuda": "§ 2. PyCUDA",
+        "2-1-what-is-pycuda": "§ 2.1 What is PyCUDA?",
         "2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python": "§ 2.2 Does this mean not having to use C, and coding entirely in Python?",
-        "2-3-so-why-bother-with-py-cuda": "§ 2.3 So Why bother with PyCUDA?",
-        "2-4-installing-py-cuda": "§ 2.4 Installing PyCUDA",
-        "2-5-minor-py-cuda-terminologies": "§ 2.5 Minor PyCUDA Terminologies",
+        "2-3-so-why-bother-with-pycuda": "§ 2.3 So Why bother with PyCUDA?",
+        "2-4-installing-pycuda": "§ 2.4 Installing PyCUDA",
+        "2-5-minor-pycuda-terminologies": "§ 2.5 Minor PyCUDA Terminologies",
         "2-6-introductory-tutorial": "§ 2.6 Introductory Tutorial",
-        "3-cuda-vs-open-cl": "§ 3. CUDA vs OpenCL",
-        "3-1-what-is-open-cl": "§ 3.1 What is OpenCL?",
-        "3-2-differences-between-cuda-and-open-cl": "§ 3.2 Differences between CUDA and OpenCL",
+        "3-cuda-vs-opencl": "§ 3. CUDA vs OpenCL",
+        "3-1-what-is-opencl": "§ 3.1 What is OpenCL?",
+        "3-2-differences-between-cuda-and-opencl": "§ 3.2 Differences between CUDA and OpenCL",
         "4-further-readings": "§ 4. Further Readings",
         "5-references": "§ 5. References"
       },
@@ -292,7 +293,7 @@
         "1-gpgpu": "§ 1. GPGPU",
         "1-1-what-is-gpgpu": "§ 1.1 What is GPGPU?",
         "1-2-why-bother-with-parallel-processing": "§ 1.2 Why bother with parallel processing?",
-        "1-3-aren-t-multicore-cp-us-enough": "§ 1.3 Aren't multicore CPUs enough?",
+        "1-3-aren-t-multicore-cpus-enough": "§ 1.3 Aren't multicore CPUs enough?",
         "1-4-what-are-the-challenges-with-gpgpu": "§ 1.4 What are the challenges with GPGPU?",
         "1-5-implementations": "§ 1.5 Implementations",
         "1-6-gpgpu-in-action": "§ 1.6 GPGPU in action",
@@ -400,10 +401,10 @@
         "synchronized-statement": "synchronized statement",
         "synchronized-method": "synchronized method",
         "more-features-of-java-synchronization": "More features of Java synchronization",
-        "wait-and-notify-all": "wait() and notifyAll()",
+        "wait-and-notifyall": "wait() and notifyAll()",
         "understand-which-object-is-used-as-monitor": "Understand which object is used as Monitor",
         "check-condition-for-wait-with-while-loop": "Check condition for wait() with while loop",
-        "breakpoint-of-notify-all": "Breakpoint of notifyAll()",
+        "breakpoint-of-notifyall": "Breakpoint of notifyAll()",
         "notify": "notify()",
         "related-areas": "Related areas"
       },
@@ -443,11 +444,11 @@
     },
     {
       "headings": {
-        "vue-js": "VueJs",
-        "creating-a-simple-project-in-vue-js": "Creating a Simple Project in VueJs",
+        "vuejs": "VueJs",
+        "creating-a-simple-project-in-vuejs": "Creating a Simple Project in VueJs",
         "undefined": "Hello World",
-        "advantages-and-disadvantages-of-vue-js": "Advantages and Disadvantages of VueJs",
-        "links-to-vue-js-tutorials-and-practices": "Links to VueJs tutorials and practices",
+        "advantages-and-disadvantages-of-vuejs": "Advantages and Disadvantages of VueJs",
+        "links-to-vuejs-tutorials-and-practices": "Links to VueJs tutorials and practices",
         "references": "References"
       },
       "title": "VueJs",
@@ -495,7 +496,7 @@
     {
       "headings": {
         "writing-testable-javascript": "Writing Testable Javascript",
-        "writing-testable-java-script": "Writing testable JavaScript",
+        "writing-testable-javascript-2": "Writing testable JavaScript",
         "avoid-coupling-with-selectors": "Avoid coupling with selectors",
         "split-business-logic-and-presentation-code": "Split business logic and presentation code",
         "avoid-big-anonymous-functions": "Avoid big anonymous functions",
@@ -519,7 +520,7 @@
       "headings": {
         "null-safety-in-kotlin": "Null Safety in Kotlin",
         "what-is-null-safety": "What is Null Safety?",
-        "null-pointer-exception": "NullPointerException",
+        "nullpointerexception": "NullPointerException",
         "how-does-kotlin-handle-null-safety": "How does Kotlin handle Null Safety?",
         "nullable-and-non-nullable-type": "Nullable and Non-nullable type",
         "safety-operators-in-kotlin": "Safety Operators in Kotlin",
@@ -567,7 +568,7 @@
         "benefit-1-easy-to-get-started": "Benefit 1: Easy to get started",
         "benefit-2-avoid-synchronization-problems-and-overheads": "Benefit 2: Avoid synchronization problems and overheads",
         "benefit-3-fast-for-i-o-intensive-tasks": "Benefit 3: Fast for I/O intensive tasks",
-        "benefit-4-use-java-script-for-both-front-and-back-end-development": "Benefit 4: Use JavaScript for both front and back-end development",
+        "benefit-4-use-javascript-for-both-front-and-back-end-development": "Benefit 4: Use JavaScript for both front and back-end development",
         "benefit-5-easy-dependency-management-with-npm": "Benefit 5: Easy dependency management with npm",
         "benefit-6-npm-scripts-is-versatile-and-help-to-save-time-in-the-development-process": "Benefit 6: npm scripts is versatile and help to save time in the development process",
         "benefit-7-easy-to-reuse-code-from-others": "Benefit 7: Easy to reuse code from others",
@@ -773,7 +774,7 @@
         "functional-programming-is-encouraged": "Functional programming is encouraged",
         "object-oriented-programming-is-possible-too": "Object-oriented programming is possible, too",
         "advanced-topics": "Advanced Topics",
-        "ruby-frameworks-and-dev-ops": "Ruby Frameworks and DevOps"
+        "ruby-frameworks-and-devops": "Ruby Frameworks and DevOps"
       },
       "title": "Introduction to Ruby",
       "footer": "footer.md",
@@ -911,7 +912,7 @@
     },
     {
       "headings": {
-        "es-lint": "ESLint",
+        "eslint": "ESLint",
         "overview": "Overview",
         "rules": "Rules",
         "setting-up": "Setting Up",
@@ -929,10 +930,10 @@
     },
     {
       "headings": {
-        "find-bugs": "FindBugs",
+        "findbugs": "FindBugs",
         "overview": "Overview",
         "features": "Features",
-        "examples-of-bugs-that-can-be-found-using-find-bugs": "Examples of Bugs that can be found using FindBugs",
+        "examples-of-bugs-that-can-be-found-using-findbugs": "Examples of Bugs that can be found using FindBugs",
         "incorrectly-overriding-methods": "Incorrectly overriding methods",
         "find-hash-equals-mismatch": "Find hash-equals mismatch",
         "return-value-of-method-ignored": "Return value of method ignored",
@@ -941,7 +942,7 @@
         "configuration": "Configuration",
         "suppress-warnings": "Suppress Warnings",
         "running": "Running",
-        "spot-bugs-the-successor-of-findbugs": "SpotBugs - The successor of Findbugs",
+        "spotbugs-the-successor-of-findbugs": "SpotBugs - The successor of Findbugs",
         "advanced-topics": "Advanced Topics",
         "resources": "Resources"
       },
@@ -965,7 +966,7 @@
         "suppress-warnings": "Suppress Warnings",
         "command-line-usage": "Command Line Usage",
         "integration-with-build-automation-tools": "Integration with Build Automation Tools",
-        "integration-with-id-es": "Integration with IDEs",
+        "integration-with-ides": "Integration with IDEs",
         "available-rulesets": "Available Rulesets",
         "how-does-it-work": "How does it work",
         "customization": "Customization",
@@ -981,7 +982,7 @@
     },
     {
       "headings": {
-        "check-style": "CheckStyle",
+        "checkstyle": "CheckStyle",
         "overview": "Overview",
         "features": "Features",
         "limitations": "Limitations",
@@ -1041,7 +1042,7 @@
         "protocol-oriented-programming": "Protocol Oriented Programming",
         "extensions": "Extensions",
         "automatic-reference-counting": "Automatic Reference Counting",
-        "cocoa-pods": "CocoaPods"
+        "cocoapods": "CocoaPods"
       },
       "title": "Swift",
       "footer": "footer.md",

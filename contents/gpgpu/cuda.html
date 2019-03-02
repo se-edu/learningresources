@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SE-EDU/LearningResources - An Introduction to CUDA</title>
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-vue.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\font-awesome.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="..\..\markbind\css\github.min.css">
-    <link rel="stylesheet" href="..\..\markbind\css\markbind.css">
-    <link rel="stylesheet" href="..\..\markbind\layouts\default\styles.css">
-    <link rel="stylesheet" href="..\..\markbind\css\site-nav.css">
-    <link rel="stylesheet" href="..\..\markbind\css\page-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
     <link rel="stylesheet" href="/learningresources/css/main.css">
-    
+    <link rel="icon" href="/learningresources/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
 <div id="app">
@@ -33,19 +33,19 @@
         <a class="nav-link py-1" href="#1-3-kernel-implementations-in-c">§ 1.3 Kernel Implementations in C&#x200E;</a>
         <a class="nav-link py-1" href="#1-4-introductory-tutorial">§ 1.4 Introductory Tutorial&#x200E;</a>
       </nav>
-      <a class="nav-link py-1" href="#2-py-cuda">§ 2. PyCUDA&#x200E;</a>
+      <a class="nav-link py-1" href="#2-pycuda">§ 2. PyCUDA&#x200E;</a>
       <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
-        <a class="nav-link py-1" href="#2-1-what-is-py-cuda">§ 2.1 What is PyCUDA?&#x200E;</a>
+        <a class="nav-link py-1" href="#2-1-what-is-pycuda">§ 2.1 What is PyCUDA?&#x200E;</a>
         <a class="nav-link py-1" href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python">§ 2.2 Does this mean not having to use C, and coding entirely in Python?&#x200E;</a>
-        <a class="nav-link py-1" href="#2-3-so-why-bother-with-py-cuda">§ 2.3 So Why bother with PyCUDA?&#x200E;</a>
-        <a class="nav-link py-1" href="#2-4-installing-py-cuda">§ 2.4 Installing PyCUDA&#x200E;</a>
-        <a class="nav-link py-1" href="#2-5-minor-py-cuda-terminologies">§ 2.5 Minor PyCUDA Terminologies&#x200E;</a>
+        <a class="nav-link py-1" href="#2-3-so-why-bother-with-pycuda">§ 2.3 So Why bother with PyCUDA?&#x200E;</a>
+        <a class="nav-link py-1" href="#2-4-installing-pycuda">§ 2.4 Installing PyCUDA&#x200E;</a>
+        <a class="nav-link py-1" href="#2-5-minor-pycuda-terminologies">§ 2.5 Minor PyCUDA Terminologies&#x200E;</a>
         <a class="nav-link py-1" href="#2-6-introductory-tutorial">§ 2.6 Introductory Tutorial&#x200E;</a>
       </nav>
-      <a class="nav-link py-1" href="#3-cuda-vs-open-cl">§ 3. CUDA vs OpenCL&#x200E;</a>
+      <a class="nav-link py-1" href="#3-cuda-vs-opencl">§ 3. CUDA vs OpenCL&#x200E;</a>
       <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
-        <a class="nav-link py-1" href="#3-1-what-is-open-cl">§ 3.1 What is OpenCL?&#x200E;</a>
-        <a class="nav-link py-1" href="#3-2-differences-between-cuda-and-open-cl">§ 3.2 Differences between CUDA and OpenCL&#x200E;</a>
+        <a class="nav-link py-1" href="#3-1-what-is-opencl">§ 3.1 What is OpenCL?&#x200E;</a>
+        <a class="nav-link py-1" href="#3-2-differences-between-cuda-and-opencl">§ 3.2 Differences between CUDA and OpenCL&#x200E;</a>
       </nav>
       <a class="nav-link py-1" href="#4-further-readings">§ 4. Further Readings&#x200E;</a>
       <a class="nav-link py-1" href="#5-references">§ 5. References&#x200E;</a>
@@ -269,7 +269,7 @@
   <div id="page-content">
     <div id="page-nav-content-wrapper">
       <div id="content-wrapper">
-        <navbar placement="top">
+        <navbar placement="top" class="temp-navbar">
           <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
           <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
           <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -277,7 +277,8 @@
           <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
           <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
           <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <dropdown text="Resources" class="nav-link">
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
             <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
             <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
             <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
@@ -285,7 +286,7 @@
           </dropdown>
           <li slot="right" class="nav-link">
             <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right=""></searchbar>
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
             </form>
           </li>
         </navbar>
@@ -370,7 +371,7 @@
           <p>Refers to GPU and its memory</p>
           <h4 id="device-code">Device code</h4>
           <p>Code that runs on GPU</p>
-          <h4 id="streaming-multiprocessors-s-ms">Streaming Multiprocessors (SMs)</h4>
+          <h4 id="streaming-multiprocessors-sms">Streaming Multiprocessors (SMs)</h4>
           <p>CUDA GPUs have many parallel processors grouped into SMs</p>
           <p>Each SM can run multiple concurrent thread blocks that execute independently from each other.</p>
           <h4 id="kernels">Kernels</h4>
@@ -391,7 +392,7 @@
           <blockquote>
             <p>When a CUDA program on the host CPU invokes a kernel grid, the blocks of the grid are enumerated and distributed to multiprocessors with available execution capacity. The threads of a thread block execute concurrently on one multiprocessor, and multiple thread blocks can execute concurrently on one multiprocessor. As thread blocks terminate, new blocks are launched on the vacated multiprocessors.<sup><a href="#footnote4">[4]</a></sup></p>
           </blockquote>
-          <p><a href="gpgpu_architecture.png" target="_self"><img src="gpgpu_architecture.png" alt="" class="img-fluid" title="GPGPU architecture"></a></p>
+          <p><a href="gpgpu_architecture.png" target="_self"><img src="gpgpu_architecture.png" alt class="img-fluid" title="GPGPU architecture"></a></p>
           <h3 id="1-3-kernel-implementations-in-c">§ 1.3 Kernel Implementations in C<a class="fa fa-anchor" href="#1-3-kernel-implementations-in-c"></a></h3>
           <p>A kernel is defined using the <code>__global__</code> declaration specifier. This tells the CUDA C++ compiler that this is a function that runs on the GPU and can be called from CPU code.</p>
           <p>The number of CUDA threads that execute that kernel for a given kernel call is specified using the <code>&lt;&lt;&lt;...&gt;&gt;&gt;</code> execution configuration.<sup><a href="#footnote2">[2]</a></sup> A kernel called <code>myKernel</code> can be launched with the following syntax in C:</p>
@@ -420,28 +421,28 @@ int main()
 }
 </code></pre>
           <h4 id="1-3-1-keywords-that-let-kernels-get-indexes-of-running-threads">§ 1.3.1 Keywords that let kernels get indexes of running threads</h4>
-          <h5 id="grid-dim"><code>gridDim</code></h5>
+          <h5 id="griddim"><code>gridDim</code></h5>
           <p>Dimensions of the grid in blocks.</p>
           <p>First dimension of blocks is accessed with <code>gridDim.x</code>, and second dimension is accessed with <code>gridDim.y</code>. <code>gridDim.z</code> is unused as blocks can either be 1D or 2D only.</p>
-          <h5 id="block-dim"><code>blockDim</code></h5>
+          <h5 id="blockdim"><code>blockDim</code></h5>
           <p>Dimensions of the block in threads.</p>
           <p>First dimension of threads is accessed with <code>gridDim.x</code>, second dimension is accessed with <code>gridDim.y</code>, and third dimension is accessed with <code>gridDim.z</code>.</p>
-          <h5 id="block-idx"><code>blockIdx</code></h5>
+          <h5 id="blockidx"><code>blockIdx</code></h5>
           <p>Block index within the grid. Is grid-level unique.</p>
-          <h5 id="thread-idx"><code>threadIdx</code></h5>
+          <h5 id="threadidx"><code>threadIdx</code></h5>
           <p>Thread index within the block. Is block-level unique.</p>
           <p>For instance, the index of a thread in a 1D grid of a 1D block of threads can be determined using</p>
           <p><code>blockIdx.x * blockDim.x + threadIdx.x</code></p>
           <h3 id="1-4-introductory-tutorial">§ 1.4 Introductory Tutorial<a class="fa fa-anchor" href="#1-4-introductory-tutorial"></a></h3>
           <p>Refer to the excellent tutorial by the Chief Technologist for GPU Computing Software at NVIDIA here: <a href="https://devblogs.nvidia.com/parallelforall/even-easier-introduction-cuda/">An Even Easier Introduction to CUDA</a>.</p>
           <p>Should you have trouble understanding any terms, you can refer to <a href="#-12-cuda-terminologies">section 1.2 of this guide on CUDA terminologies</a>.</p>
-          <h2 id="2-py-cuda">§ 2. PyCUDA<a class="fa fa-anchor" href="#2-py-cuda"></a></h2>
-          <h3 id="2-1-what-is-py-cuda">§ 2.1 What is PyCUDA?<a class="fa fa-anchor" href="#2-1-what-is-py-cuda"></a></h3>
+          <h2 id="2-pycuda">§ 2. PyCUDA<a class="fa fa-anchor" href="#2-pycuda"></a></h2>
+          <h3 id="2-1-what-is-pycuda">§ 2.1 What is PyCUDA?<a class="fa fa-anchor" href="#2-1-what-is-pycuda"></a></h3>
           <p>PyCUDA lets you access NVIDIA‘s CUDA parallel computation API from Python.<sup><a href="#footnote6">[6]</a></sup></p>
           <h3 id="2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python">§ 2.2 Does this mean not having to use C, and coding entirely in Python?<a class="fa fa-anchor" href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python"></a></h3>
           <p>Not entirely so.</p>
           <p>While kernels will have to be written in CUDA C, PyCUDA has helper interfaces that make it easier to write CUDA code (e.g. with memory management and cleanup). However, with the right helpers, you can write CUDA code without needing to write any C code at all. For instance, <a href="https://wiki.tiker.net/PyCuda/Examples/2DFFT">see this example from the Wiki that performs a 2D fast Fourier transform (FFT) without any CUDA C code</a>.<sup><a href="#footnote7">[7]</a></sup></p>
-          <h3 id="2-3-so-why-bother-with-py-cuda">§ 2.3 So Why bother with PyCUDA?<a class="fa fa-anchor" href="#2-3-so-why-bother-with-py-cuda"></a></h3>
+          <h3 id="2-3-so-why-bother-with-pycuda">§ 2.3 So Why bother with PyCUDA?<a class="fa fa-anchor" href="#2-3-so-why-bother-with-pycuda"></a></h3>
           <ul>
             <li>Object cleanup tied to lifetime of objects. This idiom, often called <a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a> in C++, makes it much easier to write correct, leak- and crash-free code. PyCUDA knows about dependencies, too, so (for example) it won’t detach from a context before all memory allocated in it is also freed.<sup><a href="#footnote6">[6]</a></sup></li>
             <li>Convenience. Abstractions like pycuda.driver.SourceModule and pycuda.gpuarray.GPUArray make CUDA programming even more convenient than with NVIDIA’s C-based runtime.<sup><a href="#footnote6">[6]</a></sup></li>
@@ -452,9 +453,9 @@ int main()
             <li><a href="https://github.com/inducer/pycuda">Open sourced on GitHub</a>.</li>
           </ul>
           <p>Thus, if you're not familiar with C, it would be easier to learn about CUDA through PyCUDA, especially if you have prior experience with Python.</p>
-          <h3 id="2-4-installing-py-cuda">§ 2.4 Installing PyCUDA<a class="fa fa-anchor" href="#2-4-installing-py-cuda"></a></h3>
+          <h3 id="2-4-installing-pycuda">§ 2.4 Installing PyCUDA<a class="fa fa-anchor" href="#2-4-installing-pycuda"></a></h3>
           <p>Official installation instructions here: <a href="https://wiki.tiker.net/PyCuda/Installation">https://wiki.tiker.net/PyCuda/Installation</a></p>
-          <h3 id="2-5-minor-py-cuda-terminologies">§ 2.5 Minor PyCUDA Terminologies<a class="fa fa-anchor" href="#2-5-minor-py-cuda-terminologies"></a></h3>
+          <h3 id="2-5-minor-pycuda-terminologies">§ 2.5 Minor PyCUDA Terminologies<a class="fa fa-anchor" href="#2-5-minor-pycuda-terminologies"></a></h3>
           <h4 id="dtoh">dtoh</h4>
           <p>Device to host, <em>i.e.</em> GPU to CPU.</p>
           <h4 id="htod">htod</h4>
@@ -468,10 +469,10 @@ int main()
             <p>You can find out the compute capability of your NVIDIA card from the <a href="https://developer.nvidia.com/cuda-gpus">official website</a> or <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">this table from Wikipedia</a>.</p>
             <p>You can also find out more about the features and specifications of each compute capability version from the <a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">official documentation</a> or <a href="https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications">these tables from Wikipedia</a>.</p>
           </blockquote>
-          <h2 id="3-cuda-vs-open-cl">§ 3. CUDA vs OpenCL<a class="fa fa-anchor" href="#3-cuda-vs-open-cl"></a></h2>
-          <h3 id="3-1-what-is-open-cl">§ 3.1 What is OpenCL?<a class="fa fa-anchor" href="#3-1-what-is-open-cl"></a></h3>
+          <h2 id="3-cuda-vs-opencl">§ 3. CUDA vs OpenCL<a class="fa fa-anchor" href="#3-cuda-vs-opencl"></a></h2>
+          <h3 id="3-1-what-is-opencl">§ 3.1 What is OpenCL?<a class="fa fa-anchor" href="#3-1-what-is-opencl"></a></h3>
           <p>OpenCL (Open Computing Language) is an open standard for cross-platform, parallel programming of diverse processors found in personal computers, servers, mobile devices and embedded platforms.<sup><a href="#footnote9">[9]</a></sup></p>
-          <h3 id="3-2-differences-between-cuda-and-open-cl">§ 3.2 Differences between CUDA and OpenCL<a class="fa fa-anchor" href="#3-2-differences-between-cuda-and-open-cl"></a></h3>
+          <h3 id="3-2-differences-between-cuda-and-opencl">§ 3.2 Differences between CUDA and OpenCL<a class="fa fa-anchor" href="#3-2-differences-between-cuda-and-opencl"></a></h3>
           <p>First and foremost, the most distinctive difference is in how CUDA is proprietary to NVIDIA, whereas OpenCL, while owned by the Khronos Group, is open-sourced. The implications are that if you have an NVIDIA GPU, it supports both CUDA and OpenCL, but if not, and you're using an AMD GPU, it only supports OpenCL.</p>
           <p>Additionally, they use different terms. For instance, what NIVIDIA refers to as a &quot;thread&quot;, OpenCL refers to as a &quot;work item&quot;.</p>
           <p>This topic is widely covered. Here are some good references on what the differences are, and what the implications are when choosing one over the other:</p>
@@ -505,18 +506,19 @@ int main()
 <div id="flex-div"></div>
 <footer>
   <div class="text-center">
-    <small>[Generated by <a href="https://markbind.github.io/markbind/">MarkBind 1.17.1</a> on Sun, 03 Feb 2019 07:28:03 GMT]</small></div>
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.19.1</a> on Sat, 02 Mar 2019 06:28:36 GMT]</small></div>
 </footer>
 </div>
 </body>
-<script src="..\..\markbind\js\vue.min.js"></script>
-<script src="..\..\markbind\js\vue-strap.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-utility.min.js"></script>
-<script src="..\..\markbind\js\polyfill.min.js"></script>
-<script src="..\..\markbind\js\bootstrap-vue.min.js"></script>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
     const baseUrl = '/learningresources'
+    const enableSearch = true
 </script>
-<script src="..\..\markbind\js\setup.js"></script>
-<script src="..\..\markbind\layouts\default\scripts.js"></script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
 </html>
