@@ -65,7 +65,50 @@ Though storage engines like MySQL perform well with read operations, it *can* be
 
 ## How does MySQL work?
 
+This is what a basic MySQL query (or command) for retrieving information from a data table looks like:
 
+<box type="tip">
+  The uppercase words in this query are called clauses and are MySQL keywords.
+</box>
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
+
+### Breaking down the clauses
+
+
+
+An important thing to note that will aid with understanding is that queries aren't executed from top to bottom. This example query actually follows this logical order of execution:
+- `FROM` clause
+- `WHERE` clause
+- `GROUP BY` clause
+- `HAVING` clause
+- `SELECT` clause
+- `ORDER BY` clause
+
+As you can see, the `FROM` clause is processed first while the `SELECT` clause which appears at the start is processed much later.
+
+Now, let's go through each clause, one by one, in the order that they are executed.
+
+1. `FROM` clause:
+
+2. `WHERE` clause:
+
+3. `GROUP BY` clause:
+
+4. `HAVING` clause:
+
+5. `SELECT` clause:
+
+6. `ORDER BY` clause:
+
+The example shown here is relatively simple. Typical MySQL queries have the capability to be much more complex as there are a lot of clauses, functions and operators that are not covered here.
 
 ---
 
