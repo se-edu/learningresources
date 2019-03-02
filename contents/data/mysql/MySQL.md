@@ -19,7 +19,7 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
 Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
 
-<tooltip content="My Structured Query Language(SQL)">MySQL</tooltip> is a free and open source database software that is currently sponsored and controlled by the [Oracle Corporation](https://www.zdnet.com/article/mysql-why-the-open-source-database-is-better-off-under-oracle/). Technically, it is a <tooltip content="Relational DataBase Management System">**RDBMS**</tooltip> that is based on the <tooltip content="Structured Query Language">SQL</tooltip> language and is widely used in many small and big companies. According to their [official website](https://www.mysql.com/why-mysql/), this includes companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
+<tooltip content="My Structured Query Language (SQL)">MySQL</tooltip> is a free and open source database software that is currently sponsored and controlled by the [Oracle Corporation](https://www.zdnet.com/article/mysql-why-the-open-source-database-is-better-off-under-oracle/). Technically, it is a <tooltip content="Relational DataBase Management System">**RDBMS**</tooltip> that is based on the <tooltip content="Structured Query Language">SQL</tooltip> language and is widely used in many small and big companies. According to their [official website](https://www.mysql.com/why-mysql/), this includes companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
 <box type="info">
 	SQL is a standard language for relational database operations- storing, retrieving and updating data. There are several database platforms that use SQL (such as MySQL, PostgreSQL, Microsoft SQL Server and more), but each has a slightly different syntax.
@@ -53,8 +53,6 @@ MySQL ensures data security in terms of data backup and data protection.  As com
 
 At the same time, MySQL is not without its problems:
 
-- **Scalability**: MySQL is not known. It may be better to look into alternatives like [NoSQL](httpss://)
-
 - **Features**:
 MySQL can lack features such as full outer joins and full-text search, depending on the database engine. As a consequence of being simple, MySQL is not as powerful as something like PostgreSQL, for example, which has a lot more features and customizability.
 
@@ -67,10 +65,6 @@ Though storage engines like MySQL perform well with read operations, it *can* be
 
 This is what a basic MySQL query (or command) for retrieving information from a data table looks like:
 
-<box type="tip">
-  The uppercase words in this query are clauses or statements, and are MySQL keywords.
-</box>
-
 ```
 SELECT column_name(s)
 FROM table_name
@@ -79,6 +73,10 @@ GROUP BY column_name(s)
 HAVING condition
 ORDER BY column_name(s);
 ```
+
+<box type="tip">
+  The uppercase words in this query are clauses or statements, and are MySQL keywords.
+</box>
 
 ### Breaking down the clauses
 
@@ -110,12 +108,14 @@ Table 2. Expected output
 
 The corresponding query will be:
 
-    SELECT Course, COUNT(*) num
-    FROM Students
-    WHERE Course LIKE 'CS%'
-    GROUP BY Course
-    HAVING COUNT(*) > 1
-    ORDER BY num;
+```
+SELECT Course, COUNT(*) num
+FROM Students
+WHERE Course LIKE 'CS%'
+GROUP BY Course
+HAVING COUNT(*) > 1
+ORDER BY num;
+```
 
 An important thing to note here is that queries aren't executed from top to bottom. This example query actually follows this logical order of execution:
 - `FROM` clause
@@ -201,28 +201,28 @@ The example shown here is relatively simple. Typical MySQL queries have the capa
 
 ## How to get started with MySQL?
 
-MySQL has been around for a long time and hence, you can find really good books and resources to learn it well. However, these resources can be overwhelming. You most likely will not need to know everything to get started with using a MySQL database.
+MySQL has been around for a long time and hence, you can find really good books and resources to learn it well. However, these resources can be overwhelming. So, you can decide which parts you want to learn as you will likely not need to know everything to get started with using a MySQL database.
 
 If you are a complete beginner when it comes to databases, this sequence of steps will prove useful. Depending on your prior experience, you can choose to skip the earlier steps.
 
-1. Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts behind [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect.
+1. Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts of [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect.
 2. Install MySQL. You can refer to an [official guide](https://dev.mysql.com/doc/workbench/en/wb-windows.html) or one from a [third party website](https://www.tutorialspoint.com/mysql/mysql-installation.htm).
-3. Learn how to set up a database and use the basic queries by going through a [guide](https://www.guru99.com/how-to-create-a-database.html)
-4. Integrate the database with your preferred language. You can use the [mysql](http://www.mysqltutorial.org/mysql-nodejs/) module for Node.js, [JDBC](http://www.mysqltutorial.org/mysql-jdbc-tutorial/) for Java and even in [Python](http://www.mysqltutorial.org/python-mysql/).
+3. Learn how to set up a database and use the basic queries by going through a [guide](https://www.guru99.com/how-to-create-a-database.html).
+4. Integrate the database with your preferred language. You can use the [mysql](http://www.mysqltutorial.org/mysql-nodejs/) module for Node.js, [JDBC](http://www.mysqltutorial.org/mysql-jdbc-tutorial/) for Java, and [MySQL Connector](http://www.mysqltutorial.org/python-mysql/) for Python.
 
 ---
 
 ## Where to go from here?
 
-- [Guru99](https://www.guru99.com/introduction-to-database-sql.html) and [MySQLTutorial.org](http://www.mysqltutorial.org/basic-mysql-tutorial.aspx) have good guides for the entire process, from basic concepts to setting up and learning MySQL.
+- [Guru99](https://www.guru99.com/introduction-to-database-sql.html) and [MySQLTutorial.org](http://www.mysqltutorial.org/basic-mysql-tutorial.aspx) have good guides for the entire learning process, from basic concepts to setting up and learning MySQL.
 
-- You can always refer to the [official guide](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html) to get a more comprehensive understanding of MySQL and its capabilities.
+- You can refer to the [official guide](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html) to get a more comprehensive understanding of MySQL and its capabilities.
 
-- W3Schools offers interactive tutorials for [SQL](https://www.w3schools.com/sql/default.asp)(and MySQL), [MySQL Node.js](https://www.w3schools.com/nodejs/nodejs_mysql.asp), [MySQL Python](https://www.w3schools.com/python/python_mysql_getstarted.asp)
+- W3Schools offers an interactive tutorial for [SQL](https://www.w3schools.com/sql/default.asp) (and MySQL). They also have [MySQL Node.js](https://www.w3schools.com/nodejs/nodejs_mysql.asp) and [MySQL Python](https://www.w3schools.com/python/python_mysql_getstarted.asp) for learning how to integrate MySQL with Node.js and Python respectively.
 
 - You can also use Quick Reference guides to just look up information quickly once you're familiar with the language:
   - [SQL Quick Reference](https://www.w3schools.com/sql/sql_ref_mysql.asp)
-  - There is a section for MySQL Datatypes [here]](https://www.w3schools.com/sql/sql_datatypes.asp)
+  - [MySQL Datatypes](https://www.w3schools.com/sql/sql_datatypes.asp)
   - [MySQL functions](https://www.w3schools.com/sql/sql_ref_mysql.asp)
 
 ---

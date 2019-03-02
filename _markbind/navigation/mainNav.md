@@ -62,7 +62,7 @@
 
 * ****Other Topics****
   * [Computer Vision]({{baseUrl}}/contents/computerVision/cv.html)
-  * [Databases]
+  * Databases
     * [DBMS]({{baseUrl}}/contents/data/databases/databases.html)
     * [MySQL]({{baseUrl}}/contents/data/mysql/MySQL.html)
   * [Machine Learning]({{baseUrl}}/contents/ai/ml.html)
