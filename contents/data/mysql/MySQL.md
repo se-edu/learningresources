@@ -173,7 +173,7 @@ In this statement, we choose the `Course` and its count, `num` to be the result-
 Table 4. Result-set after `SELECT`
 
 <box type="info">
-  Since, we have used a GROUP BY clause, we cannot SELECT data from individual attributes (like ID or Name) that is not part of the aggregate data generated in the group (like Course).
+  Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from individual attributes (like ID or Name) that is not part of the aggregate data generated in the group (like Course).
 </box>
 
 #### 6. `ORDER BY num`
@@ -192,7 +192,7 @@ Table 4. Final result after `ORDER BY`
 This is the same as our expected output from Table 2!
 
 <box type="info">
-  You can experiment with this example on <a href=https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/2">DB Fiddle</a> by entering queries into the <strong>Query SQL</strong> pane and then clicking <strong>Run</strong>.
+  You can experiment with this example on <a href="https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/2">DB Fiddle</a> by entering queries into the <code>Query SQL</code> pane and then clicking the <code>Run</code> icon.
 </box>
 
 The example shown here is relatively simple. Typical MySQL queries have the capability to be much more complex as there are a lot of clauses, functions and operators that are not covered here.
