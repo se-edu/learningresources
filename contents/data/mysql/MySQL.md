@@ -16,7 +16,8 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 
 ## What is MySQL?
 
-Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise. Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today. 
+Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
+Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
 
 <tooltip content="My Structured Query Language(SQL)">MySQL</tooltip> is a free and open source database software that is currently sponsored and controlled by the [Oracle Corporation](https://www.zdnet.com/article/mysql-why-the-open-source-database-is-better-off-under-oracle/). Technically, it is a <tooltip content="Relational DataBase Management System">**RDBMS**</tooltip> that is based on the <tooltip content="Structured Query Language">SQL</tooltip> language and is widely used in many small and big companies. According to their [official website](https://www.mysql.com/why-mysql/), this includes companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
@@ -76,14 +77,14 @@ If you are a complete beginner when it comes to databases, this sequence of step
 
 1. Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts behind [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect.
 2. Install MySQL. You can refer to an [official guide](https://dev.mysql.com/doc/workbench/en/wb-windows.html) or one from a [third party website](https://www.tutorialspoint.com/mysql/mysql-installation.htm).
-3. Learn the basic queries in MySQL by going through a [guide](https://www.guru99.com/how-to-create-a-database.html)
+3. Learn how to set up a database and use the basic queries by going through a [guide](https://www.guru99.com/how-to-create-a-database.html)
 4. Integrate the database with your preferred language. You can use the [mysql](http://www.mysqltutorial.org/mysql-nodejs/) module for Node.js, [JDBC](http://www.mysqltutorial.org/mysql-jdbc-tutorial/) for Java and even in [Python](http://www.mysqltutorial.org/python-mysql/).
 
 ---
 
 ## Where to go from here?
 
-- [Guru99](https://www.guru99.com/introduction-to-database-sql.html) has a good guide for the entire process, from basic concepts to setting up and learning MySQL.
+- [Guru99](https://www.guru99.com/introduction-to-database-sql.html) and [MySQLTutorial.org](http://www.mysqltutorial.org/basic-mysql-tutorial.aspx) have good guides for the entire process, from basic concepts to setting up and learning MySQL.
 
 - You can always refer to the [official guide](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html) to get a more comprehensive understanding of MySQL and its capabilities.
 
@@ -101,3 +102,4 @@ If you are a complete beginner when it comes to databases, this sequence of step
 - [Official MySQL website](https://www.mysql.com/)
 - [Why MySQL is popular](https://www.fromdev.com/2017/03/what-is-mysql-why-is-it-so-popular.html)
 - [Reasons and challenges for choosing MySQL](https://dataconomy.com/2017/04/5-reasons-challenges-mysql/)
+- [Execution order of SQL query](https://www.designcise.com/web/tutorial/what-is-the-order-of-execution-of-an-sql-query)
