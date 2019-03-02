@@ -63,7 +63,9 @@ Though storage engines like MySQL perform well with read operations, it *can* be
 
 ## How does MySQL work?
 
-This is what a basic MySQL query (or command) for retrieving information from a data table looks like:
+SQL (Structured Query Language) is a standard language that is used for the access and manipulation of databases. Several DBMS distributions (like MySQL, Oracle, SQL Server, PostgreSQL) use the SQL language. The syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
+
+Now that that's out of the way, let's jump into what a basic **MySQL query** (or "command") for retrieving information from a data table looks like:
 
 ```
 SELECT column_name(s)
@@ -232,4 +234,5 @@ If you are a complete beginner when it comes to databases, this sequence of step
 - [Official MySQL website](https://www.mysql.com/)
 - [Why MySQL is popular](https://www.fromdev.com/2017/03/what-is-mysql-why-is-it-so-popular.html)
 - [Reasons and challenges for choosing MySQL](https://dataconomy.com/2017/04/5-reasons-challenges-mysql/)
+- [MySQL and PostgreSQL differences](http://mwiki.gichd.org/IM/Difference_MySQL_PostGreSQL)
 - [Execution order of SQL query](https://www.designcise.com/web/tutorial/what-is-the-order-of-execution-of-an-sql-query)
