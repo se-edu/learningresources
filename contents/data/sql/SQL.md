@@ -19,7 +19,7 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
 Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
 
-SQL is a special-purpose programming language designed for managing (storing, querying and manipulating) data in a relational database. Several <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
+**SQL** is a special-purpose programming language designed for managing (storing, querying and manipulating) data in a relational database. Several <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
 
 SQL distributions are widely used in many small and big companies. According to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
@@ -37,29 +37,30 @@ Here are some of the main reasons behind the widespread adoption of SQL and why 
 ### Easy to learn
 
 SQL is very easy to learn, even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
-In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql), the [official forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
+In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql) and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
 
 ### Free of cost
 
 One of the benefits (and reasons) for SQL's popularity is that there are free distributions available (like MySQL, PostgreSQL and SQLite) as well as paid ones (like Microsoft SQL Server and Oracle) that come with more functionality.
 
-One such distribution is MySQL. Since it is an open source software, you do not have to pay to use MySQL. It even comes with official (MySQL Workbench) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
+One such distribution is MySQL. Since it is an open source software, you do not have to pay to use MySQL. It even comes with official ([MySQL Workbench](https://dev.mysql.com/doc/workbench/en/)) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
 
 ### Compatibility
 
-SQL distributions work on many operating systems and more importantly, can be integrated many languages. This includes languages from PHP, PERL, C++, Ruby and Java to *relatively "newer"* ones like Python, JavaScript (Node.js) and Go.
-In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and [JDoodle](https://www.jdoodle.com/execute-sql-online) make it easy to learn or use the SQL language quickly without the hassle of setting up anything.
+SQL distributions work on many operating systems and more importantly, can be integrated with many languages. This includes languages like PHP, PERL, C++, Ruby, Java as well as *relatively "newer"* ones like Python, JavaScript (Node.js) and Go.
+
+In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and [JDoodle](https://www.jdoodle.com/execute-sql-online) make it easy to use and learn the SQL language quickly without the hassle of setting up an environment or application.
 
 ## Disadvantages
 
-At the same time, SQL is not without its problems. In general, the biggest problem concerns the features of SQL.
+SQL is not without its problems. In general, the biggest problem is with regards to the features of SQL.
 
-Although SQL databases uses established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions add proprietary extensions to the standard SQL to ensure customer lock-in.
+Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions add proprietary extensions to the standard SQL to ensure customer lock-in.
 Thus, the available feature set varies according to the SQL distribution that you are using. This can make it confusing and frustrating to use SQL when switching across distributions.
 
 Apart from that, most **SQL** problems are not uniformly applicable to all of its distributions.
 
-For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing transactions isolation.
+For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing transactions isolation.
 
 ---
 
@@ -84,7 +85,7 @@ ORDER BY column_name(s);
 
 Let's understand what the above query means by using an example to make it more concrete.
 
-Suppose have the data table `Students` shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by number of students.
+Suppose have the data table `Students` shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by increasing number of students.
 
 | ID | Name  | Course |
 | -- | ----- | ------ |
@@ -124,7 +125,7 @@ An important thing to note here is that queries aren't executed from top to bott
 - `WHERE` clause
 - `GROUP BY` clause
 - `HAVING` clause
-- `SELECT` clause
+- `SELECT` statement
 - `ORDER BY` clause
 
 As you can see, the `FROM` clause is processed first while the `SELECT` clause which appears at the start is processed much later.
@@ -134,13 +135,13 @@ Now, let's go through each clause in the query, in the order that they are execu
 #### 1. `FROM Students`
 
 This clause means that we use the `Students` table as the data source for our query.
-The <tooltip content="See 5. SELECT ... below">result-set</tooltip> still looks the same as the original `Students` table (Table 1).
+The <tooltip content="See <code>5. SELECT ... </code> below">result-set</tooltip> still looks the same as the original `Students` table (Table 1).
 
 #### 2. `WHERE Course LIKE 'CS%'`
 
 This is a conditional clause. `LIKE` is a SQL keyword that is used for pattern matching. The `%` means any string of any length.
 
-So, in this clause, we are filtering the `Student` table rows such that the row's `Course` has a prefix `CS`. So entries 2 and 6 are removed from consideration. Now, our result-set looks like this:
+So, in this clause, we are filtering the `Student` table rows such that the row's `Course` has a prefix `CS`. Thus, entries 2 and 6 are removed from consideration. Now, our result-set looks like this:
 
 | ID | Name  | Course |
 | -- | ----- | ------ |
@@ -154,7 +155,7 @@ Table 3. Filtered result after `WHERE`
 
 #### 3. `GROUP BY Course`
 
-This is used to group the result set, and is often used with aggregate functions (like COUNT, MAX, AVG etc.).
+This is used to group the result set, and is often used with aggregate functions (like `COUNT`, `MAX`, `AVG` etc.).
 
 In this query, we are essentially grouping into 3 "groups": `CS101` group (IDs 5 and 7), `CS202` group (IDs  1, 3, and 4), and `CS404` group (ID 8).
 
@@ -175,7 +176,7 @@ In this statement, we choose the `Course` and its count, `num` to be the result-
 Table 4. Result-set after `SELECT`
 
 <box type="info">
-  Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from individual attributes (like ID or Name) that are not part of the aggregate data generated in the group (like Course).
+  Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from an individual attribute (like ID or Name) that is not part of the aggregate data generated in the group (like Course).
 </box>
 
 #### 6. `ORDER BY num`
@@ -204,17 +205,18 @@ The example shown here is relatively simple. Typical SQL queries have the capabi
 ## How to get started with SQL?
 
 The first thing to do is to choose a SQL distribution. You can either just use an online SQL playground or install a dedicated application. My suggestion would be to use either MySQL or SQLite online.
+
 SQL has been around for a long time and hence, you can find really good books and resources to learn it well. However, these resources can be overwhelming. So, you can decide which parts you want to learn as you will likely not need to know everything to get started with using a SQL database.
 
 Here are some recommended resources that you can use to start learning SQL:
 
-- Khan Academy offers a very good [SQL course](https://www.khanacademy.org/computing/computer-programming/sql) for free. It has a mix of videos, text and exercises that you can choose to do at your own pace. It is well organized and even provides summary notes and documentation.
+- Khan Academy offers a very good [SQL course](https://www.khanacademy.org/computing/computer-programming/sql) for free. It has a mix of videos, text and exercises that you can choose to do at your own pace. It is well organized and even provides summary notes.
 
 - W3Schools offers an interactive written tutorial for [SQL](https://www.w3schools.com/sql/default.asp).
 
 - You can also use a [SQL Quick Reference Guide](https://www.w3schools.com/sql/sql_ref_mysql.asp) to look up information quickly once you're familiar with the language.
 
-- Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts of [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect. This is not essential, but will give you a better high-level understanding before diving in to programming.
+- Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts of [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm). This is not essential, but will give you a better high-level understanding before diving in to programming.
 
 ---
 
