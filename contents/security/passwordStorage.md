@@ -83,7 +83,7 @@ One question that is commonly asked by developers is where to store the salt. Th
 
 ### If an attacker has gained access to the entire application, what does it matter if my passwords are stored in plaintext or not?
 
-If an attacker has already gained access to the entire application, then he already has all the information hat he coculd possibly get. He would have access to all of your application's data, including data from your users or from any analytics software that you might be running. However, by adding salt and hashing your passwords, the attacker still doesn't know your customer's passwords and could take years to find out. Otherwise, since 59% of people use the same password across multiple sites<sup>1</sup>, the attacker could quickly try other websites such as banks to attempt to break into those accounts, which can yield great financial return.
+If an attacker has already gained access to the entire application, then he already has all the information hat he coculd possibly get. He would have access to all of your application's data, including data from your users or from any analytics software that you might be running. However, by adding salt and hashing your passwords, the attacker still doesn't know your customer's passwords and could take years to find out. Otherwise, since 59% of people use the same password across multiple sites <sup>[source](https://securityboulevard.com/2018/05/59-of-people-use-the-same-password-everywhere-poll-finds/)</sup>, the attacker could quickly try other websites such as banks to attempt to break into those accounts, which can yield great financial return.
 
 Additionally, when a user signed up on your website and provided you a password, they implicitly trusted you to keep that information safe and secure for them, and in a sense you have a responsibility to keep their passwords secure as well. By doing proper password storage, if your servers ever get breached, you can assure your customers that their passwords are properly secured and maintain some of their trust in you.
 
@@ -100,7 +100,5 @@ Reading this article doesn't make you an expert in writing your own password has
 
 * [Secure Salted Password Hashing - How to do it properly](https://crackstation.net/hashing-security.htm) is an excellent resource that explains how to perform salted password hashing correctly, including links to other good libraries and what else can be done.
 * [Awesome Cryptography](https://github.com/sobolevn/awesome-cryptography) is a curated list of resources - articles, blogs, books, libraries and more.
-
-<sup>1</sup> https://securityboulevard.com/2018/05/59-of-people-use-the-same-password-everywhere-poll-finds/
 
 </div>
