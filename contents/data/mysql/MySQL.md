@@ -175,7 +175,7 @@ In this statement, we choose the `Course` and its count, `num` to be the result-
 Table 4. Result-set after `SELECT`
 
 <box type="info">
-  Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from individual attributes (like ID or Name) that is not part of the aggregate data generated in the group (like Course).
+  Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from individual attributes (like ID or Name) that are not part of the aggregate data generated in the group (like Course).
 </box>
 
 #### 6. `ORDER BY num`
