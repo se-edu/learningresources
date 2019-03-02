@@ -16,6 +16,8 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 
 ## What is MySQL?
 
+Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise. Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today. 
+
 <tooltip content="My Structured Query Language(SQL)">MySQL</tooltip> is a free and open source database software that is currently sponsored and controlled by the [Oracle Corporation](https://www.zdnet.com/article/mysql-why-the-open-source-database-is-better-off-under-oracle/). Technically, it is a <tooltip content="Relational DataBase Management System">**RDBMS**</tooltip> that is based on the <tooltip content="Structured Query Language">SQL</tooltip> language and is widely used in many small and big companies. According to their [official website](https://www.mysql.com/why-mysql/), this includes companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
 <box type="tip">
@@ -50,17 +52,19 @@ MySQL ensures data security in terms of data backup and data protection.  As com
 
 At the same time, MySQL is not without its problems:
 
-- Scalability: MySQL is not known. It may be better to look into alternatives like [NoSQL](httpss://)
+- **Scalability**: MySQL is not known. It may be better to look into alternatives like [NoSQL](httpss://)
 
-- Features:
+- **Features**:
 MySQL can lack features such as full outer joins and full-text search, depending on the database engine. As a consequence of being simple, MySQL is not as powerful as something like PostgreSQL, for example, which has a lot more features and customizability.
 
-- Concurrency:
+- **Concurrency**:
 Though storage engines like MySQL perform well with read operations, it *can* be problematic when there are concurrent read-write operations. A symptom of this concurrency issue would be a sudden slowdown of a well-optimized query.
 
 ---
 
 ## How does MySQL work?
+
+
 
 ---
 
@@ -70,7 +74,7 @@ MySQL has been around for a long time and hence, you can find really good books 
 
 If you are a complete beginner when it comes to databases, this sequence of steps will prove useful. Depending on your prior experience, you can choose to skip the earlier steps.
 
-1. Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]() are. More specifically, understand the basic concepts behind [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect.
+1. Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts behind [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect.
 2. Install MySQL. You can refer to an [official guide](https://dev.mysql.com/doc/workbench/en/wb-windows.html) or one from a [third party website](https://www.tutorialspoint.com/mysql/mysql-installation.htm).
 3. Learn the basic queries in MySQL by going through a [guide](https://www.guru99.com/how-to-create-a-database.html)
 4. Integrate the database with your preferred language. You can use the [mysql](http://www.mysqltutorial.org/mysql-nodejs/) module for Node.js, [JDBC](http://www.mysqltutorial.org/mysql-jdbc-tutorial/) for Java and even in [Python](http://www.mysqltutorial.org/python-mysql/).
