@@ -30,6 +30,7 @@ Being open source and one of the first DBMSs, MySQL rose to popularity in its ea
 Here are some of the main reasons behind the widespread adoption of MySQL and why it still remains popular today.
 
 ### Easy to learn
+
 MySQL is very easy to learn, even for beginners who do not have any prior experience with databases. Since it has been around for well over a decade, there are many good books and online resources to learn from.
 In addition, it has a huge support community (such as the [official forum](https://forums.mysql.com/) and [Stack Overflow](https://stackoverflow.com/questions/tagged/mysql)) which can prove useful when you run into problems while using MySQL.
 
@@ -61,7 +62,20 @@ Though storage engines like MySQL perform well with read operations, it *can* be
 
 ## How does MySQL work?
 
+---
+
 ## How to get started with MySQL?
+
+MySQL has been around for a long time and hence, you can find really good books and resources to learn it well. However, these resources can be overwhelming. You most likely will not need to know everything to get started with using a MySQL database.
+
+If you are a complete beginner when it comes to databases, this sequence of steps will prove useful. Depending on your prior experience, you can choose to skip the earlier steps.
+
+1. Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]() are. More specifically, understand the basic concepts behind [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) before jumping into the programming aspect.
+2. Install MySQL. You can refer to an [official guide](https://dev.mysql.com/doc/workbench/en/wb-windows.html) or one from a [third party website](https://www.tutorialspoint.com/mysql/mysql-installation.htm).
+3. Learn the basic queries in MySQL by going through a [guide](https://www.guru99.com/how-to-create-a-database.html)
+4. Integrate the database with your preferred language. You can use the [mysql](http://www.mysqltutorial.org/mysql-nodejs/) module for Node.js, [JDBC](http://www.mysqltutorial.org/mysql-jdbc-tutorial/) for Java and even in [Python](http://www.mysqltutorial.org/python-mysql/).
+
+---
 
 ## Where to go from here?
 
