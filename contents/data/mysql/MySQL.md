@@ -82,9 +82,38 @@ ORDER BY column_name(s);
 
 ### Breaking down the clauses
 
+Let's understand what the above query means by using an example to make it more concrete.
 
+Suppose have the data table shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by number of students.
 
-An important thing to note that will aid with understanding is that queries aren't executed from top to bottom. This example query actually follows this logical order of execution:
+| ID | Name  | Course |
+| -- | ----- | ------ |
+| 1  | Alex  | CS202  |
+| 2  | Bob   | MA303  |
+| 3  | Cathy | CS101  |
+| 4  | Daren | CS202  |
+| 5  | Ellie | CS101  |
+| 6  | Fred  | MA303  |
+| 7  | Gary  | CS101  |
+| 8  | Henry | CS404  |
+
+From the data in our table above, entries 2, 3 and 8 should not be considered in the output as they do not meet the criteria. So, the expected output is:
+
+| Course | num |
+| ------ | --- |
+| CS202  | 2   |
+| CS101  | 3   |
+
+The corresponding query will be:
+
+    SELECT Course, COUNT(*) num
+    FROM Students
+    WHERE Course LIKE 'CS%'
+    GROUP BY Course
+    HAVING COUNT(*) > 1
+    ORDER BY num;
+
+An important thing to note here is that queries aren't executed from top to bottom. This example query actually follows this logical order of execution:
 - `FROM` clause
 - `WHERE` clause
 - `GROUP BY` clause
@@ -96,17 +125,20 @@ As you can see, the `FROM` clause is processed first while the `SELECT` clause w
 
 Now, let's go through each clause, one by one, in the order that they are executed.
 
-1. `FROM` clause:
+1. `FROM Students`
 
-2. `WHERE` clause:
+2. `WHERE Course LIKE 'CS%'`
 
-3. `GROUP BY` clause:
+3. `GROUP BY Course`
 
-4. `HAVING` clause:
+4. `HAVING COUNT(*) > 1`
 
-5. `SELECT` clause:
+5. `SELECT Course, COUNT(*) num`
 
-6. `ORDER BY` clause:
+6. `ORDER BY num`
+
+
+You can experiment with this example on [DB Fiddle](https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/1) by entering queries into the `Query SQL` pane and then clicking `Run`.
 
 The example shown here is relatively simple. Typical MySQL queries have the capability to be much more complex as there are a lot of clauses, functions and operators that are not covered here.
 
