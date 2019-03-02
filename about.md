@@ -25,4 +25,7 @@ Alternatively, contact project mentor [Damith C. Rajapakse](http://www.comp.nus.
 
 MIT
 
+## Acknowledgements
+
+* The `favicon.ico` is based on an icon made by [Dave Gandy](https://www.flaticon.com/authors/dave-gandy) from www.flaticon.com 
 </div>
