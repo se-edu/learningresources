@@ -72,6 +72,8 @@
     * [Cryptography]({{baseUrl}}/contents/security/cryptography.html)
     * [HTTPS]({{baseUrl}}/contents/security/Https.html)
     * [SQL Injection]({{baseUrl}}/contents/security/sqlInjection.html)
+  * Linux 
+    * [Shell]({{baseUrl}}/contents/linux/shell.html)
 
 </navigation>
 </span>
