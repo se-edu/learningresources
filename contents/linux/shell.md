@@ -31,9 +31,9 @@ Shell is the interface through which we can pass instructions to kernel, and the
 
 A common question many people would ask is why would we learn command-line based shell as it seems to be very hard to use. There are tons of GUI tools out there, they seems to look more user-friendly and powerful. From my perspective, there are four major reasons for starting to use command line.
 
-- **Remote Management**: Use over remote command-line shell makes it much easier to perform tasks remotely, such as when a developer is connecting from home. A remote command-line shell usually requires less bandwith.
+- **Remote Management**: Use over remote command-line shell makes it much easier to perform tasks remotely, such as when a developer is connecting from home. A remote command-line shell usually requires less bandwidth.
 
-- **Stability**: No matter what linux distribution you are running, the command line shell is always avaiable and usage is almost the same. However, GUI tools might be different in different distributions, make it very hard to learn.
+- **Stability**: No matter what linux distribution you are running, the command line shell is always available and usage is almost the same. However, GUI tools might be different in different distributions, make it very hard to learn.
 
 - **Freedom**: You will have complete control in command-line shell. GUIs usually tends to simplifying things, giving user fewer options to make things easier. In command line there is no such simplifications, you will have complete control of what you are doing.
 
@@ -96,13 +96,13 @@ do
 	echo "The file $dir/$filename 's permission is $perm" 
 done
 ```
-**Functions** in bash script just like functions in normal programing languages, more semantics of bash script can be found [here](https://www.gnu.org/software/bash/manual/html_node/). 
+**Functions** in bash script just like functions in normal programming languages, more semantics of bash script can be found [here](https://www.gnu.org/software/bash/manual/html_node/). 
 
 bash script allows us to automate the frequently performed operations, it is easy to use and can be executed on any Unix-like operating systems without any modifications.
 
 ### Benefit: Data Stream Redirection
 
-In linux, everything is abastracted as file, including **input**, **output**, and **error** streams. **Redirection** is a feature in Linux such that when executing a command/user program, you can change the standard input/output devices by changing its [file descriptor](https://en.wikipedia.org/wiki/File_descriptor). Each command and user program in linux is an application with input, output and errors. We can redirect the output of one application to the input of another, as such, we combined the two applications together as if we build a pipe between them.
+In linux, everything is abstracted as file, including **input**, **output**, and **error** streams. **Redirection** is a feature in Linux such that when executing a command/user program, you can change the standard input/output devices by changing its [file descriptor](https://en.wikipedia.org/wiki/File_descriptor). Each command and user program in linux is an application with input, output and errors. We can redirect the output of one application to the input of another, as such, we combined the two applications together as if we build a pipe between them.
 
 ![file-descriptor](images/file-descriptor-illustration.jpg)
 
@@ -112,15 +112,15 @@ For example, suppose you just finished your coding assignment, the resulting exe
 ./calculate
 ```
 
-But you are not satisified with manual testing, instead, you want to test with larger data set file `DataBundle`. And verify the output with another executable `verify`, which takes in the result as input and verify its correctness and output **PASS** or **FAIL**. Here's how we can do it.
+But you are not satisfied with manual testing, instead, you want to test with larger data set file `DataBundle`. And verify the output with another executable `verify`, which takes in the result as input and verify its correctness and output **PASS** or **FAIL**. Here's how we can do it.
 
 ```bash
 ./calculate < DataBundle > result
 ./verify < result
 ```
-Notice in this case, `calculate` uses the data in `DataBundle` as input, and output the results to the file`result`. Then, `result` is taken as input to `verify`, and the final verification result is printed on screen.
+Notice in this case, `calculate` uses the data in `DataBundle` as input, and output the results to the file `result`. Then, `result` is taken as input to `verify`, and the final verification result is printed on screen.
 
-Furthermore, if the code we write is buggy, it throws exception and error messages are directed to error output, then our result file will be empty! To handle it properly, we can also redirect error output to a file `errors`, and verify it is empty(such that no error occues during execution) before we execute `verify`.
+Furthermore, if the code we write is buggy, it throws exception and error messages are directed to error output, then our result file will be empty! To handle it properly, we can also redirect error output to a file `errors`, and verify it is empty(such that no error occurs during execution) before we execute `verify`.
 
 ```bash
 #!/bin/bash
@@ -132,7 +132,7 @@ else
      echo "error occured during execution."
 fi
 ```
-Another useful command is `|`, which chained linux commands together, as such the output of previous commands is paased as input to the next command.
+Another useful command is `|`, which chained linux commands together, as such the output of previous commands is passed as input to the next command.
 
 Suppose you want to check the status of process `p` running on your system. Thus you typed in `ps aux`, and all the processes are listed, but there are too many processes that you can't find `p`. As such, you can pass the result of `ps aux` to `grep 'p'` to capture process `p`'s status. Thus the command will be look like `ps aux | grep 'p'`.
 
@@ -165,15 +165,15 @@ DESCRIPTION
 
 ```
 ## How to Get Started with linux command-line based shell?
-In my opinion, there is no need to learning linux command-line based shell in particular, because there are tons of linux commands out there, it is impossible to remember and master them all at one time without actual practices. Instead, when it comes to the time that you have to use it, try to use the terminal instead of GUI based tool. Although it might be hard at first, it will benifit you more later. For example, `git`, I highly recommend get started to use command-line based git instead of visualization tools such as `Source Tree`.
+In my opinion, there is no need to learning linux command-line based shell in particular, because there are tons of linux commands out there, it is impossible to remember and master them all at one time without actual practices. Instead, when it comes to the time that you have to use it, try to use the terminal instead of GUI based tool. Although it might be hard at first, it will benefit you more later. For example, `git`, I highly recommend get started to use command-line based git instead of visualisation tools such as `Source Tree`.
 
 
 # Where to Go from Here?
 
 - [Introduction to Linux](http://www.linfo.org/newbies.html) is a good introduction to Linux and contains many useful resource links.
-- [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/) is a good reference manaual of linux bash shell. 
+- [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/) is a good reference manual of linux bash shell. 
 - [Online man Page](https://www.linux.org/docs/) is a collection of  `man pages`  online.
-- [linux.org](https://www.linux.org/) is the Linux organization home page, you can find all relavant information about linux here. 
+- [linux.org](https://www.linux.org/) is the Linux organization home page, you can find all relevant information about linux here. 
 - One big advantage of linux is its open source feature, you can read [Linux Source Code](https://github.com/torvalds/linux) by your own interest. 
 - Still wondering why linux could be important to your career? This [article](https://opensource.com/business/14/8/learn-linux) might worth reading.
 
