@@ -129,7 +129,7 @@ export class AppComponent {}
 
 In Angular we use the `@Component` tag, which is known as a decorator, to mark classes that should be considered elements that can be used in your HTML markup. You have the ability to pass that `@Component` properties to describe the element.
 
-* The `selector` property determines that tag’s name when typed in HTML. The use of selector: "my-app" is how Angular knows what to do when it see a `<my-app>` tag in HTML.
+* The `selector` property determines that tag’s name when typed in HTML. The use of selector: "my-app" is how Angular knows what to do when it sees a `<my-app>` tag in HTML.
 
 * The `template` property controls what HTML gets rendered when this component is used.
 
