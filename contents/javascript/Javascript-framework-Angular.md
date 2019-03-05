@@ -23,15 +23,6 @@ The framework is designed to better engineer applications in an effort to make d
 >
 >Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a>. 
 
-## What are the different versions of Angular?
-
-AngularJS or Angular1 is a JavaScript front-end framework developed by Google whereas Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.
-There have been 5 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5 and the latest one being Angular6.
-There are key differences between the various versions as Google tried to enhance the tool given the fierce competition from React and Vue. 
-
-[source](https://www.quora.com/What-are-the-different-versions-of-AngularJS)
-
-
 
 ## Why learn Angular?
 
@@ -81,12 +72,14 @@ Rather than spending time on how the program flows and what should get loaded fi
 
 ### Benefit: Simplified MVC pattern and reduced coding.
 
-Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). It is easy to see how this represents the View component. Next to it, we have the accompanying `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`) with the various forms of binding.
+Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). It is easy to see how this represents the View component. Next to it, we have the accompanying `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`).
 Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
 ![MVC Pattern](https://www.grazitti.com/assets/2018/06/reasons-5.jpg)
 
 Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together again. Angular, however, strings it together automatically. That saves developers time.
 >According to a <a href="https://blog.qburst.com/2017/05/make-your-apps-load-faster-with-angular-2/">survey</a>, every 100-millisecond improvement in page loading speed led to 1% increase in revenue for Amazon.
+
+[source](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/)
 
 ### Benefit: Angular CLI
 
@@ -186,6 +179,14 @@ Every framework has its own pros and cons, meaning it all depends on the develop
 3. [Here](https://github.com/angular/angular) is a link to the official Angular framework maintained by Google. You could even open a PR and start contributing!
 
 4. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
+
+## What are the different versions of Angular?
+
+AngularJS or Angular1 is a JavaScript front-end framework developed by Google whereas Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.
+There have been 5 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5 and the latest one being Angular6.
+There are key differences between the various versions as Google tried to enhance the tool given the fierce competition from React and Vue. 
+
+[source](https://www.quora.com/What-are-the-different-versions-of-AngularJS)
 
 ### Where to Go from Here?
 
