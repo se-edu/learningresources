@@ -79,6 +79,53 @@ There are mainly two benefits of Scala, **simple syntax** and **multi-paradigm**
 Following are some examples to illustrate the benefit of Scala:
 
 ## Operator Overloading
+All operators in Scala such as +, -, *, /. are actually methods.
+
+Normally, we write addition in following way:
+
+`val a = 1 + 2`
+
+However, in Scala, it will be interpreted as following:
+
+`val a = 1.+(2)`
+
+Knowing that, we are able to overload operators just like method overloading. It allows us to redefine the behavior of
+arithmetic operators and give them meaning for our own custom classes.
+
+Following is an elegant *ComplexInt* class which uses **operator overloading**.
+
+```
+case class ComplexInt(real: Int, im: Int) {
+  def + (other: ComplexInt) = ComplexInt(real + other.real, im + other.im)
+  def * (other: ComplexInt) = ComplexInt(
+    real * other.real - im * other.im,
+    real * other.im + im * other.real
+  )
+  def unary_- = ComplexInt(-real, -im)
+  def - (other: ComplexInt) = this + -other
+
+  override def toString = real + " + " + im + "i"
+}
+```
+
+We are able to use the class like below:
+
+```
+val a = ComplexInt(1, 1)
+val b = ComplexInt(1, -1)
+val c = a * b
+val d = -c + a
+```
+
+In other languages like Java, the similar operations of the same class may need to performed like following:
+
+```
+ComplexInt a = new ComplexInt(1, 1);
+ComplexInt b = new ComplexInt(1, -1);
+ComplexInt c = a.times(b);
+ComplexInt d = (c.negative()).add(a);
+```
+
 
 ## Mixed-In Trait
 
