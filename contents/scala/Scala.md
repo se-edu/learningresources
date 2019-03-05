@@ -18,18 +18,45 @@ Author: [Wang Chao](https://github.com/fzdy1914)
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
+  * [Characteristic of Scala](#characteristic-of-scala)
+    * [Statically Typed](#statically-typed)
+    * [Object Oriented](#object-oriented)
+    * [Functional](#functional)
 
 # Overview
-**Scala** is a *multi-paradigm*, *statically typed* programming language. 
-It is designed to be a mixture of *Object-Oriented Programming* and *Functional Programming*. 
 
-Scala is **statically typed**, which means it do type checking like verifying and enforcing the constraints of types 
-at compile-time.
+**Scala** is a modern *multi-paradigm* programming language. It designed to integrate features of 
+*object-oriented* and *functional* languages in a *concise*, *elegant*, and *type-safe* way.
 
+## Characteristic of Scala
+
+### Statically Typed
+Scala is **statically typed**, which means it enforces type checking ike verifying and enforcing the constraints of 
+types at compile-time. 
+
+Scala allows [**type inference**](https://docs.scala-lang.org/tour/type-inference.html), which means it detects the data 
+type of an expression automatically. User is not required to annotate redundant type information in Scala. 
+
+In combination, these features provide a clean but reliable programming basis for the user.
+
+### Object Oriented
 Scala is a **pure OOP language**, which means every value in it is an object, including functions and primitives.
 
-Scala is not a **pure Functional Programming language**, but it contains many features of it including *currying*, 
-*type inference*, *immutability*, *lazy evaluation*, and *pattern matching*.
+Types and behavior of objects are described by *classes* and *traits*. 
+
+Classes are extended by *subclassing* and a flexible *mixin-based* mechanism to avoid the problems of multiple inheritance.
+
+Classes cannot have *static members*. A singleton object with same name of the class can be used to achieve the same effect. 
+A singleton object is basically a class that can have only one instance.
+
+### Functional
+Scala is a **Functional Programming language** in the sense that every function in Scala is a value. 
+
+Scala provides a lightweight syntax for defining [*anonymous functions*](https://docs.scala-lang.org/tour/basics.html#functions).
+
+It also support many other features of FP including [*higher-order functions*](https://docs.scala-lang.org/tour/higher-order-functions.html), 
+[*nested functions*](https://docs.scala-lang.org/tour/nested-functions.html), [*currying*](https://docs.scala-lang.org/tour/multiple-parameter-lists.html), 
+[*pattern matching*](https://docs.scala-lang.org/tour/pattern-matching.html), *immutability* and *lazy evaluation*.
 
 # Getting Started
 There are mainly two ways to work in Scala.
