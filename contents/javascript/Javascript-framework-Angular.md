@@ -72,7 +72,7 @@ Rather than spending time on how the program flows and what should get loaded fi
 
 ### Benefit: Simplified MVC pattern and reduced coding.
 
-Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). It is easy to see how this represents the View component. Next to it, we have the accompanying `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`).
+Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). It is easy to see how this represents the View component. Next to it, we have the accompanying `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
 Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
 ![MVC Pattern](https://www.grazitti.com/assets/2018/06/reasons-5.jpg)
 
