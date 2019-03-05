@@ -17,11 +17,16 @@ Author: [Wang Chao](https://github.com/fzdy1914)
 **Table of Contents**
 
 * [Overview](#overview)
-* [Getting Started](#getting-started)
   * [Characteristic of Scala](#characteristic-of-scala)
     * [Statically Typed](#statically-typed)
     * [Object Oriented](#object-oriented)
     * [Functional](#functional)
+* [Getting Started](#getting-started)
+* [Why Scala](#why-scala)
+  * [Operator Overloading](#operator-overloading)
+  * [Mixed-In Trait](#mixed-in-trait)
+  * [Type Enrichment](#type-enrichment)
+  * [Pattern Matching](#pattern-matching)
 
 # Overview
 
@@ -63,5 +68,24 @@ There are mainly two ways to work in Scala.
 
 1. Using the **INTELLIJ IDE**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-scala-in-intellij.html) for more details.
 2. Using the **command line**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html) for more details.
+
+# Why Scala
+There are mainly two benefits of Scala, **simple syntax** and **multi-paradigm**. 
+
+*Simple syntax* allows us to write more simple and elegant code. 
+
+*Multi-paradigm* allows us to use an OOP language while using the feature in functional programming. 
+
+Following are some examples to illustrate the benefit of Scala:
+
+## Operator Overloading
+
+## Mixed-In Trait
+
+## Type Enrichment
+
+## Pattern Matching
+
+
 
 </div>
