@@ -226,7 +226,7 @@ Using 1-way data flow ensures that the data can only be changed by the component
 
 Using the example from above, we can convert `totalCount` into a computed property.
 
-```
+```js
 computed: totalCount() {
     let result = 0
     this.items.forEach((item) => result += item.count);
