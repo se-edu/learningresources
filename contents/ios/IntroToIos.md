@@ -38,7 +38,7 @@ More app revenue for iOS applications also means companies will look to tackle t
 
 #### Higher quality apps
 
-Publishing an app to the Apple App Store is by no means a simple task. The App Store will test your app for every possible bug and validation errors before they will proceed to publish on the store. This is drastically different from the Android Play Store where approval process is not as stringent. 
+Publishing an app to the Apple App Store is by no means a simple task. First and foremost, there is an annual fee that you have to pay as a developer in order to [have your app published on the App Store](https://developer.apple.com/ios/submit/). Upon submission, the App Store will then test your app for every possible bug and validation errors before they will proceed to publish on the store. This is drastically different from the Android Play Store where approval process is not as stringent. 
 
 This also means that apps on the App Store are of higher quality in general. As iOS developers, we will be required to pay more attention to our application development process to make sure that everything is working and tested well before attempting to publish it up to the App Store. 
 
@@ -51,6 +51,10 @@ The main attraction to developing mobile applications using cross-platform solut
 Some of these cross-platform solutions can be thought to work as an additional layer between your application and the native API calls, and with an additional layer comes inevitable performance compromise. This is most noticeable when it comes to more GPU demanding applications such as games. For less intensive applications such as social media apps, this is still manageable, as proven by Facebook and Instagram which are both written using React Native.
 
 Compatibility issues, especially with UI components, can come up when you are trying to develop a mobile app using cross-platform solutions, usually because some of these components are available on one OS but not the other, hence the cross-platform API will completely not give the component as an option to developers. 
+
+If you are coming from a web development background, you might want to consider starting with React Native. React Native as a cross-platform mobile development framework will give you a mobile development environment that is very similar to a web development one (especially if you are familiar with ReactJS), using the same JavaScript structure as ReactJS, and also uses `props`, `state`, and all the standard React component lifecycle methods. It will allow you to learn about mobile development while on familiar ground.
+
+If you are a complete beginner to programming or do not have much software engineering experience, native iOS development with Swift might be a better choice to start with. Given that Swift is a statically typed language, more errors will be caught earlier, and you will be forced to be more structured and disciplined in your code. With Swift being a fast and readable language, it is not a bad language to start learning programming with or to pick up general software engineering skills with. 
 
 In a nutshell, there are many factors to consider when deciding to develop mobile apps using cross-platform or native solutions, but as budding software engineers, it definitely would not hurt to pick up both!
 
