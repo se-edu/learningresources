@@ -240,17 +240,17 @@ the page refreshes.
 <br>
 
 ---
-## Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
+### Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
 - [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
 - [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
-## Links to VueJs tutorials and practices
+### Links to VueJs tutorials and practices
 
 - [VueSchool](https://vuejs.org/)
 - [Laracast](https://laracasts.com/series/learn-vue-2-step-by-step)
 - [Vuetify](https://vuetifyjs.com/zh-Hans/)
 
-## References
+### References
 
 - [VueJS Official Website](https://vuejs.org)
 
