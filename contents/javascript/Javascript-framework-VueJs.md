@@ -12,7 +12,7 @@
 
 # VueJs
 
-Author: [Lu Lechuan](https://github.com/LuLechuan)
+Author: [Lu Lechuan](https://github.com/LuLechuan), [Chelsey Ong](https://github.com/chelseyong)
 
 VueJs (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainablity.
 
@@ -26,7 +26,7 @@ Apart from installing VueJs, you can install [VueJs development tools](https://g
 
 #### HelloWorld in VueJs
 
-This is a minimal example to show how easy it is to integrate VueJs into your web project:<br/><br/>
+This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
 The main HTML file
 ```HTML
 <body>
@@ -155,6 +155,88 @@ A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese 
 - [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
 - [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
+#### Special features of VueJs
+There are some features that VueJs differ from the other frameworks used, which will be explained below.
+1. **Mutating of data in the DOM**
+
+In Vue, the state of the data can be directly modified. Let's say, there is a message in your app. To change the message, insert this line:
+```
+this.message = 'Hello Space';
+```
+
+In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
+```
+this.setState({ message: 'Hello Space' });
+```
+
+
+2. **2-way binding**: `v-model` is used to bind the DOM input field to its data variable. This effectively allows your DOM variables to be automatically in sync with your data, regardless of which one is being updated.
+Hence, this reduces the need for you to manually update your data.
+```
+<input type="checkbox", v-model=isChecked">
+    <label for="checked">Select</label>
+```
+
+3. **1-way data flow**: Data can only be passed from parent to child, via `props`.
+Props can be of any data type, including Objects.
+
+In the code below, `to-do list` is the parent and `item` is the child.
+The data in `item` is passed to `todo-list` to be rendered.
+```
+Vue.component('todo-list', {
+    props: ['item'],
+    data: ['totalCount'],
+    template:
+      <div class='todo-list'>
+        <p>Total: {{ totalCount }}</p>
+        <p>{{ item.name }}: {{ item.pax }}</p>
+})
+
+<todo-list
+  v-for='item in items'
+  v-bind:key='item.id'
+  v-bind:item='item'
+></todo-list>
+```
+
+
+However, what if the user decides to update the item.pax? The data for item.pax has to be passed from `item` to `todo-list` so `totalCount` can be updated inside `todo-list` . Under situations like this where the child has to pass data back to the parent, the child component has to [emit events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
+and the parent component will update after listening to these events.
+
+```
+Vue.component('item', {
+  data: ['pax', 'name'],
+  template: {
+    <button v-on:click="$emit('increased-pax', pax+1)">Increment count for this item</button>
+  }
+}
+
+// Inside todo-list component
+template:
+    v-on:increased-pax="updateCount"
+```
+Whenever the button is pressed, an event called `increased-pax` with the new value of `pax` will be emitted by the child `item`.
+When `todo-list` listened to the event, it will execute `updateCount`.
+
+Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
+
+4. **Computed properties**: useful when you want to reduce the amount of logic written in templates
+
+Using the example from above, we can convert `totalCount` into a computed property.
+
+```
+computed: totalCount() {
+    let result = 0
+    this.items.forEach((item) => result += item.count);
+    return result;
+}
+```
+
+Unlike the use of methods, this updating of `totalCount` will only be triggered when the number of `items` in the list or any `item`'s `count` changed.
+This can greatly improve the efficiency of your application, as computed properties will not run every time
+the page refreshes.
+
+
 ## Links to VueJs tutorials and practices
 
 - [VueSchool](https://vuejs.org/)
@@ -163,6 +245,6 @@ A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese 
 
 ## References
 
-- [VueJS Official Website](https://vuejs.org/)
+- [VueJS Official Website](https://vuejs.org)
 
 </div>
