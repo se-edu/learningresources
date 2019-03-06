@@ -27,7 +27,7 @@ Apart from installing VueJs, you can install [VueJs development tools](https://g
 #### HelloWorld in VueJs
 
 This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
-The main HTML file
+The main HTML file:
 ```HTML
 <body>
   <div id="root">
@@ -37,7 +37,7 @@ The main HTML file
   <script src="the_path_to_the_javacript_file.js"></script>
 </body>
 ```
-This is inside the javacript file
+This is inside the javacript file:
 ```js
 new Vue ({
   el: '#root',
@@ -48,7 +48,7 @@ new Vue ({
 });
 ```
 
-Step-by-step explanation of the code:
+++Step-by-step explanation of the code++
 
 <b>Step 1:</b> Import VueJs CDN and the JavaScript file in the main HTML file.
 ```HTML
@@ -84,7 +84,9 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <b>Step 5:</b> Open the brower and we will see "Hello World" being displayed:
 > <h2>Hello World</h2>
+<br>
 
+---
 ## Advantages and Disadvantages of VueJs
 
 #### Advantages of VueJs
@@ -151,45 +153,43 @@ VueJs is a relatively new JavaScript framework as compared to Angular and React.
 2. **Language barriers:**<br/>
 A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.
 
-#### Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
-- [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
-- [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
-
-#### Special features of VueJs
-There are some features that VueJs differ from the other frameworks used, which will be explained below.
+-----
+### Special features of VueJs
+Here are some features that VueJs differ from the other frameworks used:
 1. **Mutating of data in the DOM**
 
 In Vue, the state of the data can be directly modified. Let's say, there is a message in your app. To change the message, insert this line:
-```
+```js
 this.message = 'Hello Space';
 ```
 
 In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
-```
+```js
 this.setState({ message: 'Hello Space' });
 ```
-
+<br>
 
 2. **2-way binding**: `v-model` is used to bind the DOM input field to its data variable. This effectively allows your DOM variables to be automatically in sync with your data, regardless of which one is being updated.
-Hence, this reduces the need for you to manually update your data.
-```
+In other words, this reduces the need for you to manually update your data.
+```js
 <input type="checkbox", v-model=isChecked">
     <label for="checked">Select</label>
 ```
+<br>
 
 3. **1-way data flow**: Data can only be passed from parent to child, via `props`.
 Props can be of any data type, including Objects.
 
 In the code below, `to-do list` is the parent and `item` is the child.
-The data in `item` is passed to `todo-list` to be rendered.
-```
+The data in `item` is being passed to `todo-list` for rendering.
+```js
 Vue.component('todo-list', {
     props: ['item'],
     data: ['totalCount'],
     template:
       <div class='todo-list'>
-        <p>Total: {{ totalCount }}</p>
-        <p>{{ item.name }}: {{ item.pax }}</p>
+        <p>Total:{{ this.totalCount }}</p>
+        <p>{{ item.name }}: {{ item.count }}</p>
 })
 
 <todo-list
@@ -200,27 +200,29 @@ Vue.component('todo-list', {
 ```
 
 
-However, what if the user decides to update the item.pax? The data for item.pax has to be passed from `item` to `todo-list` so `totalCount` can be updated inside `todo-list` . Under situations like this where the child has to pass data back to the parent, the child component has to [emit events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
+However, what if the user decides to update the `item.count`? The data for item.count has to be passed from `item` to `todo-list` so `totalCount` can be updated inside `todo-list` . Under situations like this where the child has to pass data back to the parent, the child component has to [emit events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
 and the parent component will update after listening to these events.
 
-```
+```js
 Vue.component('item', {
-  data: ['pax', 'name'],
+  data: ['count', 'name'],
   template: {
-    <button v-on:click="$emit('increased-pax', pax+1)">Increment count for this item</button>
+    <button v-on:click="$emit('increased-count', count+1)">Increment count for this item</button>
   }
 }
 
 // Inside todo-list component
 template:
-    v-on:increased-pax="updateCount"
+    v-on:increased-count="updateCount"
 ```
-Whenever the button is pressed, an event called `increased-pax` with the new value of `pax` will be emitted by the child `item`.
+Whenever the button is pressed, an event called `increased-count` with the new value of `count` will be emitted by the child `item`.
 When `todo-list` listened to the event, it will execute `updateCount`.
 
 Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
+<br>
 
-4. **Computed properties**: useful when you want to reduce the amount of logic written in templates
+
+4. **Computed properties**: Useful when you want to reduce the amount of logic written in templates
 
 Using the example from above, we can convert `totalCount` into a computed property.
 
@@ -235,7 +237,12 @@ computed: totalCount() {
 Unlike the use of methods, this updating of `totalCount` will only be triggered when the number of `items` in the list or any `item`'s `count` changed.
 This can greatly improve the efficiency of your application, as computed properties will not run every time
 the page refreshes.
+<br>
 
+---
+## Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
+- [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
+- [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
 ## Links to VueJs tutorials and practices
 
