@@ -49,6 +49,97 @@ Since it's such a robust and well-rounded language, it's no surprise that C# is 
 
 ## Some Noteworthy Features of C#
 
-### Testing
+Most programming languages/frameworks have their own unique quirks, which can be utilised for better code quality.
+
+### Object / Array / Collection Initializers
+
+In C#, you can construct an Object, Array or Collection conveniently as shown. This can be useful when writing tests, as test data will be easier to read,
+as compared to calling the actual constructor.
+
+```
+public class Foo {
+	Bar MyBar;
+}
+
+Bar bar = new Bar();
+Foo foo = new Foo() {
+	MyBar = bar;
+};
+```
+
+### Closures
+
+Sometimes, it may be useful to defer execution or capture a local context for later execution. Context capturing is reflected below:
+
+```
+//Capturing local context
+public class Context {
+	public static Func<Int> GetCounter() {
+		int count = 0;
+		return () => {
+			count++;
+			return count();
+		}
+	}
+}
+
+Func<Int> counter = Context.GetCounter();
+counter();
+```
+
+### Nullable type
+
+Often when dealing with possible sites of null pointer access, many if checks might be used. However, when dealing with nullable types, such code can be shortened
+while remaining easy to read, using collaescing operators `??`, or null conditional operators `.?`. Some may find this similar to `optionals` in Swift.
+
+More can be read about Nullables (here)[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/]
+
+```
+public Car? ManufactureCar() {
+	return (hasError) ? null : new Car(param1, param2);
+}
+
+Car? car = ManufactureCar();
+//Call Drive method of car if not null
+car?.Drive();
+
+//Get amount of fuel left
+Double fuelLeft = car?.GetFuel() ?? 0;
+//Explanation:
+//car?.GetFuel() evaluates to null when car is null.
+//?? operator sees null, so the expression defaults to 0.
+```
+
+### Default Interface Implementations
+
+Sometimes classes have a common interface but do not have a common ancestor and require the same method implmentation.
+A default implementation can be included in the interface to promote code reuse. Similarly, a certain class may not require certain methods listed in the interface.
+An example is a stub class that is required to implement an interface. A default method can be created with the `NotImplementedException`.
+
+The following links below describes in greater detail of some exciting features that can make your code more pleasant to read and write:
+* https://codeaddiction.net/articles/15/10-features-in-c-that-you-really-should-learn-and-use
+* https://stackify.com/csharp-8-features/
+* https://www.developer.com/net/csharp/slideshows/top-10-csharp-6.0-language-features.html
+
+### Testing facilities
+
+When it comes to testing, C# does not lack in variety. 3 common unit testing frameworks used are MSTest, NUnit, XUnit.
+
+* MSTest
+	* DataTest Methods and DataRows
+	* Parrallelized tests
+	* Parameterized data and attributes
+
+Resources: (Overview of some feature)[https://dev.to/franndotexe/mstest-v2---new-old-kid-on-the-block], (Setting up MSTest)[https://www.meziantou.net/2018/02/05/mstest-v2-data-tests]
+	
+* NUnit
+	* DataTest and DataRows
+	* Stubbing directly on interfaces
+	* Parameterization and attributes
+
+Resources: (Introduction to Unit Testing)[https://www.typemock.com/unit-test-patterns-for-net-part-i/]
+
 
 ## How to Get Started
+
+(Learn C#)[https://www.sololearn.com/Course/CSharp/?ref=medcsharp]
