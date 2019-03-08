@@ -142,4 +142,7 @@ Resources: (Introduction to Unit Testing)[https://www.typemock.com/unit-test-pat
 
 ## How to Get Started
 
-(Learn C#)[https://www.sololearn.com/Course/CSharp/?ref=medcsharp]
+* (Learn C#)[https://www.sololearn.com/Course/CSharp/?ref=medcsharp]
+* (Common pitfalls)[https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/]
+* (Design Patterns in C#)[https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/]
+* (C# closures in greater depth)[https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure]
