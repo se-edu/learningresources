@@ -237,8 +237,42 @@ computed: totalCount() {
 ```
 
 Unlike the use of methods, this updating of `totalCount` will only be triggered when the number of `items` in the list or any `item`'s `count` changed.
-This can greatly improve the efficiency of your application, as computed properties will not run every time
+This computed property is also cached and can greatly improve the efficiency of your application, since computed properties will not run every time
 the page refreshes.
+
+*Note: computed properties must return the new data i.e. reactive properties.
+It cannot perform other operations in respond to the change in data.*
+<br>
+
+5. **Watched properties**: another useful feature that is quite similar to `Computed properties`.
+While computed properties are more appropriate to use when you want to update a new state or data,
+watched properties are generally used to run other functions when this particular data has changed.
+Watched property can only look for data changes in 1 variable, however computed properties allow
+multiple variables to be observed.
+
+Watched properties are also executed every time, while computed properties are cached.
+
+*_Be careful of using the correct property in the correct situation._*
+
+If I implement the example shown in computed property with watched property instead. It will look like this:
+
+```js
+watch: {
+    totalCount: function() {
+        let result = 0
+        this.items.forEach((item) => result += item.count);
+        this.totalCount = result;
+    }
+}
+```
+In this case, I have to update `this.totalCount` inside the function, instead of returning the new result of `totalCount`.
+As such, computed properties is more intuitive to use here, where a state is updated automatically due to new data.
+
+Whereas, watched properties are commonly used to perform asynchronous operations when a particular data has changed.
+Such situations could happen, when a new `item` is added and I want to send an update to my friend to inform that
+he a new `item` is added. A watched property on `items` is placed, then inside the function, a network request
+can be sent whenever `items` has changed.
+
 <br>
 
 ---
