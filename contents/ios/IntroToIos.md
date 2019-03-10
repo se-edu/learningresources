@@ -71,28 +71,22 @@ Native iOS applications can be written in [Objective-C or Swift](https://android
 If you are new to Swift, you may want to read up on our Swift article right on this website: [Introduction to Swift]({{baseUrl}}/contents/swift/welcome-to-swift.html)
 
 If you are ready to begin developing your first iOS applications, you will want to check out these iOS development tutorials and articles meant for first-timers:
-- [Build "Hello World" iOS app](https://www.appcoda.com/build-hello-world-app-swift/)
-- [First iOS app tutorial](https://www.journaldev.com/10214/ios-hello-world-example-tutorial)
 - [Codewithchris: How to make an iPhone app](https://codewithchris.com/how-to-make-an-iphone-app/)
-- [appcoda's iOS programming book](https://www.appcoda.com/learnswift/)
-- [Apple's iOS app tutorial](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/)
 - [raywenderlich.com "How to build a simple iOS app"](https://www.raywenderlich.com/3114-ios-tutorial-how-to-create-a-simple-iphone-app-part-1-3)
 
 If you have worked with iOS applications before, are familiar with the whole development process and would like to take the next step, check out these more in-depth tutorials for iOS development and its intracacies:
 - [MVC Design Pattern for iOS apps](https://www.raywenderlich.com/1073-model-view-controller-mvc-in-ios-a-modern-approach)
 - [Auto Layout](https://www.raywenderlich.com/443-auto-layout-tutorial-in-ios-11-getting-started)
-- [iOS animations](https://www.raywenderlich.com/363-ios-animation-tutorial-getting-started)
-- [iOS UI Programmatically](https://fluffy.es/intro-to-creating-ui-in-code-1/)
+- [iOS Animations](https://www.raywenderlich.com/363-ios-animation-tutorial-getting-started)
 
 ## 6. Useful links and further reading
 
 Here are some links to more advanced topics on iOS development and Swift:
-- [10 reasons to pick Swift over Objective-C](https://www.infoworld.com/article/2920333/swift-vs-objective-c-10-reasons-the-future-favors-swift.html)
 - [Objective-C vs. Swift](https://www.altexsoft.com/blog/engineering/swift-vs-objective-c-out-with-the-old-in-with-the-new/)
-- [Adding Firebase databse to your iOS app](https://firebase.google.com/docs/ios/setup)
 - [Comparisons between different iOS app architectures](https://academy.realm.io/posts/krzysztof-zablocki-mDevCamp-ios-architecture-mvvm-mvc-viper/)
 - [Unit testing on iOS](https://www.toptal.com/qa/how-to-write-testable-code-and-why-it-matters)
 - [RxSwift and RxCocoa](https://www.raywenderlich.com/900-getting-started-with-rxswift-and-rxcocoa)
+- [iOS UI Programmatically](https://fluffy.es/intro-to-creating-ui-in-code-1/)
 
 Popular frameworks/libraries:
 - [Alamofire (HTTP Networking)](https://medium.com/the-traveled-ios-developers-guide/thoughts-on-alamofire-55a52a3d3d57)
