@@ -160,11 +160,13 @@ Here are some features that VueJs differ from the other frameworks used:
 
 In Vue, the state of the data can be directly modified. Let's say, there is a message in your app. To change the message, insert this line:
 ```js
+// Vue way
 this.message = 'Hello Space';
 ```
 
 In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
 ```js
+// React way
 this.setState({ message: 'Hello Space' });
 ```
 <br>
@@ -177,8 +179,8 @@ In other words, this reduces the need for you to manually update your data.
 ```
 <br>
 
-3. **1-way data flow**: Data can only be passed from parent to child, via `props`.
-Props can be of any data type, including Objects.
+3. **1-way data flow**: Data can only be passed from parent to child, via `props`. Props can be of any data type, including Objects.
+On the other hand, if the child wants to pass data to its parent, `$emit` events have to be used instead.
 
 In the code below, `to-do list` is the parent and `item` is the child.
 The data in `item` is being passed to `todo-list` for rendering.
