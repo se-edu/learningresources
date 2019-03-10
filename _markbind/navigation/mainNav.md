@@ -12,6 +12,7 @@
     * [Java Streams]({{baseUrl}}/contents/java/streams-an-introduction.html)
     * [Java Synchronization]({{baseUrl}}/contents/java/JavaSynchronization.html)
     * [Java Reflection]({{baseUrl}}/contents/java/JavaReflections.html)
+    * [JUnit]({{baseUrl}}/contents/java/JUnit.html)
   * JavaScript
     * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/javascript.html)
     * [Javascript Promises]({{baseUrl}}/contents/javascript/Javascript-promises.html)
