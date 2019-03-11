@@ -46,6 +46,28 @@ From (Team Commerce on Mashable)[https://mashable.com/2018/03/17/coding-course-c
 Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are (5,000 C# jobs advertised in the US alone)[https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo]
 (and 10,000 globally), with an (average base pay of nearly $80,000)[https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm].
 
+## Glimpse of C# Syntax
+
+Below is a sample code snippet of what a simple program in C# might look like:
+
+```
+//Comments can be marked with // or /**/
+//Namespaces are similar to packages, except the file does not need to be physically in the directory
+using ProjectName.Utils;
+
+namespace ProjectName.Model
+{
+    class MyClass : BaseClass {
+        ...
+		public static void Main(String[] args) {
+		    string message = "Hello World!";
+			Console.WriteLine(message);
+		}
+    }
+}
+```
+
+[To get started](#How to Get Started)
 
 ## Some Noteworthy Features of C#
 
