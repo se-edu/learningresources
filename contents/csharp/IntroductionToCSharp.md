@@ -32,7 +32,7 @@ C# is also used by the Unity Game Engine, which has high cross-platform support 
 
 From [Armina Mkhitaryan on Medium](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
 
-Being powerful, flexible, and well-supported has meant C# has quickly become one of the most popular programming languages available.
+Being powerful, flexible, and well-supported enabled C# has quickly become one of the most popular programming languages available.
 Today, it is the 4th most popular programming language, with approximately 31% of all developers using it regularly. It is also the 3rd largest community on StackOverflow (which was built using C#) with more than 1.1 million topics.
 
 ### Job demand and opportunities
@@ -124,13 +124,14 @@ car?.Drive();
 //Get amount of fuel left
 Double fuelLeft = car?.GetFuel() ?? 0;
 //Explanation:
-//car?.GetFuel() evaluates to null when car is null.
-//?? operator sees null, so the expression defaults to 0.
+//If car is not null, one can expect the statement to evaluate to car.GetFuel().
+//If car is null, car?.GetFuel() evaluates to null
+//?? operator sees null, so the entire expression defaults to 0.
 ```
 
 ### Default Interface Implementations
 
-Sometimes classes have a common interface but do not have a common ancestor and require the same method implmentation.
+Sometimes classes have a common interface but do not have a common ancestor and require the same method implementation.
 A default implementation can be included in the interface to promote code reuse. Similarly, a certain class may not require certain methods listed in the interface.
 An example is a stub class that is required to implement an interface. A default method can be created with the `NotImplementedException`.
 
