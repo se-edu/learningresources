@@ -39,7 +39,7 @@ Today, it is the 4th most popular programming language, with approximately 31% o
 
 From [Team Commerce on Mashable](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
 
-Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are (5,000 C# jobs advertised in the US alone)[https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo]
+Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are [5,000 C# jobs advertised in the US alone](https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo)
 (and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
 
 ## Glimpse of C# Syntax
@@ -63,7 +63,7 @@ namespace ProjectName.Model
 }
 ```
 
-[To get started](#How to Get Started)
+[To get started](#how-to-get-started)
 
 ## Some Noteworthy Features of C#
 
