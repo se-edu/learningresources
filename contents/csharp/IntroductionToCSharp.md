@@ -66,7 +66,7 @@ namespace ProjectName.Model
 }
 ```
 
-[To get started](#how-to-get-started)
+[Click here to get started](#how-to-get-started)
 
 ## Some Noteworthy Features of C#
 
