@@ -23,9 +23,9 @@ Accessibility is the practice of making your websites usable by as many people a
 ## Why is accessibility important?
 
 ##### For the developer
-1. **Accessibility improves everyone's UX**. Accessibility practices are good design practices in general, so improving accessibility brings benefits to everyone.
+1. **Accessibility improves everyone's UX**. [W3C](https://www.w3.org/standards/webdesign/accessibility) notes that accessibility practices are good design practices in general. So, improving accessibility brings benefits to everyone.
 2. **Accessibility is a right**. Caring about accessibility demonstrates good ethics/morals.
-3. **Accessibility improves SEO**. Semantic HTML (which improves accessibility) also improves SEO, making your website more findable and marketable to new users.
+3. **Accessibility improves SEO**. Semantic HTML (which improves accessibility) also improves SEO, making your website more discoverable and marketable to new users.
 4. **Accessibility helps you increase your user base**. According to the [World Health Organization world report on disability](https://www.who.int/disabilities/world_report/2011/report/en/), about 15% of the world's population live with some form of disability. That makes up more than 1 billion people. It is a significant population of users, so improving accessibility can help you reach more people.
 5. **Accessibility is part of the law in some places**. In [some countries](https://www.w3.org/WAI/policies/), abiding by accessibility guidelines is mandatory. Be careful not to break the law!
 
@@ -37,15 +37,15 @@ Accessibility is important for people with disabilities to access the Web. There
    * Mobility (quadriplegia, muscular dystrophy, etc.)
 
 At the same time, accessibility also benefits people _without_ disabilities, for example:
-   * people using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.
-   * older people with changing abilities due to ageing
-   * people with "temporary disabilities" such as a broken arm or lost glasses
-   * people with "situational limitations" such as in bright sunlight or in an environment where they cannot listen to audio
-   * people using a slow Internet connection, or who have limited or expensive bandwidth
+   * People using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.
+   * Older people with changing abilities due to ageing
+   * People with "temporary disabilities" such as a broken arm or lost glasses
+   * People with "situational limitations" such as in bright sunlight or in an environment where they cannot listen to audio
+   * People using a slow Internet connection, or who have limited or expensive bandwidth
 
-## How can I improve the accessibility of my websites?
+## How can I improve the accessibility of my website?
 
-There are many ways to improve accessibility of your website. Below are some tips, based on the type of disabilities they address.
+There are many ways to improve the accessibility of your website. Below are some tips, based on the type of disabilities they address.
 
 ### Visual
 Users with visual impairments rely on assistive technologies such as a magnifier or a screen reader.
@@ -103,8 +103,8 @@ Such disabilities might affect website usage. It could be due to difficulty in u
 Unlike other web accessibility issues, there is no quick fix to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here is a checklist that you can follow:
 
 * Avoid distractions: <br>
-People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where busy pages can be overwhelming.
-  * Avoid movement unless the moving elements can be frozen by the user
+People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where cluttered pages can be overwhelming.
+  * Avoid unnecessary movements from animations or moving elements
   * Have a clean and uncluttered design
   
   Here's a comparison of a cluttered vs clean website landing page taken from British Gas website.
@@ -124,15 +124,17 @@ People with cognitive disabilities are more easily distracted, or they may have 
   * Navigation mechanisms are consistent in appearance and behaviour
 
 * Communicate well: <br>
-People with cognitive disabilities are more likely to take things literally and to benefit from more visual cues.
+People with cognitive disabilities are more likely to take things literally and can benefit from more visual cues.
   * Pages are not overly long or dense in terms of the amount of information presented at once.
+  > [An article](https://www.lifewire.com/web-page-length-3468959) says a rule of thumb is "No article should exceed 2 printed pages of double-spaced, 12 point text." whereas [another article](https://www.greenmellenmedia.com/how-long-should-my-website-content-be/) says "There is no "magic number" for a number of characters for content. As long as the web page content is clear, to the point and written for people". Ultimately, what's most important is what _your_ users think, so validation during user testing is paramount.
+  
   * The language used is as plain and easy to follow, and not full of unneccessary jargon and slang.
   * Important points and content are highlighted in some way.
   * User errors are clearly highlighted, with help messages to suggest solutions.
 
 > Taken from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments), [National Autistic Society](https://www.autism.org.uk/professionals/others/website-design.aspx)
 
-If you feel that the checklist above is rather obvious, it is because they are good design practices in general. More importantly, after following the checklist, you should do user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.
+More importantly, after following the checklist, you should do user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.
 
 WebAIM's [Cognitive](http://webaim.org/articles/cognitive/) page provides a useful expansion of the ideas above, and is certainly worth reading.
 
