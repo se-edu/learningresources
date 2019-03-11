@@ -58,12 +58,12 @@ as compared to calling the actual constructor.
 
 ```
 public class Foo {
-	Bar MyBar;
+    Bar MyBar;
 }
 
 Bar bar = new Bar();
 Foo foo = new Foo() {
-	MyBar = bar;
+    MyBar = bar;
 };
 ```
 
@@ -74,13 +74,13 @@ Sometimes, it may be useful to defer execution or capture a local context for la
 ```
 //Capturing local context
 public class Context {
-	public static Func<Int> GetCounter() {
-		int count = 0;
-		return () => {
-			count++;
-			return count();
-		}
-	}
+    public static Func<Int> GetCounter() {
+        int count = 0;
+        return () => {
+            count++;
+            return count();
+        }
+    }
 }
 
 Func<Int> counter = Context.GetCounter();
@@ -96,7 +96,7 @@ More can be read about Nullables (here)[https://docs.microsoft.com/en-us/dotnet/
 
 ```
 public Car? ManufactureCar() {
-	return (hasError) ? null : new Car(param1, param2);
+    return (hasError) ? null : new Car(param1, param2);
 }
 
 Car? car = ManufactureCar();
@@ -126,16 +126,16 @@ The following links below describes in greater detail of some exciting features 
 When it comes to testing, C# does not lack in variety. 3 common unit testing frameworks used are MSTest, NUnit, XUnit.
 
 * MSTest
-	* DataTest Methods and DataRows
-	* Parrallelized tests
-	* Parameterized data and attributes
+    * DataTest Methods and DataRows
+    * Parrallelized tests
+    * Parameterized data and attributes
 
 Resources: (Overview of some feature)[https://dev.to/franndotexe/mstest-v2---new-old-kid-on-the-block], (Setting up MSTest)[https://www.meziantou.net/2018/02/05/mstest-v2-data-tests]
-	
+    
 * NUnit
-	* DataTest and DataRows
-	* Stubbing directly on interfaces
-	* Parameterization and attributes
+    * DataTest and DataRows
+    * Stubbing directly on interfaces
+    * Parameterization and attributes
 
 Resources: (Introduction to Unit Testing)[https://www.typemock.com/unit-test-patterns-for-net-part-i/]
 
