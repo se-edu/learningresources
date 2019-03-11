@@ -21,11 +21,12 @@ C# is considred a general-purpose, multi-paradigm programming language.
 
 ## Why Learn C#
 
-C# is a relatively high level language and is not difficult to pick up (a little more difficult than Python and a little easier than Java.)
+Below are some common reasons why one should learn C#.
 
 ### Cross platform support
 
 C# is built on the .NET framework and has cross platform support extended by the [Mono project](https://www.mono-project.com/), and similarly the complete runtime implementation from open source [CoreCL](https://github.com/dotnet/coreclr).
+As Mono supports many platforms such as Windows, MacOS, Linux and even PlayStation 4, users can build for many platforms.
 C# is also used by the Unity Game Engine, which has high cross-platform support for game developers.
 
 ### Popular Language
@@ -43,6 +44,8 @@ Since it's such a robust and well-rounded language, it's no surprise that C# is 
 (and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
 
 ## Glimpse of C# Syntax
+
+C# is a relatively high level language and is not difficult to pick up (a little more difficult than Python and a little easier than Java.)
 
 Below is a sample code snippet of what a simple program in C# might look like:
 
@@ -135,7 +138,7 @@ Sometimes classes have a common interface but do not have a common ancestor and 
 A default implementation can be included in the interface to promote code reuse. Similarly, a certain class may not require certain methods listed in the interface.
 An example is a stub class that is required to implement an interface. A default method can be created with the `NotImplementedException`.
 
-The following links below describes in greater detail of some exciting features that can make your code more pleasant to read and write:
+The following links below describes in greater detail of some exciting features that can make your code more pleasant to read and write, such as `async/await`, `delegates` etc:
 * https://codeaddiction.net/articles/15/10-features-in-c-that-you-really-should-learn-and-use
 * https://stackify.com/csharp-8-features/
 * https://www.developer.com/net/csharp/slideshows/top-10-csharp-6.0-language-features.html
