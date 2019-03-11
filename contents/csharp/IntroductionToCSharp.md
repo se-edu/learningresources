@@ -17,11 +17,7 @@ Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)
 ## What is C#
 
 C# is an Object-Oriented Programming Language on the .NET framework, and uses Garbage Collection for memory management.
-
-From Wikipedia:
-
-C# (pronounced C sharp) is a general-purpose, multi-paradigm programming language encompassing strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.
-It was developed around 2000 by Microsoft within its .NET initiative and later approved as a standard by Ecma (ECMA-334) and ISO (ISO/IEC 23270:2018). C# is one of the programming languages designed for the Common Language Infrastructure.
+C# is considred a general-purpose, multi-paradigm programming language.
 
 ## Why Learn C#
 
