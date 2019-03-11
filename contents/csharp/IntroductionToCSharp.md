@@ -25,22 +25,22 @@ C# is a relatively high level language and is not difficult to pick up (a little
 
 ### Cross platform support
 
-C# is built on the .NET framework and has cross platform support extended by the (Mono project)[https://www.mono-project.com/], and similarly the complete runtime implementation from open source (CoreCL)[https://github.com/dotnet/coreclr].
+C# is built on the .NET framework and has cross platform support extended by the [Mono project](https://www.mono-project.com/), and similarly the complete runtime implementation from open source [CoreCL](https://github.com/dotnet/coreclr).
 C# is also used by the Unity Game Engine, which has high cross-platform support for game developers.
 
 ### Popular Language
 
-From (Armina Mkhitaryan on Medium)[https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb]
+From [Armina Mkhitaryan on Medium](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
 
 Being powerful, flexible, and well-supported has meant C# has quickly become one of the most popular programming languages available.
 Today, it is the 4th most popular programming language, with approximately 31% of all developers using it regularly. It is also the 3rd largest community on StackOverflow (which was built using C#) with more than 1.1 million topics.
 
 ### Job demand and opportunities
 
-From (Team Commerce on Mashable)[https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ]
+From [Team Commerce on Mashable](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
 
 Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are (5,000 C# jobs advertised in the US alone)[https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo]
-(and 10,000 globally), with an (average base pay of nearly $80,000)[https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm].
+(and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
 
 ## Glimpse of C# Syntax
 
@@ -110,7 +110,7 @@ counter();
 Often when dealing with possible sites of null pointer access, many if checks might be used. However, when dealing with nullable types, such code can be shortened
 while remaining easy to read, using collaescing operators `??`, or null conditional operators `.?`. Some may find this similar to `optionals` in Swift.
 
-More can be read about Nullables (here)[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/]
+More can be read about Nullables [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/)
 
 ```
 public Car? ManufactureCar() {
@@ -148,19 +148,19 @@ When it comes to testing, C# does not lack in variety. 3 common unit testing fra
     * Parrallelized tests
     * Parameterized data and attributes
 
-Resources: (Overview of some feature)[https://dev.to/franndotexe/mstest-v2---new-old-kid-on-the-block], (Setting up MSTest)[https://www.meziantou.net/2018/02/05/mstest-v2-data-tests]
+Resources: [Overview of some features](https://dev.to/franndotexe/mstest-v2---new-old-kid-on-the-block), [Setting up MSTest](https://www.meziantou.net/2018/02/05/mstest-v2-data-tests)
     
 * NUnit
     * DataTest and DataRows
     * Stubbing directly on interfaces
     * Parameterization and attributes
 
-Resources: (Introduction to Unit Testing)[https://www.typemock.com/unit-test-patterns-for-net-part-i/]
+Resources: [Introduction to Unit Testing](https://www.typemock.com/unit-test-patterns-for-net-part-i/)
 
 
 ## How to Get Started
 
-* (Learn C#)[https://www.sololearn.com/Course/CSharp/?ref=medcsharp]
-* (Common pitfalls)[https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/]
-* (Design Patterns in C#)[https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/]
-* (C# closures in greater depth)[https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure]
+* [Learn C#](https://www.sololearn.com/Course/CSharp/?ref=medcsharp)
+* [Common pitfalls](https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/)
+* [Design Patterns in C#](https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/)
+* [C# closures in greater depth](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
