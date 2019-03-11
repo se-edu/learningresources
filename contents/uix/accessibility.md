@@ -91,26 +91,50 @@ For users with hearing impairment, we should provide text alternatives to audio 
   * Text transcripts
   * Captions
 
+Here's a [tutorial on adding transcripts](https://www.w3.org/2017/04/xsmedia-tute/page5.html). Adding captions is commonly supported in video hosting websites such as Youtube or Vimeo.
+
+More information can be found on [this article on transcripts and captions](https://webaim.org/techniques/captions/).
   
 ### Cognitive
-Cognitive disabilities range from mental illnesses to learning difficulties, difficulties in comprehension and concentration, etc. Some examples include ADHD (attention deficit hyperactivity disorder), and autism.
+Cognitive disabilities range from mental illnesses to learning difficulties, difficulties in comprehension and concentration, etc. Some examples include [Attention Deficit Hyperactivity Disorder (ADHD)](https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder), and [autism](https://en.wikipedia.org/wiki/Autism).
 
 Such disabilities might affect website usage. It could be due to difficulty in understanding how to complete a task, remembering how to do something that was previously accomplished, increased frustration at confusing workflows or inconsistent layouts/navigation/other page features.
 
-Unlike other web accessibility issues, there is no quick fixes to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here is a checklist that you can follow:
+Unlike other web accessibility issues, there is no quick fix to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here is a checklist that you can follow:
 
-* Pages are consistent — navigation, header, footer, and main content are always in the same places.
-* Tools are well-designed and easy to use.
-* Multi-stage processes are broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.
-* Workflows are logical, simple, and require as few interactions as possible to complete. For example, registering and signing in to a website is often unneccessarily complex.
-* Pages are not overly long or dense in terms of the amount of information presented at once.
-* The language used in your pages is as plain and easy to follow as possible, and not full of unneccessary jargon and slang.
-* Important points and content are highlighted in some way.
-* User errors are clearly highlighted, with help messages to suggest solutions.
+* Avoid distractions: <br>
+People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where busy pages can be overwhelming.
+  * Avoid movement unless the moving elements can be frozen by the user
+  * Have a clean and uncluttered design
+  
+  Here's a comparison of a cluttered vs clean website landing page taken from British Gas website.
+  
+  Cluttered page:
+  ![Cluttered landing page](accessibility/bg-old.png "Cluttered landing page")
 
-> Taken from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments)
+  Clean page:
+  ![Clean landing page](accessibility/bg-new.png "Clean landing page")
 
-WebAIM's [Cognitive](http://webaim.org/articles/cognitive/) page provides a useful expansion of these ideas, and is certainly worth reading.
+* Be logical:
+  * Multi-stage processes are broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.
+  * Workflows are logical, simple, and require as few interactions as possible to complete.
+
+* Be consistent:
+  * Navigation, header, footer, and main content are always in the same places
+  * Navigation mechanisms are consistent in appearance and behaviour
+
+* Communicate well: <br>
+People with cognitive disabilities are more likely to take things literally and to benefit from more visual cues.
+  * Pages are not overly long or dense in terms of the amount of information presented at once.
+  * The language used is as plain and easy to follow, and not full of unneccessary jargon and slang.
+  * Important points and content are highlighted in some way.
+  * User errors are clearly highlighted, with help messages to suggest solutions.
+
+> Taken from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments), [National Autistic Society](https://www.autism.org.uk/professionals/others/website-design.aspx)
+
+If you feel that the checklist above is rather obvious, it is because they are good design practices in general. More importantly, after following the checklist, you should do user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.
+
+WebAIM's [Cognitive](http://webaim.org/articles/cognitive/) page provides a useful expansion of the ideas above, and is certainly worth reading.
 
 ### Mobility
 Mobility impairments include paralysis, physical weakness or loss of control in limbs. This can cause users to find it difficult or impossible to use a mouse as the main form of interaction with websites.
@@ -122,19 +146,26 @@ The key to improve accessibility for mobility is to make the website keyboard ac
 WebAIM's article on [keyboard accessibility](https://webaim.org/techniques/keyboard/) provides a thorough tutorial for this.
 
 ## Tools for Developers
-* [**Google Lighthouse**](https://developers.google.com/web/tools/lighthouse/). Google Lighthouse is an automated tool that can audit how accessible your web pages are. It can be found in Chrome DevTools. Given a URL to audit, Lighthouse runs a series of audits and generates a report. The failing audits will show which part of the page causes it, and how to fix it.
-* [**Color Safe Palette Generator**](http://colorsafe.co/). This website can help you to create a color palette that is based on the WCAG guidelines for text and background contrast ratios.
-* [**ChromeLens**](http://chromelens.xyz/). This is a Chrome extension has 2 important features:
+* [**Google Lighthouse**](https://developers.google.com/web/tools/lighthouse/). Google Lighthouse is an automated tool that can audit how accessible your web pages are. It can be found in Chrome DevTools. Given a URL to audit, Lighthouse runs a series of audits and generates a report. The failing audits will show which part of the page causes it, and how to fix it. <br>
+Here's how an audit report looks like:
+![Lighthouse audit](accessibility/lh-audit.png "Lighthouse audit")
+
+* [**Color Safe Palette Generator**](http://colorsafe.co/). This website can help you to create a color palette that is based on the Web Content Accessibility Guidelines (WCAG) for text and background contrast ratios.
+
+* [**ChromeLens**](http://chromelens.xyz/). This Chrome extension has 2 useful features:
   * **Filters**: To simulate various color blindness so you can browse your website as how a color blind person sees it.
+  ![Filters](http://chromelens.xyz/images/website_protanopia.png)
   * **Tracker**: To show the pathway a blind user will go through when browsing your web page with a screen reader. You can check if your web page goes through a logical flow and that the important content is included for the screen reader to narrate.
+  ![Tracker](http://chromelens.xyz/images/website_trace.png)
+
+Note that although there are many accessibility testing tools available, user testing with actual users with disabilities is still important. The automated testing tools may not point out all of the accessibility issues that actual users face.
 
 ## Ending Notes
 Ultimately, the most important thing you need to start designing accessible websites is empathy for your users. Each user is unique, and each user has different needs. As a developer, you need to step in the users' shoes, understand their pain points, and then develop solutions for them so that everyone can navigate through your website freely.
-  
 
 ## Useful Resources
 You are ready for your accessibility journey! Here are some resources to help you get started:
-* [**The A11Y Project**](https://a11yproject.com/resources). The Accessibility Project is an open-source resource library on accessibility. It seeks to make it easier for developers to implement accessible websites by providing tips, tutorials and a widget & pattern library.
+* [**The A11Y Project**](https://a11yproject.com/resources). The Accessibility Project is an open-source resource library on accessibility. It seeks to make it easier for developers to implement accessible websites by providing tips, tutorials and a widget and pattern library.
 * [**Web Content Accessibility Guidelines (WCAG)**](https://www.w3.org/WAI/standards-guidelines/wcag/). WCAG provides a single shared standard for web content accessibility that meets the needs of individuals, organizations, and governments internationally.
 * [**Web Accessibility in Mind (WebAIM)**](https://webaim.org/articles). WebAIM contains well-written articles on specific topics on accessibility issues and how to tackle them.
 
