@@ -52,7 +52,7 @@ Users with visual impairments rely on assistive technologies such as a magnifier
 
   * Use more visual indicators to convey a message.
   
-  Let us look at Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up failed.
+  Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.
 
   This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
   ![Facebook sign up page](accessibility/fb-normal.png "Facebook sign up page")
@@ -127,7 +127,6 @@ People with cognitive disabilities are more easily distracted, or they may have 
 People with cognitive disabilities are more likely to take things literally and can benefit from more visual cues.
   * Pages are not overly long or dense in terms of the amount of information presented at once.
   > [An article](https://www.lifewire.com/web-page-length-3468959) says a rule of thumb is "No article should exceed 2 printed pages of double-spaced, 12 point text." whereas [another article](https://www.greenmellenmedia.com/how-long-should-my-website-content-be/) says "There is no "magic number" for a number of characters for content. As long as the web page content is clear, to the point and written for people". Ultimately, what's most important is what _your_ users think, so validation during user testing is paramount.
-  
   * The language used is as plain and easy to follow, and not full of unneccessary jargon and slang.
   * Important points and content are highlighted in some way.
   * User errors are clearly highlighted, with help messages to suggest solutions.
