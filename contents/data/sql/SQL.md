@@ -16,12 +16,13 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 
 ## What is SQL?
 
-Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
-Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
+**Structured Query Language** (**SQL**) is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. Most <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language.
+However, the syntaxes used in these distributions vary slightly. These differences may be in terms of whether the syntax is case-sensitive, what  functions are available out-of-the-box, the format for specifying date and time, and so on.  
 
-**Structured Query Language** (**SQL**) is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. As mentioned in [Codecademy](https://www.codecademy.com/articles/what-is-rdbms-sql), most <tooltip content="Relational DataBase Management System">RDBMSs</tooltip> like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
+Databases are integral to any commercial software application, whether it is a web app, desktop app or otherwise.
+As the size of your application grows, you will need to look into dedicated database software packages (like SQL distributions) to store your data. It will not be enough to simply rely on in-memory solutions or a simple text file to store the data.
 
-SQL distributions are widely used in many small and big companies. According to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
+SQL distributions (such as MySQL) are widely used in many successful companies. For example, according to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
 <box type="tip">
   Many online resources refer to Microsoft SQL Server as SQL. So, keep that in mind before you start making conclusions about the characteristics and features of SQL, the language.
@@ -47,9 +48,9 @@ ORDER BY column_name(s);
 
 #### Breaking down the clauses
 
-Let's understand what the above query means by using an example to make it more concrete.
+Let's understand what the above query does by using an example to make it more concrete.
 
-Suppose have the data table `Students` shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by increasing number of students.
+Suppose we have the data table `Students` shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by increasing number of students.
 
 | ID | Name  | Course |
 | -- | ----- | ------ |
@@ -168,7 +169,7 @@ The example shown here is relatively simple. Typical SQL queries have the capabi
 
 ## Why learn SQL?
 
-Being open source and one of the first DBMSs, MySQL (a specific implementation of SQL) increased the popularity of **SQL** in its early days. It ended up being a core component of the <tooltip content="Linux OS, Apache Server, MySQL RDBMS, PHP  language">LAMP</tooltip> web application stack (and many others).
+Being open source and one of the first DBMSs, MySQL (a specific implementation of SQL) increased the popularity of **SQL** in its early days.
 Here are some of the main reasons behind the widespread adoption of SQL and why it remains popular today.
 
 ### Easy to learn
