@@ -86,12 +86,12 @@ These situations correspond to the 3 states of Promises in Javascript.
 Promises provide the ability to specify how the execution of some part of your code would depend on the status of an asynchronous operation. It can now wait for the asynchronous operation to resolve first before doing any work on its result.
 
 ## Quickstart
-Here, we will be showing you some sample code to get started with promises. We understand there is some style of programming you are used to. So here, we are giving you a few examples, first in the style are are familar with, then switching over to promises.
+Here, we will be showing you some sample code to get started with promises. We understand there is some style of programming you are used to. So here, we are giving you a few examples, first using callbacks (which you are more familiar with), then switching over to using promises.
 
 ### From callbacks to promises
 Say we have two pretty long and intensive functions, `getData()` and `filterData()`. You will have to get the data from some server using `getData()`, then process it using `filterData()`, all before you can start displaying the results.
 
-And how would such functions be implemented without promises, using the callback method? The callback method ultilizes the fact that we can easily pass functions into javscript as parameters and then use them within the function, effectively "passing" any form of data out, without explicitly returning any value.
+And how would such functions be implemented without promises, using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively "passing" any form of data out, without explicitly returning any value.
 
 We will implement the above use case in the "callback style" (mimicking the long and intensiveness of the functions using `setTimeout`):
 
@@ -115,7 +115,7 @@ function filterData(data, callback) {
 function main() {
     getData(function(data){
         filterData(function(filtered){
-            // will print array of splited text
+            // will print array of splitted text
             console.log(filtered);
         })
     });
@@ -127,28 +127,28 @@ main();
 Now we will rewrite the whole thing in the "promise style". We will be using the same function and variable names, this will let you see how exactly promise works, as opposed to the callback style that you might be more familar with.
 
 ```javascript
-function intensewait(val) {
+function intenseWait(val) {
     // return val after a short wait
-    return new promise(resolve => {
-        settimeout(function(){
+    return new Promise(resolve => {
+        setTimeout(function(){
             resolve(val);
         }, 1000);
     });
 }
 
 /** note these funcs now return a promise **/
-function getdata() {
-    return intensewait('some random data');
+function getData() {
+    return intenseWait('some random data');
 }
 
-function filterdata(data, callback) {
-    return intensewait(data.split(' '));
+function filterData(data, callback) {
+    return intenseWait(data.split(' '));
 }
 
 function main() {
-    return getdata()
-        .then(data => filterdata(data))
-        .then(fltered => console.log(filtered));
+    return getData()
+        .then(data => filterData(data))
+        .then(filtered => console.log(filtered));
 }
 
 main();
@@ -164,30 +164,18 @@ There is probably a small group of you out there is the confused by the whole bl
 
 The `async` keyword ensures that the function returns a promise, and as for `await`, you can think of it as waiting for some promise to return the value before continuing. So back to the same example.
 
-So here is the code in the "promise style".
+So here is the code in the "promise style", as a recap.
 
 ```javascript
-function intensewait(val) {
-    // return val after a short wait
-    return new promise(resolve => {
-        settimeout(function(){
-            resolve(val);
-        }, 1000);
-    });
-}
-
-function getdata() {
-    return intensewait('some random data');
-}
-
-function filterdata(data, callback) {
-    return intensewait(data.split(' '));
-}
+/** func implementation same as above **/
+// getData()
+// intenseWait(val)
+// filterData(data, callback)
 
 /** changes only required in main **/
 function main() {
-    return getdata()
-        .then(data => filterdata(data))
+    return getData()
+        .then(data => filterData(data))
         .then(fltered => console.log(filtered));
 }
 
@@ -198,8 +186,8 @@ Using the "async await" style, only the `main()` function needs to be changed. A
 
 ```javscript
 async function main() {
-    const data = await getdata();
-    const filtered = await filterdata(data);
+    const data = await getData();
+    const filtered = await filterData(data);
 
     console.log(filtered);
 }
