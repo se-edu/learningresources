@@ -19,7 +19,7 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
 Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
 
-**Structured Query Language**, or **SQL** for short, is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. As mentioned in [Codecademy](https://www.codecademy.com/articles/what-is-rdbms-sql), most <tooltip content="Relational DataBase Management System">RDBMSs</tooltip> like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
+**Structured Query Language** (**SQL**) is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. As mentioned in [Codecademy](https://www.codecademy.com/articles/what-is-rdbms-sql), most <tooltip content="Relational DataBase Management System">RDBMSs</tooltip> like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
 
 SQL distributions are widely used in many small and big companies. According to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
@@ -27,44 +27,8 @@ SQL distributions are widely used in many small and big companies. According to 
   Many online resources refer to Microsoft SQL Server as SQL. So, keep that in mind before you start making conclusions about the characteristics and features of SQL, the language.
 </box>
 
----
 
-## Why learn SQL?
-
-Being open source and one of the first DBMSs, MySQL (a specific implementation of SQL) increased the popularity of **SQL** in its early days. It ended up being a core component of the <tooltip content="Linux OS, Apache Server, MySQL RDBMS, PHP  language">LAMP</tooltip> web application stack (and many others).
-Here are some of the main reasons behind the widespread adoption of SQL and why it remains popular today.
-
-### Easy to learn
-
-SQL is easy to learn even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
-In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql), and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
-
-### Free
-
-One of the benefits (and reasons) for SQL's popularity is that there are free distributions available (like MySQL, PostgreSQL and SQLite) as well as paid ones (like Microsoft SQL Server and Oracle) that come with more functionality.
-
-One such distribution is MySQL. It is free of cost and comes with official ([MySQL Workbench](https://dev.mysql.com/doc/workbench/en/)) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
-
-### Highly Compatible
-
-SQL distributions work on many operating systems and more importantly, can be integrated with many languages. This includes languages like PHP, PERL, C++, Ruby, Java as well as *relatively "newer"* ones like Python, JavaScript (Node.js) and Go.
-
-In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and [JDoodle](https://www.jdoodle.com/execute-sql-online) make it easy to use and learn the SQL language quickly without the hassle of setting up an environment or application.
-
-## Disadvantages
-
-SQL is not without its problems. In general, the biggest problem is with regards to the features of SQL.
-
-Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions (PostgreSQL, for example) add proprietary extensions to the standard SQL to ensure customer lock-in.
-Thus, the available feature set varies according to the SQL distribution that you are using. This can make it confusing and frustrating to use SQL when switching across distributions.
-
-Apart from that, most **SQL** problems are not uniformly applicable to all of its distributions.
-
-For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing <tooltip content="transaction must be Isolated from other concurrent transactions running in the system">transactions isolation</tooltip>.
-
----
-
-## How does SQL work?
+### How does SQL work?
 
 Let's look at what a basic **SQL query** (or "command") for retrieving information from a data table looks like:
 
@@ -81,7 +45,7 @@ ORDER BY column_name(s);
   The uppercase words in this query are clauses or statements, and are SQL keywords.
 </box>
 
-### Breaking down the clauses
+#### Breaking down the clauses
 
 Let's understand what the above query means by using an example to make it more concrete.
 
@@ -132,12 +96,12 @@ As you can see, the `FROM` clause is processed first while the `SELECT` clause w
 
 Now, let's go through each clause in the query, in the order that they are executed.
 
-#### 1. `FROM Students`
+##### 1. `FROM Students`
 
 This clause means that we use the `Students` table as the data source for our query.
 The <tooltip content="See <code>5. SELECT ... </code> below">result-set</tooltip> still looks the same as the original `Students` table (Table 1).
 
-#### 2. `WHERE Course LIKE 'CS%'`
+##### 2. `WHERE Course LIKE 'CS%'`
 
 This is a conditional clause. `LIKE` is a SQL keyword that is used for pattern matching. The `%` means any string of any length.
 
@@ -153,18 +117,18 @@ So, in this clause, we are filtering the `Student` table rows such that the row'
 | 8  | Henry | CS404  |
 Table 3. Filtered result after `WHERE`
 
-#### 3. `GROUP BY Course`
+##### 3. `GROUP BY Course`
 
 This is used to group the result set, and is often used with aggregate functions (like `COUNT`, `MAX`, `AVG` etc.).
 
 In this query, we are essentially grouping into 3 "groups": `CS101` group (IDs 5 and 7), `CS202` group (IDs  1, 3, and 4), and `CS404` group (ID 8).
 
-#### 4. `HAVING COUNT(*) > 1`
+##### 4. `HAVING COUNT(*) > 1`
 This is a conditional clause that is used with aggregate functions. `COUNT(*)` is an aggregate function that returns the number of rows in each "group".
 
 So, this clause will filter out the `CS404` group since it has a count of 1, and doesn't satisfy the condition.
 
-#### 5. `SELECT Course, COUNT(*) num`
+##### 5. `SELECT Course, COUNT(*) num`
 The `SELECT` statement is used for choosing the data to display. The returned data is stored in a result table, called the **result-set**.
 
 In this statement, we choose the `Course` and its count, `num` to be the result-set that is to be displayed. Adding `num` after `COUNT(*)` means that it is an alias for `COUNT(*)`. The result-set will look like this:
@@ -179,7 +143,7 @@ Table 4. Result-set after `SELECT`
   Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from an individual attribute (like ID or Name) that is not part of the aggregate data generated in the group (like Course).
 </box>
 
-#### 6. `ORDER BY num`
+##### 6. `ORDER BY num`
 
 Finally, we need to sort our result entries. We use the `ORDER BY` clause (which sorts in ascending order by default) for doing so.
 
@@ -199,6 +163,41 @@ This is the same as our expected output from Table 2!
 </box>
 
 The example shown here is relatively simple. Typical SQL queries have the capability to be much more complex as there are a lot of clauses, functions, and operators that are not covered here. As the complexity of the query grows, there is a possible decrease in the performance of the query. This is why [query planning](https://www.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql/a/more-efficient-sql-with-query-planning-and-optimization) and [optimization](https://www.sisense.com/blog/8-ways-fine-tune-sql-queries-production-databases/) is important.
+
+---
+
+## Why learn SQL?
+
+Being open source and one of the first DBMSs, MySQL (a specific implementation of SQL) increased the popularity of **SQL** in its early days. It ended up being a core component of the <tooltip content="Linux OS, Apache Server, MySQL RDBMS, PHP  language">LAMP</tooltip> web application stack (and many others).
+Here are some of the main reasons behind the widespread adoption of SQL and why it remains popular today.
+
+### Easy to learn
+
+As you saw in the example above, SQL is not complex. Therefore, it is easy to learn even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
+In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql), and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
+
+### Free
+
+One of the benefits (and reasons) for SQL's popularity is that there are free distributions available (like MySQL, PostgreSQL and SQLite) as well as paid ones (like Microsoft SQL Server and Oracle) that come with more functionality.
+
+One such distribution is MySQL. It is free of cost and comes with official ([MySQL Workbench](https://dev.mysql.com/doc/workbench/en/)) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
+
+### Highly Compatible
+
+SQL distributions work on many operating systems and more importantly, can be integrated with many languages. This includes languages like PHP, PERL, C++, Ruby, Java as well as *relatively "newer"* ones like Python, JavaScript (Node.js) and Go.
+
+In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and [JDoodle](https://www.jdoodle.com/execute-sql-online) make it easy to use and learn the SQL language quickly without the hassle of setting up an environment or application.
+
+## Disadvantages
+
+SQL is not without its problems. In general, the biggest problem is with regards to the features of SQL.
+
+Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions (PostgreSQL, for example) add proprietary extensions to the standard SQL to ensure customer lock-in.
+Thus, the available feature set varies according to the SQL distribution that you are using. This can make it confusing and frustrating to use SQL when switching across distributions.
+
+Apart from that, most **SQL** problems are not uniformly applicable to all of its distributions.
+
+For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing <tooltip content="transaction must be Isolated from other concurrent transactions running in the system">transactions isolation</tooltip>.
 
 ---
 
