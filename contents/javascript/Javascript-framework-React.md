@@ -43,7 +43,7 @@ You can see React's declarative approach in action in the sandbox below:
 <iframe src="https://codesandbox.io/embed/p564px0j47?fontsize=12" style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 <box type="info">
-    The sandbox above is editable. You can play around with the application `state` and see how the view automatically gets updated. 
+    The sandbox above is editable. You can play around with the application <code>state</code> and see how the view automatically gets updated. 
 </box>
 
 Notice that with React, you just need to specify *what* you want to do when the application data changes. React will efficiently update and render just the right views without you having to interact with the DOM. 
@@ -85,7 +85,7 @@ Besides the three main benefits explained above, React has the following advanta
  - As it is an open-source library backed by Facebook, it is constantly being updated with new features and performance optimizations.
  - If you want to manage the state of your application using [Redux](https://redux.js.org/introduction/getting-started), React might be a better choice than other libraries / frameworks as there are more resources for learning React + Redux.
 
-### Disadvantages of React
+### When to not use React
 
 Like any other library, React has its disadvantages, which are as follows:
  - The high pace of development means that you would need to regularly relearn how to do things.
