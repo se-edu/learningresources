@@ -22,7 +22,8 @@ Author: [Aadyaa Maddi](https://github.com/amad-person)
     If you have the <a href="https://github.com/facebook/react-devtools">React DevTools</a> extension installed in your browser, you can inspect the webpage of either of these applications and observe that a lot of React components are being used by them! 
 </box>
 
-React abstracts away the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) from you, giving you a simpler programming model and better performance. It can also render on the server using Node, and it can power native mobile applications using [React Native](https://facebook.github.io/react-native/).
+React abstracts away the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) from you, giving you a simpler programming model and better performance.
+It can also [render on the server using Node](https://alligator.io/react/server-side-rendering/), and it can power native mobile applications using [React Native](https://facebook.github.io/react-native/).
 
 ### Why React?
 
