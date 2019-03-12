@@ -78,10 +78,12 @@ React solves this problem by using a virtual DOM. The virtual DOM is a JavaScrip
 Any updates to your application will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a [diffing algorithm](https://reactjs.org/docs/reconciliation.html) to find out what changes have to be made to the actual DOM. 
 Finally, React figures out how to update the actual DOM in the most effective way possible to guarantee minimum update time. This results in better performance and a cleaner user experience, even with data-intensive applications.
 
-Those are the three main benefits of React. Other advantages are as follows:
+#### Other Advantages of React
+
+Besides the three main benefits explained above, React has the following advantages:
  - React only allows data to flow downwards (one-way data binding), which makes your application easier to debug.
- - It is a constantly developing open-source library that is backed by Facebook, so you can be sure of getting community support.
- - If your application is large, you can manage its state conveniently using [Redux](https://redux.js.org/introduction/getting-started). Note that Redux can be used with any other view library, but it is mostly used with React. Hence, there are more resources for learning React + Redux.
+ - As it is an open-source library backed by Facebook, it is constantly being updated with new features and performance optimizations.
+ - If you want to manage the state of your application using [Redux](https://redux.js.org/introduction/getting-started), React might be a better choice than other libraries / frameworks as there are more resources for learning React + Redux.
 
 ### Why not React?
 
@@ -93,21 +95,21 @@ Like any other library, React has its disadvantages, which are as follows:
 
 #### React and other Competing Alternatives
 
-There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are [Angular](https://angular.io/) and [Vue](https://vuejs.org/).
+There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are [Angular](https://angular.io/) and [Vue](https://se-education.org/learningresources/contents/javascript/Javascript-framework-VueJs.html).
 
 How do you decide which one to use? Here are some resources to help you choose between them:
 - [React, Angular, Vue: What they can do and which one is for you](https://blog.teamtreehouse.com/react-angular-vue) - guidelines for choosing which technology to learn.
 - [Angular vs Vue vs React](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/) - in addition to comparing the three technologies, this article aims to give a general structure for comparing JavaScript frameworks and libraries. Hence, you can use this structure to choose between any new frameworks that may arrive in the future.
 - [State of JS 2018: Front-end Frameworks](https://2018.stateofjs.com/front-end-frameworks/overview/) - survey comparing the average salaries, company size, developer satisfaction, etc. for the most used JavaScript front-end technologies as of 2018.
 
-React is best suited for projects that have a lot of user interactions that manipulate the DOM extensively. 
+React is best suited for projects that have a lot of **user interactions** that manipulate the DOM extensively. 
 You should choose React if you want the flexibility to choose your application's stack, as it is not opinionated.
 Additionally, if you need a mobile version for your app, React Native will make the development process considerably faster as most of the React code in your web version can be reused. 
 
 However, if you prefer out-of-the-box solutions with a strong application structure, you should consider other alternatives like Angular or Vue. Additionally, you should prefer these alternatives if you want to follow
 the traditional MVC framework, as integrating React into an MVC framework will require additional configurations.
 
-Every framework has its pros and cons, but hopefully you have managed to see that React removes some of the complexity that comes with building user interfaces (see [this](https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome) blog post for a more elaborate explanation). 
+Every framework has its pros and cons, but hopefully you have managed to see that React [removes some of the complexity](https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome) that comes with building user interfaces. 
 
 ### How to get started with React?
 
