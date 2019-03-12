@@ -89,11 +89,11 @@ Promises provide the ability to specify how the execution of some part of your c
 Here, we will be showing you some sample code to get started with promises. We understand there is some style of programming you are used to. So here, we are giving you a few examples, first using callbacks (which you are more familiar with), then switching over to using promises.
 
 ### From callbacks to promises
-Say we have two pretty long and intensive functions, `getData()` and `filterData()`. You will have to get the data from some server using `getData()`, then process it using `filterData()`, all before you can start displaying the results.
+Say we have two pretty long and intensive functions, `getData()` and `filterData()`. You will have to get the data from some server using `getData()`, then process it using `filterData()`, before you can start displaying the results.
 
 And how would such functions be implemented without promises, using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively "passing" any form of data out, without explicitly returning any value.
 
-We will implement the above use case in the "callback style" (mimicking the long and intensiveness of the functions using `setTimeout`):
+We will implement the above use case using callbacks to mimic functions that run for an extended period of time (`setTimeout`):
 
 ```javascript
 function intenseWait(val, callback) {
@@ -124,7 +124,7 @@ function main() {
 main();
 ```
 
-Now we will rewrite the whole thing in the "promise style". We will be using the same function and variable names, this will let you see how exactly promise works, as opposed to the callback style that you might be more familar with.
+Let us now rewrite the whole thing using promises. We will be using the same function and variable names. This will let you see how exactly promise works, as opposed to using callbacks, which you might be more familar with.
 
 ```javascript
 function intenseWait(val) {
@@ -154,13 +154,13 @@ function main() {
 main();
 ```
 
-Using Promises helps your code to be clean and easy to read, which makes it easy for anyone to instantly know what the code does, instead of having to trace through the code written with callbacks.
+Using Promises helps your code to be clean and easy to read, which makes it easy for us to learn what the code does, instead of having to trace through the code written with callbacks.
 
 ### The iterative style of promises
 
-The "promise style", with all the `.then()` to pass data from one function to the next, it is kinda like functional programming. The original promise is passed from one `.then()` to the other, and with each `.then()`, a new promise is returned for the next `.then()` to work on.
+Using promises is the functional programming way of writing asynchronous code. Data is passed from one `.then()` call to the next. However, this style of programming requires some familiarity in modelling programming instructions as changes in the data. 
 
-There is probably a small group of you out there is the confused by the whole block of text above. And that is exactly why they have the "async await" style of using promises. Well, callbacks aint exactly for everybody.
+That is unlike the iterative programming style which is considered to be a more intuitive way of writing code. As such, the `async` and `await` keywords are implemented to facilitate a iterative way of using promises.
 
 The `async` keyword ensures that the function returns a promise, and as for `await`, you can think of it as waiting for some promise to return the value before continuing. So back to the same example.
 
