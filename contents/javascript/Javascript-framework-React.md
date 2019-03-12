@@ -120,7 +120,7 @@ The official React [website](https://reactjs.org/) is a great place to get start
  
 If you want to add React to an existing project, you can take a look at React's official [guide](https://reactjs.org/docs/add-react-to-a-website.html) for doing so.
 Alternatively, if you are creating a new React application, you can use one of the [recommended toolchains](https://reactjs.org/docs/create-a-new-react-app.html) to get the best user and developer experience. 
-[Create React App](https://github.com/facebook/create-react-app) is a comfortable environment for learning React, and it is the best way to create <tooltip content="A single-page application is an app that works inside a browser and does not require page reloading during use.">single-page applications</tooltip> with React.
+[Create React App](https://github.com/facebook/create-react-app) is a comfortable environment for learning React, and it is the recommended way to create <tooltip content="A single-page application is an app that works inside a browser and does not require page reloading during use.">single-page applications</tooltip> with React.
 
 The official website also has advanced guides if you want to understand how React works behind the scenes.
 
