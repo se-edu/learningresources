@@ -25,9 +25,10 @@ Author: [Aadyaa Maddi](https://github.com/amad-person)
 React abstracts away the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) from you, giving you a simpler programming model and better performance.
 It can also [render on the server using Node](https://alligator.io/react/server-side-rendering/), and it can power native mobile applications using [React Native](https://facebook.github.io/react-native/).
 
-### Why React?
+### Why use React?
 
-React allows developers to create large web applications which can change data, without reloading the page. The main purpose of React is to be fast, scalable, and simple. 
+React allows developers to create interactive web applications where data in specific parts of a page can be changed without reloading the entire page. 
+The main purpose of React is to be fast, scalable, and simple. 
 Some of its benefits are described in detail below.
 
 #### React is Declarative
