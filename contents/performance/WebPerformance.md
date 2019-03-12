@@ -33,7 +33,7 @@ In order to deliver a positive user experience, web developers must ensure that 
 ## Key Ideas in Improving Web Performance
 There are many factors which affect web performance. Here, we give an overview of some of the key ideas that can be used to improve the performance of your web application.
 
-**Reduce Javascript Payloads**
+**Idea 1: Reduce Javascript Payloads**
 
 Loading and executing Javascript is often [the slowest part](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4) of the page load process. Reducing the amount of Javascript that needs to be loaded thus significantly reduces the time taken for your site to load.
 
@@ -43,18 +43,18 @@ Here are some steps that web developers can take to reduce the amount of Javascr
 - Ensure that the delivered Javascript is [minified](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/javascript-startup-optimization/).
 - Create [performance budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) that specify the maximum size of Javascript payloads, and [enforce them](https://web.dev/fast/incorporate-performance-budgets-into-your-build-tools) to ensure that the size of your Javascript payloads remain under control.
 
-**Optimize Images**
+**Idea 2: Optimize Images**
 
 Images form a [significant portion](https://httparchive.org/reports/page-weight) of the resources loaded on web applications. To improve performance and speed up the site for users, web developers should thus try to reduce the amount of bandwidth used to load images.
 
 Images can be optimized for the web in the following ways:
-- Use the [correct file format](https://medium.com/beginners-guide-to-mobile-web-development/web-image-formats-googles-webp-17e2fe5fc53e) for your images.
+- Use the [correct file format](https://medium.com/beginners-guide-to-mobile-web-development/web-image-formats-googles-webp-17e2fe5fc53e) that provides the appropriate balance between quality, detail, and file size. For example, you should use JPEG for photographs that contain lots of colors, PNG for logos and icons which have less colors but contain sharper details, and GIF for animated images.
 - [Compress your images](https://www.html5rocks.com/en/tutorials/speed/img-compression/) to reduce the amount of data that needs to be loaded. Be careful to strike a balance between image size and quality for optimal user experience.
 - Deliver [appropriately sized images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) based on the resolution of the client device. This prevents smaller (often mobile or lower-end) devices from wasting bandwidth loading large images that cannot be displayed at their full resolution on the device.
 
-**Progressive Loading**
+**Idea 3: Use Progressive Rendering**
 
-The sooner the user sees content being displayed on the page, the faster they perceives the site to be. One way to reduce the time taken for content to be shown is to include only the critical parts of the page in the initial render, and progressively load the remaining resources and update the page as they become available. Though the page may not contain all the content upon the initial render, the partial render makes the site feel faster and more responsive to the user.
+The sooner the user sees content being displayed on the page, the faster they perceives the site to be. Progressive rendering achieves this by avoiding rendering the entire page all at once, but instead ordering the loading of content in a manner that allows *some* parts of the page to be rendered as quickly as possible.
 
 Here are several ways how progressive loading can be effectively applied:
 - Load only the [most critical content](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) as part of the initial render, and fetch remaining resources asynchronously after the render. [Code splitting](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/) can also be helpful here to reduce the amount of Javascript that needs to be loaded for the initial render.
@@ -69,6 +69,7 @@ Here are some ways that you can measure the performance of your web applications
 - Test your site under various network conditions with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/network/network-conditions). This is helpful to get a feel for how the site feels for users on slower devices during the development process.
 - Audit web performance using [Lighthouse](https://developers.google.com/web/tools/lighthouse/). This provides many useful metrics for understanding the performance of your site and identifying performance bottlenecks under controlled conditions.
 - Collect [user-centric performance metrics](https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics). This helps you to monitor how your application actually performs in a real-world scenario, and how your site performance relates to other user engagement metrics.
+- Use [WebPageTest](https://www.webpagetest.org/) to test the performance of your website from multiple locations around the world at real consumer connection speeds. This provides real-world performance indicators that is especially useful if the target audience of your site resides in a different region.
 
 
 ## Additional Resources
