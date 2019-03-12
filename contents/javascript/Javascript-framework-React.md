@@ -85,13 +85,13 @@ Besides the three main benefits explained above, React has the following advanta
  - As it is an open-source library backed by Facebook, it is constantly being updated with new features and performance optimizations.
  - If you want to manage the state of your application using [Redux](https://redux.js.org/introduction/getting-started), React might be a better choice than other libraries / frameworks as there are more resources for learning React + Redux.
 
-### Why not React?
+### Disadvantages of React
 
 Like any other library, React has its disadvantages, which are as follows:
  - The high pace of development means that you would need to regularly relearn how to do things.
  - The huge number of tools you can integrate with React don't always have comprehensive documentation.
  - React is just a UI library. As React only allows one-way data binding, you would need to use [Flux](https://github.com/facebook/flux), a new application architecture introduced by Facebook that favours unidirectional data flow. 
- However, if you prefer working with the MVC pattern, you should consider a framework that lets you use it.
+ However, if you prefer working with the MVC pattern, you should consider a framework that lets you use it e.g. Angular, Vue, etc.
 
 #### React and other Competing Alternatives
 
