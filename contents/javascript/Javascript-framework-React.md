@@ -32,18 +32,20 @@ Some of its benefits are described in detail below.
 
 #### React is Declarative
 
-With React's <tooltip content="Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.">declarative</tooltip> approach to building user interfaces, you can painlessly create interaction-rich applications. 
-You can build these interfaces without touching the DOM directly, and even have an event system that doesn't need you to interact with actual DOM events. 
+With React's <tooltip content="Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.">declarative</tooltip> approach to building user interfaces, you can create interaction-rich applications. 
+You can build these interfaces without manipulating the DOM directly, and even have an event system that doesn't require you to interact with actual DOM events. 
 
-This is unlike the traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates.">imperative</tooltip> approach of building applications. An example would be looking up elements in the DOM using jQuery, where you have to tell the browser what to do and how to update the elements whenever data changes.  
+This is unlike the traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates.">imperative</tooltip> approach of building applications. An example would be looking up elements in the DOM using [jQuery](https://jquery.com/), where you have to tell the browser what to do and how to update the elements whenever data changes.  
 
 You can see React's declarative approach in action in the sandbox below:
 
 <iframe src="https://codesandbox.io/embed/p564px0j47?fontsize=12" style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-The sandbox above is editable. You can play around with the application `state` and see how the view automatically gets updated. 
+<box type="info">
+    The sandbox above is editable. You can play around with the application `state` and see how the view automatically gets updated. 
+</box>
 
-Notice that with React, you just need to specify *what* you want to do when the application data changes. React will efficiently update and render just the right view components without you having to interact with the DOM. 
+Notice that with React, you just need to specify *what* you want to do when the application data changes. React will efficiently update and render just the right views without you having to interact with the DOM. 
 
 #### React is Component-Based
 
