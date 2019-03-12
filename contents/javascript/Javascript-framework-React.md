@@ -103,7 +103,7 @@ How do you decide which one to use? Here are some resources to help you choose b
 - [State of JS 2018: Front-end Frameworks](https://2018.stateofjs.com/front-end-frameworks/overview/) - survey comparing the average salaries, company size, developer satisfaction, etc. for the most used JavaScript front-end technologies as of 2018.
 
 React is best suited for projects that have a lot of **user interactions** that manipulate the DOM extensively. 
-You should choose React if you want the flexibility to choose your application's stack, as it is not opinionated.
+You should choose React if you want the flexibility to choose your application's stack, as it is not <tooltip content="An opiniated framework guides or locks you into their preferred way of doing things.">opinionated</tooltip>.
 Additionally, if you need a mobile version for your app, React Native will make the development process considerably faster as most of the React code in your web version can be reused. 
 
 However, if you prefer out-of-the-box solutions with a strong application structure, you should consider other alternatives like Angular or Vue. Additionally, you should prefer these alternatives if you want to follow
