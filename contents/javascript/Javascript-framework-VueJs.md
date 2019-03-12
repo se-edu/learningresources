@@ -24,6 +24,7 @@ There are [multiple ways to install VueJs](https://vuejs.org/v2/guide/installati
 
 Apart from installing VueJs, you can install [VueJs development tools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser. This will allow you to inspect and debug the components that use VueJs in your projects.
 
+****NOTE: For all code snippets below, use `{{` instead of `{` to render your data.**
 #### HelloWorld in VueJs
 
 This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
@@ -31,7 +32,7 @@ The main HTML file:
 ```HTML
 <body>
   <div id="root">
-    <h2>{{ message }}</h2>
+    <h2>{ message }</h2>
   </div>
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
   <script src="the_path_to_the_javacript_file.js"></script>
@@ -78,7 +79,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <b>Step 4:</b> Pass the message to the HTML file using double curly brackets.
 ```HTML
   <div id="root">
-    <h2>{{ message }}</h2>
+    <h2>{ message }</h2>
   </div>
 ```
 
@@ -129,7 +130,7 @@ The JavaScript file in ReactJs
     The HTML file in VueJs
     ```html
     <div id="array">
-      <span v-for="date in array">{{date}}</span>
+      <span v-for="date in array">{date}</span>
     </div>
     ```
 
@@ -190,8 +191,8 @@ Vue.component('todo-list', {
     data: ['totalCount'],
     template:
       <div class='todo-list'>
-        <p>Total:{{ this.totalCount }}</p>
-        <p>{{ item.name }}: {{ item.count }}</p>
+        <p>Total:{ this.totalCount }</p>
+        <p>{ item.name }: { item.count }</p>
 })
 
 <todo-list
