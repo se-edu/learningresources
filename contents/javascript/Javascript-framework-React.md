@@ -75,7 +75,7 @@ Web applications can have a lot of user interaction and data updates. Extensive 
 
 React solves this problem by using a virtual DOM. The virtual DOM is a JavaScript object that is kept in the memory of your application. In other words, it is a virtual representation of the actual DOM.
 
-Any updates to your application will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a [diffing algorithm](https://reactjs.org/docs/reconciliation.html) to find out what changes have to be made to the actual DOM. 
+Any updates to your application will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a [diffing algorithm](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm) to find out what changes have to be made to the actual DOM. 
 Finally, React figures out how to update the actual DOM in the most effective way possible to guarantee minimum update time. This results in better performance and a cleaner user experience, even with data-intensive applications.
 
 #### Other Advantages of React
