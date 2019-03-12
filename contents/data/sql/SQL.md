@@ -19,7 +19,7 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
 Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
 
-**SQL** is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. As mentioned in [Codecademy](https://www.codecademy.com/articles/what-is-rdbms-sql), most <tooltip content="Relational DataBase Management System">RDBMSs</tooltip> like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
+**Structured Query Language**, or **SQL** for short, is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. As mentioned in [Codecademy](https://www.codecademy.com/articles/what-is-rdbms-sql), most <tooltip content="Relational DataBase Management System">RDBMSs</tooltip> like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
 
 SQL distributions are widely used in many small and big companies. According to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
@@ -39,13 +39,13 @@ Here are some of the main reasons behind the widespread adoption of SQL and why 
 SQL is easy to learn even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
 In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql), and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
 
-### Free of cost
+### Free
 
 One of the benefits (and reasons) for SQL's popularity is that there are free distributions available (like MySQL, PostgreSQL and SQLite) as well as paid ones (like Microsoft SQL Server and Oracle) that come with more functionality.
 
 One such distribution is MySQL. It is free of cost and comes with official ([MySQL Workbench](https://dev.mysql.com/doc/workbench/en/)) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
 
-### Compatibility
+### Highly Compatible
 
 SQL distributions work on many operating systems and more importantly, can be integrated with many languages. This includes languages like PHP, PERL, C++, Ruby, Java as well as *relatively "newer"* ones like Python, JavaScript (Node.js) and Go.
 
