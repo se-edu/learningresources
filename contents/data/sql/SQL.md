@@ -19,7 +19,7 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 Databases are integral to any commercial software application, and most student side projects as well, whether it is a web app, desktop app or otherwise.
 Though you can choose to just use a text file to store your data, this will not be sustainable as the size of your application (and the data stored) grows. This is why there are several dedicated database software packages available today.
 
-**SQL** is a special-purpose programming language designed for managing (storing, querying and manipulating) data in a relational database. Several <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
+**SQL** is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. As mentioned in [Codecademy](https://www.codecademy.com/articles/what-is-rdbms-sql), most <tooltip content="Relational DataBase Management System">RDBMSs</tooltip> like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language. However, the syntaxes used in these distributions vary slightly. These differences may be in terms of case-sensitivity, available built-in functions, custom functions, date and time formats, and so on.  
 
 SQL distributions are widely used in many small and big companies. According to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
@@ -31,19 +31,19 @@ SQL distributions are widely used in many small and big companies. According to 
 
 ## Why learn SQL?
 
-Being open source and one of the first DBMSs, MySQL increased the popularity of SQL in its early days. It ended up being a core component of the <tooltip content="Linux OS, Apache Server, MySQL RDBMS, PHP  language">LAMP</tooltip> web application stack (and many others).
-Here are some of the main reasons behind the widespread adoption of SQL and why it still remains popular today.
+Being open source and one of the first DBMSs, MySQL (a specific implementation of SQL) increased the popularity of **SQL** in its early days. It ended up being a core component of the <tooltip content="Linux OS, Apache Server, MySQL RDBMS, PHP  language">LAMP</tooltip> web application stack (and many others).
+Here are some of the main reasons behind the widespread adoption of SQL and why it remains popular today.
 
 ### Easy to learn
 
-SQL is very easy to learn, even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
-In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql) and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
+SQL is easy to learn even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
+In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql), and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
 
 ### Free of cost
 
 One of the benefits (and reasons) for SQL's popularity is that there are free distributions available (like MySQL, PostgreSQL and SQLite) as well as paid ones (like Microsoft SQL Server and Oracle) that come with more functionality.
 
-One such distribution is MySQL. Since it is an open source software, you do not have to pay to use MySQL. It even comes with official ([MySQL Workbench](https://dev.mysql.com/doc/workbench/en/)) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
+One such distribution is MySQL. It is free of cost and comes with official ([MySQL Workbench](https://dev.mysql.com/doc/workbench/en/)) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
 
 ### Compatibility
 
@@ -55,12 +55,12 @@ In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and
 
 SQL is not without its problems. In general, the biggest problem is with regards to the features of SQL.
 
-Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions add proprietary extensions to the standard SQL to ensure customer lock-in.
+Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions (PostgreSQL, for example) add proprietary extensions to the standard SQL to ensure customer lock-in.
 Thus, the available feature set varies according to the SQL distribution that you are using. This can make it confusing and frustrating to use SQL when switching across distributions.
 
 Apart from that, most **SQL** problems are not uniformly applicable to all of its distributions.
 
-For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing transactions isolation.
+For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing <tooltip content="transaction must be Isolated from other concurrent transactions running in the system">transactions isolation</tooltip>.
 
 ---
 
@@ -198,7 +198,7 @@ This is the same as our expected output from Table 2!
   You can experiment with this example on <a href="https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/2">DB Fiddle</a> by entering queries into the <code>Query SQL</code> pane and then clicking the <code>Run</code> icon.
 </box>
 
-The example shown here is relatively simple. Typical SQL queries have the capability to be much more complex as there are a lot of clauses, functions and operators that are not covered here.
+The example shown here is relatively simple. Typical SQL queries have the capability to be much more complex as there are a lot of clauses, functions, and operators that are not covered here. As the complexity of the query grows, there is a possible decrease in the performance of the query. This is why [query planning](https://www.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql/a/more-efficient-sql-with-query-planning-and-optimization) and [optimization](https://www.sisense.com/blog/8-ways-fine-tune-sql-queries-production-databases/) is important.
 
 ---
 
@@ -208,15 +208,15 @@ The first thing to do is to choose a SQL distribution. You can either just use a
 
 SQL has been around for a long time and hence, you can find really good books and resources to learn it well. However, these resources can be overwhelming. So, you can decide which parts you want to learn as you will likely not need to know everything to get started with using a SQL database.
 
-Here are some recommended resources that you can use to start learning SQL:
+Here are some recommended steps that you can use to start learning SQL:
 
-- Khan Academy offers a very good [SQL course](https://www.khanacademy.org/computing/computer-programming/sql) for free. It has a mix of videos, text and exercises that you can choose to do at your own pace. It is well organized and even provides summary notes.
+- Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts of [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm). This is not _essential_, but will give you a better high-level understanding before diving into programming.
+
+- Khan Academy offers a very good [SQL course](https://www.khanacademy.org/computing/computer-programming/sql) for free. It has a mix of videos, text, and exercises that you can choose to do at your own pace. It is well organized and even provides summary notes.
 
 - W3Schools offers an interactive written tutorial for [SQL](https://www.w3schools.com/sql/default.asp).
 
 - You can also use a [SQL Quick Reference Guide](https://www.w3schools.com/sql/sql_ref_mysql.asp) to look up information quickly once you're familiar with the language.
-
-- Understand what a database and [<tooltip content="DataBase Management System">DBMS</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) are. More specifically, understand the basic concepts of [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm). This is not essential, but will give you a better high-level understanding before diving in to programming.
 
 ---
 
