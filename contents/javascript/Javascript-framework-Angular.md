@@ -16,29 +16,31 @@ Author(s): [Ronak Lakhotia](https://github.com/RonakLakhotia)
 
 ## What Is Angular?
 
-Angular is an open-source frontend Javascript framework that helps you build <tooltip content="Web apps that are more responsive to user interactions ">Single Page Web Applications</tooltip>.
-The framework is designed to better engineer applications in an effort to make development and testing easier for enterprise web applications. Angular is maintained by Google, as well as a community of individual developers.
+Angular is an open-source frontend Javascript framework that helps you build interactive web applications.
+The framework aims to make development and testing of enterprise web applications easier. Angular is maintained by Google, as well as a community of developers.
 
->Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers, as well as designers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
+>Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
 >
 >Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a>. 
 
 
 ## Why learn Angular?
 
-Angular is not the world’s simplest framework, and it takes time to understand some of the concepts that Angular has to offer.
+Angular is a complex framework and can be challenging for new developers to understand.
 But once you do, Angular makes it easier to create rich and interactive user interfaces. 
 
-1. **Angular supports Single Page Applications.** Single Page Applications are a type of web applications that load a single HTML page, and the page is updated dynamically according to the interaction of the user. SPAs can communicate with the back-end servers without refreshing the full web page, for loading data in the application. They provide a better user experience.
+1. **Angular supports Single Page Applications.**
+
+    <box>Single Page Applications are a type of web applications that load a single HTML page, and the page is updated dynamically according to the interaction of the user. SPAs can communicate with the back-end servers without refreshing the full web page, for loading data in the application. They provide a better user experience.</box>
 The fact that Angular supports the development of SPAs, is a good reason to learn the framework.
  
-2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superscript of JavaScript. It helps catch errors early when writing the code or performing maintenance tasks. This language improves security by providing services like navigation, refactoring, and autocompletion thereby easing the development process for engineers. You can also opt out of its inbuilt features when needed.
+2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superset of JavaScript. TypeScript provides static typing. This helps the compiler show warnings about any potential errors in the code, before the app is even run. Another advantage of TypeScript is that it provides code completion using IntelliSense. IntelliSense provides active hints as code is added.
 
-TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore it’s not much of a risk to incorporate TypeScript into your application development. It’s not going anywhere.
+    <box> TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore it’s not much of a risk to incorporate TypeScript into your application development. It’s not going anywhere. </box>
                                                   
-3. **Google Long-Term Support.** Some software engineers consider the fact that Angular is supported by Google an advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology. Igor Minar and Steven Fuin, the engineers behind Angular, confirmed this commitment in the <a href="https://medium.com/google-developer-experts/my-picks-from-ng-conf-2017-d971842c0d05">ng-conf 2017 Keynote</a>. 
+3. **Google Long-Term Support.** Some software engineers consider the fact that Angular is supported by Google an advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology back in 2017.
 
-[source](https://hackr.io/blog/why-should-you-learn-angular-in-2018)
+    [source](https://hackr.io/blog/why-should-you-learn-angular-in-2018)
 
 ### Benefit: Angular provides a declarative user interface.
 
