@@ -16,7 +16,7 @@ Author(s): [Ronak Lakhotia](https://github.com/RonakLakhotia)
 
 ## What Is Angular?
 
-Angular is an open-source frontend Javascript framework that helps you build interactive web applications.
+Angular is one of the popular Javascript frameworks used for building web applications.
 The framework aims to make development and testing of enterprise web applications easier. Angular is maintained by Google, as well as a community of developers.
 
 >Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
@@ -26,17 +26,17 @@ The framework aims to make development and testing of enterprise web application
 
 ## Why learn Angular?
 
-Angular is a complex framework and can be challenging for new developers to understand.
-But once you do, Angular makes it easier to create rich and interactive user interfaces. 
+Angular is a complex framework and it can be challenging for new developers to understand.
+But the advantages Angular provides justifies the steep learning curve.
 
-1. **Angular supports Single Page Applications.**
+1. **Angular supports Single Page Applications (SPAs).**
 
     <box>Single Page Applications are a type of web applications that load a single HTML page, and the page is updated dynamically according to the interaction of the user. SPAs can communicate with the back-end servers without refreshing the full web page, for loading data in the application. They provide a better user experience.</box>
 The fact that Angular supports the development of SPAs, is a good reason to learn the framework.
  
 2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superset of JavaScript. TypeScript provides static typing. This helps the compiler show warnings about any potential errors in the code, before the app is even run. Another advantage of TypeScript is that it provides code completion using IntelliSense. IntelliSense provides active hints as code is added.
 
-    <box> TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore it’s not much of a risk to incorporate TypeScript into your application development. It’s not going anywhere. </box>
+    <box> TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore you can feel at ease when using it in your application.</box>
                                                   
 3. **Google Long-Term Support.** Some software engineers consider the fact that Angular is supported by Google an advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology back in 2017.
 
@@ -44,7 +44,7 @@ The fact that Angular supports the development of SPAs, is a good reason to lear
 
 ### Benefit: Angular provides a declarative user interface.
 
-Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more intuitive and less convoluted than defining the interface procedurally in JavaScript. How does it help? You don’t need to invest your time in program flows and in deciding what loads first. Define what you require and Angular will take care of it. In other words, declarative code enables you to describe what you want done without worrying about how.
+Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more intuitive than using imperative code to define the UI. Imperative code requires you to define <i>how to perform an action</i> that is describe the flow. Declarative code, on the other hand enables you to describe the logic without worrying about the implementation. How does it help? You don’t need to invest your time in program flows and in deciding what loads first.
 
 Lets see a working example. 
 
@@ -60,10 +60,8 @@ $("#textbox").numericTextBox({
     decimals: 3
 });
 ```
+On the other hand, using Angular, your code would look something like this:
 
-In the code above, jQuery was instructed to find a DOM element with an id of textbox, then call the extension method numericTextBox and pass in the various parameters that configure the initial value, ranges, etc.
-
-On the other hand, using Angular4, your code would look something like this:
 ```
 <input numerictextbox k-min="-10" k-max="100" k-step="0.75"
   k-format="n" k-decimals="3"/>
@@ -112,7 +110,7 @@ Let’s dive into some code, starting with a little hello world example. All Ang
 </html>
 ```
 
-The one unique thing in the above example is the `<my-app>` element, as that’s not an element you’d regularly use in a web-based application. Angular’s goal has always been to extend the vocabulary of HTML, and it does so by allowing you do define your own tags.
+The one unique thing in the above example is the `<my-app>` element, as that’s not an element you would regularly use in a web-based application. Angular’s goal has always been to extend the vocabulary of HTML, and it does so by allowing you do define your own tags.
 These custom tags are known as components.
 
 Let's now look at some TypeScript code that defines the `<my-app>` component.
@@ -146,31 +144,28 @@ Like any other framework/library, Angular has its share of disadvantages.
 1. **Steep Learning curve** - Angular has many topics to learn, starting from basic ones such as directives, modules, decorators, components, services, dependency injection, pipes, templates and most importantly TypeScript. 
 The sheer number of new concepts is confusing to newcomers.
 
-2. **Opiniated Framework** - Angular tells developers how to structure their application. While libraries like React allow engineers the freedom to choose any third party library to integrate into their application.
+2. **Opinionated Framework** - Angular tells developers how to structure their application. While libraries like React allow engineers the freedom to choose any third party library to integrate into their application.
 
-3. **Performance** - In the past, Dynamic applications written in Angular did not always perform that well even though improvements have been made recently. Complex SPAs could be laggy and inconvenient to use due to their size. 
-
-[source](https://www.altexsoft.com/blog/engineering/the-good-and-the-bad-of-angular-development/)
+    [source](https://www.altexsoft.com/blog/engineering/the-good-and-the-bad-of-angular-development/)
 
 ### Angular when compared with other popular frontend frameworks
 
-
-There are many frontend frameworks out there that many developers prefer over Angular. Two of the most popular tools are <a href="https://reactjs.org/">React</a> and <a href="https://vuejs.org/">Vue</a>.
+There are many frontend frameworks and libraries out there that developers prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
 
 Choosing a tech stack sometimes becomes a tedious task as you need to take every factor into consideration including budget, time, app size, end-users, project objectives, and resources.
 
 Angular is opinionated and tells developers how to structure their code. Even though Angular eases the engineering process, especially in large teams, the steep learning curve, amongst other disadvantages,
 make developers adopt other tools.
 
-React is a popular Javascript framework, open sourced by Facebook. The ease of learning React is a key advantage that it has.
+React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage that it has.
 If your project involves many components with different, often changing states , dynamic inputs, user login and access permissions – then the project may be a good fit for React. React helps you manage those changing states and dynamically present different views to the user based on state information.
 Similarly, Vue offers us some advantages, like flexibility, simplistic structure and ease of integration.
 
-Every framework has its own pros and cons, meaning it all depends on the developers skills, requirements of the application and many factors like scalability, maintenance, familiarity etc. There are many great tools for developers to choose. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
+Every framework/library has its own pros and cons, meaning it all depends on the developers skills, requirements of the application and many factors like scalability, maintenance, familiarity etc. There are many great tools for developers to choose. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
 
-1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend frameworks
-2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue
-3. [Angular vs React](https://programmingwithmosh.com/react/react-vs-angular/) - A comprehensive comparison between React and Angular
+1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
+2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
+3. [Angular vs React](https://programmingwithmosh.com/react/react-vs-angular/) - A comprehensive comparison between React and Angular.
 
 ### How to get started with Angular?
 
