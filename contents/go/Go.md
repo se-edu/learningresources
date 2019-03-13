@@ -12,7 +12,8 @@
 
 # Introduction to Go
 
-Author(s): [Cara Leong](https://github.com/craaaa)
+**Author(s): [Cara Leong](https://github.com/craaaa)**<br>
+Reviewers: [Darren Wee](https://github.com/darrenwee), [Tran Tien Dat](https://github.com/tran-tien-dat)
 
 ## What Is Go?
 Go (also known as `golang`) is a compiled, statically-typed, garbage-collected language that has special memory safety and concurrent programming features. Born out of frustration with the available languages (e.g. C, C++, Java) and environments for systems programming, Go was [conceptualized by programmers at Google](https://talks.golang.org/2012/splash.article) who sought to create a single language that was efficient to write, build and execute. Go also supports newer developments in computing such as multicore processors and network systems.
