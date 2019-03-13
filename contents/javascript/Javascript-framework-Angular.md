@@ -154,14 +154,14 @@ There are many frontend frameworks and libraries out there that developers prefe
 
 Choosing a tech stack sometimes becomes a tedious task as you need to take every factor into consideration including budget, time, app size, end-users, project objectives, and resources.
 
-Angular is opinionated and tells developers how to structure their code. Even though Angular eases the engineering process, especially in large teams, the steep learning curve, amongst other disadvantages,
-make developers adopt other tools.
+Angular is opinionated and tells developers how to structure their code. Even though Angular provides some advantages, the steep learning curve
+makes developers adopt other tools.
 
 React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage that it has.
-If your project involves many components with different, often changing states , dynamic inputs, user login and access permissions – then the project may be a good fit for React. React helps you manage those changing states and dynamically present different views to the user based on state information.
+React provides more flexibility to developers as it allows integration of third party libraries. It also has a good set of developer tools that helps in debugging.
 Similarly, Vue offers us some advantages, like flexibility, simplistic structure and ease of integration.
 
-Every framework/library has its own pros and cons, meaning it all depends on the developers skills, requirements of the application and many factors like scalability, maintenance, familiarity etc. There are many great tools for developers to choose. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
+Every framework/library has its own pros and cons, meaning it all depends on the developers skills, requirements of the application and many factors like scalability, maintenance, familiarity etc. There are many great tools for developers to choose from. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
@@ -180,8 +180,8 @@ Every framework/library has its own pros and cons, meaning it all depends on the
 ## What are the different versions of Angular?
 
 AngularJS or Angular1 is a JavaScript front-end framework developed by Google whereas Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.
-There have been 5 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5 and the latest one being Angular6.
-There are key differences between the various versions as Google tried to enhance the tool given the fierce competition from React and Vue. 
+There have been 6 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5, Angular6 and the latest one being Angular7.
+Each version has new enhancements as Google provides new updates in the framework periodically.
 
 [source](https://www.quora.com/What-are-the-different-versions-of-AngularJS)
 
