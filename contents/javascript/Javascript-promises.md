@@ -184,7 +184,7 @@ main();
 
 Using the "async await" style, only the `main()` function needs to be changed. After the change, you will realize that the code becomes much simpler to understand. There is a clear improvement in clarity and readability.
 
-```javscript
+```javascript
 async function main() {
     const data = await getData();
     const filtered = await filterData(data);
