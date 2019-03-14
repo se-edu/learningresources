@@ -60,7 +60,7 @@ $("#textbox").numericTextBox({
     decimals: 3
 });
 ```
-On the other hand, using Angular, your code would look something like this:
+On the other hand, using versions of Angular 2 and above, your code would look something like this:
 
 ```
 <input numerictextbox k-min="-10" k-max="100" k-step="0.75"
@@ -72,30 +72,30 @@ Rather than spending time on how the program flows and what should get loaded fi
 
 ### Benefit: Simplified MVC pattern and reduced coding.
 
-Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). It is easy to see how this represents the View component. Next to it, we have the accompanying `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
+Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). This represents the View component. Next to it, we have the accompanying `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
 Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
 ![MVC Pattern](https://www.grazitti.com/assets/2018/06/reasons-5.jpg)
 
-Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together again. Angular, however, strings it together automatically. That saves developers time.
+Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together again. Angular, however, strings it together automatically. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, Everything happens under the hood. Angular ensures Separation of Concerns and automatic synchronization between the components. That saves developers time.
 >According to a <a href="https://blog.qburst.com/2017/05/make-your-apps-load-faster-with-angular-2/">survey</a>, every 100-millisecond improvement in page loading speed led to 1% increase in revenue for Amazon.
 
 [source](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/)
 
 ### Benefit: Angular CLI
 
-At `ng-conf` 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow.
+At `ng-conf` 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow in applications using versions Angular 2 and above.
 It is recommended to use Angular CLI for creating Angular apps as you don't need to spend time installing and configuring all the required dependencies and wiring everything together.
 
 > npm install -g @angular/cli
 
-Running the above command installs the Angular CLI and gives you more control over your project. It also enforces "best practices" in terms of code quality.
+Running the above command installs the Angular CLI and gives you more control over your project.
 With Angular CLI developers can generate Angular files, execute applications and even run end to end tests.
 
 [source](https://www.amadousall.com/why-you-should-use-angular-cli/)
 
 ### What does an Angular app look like?
 
-Let’s dive into some code, starting with a little hello world example. All Angular apps start in HTML.
+Let’s dive into some code written for Angular, starting with a little hello world example. All Angular apps start in HTML. The code is applicable for versions Angular 2 and above.
 
 ```
 <!doctype html>
