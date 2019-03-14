@@ -13,6 +13,7 @@
 # Accessibility
 
 Author(s): [Monika Manuela Hengki](https://github.com/monmanuela)
+Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Jacob Li Pengcheng](https://github.com/jacoblipech), [Tan Heng Yeow](https://github.com/tanhengyeow)
 
 ## What is accessibility?
 
