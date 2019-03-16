@@ -12,7 +12,8 @@
 
 # Introduction to Password Storage
 
-Author: [Jeremy Choo](https://github.com/ChooJeremy)
+Author: [Jeremy Choo](https://github.com/ChooJeremy) <br>
+Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin), [Tan Zhen Yong](https://github.com/Xenonym)
 
 ## Overview
 
