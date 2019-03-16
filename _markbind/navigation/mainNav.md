@@ -15,7 +15,7 @@
   * JavaScript
     * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/javascript.html)
     * [Javascript Promises]({{baseUrl}}/contents/javascript/Javascript-promises.html)
-    * [Javascript Module]({{baseUrl}}/contents/javascript/Javascript-module.html)
+    * [Javascript Modules]({{baseUrl}}/contents/javascript/Javascript-modules.html)
   * Kotlin
     * [Introduction to Kotlin]({{baseUrl}}/contents/kotlin/kotlin.html)
     * [Null Safety In Kotlin]({{baseUrl}}/contents/kotlin/NullSafety.html)

@@ -1,5 +1,5 @@
 <frontmatter>
-  title: "Javascript: Module"
+  title: "Javascript: Modules"
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
@@ -10,17 +10,17 @@
 
 <div class="website-content">
 
-# Javascript: Module
+# Javascript: Modules
 
 Author: Gilbert Emerson
 
-## What Is Module?
+## What Is a Module?
 
-You might often encounter the term such as module, package, library, dependency, plugin, etc. We will not dive into the exact definition of each term (because that is not the scope of this chapter), but we will loosely define module as collection of code that is placed in different file for various reasons.
+You might often encounter the term such as module, package, library, dependency, plugin, etc. We will not dive into the exact definition of each term (because that is not the scope of this chapter), but we will loosely define module as a collection of code that is placed in different file for various reasons.
 
 We would definitely want to modularize our code for good reason, which will be expanded on the section below.
 
-## Why Use Module?
+## Why Use Modules?
 
 There can be a lot of reason why we would like to modularize our code, but here are 3 of the more important one:
 
@@ -28,14 +28,14 @@ There can be a lot of reason why we would like to modularize our code, but here 
 A well designed module will be self-contained. Familiar principles of Software Engineering such as SOLID, etc can be applied to design a good module. A good module will allow a better maintanability of the module.
 
 2. Namespacing
-Because of how JavaScript scoping works (not convered in this article), namespacing can be quite a big issue in JavaScript because of global namespace pollution. Module allows JavaScript engineer to avoid this problem by isolating the namespace to a specific module.
+Because of how JavaScript scoping works (not convered in this article), namespacing can be quite a big issue in JavaScript because of global namespace pollution. Modules allows JavaScript engineer to avoid this problem by isolating the namespace to a specific module.
 
 3. Reusability
 As per DRY Principle, module allows developers to reuse their code that is contained in a module.
 
 ## How Is It Implemented?
 
-Historically, JavaScript did not support module system up until 2015 with the inception of EcmaScript6 (ES6). Nevertheless, there have been "unofficial implementations" of module sytem in JavaScript in form of Module Pattern and CommonJS.
+Historically, JavaScript did not support modules up until 2015 with the inception of EcmaScript6 (ES6). Nevertheless, there have been "unofficial implementations" of module sytem in JavaScript in form of Module Pattern and CommonJS.
 
 This article will expand on those 3 implementations.
 
@@ -90,7 +90,7 @@ To include the module in `index.js`, we can just use the `<script>` tag in HTML 
 
 ### CommonJS
 
-Implemented by NodeJS, it is one of the most popular "unofficial" module system implementation. It uses the syntax `module.export` and `require`.
+Implemented by NodeJS, it is one of the most popular "unofficial" modules implementation. It uses the syntax `module.export` and `require`.
 
 `anExampleModule.js`
 ```Javascript
@@ -119,9 +119,9 @@ anExampleModule.getVariableOne(); // 1
 anExampleModule.sumOfVariable(); // 3
 ```
 
-### EcmaScript2015 / ES6 module
+### EcmaScript2015 / ES6 modules
 
-At 2015, JavaScript introduced built-in module system in ES6. It uses the syntax `import` and `export`.
+At 2015, JavaScript introduced built-in modules in ES6. It uses the syntax `import` and `export`.
 
 `anExampleModule.js`
 ```Javascript
@@ -165,7 +165,7 @@ If you are planning to use CommonJS or ES6, you can start also by refactoring yo
 
 ## Further Reading
 
-You can read more on JavaScript module at following websites:
+You can read more on JavaScript modules at following websites:
 
 [JavaScript Modules: A Beginner’s Guide](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc) </br>
 [JavaScript Modules: From IIFEs to CommonJS to ES6 Modules](https://tylermcginnis.com/javascript-modules-iifes-commonjs-esmodules/)
