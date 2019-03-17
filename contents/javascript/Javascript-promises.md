@@ -193,9 +193,9 @@ async function main() {
 }
 ```
 
-`async` ensures that `main()` returns a promise. In our case, this will cause `main()` to return with `undefined` (equivalent to running `Promise.resolve()`).
+`async` ensures that `main()` returns a promise. In our case, this will cause `main()` to return with `undefined` (equivalent to running `Promise.resolve()`). Another interesting thing to note: `await` will wait for the promise to return before executing anything below. In this case, `console.log` will be executed after the two `await` calls, even when it doesn't depend the results of those calls.
 
-In the "promise" style, we handle errors using the `.catch()` block. However when using the "async await" style, we handle the errors using the more convention `try ... catch` block. These can be explored further in the readings listed at the end of this post.
+In the "promise" style, we handle errors using the `.catch()` block. However when using the "async await" style, we handle the errors using the more conventional `try ... catch` block. These can be explored further in the readings listed at the end of this post.
 
 ## How Promises are used
 ### HTTP Requests
