@@ -12,37 +12,36 @@
 
 # Accessibility
 
-Author(s): [Monika Manuela Hengki](https://github.com/monmanuela)
+**Author(s): [Monika Manuela Hengki](https://github.com/monmanuela)**
+
 Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Jacob Li Pengcheng](https://github.com/jacoblipech), [Tan Heng Yeow](https://github.com/tanhengyeow)
 
-## What is accessibility?
+## What is web accessibility?
 
-Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections.
-
-> Taken from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility)
+> Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections. <sub>--[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility)</sub>
 
 ## Why is accessibility important?
 
-##### For the developer
-1. **Accessibility improves everyone's UX**. [W3C](https://www.w3.org/standards/webdesign/accessibility) notes that accessibility practices are good design practices in general. So, improving accessibility brings benefits to everyone.
-2. **Accessibility is a right**. Caring about accessibility demonstrates good ethics/morals.
-3. **Accessibility improves SEO**. Semantic HTML (which improves accessibility) also improves SEO, making your website more discoverable and marketable to new users.
-4. **Accessibility helps you increase your user base**. According to the [World Health Organization world report on disability](https://www.who.int/disabilities/world_report/2011/report/en/), about 15% of the world's population live with some form of disability. That makes up more than 1 billion people. It is a significant population of users, so improving accessibility can help you reach more people.
-5. **Accessibility is part of the law in some places**. In [some countries](https://www.w3.org/WAI/policies/), abiding by accessibility guidelines is mandatory. Be careful not to break the law!
-
 ##### For the user
 Accessibility is important for people with disabilities to access the Web. There are many kinds of disabilities, including:
-   * Visual (partial blindness, full blindness, color blindness, cataract, glaucoma, etc.)
-   * Auditory (hard of hearing, deafness, etc.)
-   * Cognitive (ADHD, autism spectrum, etc.)
-   * Mobility (quadriplegia, muscular dystrophy, etc.)
+   * Visual %%e.g., partial blindness, full blindness, color blindness, cataract, glaucoma, etc.%%
+   * Auditory %%e.g., hard of hearing, deafness, etc.%%
+   * Cognitive %%e.g., ADHD, autism spectrum, etc.%%
+   * Mobility %%e.g., quadriplegia, muscular dystrophy, etc.%%
 
 At the same time, accessibility also benefits people _without_ disabilities, for example:
-   * People using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.
-   * Older people with changing abilities due to ageing
-   * People with "temporary disabilities" such as a broken arm or lost glasses
-   * People with "situational limitations" such as in bright sunlight or in an environment where they cannot listen to audio
-   * People using a slow Internet connection, or who have limited or expensive bandwidth
+   * Device limitations %%e.g., using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.%%
+   * Age-related limitations %%e.g., poor dexterity, poor eyesight%%
+   * Temporary limitations %%e.g., broken arm, lost glasses%%
+   * Situational limitations %%e.g., under bright sunlight, an environment where one cannot listen to audio%%
+   * Internet-related limitations %%e.g., slow Internet connection, limited bandwidth%%
+
+##### For the developer
+1. **Accessibility helps you improve your website's UX**. [W3C](https://www.w3.org/standards/webdesign/accessibility) notes that accessibility practices are good design practices in general, which improve the UX of your website.
+2. **Accessibility is a right**. Caring about accessibility demonstrates good ethics/morals.
+3. **Accessibility makes your website more discoverable**. Web pages with good accessibility practices are ranked higher by search engine crawlers, making your website more discoverable and marketable to new users.
+4. **Accessibility helps you increase your user base**. According to the [World Health Organization world report on disability](https://www.who.int/disabilities/world_report/2011/report/en/), about 15% of the world's population live with some form of disability. That makes up more than 1 billion people. It is a significant population of users, so improving accessibility can help you reach more people.
+5. **Accessibility is part of the law in some places**. In [some countries](https://www.w3.org/WAI/policies/), abiding by accessibility guidelines is mandatory. Be careful not to break the law!
 
 ## How can I improve the accessibility of my website?
 
@@ -51,39 +50,40 @@ There are many ways to improve the accessibility of your website. Below are some
 ### Visual
 Users with visual impairments rely on assistive technologies such as a magnifier or a screen reader.
 
-  * Use more visual indicators to convey a message.
+##### Best practice: Use more visual indicators to convey a message.
   
-  Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.
+Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.
 
-  This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
-  ![Facebook sign up page](accessibility/fb-normal.png "Facebook sign up page")
+This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
+![Facebook sign up page](accessibility/fb-normal.png "Facebook sign up page")
 
-  However, to someone with color blindness, this is how the page looks like
-  ![Facebook sign up page to someone with achromatopsia](accessibility/fb-achromatopsia.png "Facebook sign up page to someone with achromatopsia")
-  _[Achromatopsia](https://en.wikipedia.org/wiki/Achromatopsia)_
+However, to someone with color blindness, this is how the page looks like
+![Facebook sign up page to someone with achromatopsia](accessibility/fb-achromatopsia.png "Facebook sign up page to someone with achromatopsia")
+_[Achromatopsia](https://en.wikipedia.org/wiki/Achromatopsia)_
 
-  ![Facebook sign up page to someone with deuteranopia](accessibility/fb-deuteranopia.png "Facebook sign up page to someone with deuteranopia")
-  _[Deuteranopia](https://en.wikipedia.org/wiki/Deuteranopia)_
+![Facebook sign up page to someone with deuteranopia](accessibility/fb-deuteranopia.png "Facebook sign up page to someone with deuteranopia")
+_[Deuteranopia](https://en.wikipedia.org/wiki/Deuteranopia)_
 
-  It is unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
-  ![Sign up page with more visual indicators](accessibility/fb-more-indicators.png "Facebook sign up page with more visual indicators")
+It is unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
+![Sign up page with more visual indicators](accessibility/fb-more-indicators.png "Facebook sign up page with more visual indicators")
 
-  * Maintain good contrast
+##### Best practice: Maintain good contrast
   
-  Look at this page taken from Tech Crunch.
-  ![Tech Crunch page](accessibility/tc-normal.png "Tech Crunch page")
+Look at this page taken from Tech Crunch.
+![Tech Crunch page](accessibility/tc-normal.png "Tech Crunch page")
 
-  To users with good vision, the design may look minimalist and clean. However, to someone suffering from cataract, the page looks like this.
+To users with good vision, the design may look minimalist and clean. However, to someone suffering from cataract, the page looks like this.
 
-  ![Blurry Tech Crunch page](accessibility/tc-blurred.png "Tech Crunch page to someone with cataract")
-  It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good contrast ratio in our websites for ease of reading.
+![Blurry Tech Crunch page](accessibility/tc-blurred.png "Tech Crunch page to someone with cataract")
+It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good contrast ratio in our websites for ease of reading.
 
-  * Use `alt` attribute for images
+##### Best practice: Use `alt` attribute for images
   
-  The `alt` attribute provides alternative information for an image that can be read out by a screen reader to describe an image.
+The `alt` attribute provides alternative information for an image that can be read out by a screen reader to describe an image.
 
-  ![Use of alt tag](accessibility/alt-tag.png "Alt tag")
+![Use of alt tag](accessibility/alt-tag.png "Alt tag")
 
+The above are some examples of best practices to follow when developing for web accessibility. More can be found in [this article on developing for accessibility](https://www.w3.org/WAI/tips/developing/).
   
 ### Auditory
 Hearing-impaired users do use assistive technologies such as a hearing aid or a cochlear implant, but these are not specific for accessing websites.
@@ -148,6 +148,8 @@ The key to improve accessibility for mobility is to make the website keyboard ac
 WebAIM's article on [keyboard accessibility](https://webaim.org/techniques/keyboard/) provides a thorough tutorial for this.
 
 ## Tools for Developers
+Here are some useful tools that you can use to improve the accessibility of your website:
+
 * [**Google Lighthouse**](https://developers.google.com/web/tools/lighthouse/). Google Lighthouse is an automated tool that can audit how accessible your web pages are. It can be found in Chrome DevTools. Given a URL to audit, Lighthouse runs a series of audits and generates a report. The failing audits will show which part of the page causes it, and how to fix it. <br>
 Here's how an audit report looks like:
 ![Lighthouse audit](accessibility/lh-audit.png "Lighthouse audit")
