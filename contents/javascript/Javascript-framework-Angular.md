@@ -19,7 +19,7 @@ Author(s): [Ronak Lakhotia](https://github.com/RonakLakhotia)
 Angular is one of the popular Javascript frameworks used for building web applications.
 The framework aims to make development and testing of enterprise web applications easier. Angular is maintained by Google, as well as a community of developers.
 
->Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers, build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
+>Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
 >
 >Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a>. 
 
@@ -31,24 +31,24 @@ But the advantages Angular provides justifies the steep learning curve.
 
 1. **Angular supports Single Page Applications (SPAs).**
 
-    <box>Single Page Applications are a type of web applications that load a single HTML page, and the page is updated dynamically according to the interaction of the user. SPAs can communicate with the back-end servers without refreshing the full web page, for loading data in the application. They provide a better user experience.</box>
+    <box>Single Page Applications are a type of web applications that load a single HTML page. The key feature is that SPAs can communicate with back-end servers without refreshing the full web page. Therefore they load all the information at once onto a single HTML page that can dynamically update as the user interacts with the app. This enhances the user experience.</box>
 The fact that Angular supports the development of SPAs, is a good reason to learn the framework.
  
 2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superset of JavaScript. TypeScript provides static typing. This helps the compiler show warnings about any potential errors in the code, before the app is even run. Another advantage of TypeScript is that it provides code completion using IntelliSense. IntelliSense provides active hints as code is added.
 
-    <box> TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years; therefore you can feel at ease when using it in your application.</box>
+    <box> TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years making it reliable to use.</box>
                                                   
-3. **Google Long-Term Support.** Some software engineers consider the fact that Angular is supported by Google an advantage of the technology. While this may sound justified, Google itself is not enough. The good sign though is that Google announced Long-Term Support (LTS) for the technology back in 2017.
+3. **Google Long-Term Support.** Some software engineers consider the fact that Angular is supported by Google an advantage of the technology. While this may sound justified, it does not serve as much of an incentive. The good sign though is that Google announced Long-Term Support (LTS) for the technology back in 2017.
 
     [source](https://hackr.io/blog/why-should-you-learn-angular-in-2018)
 
 ### Benefit: Angular provides a declarative user interface.
 
-Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more intuitive than using imperative code to define the UI. Imperative code requires you to define <i>how to perform an action</i> that is describe the flow. Declarative code, on the other hand enables you to describe the logic without worrying about the implementation. How does it help? You don’t need to invest your time in program flows and in deciding what loads first.
+Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more intuitive than using imperative code to define the UI. An Imperative approach requires you to tell the compiler how you want the program to run by focussing on the logic implementation. Declarative code, on the other hand enables you to describe the logic without worrying about the implementation. How does it help? You do not need to invest time in dealing with how your program runs and deciding what to load first.
 
 Lets see a working example. 
 
-With jQuery you might write the following code to define a textbox that takes numeric values and doesn’t allow alphanumeric input or input that is outside of a defined range.
+With jQuery you might write the following code to define a textbox that takes numeric values and doesn’t allow alphanumeric input or input that is beyond of a defined range.
 
 ```
 $("#textbox").numericTextBox({
@@ -60,31 +60,31 @@ $("#textbox").numericTextBox({
     decimals: 3
 });
 ```
-On the other hand, using versions of Angular 2 and above, your code would look something like this:
+On the other hand, using versions Angular 2 and above, your code would look something like this:
 
 ```
 <input numerictextbox k-min="-10" k-max="100" k-step="0.75"
   k-format="n" k-decimals="3"/>
 ```
 Instead of worrying about how to transform the element, you can declare what you want to happen. It should be a numeric textbox; it should have a minimum value of -10; etc.
-Rather than spending time on how the program flows and what should get loaded first, you can define what you want and Angular will take care of the dependencies.
+Rather than spending time on how the program flows, you can define what you want and Angular will take care of the dependencies.
 
 
 ### Benefit: Simplified MVC pattern and reduced coding.
 
-Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). This represents the View component. Next to it, we have the accompanying `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
+Angular framework is embedded with the MVC (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user (along with some CSS for layout). This represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
 Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
 ![MVC Pattern](https://www.grazitti.com/assets/2018/06/reasons-5.jpg)
 
-Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together again. Angular, however, strings it together automatically. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, Everything happens under the hood. Angular ensures Separation of Concerns and automatic synchronization between the components. That saves developers time.
+Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together. Angular, however, strings it together automatically. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, everything happens under the hood. Angular ensures Separation of Concerns and automatic synchronization between the components. That saves developers time.
 >According to a <a href="https://blog.qburst.com/2017/05/make-your-apps-load-faster-with-angular-2/">survey</a>, every 100-millisecond improvement in page loading speed led to 1% increase in revenue for Amazon.
 
 [source](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/)
 
 ### Benefit: Angular CLI
 
-At `ng-conf` 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow in applications using versions Angular 2 and above.
-It is recommended to use Angular CLI for creating Angular apps as you don't need to spend time installing and configuring all the required dependencies and wiring everything together.
+In 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow in applications using versions Angular 2 and above.
+It is recommended to use Angular CLI for creating Angular apps as you don't need to spend time installing and configuring all the required dependencies.
 
 > npm install -g @angular/cli
 
@@ -127,9 +127,9 @@ import { Component } from "@angular/core";
 export class AppComponent {}
 ```
 
-In Angular we use the `@Component` tag, which is known as a decorator, to mark classes that should be considered elements that can be used in your HTML markup. You have the ability to pass that `@Component` properties to describe the element.
+In Angular we use the `@Component` tag, to mark a class as an Angular component. It provides the metadata that determines how the component is processed during runtime.
 
-* The `selector` property determines that tag’s name when typed in HTML. The use of selector: "my-app" is how Angular knows what to do when it sees a `<my-app>` tag in HTML.
+* The use of `selector: my-app` is how Angular knows what to do when it sees a `<my-app>` tag in HTML.
 
 * The `template` property controls what HTML gets rendered when this component is used.
 
