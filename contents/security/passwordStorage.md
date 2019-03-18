@@ -13,11 +13,11 @@
 # Introduction to Password Storage
 
 Author: [Jeremy Choo](https://github.com/ChooJeremy) <br>
-Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin), [Tan Zhen Yong](https://github.com/Xenonym)
+Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin), [Tan Zhen Yong](https://github.com/Xenonym), [Wang Junming](https://github.com/junming403)
 
 ## Overview
 
-While developing your own application, it is very common to implement login systems to be able to identify users. Whenever there is a need to store user-specific information, developers typically implement user accounts to identify these users separately. You might have seen this mechanism implemented on other websites - using registration forms and requring you to login with a username and password to identify you for the <trigger for="pop:session">session</trigger>.
+While developing your own application, it is very common to implement login systems to be able to identify users. Whenever there is a need to store user-specific information, developers typically implement user accounts to identify these users separately. You might have seen this mechanism implemented on other websites - using registration forms and requring you to login with a username and password to identify you for the <trigger for="pop:session"><a href="https://support.google.com/analytics/answer/2731565?hl=en">session</a></trigger>.
 
 <popover id="pop:session" title="A _session_  is used to broadly describe a user's visit" placement="top">
   <div slot="content">
@@ -36,9 +36,6 @@ It is a cryptography term generally referring to text before encyption or after 
 </popover>
 
 Since usernames are typically public information, it is OK to store them in plaintext. However, passwords are typically secret information and hence, cannot be stored in plaintext.
-	
-</div>
-</popover>
 
 If passwords are stored in plaintext:
 * Should your database be compromised, attackers can easily use the stored plaintext passwords to login as the user and potentially access other functionality. This grants the attacker more power than just reading values off the database. If the passwords aren't even in plaintext, the attacker might not be able to read the passwords.
