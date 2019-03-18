@@ -125,7 +125,7 @@ In this query, we are essentially grouping into 3: `CS101` group (IDs 5 and 7), 
 ##### 4. `HAVING COUNT(*) > 1`
 This is a conditional clause that is used with aggregate functions and the `GROUP BY` clause. `COUNT(*)` is an aggregate function that returns the number of rows in each group.
 
-So, this clause will filter out the `CS404` group since it has a count of 1, and doesn't satisfy the condition.
+So, this clause will filter out the `CS404` group since it has a count of 1, which doesn't satisfy the condition.
 
 ##### 5. `SELECT Course, COUNT(*) num`
 The `SELECT` statement is used for choosing the data to display. The returned data is stored in a result table, called the **result-set**.
@@ -235,7 +235,6 @@ For example:
 ## References
 
 - [SQL capabilities](https://www.databasejournal.com/sqletc/article.php/3915331/Top-10-SQL-Hierarchical-Data-Processing-Capabilities.htm)
-- [Why MySQL is popular](https://www.fromdev.com/2017/03/what-is-mysql-why-is-it-so-popular.html)
 - [Advantages and disadvantages of SQL](https://www.quora.com/What-are-the-advantages-and-disadvantages-of-SQL)
 - [MySQL and PostgreSQL differences](http://mwiki.gichd.org/IM/Difference_MySQL_PostGreSQL)
 - [Execution order of SQL query](https://www.designcise.com/web/tutorial/what-is-the-order-of-execution-of-an-sql-query)
