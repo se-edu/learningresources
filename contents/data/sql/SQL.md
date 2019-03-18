@@ -16,11 +16,11 @@ Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
 
 ## What is SQL?
 
-**Structured Query Language** (**SQL**) is a programming language that is specifically designed for managing (storing, querying and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. Most <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language.
+**Structured Query Language** (**SQL**) is a programming language that is specifically designed for managing (storing, retrieving and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. Most <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language.
 However, the syntaxes used in these distributions vary slightly. These differences may be in terms of whether the syntax is case-sensitive, what  functions are available out-of-the-box, the format for specifying date and time, and so on.  
 
 Databases are integral to any commercial software application, whether it is a web app, desktop app or otherwise.
-As the size of your application grows, you will need to look into dedicated database software packages (like SQL distributions) to store your data. It will not be enough to simply rely on in-memory solutions or a simple text file to store the data.
+As the size of your application grows, you need to look into dedicated database software packages (like SQL distributions) to store your data. It will not be enough to simply rely on in-memory solutions or a simple text file to store the data.
 
 SQL distributions (such as MySQL) are widely used in many successful companies. For example, according to the official [MySQL website](https://www.mysql.com/why-mysql/), it is used in companies like Facebook, Google, Adobe, Paytm and Zappos (though they may not be using MySQL exclusively).
 
@@ -31,7 +31,7 @@ SQL distributions (such as MySQL) are widely used in many successful companies. 
 
 ### How does SQL work?
 
-Let's look at what a basic **SQL query** (or "command") for retrieving information from a data table looks like:
+SQL uses **queries** to retrieve data that was previously stored in the database. Let's look at what a basic SQL query (or "command") for retrieving information from a data table looks like:
 
 ```
 SELECT column_name(s)
@@ -48,24 +48,24 @@ ORDER BY column_name(s);
 
 #### Breaking down the clauses
 
-Let's understand what the above query does by using an example to make it more concrete.
+Let's understand what the above query does by using an example.
 
-Suppose we have the data table `Students` shown here. We want to get a list of CS courses that have more than 1 student. The output should display the Course name and number of students, and should be sorted by increasing number of students.
+Suppose we have the data table `Students` shown below. We want to get a list of courses from the CS faculty that have more than 1 student. The output should display a list of courses with number of students, sorted in increasing order.
 
-| ID | Name  | Course |
-| -- | ----- | ------ |
-| 1  | Alex  | CS202  |
-| 2  | Bob   | MA303  |
-| 3  | Cathy | CS202  |
-| 4  | Daren | CS202  |
-| 5  | Ellie | CS101  |
-| 6  | Fred  | MA303  |
-| 7  | Gary  | CS101  |
-| 8  | Henry | CS404  |
+| ID | Name  | Course | Faculty |
+| -- | ----- | ------ | ------- |
+| 1  | Alex  | CS202  | CS      |
+| 2  | Bob   | MA303  | MA      |
+| 3  | Cathy | CS202  | CS      |
+| 4  | Daren | CS202  | CS      |
+| 5  | Ellie | CS101  | CS      |
+| 6  | Fred  | MA303  | MA      |
+| 7  | Gary  | CS101  | CS      |
+| 8  | Henry | CS404  | CS      |
 
 Table 1. `Students` table
 
-From the data in our table above, entries 2, 6 and 8 should not be considered in the output as they do not meet the criteria. So, the expected output is:
+From the table above, entries 2, 6 and 8 should not be considered in the output as they do not meet the criteria. So, the expected output is:
 
 | Course | num |
 | ------ | --- |
@@ -79,21 +79,21 @@ The corresponding query will be:
 ```
 SELECT Course, COUNT(*) num
 FROM Students
-WHERE Course LIKE 'CS%'
+WHERE Faculty = 'CS'
 GROUP BY Course
 HAVING COUNT(*) > 1
 ORDER BY num;
 ```
 
 An important thing to note here is that queries aren't executed from top to bottom. This example query actually follows this logical order of execution:
-- `FROM` clause
-- `WHERE` clause
-- `GROUP BY` clause
-- `HAVING` clause
-- `SELECT` statement
-- `ORDER BY` clause
+1. `FROM` clause
+1. `WHERE` clause
+1. `GROUP BY` clause
+1. `HAVING` clause
+1. `SELECT` statement
+1. `ORDER BY` clause
 
-As you can see, the `FROM` clause is processed first while the `SELECT` clause which appears at the start is processed much later.
+As you can see, the `FROM` clause is processed first, while the `SELECT` clause (which appears at the start) is processed much later.
 
 Now, let's go through each clause in the query, in the order that they are executed.
 
@@ -102,11 +102,9 @@ Now, let's go through each clause in the query, in the order that they are execu
 This clause means that we use the `Students` table as the data source for our query.
 The <tooltip content="See <code>5. SELECT ... </code> below">result-set</tooltip> still looks the same as the original `Students` table (Table 1).
 
-##### 2. `WHERE Course LIKE 'CS%'`
+##### 2. `WHERE Faculty = 'CS'`
 
-This is a conditional clause. `LIKE` is a SQL keyword that is used for pattern matching. The `%` means any string of any length.
-
-So, in this clause, we are filtering the `Student` table rows such that the row's `Course` has a prefix `CS`. Thus, entries 2 and 6 are removed from consideration. Now, our result-set looks like this:
+This is a conditional clause. In this clause, we are filtering the `Student` table rows such that the row's `Faculty` is `CS`. Thus, entries 2 and 6 are removed from consideration. Now, our result-set looks like this:
 
 | ID | Name  | Course |
 | -- | ----- | ------ |
@@ -122,10 +120,10 @@ Table 3. Filtered result after `WHERE`
 
 This is used to group the result set, and is often used with aggregate functions (like `COUNT`, `MAX`, `AVG` etc.).
 
-In this query, we are essentially grouping into 3 "groups": `CS101` group (IDs 5 and 7), `CS202` group (IDs  1, 3, and 4), and `CS404` group (ID 8).
+In this query, we are essentially grouping into 3: `CS101` group (IDs 5 and 7), `CS202` group (IDs  1, 3, and 4), and `CS404` group (ID 8).
 
 ##### 4. `HAVING COUNT(*) > 1`
-This is a conditional clause that is used with aggregate functions. `COUNT(*)` is an aggregate function that returns the number of rows in each "group".
+This is a conditional clause that is used with aggregate functions and the `GROUP BY` clause. `COUNT(*)` is an aggregate function that returns the number of rows in each group.
 
 So, this clause will filter out the `CS404` group since it has a count of 1, and doesn't satisfy the condition.
 
@@ -160,7 +158,7 @@ Table 4. Final result after `ORDER BY`
 This is the same as our expected output from Table 2!
 
 <box type="info">
-  You can experiment with this example on <a href="https://www.db-fiddle.com/f/yxjjgbkKmsa46cKjeEg1X/2">DB Fiddle</a> by entering queries into the <code>Query SQL</code> pane and then clicking the <code>Run</code> icon.
+  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/0">DB Fiddle</a> by entering queries into the <code>Query SQL</code> pane and then clicking the <code>Run</code> icon.
 </box>
 
 The example shown here is relatively simple. Typical SQL queries have the capability to be much more complex as there are a lot of clauses, functions, and operators that are not covered here. As the complexity of the query grows, there is a possible decrease in the performance of the query. This is why [query planning](https://www.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql/a/more-efficient-sql-with-query-planning-and-optimization) and [optimization](https://www.sisense.com/blog/8-ways-fine-tune-sql-queries-production-databases/) is important.
