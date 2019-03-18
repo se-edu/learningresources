@@ -16,14 +16,15 @@
 
 Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Jacob Li Pengcheng](https://github.com/jacoblipech), [Tan Heng Yeow](https://github.com/tanhengyeow)
 
-## What is web accessibility?
+## What is accessibility?
 
 > Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections. <sub>--[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility)</sub>
 
+Note that although the scope of this article is the accessibility of websites, many of the points also apply to accessibility and UI/UX of other softwares too.
+
 ## Why is accessibility important?
 
-##### For the user
-Accessibility is important for people with disabilities to access the Web. There are many kinds of disabilities, including:
+Accessibility is important for users with disabilities to access the Web. There are many kinds of disabilities, including:
    * Visual %%e.g., partial blindness, full blindness, color blindness, cataract, glaucoma, etc.%%
    * Auditory %%e.g., hard of hearing, deafness, etc.%%
    * Cognitive %%e.g., ADHD, autism spectrum, etc.%%
@@ -36,7 +37,7 @@ At the same time, accessibility also benefits people _without_ disabilities, for
    * Situational limitations %%e.g., under bright sunlight, an environment where one cannot listen to audio%%
    * Internet-related limitations %%e.g., slow Internet connection, limited bandwidth%%
 
-##### For the developer
+Improving accessibility also brings some benefits to you as a developer:
 1. **Accessibility helps you improve your website's UX**. [W3C](https://www.w3.org/standards/webdesign/accessibility) notes that accessibility practices are good design practices in general, which improve the UX of your website.
 2. **Accessibility is a right**. Caring about accessibility demonstrates good ethics/morals.
 3. **Accessibility makes your website more discoverable**. Web pages with good accessibility practices are ranked higher by search engine crawlers, making your website more discoverable and marketable to new users.
@@ -50,24 +51,24 @@ There are many ways to improve the accessibility of your website. Below are some
 ### Visual
 Users with visual impairments rely on assistive technologies such as a magnifier or a screen reader.
 
-##### Best practice: Use more visual indicators to convey a message.
+##### :fas-thumbs-up: Best practice: Use more visual indicators to convey a message
   
 Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.
 
 This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
 ![Facebook sign up page](accessibility/fb-normal.png "Facebook sign up page")
 
-However, to someone with color blindness, this is how the page looks like
+However, to someone with a type of color blindness called [achromatopsia](https://en.wikipedia.org/wiki/Achromatopsia), this is how the page looks like:
 ![Facebook sign up page to someone with achromatopsia](accessibility/fb-achromatopsia.png "Facebook sign up page to someone with achromatopsia")
-_[Achromatopsia](https://en.wikipedia.org/wiki/Achromatopsia)_
 
+To someone with another type of color blindness, [deuteranopia](https://en.wikipedia.org/wiki/Deuteranopia), the page looks like this:
 ![Facebook sign up page to someone with deuteranopia](accessibility/fb-deuteranopia.png "Facebook sign up page to someone with deuteranopia")
-_[Deuteranopia](https://en.wikipedia.org/wiki/Deuteranopia)_
 
-It is unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
+
+It may be unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
 ![Sign up page with more visual indicators](accessibility/fb-more-indicators.png "Facebook sign up page with more visual indicators")
 
-##### Best practice: Maintain good contrast
+##### :fas-thumbs-up: Best practice: Maintain good contrast
   
 Look at this page taken from Tech Crunch.
 ![Tech Crunch page](accessibility/tc-normal.png "Tech Crunch page")
@@ -77,7 +78,7 @@ To users with good vision, the design may look minimalist and clean. However, to
 ![Blurry Tech Crunch page](accessibility/tc-blurred.png "Tech Crunch page to someone with cataract")
 It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good contrast ratio in our websites for ease of reading.
 
-##### Best practice: Use `alt` attribute for images
+##### :fas-thumbs-up: Best practice: Use `alt` attribute for images
   
 The `alt` attribute provides alternative information for an image that can be read out by a screen reader to describe an image.
 
@@ -103,7 +104,7 @@ Such disabilities might affect website usage. It could be due to difficulty in u
 
 Unlike other web accessibility issues, there is no quick fix to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here is a checklist that you can follow:
 
-* Avoid distractions: <br>
+* **Avoid distractions**: <br>
 People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where cluttered pages can be overwhelming.
   * Avoid unnecessary movements from animations or moving elements
   * Have a clean and uncluttered design
@@ -116,15 +117,15 @@ People with cognitive disabilities are more easily distracted, or they may have 
   Clean page:
   ![Clean landing page](accessibility/bg-new.png "Clean landing page")
 
-* Be logical:
+* **Be logical**:
   * Multi-stage processes are broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.
   * Workflows are logical, simple, and require as few interactions as possible to complete.
 
-* Be consistent:
+* **Be consistent**:
   * Navigation, header, footer, and main content are always in the same places
   * Navigation mechanisms are consistent in appearance and behaviour
 
-* Communicate well: <br>
+* **Communicate well**: <br>
 People with cognitive disabilities are more likely to take things literally and can benefit from more visual cues.
   * Pages are not overly long or dense in terms of the amount of information presented at once.
   > [An article](https://www.lifewire.com/web-page-length-3468959) says a rule of thumb is "No article should exceed 2 printed pages of double-spaced, 12 point text." whereas [another article](https://www.greenmellenmedia.com/how-long-should-my-website-content-be/) says "There is no "magic number" for a number of characters for content. As long as the web page content is clear, to the point and written for people". Ultimately, what's most important is what _your_ users think, so validation during user testing is paramount.
@@ -132,7 +133,11 @@ People with cognitive disabilities are more likely to take things literally and 
   * Important points and content are highlighted in some way.
   * User errors are clearly highlighted, with help messages to suggest solutions.
 
-> Taken from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments), [National Autistic Society](https://www.autism.org.uk/professionals/others/website-design.aspx)
+  <blockquote>
+
+  Taken from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments), [National Autistic Society](https://www.autism.org.uk/professionals/others/website-design.aspx)
+
+  </blockquote>
 
 More importantly, after following the checklist, you should do user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.
 
