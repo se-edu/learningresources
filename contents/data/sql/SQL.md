@@ -12,7 +12,8 @@
 
 # Introduction to SQL
 
-Author: [Amrut Prabhu](https://github.com/amrut-prabhu)  
+**Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)**
+
 Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Rahul Rajesh](https://github.com/rrtheonlyone)
 
 ## What is SQL?
