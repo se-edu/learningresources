@@ -67,8 +67,8 @@ On the other hand, using versions Angular 2 and above, your code would look some
 <input numerictextbox k-min="-10" k-max="100" k-step="0.75"
   k-format="n" k-decimals="3"/>
 ```
-Instead of worrying about how to transform the element, you can declare what you want to happen. It should be a numeric textbox; it should have a minimum value of -10; etc.
-Rather than spending time on how the program flows, you can define what you want and Angular will take care of the dependencies.
+Instead of worrying about how to transform the element, you can declare what you want the user to see.
+Rather than spending time thinking on how the program should flow, you can define what you want and Angular will take care of the dependencies.
 
 [source](https://www.telerik.com/blogs/three-ds-of-web-development-1-declarative-vs-imperative)
 
@@ -79,7 +79,6 @@ Lastly, we have the model. In Angular, the model will mostly be our services, wh
 ![MVC Pattern](https://www.grazitti.com/assets/2018/06/reasons-5.jpg)
 
 Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together. Angular, however, strings it together automatically. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, everything happens under the hood. Angular ensures Separation of Concerns and automatic synchronization between the components. That saves developers time.
->According to a <a href="https://blog.qburst.com/2017/05/make-your-apps-load-faster-with-angular-2/">survey</a>, every 100-millisecond improvement in page loading speed led to 1% increase in revenue for Amazon.
 
 [source](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/)
 
@@ -139,7 +138,7 @@ A visual to summarize the above :
 
 ![Component](https://angular.io/generated/images/guide/architecture/component-databinding.png)
 
-### Why not to use Angular
+### When not to use Angular
 
 Like any other framework/library, Angular has its share of disadvantages.
 
