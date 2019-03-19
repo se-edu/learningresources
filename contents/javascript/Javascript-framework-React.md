@@ -14,6 +14,8 @@
 
 Author: [Aadyaa Maddi](https://github.com/amad-person)
 
+Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin)
+
 ### What is React?
 
 **React** is an open-source JavaScript <tooltip content="React only handles the view component of your application. It is not an MVC framework!">library</tooltip> for building composable user interfaces. It was developed by Facebook and released to the world in 2013, and is now used in a huge number of popular applications, including Facebook and Instagram.
