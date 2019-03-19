@@ -12,11 +12,12 @@
 
 # Introduction to SQL
 
-Author(s): [Amrut Prabhu](https://github.com/amrut-prabhu)
+Author: [Amrut Prabhu](https://github.com/amrut-prabhu)  
+Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Rahul Rajesh](https://github.com/rrtheonlyone)
 
 ## What is SQL?
 
-**Structured Query Language** (**SQL**) is a programming language that is specifically designed for managing (storing, retrieving and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.htmll#database-models)</tooltip>. Most <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language.
+**Structured Query Language** (**SQL**) is a programming language that is specifically designed for managing (storing, retrieving and manipulating) data in a <tooltip content="relational databases store data in tables">[relational database]({{baseUrl}}/contents/data/databases/databases.html#database-models)</tooltip>. Most <tooltip content="Relational DataBase Management System">RDBMS</tooltip> distributions like MySQL, Oracle, SQL Server and PostgreSQL use the SQL language.
 However, the syntaxes used in these distributions vary slightly. These differences may be in terms of whether the syntax is case-sensitive, what  functions are available out-of-the-box, the format for specifying date and time, and so on.  
 
 Databases are integral to any commercial software application, whether it is a web app, desktop app or otherwise.
@@ -31,7 +32,7 @@ SQL distributions (such as MySQL) are widely used in many successful companies. 
 
 ### How does SQL work?
 
-SQL uses **queries** to retrieve data that was previously stored in the database. Let's look at what a basic SQL query (or "command") for retrieving information from a data table looks like:
+Now that you have a general idea of what SQL is, let's take a look at how it can be used. SQL uses **queries** to retrieve data that was previously stored in the database. This is what a basic SQL query (or "command") for retrieving information from a data table looks like:
 
 ```
 SELECT column_name(s)
@@ -74,7 +75,7 @@ From the table above, entries 2, 6 and 8 should not be considered in the output 
 
 Table 2. Expected output
 
-The corresponding query will be:
+The corresponding query to get this output is:
 
 ```
 SELECT Course, COUNT(*) num
@@ -85,7 +86,7 @@ HAVING COUNT(*) > 1
 ORDER BY num;
 ```
 
-An important thing to note here is that queries aren't executed from top to bottom. This example query actually follows this logical order of execution:
+An important thing to note here is that queries aren't executed from top to bottom. The  query actually follows this logical order of execution:
 1. `FROM` clause
 1. `WHERE` clause
 1. `GROUP BY` clause
@@ -93,14 +94,14 @@ An important thing to note here is that queries aren't executed from top to bott
 1. `SELECT` statement
 1. `ORDER BY` clause
 
-As you can see, the `FROM` clause is processed first, while the `SELECT` clause (which appears at the start) is processed much later.
+As you can see, the `FROM` clause is processed first, while the `SELECT` clause (which appears at the start of the query) is processed much later.
 
 Now, let's go through each clause in the query, in the order that they are executed.
 
 ##### 1. `FROM Students`
 
 This clause means that we use the `Students` table as the data source for our query.
-The <tooltip content="See <code>5. SELECT ... </code> below">result-set</tooltip> still looks the same as the original `Students` table (Table 1).
+The <tooltip content="See <code>5. SELECT ...</code> below">result-set</tooltip> still looks the same as the original `Students` table (Table 1).
 
 ##### 2. `WHERE Faculty = 'CS'`
 
@@ -114,7 +115,7 @@ This is a conditional clause. In this clause, we are filtering the `Student` tab
 | 5  | Ellie | CS101  |
 | 7  | Gary  | CS101  |
 | 8  | Henry | CS404  |
-Table 3. Filtered result after `WHERE`
+Table 3. Filtered result after `WHERE Faculty = 'CS'`
 
 ##### 3. `GROUP BY Course`
 
@@ -139,7 +140,7 @@ In this statement, we choose the `Course` and its count, `num` to be the result-
 Table 4. Result-set after `SELECT`
 
 <box type="info">
-  Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from an individual attribute (like ID or Name) that is not part of the aggregate data generated in the group (like Course).
+  Since, we have used a <code>GROUP BY</code> clause, we cannot <code>SELECT</code> data from an individual attribute (like ID or Name) that is not part of the aggregate data (like Course) generated in the group.
 </box>
 
 ##### 6. `ORDER BY num`
@@ -158,28 +159,27 @@ Table 4. Final result after `ORDER BY`
 This is the same as our expected output from Table 2!
 
 <box type="info">
-  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/0">DB Fiddle</a> by entering queries into the <code>Query SQL</code> pane and then clicking the <code>Run</code> icon.
+  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/0">DB Fiddle</a> by entering SQL queries and then running them.
 </box>
 
-The example shown here is relatively simple. Typical SQL queries have the capability to be much more complex as there are a lot of clauses, functions, and operators that are not covered here. As the complexity of the query grows, there is a possible decrease in the performance of the query. This is why [query planning](https://www.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql/a/more-efficient-sql-with-query-planning-and-optimization) and [optimization](https://www.sisense.com/blog/8-ways-fine-tune-sql-queries-production-databases/) is important.
+The example shown here is pretty typical. However, SQL queries for retrieving information have the capability to be much more complex as there can be a lot of other clauses, functions, and operators that are not covered here. As the complexity of the query grows, there is a possible decrease in the performance of the query. This is why [query planning](https://www.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql/a/more-efficient-sql-with-query-planning-and-optimization) and [query optimization](https://www.sisense.com/blog/8-ways-fine-tune-sql-queries-production-databases/) is important.
 
 ---
 
 ## Why learn SQL?
 
-Being open source and one of the first DBMSs, MySQL (a specific implementation of SQL) increased the popularity of **SQL** in its early days.
-Here are some of the main reasons behind the widespread adoption of SQL and why it remains popular today.
+Now that you have seen how SQL is used, let's take a look at some of the main reasons behind the widespread adoption of SQL and why you should learn it.
 
 ### Easy to learn
 
-As you saw in the example above, SQL is not complex. Therefore, it is easy to learn even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
+As you saw in the example above, SQL is not really that complex. Therefore, it is easy to learn, even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
 In addition, SQL and its distributions have a huge support community (such as [Stack Overflow](https://stackoverflow.com/questions/tagged/sql), and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using SQL.
 
 ### Free
 
 One of the benefits (and reasons) for SQL's popularity is that there are free distributions available (like MySQL, PostgreSQL and SQLite) as well as paid ones (like Microsoft SQL Server and Oracle) that come with more functionality.
 
-One such distribution is MySQL. It is free of cost and comes with official ([MySQL Workbench](https://dev.mysql.com/doc/workbench/en/)) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
+One such distribution is MySQL. It is free of cost and comes with [official](https://dev.mysql.com/doc/workbench/en/) as well third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
 
 ### Highly Compatible
 
@@ -192,11 +192,9 @@ In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and
 SQL is not without its problems. In general, the biggest problem is with regards to the features of SQL.
 
 Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some distributions (PostgreSQL, for example) add proprietary extensions to the standard SQL to ensure customer lock-in.
-Thus, the available feature set varies according to the SQL distribution that you are using. This can make it confusing and frustrating to use SQL when switching across distributions.
+In this way, the available feature set can vary according to the SQL distribution that you are using. This can make it confusing and frustrating to use SQL when switching across distributions.
 
-Apart from that, most **SQL** problems are not uniformly applicable to all of its distributions.
-
-For example, **MySQL** suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a well-optimized query. However, **PostgreSQL** deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID</tooltip> compliant and implementing <tooltip content="transaction must be Isolated from other concurrent transactions running in the system">transactions isolation</tooltip>.
+Apart from that, most **SQL** problems are not uniformly applicable across all of its distributions. For example, MySQL suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a query. However, PostgreSQL deals with concurrency well by being fully <tooltip content="Atomicity, Consistency, Isolation, Durability properties are satisfied">ACID compliant</tooltip> and implementing <tooltip content="each query transaction is isolated from other  transactions running simultaneously in the system">transactions isolation</tooltip>.
 
 ---
 
@@ -215,6 +213,8 @@ Here are some recommended steps that you can use to start learning SQL:
 - W3Schools offers an interactive written tutorial for [SQL](https://www.w3schools.com/sql/default.asp).
 
 - You can also use a [SQL Quick Reference Guide](https://www.w3schools.com/sql/sql_ref_mysql.asp) to look up information quickly once you're familiar with the language.
+
+- You can also take a look at [40 important SQL queries](https://bytescout.com/blog/20-important-sql-queries.html) to get a quick overview (or refresher) of SQL.
 
 ---
 
