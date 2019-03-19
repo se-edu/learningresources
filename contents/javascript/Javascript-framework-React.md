@@ -21,11 +21,11 @@ Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https:
 **React** is an open-source JavaScript <tooltip content="React only handles the view component of your application. It is not an MVC framework!">library</tooltip> for building composable user interfaces. It was developed by Facebook and released to the world in 2013, and is now used in a huge number of popular applications, including Facebook and Instagram.
 
 <box type="tip">
-    If you have the <a href="https://github.com/facebook/react-devtools">React DevTools</a> extension installed in your browser, you can inspect the webpage of either of these applications and observe that a lot of React components are being used by them! 
+    If you have the <a href="https://github.com/facebook/react-devtools">React DevTools</a> extension installed in your browser, you can inspect the webpage of either of these applications and observe that React is being used by them! 
 </box>
 
-React abstracts away the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) from you, giving you a simpler programming model and better performance.
-It can also [render on the server using Node](https://alligator.io/react/server-side-rendering/), and it can power native mobile applications using [React Native](https://facebook.github.io/react-native/).
+React abstracts away the <tooltip content="The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.">DOM</tooltip> from you, giving you a simpler programming model and better performance.
+It can also [render on the server using Node](https://alligator.io/react/server-side-rendering/), and it can power native mobile applications using [React Native](https://facebook.github.io/react-native/), which is an extension of React.
 
 ### Why use React?
 
@@ -36,7 +36,7 @@ Some of its benefits are described in detail below.
 #### React is Declarative
 
 With React's <tooltip content="Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.">declarative</tooltip> approach to building user interfaces, you can create interaction-rich applications. 
-You can build these interfaces without manipulating the DOM directly, and even have an event system that doesn't require you to interact with actual DOM events. 
+You can build these interfaces without manipulating the DOM directly, and even have an event system that doesn't require you to interact with <tooltip content="Different browsers might have differences in how their DOM event implementations work. React provides its own event system so that events can work in the same way across different browsers.">actual DOM events</tooltip>. 
 
 This is unlike the traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates.">imperative</tooltip> approach of building applications. An example would be looking up elements in the DOM using [jQuery](https://jquery.com/), where you have to tell the browser what to do and how to update the elements whenever data changes.  
 
@@ -48,7 +48,7 @@ You can see React's declarative approach in action in the sandbox below:
     The sandbox above is editable. You can play around with the application <code>state</code> and see how the view automatically gets updated. 
 </box>
 
-Notice that with React, you just need to specify *what* you want to do when the application data changes. React will efficiently update and render just the right views without you having to interact with the DOM. 
+Notice that with React, you just need to specify *what* you want to show when the application data changes. React will efficiently update and render just the right views without you having to interact with the DOM. 
 
 #### React is Component-Based
 
@@ -85,9 +85,9 @@ Finally, React figures out how to update the actual DOM in the most effective wa
 Besides the three main benefits explained above, React has the following advantages:
  - React only allows data to flow downwards (one-way data binding), which makes your application easier to debug.
  - As it is an open-source library backed by Facebook, it is constantly being updated with new features and performance optimizations.
- - If you want to manage the state of your application using [Redux](https://redux.js.org/introduction/getting-started), React might be a better choice than other libraries / frameworks as there are more resources for learning React + Redux.
+ - If you want to manage the state of your application using [Redux](https://redux.js.org/introduction/getting-started), React might be a better choice than other libraries and frameworks as there are more resources for learning React + Redux.
 
-### When to not use React
+### Disadvantages of React
 
 Like any other library, React has its disadvantages, which are as follows:
  - The high pace of development means that you would need to regularly relearn how to do things.
@@ -95,7 +95,7 @@ Like any other library, React has its disadvantages, which are as follows:
  - React is just a UI library. As React only allows one-way data binding, you would need to use [Flux](https://github.com/facebook/flux), a new application architecture introduced by Facebook that favours unidirectional data flow. 
  However, if you prefer working with the MVC pattern, you should consider a framework that lets you use it e.g. Angular, Vue, etc.
 
-#### React and other Competing Alternatives
+### React and other Competing Alternatives
 
 There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are [Angular](https://angular.io/) and [Vue](https://se-education.org/learningresources/contents/javascript/Javascript-framework-VueJs.html).
 
