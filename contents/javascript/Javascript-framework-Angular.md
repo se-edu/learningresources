@@ -12,7 +12,8 @@
 
 # Introduction to Angular
 
-Author(s): [Ronak Lakhotia](https://github.com/RonakLakhotia)
+Author: [Ronak Lakhotia](https://github.com/RonakLakhotia)                                                              
+Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng](https://github.com/jacoblipech)
 
 ## What Is Angular?
 
