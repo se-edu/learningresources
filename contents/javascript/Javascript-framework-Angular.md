@@ -69,6 +69,7 @@ On the other hand, using versions Angular 2 and above, your code would look some
 Instead of worrying about how to transform the element, you can declare what you want to happen. It should be a numeric textbox; it should have a minimum value of -10; etc.
 Rather than spending time on how the program flows, you can define what you want and Angular will take care of the dependencies.
 
+[source](https://www.telerik.com/blogs/three-ds-of-web-development-1-declarative-vs-imperative)
 
 ### Benefit: Simplified MVC pattern and reduced coding.
 
@@ -141,7 +142,7 @@ A visual to summarize the above :
 
 Like any other framework/library, Angular has its share of disadvantages.
 
-1. **Steep Learning curve** - Angular has many topics to learn, starting from basic ones such as directives, modules, decorators, components, services, dependency injection, pipes, templates and most importantly TypeScript. 
+1. **Steep Learning curve** - Angular has many topics to learn, such as directives, modules, decorators, components, services, dependency injection, pipes, templates and most importantly TypeScript. 
 The sheer number of new concepts is confusing to newcomers.
 
 2. **Opinionated Framework** - Angular tells developers how to structure their application. While libraries like React allow engineers the freedom to choose any third party library to integrate into their application.
@@ -161,7 +162,7 @@ React is a popular Javascript library, open sourced by Facebook. The ease of lea
 React provides more flexibility to developers as it allows integration of third party libraries. It also has a good set of developer tools that helps in debugging.
 Similarly, Vue offers us some advantages, like flexibility, simplistic structure and ease of integration.
 
-Every framework/library has its own pros and cons, meaning it all depends on the developers skills, requirements of the application and many factors like scalability, maintenance, familiarity etc. There are many great tools for developers to choose from. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
+Every framework/library has its own pros and cons, meaning it all depends on the developers skills, and the requirements of the application. There are many great tools for developers to choose from. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
