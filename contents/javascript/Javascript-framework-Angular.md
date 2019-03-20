@@ -83,7 +83,7 @@ The above example shows how Angular makes it easier for developers to design the
 
 ### Benefit 2: Simplified MVC pattern and reduced coding.
 
-Angular framework is embedded with the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) software architectural setup. The HTML, is what is presented to the user. This represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
+Angular framework uses the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) structure. The HTML, is what is presented to the user. This represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
 Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
 
 ![MVC Pattern](http://anasfirdousi.com/img/folder-by-component-type.png)
@@ -182,6 +182,8 @@ Every framework/library has its own pros and cons. The framework/library you cho
 3. [Here](https://github.com/angular/angular) is a link to the official Angular framework maintained by Google. You could even open a PR and start contributing!
 
 4. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
+
+5. Introduction to [Intellisense](https://docs.microsoft.com/en-us/visualstudio/ide/using-intellisense?view=vs-2017)
 
 ## What are the different versions of Angular?
 
