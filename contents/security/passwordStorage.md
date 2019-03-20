@@ -17,7 +17,7 @@ Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https:
 
 ## Overview
 
-While developing your own application, it is very common to implement log in systems to be able to identify users. Whenever there is a need to store user-specific information, developers typically implement user accounts to identify these users separately. You might have seen this mechanism implemented on other websites - using registration forms and requiring you to log in with a username and password to identify you for the <trigger for="pop:session"><a href="https://support.google.com/analytics/answer/2731565?hl=en">session</a></trigger>.
+While developing your own application, it is very common to implement login systems to be able to identify users. Whenever there is a need to store user-specific information, developers typically implement user accounts to identify these users separately. You might have seen this mechanism implemented on other websites - using registration forms and requiring you to log in with a username and password to identify you for the <trigger for="pop:session"><a href="https://support.google.com/analytics/answer/2731565?hl=en">session</a></trigger>.
 
 <popover id="pop:session" title="A _session_  is used to broadly describe a user's visit" placement="top">
   <div slot="content">
@@ -42,7 +42,7 @@ If passwords are stored in plaintext:
 * Your employees can see the plaintext passwords of your users. If your employees are ever compromised, they might be willing to simply leak the passwords.
 * Attackers can try to re-use the same passwords on other websites with sensitive data (such as banking websites) and gain access to those. Since it is common for users to re-use the same password on multiple sites, attackers can potentially be successful here and gain access to more sensitive data.
 
-To prevent these situations from occuring, it is good to perform hashing on passwords. Unlike <trigger for="pop:encrypt">encryption</trigger>, hashing is a <trigger for="pop:oneway">one-way function</trigger>. This means that an attacker cannot decrypt the encrypted password to retrieve the original password, thus ensuring that none of the aforementioned vulnerabilities are possible.
+To prevent these situations from occuring, it is good to perform hashing on passwords. Unlike <trigger for="pop:encrypt">encryption</trigger>, hashing is a <trigger for="pop:oneway">one-way function</trigger>. This means that an attacker cannot reverse the hashed password to retrieve the original password, thus ensuring that none of the aforementioned vulnerabilities are possible.
 
 <popover id="pop:encrypt" title="Encryption refers to the process of changing a message such that it becomes essentially random text." placement="top">
   <div slot="content">
