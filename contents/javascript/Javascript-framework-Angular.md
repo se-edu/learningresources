@@ -33,7 +33,6 @@ However, the advantages Angular provides justifies its steep learning curve.
 1. **Angular supports Single Page Applications (SPAs).**
 
     <box>Single Page Applications are a type of web applications that load a single HTML page. The key feature is that SPAs can communicate with back-end servers without refreshing the full web page. SPAs load information on a single HTML page. The page updates dynamically through JavaScript as the user interacts with the app. This enhances the user experience.</box>
-The fact that Angular supports the development of SPAs, is a good reason to learn the framework.
  
 2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superset of JavaScript. TypeScript provides static typing. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage of TypeScript is that it provides code completion using IntelliSense. IntelliSense provides active hints as code is added.
 
