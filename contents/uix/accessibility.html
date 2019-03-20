@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Accessibility</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
+    <link rel="stylesheet" href="../../markbind/css/github.min.css">
+    <link rel="stylesheet" href="../../markbind/css/markbind.css">
+    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
+    <link rel="stylesheet" href="/learningresources/css/main.css">
+    <link rel="icon" href="/learningresources/favicon.ico">
+</head>
+<body data-spy="scroll" data-target="#page-nav" data-offset="100">
+<div id="app">
+    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
+
+  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
+    <a class="nav-link py-1" href="#accessibility">Accessibility&#x200E;</a>
+    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+      <a class="nav-link py-1" href="#what-is-accessibility">What is accessibility?&#x200E;</a>
+      <a class="nav-link py-1" href="#why-is-accessibility-important">Why is accessibility important?&#x200E;</a>
+      <a class="nav-link py-1" href="#how-can-i-improve-the-accessibility-of-my-website">How can I improve the accessibility of my website?&#x200E;</a>
+      <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
+        <a class="nav-link py-1" href="#visual">Visual&#x200E;</a>
+        <a class="nav-link py-1" href="#auditory">Auditory&#x200E;</a>
+        <a class="nav-link py-1" href="#cognitive">Cognitive&#x200E;</a>
+        <a class="nav-link py-1" href="#mobility">Mobility&#x200E;</a>
+      </nav>
+      <a class="nav-link py-1" href="#tools-for-developers">Tools for Developers&#x200E;</a>
+      <a class="nav-link py-1" href="#concluding-remarks">Concluding Remarks&#x200E;</a>
+      <a class="nav-link py-1" href="#useful-resources">Useful Resources&#x200E;</a>
+    </nav>
+
+  </nav>
+</nav>
+
+<div id="flex-body">
+  <div id="site-nav">
+    <span id="toc">
+      <ul style="list-style-type: none; margin-left:-1em">
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">C++
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Java
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
+            <i class="dropdown-btn-icon rotate-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open">UI/UX
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a current">Accessibility</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+            </ul>
+          </div>
+        </li>
+        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+            <i class="dropdown-btn-icon">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+          <div class="dropdown-container">
+            <ul style="list-style-type: none; margin-left:-1em">
+              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html" class="site-nav__a">Databases</a></li>
+              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li style="margin-top: 10px"><button class="dropdown-btn">Security
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul style="list-style-type: none; margin-left:-1em">
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </span></div>
+  <div id="site-nav-btn-wrap">
+    <div id="site-nav-btn">
+      <div class="menu-top-bar"></div>
+      <div class="menu-middle-bar"></div>
+      <div class="menu-bottom-bar"></div>
+    </div>
+  </div>
+  <div id="page-content">
+    <div id="page-nav-content-wrapper">
+      <div id="content-wrapper">
+        <navbar placement="top" class="temp-navbar">
+          <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+          <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
+          <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
+          <li><a href="https://se-edu.github.io/addressbook-level3/" class="nav-link"><span>AB-3</span></a></li>
+          <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
+          <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
+          <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
+          <span class="nav-link temp-dropdown-placeholder">Resources</span>
+          <dropdown text="Resources" class="nav-link temp-dropdown">
+            <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
+            <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
+            <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
+            <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+          </dropdown>
+          <li slot="right" class="nav-link">
+            <form class="navbar-form">
+              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
+            </form>
+          </li>
+        </navbar>
+        <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
+        <div class="website-content">
+          <h1 id="accessibility">Accessibility<a class="fa fa-anchor" href="#accessibility"></a></h1>
+          <p><strong>Author(s): <a href="https://github.com/monmanuela">Monika Manuela Hengki</a></strong></p>
+          <p>Reviewers: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>, <a href="https://github.com/jacoblipech">Jacob Li Pengcheng</a>, <a href="https://github.com/tanhengyeow">Tan Heng Yeow</a></p>
+          <box type="info">
+            Note that although the scope of this article covers the accessibility of websites, many of the points also apply to accessibility and UI/UX of other softwares too.
+          </box>
+          <h2 id="what-is-accessibility">What is accessibility?<a class="fa fa-anchor" href="#what-is-accessibility"></a></h2>
+          <blockquote>
+            <p>Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections. <sub>--<a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility">MDN Web Docs</a></sub></p>
+          </blockquote>
+          <h2 id="why-is-accessibility-important">Why is accessibility important?<a class="fa fa-anchor" href="#why-is-accessibility-important"></a></h2>
+          <p>Accessibility is important for users with disabilities to access the Web. There are many kinds of disabilities, including:</p>
+          <ul>
+            <li>Visual <span class="dimmed">e.g., partial blindness, full blindness, color blindness, cataract, glaucoma, etc.</span></li>
+            <li>Auditory <span class="dimmed">e.g., hard of hearing, deafness, etc.</span></li>
+            <li>Cognitive <span class="dimmed">e.g., ADHD, autism spectrum, etc.</span></li>
+            <li>Mobility <span class="dimmed">e.g., quadriplegia, muscular dystrophy, etc.</span></li>
+          </ul>
+          <p>At the same time, accessibility also benefits people <em>without</em> disabilities, for example:</p>
+          <ul>
+            <li>Device limitations <span class="dimmed">e.g., using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.</span></li>
+            <li>Age-related limitations <span class="dimmed">e.g., poor dexterity, poor eyesight</span></li>
+            <li>Temporary limitations <span class="dimmed">e.g., broken arm, lost glasses</span></li>
+            <li>Situational limitations <span class="dimmed">e.g., under bright sunlight, an environment where one cannot listen to audio</span></li>
+            <li>Internet-related limitations <span class="dimmed">e.g., slow Internet connection, limited bandwidth</span></li>
+          </ul>
+          <p>More information on the above can be found on <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/#what">this article</a>.</p>
+          <p>Improving accessibility also brings some benefits to you as a developer:</p>
+          <ol>
+            <li><strong>Accessibility is a right</strong>. Caring about accessibility demonstrates good ethics/morals.</li>
+            <li><strong>Accessibility helps you improve your website's UX</strong>. <a href="https://www.w3.org/standards/webdesign/accessibility">W3C</a> notes that accessibility practices are good design practices in general, which improve the UX of your website.</li>
+            <li><strong>Accessibility makes your website more discoverable</strong>. Web pages with good accessibility practices are ranked higher by search engine crawlers, making your website more discoverable and marketable to new users. <span class="dimmed">(Read more on accessibility and search engine <a href="https://blogs.perficientdigital.com/2018/01/12/website-accessibility-benefit-seo/">here</a>)</span></li>
+            <li><strong>Accessibility helps you increase your user base</strong>. According to the <a href="https://www.who.int/disabilities/world_report/2011/report/en/">World Health Organization world report on disability</a>, about 15% of the world's population live with some form of disability. That makes up more than 1 billion people. It is a significant population of users, so improving accessibility can help you reach more people.</li>
+            <li><strong>Accessibility is part of the law in some places</strong>. In <a href="https://www.w3.org/WAI/policies/">some countries</a>, abiding by accessibility guidelines is mandatory. Be careful not to break the law!</li>
+          </ol>
+          <h2 id="how-can-i-improve-the-accessibility-of-my-website">How can I improve the accessibility of my website?<a class="fa fa-anchor" href="#how-can-i-improve-the-accessibility-of-my-website"></a></h2>
+          <p>There are many ways to improve the accessibility of your website. Below are some tips, based on the type of disabilities they address.</p>
+          <h3 id="visual">Visual<a class="fa fa-anchor" href="#visual"></a></h3>
+          <p>Users with visual impairments rely on assistive technologies such as a magnifier or a screen reader.</p>
+          <h5 id="best-practice-use-more-visual-indicators-to-convey-a-message"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use more visual indicators to convey a message</h5>
+          <p>Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.</p>
+          <p>This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
+            <a href="accessibility/fb-normal.png" target="_self"><img src="accessibility/fb-normal.png" alt class="img-fluid" title="Facebook sign up page"></a></p>
+          <p>However, to someone with a type of color blindness called <a href="https://en.wikipedia.org/wiki/Achromatopsia">achromatopsia</a>, this is how the page looks like:
+            <a href="accessibility/fb-achromatopsia.png" target="_self"><img src="accessibility/fb-achromatopsia.png" alt class="img-fluid" title="Facebook sign up page to someone with achromatopsia"></a></p>
+          <p>To someone with another type of color blindness, <a href="https://en.wikipedia.org/wiki/Deuteranopia">deuteranopia</a>, the page looks like this:
+            <a href="accessibility/fb-deuteranopia.png" target="_self"><img src="accessibility/fb-deuteranopia.png" alt class="img-fluid" title="Facebook sign up page to someone with deuteranopia"></a></p>
+          <p>It may be unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
+            <a href="accessibility/fb-more-indicators.png" target="_self"><img src="accessibility/fb-more-indicators.png" alt class="img-fluid" title="Facebook sign up page with more visual indicators"></a></p>
+          <h5 id="best-practice-maintain-good-color-contrast"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Maintain good color contrast</h5>
+          <p>Look at this page taken from Tech Crunch.
+            <a href="accessibility/tc-normal.png" target="_self"><img src="accessibility/tc-normal.png" alt class="img-fluid" title="Tech Crunch page"></a></p>
+          <p>To users with good vision, the design may look minimalist and clean. However, to someone suffering from cataract, the page looks like this.</p>
+          <p><a href="accessibility/tc-blurred.png" target="_self"><img src="accessibility/tc-blurred.png" alt class="img-fluid" title="Tech Crunch page to someone with cataract"></a>
+            It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good color contrast ratio in our websites for ease of reading.</p>
+          <h5 id="best-practice-use-alt-attribute-for-images"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use <code>alt</code> attribute for images</h5>
+          <p>The <code>alt</code> attribute provides alternative information for an image that can be read out by a screen reader to describe an image.</p>
+          <p><a href="accessibility/alt-tag.png" target="_self"><img src="accessibility/alt-tag.png" alt class="img-fluid" title="Alt tag"></a></p>
+          <p>The above are some examples of best practices to follow when developing for web accessibility. More can be found in <a href="https://www.w3.org/WAI/tips/developing/">this article on developing for accessibility</a>.</p>
+          <h3 id="auditory">Auditory<a class="fa fa-anchor" href="#auditory"></a></h3>
+          <p>Hearing-impaired users do use assistive technologies such as a <a href="https://en.wikipedia.org/wiki/Hearing_aid">hearing aid</a> or a <a href="https://en.wikipedia.org/wiki/Cochlear_implant">cochlear implant</a>, but these are not specific for accessing websites.</p>
+          <p>For users with hearing impairment, we should provide text alternatives to audio content, such as:</p>
+          <ul>
+            <li>Text transcripts</li>
+            <li>Captions</li>
+          </ul>
+          <p>Here's a <a href="https://www.w3.org/2017/04/xsmedia-tute/page5.html">tutorial on adding transcripts</a>. Adding captions is commonly supported in video hosting websites such as Youtube or Vimeo.</p>
+          <p>More information can be found on <a href="https://webaim.org/techniques/captions/">this article on transcripts and captions</a>.</p>
+          <h3 id="cognitive">Cognitive<a class="fa fa-anchor" href="#cognitive"></a></h3>
+          <p>Cognitive disabilities range from mental illnesses to learning difficulties, difficulties in comprehension and concentration, etc. Some examples include <a href="https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder">Attention Deficit Hyperactivity Disorder (ADHD)</a>, and <a href="https://en.wikipedia.org/wiki/Autism">autism</a>.</p>
+          <p>Such disabilities might affect how the user uses a website. It could be due to difficulty in understanding how to complete a task, remembering how to do something that was previously accomplished, increased frustration due to confusing workflows or inconsistent layouts/navigation/other page features.</p>
+          <p>Unlike other web accessibility issues, there is no quick fix to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here are some best practices mentioned by <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments">MDN Web Docs</a> and <a href="https://www.autism.org.uk/professionals/others/website-design.aspx">National Autistic Society</a>:</p>
+          <h5 id="best-practice-avoid-distractions"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Avoid distractions <br></h5>
+          <p>People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where cluttered pages can be overwhelming.</p>
+          <ul>
+            <li>Avoid unnecessary movements from animations or moving elements</li>
+            <li>Have a clean and uncluttered design</li>
+          </ul>
+          <p>Here's a comparison of a cluttered vs clean website landing page taken from <a href="https://www.britishgas.co.uk/">British Gas website</a>.</p>
+          <p>Cluttered page:
+            <a href="accessibility/bg-old.png" target="_self"><img src="accessibility/bg-old.png" alt class="img-fluid" title="Cluttered landing page"></a></p>
+          <p>Clean page:
+            <a href="accessibility/bg-new.png" target="_self"><img src="accessibility/bg-new.png" alt class="img-fluid" title="Clean landing page"></a></p>
+          <h5 id="best-practice-be-logical"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Be logical</h5>
+          <ul>
+            <li>Multi-stage processes should be broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.</li>
+            <li>Workflows are logical, simple, and require as little interaction as possible to complete.</li>
+          </ul>
+          <h5 id="best-practice-be-consistent"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Be consistent</h5>
+          <ul>
+            <li>Navigation, header, footer, and main content are always in the same places.</li>
+            <li>Navigation mechanisms are consistent in appearance and behaviour.</li>
+          </ul>
+          <h5 id="best-practice-communicate-well"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Communicate well <br></h5>
+          <p>People with cognitive disabilities are more likely to take things literally and can benefit from more visual cues.</p>
+          <ul>
+            <li>
+              <p>Pages are not overly long or dense in terms of the amount of information presented at once.</p>
+              <blockquote>
+                <p><a href="https://www.lifewire.com/web-page-length-3468959">An article</a> says a rule of thumb is &quot;No article should exceed 2 printed pages of double-spaced, 12 point text.&quot; whereas <a href="https://www.greenmellenmedia.com/how-long-should-my-website-content-be/">another article</a> says &quot;There is no &quot;magic number&quot; for a number of characters for content. As long as the web page content is clear, to the point and written for people&quot;. Ultimately, what's most important is what <em>your</em> users think, so validation during user testing is paramount.</p>
+              </blockquote>
+            </li>
+            <li>
+              <p>The language used is as plain and easy to follow, and not full of unneccessary jargon and slang.</p>
+            </li>
+            <li>
+              <p>Important points and content are highlighted in some way.</p>
+            </li>
+            <li>
+              <p>User errors are clearly highlighted, with help messages to suggest solutions.</p>
+            </li>
+          </ul>
+          <p>More importantly, after following the best practices, you should conduct user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.</p>
+          <p>WebAIM's <a href="http://webaim.org/articles/cognitive/">Cognitive</a> page provides a useful expansion of the ideas above, and is certainly worth reading.</p>
+          <h3 id="mobility">Mobility<a class="fa fa-anchor" href="#mobility"></a></h3>
+          <p>Mobility impairments include paralysis, physical weakness or loss of control in limbs. This can cause users to find it difficult or impossible to use a mouse as the main form of interaction with websites.</p>
+          <p>Assistive devices include a <a href="https://en.wikipedia.org/wiki/Switch_access">switch access</a>, or a <a href="https://www.performancehealth.com/baseball-cap-head-pointer">head pointer</a>. Users may also use a keyboard instead of a mouse to interact with the website.</p>
+          <p>The key to improve accessibility for mobility is to make the website keyboard accessible. Keyboard accessible means that users can navigate through the website using the keyboard. For example, users can use <code>Tab</code>, <code>Shift</code> + <code>Tab</code> keystrokes to navigate through interactive elements on a page, click <code>Enter</code> to open a hyperlink, etc.</p>
+          <p>WebAIM's article on <a href="https://webaim.org/techniques/keyboard/">keyboard accessibility</a> provides a thorough tutorial for this.</p>
+          <h2 id="tools-for-developers">Tools for Developers<a class="fa fa-anchor" href="#tools-for-developers"></a></h2>
+          <p>Here are some useful tools that you can use to improve the accessibility of your website:</p>
+          <ul>
+            <li>
+              <p><a href="https://developers.google.com/web/tools/lighthouse/"><strong>Google Lighthouse</strong></a>. Google Lighthouse is an automated tool that audits the accessibility level of your websites. It can be found in Chrome DevTools. Given a URL to audit, Lighthouse runs a series of audits and generates a report. The failing audits will show which part of the page causes it, and how to fix it. <br>
+                Here's how an audit report looks like:
+                <a href="accessibility/lh-audit.png" target="_self"><img src="accessibility/lh-audit.png" alt class="img-fluid" title="Lighthouse audit"></a></p>
+            </li>
+            <li>
+              <p><a href="http://colorsafe.co/"><strong>Color Safe Palette Generator</strong></a>. This website can help you to create a color palette that is based on the Web Content Accessibility Guidelines (WCAG) for text and background contrast ratios.</p>
+            </li>
+            <li>
+              <p><a href="http://chromelens.xyz/"><strong>ChromeLens</strong></a>. This Chrome extension has 2 useful features:</p>
+              <ul>
+                <li><strong>Filters</strong>: To simulate various color blindness so you can browse your website as how a color blind person sees it.
+                  <a href="http://chromelens.xyz/images/website_protanopia.png" target="_self"><img src="http://chromelens.xyz/images/website_protanopia.png" alt class="img-fluid"></a></li>
+                <li><strong>Tracker</strong>: To show the pathway a blind user will go through when browsing your web page with a screen reader. You can check if your web page goes through a logical flow and that the important content is included for the screen reader to narrate.
+                  <a href="http://chromelens.xyz/images/website_trace.png" target="_self"><img src="http://chromelens.xyz/images/website_trace.png" alt class="img-fluid"></a></li>
+              </ul>
+            </li>
+          </ul>
+          <p>Note that although there are many accessibility testing tools available, user testing with actual users with disabilities is still important. The automated testing tools may not point out all of the accessibility issues that actual users face.</p>
+          <h2 id="concluding-remarks">Concluding Remarks<a class="fa fa-anchor" href="#concluding-remarks"></a></h2>
+          <p>Ultimately, the most important thing you need to start designing accessible websites is empathy for your users. Each user is unique, and each user has different needs. As a developer, you need to put yourself in the users' shoes, understand their pain points, and then develop solutions for them so that everyone can navigate through your website freely.</p>
+          <h2 id="useful-resources">Useful Resources<a class="fa fa-anchor" href="#useful-resources"></a></h2>
+          <p>You are ready for your accessibility journey! Here are some resources to help you get started:</p>
+          <ul>
+            <li><a href="https://a11yproject.com/resources"><strong>The A11Y Project</strong></a>. The Accessibility Project is an open-source resource library on accessibility. It seeks to make it easier for developers to implement accessible websites by providing tips, tutorials and a widget and pattern library.</li>
+            <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/"><strong>Web Content Accessibility Guidelines (WCAG)</strong></a>. WCAG provides a single shared standard for web content accessibility that meets the needs of individuals, organizations, and governments internationally.</li>
+            <li><a href="https://webaim.org/articles"><strong>Web Accessibility in Mind (WebAIM)</strong></a>. WebAIM contains well-written articles on specific topics on accessibility issues and how to tackle them.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="flex-div"></div>
+<footer>
+  <div class="text-center">
+    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.20.0</a> on Wed, 20 Mar 2019 03:19:38 GMT]</small></div>
+</footer>
+</div>
+</body>
+<script src="../../markbind/js/vue.min.js"></script>
+<script src="../../markbind/js/vue-strap.min.js"></script>
+<script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../markbind/js/polyfill.min.js"></script>
+<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+<script>
+    const baseUrl = '/learningresources'
+    const enableSearch = true
+</script>
+<script src="../../markbind/js/setup.js"></script>
+<script src="../../markbind/layouts/default/scripts.js"></script>
+</html>

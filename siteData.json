@@ -1081,6 +1081,28 @@
     },
     {
       "headings": {
+        "accessibility": "Accessibility",
+        "what-is-accessibility": "What is accessibility?",
+        "why-is-accessibility-important": "Why is accessibility important?",
+        "how-can-i-improve-the-accessibility-of-my-website": "How can I improve the accessibility of my website?",
+        "visual": "Visual",
+        "auditory": "Auditory",
+        "cognitive": "Cognitive",
+        "mobility": "Mobility",
+        "tools-for-developers": "Tools for Developers",
+        "concluding-remarks": "Concluding Remarks",
+        "useful-resources": "Useful Resources"
+      },
+      "title": "Accessibility",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/uix/accessibility.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "refining-ux-design-skills": "Refining UX Design Skills",
         "table-of-contents": "Table of Contents",
         "overview": "Overview ",
