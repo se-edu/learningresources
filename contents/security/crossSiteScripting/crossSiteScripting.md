@@ -14,6 +14,8 @@
 
 Authors: [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md) and [Chester Sng](https://github.com/ChesterSng)
 
+Reviewers: [Bryan Lew](https://github.com/blewjy) and [Jeremy Choo](https://github.com/ChooJeremy)
+
 ## What is XSS?
 Cross Site Scripting (XSS) is the most exploited web application vulnerability in 2017 (based on a <a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">report</a> in 2018). XSS vulnerabilities have been reported and exploited since the 1990s. Prominent sites affected in the past include social-networking sites <a href="https://www.symantec.com/connect/blogs/persistent-xss-vulnerability-facebook" target="_blank">Facebook</a> and <a href="https://www.acunetix.com/blog/articles/dangerous-xss-vulnerability-found-on-youtube-the-vulnerability-explained/" target="_blank">Youtube</a>.
 
