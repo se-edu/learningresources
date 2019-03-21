@@ -144,7 +144,7 @@ A visual to summarize the above :
 
 ![Component](https://angular.io/generated/images/guide/architecture/component-databinding.png)
 
-### When not to use Angular
+### When not to use Angular?
 
 Like any other framework/library, Angular has its share of disadvantages.
 
@@ -196,9 +196,9 @@ Angular is not the easiest framework to work with. However, it is reliable and i
 
 There are many online resources and tutorials that can help you ease into the Angular world.
 
-- [Single Page Applications Explained](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html)
+- [Single Page Applications Explained](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html) - An overview of Single Page Applications.
 - [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
-- [StackOverflow Questions](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - Top voted questions on Angular
+- [StackOverflow Questions](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - Top voted questions on Angular.
 - [Angular in depth](https://blog.angularindepth.com/) - Advanced concepts in Angular explained
 
 </div>
