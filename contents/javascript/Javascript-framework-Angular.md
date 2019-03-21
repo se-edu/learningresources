@@ -86,7 +86,7 @@ Lastly, we have the model. In Angular, the model will mostly be our services, wh
 
 ![File Structure](file.png)
 
-Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together. However, Angular does not require you to connect these components together. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, everything happens under the hood. Angular ensures Separation of Concerns and automatic synchronization between the components. That saves developers time.
+Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together. However, Angular does not require you to connect these components together. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, everything happens under the hood. Angular ensures automatic synchronization between the components. That saves developers time.
 
 ### Benefit 3: Angular CLI
 
