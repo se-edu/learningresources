@@ -35,7 +35,7 @@ However, the advantages Angular provides justifies its steep learning curve.
  
 2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superset of JavaScript. TypeScript provides static typing. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage is that TypeScript provides code completion using [Intellisense](https://docs.microsoft.com/en-us/visualstudio/ide/using-intellisense?view=vs-2017). IntelliSense provides active hints as code is added.
 
-    <box> TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years making it reliable to use.</box>
+    <box> TypeScript was created and is maintained by Microsoft. It has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> over the last few years making it reliable to use.</box>
                                                   
 3. **Google Long-Term Support.** Some software engineers consider the fact that Angular is supported by Google an advantage of the technology. While this may sound justified, it does not serve as much of an incentive. The good sign though is that Google announced Long-Term Support (LTS) for the technology back in 2017.
 
@@ -81,8 +81,10 @@ The above example shows how Angular makes it easier for developers to design the
 
 ### Benefit 2: Simplified MVC pattern and reduced coding.
 
-Angular framework uses the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) structure. The HTML, is what is presented to the user. This represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
+Angular framework uses the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) structure. The HTML represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose what data to push to our view (`.html`). 
 Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
+
+![File Structure](file.png)
 
 Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together. However, Angular does not require you to connect these components together. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, everything happens under the hood. Angular ensures Separation of Concerns and automatic synchronization between the components. That saves developers time.
 
@@ -190,9 +192,9 @@ Every framework/library has its own pros and cons. The framework/library you cho
 
 ### Where to Go from Here?
 
-Angular is not the easiest framework to work with. However, it is reliable and is used by many developers to create large scale applications. The Angular community is big, and help is readily available via searching on Google, Stack Overflow, and all around the web.
+Angular is not the easiest framework to work with. However, it is reliable and is used by many developers to create large scale applications. The Angular community is big, and help is readily available via searching on Google and Stack Overflow.
 
-There are many online resources and tutorials online that can help you ease into the Angular world.
+There are many online resources and tutorials that can help you ease into the Angular world.
 
 - [Single Page Applications Explained](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html)
 - [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
