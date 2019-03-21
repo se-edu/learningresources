@@ -24,7 +24,6 @@ The framework aims to make development and testing of enterprise web application
 >
 >Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a>. 
 
-
 ## Why learn Angular?
 
 Angular is a complex framework and can be challenging for new developers to understand.
@@ -34,7 +33,7 @@ However, the advantages Angular provides justifies its steep learning curve.
 
     <box>Single Page Applications are a type of web applications that load a single HTML page. The key feature is that SPAs can communicate with back-end servers without refreshing the full web page. SPAs load information on a single HTML page. The page updates dynamically through JavaScript as the user interacts with the app. This enhances the user experience.</box>
  
-2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superset of JavaScript. TypeScript provides static typing. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage of TypeScript is that it provides code completion using IntelliSense. IntelliSense provides active hints as code is added.
+2. **Angular uses TypeScript.** Angular applications are built using TypeScript language, a superset of JavaScript. TypeScript provides static typing. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage is that TypeScript provides code completion using [Intellisense](https://docs.microsoft.com/en-us/visualstudio/ide/using-intellisense?view=vs-2017). IntelliSense provides active hints as code is added.
 
     <box> TypeScript was created and is maintained by Microsoft, and has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> for the last few years making it reliable to use.</box>
                                                   
@@ -73,7 +72,7 @@ On the other hand, using versions Angular 2 and above, your code would look some
 <input numerictextbox k-min="-10" k-max="100" k-step="0.75"
   k-format="n" k-decimals="3"/>
 ```
-Instead of worrying about how to transform the element, you declare what you want the user to see.
+
 Rather than spending time thinking on how the program should flow, you define what you want the user to see and Angular will take care of the dependencies.
 
 The above example shows how Angular makes it easier for developers to design the UI elements.
@@ -84,8 +83,6 @@ The above example shows how Angular makes it easier for developers to design the
 
 Angular framework uses the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) structure. The HTML, is what is presented to the user. This represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose which data to push to our view (`.html`). 
 Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
-
-![MVC Pattern](http://anasfirdousi.com/img/folder-by-component-type.png)
 
 Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together. However, Angular does not require you to connect these components together. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, everything happens under the hood. Angular ensures Separation of Concerns and automatic synchronization between the components. That saves developers time.
 
@@ -103,7 +100,7 @@ With Angular CLI developers can generate Angular files, execute applications and
 
 ### What does an Angular app look like?
 
-Let’s dive into some code written for Angular, starting with a little hello world example. All Angular apps start in HTML. The code is applicable for versions Angular 2 and above.
+Let’s dive into some code written for Angular, starting with a little hello world example. The code is applicable for versions Angular 2 and above.
 
 ```
 <!doctype html>
@@ -118,7 +115,7 @@ Let’s dive into some code written for Angular, starting with a little hello wo
 </html>
 ```
 
-The one unique thing in the above example is the `<my-app>` element, as that’s not an element you would normally use in a web-based application. Angular’s extends the vocabulary of HTML by allowing you do define your own tags.
+The one unique thing in the above example is the `<my-app>` element, as that’s not an element you would normally use in a web-based application. Angular extends the vocabulary of HTML by allowing you do define your own tags.
 These custom tags are known as components.
 
 Let's now look at some TypeScript code that defines the `<my-app>` component.
@@ -155,18 +152,25 @@ The sheer number of new concepts is confusing to newcomers.
 2. **Opinionated Framework** - Angular enforces developers to follow a structure when designing the application. While libraries like React allow engineers the freedom to choose any third party library to integrate into their application.
 
     [source](https://www.altexsoft.com/blog/engineering/the-good-and-the-bad-of-angular-development/)
+    
+## What are the different versions of Angular?
+
+There have been 6 versions of Angular so far. AngularJS, the first version, was released in 2010. Angular2, Angular4, Angular5, Angular6 and Angular7 are the more recent versions.
+Each version has new enhancements as Google provides new updates in the framework periodically.
+
+The differences between the various versions can be better understood from [this](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) article.    
 
 ### Angular when compared with other popular frontend frameworks
 
-There are many frontend frameworks and libraries out there that developers prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
+There are many frontend frameworks and libraries out there that developers may prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
 
-Choosing a tech stack sometimes becomes a tedious task as you need to take every factor into consideration including budget, time, app size, end-users, project objectives, and resources.
+Choosing a tech stack can become a tedious task as you need to take every factor into consideration including budget, time, app size, end-users, project objectives, and resources.
 
-React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage that it has.
+React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage.
 React provides more flexibility to developers as it allows integration of third party libraries. It also has a good set of developer tools that helps in debugging.
 Similarly, Vue offers us some advantages, like flexibility, simplistic structure and ease of integration.
 
-Every framework/library has its own pros and cons. The framework/library you choose depends on the requirements of the application. There are many great tools for developers to choose from. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
+Every framework/library has its own pros and cons. The framework/library you choose depends on the requirements of the application. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
@@ -181,14 +185,6 @@ Every framework/library has its own pros and cons. The framework/library you cho
 3. [Here](https://github.com/angular/angular) is a link to the official Angular framework maintained by Google. You could even open a PR and start contributing!
 
 4. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
-
-5. Introduction to [Intellisense](https://docs.microsoft.com/en-us/visualstudio/ide/using-intellisense?view=vs-2017)
-
-## What are the different versions of Angular?
-
-AngularJS or Angular1 is a JavaScript front-end framework developed by Google whereas Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.
-There have been 6 versions of Angular so far, which are AngularJS, Angular2, Angular4, Angular5, Angular6 and the latest one being Angular7.
-Each version has new enhancements as Google provides new updates in the framework periodically.
 
 [source](https://www.quora.com/What-are-the-different-versions-of-AngularJS)
 
