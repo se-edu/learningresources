@@ -28,6 +28,7 @@ However, the syntaxes and functions used across these software systems <tooltip 
   Many online resources refer to Microsoft SQL Server as SQL. So, keep that in mind before you start making conclusions about the characteristics and features of SQL, the language.
 </box>
 
+---
 
 ### How does SQL work?
 
