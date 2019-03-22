@@ -41,7 +41,7 @@ Most profilers are similar in their functionalities, user interface, and use of
 technical terms. You may adapt the tutorials in this article to your preferred profiling 
 tools on your own project. 
 
-* [Profiling a Desktop Application In Visual Studio 2015](ProfilingDesktopAppVS2015.md)
+* [Profiling a Desktop Application In Visual Studio 2015](ProfilingDesktopAppVS2015.html)
 
 ## Advanced Topics
 
