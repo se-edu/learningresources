@@ -50,7 +50,7 @@
     * [ESLint]({{baseUrl}}/contents/staticAnalysis/ESLint.html)
   * Testing
     * [Writing Testable Code]({{baseUrl}}/contents/testing/writing-testable-code.html)
-    * [Writing E2E Test Code]({{baseUrl}}/contents/testing/writing-e2e-test.html)
+    * [Writing Integration Test]({{baseUrl}}/contents/testing/writing-integration-test.html)
   * UI/UX
     * [Accessibility]({{baseUrl}}/contents/uix/accessibility.html)
     * [Design Systems]({{baseUrl}}/contents/uix/design-systems.html)
