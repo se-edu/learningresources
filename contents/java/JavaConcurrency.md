@@ -120,7 +120,7 @@ This can be illustrated by the following image where once Thread 2 (T2) acquires
 
 ![Synchronized block](http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg)
 
-For a deeper look, see the [Java Synchronisation](../java/JavaSynchronization.md) section. 
+For a deeper look, see the [Java Synchronisation](JavaSynchronization.html) section.
 
 ### Executors
 While it is easy to create one or two threads and run them, it becomes a problem when your application requires creating 20 or 30 threads for running tasks concurrently. This is where the `Executors` class comes in. It helps you with:
