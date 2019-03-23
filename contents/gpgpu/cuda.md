@@ -54,7 +54,7 @@
 
 This learning resource assumes that you understand what GPGPU is.
 
-If not, find out more about GPGPU at [se-edu's learning resource on GPGPU](gpgpu.md).
+If not, find out more about GPGPU at [se-edu's learning resource on GPGPU](gpgpu.html).
 
 ## § 1. CUDA
 
@@ -242,7 +242,7 @@ This topic is widely covered. Here are some good references on what the differen
 - [Official CUDA C developer resources](https://developer.nvidia.com/cuda-zone)
 - [Official CUDA C programming guide](http://docs.nvidia.com/cuda/cuda-c-programming-guide)
 - [Lightning talk slides: GPU Programming Made Easy with Python](https://github.com/nus-oss/lightningtalks/issues/44)
-- [se-edu's learning resource on GPGPU](gpgpu.md)
+- [se-edu's learning resource on GPGPU](gpgpu.html)
 
 ## § 5. References
 

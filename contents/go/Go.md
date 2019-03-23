@@ -12,7 +12,8 @@
 
 # Introduction to Go
 
-Author(s): [Cara Leong](https://github.com/craaaa)
+**Author(s): [Cara Leong](https://github.com/craaaa)**<br>
+Reviewers: [Darren Wee](https://github.com/darrenwee), [Tran Tien Dat](https://github.com/tran-tien-dat)
 
 ## What Is Go?
 Go (also known as `golang`) is a compiled, statically-typed, garbage-collected language that has special memory safety and concurrent programming features. Born out of frustration with the available languages (e.g. C, C++, Java) and environments for systems programming, Go was [conceptualized by programmers at Google](https://talks.golang.org/2012/splash.article) who sought to create a single language that was efficient to write, build and execute. Go also supports newer developments in computing such as multicore processors and network systems.
@@ -64,12 +65,12 @@ A goroutine is a lightweight thread that executes a function concurrently with i
 
 ```go
 func run() {
-	// does something
+    // does something
 }
 
 func main() {
-	go run()
-	executeOtherCommands()
+    go run()
+    executeOtherCommands()
 }
 ```
 
@@ -79,9 +80,9 @@ Goroutines can also be started for anonymous functions:
 
 ```go
 func foo() {
-	go func(msg string) {
-		fmt.Println(msg)
-	}("a message") // starts a goroutine that prints "a message"
+    go func(msg string) {
+        fmt.Println(msg)
+    }("a message") // starts a goroutine that prints "a message"
 }
 ```
 
@@ -108,7 +109,7 @@ Goroutines send and receive messages through a channel using the `<-` operator.
 ```go
 ch <- v   // Send v to channel ch.
 v := <-ch // Receive from ch, and
-	  // assign value to v.
+      // assign value to v.
 ```
 One useful way to think about sending and receiving data with the `<-` operator is that the data moves in the direction of the arrow.
 
@@ -116,19 +117,19 @@ Channels can be used to synchronize execution across goroutines, since receivers
 
 ```go
 func worker(done chan bool) {
-	fmt.Print("Working...")
-	time.Sleep(time.Second)
-	fmt.Println("Done working")
+    fmt.Print("Working...")
+    time.Sleep(time.Second)
+    fmt.Println("Done working")
 
-	done <- true
+    done <- true
 }
 
 func main() {
-	done := make(chan bool)
-	go worker(done)
+    done := make(chan bool)
+    go worker(done)
 
-	<-done
-	fmt.Println("Returned from work")
+    <-done
+    fmt.Println("Returned from work")
 }
 ```
 
@@ -145,7 +146,7 @@ An `error` variable represents any value that can describe itself as a string, b
 
 ```go
 type error interface {
-	Error() string
+    Error() string
 }
 ```
 
@@ -153,12 +154,12 @@ When calling a method that may return an error, we check if the returns `err != 
 
 ```go
 func useFile() {
-	f, err := os.Open("filename.ext")
-	if err != nil {
-	    log.Fatal(err)
-	    return
-	}
-	// do something with the open *File f
+    f, err := os.Open("filename.ext")
+    if err != nil {
+        log.Fatal(err)
+        return
+    }
+    // do something with the open *File f
 }
 ```
 
@@ -176,9 +177,9 @@ As opposed to traditional control flow mechanisms such as `if`, `for` and `switc
 
 ```go
 func foo() {
-	defer fmt.Println("This gets printed third")
-	defer fmt.Println("This gets printed second")
-	fmt.Println("This gets printed first")
+    defer fmt.Println("This gets printed third")
+    defer fmt.Println("This gets printed second")
+    fmt.Println("This gets printed first")
 }
 ```
 
@@ -193,37 +194,37 @@ Meanwhile, although `Circle` implements `perim()`, it does not implement `area()
 
 ```go
 type TwoDimensional interface {
-	area() float64
-	perim() float64
+    area() float64
+    perim() float64
 }
 
 type Rectangle struct {
-	width, height float64
+    width, height float64
 }
 
 type Circle struct {
-	radius float64
+    radius float64
 }
 
 func (r Rectangle) area() float64 {
-	return r.width * r.height
+    return r.width * r.height
 }
 
 func (r Rectangle) perim() float64 {
-	return r.width*2 + r.height*2
+    return r.width*2 + r.height*2
 }
 
 func (c Circle) perim() float64 {
-	return 2 * math.Pi * c.radius
+    return 2 * math.Pi * c.radius
 }
 
 func price(t TwoDimensional) float64 {
-	return t.area() * 3.5
+    return t.area() * 3.5
 }
 
 func main(){
-	c := Cirlce{5}
-	fmt.Println(price(c))
+    c := Cirlce{5}
+    fmt.Println(price(c))
 }
 ```
 
@@ -231,7 +232,7 @@ Go checks that types satisfy the required interfaces at compile time. For exampl
 
 ```
 cannot use c (type Circle) as type TwoDimensional in argument to price:
-	Circle does not implement TwoDimensional (missing area method)
+    Circle does not implement TwoDimensional (missing area method)
 ```
 
 One benefit of using a system where interface implementations need not be stated in the source code is that methods can be attached to types that you didn't write. In other words, you can extend a type to implement an interface without access to its source code by simply implementing the interface's method in your own code.
@@ -252,8 +253,8 @@ Running `$ go fmt` in the same directory as the source file will line up comment
 
 ```go
 type T struct {
-	name  string // name of the object
-	value int    // its value
+    name  string // name of the object
+    value int    // its value
 }
 ```
 Variations on `go fmt` may be of use, and can be found in the [Go documentation](https://golang.org/cmd/gofmt/).

@@ -51,6 +51,7 @@
   * UI/UX
     * [Introduction to UI/UX]({{baseUrl}}/contents/uix/uix.html)
     * [Refining UX Design Skills]({{baseUrl}}/contents/uix/refining-ux-skills.html)
+    * [Accessibility]({{baseUrl}}/contents/uix/accessibility.html)
 
 * ****App Frameworks****
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
