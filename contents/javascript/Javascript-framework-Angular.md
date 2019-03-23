@@ -29,21 +29,30 @@ The framework aims to make development and testing of enterprise web application
 Angular is a complex framework and can be challenging for new developers to understand.
 However, given below are some noteworthy features of Angular (adapted from [here](https://hackr.io/blog/why-should-you-learn-angular-in-2018)):
 
-1. **Angular supports Single Page Applications (SPAs).**
-
-    Single Page Applications are a type of web applications that load a single HTML page. The key feature is that SPAs can communicate with back-end servers without refreshing the full web page. SPAs load information on a single HTML page. The page updates dynamically through JavaScript as the user interacts with the app. This enhances the user experience.
+1. **Angular supports Single Page Applications (SPAs).** Single Page Applications are a type of web applications that load a single HTML page. The key feature is that SPAs can communicate with back-end servers without refreshing the full web page. SPAs load information on a single HTML page. The page updates dynamically through JavaScript as the user interacts with the app. This enhances the user experience.
  
 2. **Angular uses TypeScript.** Angular applications are built using the TypeScript language, a superset of JavaScript. TypeScript provides <tooltip content="Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.">static typing</tooltip>. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense.</tooltip>
 
+    Below is an example of static typing using TypeScript.
+    
+    ```typescript
+    // TypeScript
+    let name: string; // <-- static typed!
+    ```
+    
+    ```javascript
+    // JavaScript (ES6)
+    let name;
+    ```
     <box type="info"> TypeScript was created and is maintained by Microsoft. It has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> over the last few years making it reliable to use.</box>
                                                   
 3. **Google Long-Term Support.** Google announced Long-Term Support (LTS) for Angular back in 2017. This means Google plans to further scale up the Angular ecosystem.
 
 ### What does an Angular app look like?
 
-Let’s dive into some code written for Angular, starting with a little hello world example. The code is applicable for versions Angular 2 and above.
+Let’s dive into some code, starting with a hello world example. The code is applicable for versions Angular 2 and above.
 
-```
+```html
 <!doctype html>
 <html>
   <head>
@@ -56,12 +65,12 @@ Let’s dive into some code written for Angular, starting with a little hello wo
 </html>
 ```
 
-The one unique thing in the above example is the `<my-app>` element, as that’s not an element you would normally use in a web-based application. Angular extends the vocabulary of HTML by allowing you do define your own tags.
+The one unique thing in the above example is the `<my-app>` element. That is not an element you would normally use in a web-based application. Angular extends the vocabulary of HTML by allowing you do define your own tags.
 These custom tags are known as components.
 
 Let's now look at some TypeScript code that defines the `<my-app>` component.
 
-```
+```typescript
 import { Component } from "@angular/core";
 
 @Component({
@@ -83,57 +92,35 @@ A visual to summarize the above :
 
 ![Component](https://angular.io/generated/images/guide/architecture/component-databinding.png)
 
-### Benefit 1: Angular provides a declarative user interface.
-
-Angular uses HTML to define the app’s user interface. HTML is a declarative language which is more intuitive than using imperative code to define the UI. An Imperative approach requires you to tell the compiler how you want the program to run by focussing on the logic implementation. Declarative code, on the other hand enables you to describe the logic without worrying about the implementation. How does it help? You do not need to invest time in dealing with how your program runs and deciding what to load first.
-
-Lets see a working example. 
-
-With jQuery you might write the following code to define a textbox that takes numeric values and doesn’t allow alphanumeric input or input that is beyond of a defined range.
-
-```
-$("#textbox").numericTextBox({
-    value: 10,
-    min: -10,
-    max: 100,
-    step: 0.75,
-    format: "n",
-    decimals: 3
-});
-```
-
-<box type="info">
-If you are not familiar with jQuery, you may want to get a brief understanding from the official <a href="https://jquery.com/">website</a>.
-</box>
-
-On the other hand, using versions Angular 2 and above, your code would look something like this:
-
-```
-<input numerictextbox k-min="-10" k-max="100" k-step="0.75"
-  k-format="n" k-decimals="3"/>
-```
-
-Rather than spending time thinking on how the program should flow, you define what you want the user to see and Angular will take care of the dependencies.
-
-The above example shows how Angular makes it easier for developers to design the UI elements.
-
-[source](https://www.telerik.com/blogs/three-ds-of-web-development-1-declarative-vs-imperative)
-
-### Benefit 2: Angular provides a Simplified MVC pattern.
+### Benefit 1: Angular provides a Simplified MVC pattern.
 
 Angular framework uses the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) structure. The HTML represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose what data to push to our view (`.html`). 
-Lastly, we have the model. In Angular, the model will mostly be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
+Lastly, we have the model. In Angular, the model will be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
 
 ![File Structure](file.png)
 
-Most frameworks require developers to split the application into multiple MVC components. After that, the developer has to write code to put them together. However, Angular does not require you to connect these components together. As explained in this [article](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) on the official website, everything happens under the hood. Angular ensures automatic synchronization between the components. That saves developers time.
+Most frameworks require developers to split the application into multiple MVC components. The developer is required to write code that connects these components. However, Angular reduces the amount of code you write. As explained on the official [website](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/), everything happens under the hood. Angular ensures automatic synchronization between the components.
+
+### Benefit 2: Angular provides two-way data binding.
+
+As explained previously, Angular divides the application into the Model, View and Controller architecture. Data binding establishes the connection between the Model and View components. There are two types of data binding as explained below.
+
+![Data Binding](one_two.png)
+
+Angular uses two-way data binding as opposed to popular tools like React that use one way data binding. How does this help?
+
+It ensures the exchange of data between the View and Model in a bi-directional manner. If the User Input changes, the data in the backend is updated by Angular. Additionally, if the Model state (data) changes, the UI is updated automatically. This means reduced coding for developers.
+
+One-way data binding (used in React) involves uni-directional communication. If the model is changed, the changes are reflected in the UI. However, if the UI element changes the model state is not updated. Developers must provide this synchronization code. 
+
+This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding-3e618309d6c7) on Medium provides a good introduction to two-way data binding in Angular.
 
 ### Benefit 3: Angular CLI provides for ease of development.
 
 In 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow in applications using versions Angular 2 and above.
 It is recommended to use Angular CLI for creating Angular apps as you don't need to spend time installing and configuring all the required dependencies.
 
-> npm install -g @angular/cli
+`npm install -g @angular/cli`
 
 Running the above command installs the Angular CLI and gives you more control over your project.
 With Angular CLI developers can generate Angular files, execute applications and even run end to end tests.
