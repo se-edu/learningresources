@@ -24,8 +24,6 @@ The framework aims to make development and testing of enterprise web application
 >
 <sub>Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a></sub>
 
-## Why learn Angular?
-
 Angular is a complex framework and can be challenging for new developers to understand.
 However, given below are some noteworthy features of Angular (adapted from [here](https://hackr.io/blog/why-should-you-learn-angular-in-2018)):
 
@@ -92,6 +90,10 @@ A visual to summarize the above :
 
 ![Component](https://angular.io/generated/images/guide/architecture/component-databinding.png)
 
+## Why Angular?
+
+Angular is a popular frontend tool and provides developers with advantages when compared to other frameworks/libraries. Listed below are a few benefits of using Angular.
+
 ### Benefit 1: Angular provides a Simplified MVC pattern.
 
 Angular framework uses the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) structure. The HTML represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose what data to push to our view (`.html`). 
@@ -136,15 +138,8 @@ The large number of new concepts can be confusing to newcomers.
 
 2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means it provides you with a set of tools to build your application. Angular expects you to use these tools as much as you can. While libraries like React allows you to integrate any third party library in your application.
 
-    [source](https://jsreport.io/why-is-react-more-popular-than-angular/)
+You can refer to this [article](https://jsreport.io/why-is-react-more-popular-than-angular/) that points out the benefits other tools like React have over Angular.
     
-## What are the different versions of Angular?
-
-There have been 6 versions of Angular so far. AngularJS, the first version, was released in 2010. Angular2, Angular4, Angular5, Angular6 and Angular7 are the more recent versions.
-Each version has new enhancements as Google provides new updates in the framework periodically.
-
-The differences between the various versions can be better understood from [this](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) article.    
-
 ### Angular when compared with other popular frontend frameworks
 
 There are many frontend frameworks and libraries out there that developers may prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
@@ -161,17 +156,13 @@ Every framework/library has its own pros and cons. The framework/library you cho
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
 3. [Angular vs React](https://programmingwithmosh.com/react/react-vs-angular/) - A comprehensive comparison between React and Angular.
 
-### How to get started with Angular?
+## How to get started with Angular?
 
 1. The official [Angular](https://angular.io/guide/quickstart) website offers a good tutorial to get started with the new framework. This guide will show you how to build and run a simple Angular application.
 
 2. This article on [freeCodeCamp](https://medium.freecodecamp.org/want-to-learn-angular-heres-our-free-33-part-course-by-dan-wahlin-fc2ff27ab451) is a good place to start writing simple applications using the features that Angular has to offer.
 
-3. [Here](https://github.com/angular/angular) is a link to the official Angular framework maintained by Google. You could even open a PR and start contributing!
-
-4. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
-
-[source](https://www.quora.com/What-are-the-different-versions-of-AngularJS)
+3. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
 
 ### Where to Go from Here?
 
@@ -182,6 +173,7 @@ There are many online resources and tutorials that can help you ease into the An
 - [Single Page Applications Explained](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html) - An overview of Single Page Applications.
 - [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
 - [StackOverflow Questions](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - Top voted questions on Angular.
-- [Angular in depth](https://blog.angularindepth.com/) - Advanced concepts in Angular explained
+- [Angular in depth](https://blog.angularindepth.com/) - Advanced concepts in Angular explained.
+- [Different versions of Angular](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) - Differences between the varipus versions of Angular.
 
 </div>
