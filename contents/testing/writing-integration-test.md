@@ -18,7 +18,7 @@ Reviewers:
 
 ## What is integration testing?
 
-Integration testing is a part of software testing where individual units of your application  are combined and tested as a group. This usually happens after [unit testing stage](http://softwaretestingfundamentals.com/unit-testing/) and before the [system testing stage](https://www.guru99.com/system-testing.html).
+Integration testing is a part of software testing where individual units of your application are combined and tested as a group. This usually happens after [unit testing stage](http://softwaretestingfundamentals.com/unit-testing/) and before the [system testing stage](https://www.guru99.com/system-testing.html).
 
 ## Why is integration testing important to SE?
 
@@ -32,7 +32,9 @@ Hence, integration testing is an important aspect which can be applied to any so
 
 ## How does integration testing work?
 
--- given a diagram below: add figure 1
+Given a sample architecture diagram of your application shown:
+
+![Sample architecture diagram](integration-test/sample-architecture.png "Sample architecture diagram")
 
 Below are a list of things to follow to execute effective integration testing:
 
@@ -45,9 +47,9 @@ Below are a list of things to follow to execute effective integration testing:
 ### Integration Test Plan
 Before the actual implementation of your integration tests, it is important to decide on the approach used. Using a concrete example where by you are designing a online web ordering system. Your application may be split into different modules as shown below:
 
--- add figure 2
+![Types of integration test plan](integration-test/integration-test-plan-types.png "Types of integration test plan")
 
-As shown in the figure 2, there are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.
+As shown, there are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.
 
 #### [Big bang approach](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.html): 
  
@@ -57,7 +59,7 @@ It is usually used for smaller applications with a few components.
 
 #### [Incremental testing approach](https://www.quora.com/What-is-incremental-testing-in-software):
 
-This approach involves integrating two or more logically related modules. The other related modules are added and tested for proper functioning. Repeat these steps until all components are joined and tested successfully.
+This approach involves integrating two or more logically related components. The other related components are added and tested for proper functioning. Repeat these steps until all the components are joined and tested successfully.
 
 It is usually preferred with any bigger applications with more than 10 different components. It is further split into the 3 approaches shown below.
 
@@ -73,16 +75,16 @@ It is usually preferred with any bigger applications with more than 10 different
 
 ### Designing test scenarios, cases and scripts
 
-Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example from figure 1, below shows a sample integration test used for log in and order food module:
+Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example shown above, below shows a sample integration test used for log in and order food module:
 
 ~~~
 Test case ID: 1
 Objective: Check the link between login and order food module
-Description: Enter login credentials and click on login buttonExpected **result**: To be directed to order food page based on the login user
+Description: Enter login credentials and click on login button
+Expected result: To be directed to order food page based on the login user
 ~~~
 
 <box type="warning">As integration test cases are expensive operations compared to unit testing, it should focus mainly on the integration of modules together and not on specific actions within the same module. Hence, with should differ from other test cases. </box>
-
 
 :information_source: More details about the ways to structure incremental testing can be found on [this article](https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/)
 
@@ -94,9 +96,9 @@ A big bang approach usually involves all the modules to be developed before you 
 
 As for incremental approach, it is usually conducted simultaneously with the modules development. Hence, stubs and drivers are used to mimic the modules for writing tests.
 
-Ensure that all high prioritzed bugs are fixed and closed before moving on.
+In both cases, always ensure that all high prioritzed bugs are fixed and closed before moving on.
 
-:information_source: [This article](https://www.guru99.com/test-environment-software-testing.html) shows more details on how to set up a test environment for better integration testing.
+:information_source: [This article](https://www.guru99.com/test-environment-software-testing.html) shows more details on how to set up a test environment for better integration testing. 
 
 ## Tips for better integration tests
 
