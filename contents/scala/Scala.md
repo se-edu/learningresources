@@ -128,8 +128,85 @@ ComplexInt d = (c.negative()).add(a);
 
 
 ## Mixed-In Trait
+In Scala, class abstractions are extended by subclassing and by a flexible mixin-based composition mechanism to 
+avoid the problems of multiple inheritance. 
+
+Following is the piece of code to show the uniqueness of OOP in Scala:
+```
+abstract class ParentTrait {
+  // abstract
+  def print()
+}
+
+class Sample extends ParentTrait {
+  override def print() {
+    println("print in Sample")
+  }
+}
+
+trait TraitA extends ParentTrait {
+  abstract override def print() {
+    println("print in TraitA")
+    super.print()
+  }
+}
+
+trait TraitB extends ParentTrait {
+  abstract override def print() {
+    println("print in TraitB")
+    super.print()
+  }
+}
+
+trait TraitC extends ParentTrait {
+  abstract override def print() {
+    println("print in TraitC")
+    super.print()
+  }
+}
+
+object Sample {
+  def main(args: Array[String]): Unit = {
+    val example = new Sample with TraitA with TraitB with TraitC
+   example.print()
+  }
+}
+```
+The following is the execution result of above code:
+```
+print in TraitC
+print in TraitB
+print in TraitA
+print in Sample
+```
+The explanation is that the call to `print()` firstly executes the code in `TraitC`, which is the last trait mixed in.
+Then through the `super()` calls, it threads back through the other mixed-in traits. And eventually to the code in 
+`Sample`. Even though none of the traits inherited from one another, it works properly. 
+
+This is similar to the decorator pattern but is more *concise* and less *error-prone*. In other languages, a similar 
+effect could be achieved with a long linear chain of inheritance. But the disadvantage is that for every possible 
+combination of the mix-ins, we need to declare an inheritance chain for it.
+
 
 ## Type Enrichment
+Have you ever imagine that you are able to add new function to existing library? An implicit class in Scala can help you 
+to do so. This technique allows new methods to be added to an existing class using an add-on library such that only code 
+that imports the add-on library gets the new functionality, and all other code is unaffected. See the code below:
+```
+object MyExtensions {
+  implicit class IntParity(i: Int) {
+    def isEven = i % 2 == 0
+    def isOdd  = !isEven
+  }
+}
+
+import MyExtensions._  // bring implicit enrichment into scope
+4.isEven  // -> true
+4.isOdd   // -> false
+```
+This is the implicit class that extend the library of class Int. The name of the class does not matter. 
+After importing this class, we can use `isEven()` and `isOdd()` method just as if it has been declared in its own class. 
+
 
 ## Pattern Matching
 
