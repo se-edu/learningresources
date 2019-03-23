@@ -209,7 +209,33 @@ After importing this class, we can use `isEven()` and `isOdd()` method just as i
 
 
 ## Pattern Matching
+Scala has built-in support for **pattern matching**, which can be thought of as a more extensible version of a **switch** 
+statement, where arbitrary data types can be matched.
 
+Following is an example of QuickSort algorithm using pattern matching:
 
+```
+def qsort(list: List[Int]): List[Int] = list match {
+  case Nil => Nil
+  case pivot :: tail =>
+    val (smaller, rest) = tail.partition(_ < pivot)
+    qsort(smaller) ::: pivot :: qsort(rest)
+}
+```
+
+The idea here is that we *partition* a list recursively, sort each part and combine the results together.(See [QuickSort](https://en.wikipedia.org/wiki/Quicksort) for the details of the algorithm)
+
+The `match` operator is used to do *pattern matching* on the object stored in list. Each case expression is tried to 
+see if it will match, and the first match will be executed. 
+
+In this case, `Nil` only matches the object `Nil` (Empty list).
+But `pivot :: tail` matches a non-empty list, and it will destructure the list according to the pattern given. 
+In this case, the code will have a variable `pivot` holding the head of the list, and another variable `tail`
+ holding the tail of the list.
+ 
+**Pattern matching** also happens in local variable declarations. The return value of the call to `tail.partition` is a 
+tuple. In this case, the code will have a variable `smaller` holding the first element of the tuple, and another 
+variable `rest` holding the second element of the list. 
+**Pattern matching** is the easiest way of fetching the two parts of the tuple.
 
 </div>
