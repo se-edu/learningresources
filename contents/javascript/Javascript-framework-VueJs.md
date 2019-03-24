@@ -24,7 +24,6 @@ There are [multiple ways to install VueJs](https://vuejs.org/v2/guide/installati
 
 Apart from installing VueJs, you can install [VueJs development tools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser. This will allow you to inspect and debug the components that use VueJs in your projects.
 
-****NOTE: For all code snippets below, use `{{` instead of `{` to render your data.**
 #### HelloWorld in VueJs
 
 This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
@@ -171,6 +170,7 @@ In Vue, the state of the data can be directly modified. Let's say, there is a me
     // React way
     this.setState({ message: 'Hello Space' });
     ```
+
 <br>
 
 2. **2-way binding**: `v-model` is used to bind the DOM input field to its data variable. This effectively allows your DOM variables to be automatically in sync with your data, regardless of which one is being updated.
@@ -182,6 +182,7 @@ In other words, this reduces the need for you to manually update your data.
 
     2-way binding is generally used for input form bindings, where new data is given by users and processed to provide other useful data.
     It is quite similar to the way Angular is currently doing. However, Angular 2 discourages the use of two-way binding.
+
 <br>
 
 3. **1-way data flow**: Data can only be passed from parent to child, via `props`. Props can be of any data type, including Objects. On the other hand, if the child wants to pass data to its parent, `$emit` events have to be used instead.<br/>
@@ -224,7 +225,8 @@ The data in `item` is being passed to `todo-list` for rendering.
     When `todo-list` listened to the event, it will execute `updateCount`.
 
     Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
-    <br>
+
+<br>
 
 
 4. **Computed properties**: Useful when you want to reduce the amount of logic written in templates<br/>
@@ -244,7 +246,8 @@ Using the example from above, we can convert `totalCount` into a computed proper
 
     *Note: computed properties must return the new data i.e. reactive properties.
     It cannot perform other operations in respond to the change in data.*
-    <br>
+
+<br>
 
 5. **Watched properties**: another useful feature that is quite similar to `Computed properties`.
 While computed properties are more appropriate to use when you want to update a new state or data,
