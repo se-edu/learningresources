@@ -155,8 +155,8 @@ VueJs is a relatively new JavaScript framework as compared to Angular and React.
 A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.
 
 -----
-### Special features of VueJs
-Here are some features that VueJs differ from the other frameworks used:
+### Main concepts needed in VueJs
+Here are some concepts that you need to start writing Vue code:
 1. **Mutating of data in the DOM**<br/>
 In Vue, the state of the data can be directly modified. Let's say, there is a message in your app. To change the message, insert this line:
     ```js
@@ -165,6 +165,8 @@ In Vue, the state of the data can be directly modified. Let's say, there is a me
     ```
 
     In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
+    If you have never heard of lifecycle hooks before, think of them as selected points in the program where Vue/React checks the virtual DOM to update it.
+    Here is more information about lifecycle hooks in [React](https://reactjs.org/docs/state-and-lifecycle.html) or [Vue](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks).
     ```js
     // React way
     this.setState({ message: 'Hello Space' });
@@ -177,6 +179,9 @@ In other words, this reduces the need for you to manually update your data.
     <input type="checkbox", v-model=isChecked">
         <label for="checked">Select</label>
     ```
+
+    2-way binding is generally used for input form bindings, where new data is given by users and processed to provide other useful data.
+    It is quite similar to the way Angular is currently doing. However, Angular 2 discourages the use of two-way binding.
 <br>
 
 3. **1-way data flow**: Data can only be passed from parent to child, via `props`. Props can be of any data type, including Objects. On the other hand, if the child wants to pass data to its parent, `$emit` events have to be used instead.<br/>
