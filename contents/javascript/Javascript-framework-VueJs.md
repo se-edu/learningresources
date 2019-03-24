@@ -164,6 +164,7 @@ In Vue, the state of the data can be directly modified. Let's say, there is a me
     ```
 
     In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
+
     If you have never heard of lifecycle hooks before, think of them as selected points in the program where Vue/React checks the virtual DOM to update it.
     Here is more information about lifecycle hooks in [React](https://reactjs.org/docs/state-and-lifecycle.html) or [Vue](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks).
     ```js
@@ -181,7 +182,7 @@ In other words, this reduces the need for you to manually update your data.
     ```
 
     2-way binding is generally used for input form bindings, where new data is given by users and processed to provide other useful data.
-    It is quite similar to the way Angular is currently doing. However, Angular 2 discourages the use of two-way binding.
+    It is quite similar to the way Angular is currently doing. However, Angular discourages the use of two-way binding.
 
 <br>
 
