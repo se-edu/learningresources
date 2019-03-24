@@ -157,93 +157,89 @@ A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese 
 -----
 ### Special features of VueJs
 Here are some features that VueJs differ from the other frameworks used:
-1. **Mutating of data in the DOM**
-
+1. **Mutating of data in the DOM**<br/>
 In Vue, the state of the data can be directly modified. Let's say, there is a message in your app. To change the message, insert this line:
-```js
-// Vue way
-this.message = 'Hello Space';
-```
+    ```js
+    // Vue way
+    this.message = 'Hello Space';
+    ```
 
-In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
-```js
-// React way
-this.setState({ message: 'Hello Space' });
-```
+    In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
+    ```js
+    // React way
+    this.setState({ message: 'Hello Space' });
+    ```
 <br>
 
 2. **2-way binding**: `v-model` is used to bind the DOM input field to its data variable. This effectively allows your DOM variables to be automatically in sync with your data, regardless of which one is being updated.
 In other words, this reduces the need for you to manually update your data.
-```js
-<input type="checkbox", v-model=isChecked">
-    <label for="checked">Select</label>
-```
+    ```js
+    <input type="checkbox", v-model=isChecked">
+        <label for="checked">Select</label>
+    ```
 <br>
 
-3. **1-way data flow**: Data can only be passed from parent to child, via `props`. Props can be of any data type, including Objects.
-On the other hand, if the child wants to pass data to its parent, `$emit` events have to be used instead.
-
+3. **1-way data flow**: Data can only be passed from parent to child, via `props`. Props can be of any data type, including Objects. On the other hand, if the child wants to pass data to its parent, `$emit` events have to be used instead.<br/>
 In the code below, `to-do list` is the parent and `item` is the child.
 The data in `item` is being passed to `todo-list` for rendering.
-```js
-Vue.component('todo-list', {
-    props: ['item'],
-    data: ['totalCount'],
+    ```js
+    Vue.component('todo-list', {
+        props: ['item'],
+        data: ['totalCount'],
+        template:
+          <div class='todo-list'>
+            <p>Total:{ this.totalCount }</p>
+            <p>{ item.name }: { item.count }</p>
+    })
+
+    <todo-list
+      v-for='item in items'
+      v-bind:key='item.id'
+      v-bind:item='item'
+    ></todo-list>
+    ```
+
+
+    However, what if the user decides to update the `item.count`? The data for item.count has to be passed from `item` to `todo-list` so `totalCount` can be updated inside `todo-list` . Under situations like this where the child has to pass data back to the parent, the child component has to [emit events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
+    and the parent component will update after listening to these events.
+
+    ```js
+    Vue.component('item', {
+      data: ['count', 'name'],
+      template: {
+        <button v-on:click="$emit('increased-count', count+1)">Increment count for this item</button>
+      }
+    }
+
+    // Inside todo-list component
     template:
-      <div class='todo-list'>
-        <p>Total:{ this.totalCount }</p>
-        <p>{ item.name }: { item.count }</p>
-})
+        v-on:increased-count="updateCount"
+    ```
+    Whenever the button is pressed, an event called `increased-count` with the new value of `count` will be emitted by the child `item`.
+    When `todo-list` listened to the event, it will execute `updateCount`.
 
-<todo-list
-  v-for='item in items'
-  v-bind:key='item.id'
-  v-bind:item='item'
-></todo-list>
-```
+    Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
+    <br>
 
 
-However, what if the user decides to update the `item.count`? The data for item.count has to be passed from `item` to `todo-list` so `totalCount` can be updated inside `todo-list` . Under situations like this where the child has to pass data back to the parent, the child component has to [emit events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
-and the parent component will update after listening to these events.
-
-```js
-Vue.component('item', {
-  data: ['count', 'name'],
-  template: {
-    <button v-on:click="$emit('increased-count', count+1)">Increment count for this item</button>
-  }
-}
-
-// Inside todo-list component
-template:
-    v-on:increased-count="updateCount"
-```
-Whenever the button is pressed, an event called `increased-count` with the new value of `count` will be emitted by the child `item`.
-When `todo-list` listened to the event, it will execute `updateCount`.
-
-Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
-<br>
-
-
-4. **Computed properties**: Useful when you want to reduce the amount of logic written in templates
-
+4. **Computed properties**: Useful when you want to reduce the amount of logic written in templates<br/>
 Using the example from above, we can convert `totalCount` into a computed property.
 
-```js
-computed: totalCount() {
-    let result = 0
-    this.items.forEach((item) => result += item.count);
-    return result;
-}
-```
+    ```js
+    computed: totalCount() {
+        let result = 0
+        this.items.forEach((item) => result += item.count);
+        return result;
+    }
+    ```
 
-Unlike the use of methods, this updating of `totalCount` will only be triggered when the number of `items` in the list or any `item`'s `count` changed.
-This computed property is also cached and can greatly improve the efficiency of your application, since computed properties will not run every time
-the page refreshes.
+    Unlike the use of methods, this updating of `totalCount` will only be triggered when the number of `items` in the list or any `item`'s `count` changed.
+    This computed property is also cached and can greatly improve the efficiency of your application, since computed properties will not run every time
+    the page refreshes.
 
-*Note: computed properties must return the new data i.e. reactive properties.
-It cannot perform other operations in respond to the change in data.*
-<br>
+    *Note: computed properties must return the new data i.e. reactive properties.
+    It cannot perform other operations in respond to the change in data.*
+    <br>
 
 5. **Watched properties**: another useful feature that is quite similar to `Computed properties`.
 While computed properties are more appropriate to use when you want to update a new state or data,
@@ -251,28 +247,28 @@ watched properties are generally used to run other functions when this particula
 Watched property can only look for data changes in 1 variable, however computed properties allow
 multiple variables to be observed.
 
-Watched properties are also executed every time, while computed properties are cached.
+    Watched properties are also executed every time, while computed properties are cached.
 
-*_Be careful of using the correct property in the correct situation._*
+    *_Be careful of using the correct property in the correct situation._*
 
-If I implement the example shown in computed property with watched property instead. It will look like this:
+    If I implement the example shown in computed property with watched property instead. It will look like this:
 
-```js
-watch: {
-    totalCount: function() {
-        let result = 0
-        this.items.forEach((item) => result += item.count);
-        this.totalCount = result;
+    ```js
+    watch: {
+        totalCount: function() {
+            let result = 0
+            this.items.forEach((item) => result += item.count);
+            this.totalCount = result;
+        }
     }
-}
-```
-In this case, I have to update `this.totalCount` inside the function, instead of returning the new result of `totalCount`.
-As such, computed properties is more intuitive to use here, where a state is updated automatically due to new data.
+    ```
+    In this case, I have to update `this.totalCount` inside the function, instead of returning the new result of `totalCount`.
+    As such, computed properties is more intuitive to use here, where a state is updated automatically due to new data.
 
-Whereas, watched properties are commonly used to perform asynchronous operations when a particular data has changed.
-Such situations could happen, when a new `item` is added and I want to send an update to my friend to inform that
-he a new `item` is added. A watched property on `items` is placed, then inside the function, a network request
-can be sent whenever `items` has changed.
+    Whereas, watched properties are commonly used to perform asynchronous operations when a particular data has changed.
+    Such situations could happen, when a new `item` is added and I want to send an update to my friend to inform that
+    he a new `item` is added. A watched property on `items` is placed, then inside the function, a network request
+    can be sent whenever `items` has changed.
 
 <br>
 
