@@ -18,7 +18,7 @@ Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng]
 ## What Is Angular?
 
 Angular is one of the popular Javascript frameworks used for building web applications.
-The framework aims to make development and testing of enterprise web applications easier. Angular is maintained by Google, as well as a community of developers.
+The framework aims to make development and testing of web applications easier. Angular is maintained by Google, as well as a community of developers.
 
 >Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
 >
@@ -80,7 +80,7 @@ import { Component } from "@angular/core";
 export class AppComponent {}
 ```
 
-In Angular we use the `@Component` tag to mark a class as an Angular component. It provides the metadata that determines how the component is processed during runtime.
+In Angular we use the `@Component` tag to mark a class as a component. It provides the metadata that determines how the component is processed during runtime.
 
 * The use of `selector: my-app` is how Angular knows what to do when it sees a `<my-app>` tag in HTML.
 
@@ -119,7 +119,7 @@ This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding
 
 ### Benefit 3: Angular CLI provides for ease of development.
 
-In 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow in applications using versions Angular 2 and above.
+In 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow using versions Angular 2 and above.
 It is recommended to use Angular CLI as you don't need to spend time installing and configuring the required dependencies.
 
 `npm install -g @angular/cli`
@@ -136,7 +136,7 @@ Like any other framework/library, Angular has its share of disadvantages.
 1. **Steep Learning curve** - Angular requires you to learn many concepts, such as directives, modules, components, services, dependency injection, pipes, and most importantly TypeScript. 
 The large number of new concepts can be confusing to newcomers.
 
-2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means it provides you with a set of tools to build your application. Angular expects you to use these tools as much as you can. While libraries like React allow you to integrate any third party library in your application.
+2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means it provides you with a set of tools to build your application. Angular expects you to use these tools as much as you can. While libraries like React allow you to integrate any third party services in your application.
 
 You can refer to this [article](https://jsreport.io/why-is-react-more-popular-than-angular/) that points out the benefits other tools like React have over Angular.
     
@@ -156,16 +156,15 @@ Every framework/library has its own pros and cons. The framework/library you cho
 
 ## How to get started with Angular?
 
+Angular is not the easiest framework to work with. However, it is reliable and is used by many developers. Given below are a few steps that will help you ease into the Angular environment.
+
 1. The official [Angular](https://angular.io/guide/quickstart) website offers a good tutorial to get started with the new framework. This guide will show you how to build and run a simple Angular application.
 
 2. This article on [freeCodeCamp](https://medium.freecodecamp.org/want-to-learn-angular-heres-our-free-33-part-course-by-dan-wahlin-fc2ff27ab451) is a good place to start writing simple applications using the features that Angular has to offer.
 
 3. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
 
-### Where to Go from Here?
-
-Angular is not the easiest framework to work with. However, it is reliable and is used by many developers to create large scale applications. The Angular community is big, and help is readily available via searching on Google and Stack Overflow.
-
+The Angular community is big, and help is readily available via searching on Google and Stack Overflow.
 There are many online resources and tutorials that can help you ease into the Angular world.
 
 - [Single Page Applications Explained](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html) - An overview of Single Page Applications.
