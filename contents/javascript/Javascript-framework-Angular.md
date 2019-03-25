@@ -25,7 +25,6 @@ Let us understand some of the key terms used in the above description with the h
 
 ```html
 <h2>Hello World</h2>
-<div><span>id: </span>{{hero.id}}</div>
 <div>
   <label>name:
     <input text="hero.name" placeholder="name"/>
@@ -53,7 +52,7 @@ export class HeroesComponent {
 }
 ```
 
-In Angular we use the `@Component` tag to mark a class as a component. It provides the metadata that determines how the component is processed during runtime.
+The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
 * The use of `selector: app-heroes` is how Angular knows what to do when it sees a `<app-heroes>` tag in HTML.
 * The `template` property controls what HTML gets rendered when this component is loaded.
