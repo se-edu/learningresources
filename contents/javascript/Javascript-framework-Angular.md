@@ -28,7 +28,7 @@ Angular is a complex framework and can be challenging for new developers to unde
 However, given below are some noteworthy features of Angular (adapted from [here](https://hackr.io/blog/why-should-you-learn-angular-in-2018)):
 
 1. **Angular supports Cross Platform Development.** Apart from web applications, the more recent versions of Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip> and Desktop applications.
- Using Angular 5 and above, progressive web applications can also be developed. These applications have high performance and can work offline as well.
+ With Angular 5 and above, progressive web applications can also be developed. These applications have high performance and can work offline as well.
 
 2. **Angular uses TypeScript.** Angular applications are built using the TypeScript language, a superset of JavaScript. TypeScript provides <tooltip content="Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.">static typing</tooltip>. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense.</tooltip>
 
@@ -49,7 +49,7 @@ However, given below are some noteworthy features of Angular (adapted from [here
 
 ### What does an Angular app look like?
 
-Let’s dive into some code, starting with a hello world example. The code is applicable for versions Angular 2 and above.
+Let’s dive into some code, with a hello world example. The code is applicable for versions Angular 2 and above.
 
 ```html
 <!doctype html>
@@ -112,7 +112,7 @@ As explained previously, Angular divides the application into the Model, View an
 
 Angular uses two-way data binding as opposed to popular tools like React that use one way data binding. How does this help?
 
-It ensures the exchange of data between the View and Model in a bi-directional manner. If the User Input changes, the data in the backend is updated by Angular. Additionally, if the Model state (data) changes, the UI is updated automatically. This means reduced coding for developers.
+It ensures the exchange of data between the View and Model in a bi-directional manner. If the User Input changes, data in the backend is updated by Angular. Additionally, if the Model state (data) changes, the UI is updated automatically. This means reduced coding for developers.
 
 One-way data binding (used in React) involves uni-directional communication. If the model is changed, the changes are reflected in the UI. However, if the UI element changes the model state is not updated. Developers must provide this synchronization code. 
 
@@ -146,10 +146,10 @@ You can refer to this [article](https://jsreport.io/why-is-react-more-popular-th
 There are many frontend frameworks and libraries out there that developers may prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
 
 React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage.
-React provides more flexibility to developers as it allows integration of third party libraries. It also has a good set of developer tools that helps in debugging.
+React provides more flexibility to developers as it allows integration of third party libraries.
 Similarly, Vue offers us some advantages, like flexibility, simplistic structure and ease of integration.
 
-Every framework/library has its own pros and cons. The framework/library you choose depends on the requirements of the application. Below are a few resources to help you get a brief introduction to these frameworks/libraries.
+Every framework/library has its own pros and cons. The tool you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between the popular frontend frameworks/libraries.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
