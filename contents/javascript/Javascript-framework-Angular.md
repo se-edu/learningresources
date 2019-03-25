@@ -15,81 +15,71 @@
 **Author: [Ronak Lakhotia](https://github.com/RonakLakhotia)**                                                              
 Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng](https://github.com/jacoblipech)
 
-## What Is Angular?
+## What is Angular?
 
-Angular is one of the popular Javascript frameworks used for building web applications.
-The framework aims to make development and testing of web applications easier. Angular is maintained by Google, as well as a community of developers.
+Angular, according to the [official website](https://angular.io/docs), is described as follows:
 
->Angular started as a side project. Back in 2009, Miško Hevery and Adam Abrons released a project that would help developers build web applications using simple HTML tags. The name “Angular” comes from the angle brackets, or < >, that surround all HTML tags.
->
-<sub>Miško described the idea behind the framework in an <a href="https://www.infoworld.com/article/2612801/javascript/whats-so-special-about-googles-angularjs.html">interview done in 2013</a></sub>
+>Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
 
-Angular is a complex framework and can be challenging for new developers to understand.
-However, given below are some noteworthy features of Angular (adapted from [here](https://hackr.io/blog/why-should-you-learn-angular-in-2018)):
-
-1. **Angular supports Cross Platform Development.** Apart from web applications, the more recent versions of Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip> and Desktop applications.
- With Angular 5 and above, progressive web applications can also be developed. These applications have high performance and can work offline as well.
-
-2. **Angular uses TypeScript.** Angular applications are built using the TypeScript language, a superset of JavaScript. TypeScript provides <tooltip content="Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.">static typing</tooltip>. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense.</tooltip>
-
-    Below is an example of static typing using TypeScript.
-    
-    ```typescript
-    // TypeScript
-    let name: string; // <-- static typed!
-    ```
-    
-    ```javascript
-    // JavaScript (ES6)
-    let name;
-    ```
-    <box type="info"> TypeScript was created and is maintained by Microsoft. It has been <a href="https://developer.telerik.com/featured/the-rise-of-typescript/">growing in popularity</a> over the last few years making it reliable to use.</box>
-                                                  
-3. **Angular is backed by Google.** Google announced Long-Term Support (LTS) for Angular back in 2017. This means Google plans to further scale up the Angular ecosystem.
-
-### What does an Angular app look like?
-
-Let’s dive into some code, with a hello world example. The code is applicable for versions Angular 2 and above.
+Let us understand some of the key terms used in the above description with the help of a Hello World example:
 
 ```html
-<!doctype html>
-<html>
-  <head>
-    <!-- The various &lt;script&gt; tags needed to load Angular -->
-    <!-- For a full list, see https://angular.io/docs/ts/latest/quickstart.html -->
-  </head>
-  <body>
-    <my-app></my-app>
-  </body>
-</html>
+<h2>Hello World</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div>
+  <label>name:
+    <input text="hero.name" placeholder="name"/>
+  </label>
+</div>
 ```
 
-The one unique thing in the above example is the `<my-app>` element. That is not an element you would normally use in a web-based application. Angular extends the vocabulary of HTML by allowing you do define your own tags.
-These custom tags are known as components.
-
-Let's now look at some TypeScript code that defines the `<my-app>` component.
+As seen from the above example, HTML is used to define the Angular templates. HTML is a declarative markup language and only requires you to declare the view. Angular takes care of how that view is rendered.
+Let's look into some TypeScript code to further explain the Hello World example.
 
 ```typescript
-import { Component } from "@angular/core";
-
 @Component({
-  selector: "my-app",
-  template: `
-    <h1>Hello World</h1>
-  `
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
 })
-export class AppComponent {}
+export class HeroesComponent {
+  hero: Hero = {
+    name: 'Windstorm'
+  };
+  heroes: Hero[];
+  constructor(heroService: HeroService) {
+    this.heroes = heroService.getHeroes();
+  }
+}
 ```
 
 In Angular we use the `@Component` tag to mark a class as a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: my-app` is how Angular knows what to do when it sees a `<my-app>` tag in HTML.
-
+* The use of `selector: app-heroes` is how Angular knows what to do when it sees a `<app-heroes>` tag in HTML.
 * The `template` property controls what HTML gets rendered when this component is loaded.
+* The `hero.name` used in the HTML code, refers to the name property defined in this component.
 
-A visual to summarize the above :
+Another important concept introduced before was **Dependency Injection**(DI). The official website defines it as an "design pattern" which increases an applications "efficiency and modularity". Let's look into an example.
 
-![Component](https://angular.io/generated/images/guide/architecture/component-databinding.png)
+```typescript
+import { Injectable } from '@angular/core';
+import { HEROES } from './mock-heroes';
+@Injectable({
+  // we declare that this service should be created by the root application injector.
+  providedIn: 'root',
+})
+export class HeroService {
+  getHeroes() { return HEROES; }
+}
+```
+The above code snippet declares an injectable service class that provides a list of heroes. The DI framework lets you supply data to a component from the injectable service class.
+The `HeroesComponent` declared previously, makes use of the `HeroService` by injecting the dependency in it's constructor as a parameter.
+
+Declarative Templates and Dependency Injection are only a couple of unique features of Angular. A more comprehensive list is available on the official website. 
+
+<box type="note">
+Google recently announced Long-Term Support (LTS) for Angular as it plans to further scale up the Angular ecosystem. 
+</box> 
 
 ## Why Angular?
 
