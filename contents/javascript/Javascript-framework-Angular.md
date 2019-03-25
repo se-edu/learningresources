@@ -33,7 +33,7 @@ Let us understand some of the key terms used in the above description with the h
 </div>
 ```
 
-As seen from the above example, HTML is used to define the Angular templates. HTML is a declarative markup language and only requires you to declare the view. Angular takes care of how that view is rendered.
+As seen from the above example, HTML is used to define the Angular templates. HTML is a **Declarative markup language** and only requires you to declare the view. Angular takes care of how that view is rendered.
 Let's look into some TypeScript code to further explain the Hello World example.
 
 ```typescript
@@ -59,7 +59,7 @@ In Angular we use the `@Component` tag to mark a class as a component. It provid
 * The `template` property controls what HTML gets rendered when this component is loaded.
 * The `hero.name` used in the HTML code, refers to the name property defined in this component.
 
-Another important concept introduced before was **Dependency Injection**(DI). The official website defines it as an "design pattern" which increases an applications "efficiency and modularity". Let's look into an example.
+Another important concept introduced before was **Dependency Injection**(DI). The official website defines it as a "design pattern" which increases an applications "efficiency and modularity". Let's look into an example.
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -73,17 +73,17 @@ export class HeroService {
 }
 ```
 The above code snippet declares an injectable service class that provides a list of heroes. The DI framework lets you supply data to a component from the injectable service class.
-The `HeroesComponent` declared previously, makes use of the `HeroService` by injecting the dependency in it's constructor as a parameter.
+The `HeroesComponent` declared previously, makes use of this `HeroService` by injecting the dependency in it's constructor as a parameter.
 
-Declarative Templates and Dependency Injection are only a couple of unique features of Angular. A more comprehensive list is available on the official website. 
+Declarative Templates and Dependency Injection are only a couple of unique features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
 
-<box type="note">
+<box type="info">
 Google recently announced Long-Term Support (LTS) for Angular as it plans to further scale up the Angular ecosystem. 
 </box> 
 
 ## Why Angular?
 
-Angular is a popular frontend tool and provides developers with advantages when compared to other frameworks/libraries. Listed below are a few benefits of using Angular.
+The official description of Angular pointed out some key advantages of the framework. Let's look into them in more detail.
 
 ### Benefit 1: Angular provides a Simplified MVC pattern.
 
