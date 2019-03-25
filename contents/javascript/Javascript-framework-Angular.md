@@ -27,8 +27,9 @@ The framework aims to make development and testing of web applications easier. A
 Angular is a complex framework and can be challenging for new developers to understand.
 However, given below are some noteworthy features of Angular (adapted from [here](https://hackr.io/blog/why-should-you-learn-angular-in-2018)):
 
-1. **Angular supports Single Page Applications (SPAs).** Single Page Applications are a type of web applications that load a single HTML page. The key feature is that SPAs can communicate with back-end servers without refreshing the full web page. The page updates dynamically through JavaScript as the user interacts with the app. This enhances the user experience.
- 
+1. **Angular supports Cross Platform Development.** Apart from web applications, the more recent versions of Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip> and Desktop applications.
+ Using Angular 5 and above, progressive web applications can also be developed. These applications have high performance and can work offline as well.
+
 2. **Angular uses TypeScript.** Angular applications are built using the TypeScript language, a superset of JavaScript. TypeScript provides <tooltip content="Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.">static typing</tooltip>. This helps the compiler show warnings about any potential errors in the code, before the app runs. Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense.</tooltip>
 
     Below is an example of static typing using TypeScript.
@@ -167,7 +168,7 @@ Angular is not the easiest framework to work with. However, it is reliable and i
 The Angular community is big, and help is readily available via searching on Google and Stack Overflow.
 There are many online resources and tutorials that can help you ease into the Angular world.
 
-- [Single Page Applications Explained](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html) - An overview of Single Page Applications.
+- [How to Build Native Cross-Platform Desktop Apps with Angular & Electron](https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2)
 - [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
 - [StackOverflow Questions](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - Top voted questions on Angular.
 - [Angular in depth](https://blog.angularindepth.com/) - Advanced concepts in Angular explained.
