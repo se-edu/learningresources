@@ -72,8 +72,8 @@ export class HeroService {
   getHeroes() { return HEROES; }
 }
 ```
-The above code snippet declares an injectable service class that provides a list of heroes. The DI framework lets you supply data to a component from the injectable service class.
-The `HeroesComponent` declared previously, makes use of this `HeroService` by injecting the dependency in it's constructor as a parameter.
+The above code snippet declares an injectable service class that provides a list of heroes. The `HeroesComponent` declared previously, makes use of this `HeroService` by injecting the dependency in it's constructor as a parameter.
+The DI framework lets you supply data to any component from the injectable service class. This explains how it increases "efficiency and modularity".
 
 Declarative Templates and Dependency Injection are only a couple of unique features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
 
