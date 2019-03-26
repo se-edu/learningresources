@@ -18,25 +18,25 @@ Reviewers:
 
 ## What is integration testing?
 
-Integration testing is a part of software testing where individual units of your application are combined and tested as a group. This usually happens after the [<span title="Testing of individual components within a system">unit testing stage</span>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<span title="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</span>](https://www.guru99.com/system-testing.html).
+Integration testing is a part of software testing where individual parts of your application are combined and tested as a whole. This usually happens after the [<tooltip content="Testing of individual components within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html).
 
-## Why is integration testing important to Software Engineering?
+## Why is integration testing important?
 
-In a software application, each software module is usually designed and unit tested by different programmers. Hence, with different understanding of the software requirements, integration testing is necessary to ensure that software modules work in unity and expose any faults in the interaction between different units. 
+In a software application, each software module is usually designed and unit tested by different programmers. Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is necessary to ensure that software modules work in unity and expose any faults in the interaction between different units.
 
-<box type="info">Suppose you are in charge of the **data collection component** and it passes the **data** collected from the users to the **data analysis component**. If the **data analysis component** assumes your **data** to be of maximum 100 lines but the data you send has no limit on the number of lines, this may result in data loss, inaccurate results and even system errors. Hence, it is the integration test that is supposed to find this discrepancy before any serious damage is made.</box>
+<box>Suppose you are in charge of a **data collection component** that passes the **data** collected from users to a **data analysis component**. If the **data analysis component** assumes your **data** to be of maximum 100 lines but the data you send has 200 lines, it may result in data loss, inaccurate results and even system errors. Hence, it is the integration test that is supposed to find this discrepancy before any serious damage is made.</box>
 
-Hence, integration testing is an important aspect which can be applied to any software such as web, mobile and desktop applications. I will mainly be focusing on integration testing in terms of the web application. Similar concepts can be adopted by other applications.
+Hence, integration testing is an important process which should be applied in the development of many softwares such as web, mobile and desktop applications. We will mainly be focusing on integration testing in terms of web applications. Similar concepts can be adopted by other applications.
 
 :information_source: More information on instances where integration testing is important can be found on [this article](https://www.guru99.com/integration-testing.html).
 
 ## How does integration testing work?
 
-Given a sample architecture diagram of your application shown:
+Imagine that you are working on an online web ordering system and a sample architecture diagram of your application is shown as follows:
 
 ![Sample architecture diagram](integration-test/sample-architecture.png "Sample architecture diagram")
 
-Below are a list of things to follow to execute effective integration testing:
+Using this as an example, below are a list of things you should follow to execute effective integration testing:
 
 1. Prepare the integration test plan.
 1. Design the test scenarios, cases and scripts.
