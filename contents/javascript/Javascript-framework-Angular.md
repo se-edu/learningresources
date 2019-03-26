@@ -31,7 +31,7 @@ Here is the template for the above example.
   
 ```html
 <h2>Hello World</h2>
-<div><span>id: </span>{{hero.id}}</div>
+<div><span>id: 1</span></div>
 <div>
   <label>name:
     <input text="hero.name" placeholder="name"/>
@@ -50,7 +50,7 @@ The code that describes the behavior is included outside the template in a class
 })
 export class HeroesComponent {
   hero: Hero = {
-    name: 'Windstorm'
+    name: 'John Doe'
   };
   heroes: Hero[];
   constructor(heroService: HeroService) {
