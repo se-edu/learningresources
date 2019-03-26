@@ -41,45 +41,43 @@ Using this as an example, below are a list of things you should follow to execut
 1. Prepare the integration test plan.
 1. Design the test scenarios, cases and scripts.
 1. Executing the test scripts and report defects if any.
-1. Tracking and re-testing the defects.
-1. Repeat testing until all integration tests are successful.
+1. Tracking defects and re-testing application.
 
-### Integration Test Plan
-Before the actual implementation of your integration tests, it is important to decide on the approach used. Using the online web ordering system described above, your application may be split into different modules as shown below:
+### 1. Integration Test Plan
 
-![Types of integration test plan](integration-test/integration-test-plan-types.png "Types of integration test plan")
+Before the actual implementation of your integration tests, it is important to decide on the approach used. There are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.
 
-As shown, there are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.
+#### [Big bang approach](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.htm): 
 
-#### [Big bang approach](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.html): 
- 
-This approach involves integrating all the components in your design diagram together and test everything at once in a complete state. This is convenient but it is difficult to isolate defects and raises high chances of missing critical defects.
+This approach involves integrating all the components in your design diagram together and testing everything at once in a complete state. This is convenient but it is difficult to isolate defects and there is a high chance of missing critical underlying defects. Big bang integration testing is usually used for smaller applications with few components. 
 
-It is usually used for smaller applications with few components.
+An example of how big bang integration testing can be applied to our given example is shown below:
+
+![Big bang integration testing diagram](integration-test/big-bang-integration.png "Big bang integration testing diagram]")
 
 #### [Incremental testing approach](https://www.quora.com/What-is-incremental-testing-in-software):
 
-This approach involves integrating two or more logically related components. The other related components are added and tested for proper functioning. Repeat these steps until all the components are joined and tested successfully.
+This approach involves integrating two or more logically related components. The other related components are added and tested for proper functioning. This is repeated until all the components are joined and tested successfully. It is usually preferred with any applications having more than 10 different components.
 
-It is usually preferred with any bigger applications with more than 10 different components. It is further split into the 3 approaches shown below.
+Incremental integration testing is further split into the 3 approaches shown below:
 
 | | [Top-down approach](https://www.guru99.com/integration-testing.html#9) | [Bottom-up approach](https://www.guru99.com/integration-testing.html#8) | [Hybrid / sandwich approach](https://www.guru99.com/integration-testing.html#10) |
 | -- | -- | -- | -- |
-| **Description**| Higher level modules are tested with lower level modules until all modules are tested. | Lower level modules are tested with higher level modules until all modules are tested. | A mix of both top-down bottom-up approaches. |
-| **Advantages** | Early discovery of high level architecture / design defects | Easier to create test cases bottom up | Beneficial for big project to distribute tasks on testing
+| **Description**| High level modules are tested first and then lower level modules until all the modules are tested. | The reverse of top-down approach. | A mix of both top-down bottom-up approaches. |
+| <span style="color:red">**Advantages**</span>| Early discovery of high level architecture / design defects | Easier to create test cases bottom up | Beneficial for big project to distribute tasks on testing
 | | Main control points of the system are tested early | Critical modules on functionalities ae tested first | Allow top-down and bottom-up approach to run side by side | 
-| **Disadvantages** | Significant low level moduls are tested late in the cycle | There is no working system until the last module is build | It is difficult to test for highly interconnected modules |
-| | A [<span title="A program that simulates the behaviours of software components">stub</span>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow | A [<span title="Module with dummy code to temporalities replace a module">driver</span>](http://www.professionalqa.com/test-driver) test is even harder to write than stub | Higher cost from using both driver and stub. You can understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing)
+| <span style="color:blue">**Disadvantages**</span> | Significant low level modules are tested late in the cycle | There is no testable working system until the higher level modules are build | It is difficult to test for highly interconnected modules |
+| | A [<tooltip content="A program that simulates the behaviours of software components">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow | A [<tooltip content="Module with dummy code to temporalities replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub | Higher cost from using both driver and stub. You can understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing)
 
 :information_source: A more detailed guide on using specific methods for incremental testing together with examples can be found [here](https://www.softwaretestinghelp.com/incremental-testing/).
 
-### Designing test scenarios, cases and scripts
+### 2. Designing test scenarios, cases and scripts
 
-Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example shown above, below shows a sample integration test used for the login and ordering modules:
+Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example shown above, below shows a sample integration test used for the `login and ordering` modules:
 
 ~~~
 Test case ID: 1
-Objective: Check the link between login and ordering modules
+Objective: Check the link between `login and ordering` modules
 Description: Enter login credentials and click on login button
 Expected result: To be directed to order food page based on the login user
 ~~~
@@ -88,17 +86,23 @@ Expected result: To be directed to order food page based on the login user
 
 :information_source: More details about the ways to structure incremental testing can be found on [this article](https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/)
 
-### Executing test scripts and report defects
+### 3. Executing test scripts and report defects
 
 Depending on the approach you have chosen for your integration plan and the test cases, the way you execute your code for testing will differ.
 
 A big bang approach usually involves all the modules to be developed before you can start with the integration testing.
 
-As for incremental approach, it is usually conducted simultaneously with the modules development. Hence, stubs and drivers are used to mimic the modules for writing tests.
+As for incremental approach, it is usually conducted simultaneously with the modules' development. Hence, stubs and drivers are used to mimic the modules for writing tests.
 
 In both cases, always ensure that all high prioritzed bugs are fixed and closed before moving on.
 
 :information_source: [This article](https://www.guru99.com/test-environment-software-testing.html) shows more details on how to set up a test environment for better integration testing. 
+
+### 4. Tracking defects and re-testing application
+
+It is common to fail your integration test case initially so it is important to learn how to track down the [<tooltip content="Incorrect behavior observed from the system">defects</tooltip>](https://qacomplete.com/resources/articles/what-is-a-software-defect/)occured. Thereafter, you should make changes to your application to fix them and re-test your application to ensure that the defects are no longer there.
+
+:information_source: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
 
 ## Tips for better integration tests
 
@@ -120,21 +124,21 @@ Here are some useful tools that you can use for your integration testing:
 
 - [Selenium](https://www.seleniumhq.org/). Selenium is an open source test automation framework focusing on web applications. It supports a wide range of programming languages, cross-browser testing with extensive libraries and the ability to create robust test scripts to handle many scenarios.
 
-- [Google EarlGrey](https://google.github.io/EarlGrey/). EarlGrey is a native iOS automation test framework allowing developers to write and maintain clear concise tests. It has a powerful built-in synchornization which allows it to reproduce any UI interactivity and test them.
-
-- [Robotium](https://github.com/RobotiumTech/robotium). Robotium is an Android test automation framework made to simplify black-box tests/ It can handle multiple activities atuomatically, producing fast and robust tests cases.
+- [Robotium](https://github.com/RobotiumTech/robotium). Robotium is an Android test automation framework made to simplify black-box tests. It can handle multiple activities automatically, producing fast and robust tests cases.
 
 - [Gauge](https://gauge.org/). Gauge acts as a plugin which can be incorporated to any language or IDE. It is an lightweight cross-platform test automation tool which makes testing easier to maintain, more readable and flexible.
 
-Note that although there are many integration testing tool available, more research needs to be conducted to ensure the compatibility of the tool with your application.
+- [Google EarlGrey](https://google.github.io/EarlGrey/). For non web applications, EarlGrey is a native iOS automation test framework allowing developers to write and maintain clear concise tests. It has a powerful built-in synchornization which allows it to reproduce any UI interactivity and test them.
+
+Note that although there are many integration testing tool available, more research needs to be conducted to ensure the compatibility of the tools with your application.
 
 ## Concluding Remarks
 
-Ultimately, as a developer, it is important to recognize the importance of integration testing in your application. To better complete integration test, it is important to put yourself in the users' perspective and ensure that your application works from the user's point of view. 
+Ultimately, as a developer, it is important to recognize the importance of integration testing in your application. To better complete integration testing, follow the integration plan and ensure that all of the interfaces in your application are tested.
 
 ## Useful Resources
 
-You are ready to work on your integration testing! Here are some resources to help you along the way:
+Here are some resources to help you with integration testing:
 
 - [Dos and donts of integration testing](https://www.fogbugz.com/blog/9-integration-testing-dos-and-donts/). This article shows further advices on specific details to take note when writing your own integration test.
 
