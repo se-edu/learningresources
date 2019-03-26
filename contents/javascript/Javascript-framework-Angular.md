@@ -95,18 +95,51 @@ Declarative Templates and Dependency Injection are only a couple of unique featu
  
 ## Why Angular?
 
-The official description of Angular pointed out some key advantages of the framework. Let's look into them in more detail.
+The official description of Angular points out some key advantages of the framework. Let's look into them in more detail.
 
-### Benefit 1: Angular provides a Simplified MVC pattern.
+### Benefit 1: Angular provides Good Tooling Services.
 
-Angular framework uses the [MVC](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/) (Model-View-Controller) structure. The HTML represents the View component. Next to it, we have the `component.ts` files. This is the controller. Essentially, it can choose what data to push to our view (`.html`). 
-In Angular, the Model will be our services, which we can access through our controller. Services are a way to retrieve, update and process data to and from the backend.
+Angular provides developers with tools that enforce "best practices" for development purposes. Let us understand how some of these tools help developers.
 
-![File Structure](file.png)
+* **TypeScript** - Angular applications are built using the TypeScript language, a superset of JavaScript.
+TypeScript provides <tooltip content="Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.">static typing</tooltip>.
+This helps the compiler show warnings about any potential errors in the code, before the app runs. Consider the following example: 
 
-Most frameworks require developers to split the application into multiple MVC components. The developer is required to write code that connects these components. However, Angular saves you that time. As explained on the official [website](https://blog.angular-university.io/why-angular-angular-vs-jquery-a-beginner-friendly-explanation-on-the-advantages-of-angular-and-mvc/), everything happens under the hood. Angular ensures automatic synchronization between the components.
+    ```typescript
+    function add(x : number, y : number) : number {
+        return x + y;
+    }
+    add('a', 'b'); // compiler flags an error
+    ```
+    In the code above, the parameters `x` and `y` are declared to have the type `number`. Thus, the compiler shows an error when the function is called with strings as parameters.
+    Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense</tooltip>.
+    
+* **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers.
+    
+    The Angular CLI has out-of-the-box integration with **Codelyzer**.
+    Codelyzer helps developers write high quality code by linting it against the [official Angular style guide](https://angular.io/guide/styleguide) to ensure best practices.
+    <box type="info">Codelyzer is a set of rules for static code analysis of Angular TypeScript projects. </box>
+        
+    With the CLI we can also perform the following tasks to ease the development process. You can refer to the official documentation for a complete list of the CLI commands.
+     - Generate a new Angular application with - `ng new`
+     - Generate Angular files - `ng generate`
+     - Build our application for deployment - `ng build`
 
-### Benefit 2: Angular provides two-way data binding.
+This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
+ 
+### Benefit 2: Angular allows for Cross platform development.
+
+Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
+
+* **Progressive Web Apps** - PWAs are web-based applications that are intended to cater to users on a laptop or a mobile device. The [official documentation](https://developers.google.com/web/progressive-web-apps/) by Google describes PWAs to be reliable, fast and engaging.
+With Angular, developers can build PWAs to provide a better user experience. This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-part-2-progressifying-the-application-449e3a706129) is a good place to learn the basics of building PWAs using Angular.
+
+* **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
+that can be integrated with Angular to build native mobile apps. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
+
+* **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. A common approach used by many developers is to use [Electron](https://electronjs.org/), a framework maintained by Github, to build Desktop Applications. You can install the Electron framework in your Angular project with the help of the CLI and start building cross platform applications.
+
+### Benefit 3: Angular provides two-way data binding.
 
 As explained previously, Angular divides the application into the Model, View and Controller architecture. Data binding establishes the connection between the Model and View components. There are two types of data binding as explained below.
 
@@ -119,18 +152,6 @@ It ensures the exchange of data between the View and Model in a bi-directional m
 One-way data binding (used in React) involves uni-directional communication. If the model is changed, the changes are reflected in the UI. However, if the UI element changes the model state is not updated. Developers must provide this synchronization code. 
 
 This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding-3e618309d6c7) on Medium provides a good introduction to two-way data binding in Angular.
-
-### Benefit 3: Angular CLI provides for ease of development.
-
-In 2016 the Angular team announced the Angular CLI, a command-line interface (CLI) to automate your development workflow using versions Angular 2 and above.
-It is recommended to use Angular CLI as you don't need to spend time installing and configuring the required dependencies.
-
-`npm install -g @angular/cli`
-
-Running the above command installs the Angular CLI and gives you more control over your project.
-With Angular CLI developers can generate Angular files, execute applications and even run end to end tests.
-
-[source](https://www.amadousall.com/why-you-should-use-angular-cli/)
 
 ### When not to use Angular?
 
