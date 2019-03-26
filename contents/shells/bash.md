@@ -34,7 +34,7 @@ Shell is the interface through which we can pass instructions to kernel, and the
 
 A common question many people ask is why should we learn command-line based shell as it seems to be very hard to use. There are tons of Graphical User Interface (GUI) tools out there, that appear to be more user-friendly and powerful. From my perspective, there are four major reasons to use the command line:
 
-- **Remote Management**: Use over remote command-line shell makes it much easier to perform tasks remotely, such as when a developer is connecting from home. A remote command-line shell usually requires less bandwidth, results in less lag such that we can do things faster.
+- **Remote Management**: Remote command-line shell makes it much easier to perform tasks in cloud server, such as when a developer is connecting from home. A remote command-line shell usually requires less bandwidth, which results in less lag so that we can do things faster.
 
 - **Stability**: No matter what linux distribution you are running, the command line shell is always available and usage is almost the same. However, GUI tools might be different in different distributions, make it very hard to learn.
 
@@ -159,7 +159,7 @@ DESCRIPTION
 ## How to Get Started with linux command-line based shell?
 In our opinion, there is no need to learning linux command-line based shell in particular, because there are tons of linux commands out there, it is impossible to remember and master them all at one time without actual practices. Instead, when it comes to the time that you have to use it, try to use the terminal instead of GUI based tool. Although it might be hard at first, it will benefit you more later. For example, `git`, We highly recommend get started to use command-line based git instead of visualisation tools such as `Source Tree`.
 
-However, if you really wish to learn the bash systematically, below we have listed some resources you might find useful.
+However, if you really wish to learn bash systematically, below are some resources you might find useful.
 
 
 # Where to Go from Here?
