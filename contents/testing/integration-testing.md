@@ -18,7 +18,7 @@ Reviewers:
 
 ## What is integration testing?
 
-Integration testing is a part of software testing where individual parts of your application are combined and tested as a whole. This usually happens after the [<tooltip content="Testing of individual components within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html).
+Integration testing is a part of software testing where individual parts of your application are combined and tested as a whole. This usually happens after the [<tooltip content="Testing of individual components within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html) and it aims to discover faults related to the interaction of components.
 
 ## Why is integration testing important?
 
@@ -36,14 +36,14 @@ Imagine that you are working on an online web ordering system and a sample archi
 
 ![Sample architecture diagram](integration-test/sample-architecture.png "Sample architecture diagram")
 
-Using this as an example, below are a list of things you should follow to execute effective integration testing:
+Using this specific system as an example, below are a list of things you should follow to execute effective integration testing:
 
 1. Prepare the integration test plan.
 1. Design the test scenarios, cases and scripts.
 1. Executing the test scripts and report defects if any.
 1. Tracking defects and re-testing application.
 
-### 1. Integration Test Plan
+### 1. Prepare the integration test plan
 
 Before the actual implementation of your integration tests, it is important to decide on the approach used. There are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.
 
@@ -71,18 +71,18 @@ Incremental integration testing is further split into the 3 approaches shown bel
 
 :information_source: A more detailed guide on using specific methods for incremental testing together with examples can be found [here](https://www.softwaretestinghelp.com/incremental-testing/).
 
-### 2. Designing test scenarios, cases and scripts
+### 2. Design the test scenarios, cases and scripts
 
 Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example shown above, below shows a sample integration test used for the `login and ordering` modules:
 
 ~~~
 Test case ID: 1
-Objective: Check the link between `login and ordering` modules
+Objective: Check the link between login and ordering modules
 Description: Enter login credentials and click on login button
 Expected result: To be directed to order food page based on the login user
 ~~~
 
-<box type="warning">As integration test cases are expensive operations compared to unit testing, it should focus mainly on the integration of modules together and not on specific actions within the same module.</box>
+<box type="warning">As integration test cases are <tooltip content="It generally takes longer time due to additional overheads such as waiting for dependent modules to respond">expensive operations</tooltip> compared to unit testing, it should focus mainly on the integration of modules together and not on specific actions within the same module.</box>
 
 :information_source: More details about the ways to structure incremental testing can be found on [this article](https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/)
 
@@ -100,7 +100,7 @@ In both cases, always ensure that all high prioritzed bugs are fixed and closed 
 
 ### 4. Tracking defects and re-testing application
 
-It is common to fail your integration test case initially so it is important to learn how to track down the [<tooltip content="Incorrect behavior observed from the system">defects</tooltip>](https://qacomplete.com/resources/articles/what-is-a-software-defect/)occured. Thereafter, you should make changes to your application to fix them and re-test your application to ensure that the defects are no longer there.
+In the event of failing your integration test case, it is important to learn how to track down the [<tooltip content="Incorrect behavior observed from the system">defects</tooltip>](https://qacomplete.com/resources/articles/what-is-a-software-defect/)occured. Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.
 
 :information_source: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
 
@@ -143,5 +143,7 @@ Here are some resources to help you with integration testing:
 - [Dos and donts of integration testing](https://www.fogbugz.com/blog/9-integration-testing-dos-and-donts/). This article shows further advices on specific details to take note when writing your own integration test.
 
 - [Other testing tools to start your integration testing](https://www.softwaretestinghelp.com/integration-testing-tools/). Depending on your application, you can refer to more tools which can assist you in getting started with integration testing.
+
+- [Getting started with Selenium for automated website testing](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing). This article gives an overall guide to integrating selenium to automate integration testing for your web application.
 
 </div>
