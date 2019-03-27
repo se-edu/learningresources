@@ -23,6 +23,12 @@ A Relational Database Management System (RDBMS) is a popular database solution u
 **Structured Query Language** (**SQL**) is a programming language that is specifically designed for interacting with an RDBMS. Unlike other languages, SQL doesn't come as a standalone installation.
 Rather, RDBMSs %%like MySQL, Oracle, SQL Server and PostgreSQL%% come with an _implementation_ of SQL. Note that the SQL syntaxes may <tooltip content="in terms of whether the syntax is case-sensitive, the format for specifying date and time, what functions are available out-of-the-box">vary</tooltip> across these RDBMSs.
 
+These RDBMSs come with a GUI application, but can be accessed from the command line as well. Figure 1 shows MySQL Workbench GUI software and MySQL in the command line.
+
+![MySQL Workbench](MySQL_Workbench.png "MySQL Workbench GUI Software") ![MySQL CLI](MySQL_cli.png "Running MySQL from the command line")
+
+_Figure 1. MySQL can be accessed using the GUI or command line <sup>[image_source_1](https://www.mysql.com/products/workbench/)</sup> <sup>[image_source_2](https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393)</sup>_
+
 ---
 
 ### How does SQL work?
@@ -43,7 +49,7 @@ Suppose we have the data table `Students` shown here:
 | 8  | Henry | CS404  | CS      |
 
 We can use this SQL query to retrieve information from this table:
-```
+```sql
 SELECT Course, COUNT(*) num
 FROM Students
 WHERE Faculty = 'CS'
@@ -63,11 +69,29 @@ So, the output of the query is:
 | CS202  | 3   |
 | CS101  | 2   |
 
+You can see how this simple query can prove to be extremely useful for getting this information when the table has tens of entries (or many more). Apart from retrieving information, SQL can also be used for creating, deleting and manipulating data with queries like  `INSERT`, `DELETE` and `UPDATE` for entries, in addition to `CREATE`, `DROP` and `ALTER` for tables as a whole.
+
+For example, you can set up the structure of table shown in Table 1 by executing the `CREATE TABLE` query shown here.
+It creates a new data table `Students`, with 4 fields (`ID`, `Name`, `Course` and `Faculty`) and specifies their data types.
+
+```sql
+CREATE TABLE Students(ID int, Name varchar(255), Course varchar(255), Faculty varchar(255));
+```
+
+We can also remove rows containing the `MA` faculty from Table 1 with this `DELETE` query.
+
+```sql
+DELETE
+FROM Students
+WHERE Faculty='MA';
+```
+
 <box type="info">
-  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/0">DB Fiddle</a> by entering SQL queries and then running them.
+  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/0">DB Fiddle</a> (shown in Figure 1 below) by entering SQL queries and then running them.
 </box>
 
-You can see how this simple query can prove to be extremely useful for getting this information when the table has tens of entries (or many more). Apart from retrieving information, SQL can also be used for creating, deleting and manipulating data with queries like  `INSERT`, `DELETE` and `UPDATE` for entries, in addition to `CREATE`, `DROP` and `ALTER` for tables as a whole.
+![DBFiddle](DBFiddle.png "Running queries on DB Fiddle")
+_Figure 1. Using DB Fiddle to run queries in MySQL_
 
 ---
 
@@ -90,7 +114,7 @@ One such example is MySQL. It is free and comes with the official [MySQL Workben
 
 The RDBMSs that use SQL work on many operating systems %%(like Windows, Mac OS, Ubuntu, Red Hat among others)%% and more importantly, can be integrated with many languages. This includes programming languages like C++, Ruby, Java, Python, JavaScript (Node.js), and Go, among others.
 
-In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) and [JDoodle](https://www.jdoodle.com/execute-sql-online) make it easy to use and learn the SQL language quickly without the hassle of setting up an environment or application.
+In addition, online playgrounds like [JDoodle](https://www.jdoodle.com/execute-sql-online) and [DB Fiddle](https://www.db-fiddle.com/) (shown in Figure 1 above) make it easy to use and learn the SQL language quickly without the hassle of setting up an environment or application.
 
 ## Disadvantages
 
@@ -100,6 +124,8 @@ Although SQL databases use established <tooltip content="American National Stand
 Due to this, the available feature set can vary according to what you're using. This can make SQL confusing and frustrating to use when switching RDBMS.
 
 Apart from that, most **SQL** problems are not uniformly applicable across all RDBMSs that use SQL. For example, MySQL suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a query. However, PostgreSQL deals with concurrency well by implementing <tooltip content="each query transaction is isolated from other transactions running simultaneously in the system">transactions isolation</tooltip>.
+
+Depending on your requirements, you can also choose to use non-relational databases like <tooltip content="Stands for &#34;not only SQL&#34;">NoSQL</tooltip> databases instead of RDBMSs (and SQL). They are known for being highly scalable and handling large volumes of data well.
 
 ---
 
