@@ -127,7 +127,7 @@ Due to this, the available feature set can vary according to what you're using. 
 
 Apart from that, most **SQL** problems are not uniformly applicable across all RDBMSs that use SQL. For example, MySQL suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a query. However, PostgreSQL deals with concurrency well by implementing <tooltip content="each query transaction is isolated from other transactions running simultaneously in the system">transactions isolation</tooltip>.
 
-Depending on your requirements, you can also choose to use non-relational databases like <tooltip content="Stands for &#34;not only SQL&#34;">NoSQL</tooltip> databases instead of RDBMSs (and SQL). They are known for being highly scalable and handling large volumes of data well.
+Depending on your requirements, you can also choose to use non-relational databases like <tooltip content="Stands for- not only SQL">NoSQL</tooltip> databases instead of RDBMSs (and SQL). They are known for being highly scalable and handling large volumes of data well.
 
 ---
 
