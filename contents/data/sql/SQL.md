@@ -21,7 +21,7 @@ Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Rahul Rajesh](ht
 A Relational Database Management System (RDBMS) is a popular database solution used by software applications to manage their data.
 
 **Structured Query Language** (**SQL**) is a programming language that is specifically designed for interacting with an RDBMS. Unlike other languages, SQL doesn't come as a standalone installation.
-Rather, RDBMSs %%like MySQL, Oracle, SQL Server and PostgreSQL%% come with an _implementation_ of SQL. Note that the SQL syntaxes may <tooltip content="in terms of whether the syntax is case-sensitive, the format for specifying date and time, what functions are available out-of-the-box">vary</tooltip> across these RDBMSs.
+Rather, RDBMSs %%like MySQL, Oracle, SQL Server and PostgreSQL%% come with an _implementation_ of SQL. Note that the syntaxes may <tooltip content="in terms of whether the syntax is case-sensitive, the format for specifying date and time, what functions are available out-of-the-box">vary</tooltip> across these RDBMSs.
 
 These RDBMSs come with a GUI application, but can be accessed from the command line as well. Figure 1 shows MySQL Workbench GUI software and MySQL in the command line.
 
@@ -70,6 +70,7 @@ So, the output of the query is:
 | CS202  | 3   |
 | CS101  | 2   |
 
+<br/>
 You can see how this simple query can prove to be extremely useful for getting this information when the table has tens of entries (or many more). Apart from retrieving information, SQL can also be used for creating, deleting and manipulating data with queries like  `INSERT`, `DELETE` and `UPDATE` for entries, in addition to `CREATE`, `DROP` and `ALTER` for tables as a whole.
 
 For example, you can set up the structure of table shown in Table 1 by executing the `CREATE TABLE` query shown here.
@@ -88,11 +89,11 @@ WHERE Faculty='MA';
 ```
 
 <box type="info">
-  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/0">DB Fiddle</a> (shown in Figure 1 below) by entering SQL queries and then running them.
+  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/1">DB Fiddle</a> (shown in Figure 2 below) by entering SQL queries and then running them.
 </box>
 
 ![DBFiddle](DBFiddle.png "Running queries on DB Fiddle")
-_Figure 1. Using DB Fiddle to run queries in MySQL_
+_Figure 2. Using DB Fiddle to run queries in MySQL_
 
 ---
 
@@ -109,7 +110,7 @@ In addition, SQL and the RDBMSs have a huge support community (such as [SQL in S
 
 One of the benefits (and reasons) for SQL's popularity is that there are free RDBMS software available %%(like MySQL, PostgreSQL and SQLite)%% as well as paid ones %%(like Microsoft SQL Server and Oracle)%% that come with more functionality.
 
-One such example is MySQL. It is free and comes with the official [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) as well as other third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
+One such example is MySQL. It is free and comes with the official [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) (shown in Figure 1 above) as well as other third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
 
 ### Highly Compatible
 
