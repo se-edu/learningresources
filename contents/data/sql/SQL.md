@@ -25,9 +25,10 @@ Rather, RDBMSs %%like MySQL, Oracle, SQL Server and PostgreSQL%% come with an _i
 
 These RDBMSs come with a GUI application, but can be accessed from the command line as well. Figure 1 shows MySQL Workbench GUI software and MySQL in the command line.
 
-![MySQL Workbench](MySQL_Workbench.png "MySQL Workbench GUI Software") ![MySQL CLI](MySQL_cli.png "Running MySQL from the command line")
+<img src="MySQL_Workbench.png" alt="MySQL Workbench GUI Software" width="60%">
+<img src="MySQL_cli.png" alt="Running MySQL from the command line" width="40%">
 
-_Figure 1. MySQL can be accessed using the GUI or command line <sup>[image_source_1](https://www.mysql.com/products/workbench/)</sup> <sup>[image_source_2](https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393)</sup>_
+_Figure 1. MySQL can be accessed using the GUI or command line_ <sup>[image_source_1](https://www.mysql.com/products/workbench/)</sup> <sup>[image_source_2](https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393)</sup>
 
 ---
 
