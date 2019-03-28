@@ -26,21 +26,14 @@ Consider the example of creating a simple web application as shown below.
 
 ![Example](First_example.png)
 
-The application displays the details of a person, that is the id and the name. The view component (i.e., the part users see) is defined in Angular using templates. These templates are nothing but HTML files. Additionally, Angular extends the vocabulary of HTML by allowing you to create your own custom tags.
+The application displays the details of a person, that is the id and the name. The <i>view</i> component (i.e., the part users see) is defined in Angular using <i>templates</i>. An Angular template contains HTML code and <tooltip content="Angular allows developers to create their own HTML like tags to perform additional tasks">custom tags</tooltip>.
 Here is the template for the above example.
   
-```html
-<h2>Hello World</h2>
-<div><span>id: 1</span></div>
-<div>
-  <label>name:
-    <input text="hero.name" placeholder="name"/>
-  </label>
-</div>
-```
+<iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/heroes/heroes.component.html" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
 
-The templates used in Angular are <i>declarative</i> because they describe <i>what</i> the view should look like rather than giving instructions on <i>how</i> to construct the view. In the above example, we declare what we want displayed (i.e., name and id) and Angular renders the view.
-The code that describes the behavior is included outside the template in a class marked as a Component. This code is written in TypeScript language which looks as follows.  
+The templates used in Angular are <i>declarative</i> because they describe <i>what</i> the view should look like rather than giving instructions on <i>how</i> to construct the view. In the above example, we declare what we want displayed (i.e., name and id) and Angular renders the view. What makes these templates unique is their dynamic behavior. You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is achieved in Angular with the help of two-way data binding.
+
+Along with the the templates, Angular makes use of Components. They contain the behavior instructions written in TypeScript language, which will look as follows.  
 
 ```typescript
 @Component({
@@ -48,23 +41,23 @@ The code that describes the behavior is included outside the template in a class
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent {
+export class HeroesComponent implements OnInit {
   hero: Hero = {
+    id: 1234,
     name: 'John Doe'
   };
-  heroes: Hero[];
-  constructor(heroService: HeroService) {
-    this.heroes = heroService.getHeroes();
+  constructor() { }
+  ngOnInit() {
   }
 }
 ```
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-heroes` is how Angular knows what to do when it sees a `<app-heroes>` tag in HTML.
+* The use of `selector: app-heroes` is how Angular knows what to do when it sees a <tooltip content="This is an example of a custom tag">`<app-heroes>`</tooltip> tag in HTML.
 * The `hero.name` used in the HTML code, refers to the name property defined in this component.
 
-Now let us look at what **Dependency Injection**(DI) is. Dependencies are services that a class needs to perform it's function. We can visualize this with the help of an example.
+Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs to perform it's function. We can visualize this with the help of an example.
 
 ![Dependency](dependency.png)
 
@@ -81,7 +74,7 @@ export class HeroService {
   getHeroes() { return HEROES; }
 }
 ```
-The `HeroesComponent` declared previously, makes use of this `HeroService` by injecting the dependency in it's constructor as a parameter.
+The `HeroesComponent` declared previously, can make use of this `HeroService` by injecting the dependency in it's constructor as a parameter.
 
 ```
 constructor(heroService: HeroService) {
@@ -99,7 +92,7 @@ The official description of Angular points out some key advantages of the framew
 
 ### Benefit 1: Angular provides Good Tooling Services.
 
-Angular provides developers with tools that enforce "best practices" for development purposes. Let us understand how some of these tools help developers.
+Angular provides developers with tools that enforce "best practices". Let us understand how some of these tools help developers.
 
 * **TypeScript** - Angular applications are built using the TypeScript language, a superset of JavaScript.
 TypeScript provides <tooltip content="Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.">static typing</tooltip>.
@@ -111,16 +104,15 @@ This helps the compiler show warnings about any potential errors in the code, be
     }
     add('a', 'b'); // compiler flags an error
     ```
-    In the code above, the parameters `x` and `y` are declared to have the type `number`. Thus, the compiler shows an error when the function is called with strings as parameters.
+    In the code above, the parameters `x` and `y` are declared to have the type `number`. Thus, the compiler shows an error when the function is called with strings as inputs to the function.
     Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense</tooltip>.
     
 * **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers.
     
-    The Angular CLI has out-of-the-box integration with **Codelyzer**.
+    The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is a set of rules for static code analysis of Angular projects">**Codelyzer**</tooltip>.
     Codelyzer helps developers write high quality code by linting it against the [official Angular style guide](https://angular.io/guide/styleguide) to ensure best practices.
-    <box type="info">Codelyzer is a set of rules for static code analysis of Angular TypeScript projects. </box>
         
-    With the CLI we can also perform the following tasks to ease the development process. You can refer to the official documentation for a complete list of the CLI commands.
+    With the CLI we can also perform the following commands to ease the development process. You can refer to the official documentation for a complete list of the CLI commands.
      - Generate a new Angular application with - `ng new`
      - Generate Angular files - `ng generate`
      - Build our application for deployment - `ng build`
@@ -137,7 +129,7 @@ With Angular, developers can build PWAs to provide a better user experience. Thi
 * **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
 that can be integrated with Angular to build native mobile apps. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
 
-* **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. A common approach used by many developers is to use [Electron](https://electronjs.org/), a framework maintained by Github, to build Desktop Applications. You can install the Electron framework in your Angular project with the help of the CLI and start building cross platform applications.
+* **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. A common approach used by many developers is to use [Electron](https://electronjs.org/), a framework maintained by Github. You can install the Electron framework in your Angular project with the help of the CLI and start building cross platform applications.
 
 ### Benefit 3: Angular provides two-way data binding.
 
