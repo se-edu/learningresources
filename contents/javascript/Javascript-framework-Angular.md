@@ -26,7 +26,7 @@ Consider the example of creating a simple web application as shown below.
 
 ![Example](First_example.png)
 
-The application displays the details of a person, that is the id and the name. The <i>view</i> component (i.e., the part users see) is defined in Angular using <i>templates</i>. An Angular template contains HTML code and <tooltip content="Angular allows developers to create their own HTML like tags to perform additional tasks">custom tags</tooltip>.
+The application displays the name and id of a person. The <i>view</i> component (i.e., the part users see) is defined in Angular using <i>templates</i>. An Angular template contains HTML code and <tooltip content="Angular allows developers to create their own HTML like tags to perform additional tasks">custom tags</tooltip>.
 Here is the template for the above example.
   
 <iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/heroes/heroes.component.html" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
