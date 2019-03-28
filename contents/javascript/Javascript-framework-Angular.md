@@ -92,7 +92,7 @@ Declarative Templates and Dependency Injection are only a couple of unique featu
  
 ## Why Angular?
 
-The official description of Angular points out some key advantages of the framework. Let's look into them in more detail.
+Now that we know what Angular is, let us look at some benefits of using Angular.
 
 ### Benefit 1: Angular provides Good Tooling Services.
 
@@ -108,10 +108,10 @@ This helps the compiler show warnings about any potential errors in the code, be
     }
     add('a', 'b'); // compiler flags an error
     ```
-    In the code above, the parameters `x` and `y` are declared to have the type `number`. Thus, the compiler shows an error when the function is called with strings as inputs to the function.
+    In the code above, parameters `x` and `y` are declared to have the type `number`. Thus, the compiler shows an error when the function is called with strings as inputs to the function.
     Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense</tooltip>.
     
-* **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers.
+* **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers as follows.
     
     The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is a set of rules for static code analysis of Angular projects">**Codelyzer**</tooltip>.
     Codelyzer helps developers write high quality code by linting it against the [official Angular style guide](https://angular.io/guide/styleguide) to ensure best practices.
