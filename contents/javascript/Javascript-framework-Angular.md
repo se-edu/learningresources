@@ -31,6 +31,10 @@ Here is the template for the above example.
   
 <iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/heroes/heroes.component.html" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
 
+<box type="info">
+    The sandbox above is editable. You can play around with the application and see how the UI automatically gets updated. 
+</box>
+
 The templates used in Angular are <i>declarative</i> because they describe <i>what</i> the view should look like rather than giving instructions on <i>how</i> to construct the view. In the above example, we declare what we want displayed (i.e., name and id) and Angular renders the view. What makes these templates unique is their dynamic behavior. You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is achieved in Angular with the help of two-way data binding.
 
 Along with the the templates, Angular makes use of Components. They contain the behavior instructions written in TypeScript language, which will look as follows.  
