@@ -92,7 +92,7 @@ Declarative Templates and Dependency Injection are only a couple of unique featu
  
 ## Why Angular?
 
-Now that we know what Angular is, let us look at some benefits of using Angular.
+Now that we know what Angular is, let us look at some benefits it has to offer.
 
 ### Benefit 1: Angular provides Good Tooling Services.
 
