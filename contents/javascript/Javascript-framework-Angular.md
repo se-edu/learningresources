@@ -30,12 +30,12 @@ Consider the example of creating a simple web application as shown below.
     The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. 
 </box>
 
-The application displays the details about a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and additional HTML-like tags added by Angular.
+The application displays the name of a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and additional HTML-like tags added by Angular.
   
 The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML is their _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Along with the the templates, Angular makes use of Components. They contain the behavior instructions written in TypeScript language, which will look as follows.  
+Along with the the templates, Angular makes use of _Components_. They contain the behavior instructions written in TypeScript language, which will look as follows.  
 
 ```typescript
 @Component({
@@ -117,7 +117,7 @@ This helps the compiler show warnings about any potential errors in the code, be
 
 This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
  
-### Benefit 2: Angular allows for Cross platform development.
+### Benefit 2: Angular allows for Cross-platform development.
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
