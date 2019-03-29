@@ -12,22 +12,24 @@
 
 # React
 
-**Author: [Aadyaa Maddi](https://github.com/amad-person)** <br/>
+**Author: [Aadyaa Maddi](https://github.com/amad-person)** <br>
 Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin)
 
 ### What is React?
 
-**React** is an open-source JavaScript library for <tooltip content="React only handles the UI component of your application. It is not a full web application framework!">building the UI</tooltip> of web applications. It was developed by Facebook and released to the world in 2013. It is now used in a [large number of popular applications](https://github.com/facebook/react/wiki/Sites-Using-React), including Facebook and Instagram.
+**React** is an open-source JavaScript library for building the UI of web applications. It only handles the UI component of your application, and it is not a full web application framework! 
+
+React was developed by Facebook and released to the world in 2013. It is now used in a [large number of popular applications](https://medium.com/@coderacademy/32-sites-built-with-reactjs-172e3a4bed81), including Facebook and Instagram.
 
 ### Why use React?
 
 React has three main benefits. Let's take a look at each of them in detail.
 
-#### Benefit: Simplicity
+#### Benefit 1: Simplicity
 
 The traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates.">imperative</tooltip> approach of building a web application requires you to describe how you want your UI to change when your application data changes. Let's take a look at an example to see how this works. 
 
-Suppose your web application displays a message and has a button to change the message when it is clicked.
+Suppose your web application displays a message and has a button. You want the message to change when this button is clicked.
 
 One way of doing this is by using [jQuery](https://jquery.com/): 
 
@@ -39,11 +41,11 @@ $("#button").click(function() {
 
 In the example above, we manually selected the <tooltip content="The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.">DOM</tooltip> elements `button` and `message`, attached a listener to `button` for the DOM's `click` event, and wrote a function that describes how to change `message` on clicking `button`. 
 
-This approach is great for simple applications, but web applications usually have to interact with a lot more DOM elements and events. Different browsers have variations in their implementations of the [core DOM](https://quirksmode.org/dom/core/), [events system](https://www.quirksmode.org/dom/events/index.html) and even [styles](https://www.quirksmode.org/dom/w3c_css.html)! If you want your application to work across different browsers, you would need to manually take care of the variations with the imperative approach. 
+This approach is good for simple applications, but most web applications usually have to interact with a lot more DOM elements and events. Also, different browsers have variations in their implementations of the [core DOM](https://quirksmode.org/dom/core/), [events system](https://www.quirksmode.org/dom/events/index.html) and even [styles](https://www.quirksmode.org/dom/w3c_css.html)! If you want your application to work across different browsers, you would need to manually take care of the variations with the imperative approach. 
 
 React simplifies this process by taking a <tooltip content="Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.">**declarative**</tooltip> approach to building UIs. 
 
-To see how this works, let's build the same web application using React instead:
+To see how this works, let's build the same web application as before, using React instead:
 
 <box type="info">
     The sandbox below is editable. You can play around with the application data (or <code>state</code>) and see how the UI automatically gets updated. 
@@ -53,7 +55,7 @@ To see how this works, let's build the same web application using React instead:
 
 As you can see above, the declarative approach is useful because it abstracts the complexity of interacting with the actual DOM elements and <tooltip content="React provides its own event system so that events can work in the same way across different browsers.">events</tooltip>. With React, you just need to specify *what* you want to show in the UI when the application data changes.
 
-#### Benefit: Reusability
+#### Benefit 2: Reusability
 
 Suppose you have a web application with the following markup in its UI:
 
@@ -63,7 +65,7 @@ Suppose you have a web application with the following markup in its UI:
 <h3>This is line 3.</h3>
 ```
 
-The only difference in the three headings above is the number at the end of each line. Wouldn't it be nice if we could reuse a single line of markup for each heading and just pass in a different number each time?
+The only difference in the three headings above is the number at the end of each line. Wouldn't it be nice if we could reuse the same markup for each heading and just pass in a different number each time?
 
 We can do this with React! Let's see how:
 
@@ -77,27 +79,28 @@ In the example above, we reused the markup for each heading using an `ExampleCom
 
 Components can be especially useful when your UI is complex. With components, you can not only *reuse* code, but also *divide* your UI into encapsulated units that manage their own data and logic. 
 
-For example, if you have a todo list application, it could have a `Form` component to handle adding new items and a `TodoList` component to display all the items. The `TodoList` component could further be composed of multiple `TodoListItem` components, one for each item in the todo list. 
+For example, let's say you want to build a todo list application. As shown in Figure 1 below, the `App` component could have a `Form` component to handle adding new items and a `TodoList` component to display all the items. The `TodoList` component could further be composed of multiple `TodoListItem` components, one for each item in the todo list. 
 
 ![Building a Todo List application using React](javascript-framework-react-imgs/ReactComponentsExample.png "Building a Todo List application using React")
 
-You can read more about components and props in the React [documentation](https://reactjs.org/docs/components-and-props.html). 
+_Figure 1. Dividing a todo list application into React components._ <sup>[source](https://i.cloudup.com/DCcBG58qYv.png)</sup>
 
-#### Benefit: Better Performance
+#### Benefit 3: Better Performance
 
-Web applications can have a lot of user interaction and data updates, which results in changes being made to the DOM. Adding and removing DOM nodes isn't slow. The performance-bottleneck that arises due to DOM manipulation is because the browser needs to [reflow and repaint](https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/) the UI every time the DOM is changed.
+Web applications can have a lot of user interaction and data updates, which results in changes being made to the DOM. Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to [reflow and repaint](https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/) the UI every time the DOM is changed.
 
 React minimizes this update time by using a virtual DOM. The virtual DOM is a JavaScript object that is kept in the memory of your application.
 
 ![React's Virtual DOM](javascript-framework-react-imgs/ReactVirtualDOM.png "React's Virtual DOM")
+_Figure 2. How React's actual DOM gets updated._
 
-Any updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a [diffing algorithm](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm). 
+As shown in Figure 2 above, updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a [diffing algorithm](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm). 
 Finally, React updates the actual DOM only in places it differs with the virtual DOM. It batches multiple changes together and updates the actual DOM in one go, minimizing update time. 
 
 #### Other Advantages of React
 
 Besides the three main benefits explained above, React has the following advantages:
- - React only allows data to flow downwards (one-way data binding), which makes your application [easier to debug](https://flaviocopes.com/react-unidirectional-data-flow/).
+ - React only allows data to flow downwards (one-way data binding), which makes your application [easier to debug](https://flaviocopes.com/react-unidirectional-data-flow/) as you can be sure that the data updates the UI, and never the other way around.
  - As React is an open-source library backed by Facebook, it is constantly being updated with new features and performance optimizations.
 
 ### Disadvantages of React
