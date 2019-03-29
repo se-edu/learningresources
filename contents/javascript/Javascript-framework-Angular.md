@@ -30,11 +30,10 @@ Consider the example of creating a simple web application as shown below.
     The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. 
 </box>
 
-The application displays the details about a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and and additional HTML-like tags added by Angular.
-Here is the template for the above example.
+The application displays the details about a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and additional HTML-like tags added by Angular.
   
-The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML files is their _dynamic behavior_.
-You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular.
+The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML is their _dynamic behavior_.
+You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data (name of the person in the above example) are automatically synchronized by Angular.
 
 Along with the the templates, Angular makes use of Components. They contain the behavior instructions written in TypeScript language, which will look as follows.  
 
@@ -56,20 +55,19 @@ export class HeroesComponent implements OnInit {
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-heroes` is how Angular knows what to do when it sees a <tooltip content="This is an example of a custom tag">`<app-heroes>`</tooltip> tag in HTML.
-* The `hero.name` used in the HTML code, refers to the name property defined in this component.
+* The use of `selector: app-heroes` is how Angular knows what to do when it sees a `<app-heroes>` tag in the template.
+* The `hero.name` used in the template, refers to the name property defined in the above component.
 
-Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs to perform it's function. We can visualize this with the help of an example.
+Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform it's function. We can visualize this with the help of an example.
 
 ![Dependency](dependency.png)
 
-Dependency injection is a way of providing a class with the required services. The official website claims that the DI framework increases the "efficiency and modularity" of an app. For example, given below is an injectable service class.
+Dependency injection is a way of providing a class with the required services. The official website claims that the DI framework increases the "efficiency and modularity" of an app. Given below is an injectable service class.
  
 ```typescript
 import { Injectable } from '@angular/core';
 import { HEROES } from './mock-heroes';
 @Injectable({
-  // we declare that this service should be created by the root application injector.
   providedIn: 'root',
 })
 export class HeroService {
