@@ -43,13 +43,11 @@ Along with the the templates, Angular makes use of Components. They contain the 
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class HeroesComponent {
   hero: Hero = {
     name: 'John Doe'
   };
   constructor() { }
-  ngOnInit() {
-  }
 }
 ```
 
