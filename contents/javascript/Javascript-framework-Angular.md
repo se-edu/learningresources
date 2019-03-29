@@ -17,25 +17,23 @@ Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng]
 
 ## What is Angular?
 
-Angular, according to the [official website](https://angular.io/docs), is described as follows:
+It's [official website](https://angular.io/docs) describes Angular as follows:
 
 >Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
 
-Let us understand some key terms starting with what <i>declarative templates</i> mean.
+Let us understand some key terms in that definition starting with what _declarative templates_ means.
 Consider the example of creating a simple web application as shown below.
 
-![Example](First_example.png)
-
-The application displays the name and id of a person. The <i>view</i> component (i.e., the part users see) is defined in Angular using <i>templates</i>. An Angular template contains HTML code and <tooltip content="Angular allows developers to create their own HTML like tags to perform additional tasks">custom tags</tooltip>.
-Here is the template for the above example.
-  
 <iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/heroes/heroes.component.html" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
 
 <box type="info">
-    The sandbox above is editable. You can play around with the application and see how the UI is automatically updated. 
+    The sandbox above is editable. You can enter your name in the text box and see the changes rendered. 
 </box>
 
-The templates used in Angular are <i>declarative</i> because they describe <i>what</i> the view should look like rather than giving instructions on <i>how</i> to construct the view. In the above example, we declare what we want displayed (i.e., name and id) and Angular renders the view. What makes these templates unique is their dynamic behavior. You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is achieved in Angular with the help of <tooltip content="The automatic synchronization between the View and Model">two-way data binding</tooltip>.
+The application displays the details about a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and <tooltip content="Angular allows developers to create their own HTML like tags to perform additional tasks">custom tags</tooltip>.
+Here is the template for the above example.
+  
+The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML files is their dynamic behavior. You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is achieved in Angular with the help of <tooltip content="The automatic synchronization between the View and Model">two-way data binding</tooltip>.
 
 Along with the the templates, Angular makes use of Components. They contain the behavior instructions written in TypeScript language, which will look as follows.  
 
@@ -47,7 +45,6 @@ Along with the the templates, Angular makes use of Components. They contain the 
 })
 export class HeroesComponent implements OnInit {
   hero: Hero = {
-    id: 1234,
     name: 'John Doe'
   };
   constructor() { }
@@ -65,7 +62,7 @@ Now let us look at what **Dependency Injection**(DI) means. Dependencies are ser
 
 ![Dependency](dependency.png)
 
-Dependency injection is a way of providing a class with the required services when the class is instantiated. The official website claims that the DI framework increases the "efficiency and modularity" of an app. For example, given below is an injectable service class.
+Dependency injection is a way of providing a class with the required services. The official website claims that the DI framework increases the "efficiency and modularity" of an app. For example, given below is an injectable service class.
  
 ```typescript
 import { Injectable } from '@angular/core';
