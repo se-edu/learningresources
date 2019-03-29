@@ -27,13 +27,14 @@ Consider the example of creating a simple web application as shown below.
 <iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/heroes/heroes.component.html" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
 
 <box type="info">
-    The sandbox above is editable. You can enter your name in the text box and see the changes rendered. 
+    The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. 
 </box>
 
 The application displays the details about a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and and additional HTML-like tags added by Angular.
 Here is the template for the above example.
   
-The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML files is their _dynamic behavior_. You will notice that as you change the name in the text box, the name rendered on the app is also updated.
+The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML files is their _dynamic behavior_.
+You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular.
 
 Along with the the templates, Angular makes use of Components. They contain the behavior instructions written in TypeScript language, which will look as follows.  
 
