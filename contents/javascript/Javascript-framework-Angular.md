@@ -96,7 +96,7 @@ Now that we know what Angular is, let us look at some benefits it has to offer.
 
 ### Benefit 1: Angular provides Good Tooling Services.
 
-Angular provides developers with tools that enforce "best practices". Let us understand how some of these tools help developers.
+Angular provides developers with tools that enforce "best practices". Let us look at some of these tools.
 
 * **TypeScript** - Angular applications are built using the TypeScript language, a superset of JavaScript.
 TypeScript provides <tooltip content="Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.">static typing</tooltip>.
@@ -111,7 +111,7 @@ This helps the compiler show warnings about any potential errors in the code, be
     In the code above, parameters `x` and `y` are declared to have the type `number`. Thus, the compiler shows an error when the function is called with strings as inputs to the function.
     Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense</tooltip>.
     
-* **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers as follows.
+* **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers.
     
     The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is a set of rules for static code analysis of Angular projects">**Codelyzer**</tooltip>.
     Codelyzer helps developers write high quality code by linting it against the [official Angular style guide](https://angular.io/guide/styleguide) to ensure best practices.
@@ -131,7 +131,7 @@ Using the modern versions of Angular, developers can build applications that liv
 With Angular, developers can build PWAs to provide a better user experience. This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-part-2-progressifying-the-application-449e3a706129) is a good place to learn the basics of building PWAs using Angular.
 
 * **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
-that can be integrated with Angular to build native mobile apps. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
+that can be integrated with Angular. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
 
 * **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. A common approach used by many developers is to use [Electron](https://electronjs.org/), a framework maintained by Github. You can install the Electron framework in your Angular project with the help of the CLI and start building cross platform applications.
 
