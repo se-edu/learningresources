@@ -30,10 +30,10 @@ Consider the example of creating a simple web application as shown below.
     The sandbox above is editable. You can enter your name in the text box and see the changes rendered. 
 </box>
 
-The application displays the details about a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and <tooltip content="Angular allows developers to create their own HTML like tags to perform additional tasks">custom tags</tooltip>.
+The application displays the details about a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and and additional HTML-like tags added by Angular.
 Here is the template for the above example.
   
-The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML files is their dynamic behavior. You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is achieved in Angular with the help of <tooltip content="The automatic synchronization between the View and Model">two-way data binding</tooltip>.
+The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. What makes these templates different from conventional HTML files is their _dynamic behavior_. You will notice that as you change the name in the text box, the name rendered on the app is also updated.
 
 Along with the the templates, Angular makes use of Components. They contain the behavior instructions written in TypeScript language, which will look as follows.  
 
