@@ -60,7 +60,7 @@ Now let us look at what **Dependency Injection**(DI) means. Dependencies are ser
 
 ![Dependency](dependency.png)
 
-Dependency injection is a way of providing a class with the required services. The official website claims that the DI framework increases the "efficiency and modularity" of an app. Given below is an injectable service class.
+Dependency injection is a way of providing a class with the required services. The official website claims that the DI framework increases the "efficiency and modularity" of an app. Given below is a an injectable service class.
  
 ```typescript
 import { Injectable } from '@angular/core';
@@ -80,9 +80,9 @@ constructor(heroService: HeroService) {
 }
 ```
 
-The DI framework lets you supply data to any component from the injectable service class. This explains how it increases "efficiency and modularity".
+The DI framework lets you supply data to any component from the service class. This explains how it increases "efficiency and modularity".
 
-Declarative Templates and Dependency Injection are only a couple of unique features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
+Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
  
 ## Why Angular?
 
@@ -108,7 +108,7 @@ This helps the compiler show warnings about any potential errors in the code, be
 * **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers.
     
     The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is a set of rules for static code analysis of Angular projects">**Codelyzer**</tooltip>.
-    Codelyzer helps developers write high quality code by linting it against the [official Angular style guide](https://angular.io/guide/styleguide) to ensure best practices.
+    Codelyzer helps developers write high quality code by linting it against the [official Angular style guide](https://angular.io/guide/styleguide).
         
     With the CLI we can also perform the following commands to ease the development process. You can refer to the official documentation for a complete list of the CLI commands.
      - Generate a new Angular application with - `ng new`
