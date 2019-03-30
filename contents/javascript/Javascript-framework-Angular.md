@@ -80,7 +80,7 @@ constructor(heroService: HeroService) {
 }
 ```
 
-The DI framework lets you supply data to any component from the service class. In the above example, we write the `getHeroes` method only once in the service class and we can access this method from any component by injecting the service in the constructor.
+In the above example, we write the `getHeroes` method only once in the service class and we can access this method from any component by injecting the service in the constructor.
 This explains how DI increases "efficiency and modularity".
 
 Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
