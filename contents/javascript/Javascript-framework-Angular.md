@@ -157,13 +157,13 @@ You can refer to this [article](https://jsreport.io/why-is-react-more-popular-th
     
 ### Angular when compared with other popular frontend frameworks
 
-There are many frontend frameworks and libraries out there that developers may prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
+There are alternate frontend frameworks and libraries that developers may prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
 
 React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage.
-React provides more flexibility to developers as it allows integration of third party libraries.
+It also provides more flexibility to developers as it allows integration of third party libraries.
 Similarly, Vue offers us some advantages, like flexibility, simplistic structure and ease of integration.
 
-Every framework/library has its own pros and cons. The tool you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between the popular frontend frameworks/libraries.
+Every framework/library has its own pros and cons. The framework/library you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between the popular frontend frameworks/libraries.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
@@ -177,12 +177,11 @@ Angular is not the easiest framework to work with. However, it is reliable and i
 
 2. This article on [freeCodeCamp](https://medium.freecodecamp.org/want-to-learn-angular-heres-our-free-33-part-course-by-dan-wahlin-fc2ff27ab451) is a good place to start writing simple applications using the features that Angular has to offer.
 
-3. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the new language.
+3. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the language.
 
 The Angular community is big, and help is readily available via searching on Google and Stack Overflow.
-There are many online resources and tutorials that can help you ease into the Angular world.
+There are many online resources and tutorials too.
 
-- [How to Build Native Cross-Platform Desktop Apps with Angular & Electron](https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2)
 - [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
 - [StackOverflow Questions](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - Top voted questions on Angular.
 - [Angular in depth](https://blog.angularindepth.com/) - Advanced concepts in Angular explained.
