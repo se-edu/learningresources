@@ -118,17 +118,17 @@ This helps the compiler show warnings about any potential errors in the code, be
 
 This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
  
-### Benefit 2: Angular allows for Cross-platform development.
+### Benefit 2: Angular allows Cross-platform development.
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
-* **Progressive Web Apps** - PWAs are web-based applications that are intended to cater to users on a laptop or a mobile device. The [official documentation](https://developers.google.com/web/progressive-web-apps/) by Google describes PWAs to be reliable, fast and engaging.
-With Angular, developers can build PWAs to provide a better user experience. This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-part-2-progressifying-the-application-449e3a706129) is a good place to learn the basics of building PWAs using Angular.
+* **Progressive Web Apps** - PWAs are web-based applications that contain most of the benefits of a typical mobile app. The [official documentation](https://developers.google.com/web/progressive-web-apps/) by Google describes PWAs to be reliable, fast and engaging. Given it's "best practices", Angular is a good choice to build PWAs.
+This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-part-2-progressifying-the-application-449e3a706129) is a good place to learn the basics of building PWAs using Angular.
 
 * **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
-that can be integrated with Angular. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
+that can be integrated with Angular for mobile application development. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
 
-* **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. A common approach used by many developers is to use [Electron](https://electronjs.org/), a framework maintained by Github. You can install the Electron framework in your Angular project with the help of the CLI and start building cross platform applications.
+* **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. A common approach used by many developers is to use [Electron](https://electronjs.org/), a framework maintained by Github. You can install the Electron framework in your Angular project with the help of the CLI and start building cross-platform applications.
 
 ### Benefit 3: Angular provides two-way data binding.
 
