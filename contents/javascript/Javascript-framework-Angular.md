@@ -22,15 +22,15 @@ It's [official website](https://angular.io/docs) describes Angular as follows:
 >Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
 
 Let us understand some key terms in that definition starting with what _declarative templates_ means.
-Consider the example of creating a simple web application as shown below.
+Consider a simple web application that displays the name of a person as shown below.
 
-<iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/heroes/heroes.component.html" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
+<iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/app.component.ts&view=preview" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
 
 <box type="info">
-    The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. 
+    The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the Both button. 
 </box>
 
-The application displays the name of a person. The _view_ component (i.e., the part users see) is defined in Angular using _templates_. An Angular template contains HTML code and additional HTML-like tags added by Angular.
+The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags.
   
 The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. A noteworthy feature about these templates is their _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
@@ -53,12 +53,16 @@ export class HeroesComponent {
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-heroes` is how Angular knows what to do when it sees a `<app-heroes>` tag in the template.
+* The use of `selector: app-heroes` is how identifies this component in a template and renders it.  
 * The `hero.name` used in the template, refers to the name property defined in the above component.
 
 Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform it's function. We can visualize this with the help of an example.
 
-![Dependency](dependency.png)
+<center>
+<img src="dependency.png" width="60%">
+
+_Figure 1. What is a dependency?_ <sup>[source](https://medium.freecodecamp.org/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f)</sup>
+</center>
 
 Dependency injection is a way of providing a class with the required services. The official website claims that the DI framework increases the "efficiency and modularity" of an app. Given below is a an injectable service class.
  
