@@ -93,7 +93,7 @@ Declarative Templates and Dependency Injection are only a couple of noteworthy f
 
 Now that we know what Angular is, let us look at some benefits it has to offer.
 
-### Benefit 1: Angular provides Good Tooling Services.
+### Benefit 1: Angular Provides Good Tooling Services.
 
 Angular provides developers with tools that enforce "best practices". Let us look at some of these tools.
 
@@ -108,21 +108,36 @@ This helps the compiler show warnings about any potential errors in the code, be
     add('a', 'b'); // compiler flags an error
     ```
     In the code above, parameters `x` and `y` are declared to have the type `number`. Thus, the compiler shows an error when the function is called with strings as inputs to the function.
-    Another advantage is that TypeScript provides code completion using <tooltip content="IntelliSense provides active hints as code is added">IntelliSense</tooltip>.
     
-* **Angular CLI** - The [official documentation](https://angular.io/cli) claims that the Command-line Interface can be used to develop and maintain applications. It can be used to enforce "best practices" amongst developers.
+    Another advantage of TypeScript is _Type Inference_ - TypeScript makes typing a bit easier and less explicit by the usage of type inference. Let us see how.
     
-    The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is a set of rules for static code analysis of Angular projects">**Codelyzer**</tooltip>.
-    Codelyzer helps developers write high quality code by linting it against the [official Angular style guide](https://angular.io/guide/styleguide).
-        
-    With the CLI we can also perform the following commands to ease the development process. You can refer to the official documentation for a complete list of the CLI commands.
+    ```typescript
+    let a = "some text";
+    let b = 123;
+    a = b; // Compiler Error: Type 'number' is not assignable to type 'string'
+    ```    
+    
+    In the above code snippet, we are not explicitly defining `a: string` with a type annotation. TypeScript infers the type of the variable based on the value assigned to the variable. The value of `a` is a string and hence the type of `a` is inferred as `string`.
+    Similarly, the type of `b` is inferred as a `number`. Therefore, while inferring types, the compiler flags an error saying a `number` type cannot be assigned to a `string` type.
+    
+    You can read this [article](https://medium.com/tech-tajawal/typescript-why-should-one-use-it-a539faa92010) to learn more about the features TypeScript has to offer.
+    
+* **Angular CLI** - Angular CLI stands for Angular Command Line Interface. It is a command line tool for managing Angular apps. 
+    With the CLI you can perform the following commands to ease the development process.
      - Generate a new Angular application with - `ng new`
      - Generate Angular files - `ng generate`
-     - Build our application for deployment - `ng build`
+     - Build your application for deployment - `ng build`
+     
+    You can refer to the [official documentation](https://cli.angular.io/) for a complete list of the CLI commands.
+    
+    The Angular CLI also helps developers follow good development practices. Let us see how.<br/> 
+    The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is an open source tool that checks whether the pre-defined coding guidelines have been followed or not">**Codelyzer**</tooltip>.
+    Codelyzer lints your code against the [official Angular style guide](https://angular.io/guide/styleguide). With Angular CLI, you can simply run the command `ng lint` to get an analysis of whether your code follows the "best practices".
+        
 
 This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
  
-### Benefit 2: Angular allows Cross-platform development.
+### Benefit 2: Angular Allows Cross-platform Development.
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
@@ -132,40 +147,47 @@ This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-part-2-
 * **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
 that can be integrated with Angular for mobile application development. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
 
-* **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. A common approach used by many developers is to use [Electron](https://electronjs.org/), a framework maintained by Github. You can install the Electron framework in your Angular project with the help of the CLI and start building cross-platform applications.
+* **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. In order for your application to be compatible with the different Operating Systems, you can use the <tooltip content="Electron is a framework that provides a set of APIs to interact with the Windows, OS X, and Linux operating systems. It makes cross-platform development easier.">[Electron](https://electronjs.org/)</tooltip> framework.
+You can integrate the Electron framework in your project using the Angular CLI and start building your application.
+This [article](https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2) is a good introduction to building desktop apps with Angular and Electron.
 
-### Benefit 3: Angular provides two-way data binding.
+### Benefit 3: Angular Provides Two-way Data Binding.
 
-As explained previously, Angular divides the application into the Model, View and Controller architecture. Data binding establishes the connection between the Model and View components. There are two types of data binding as explained below.
+Web apps have two main components, a _View_ and a _Model_. The View component is responsible for displaying data (i.e., the part users see). The Model is concerned with the logic implementation of the application. It retrieves and updates the data to and from the database.
+_Data binding_ refers to the exchange of data between the View and Model components. There are two types of data binding as explained below.
 
-![Data Binding](one_two.png)
+<center>
+<img src="data.jpg" width="50%">
 
-Angular uses two-way data binding as opposed to popular tools like React that use one way data binding. How does this help?
+_Figure 1. Types of data binding_ <sup>[source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/)</sup>
+</center>
 
-It ensures the exchange of data between the View and Model in a bi-directional manner. If the User Input changes, data in the backend is updated by Angular. Additionally, if the Model state (data) changes, the UI is updated automatically. This means reduced coding for developers.
+Some frameworks like React provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
+If the app allows users to change data thorough the view (e.g., entering your name in the textbox), the developer has to write code to propagate that change to the Model.
 
-One-way data binding (used in React) involves uni-directional communication. If the model is changed, the changes are reflected in the UI. However, if the UI element changes the model state is not updated. Developers must provide this synchronization code. 
+In contrast, Angular provides data binding in both ways. That means even changes to the View can be propagated to the Model automatically, without writing extra code for that.
 
 This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding-3e618309d6c7) on Medium provides a good introduction to two-way data binding in Angular.
 
-### When not to use Angular?
+### Disadvantages of Angular.
 
 Like any other framework/library, Angular has its share of disadvantages.
 
-1. **Steep Learning curve** - Angular requires you to learn many concepts, such as directives, modules, components, services, dependency injection, pipes, and most importantly TypeScript. 
-The large number of new concepts can be confusing to newcomers.
+1. **Steep Learning curve** - Angular requires you to learn many concepts, such as directives, modules, components, services and many more. 
+The large number of new concepts can be confusing to newcomers. Additionally, Angular also requires you to learn a new language, TypeScript.
 
-2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means it provides you with a set of tools to build your application. Angular expects you to use these tools as much as you can. While libraries like React allow you to integrate any third party services in your application.
+2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
+In contrast, React allows you to integrate any third party services in your application.
 
 You can refer to this [article](https://jsreport.io/why-is-react-more-popular-than-angular/) that points out the benefits other tools like React have over Angular.
     
 ### Angular when compared with other popular frontend frameworks
 
-There are alternate frontend frameworks and libraries that developers may prefer over Angular. <a href="https://reactjs.org/">React</a>, a Javascript library, and <a href="https://vuejs.org/">Vue</a>, a Javascript framework, are two such examples.
+[React]("https://reactjs.org/") and [Vue]("https://vuejs.org/") are two popular alternatives to Angular.
 
 React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage.
-It also provides more flexibility to developers as it allows integration of third party libraries.
-Similarly, Vue offers us some advantages, like flexibility, simplistic structure and ease of integration.
+It also provides more flexibility as it allows integration of third party libraries.
+Similarly, Vue offers some advantages, like flexibility, simple structure and ease of integration.
 
 Every framework/library has its own pros and cons. The framework/library you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between the popular frontend frameworks/libraries.
 
@@ -175,11 +197,11 @@ Every framework/library has its own pros and cons. The framework/library you cho
 
 ## How to get started with Angular?
 
-Angular is not the easiest framework to work with. However, it is reliable and is used by many developers. Given below are a few steps that will help you ease into the Angular environment.
+Angular is not the easiest framework to work with. Given below are a few steps that will help you ease into the Angular environment.
 
-1. The official [Angular](https://angular.io/guide/quickstart) website offers a good tutorial to get started with the new framework. This guide will show you how to build and run a simple Angular application.
+1. The official [Angular](https://angular.io/guide/quickstart) website offers a good tutorial to get started. It shows you how to build and run a simple Angular application.
 
-2. This article on [freeCodeCamp](https://medium.freecodecamp.org/want-to-learn-angular-heres-our-free-33-part-course-by-dan-wahlin-fc2ff27ab451) is a good place to start writing simple applications using the features that Angular has to offer.
+2. [Want to learn Angular? Here’s our free 33-part course](https://medium.freecodecamp.org/want-to-learn-angular-heres-our-free-33-part-course-by-dan-wahlin-fc2ff27ab451) - This resource (from freeCodeCamp) is a good place to start writing simple applications using the features that Angular has to offer.
 
 3. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the language.
 
