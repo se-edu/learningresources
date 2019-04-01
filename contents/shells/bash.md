@@ -19,12 +19,13 @@ Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Ong Shu Peng](https
 
 ## Overview
 
-This chapter assumes that the reader is familiar with general concepts of operating systems. It is recommended to pick up basic operating system concepts first. The classic textbook of operating system **Mordern Operating Systems by Tanenbaum** is highly recommended. 
+In general, a computer can be divided into 3 abstraction layers, hardware, kernel and applications. Users cannot control the hardware directly; instructions have to be given through kernel as the kernel is the one that controls the hardware.
 
 <img src="https://cdn-images-1.medium.com/max/1200/1*zEv6mAa2wzHnz4a5uWW4gw.png" alt="shell-kernel" style="width:300px;"/>
 
-Computer can be divided into 3 abstraction layers, hardware, kernel and applications. Users cannot control the hardware directly, instructions have to be given through kernel as kernel is the one that controls the hardware. 
-Shell is the interface through which we can pass instructions to kernel, and then it could be executed on the hardware. In this chapter, we will look into **Linux bash shell**.
+<sub>[What (really) happens when you type ls -l in the shell](https://medium.com/meatandmachines/what-really-happens-when-you-type-ls-l-in-the-shell-a8914950fd73)</sub>
+
+The **shell** is the interface through which we pass instructions to the kernel. These instructions will then be executed through the hardware. In this chapter, we will look into **Linux bash shell**.
 
 > Linux is the best-known and most-used open source operating system. As an operating system, Linux is software that sits underneath all of the other software on a computer, receiving requests from those programs and relaying these requests to the computer’s hardware. -- <cite>[What is Linux](https://opensource.com/resources/linux)</cite>
 
@@ -32,18 +33,18 @@ Shell is the interface through which we can pass instructions to kernel, and the
 
 ## Why use command-line based shell?
 
-A common question many people ask is why should we learn command-line based shell as it seems to be very hard to use. There are tons of Graphical User Interface (GUI) tools out there, that appear to be more user-friendly and powerful. From my perspective, there are four major reasons to use the command line:
+A common question many people ask is: "Why should we learn the command-line based shell when there are tons of Graphical User Interface (GUI) tools out there that appear to be more user-friendly and powerful?". Well, here are some key advantages the command-line shell can give you:
 
-- **Remote Management**: Remote command-line shell makes it much easier to perform tasks in cloud server, such as when a developer is connecting from home. A remote command-line shell usually requires less bandwidth, which results in less lag so that we can do things faster.
+- **Faster to use for remote operations**: A remote command-line shell makes it much easier to perform tasks in a cloud server, such as when a developer is connecting from home. A remote command-line shell usually requires less bandwidth, which results in less lag so that we can do things faster.
 
-- **Stability**: No matter what linux distribution you are running, the command line shell is always available and usage is almost the same. However, GUI tools might be different in different distributions, make it very hard to learn.
+- **More stable**: No matter what linux distribution you are running, the command line shell is always available and usage is almost the same. However, GUI tools might be different in different distributions, make it very hard to learn.
 
-- **Freedom**: You will have complete control in the command-line shell. GUIs tends to simplify things, giving the user fewer options. However, the command line always provides the full suite of options, giving you complete control.
+- **More flexibility for power users**: You will have complete control in the command-line shell. GUIs tends to simplify things, giving the user fewer options. However, the command line always provides the full suite of options, giving you complete control.
 
-- **Simplicity**: While you might find command-line difficult to grasp, eventual usage will familiarize yourself such that the command-line is far easier to use than trying to find options in the drop-down menus and alike of a GUI. 
+- **More powerful in the hands of an expert user**: While you might find command-line difficult to grasp, eventual usage will familiarize yourself such that the command-line is far easier to use than trying to find options in the drop-down menus and alike of a GUI. 
 
 
-### Benefit: Program with bash script
+### Benefit: the ability to automate tasks
 
 One important feature in bash is the **bash script**. It enables us to do **task automation**. For example, suppose that you are a system admin and there is a task you need to perform daily. Instead of typing in the commands for the task daily, you can store these commands in the **bash script** and run it.
 
@@ -97,6 +98,8 @@ bash script allows us to automate the frequently performed operations, it is eas
 In linux, everything is abstracted as file, including **input**, **output**, and **error** streams. **Redirection** is a feature in Linux such that when executing a command/user program, you can change the standard input/output devices by changing its [file descriptor](https://en.wikipedia.org/wiki/File_descriptor). Each command and user program in linux is an application with input, output and errors. We can redirect the output of one application to the input of another, as such, we combined the two applications together as if we build a pipe between them.
 
 <img src="https://www.computerhope.com/jargon/f/file-descriptor-illustration.jpg" alt="file-descriptor" style="width:200px;"/>
+
+<sub>[File descriptor](https://www.computerhope.com/jargon/f/file-descriptor.htm)</sub>
 
 For example, suppose you just finished your coding assignment, the resulting executable `calculate` takes a user input, do the calculation, and gives the output. To run it, you simply types:
 
