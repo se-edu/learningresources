@@ -53,7 +53,7 @@ export class HeroesComponent {
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-heroes` is how identifies this component in a template and renders it.  
+* The use of `selector: app-heroes` is how Angular identifies this component in a template and renders it.  
 * The `hero.name` used in the template, refers to the name property defined in the above component.
 
 Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform it's function. We can visualize this with the help of an example.
@@ -118,9 +118,9 @@ This helps the compiler show warnings about any potential errors in the code, be
     ```    
     
     In the above code snippet, we are not explicitly defining `a: string` with a type annotation. TypeScript infers the type of the variable based on the value assigned to the variable. The value of `a` is a string and hence the type of `a` is inferred as `string`.
-    Similarly, the type of `b` is inferred as a `number`. Therefore, while inferring types, the compiler flags an error saying a `number` type cannot be assigned to a `string` type.
+    Similarly, the type of `b` is inferred as `number`. Therefore, while inferring types, the compiler flags an error saying a `number` type cannot be assigned to a `string` type.
     
-    You can read this [article](https://medium.com/tech-tajawal/typescript-why-should-one-use-it-a539faa92010) to learn more about the features TypeScript has to offer.
+    You can read this [article](https://medium.com/tech-tajawal/typescript-why-should-one-use-it-a539faa92010) to learn more about the features that TypeScript has to offer.
     
 * **Angular CLI** - Angular CLI stands for Angular Command Line Interface. It is a command line tool for managing Angular apps. 
     With the CLI you can perform the following commands to ease the development process.
@@ -130,7 +130,7 @@ This helps the compiler show warnings about any potential errors in the code, be
      
     You can refer to the [official documentation](https://cli.angular.io/) for a complete list of the CLI commands.
     
-    The Angular CLI also helps developers follow good development practices. Let us see how.<br/> 
+    The Angular CLI also helps developers follow good development practices. For example, 
     The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is an open source tool that checks whether the pre-defined coding guidelines have been followed or not">**Codelyzer**</tooltip>.
     Codelyzer lints your code against the [official Angular style guide](https://angular.io/guide/styleguide). With Angular CLI, you can simply run the command `ng lint` to get an analysis of whether your code follows the "best practices".
         
@@ -141,8 +141,8 @@ This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-pe
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
-* **Progressive Web Apps** - PWAs are web-based applications that contain most of the benefits of a typical mobile app. The [official documentation](https://developers.google.com/web/progressive-web-apps/) by Google describes PWAs to be reliable, fast and engaging. Given it's "best practices", Angular is a good choice to build PWAs.
-This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-part-2-progressifying-the-application-449e3a706129) is a good place to learn the basics of building PWAs using Angular.
+* **Progressive Web Apps** - PWAs are web-based applications that contain most of the benefits of a typical mobile app. The [official documentation](https://developers.google.com/web/progressive-web-apps/) by Google describes PWAs to be reliable, fast and engaging. With Angular you can develop PWAs and provide an "immersive user experience".
+This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-e36ea2378b5d) is a good place to learn the basics of building PWAs using Angular.
 
 * **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
 that can be integrated with Angular for mobile application development. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
@@ -153,7 +153,7 @@ This [article](https://medium.com/@yannmjl/how-to-build-native-cross-platform-de
 
 ### Benefit 3: Angular Provides Two-way Data Binding.
 
-Web apps have two main components, a _View_ and a _Model_. The View component is responsible for displaying data (i.e., the part users see). The Model is concerned with the logic implementation of the application. It retrieves and updates the data to and from the database.
+Web apps have two main components, a _View_ and a _Model_. The View component is responsible for displaying data (i.e., the part users see). The Model is concerned with the logic implementation of the application. It updates and retrieves the data to and from the database.
 _Data binding_ refers to the exchange of data between the View and Model components. There are two types of data binding as explained below.
 
 <center>
@@ -163,7 +163,7 @@ _Figure 1. Types of data binding_ <sup>[source](https://osmangoni.info/posts/one
 </center>
 
 Some frameworks like React provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
-If the app allows users to change data thorough the view (e.g., entering your name in the textbox), the developer has to write code to propagate that change to the Model.
+If the app allows users to change data through the view (e.g., entering your name in the textbox), the developer has to write code to propagate that change to the Model.
 
 In contrast, Angular provides data binding in both ways. That means even changes to the View can be propagated to the Model automatically, without writing extra code for that.
 
@@ -199,18 +199,12 @@ Every framework/library has its own pros and cons. The framework/library you cho
 
 Angular is not the easiest framework to work with. Given below are a few steps that will help you ease into the Angular environment.
 
-1. The official [Angular](https://angular.io/guide/quickstart) website offers a good tutorial to get started. It shows you how to build and run a simple Angular application.
+1. [Different versions of Angular](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) - Before you start learning Angular, you must have a clear idea of its different versions.
 
-2. [Want to learn Angular? Here’s our free 33-part course](https://medium.freecodecamp.org/want-to-learn-angular-heres-our-free-33-part-course-by-dan-wahlin-fc2ff27ab451) - This resource (from freeCodeCamp) is a good place to start writing simple applications using the features that Angular has to offer.
+2. [Start learing TypeScript](https://www.typescriptlang.org/docs/home.html) - Development in Angular relies heavily on TypeScript. You can start learning the basics of the new language from its official website.
 
-3. You should also start learning [TypeScript](https://www.typescriptlang.org/docs/home.html) and get comfortable with the language.
+3. [The official Angular website](https://angular.io/guide/quickstart) - offers a good tutorial to get started. It shows you how to build and run a simple Hello World application in Angular.
 
-The Angular community is big, and help is readily available via searching on Google and Stack Overflow.
-There are many online resources and tutorials too.
+4. [Build your first Angular app](https://scrimba.com/g/gyourfirstangularapp) - You are recommended to complete this course taught by an Angular expert. It teaches you the important concepts of Angular in the form of interactive tutorials.
 
-- [Angular Components - Ten Basic Concepts](https://angularfirebase.com/lessons/angular-components-basics-top-ten/) - A QuickStart on Angular's Component driven architecture.
-- [StackOverflow Questions](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - Top voted questions on Angular.
-- [Angular in depth](https://blog.angularindepth.com/) - Advanced concepts in Angular explained.
-- [Different versions of Angular](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) - Differences between the varipus versions of Angular.
-
-</div>
+5. [StackOverflow Questions on Angular](https://stackoverflow.com/questions/tagged/angular?sort=votes&pageSize=50) - You can also refer to this list of top voted questions on Angular if you need help while developing your own Angular application.
