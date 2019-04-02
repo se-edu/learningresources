@@ -76,7 +76,7 @@ export class HeroService {
   getHeroes() { return HEROES; }
 }
 ```
-The `HeroesComponent` declared previously, can make use of this `HeroService` by injecting the dependency in it's constructor as a parameter.
+The `HeroesComponent` declared previously, can make use of this `HeroService` by injecting the dependency in its constructor as a parameter.
 
 ```
 constructor(heroService: HeroService) {
