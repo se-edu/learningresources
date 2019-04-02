@@ -163,7 +163,7 @@ _Figure 1. Types of data binding_ <sup>[source](https://osmangoni.info/posts/one
 </center>
 
 Some frameworks like React provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
-If the app allows users to change data through the view (e.g., entering your name in the textbox), the developer has to write code to propagate that change to the Model.
+However, if the app allows users to change data through the view (e.g., entering your name in the textbox), the developer has to write code to propagate that change to the Model.
 
 In contrast, Angular provides data binding in both ways. That means even changes to the View can be propagated to the Model automatically, without writing extra code for that.
 
@@ -189,7 +189,7 @@ React is a popular Javascript library, open sourced by Facebook. The ease of lea
 It also provides more flexibility as it allows integration of third party libraries.
 Similarly, Vue offers some advantages, like flexibility, simple structure and ease of integration.
 
-Every framework/library has its own pros and cons. The framework/library you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between the popular frontend frameworks/libraries.
+Every framework has its own pros and cons. The framework you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between the popular frontend frameworks.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
@@ -201,7 +201,7 @@ Angular is not the easiest framework to work with. Given below are a few steps t
 
 1. [Different versions of Angular](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) - Before you start learning Angular, you must have a clear idea of its different versions.
 
-2. [Start learing TypeScript](https://www.typescriptlang.org/docs/home.html) - Development in Angular relies heavily on TypeScript. You can start learning the basics of the new language from its official website.
+2. [Start learning TypeScript](https://www.typescriptlang.org/docs/home.html) - Development in Angular relies heavily on TypeScript. You can start learning the basics of the new language from its official website.
 
 3. [The official Angular website](https://angular.io/guide/quickstart) - offers a good tutorial to get started. It shows you how to build and run a simple Hello World application in Angular.
 
