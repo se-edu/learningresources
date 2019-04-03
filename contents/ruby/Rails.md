@@ -29,8 +29,9 @@ Ruby on Rails, or simply Rails, gained widespread popularity in the 2000s, and c
 The 'Rails' way also encourages you to adopt an M-V-C framework in your applications - i.e. Model-View-Controller framework, and all projects default to using an MVC framework. The structure of apps following an MVC framework is as follows:-
 
 <center>
-![](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller#/media/File:MVC-Process.svg)
+<img src="MVC-Process.svg">
 _Figure 1. Model-View-Controller Framework_ <sup>[source](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)</sup>
+</center>
 
 In a nutshell, the View is what the User sees. These are, by default, .erb, or Embedded RuBy files, which are just HTML files with lines of Ruby code injected in places, to allow the page elements to manipulated by actions. A Model is basically just a Class (à la Object-Oriented Programming), that can be instantiated and made to encapsulate the values needed for the application. The Model is also referred to as the `Active Record` of a Rails Project, as it is an implementation of the Active Record Pattern, where the Model is mapped to the database, and instead of interacting directly with the database, you can simply interact with the Model in the language of the application, in this case, Ruby. The Controller acts as an interface between the View and the Model, and decides what actions to take and what page to render based on any input. 
 
