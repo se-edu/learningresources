@@ -30,12 +30,22 @@ Consider a simple web application that displays the name of a person as shown be
     The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the Both button. 
 </box>
 
-The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags.
+The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags. The template for the above example is given below.
+
+``` html
+<h1>About Me!</h1>
+<h2>Hello World! My name is {{hero.name}} </h2>
+<div>
+<label>NAME:
+  <input [(ngModel)]="hero.name"/>
+</label>
+</div>
+```
   
-The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. A noteworthy feature about these templates is their _dynamic behavior_.
+The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Along with the the templates, Angular makes use of _Components_. They contain the behavior instructions written in TypeScript language, which will look as follows.  
+Angular organizes the behavior instructions (written in the TypeScript language) into what it calls _Components_. Here is an example:  
 
 ```typescript
 @Component({
@@ -178,8 +188,6 @@ The large number of new concepts can be confusing to newcomers. Additionally, An
 
 2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
 In contrast, React allows you to integrate any third party services in your application.
-
-You can refer to this [article](https://jsreport.io/why-is-react-more-popular-than-angular/) that points out the benefits other tools like React have over Angular.
     
 ### Angular when compared with other popular frontend frameworks
 
@@ -197,7 +205,7 @@ Every framework has its own pros and cons. The framework you choose depends on t
 
 ## How to get started with Angular?
 
-Angular is not the easiest framework to work with. Given below are a few steps that will help you ease into the Angular environment.
+Given below are a few steps that will help you ease into the Angular environment.
 
 1. [Different versions of Angular](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) - Before you start learning Angular, you must have a clear idea of its different versions.
 
