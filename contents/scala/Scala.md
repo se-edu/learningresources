@@ -12,7 +12,7 @@
 
 # Introduction to Scala
 
-Author: [Wang Chao](https://github.com/fzdy1914)
+Author(s): [Wang Chao](https://github.com/fzdy1914)
 
 **Table of Contents**
 
@@ -21,33 +21,47 @@ Author: [Wang Chao](https://github.com/fzdy1914)
     * [Statically Typed](#statically-typed)
     * [Object Oriented](#object-oriented)
     * [Functional](#functional)
-* [Getting Started](#getting-started)
 * [Why Scala](#why-scala)
   * [Operator Overloading](#operator-overloading)
   * [Mixed-In Trait](#mixed-in-trait)
   * [Type Enrichment](#type-enrichment)
   * [Pattern Matching](#pattern-matching)
+* [Getting Started](#getting-started)
 
 # Overview
 
 **Scala** is a modern *multi-paradigm* programming language. It designed to integrate features of 
 *object-oriented* and *functional* languages in a *concise*, *elegant*, and *type-safe* way.
 
+Scala's JVM runtimes allows us to build high-performance systems with easy access to huge ecosystems of libraries. Scala 
+provides language interoperability with Java, so that libraries written in Java may be referenced directly in Scala.
+Also, by Scala.js, Scala code can be easily compiled to JavaScript.
+
 ## Characteristic of Scala
 
 ### Statically Typed
-Scala is **statically typed**, which means it enforces type checking ike verifying and enforcing the constraints of 
+Scala is **statically typed**, which means it enforces type checking like verifying and enforcing the constraints of 
 types at compile-time. 
 
 Scala allows [**type inference**](https://docs.scala-lang.org/tour/type-inference.html), which means it detects the data 
 type of an expression automatically. User is not required to annotate redundant type information in Scala. 
 
+Type Inference Sample:
+```
+val x = "foo"
+var y = 1.5
+var z = List(1, 2, 3)
+```
+
 In combination, these features provide a clean but reliable programming basis for the user.
 
 ### Object Oriented
-Scala is a **pure OOP language**, which means every value in it is an object, including functions and primitives.
+Scala is a **pure OOP language**, which is similar to Java. Every value in Scala is an object, including functions and 
+primitives.
 
 Types and behavior of objects are described by *classes* and *traits*. 
+
+[*Traits*](https://docs.scala-lang.org/tour/traits.html) are used to share interfaces and fields between classes, which are similar to Java's interfaces. 
 
 Classes are extended by *subclassing* and a flexible *mixin-based* mechanism to avoid the problems of multiple inheritance.
 
@@ -63,12 +77,6 @@ It also support many other features of FP including [*higher-order functions*](h
 [*nested functions*](https://docs.scala-lang.org/tour/nested-functions.html), [*currying*](https://docs.scala-lang.org/tour/multiple-parameter-lists.html), 
 [*pattern matching*](https://docs.scala-lang.org/tour/pattern-matching.html), *immutability* and *lazy evaluation*.
 
-# Getting Started
-There are mainly two ways to work in Scala.
-
-1. Using the **INTELLIJ IDE**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-scala-in-intellij.html) for more details.
-2. Using the **command line**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html) for more details.
-
 # Why Scala
 There are mainly two benefits of Scala, **simple syntax** and **multi-paradigm**. 
 
@@ -76,7 +84,7 @@ There are mainly two benefits of Scala, **simple syntax** and **multi-paradigm**
 
 *Multi-paradigm* allows us to use an OOP language while using the feature in functional programming. 
 
-Following are some examples to illustrate the benefit of Scala:
+Following are some examples to illustrate the benefits of Scala:
 
 ## Operator Overloading
 All operators in Scala such as +, -, *, /. are actually methods.
@@ -158,34 +166,26 @@ trait TraitB extends ParentTrait {
   }
 }
 
-trait TraitC extends ParentTrait {
-  abstract override def print() {
-    println("print in TraitC")
-    super.print()
-  }
-}
-
 object Sample {
   def main(args: Array[String]): Unit = {
-    val example = new Sample with TraitA with TraitB with TraitC
+    val example = new Sample with TraitA with TraitB
    example.print()
   }
 }
 ```
 The following is the execution result of above code:
 ```
-print in TraitC
 print in TraitB
 print in TraitA
 print in Sample
 ```
-The explanation is that the call to `print()` firstly executes the code in `TraitC`, which is the last trait mixed in.
+The explanation is that the call to `print()` firstly executes the code in `TraitB`, which is the last trait mixed in.
 Then through the `super()` calls, it threads back through the other mixed-in traits. And eventually to the code in 
 `Sample`. Even though none of the traits inherited from one another, it works properly. 
 
-This is similar to the decorator pattern but is more *concise* and less *error-prone*. In other languages, a similar 
-effect could be achieved with a long linear chain of inheritance. But the disadvantage is that for every possible 
-combination of the mix-ins, we need to declare an inheritance chain for it.
+This is similar to the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) but is more *concise* and 
+less *error-prone*. In other languages, a similar effect could be achieved with a long linear chain of inheritance. But 
+the disadvantage is that for every possible combination of the mix-ins, we need to declare an inheritance chain for it.
 
 
 ## Type Enrichment
@@ -237,5 +237,13 @@ In this case, the code will have a variable `pivot` holding the head of the list
 tuple. In this case, the code will have a variable `smaller` holding the first element of the tuple, and another 
 variable `rest` holding the second element of the list. 
 **Pattern matching** is the easiest way of fetching the two parts of the tuple.
+
+# Getting Started
+There are mainly two ways to work in Scala.
+
+1. Using the **INTELLIJ IDE**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-scala-in-intellij.html) for more details.
+2. Using the **command line**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html) for more details.
+
+A more detailed tutorial can be found here: [Tour of Scala](https://docs.scala-lang.org/tour/tour-of-scala.html)
 
 </div>
