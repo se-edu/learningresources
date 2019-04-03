@@ -53,36 +53,23 @@ Another optimization done by Rails is to use resources and map routes. Consider 
 
 ```javascript
   app.post('/name/add', (req, res, next) => {
-    dbase.collection("name").save(name, (err, result) => {
-      res.send('name added successfully');
-    });
+    // Call to an addEntry function in controller
   });
 
   app.get('/name', (req, res, next) => {
-    dbase.collection('name').find().toArray( (err, results) => {
-      res.send(results)
-    });
+    // Call to a fetchAll function in controller
   });
 
   app.get('/name/:id', (req, res, next) => {
-    let id = ObjectID(req.params.id);
-    dbase.collection('name').find(id).toArray( (err, result) => {
-      res.send(result);
-    });
+    // Call to a fetch function in controller
   });
 
   app.put('/name/update/:id', (req, res, next) => {
-    let id = { _id: new ObjectID(req.params.id) };
-    dbase.collection("name").update(id, {$set:{first_name: req.body.first_name, last_name: req.body.last_name}}, (err, result) => {
-      res.send('user updated sucessfully');
-    });
+    // Call to an update function in controller 
   });
 
   app.delete('/name/delete/:id', (req, res, next) => {
-    let id = ObjectID(req.params.id);
-    dbase.collection('name').deleteOne({_id: id}, (err, result) => {
-      res.send('user deleted');
-    });
+    // Call to a delete function in controller
   });
 
 ```
