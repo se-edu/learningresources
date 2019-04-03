@@ -81,7 +81,7 @@ WHERE Faculty='MA';
 ```
 
 <box type="info">
-  You can experiment with this example on <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/1">DB Fiddle</a> (shown in Figure 1 below) by entering SQL queries and then running them.
+  You can experiment with <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/1">this example on DB Fiddle</a> (shown in Figure 1 below) by entering SQL queries and then running them.
 </box>
 
 <center>
@@ -90,63 +90,50 @@ WHERE Faculty='MA';
 _Figure 1. Using DB Fiddle to run queries in MySQL_
 </center>
 
-Apart from using **online editors** like DB Fiddle to execute SQL queries, you can also install and use a RDBMS. It usually comes with a **software application**, but can also be accessed from the **command line**. Figure 2 shows the MySQL Workbench application, and Figure 3 shows how to use the MySQL RDBMS in the command line. Finally, **APIs** in other programming languages, or those like [SQL API](https://carto.com/developers/sql-api/) (shown in Figure 4) can also be used to execute SQL queries.
+**Online editors** like DB Fiddle can be used while learning SQL. However, to use SQL in application development, you need to consider other alternatives for running SQL queries:
 
-<center>
-<img src="MySQL_Workbench.png" alt="MySQL Workbench GUI Software" width="85%">  
+- **RDBMS software**: RDBMS installations usually come with a <tooltip content="Graphical User Interface">GUI</tooltip> (see Figure 2), but can also be accessed from the command line (see Figure 3).
 
-_Figure 2. MySQL can be used in MySQL Workbench_ <sup>[source](https://www.mysql.com/products/workbench/)</sup>  
+    <center>
+    <img src="MySQL_Workbench.png" alt="MySQL Workbench GUI Software" width="85%">  
 
-<img src="MySQL_CLI.png" alt="Running MySQL from the command line" width="60%">  
+    _Figure 2. MySQL (an RDBMS) can be used in the MySQL Workbench GUI application_ <sup>[source](https://www.mysql.com/products/workbench/)</sup>  
 
-_Figure 3. Logging in to MySQL and viewing tables in the command line_ <sup>[source](https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393)</sup>  
+    <img src="MySQL_CLI.png" alt="Running MySQL from the command line" width="60%">  
 
-<img src="SQL_API.png" alt="Using SQL API to execute queries" width="80%">  
+    _Figure 3. Logging in to the MySQL RDBMS and viewing tables from the command line_ <sup>[source](https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393)</sup>  
+    </center>
 
-_Figure 4. An example of how to use CARTO's SQL API, which uses PostgreSQL_ <sup>[source](https://carto.com/developers/sql-api/)</sup>  
-</center>
+- **APIs**: You can use APIs in programming languages or independent ones like [SQL API](https://carto.com/developers/sql-api/) (shown in Figure 4) to interact with databases. For example, the [SQLite3](https://www.pythoncentral.io/introduction-to-sqlite-in-python/) library can be used to interact with a database through Python.
+
+    <center>
+    <img src="SQL_API.png" alt="Using SQL API to execute queries" width="80%">  
+
+    _Figure 4. An example of how to use CARTO's SQL API, which uses a PostgreSQL database_ <sup>[source](https://carto.com/developers/sql-api/)</sup>  
+    </center>
 
 ---
 
 ## Why learn SQL?
 
-Now that you have seen how SQL is used, let's take a look at some of the main reasons behind the widespread adoption of SQL and why you should learn it.
+The main reason why you should learn SQL relates to the widespread adoption of SQL. As SQL is not limited to any particular operating system or programming language, it is **widely used** in the RDBMSs used by a lot of software applications (web, mobile etc.). Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
 
-### Easy to learn
+## Disadvantage
 
-As you saw in the example in the previous section, SQL is not really that complex. It is easy to learn, even for beginners who do not have any prior experience with databases. Since it has been around for a few decades, there are many good books and online resources to learn from.
-In addition, SQL and RDBMSs have a huge support community (such as [SQL in Stack Overflow](https://stackoverflow.com/questions/tagged/sql), and the [official MySQL forum](https://forums.mysql.com/)) which can prove useful when you run into problems while using it.
-
-### Free
-
-One of the benefits (and reasons) for SQL's popularity is that there are free RDBMS software available %%(like MySQL, PostgreSQL and SQLite)%% as well as paid ones %%(like Microsoft SQL Server and Oracle)%% that come with more functionality.
-
-One such example is MySQL. It is free and comes with the official [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) (shown in Figure 2 above) as well as other third party easy-to-use <tooltip content="Graphical User Interface">GUIs</tooltip>, which are less daunting to new users as compared to a <tooltip content="Command Line Interface">CLI</tooltip>.
-
-### Highly Compatible
-
-The RDBMSs that use SQL work on many operating systems %%(like Windows, Mac OS, Ubuntu, Red Hat among others)%% and more importantly, can be integrated with many languages. This includes programming languages like C++, Ruby, Java, Python, JavaScript (Node.js), Go, and more.
-
-In addition, online playgrounds like [DB Fiddle](https://www.db-fiddle.com/) (shown in Figure 1 above) and [SqliteOnline](https://sqliteonline.com/) make it easy to use and learn the SQL language quickly without the hassle of setting up an environment or application.
-
-## Disadvantages
-
-SQL is not without its problems. In general, the biggest problem is with regards to the features of SQL.
-
+The biggest issue in SQL is with regards to the syntax and features.
 Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some RDBMSs %%(like PostgreSQL, for example)%% add proprietary extensions to standard SQL.
-Due to this, the available feature set can vary according to what you're using. This can make SQL confusing and frustrating to use when switching RDBMSs.
-
-Apart from that, most **SQL** problems are not uniformly applicable across all RDBMSs that use SQL. For example, MySQL suffers from concurrency issues. Though it performs well with read operations, it *can* be problematic when there are many concurrent read-write operations. A symptom of this issue would be a sudden slowdown of a query. However, PostgreSQL deals with concurrency well by implementing <tooltip content="each query transaction is isolated from other transactions running simultaneously in the system">transactions isolation</tooltip>.
-
-Depending on your requirements, you can also choose to use non-relational databases like <tooltip content="Stands for- Not Only SQL">NoSQL</tooltip> databases instead of RDBMSs (and SQL). They are known for being highly scalable and handling large volumes of data well.
+Due to this, the available feature set can vary according to what you're using.
+Furthermore, there may be minor changes in the syntaxes across RDBMSs (case-sensitivity, for example).
+These factors can make SQL confusing and frustrating to use when switching across RDBMSs, since you would have to change your SQL code.
 
 ---
 
 ## How to get started with SQL?
 
-The first thing to do when getting started with SQL is to choose a RDBMS. You can either just use an online SQL playground or install a dedicated application. For the purposes of learning SQL, our suggestion is to use either MySQL or SQLite in online editors like [DB Fiddle](https://www.db-fiddle.com/) (supports both) or [SqliteOnline](https://sqliteonline.com/) (supports SQLite).
+As you saw in the example in the previous section, SQL is not really that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.
 
-The extensive number of books and resources available for learning SQL can seem overwhelming. To overcome this issue, you should decide on which parts you want to learn, as you will likely not need to know everything to get started with using a SQL database.
+To get started with SQL, you can either just use an online SQL playground or install a RDBMS. There are many free RDBMSs available like [PostgreSQL](https://www.postgresql.org/) and [MySQL](https://dev.mysql.com/downloads/).
+However, for the sole purpose of learning SQL, our suggestion is to use online editors like [DB Fiddle](https://www.db-fiddle.com/) %%(supports MySQL and SQLite)%% or [SqliteOnline](https://sqliteonline.com/) %%(supports SQLite)%% since they allow you to start learning without the hassle of setting up anything.
 
 Here are some recommended steps for learning SQL:
 
