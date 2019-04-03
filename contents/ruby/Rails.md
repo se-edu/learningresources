@@ -74,7 +74,7 @@ Another optimization done by Rails is to use resources and map routes. Consider 
 
 ```
 
-Each one of these routes had to be written manually, and specific routes had to be deliberated upon, so as to not be confusing or break any established conventions the application is already following. Now, to contrast this with the Rails approach, you first need to declare a resource, namely, an `entry` in the address book. So, in your `routes.rb` file, you would write something like
+Each one of these routes had to be written manually, and specific routes had to be deliberated upon, so as to not be confusing or break any established conventions the application is already following. Also, if you open the source linked at the top, you might notice that the actual code is far more bloated than this abbreviated version, and involves much more logic. Now, to contrast this with the Rails approach, you first need to declare a resource, namely, an `entry` in the address book. So, in your `routes.rb` file, you would write something like
 
 ```ruby
 resources :entries
@@ -96,7 +96,7 @@ Now, you can check all the routes that you have in your application by running `
 
 The word 'automagically' should finally start to make sense at this point! Instead of going through the arduous process of writing out the code dump at the top, and deciding the specific names of the routes, as well as the corresponding functions in the controller, Rails has already configured all the URI patterns with function names in the controller for entries. Now all you need to do is focus on writing the function logic, instead of coding out the names of the individual URIs and routes.
 
-Many other trivial tasks that require boilerplate code are similarly done away with in Rails, thus making developement a more enjoyable (more on that in a bit), and a much faster process. All of these optimizations help make developing an application between 30-40% faster on Rails. 
+Many other trivial tasks that require boilerplate code are similarly done away with in Rails, thus making developement a more enjoyable (more on that in a bit), and a much faster process. All of these optimizations help make developing an application between 30-40% faster on Rails, while also making it much easier to learn as compared to competing frameworks.  
   
 ### Optimised for Programmer Happiness
 
@@ -130,7 +130,17 @@ And while this may not reduce the amount one has to type, most Rails enthusiasts
 
 ### Great Community of Developers
 
-The Ruby language has a very passionate and extensive community of developers, and there is a vast array of libraries (called 'Gems'), that can be used with your Rails projects. These libraries provide a lot of functionalities, and can be used to add flexibility to Rails projects when required.
+The Ruby language has a very passionate and extensive community of developers, and there is a vast array of libraries (called 'Gems'), that can be used with your Rails projects. These libraries provide a lot of functionalities, and can be used to add flexibility to Rails projects when required. This may even help negate some of the drawbacks of Rails, which are as follows.
+
+### Drawbacks
+
+#### Lack of Flexibility
+
+As demonstrated above, Rails follows very strict conventions, that make life much easier for developers - or so Rails thinks. It might be true that there are some developers who find Rails' convention very stifling, and, as a result, prefer to use frameworks that allow them more flexibility. Rails will still allow you to do as you please, but since the effort of undo-ing the conventions to follow your own preferences essentially negates any time advantage granted by Rails, you may choose to use a different framework.
+
+#### Performance Time
+
+While newer releases have combatted this problem to a large degree, many of the old releases of Rails tend to be slower than their counterparts. Rails is also used to make server-side applications that send static HTML files, with minimal Ruby code to modify the appearance. Since the current trend is towards making proper and responsive client-side, front-end applications, Rails is a comparatively 'old school' approach to web developement. However, there are many Gems that allow you to combine your Rails back-end with a modern React, Angular, or Vue front-end, thus enabling you to create responsive static apps with Rails, but it has to be noted that the default for Rails does not accomodate such applications, thus giving it a worse performance time as compared to a client-side application.
 
 ## Getting Started
 
