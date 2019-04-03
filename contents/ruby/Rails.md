@@ -30,6 +30,7 @@ The 'Rails' way also encourages you to adopt an M-V-C framework in your applicat
 
 <center>
 <img src="MVC-Process.svg">
+
 _Figure 1. Model-View-Controller Framework_ <sup>[source](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)</sup>
 </center>
 
