@@ -47,9 +47,101 @@ Many popular and very technically mature websites continue to use Rails. These i
 
 ### Convention over Configuration
 
-As mentioned before, Rails is an opinionated framework that does things the 'Rails' way. This includes automating trivial tasks by following certain conventions, thus making the developement process much faster. For example, in a Rails project that is connected to a database, each class is mapped to a table, and the table name is just a pluralised version of the class's name - the `User` class becomes the `Users` table, the `Person` class becomes the `People` table, etc. This means that you don't need to spend any time deliberating on the name of the tables, nor do you have to juggle multiple concepts while mapping out the database and application, as Rails will automatically connect the two and spare you from deliberating about the exact name of the table. Much of the boilerplate code, such as configuring routes and running database migrations, are also significantly easier in Rails - unlike other frameworks, where every single route must be mapped to a controller, Rails lets you declare 'Resources', and maps routes for all the CRUD (Create-Read-Update-Destroy) functionalities to a dedicated controller for the resource, even accounting for singular vs plural distinctions.
+As mentioned before, Rails is an opinionated framework that does things the 'Rails' way. This includes automating trivial tasks by following certain conventions, thus making the developement process much faster. For example, in a Rails project that is connected to a database, each class is mapped to a table, and the table name is just a pluralised version of the class's name - the `User` class becomes the `Users` table, the `Person` class becomes the `People` table, etc. This means that you don't need to spend any time deliberating on the name of the tables, nor do you have to juggle multiple concepts while mapping out the database and application, as Rails will automatically connect the two and spare you from deliberating about the exact name of the table. 
 
-All of these optimizations help make developing an application between 30-40% faster on Rails. 
+Another optimization done by Rails is to use resources and map routes. Consider a simple address book app, that requires you to be able to add, modify, and delete usernames. In order to configure the routes for this, in a competing framework like Express, you may have to type: <sup>[source](https://dev.to/ichtrojan/basic-routing-http-requests-and-crud-operation-with-express-and-mongodb-od2)</sup>
+
+```javascript
+  app.post('/name/add', (req, res, next) => {
+
+    let name = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name
+    };
+
+    dbase.collection("name").save(name, (err, result) => {
+      if(err) {
+        console.log(err);
+      }
+
+      res.send('name added successfully');
+    });
+
+  });
+
+  app.get('/name', (req, res, next) => {
+    dbase.collection('name').find().toArray( (err, results) => {
+      res.send(results)
+    });
+  });
+
+  app.get('/name/:id', (req, res, next) => {
+    if(err) {
+      throw err;
+    }
+
+    let id = ObjectID(req.params.id);
+    dbase.collection('name').find(id).toArray( (err, result) => {
+      if(err) {
+        throw err;
+      }
+
+      res.send(result);
+    });
+  });
+
+  app.put('/name/update/:id', (req, res, next) => {
+    var id = {
+      _id: new ObjectID(req.params.id)
+    };
+
+    dbase.collection("name").update(id, {$set:{first_name: req.body.first_name, last_name: req.body.last_name}}, (err, result) => {
+      if(err) {
+        throw err;
+      }
+
+      res.send('user updated sucessfully');
+    });
+  });
+
+
+  app.delete('/name/delete/:id', (req, res, next) => {
+    let id = ObjectID(req.params.id);
+
+    dbase.collection('name').deleteOne({_id: id}, (err, result) => {
+      if(err) {
+        throw err;
+      }
+
+      res.send('user deleted');
+    });
+  });
+
+```
+
+Each one of these routes had to be written manually, and specific routes had to be deliberated upon, so as to not be confusing or break any established conventions the application is already following. Now, to contrast this with the Rails approach, you first need to declare a resource, namely, an `entry` in the address book. So, in your `routes.rb` file, you would write something like
+
+```ruby
+resources :entries
+```
+
+Now, you can check all the routes that you have in your application by running `rails routes`. This should include:
+
+```
+                   Prefix Verb   URI Pattern                                                                              Controller#Action
+                  entries GET    /entries(.:format)                                                                       entries#index
+                          POST   /entries(.:format)                                                                       entries#create
+                new_entry GET    /entries/new(.:format)                                                                   entries#new
+               edit_entry GET    /entries/:id/edit(.:format)                                                              entries#edit
+                    entry GET    /entries/:id(.:format)                                                                   entries#show
+                          PATCH  /entries/:id(.:format)                                                                   entries#update
+                          PUT    /entries/:id(.:format)                                                                   entries#update
+                          DELETE /entries/:id(.:format)                                                                   entries#destroy
+``` 
+
+The word 'automagically' should finally start to make sense at this point! Instead of going through the arduous process of writing out the code dump at the top, and deciding the specific names of the routes, as well as the corresponding functions in the controller, Rails has already configured all the URI patterns with function names in the controller for entries. Now all you need to do is focus on writing the function logic, instead of coding out the names of the individual URIs and routes.
+
+Many other trivial tasks that require boilerplate code are similarly done away with in Rails, thus making developement a more enjoyable (more on that in a bit), and a much faster process. All of these optimizations help make developing an application between 30-40% faster on Rails. 
   
 ### Optimised for Programmer Happiness
 
