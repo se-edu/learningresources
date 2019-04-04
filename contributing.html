@@ -1,135 +1,140 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SE-EDU/LearningResources - Contributing to this Project</title>
-    <link rel="stylesheet" href="markbind/css/bootstrap.min.css">
-    <link rel="stylesheet" href="markbind/css/bootstrap-vue.min.css">
-    <link rel="stylesheet" href="markbind/css/font-awesome.min.css" >
-    <link rel="stylesheet" href="markbind/css/bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="markbind/css/github.min.css">
-    <link rel="stylesheet" href="markbind/css/markbind.css">
-    <link rel="stylesheet" href="markbind/layouts/default/styles.css">
-    
-    
-    <link rel="stylesheet" href="/learningresources/css/main.css">
-    <link rel="icon" href="/learningresources/favicon.ico">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="MarkBind 2.1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SE-EDU/LearningResources - Contributing to this Project</title>
+  <link rel="stylesheet" href="markbind/css/bootstrap.min.css">
+  <link rel="stylesheet" href="markbind/css/bootstrap-vue.min.css">
+  <link rel="stylesheet" href="markbind/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+  <link rel="stylesheet" href="markbind/css/github.min.css">
+  <link rel="stylesheet" href="markbind/css/markbind.css">
+  <link rel="stylesheet" href="markbind/layouts/default/styles.css">
+
+
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+  <link rel="icon" href="/learningresources/favicon.ico">
 </head>
+
 <body>
-<div id="app">
-    <div id="content-wrapper">
-  <navbar placement="top" class="temp-navbar">
-    <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
-    <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
-    <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
-    <li><a href="https://se-edu.github.io/addressbook-level3/" class="nav-link"><span>AB-3</span></a></li>
-    <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
-    <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
-    <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-    <span class="nav-link temp-dropdown-placeholder">Resources</span>
-    <dropdown text="Resources" class="nav-link temp-dropdown">
-      <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
-      <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
-      <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
-      <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
-    </dropdown>
-    <li slot="right" class="nav-link">
-      <form class="navbar-form">
-        <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
-      </form>
-    </li>
-  </navbar>
-  <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-  <div class="website-content">
-    <h1 id="contributing-to-this-project">Contributing to this Project<a class="fa fa-anchor" href="#contributing-to-this-project"></a></h1>
-    <p>We welcome contributions to this project.</p>
-    <h2 id="how-to-contribute">How to Contribute<a class="fa fa-anchor" href="#how-to-contribute"></a></h2>
-    <p>You can report errors, send suggestions, ask questions. <trigger trigger="click" for="modal:contributing-contactInfo">Here</trigger> is how you can contact us.</p>
-    <p>You can also add new topics or update existing content:</p>
-    <ul>
-      <li>If you don't have programming experience, <trigger trigger="click" for="modal:contributing-contactInfo">send us</trigger> your document.</li>
-      <li>If you have programming experience,
-        <ul>
-          <li><a href="https://github.com/se-edu/learningresources/fork">Fork this repo</a> and clone it to your Computer.</li>
-          <li>Install <a href="https://markbind.github.io">MarkBind</a> in your Computer.</li>
-          <li>Post in <a href="https://github.com/nus-oss/learningresources/issues">our issue tracker</a> an outline of your proposed contribution. Wait for our response.</li>
-          <li>After receiving the go-ahead from us, send your proposed contribution as a PR.</li>
-        </ul>
-      </li>
-    </ul>
-    <modal large title="How to contact us" id="modal:contributing-contactInfo">
-      <div>
-        <h2 id="contact">Contact<a class="fa fa-anchor" href="#contact"></a></h2>
-        <p>Suggestions, questions, and bug reports can be posted in <a href="https://github.com/nus-oss/learningresources/issues">our issue tracker</a>.</p>
-        <p>Alternatively, contact project mentor <a href="http://www.comp.nus.edu.sg/~damithch">Damith C. Rajapakse</a>.</p>
+  <div id="app">
+    <header>
+      <navbar placement="top" type="light">
+        <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+        <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
+        <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
+        <li><a href="https://se-edu.github.io/addressbook-level3/" class="nav-link"><span>AB-3</span></a></li>
+        <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
+        <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
+        <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
+        <dropdown text="Resources" class="nav-link">
+          <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
+          <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
+          <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+        </dropdown>
+        <li slot="right" class="nav-link">
+          <form class="navbar-form">
+            <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
+          </form>
+        </li>
+      </navbar>
+      <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
+    </header>
+    <div id="flex-body">
+      <div id="content-wrapper">
+        <div class="website-content">
+          <h1 id="contributing-to-this-project">Contributing to this Project<a class="fa fa-anchor" href="#contributing-to-this-project"></a></h1>
+          <p>We welcome contributions to this project.</p>
+          <h2 id="how-to-contribute">How to Contribute<a class="fa fa-anchor" href="#how-to-contribute"></a></h2>
+          <p>You can report errors, send suggestions, ask questions. <trigger trigger="click" for="modal:contributing-contactInfo">Here</trigger> is how you can contact us.</p>
+          <p>You can also add new topics or update existing content:</p>
+          <ul>
+            <li>If you don't have programming experience, <trigger trigger="click" for="modal:contributing-contactInfo">send us</trigger> your document.</li>
+            <li>If you have programming experience,
+              <ul>
+                <li><a href="https://github.com/se-edu/learningresources/fork">Fork this repo</a> and clone it to your Computer.</li>
+                <li>Install <a href="https://markbind.github.io">MarkBind</a> in your Computer.</li>
+                <li>Post in <a href="https://github.com/nus-oss/learningresources/issues">our issue tracker</a> an outline of your proposed contribution. Wait for our response.</li>
+                <li>After receiving the go-ahead from us, send your proposed contribution as a PR.</li>
+              </ul>
+            </li>
+          </ul>
+          <modal large title="How to contact us" id="modal:contributing-contactInfo">
+            <div>
+              <h2 id="contact">Contact<a class="fa fa-anchor" href="#contact"></a></h2>
+              <p>Suggestions, questions, and bug reports can be posted in <a href="https://github.com/nus-oss/learningresources/issues">our issue tracker</a>.</p>
+              <p>Alternatively, contact project mentor <a href="http://www.comp.nus.edu.sg/~damithch">Damith C. Rajapakse</a>.</p>
+            </div>
+          </modal>
+          <h2 id="guidelines-for-writing-content">Guidelines for Writing Content<a class="fa fa-anchor" href="#guidelines-for-writing-content"></a></h2>
+          <ul>
+            <li>
+              <p><strong>It is not a normal textbook. It’s a collection of articles</strong>, each containing a <strong><em>curated</em></strong> list of <strong><em>tried-and-tested</em></strong> learning resources, <strong><em>organized</em></strong> in a meaningful sequence, with <strong><em>commentary</em></strong>.</p>
+              <ul>
+                <li>The article can be on any technical topic useful for SE students.</li>
+                <li>Don’t try to follow the structure of normal textbooks.</li>
+                <li>There’s no need to use a very formal tone that you see in some text books. Instead, prefer an informal tone you would use in a blog post or an stackoverflow question.</li>
+                <li>The article should point to the <em>best</em> (in your opinion) external learning resources for the topic. That means it should not include resources that you did not try yourself.</li>
+              </ul>
+            </li>
+            <li>
+              <p><strong><strong>The suggested structure</strong></strong> for an Article</p>
+              <ul>
+                <li><strong>What is X?</strong>: Explain how X fits into the big picture of SE. Describe it relative to topics the reader is likely to know.</li>
+                <li><strong>Why X?</strong>: Motivate the reader to learn about X. Describe benefits of X to make the reader interested in X. Try to give a balanced view of by mentioning also WHY NOT X i.e., mention both advantages and disadvantages.</li>
+                <li><strong>How does X work?</strong> How is X being used? This is a simple high-level overview of the tool to give the reader some concrete sense of X (as opposed to limiting to an entirely abstract description). It's useful to give concrete examples such as code examples. <mark>Do not try to 'teach' how to use the X</mark> (assuming your in the style of a tutorial. If the tool is worth learning, there must be good tutorials about it already.</li>
+                <li><strong>How to Get Started with X?</strong>: Provide a learning path for the reader. Try to give one good learning path rather than many random resources.</li>
+                <li><strong>Where to Go from Here?</strong>: Give more resources. Instead of listing a lot of links, provide a brief summary of what value each resource can provide the reader.</li>
+              </ul>
+            </li>
+            <li>
+              <p><strong>Do not assume a lot of prior knowledge on the part of the reader.</strong> The less prior knowledge you assume, the wider your reader base becomes. The article is aimed at typical SE students, but not necessarily SE students in your school. Just because it is covered in a core module in your school does not mean it will be known to every reader.</p>
+            </li>
+            <li>
+              <p><strong>Do not re-invent the wheel by writing a lot of original content.</strong> Instead, give a brief high-level view and point to other existing resources that you recommend the reader to use.
+                original source.</p>
+              <ul>
+                <li>Note that <mark>the reader should still get a complete and useful picture</mark> even if she does not refer any of the given links. i.e., make the content self-contained and grounded/concrete instead of too abstract to be of much use. To that end, you may repeat/adapt content snippets from other resources (instead of simply giving a link) with proper attribution.</li>
+                <li>If you reuse assets from other sources <span class="dimmed">(e.g., diagrams)</span>, remember to <mark>cite the original source</mark>.</li>
+              </ul>
+            </li>
+            <li>
+              <p><strong>Stay an <em>independent</em> observer</strong>. When writing about a tool/technique that has competing alternatives, the article will have more credibility if you write it from the point of view of an independent observer. For example, avoid unsubstantiated marketing claims e.g., <em>X is the best tool for doing Y</em>. Instead, you can cite quotes by other credible sources or from the tool/technique itself. See the two examples below:</p>
+              <blockquote>
+                <p>Tool X claims to have the fastest performance [<a href>source</a>].</p>
+              </blockquote>
+              <blockquote>
+                <p><a href>Tool X's website</a> has the following to say about its performance:</p>
+                <blockquote>
+                  <p>Tool X has the best performance of its class. ...</p>
+                </blockquote>
+              </blockquote>
+            </li>
+            <li>
+              <p><strong>Prefer visuals rather than long paragraphs.</strong></p>
+            </li>
+            <li>
+              <p><strong>Some of the existing articles might not follow the above guidelines</strong> (the guidelines emerged over time). Feel free to revise existing content to fit the guidelines.</p>
+            </li>
+          </ul>
+          <box type="tip">
+            <p>A fairly decent example of applying the above guidelines can be found in the article <a href="/learningresources/contents/go/Go.html"><em>Introduction to Go</em></a>.
+            </p>
+          </box>
+        </div>
       </div>
-    </modal>
-    <h2 id="guidelines-for-writing-content">Guidelines for Writing Content<a class="fa fa-anchor" href="#guidelines-for-writing-content"></a></h2>
-    <ul>
-      <li>
-        <p><strong>It is not a normal textbook. It’s a collection of articles</strong>, each containing a <strong><em>curated</em></strong> list of <strong><em>tried-and-tested</em></strong> learning resources, <strong><em>organized</em></strong> in a meaningful sequence, with <strong><em>commentary</em></strong>.</p>
-        <ul>
-          <li>The article can be on any technical topic useful for SE students.</li>
-          <li>Don’t try to follow the structure of normal textbooks.</li>
-          <li>There’s no need to use a very formal tone that you see in some text books. Instead, prefer an informal tone you would use in a blog post or an stackoverflow question.</li>
-          <li>The article should point to the <em>best</em> (in your opinion) external learning resources for the topic. That means it should not include resources that you did not try yourself.</li>
-        </ul>
-      </li>
-      <li>
-        <p><strong><strong>The suggested structure</strong></strong> for an Article</p>
-        <ul>
-          <li><strong>What is X?</strong>: Explain how X fits into the big picture of SE. Describe it relative to topics the reader is likely to know.</li>
-          <li><strong>Why X?</strong>: Motivate the reader to learn about X. Describe benefits of X to make the reader interested in X. Try to give a balanced view of by mentioning also WHY NOT X i.e., mention both advantages and disadvantages.</li>
-          <li><strong>How does X work?</strong> How is X being used? This is a simple high-level overview of the tool to give the reader some concrete sense of X (as opposed to limiting to an entirely abstract description). It's useful to give concrete examples such as code examples. <mark>Do not try to 'teach' how to use the X</mark> (assuming your in the style of a tutorial. If the tool is worth learning, there must be good tutorials about it already.</li>
-          <li><strong>How to Get Started with X?</strong>: Provide a learning path for the reader. Try to give one good learning path rather than many random resources.</li>
-          <li><strong>Where to Go from Here?</strong>: Give more resources. Instead of listing a lot of links, provide a brief summary of what value each resource can provide the reader.</li>
-        </ul>
-      </li>
-      <li>
-        <p><strong>Do not assume a lot of prior knowledge on the part of the reader.</strong> The less prior knowledge you assume, the wider your reader base becomes. The article is aimed at typical SE students, but not necessarily SE students in your school. Just because it is covered in a core module in your school does not mean it will be known to every reader.</p>
-      </li>
-      <li>
-        <p><strong>Do not re-invent the wheel by writing a lot of original content.</strong> Instead, give a brief high-level view and point to other existing resources that you recommend the reader to use.
-          original source.</p>
-        <ul>
-          <li>Note that <mark>the reader should still get a complete and useful picture</mark> even if she does not refer any of the given links. i.e., make the content self-contained and grounded/concrete instead of too abstract to be of much use. To that end, you may repeat/adapt content snippets from other resources (instead of simply giving a link) with proper attribution.</li>
-          <li>If you reuse assets from other sources <span class="dimmed">(e.g., diagrams)</span>, remember to <mark>cite the original source</mark>.</li>
-        </ul>
-      </li>
-      <li>
-        <p><strong>Stay an <em>independent</em> observer</strong>. When writing about a tool/technique that has competing alternatives, the article will have more credibility if you write it from the point of view of an independent observer. For example, avoid unsubstantiated marketing claims e.g., <em>X is the best tool for doing Y</em>. Instead, you can cite quotes by other credible sources or from the tool/technique itself. See the two examples below:</p>
-        <blockquote>
-          <p>Tool X claims to have the fastest performance [<a href>source</a>].</p>
-        </blockquote>
-        <blockquote>
-          <p><a href>Tool X's website</a> has the following to say about its performance:</p>
-          <blockquote>
-            <p>Tool X has the best performance of its class. ...</p>
-          </blockquote>
-        </blockquote>
-      </li>
-      <li>
-        <p><strong>Prefer visuals rather than long paragraphs.</strong></p>
-      </li>
-      <li>
-        <p><strong>Some of the existing articles might not follow the above guidelines</strong> (the guidelines emerged over time). Feel free to revise existing content to fit the guidelines.</p>
-      </li>
-    </ul>
-    <box type="tip">
-      <p>A fairly decent example of applying the above guidelines can be found in the article <a href="/learningresources/contents/go/Go.html"><em>Introduction to Go</em></a>.
-      </p>
-    </box>
+    </div>
+    <footer>
+      <div class="text-center">
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.1.0</a> on Thu, 04 Apr 2019 11:56:51 GMT]</small></div>
+    </footer>
   </div>
-</div>
-<div id="flex-div"></div>
-<footer>
-  <div class="text-center">
-    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.20.0</a> on Fri, 22 Mar 2019 09:43:12 GMT]</small></div>
-</footer>
-</div>
 </body>
 <script src="markbind/js/vue.min.js"></script>
 <script src="markbind/js/vue-strap.min.js"></script>
@@ -137,9 +142,10 @@
 <script src="markbind/js/polyfill.min.js"></script>
 <script src="markbind/js/bootstrap-vue.min.js"></script>
 <script>
-    const baseUrl = '/learningresources'
-    const enableSearch = true
+  const baseUrl = '/learningresources'
+  const enableSearch = true
 </script>
 <script src="markbind/js/setup.js"></script>
 <script src="markbind/layouts/default/scripts.js"></script>
+
 </html>

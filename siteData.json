@@ -17,6 +17,7 @@
         "acknowledgements": "Acknowledgements"
       },
       "title": "About Us",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "src": "about.md",
@@ -47,6 +48,7 @@
         "footnotes": "Footnotes"
       },
       "title": "Introduction to Machine Learning (ML)",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -72,6 +74,7 @@
         "4-further-readings": "4. Further Readings"
       },
       "title": "Introduction to Android App Development",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -98,6 +101,7 @@
         "useful-resources": "Useful Resources"
       },
       "title": "REST Architectural Style",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -119,6 +123,7 @@
         "resources": "Resources"
       },
       "title": "Rvalue References and Move Semantics",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -140,6 +145,7 @@
         "code-quality-metrics-tools": "Code Quality Metrics Tools"
       },
       "title": "Code Quality Metrics",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -163,6 +169,7 @@
         "references": "References"
       },
       "title": "Introduction to computer vision (CV)",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -187,6 +194,7 @@
         "query-language-and-abstractions": "Query Language and Abstractions"
       },
       "title": "Introduction to Databases & Database Management Systems (DBMS)",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -209,6 +217,7 @@
         "further-reading": "Further Reading"
       },
       "title": "DevOps",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -228,6 +237,7 @@
         "guides-on-functional-programming": "Guides on Functional Programming"
       },
       "title": "An Introduction to Functional Programming",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -250,6 +260,7 @@
         "where-to-go-from-here": "Where to Go from Here?"
       },
       "title": "Introduction to Go",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -280,6 +291,7 @@
         "5-references": "§ 5. References"
       },
       "title": "An Introduction to CUDA",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -301,6 +313,7 @@
         "3-references": "§ 3. References"
       },
       "title": "An Introduction to GPGPU",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -345,6 +358,7 @@
         "guides": "Guides"
       },
       "title": "Introduction to Haskell",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -367,6 +381,7 @@
         "further-reading": "Further Reading"
       },
       "title": "Java Concurrency",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -386,6 +401,7 @@
         "further-resources-for-reflections": "Further Resources for reflections"
       },
       "title": "Advanced Java: Reflections",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -409,6 +425,7 @@
         "related-areas": "Related areas"
       },
       "title": "Java Synchronization",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -435,6 +452,7 @@
         "stream": "Stream"
       },
       "title": "Java 8 Streams - An Introduction",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -452,6 +470,7 @@
         "references": "References"
       },
       "title": "VueJs",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -466,6 +485,7 @@
         "testing-libraries": "Testing Libraries"
       },
       "title": "Libraries",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -486,6 +506,7 @@
         "further-reading": "Further Reading"
       },
       "title": "Javascript: Promises",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -509,6 +530,7 @@
         "references": "References"
       },
       "title": "Writing Testable Javascript",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -531,6 +553,7 @@
         "learning-resources": "Learning resources"
       },
       "title": "Null Safety in Kotlin",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -553,6 +576,7 @@
         "resources-to-learn-kotlin": "Resources to learn Kotlin"
       },
       "title": "Introduction to Kotlin",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -578,6 +602,7 @@
         "resources": "Resources"
       },
       "title": "Introduction to Node.js",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -595,6 +620,7 @@
         "other-resources": "Other Resources"
       },
       "title": "Introduction to Performance Optimization",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -614,6 +640,7 @@
         "resources": "Resources"
       },
       "title": "Performance Profiling",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -632,6 +659,7 @@
         "resources": "Resources"
       },
       "title": "Profiling a Desktop Application In Visual Studio 2015",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -651,6 +679,7 @@
         "other-related-resources": "Other related resources"
       },
       "title": "Agile Development",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -671,6 +700,7 @@
         "acknowledgements": "Acknowledgements"
       },
       "title": "Documentation",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -693,6 +723,7 @@
         "gotchas": "Gotchas"
       },
       "title": "An Introduction to Python",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -729,6 +760,7 @@
         "further-reading": "Further Reading"
       },
       "title": "Introduction to Regular Expressions",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -757,6 +789,7 @@
         "further-reading": "Further Reading"
       },
       "title": "Best Practices with `git`",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -777,6 +810,7 @@
         "ruby-frameworks-and-devops": "Ruby Frameworks and DevOps"
       },
       "title": "Introduction to Ruby",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -796,6 +830,7 @@
         "why-not-rust": "Why not Rust"
       },
       "title": "Rust",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -816,6 +851,7 @@
         "conclusion": "Conclusion"
       },
       "title": "Scalable Development - An Introduction",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -834,6 +870,7 @@
         "conclusion": "Conclusion"
       },
       "title": "Security - https",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -853,6 +890,7 @@
         "references": "References"
       },
       "title": "Cross Site Request Forgery (CSRF)",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -869,6 +907,7 @@
         "resources": "Resources"
       },
       "title": "Cross Site Scripting",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -886,6 +925,7 @@
         "other-resources": "Other Resources"
       },
       "title": "Introduction to Cryptography",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -903,6 +943,7 @@
         "resources": "Resources"
       },
       "title": "SQL Injection",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -921,6 +962,7 @@
         "resources": "Resources"
       },
       "title": "ESLint",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -947,6 +989,7 @@
         "resources": "Resources"
       },
       "title": "FindBugs",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -973,6 +1016,7 @@
         "resources": "Resources"
       },
       "title": "PMD",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -996,6 +1040,7 @@
         "resources": "Resources"
       },
       "title": "CheckStyle",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -1019,6 +1064,7 @@
         "references": "References"
       },
       "title": "Static Analysis",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -1045,6 +1091,7 @@
         "cocoapods": "CocoaPods"
       },
       "title": "Swift",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -1072,6 +1119,7 @@
         "concluding-notes": "Concluding Notes"
       },
       "title": "Writing Testable Code",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -1094,6 +1142,7 @@
         "useful-resources": "Useful Resources"
       },
       "title": "Accessibility",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -1113,6 +1162,7 @@
         "additional-resource-s": "Additional Resource(s)"
       },
       "title": "Refining UX Design Skills",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -1136,6 +1186,7 @@
         "ending-notes": "Ending Notes"
       },
       "title": "UI/UX",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
@@ -1150,6 +1201,7 @@
         "guidelines-for-writing-content": "Guidelines for Writing Content"
       },
       "title": "Contributing to this Project",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "src": "contributing.md",
@@ -1158,6 +1210,7 @@
     {
       "headings": {},
       "title": "Learning Resources for Software Engineering Students",
+      "header": "pagetop.md",
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",

@@ -1,280 +1,260 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SE-EDU/LearningResources - An Introduction to Functional Programming</title>
-    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-    <link rel="stylesheet" href="../../markbind/css/font-awesome.min.css" >
-    <link rel="stylesheet" href="../../markbind/css/bootstrap-glyphicons.min.css" >
-    <link rel="stylesheet" href="../../markbind/css/github.min.css">
-    <link rel="stylesheet" href="../../markbind/css/markbind.css">
-    <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-    <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-    <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-    <link rel="stylesheet" href="/learningresources/css/main.css">
-    <link rel="icon" href="/learningresources/favicon.ico">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="MarkBind 2.1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SE-EDU/LearningResources - An Introduction to Functional Programming</title>
+  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+  <link rel="stylesheet" href="../../markbind/css/github.min.css">
+  <link rel="stylesheet" href="../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
+  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
+  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+  <link rel="icon" href="/learningresources/favicon.ico">
 </head>
+
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
-<div id="app">
-    <nav id="page-nav" class="navbar navbar-light bg-transparent slim-scroll">
-
-  <nav class="nav nav-pills flex-column my-0 small" style="flex-wrap: nowrap;">
-    <a class="nav-link py-1" href="#an-introduction-to-functional-programming">An Introduction to Functional Programming&#x200E;</a>
-    <nav class="nav nav-pills flex-column my-0" style="margin-left: 5%; flex-wrap: nowrap;">
-      <a class="nav-link py-1" href="#what-is-functional-programming">What is Functional Programming&#x200E;</a>
-      <a class="nav-link py-1" href="#functional-programming-languages">Functional Programming Languages&#x200E;</a>
-      <a class="nav-link py-1" href="#concepts-in-functional-programming">Concepts in Functional Programming&#x200E;</a>
-      <a class="nav-link py-1" href="#techniques-in-functional-programming">Techniques in Functional Programming&#x200E;</a>
-      <a class="nav-link py-1" href="#advantages-of-functional-programming">Advantages of Functional Programming&#x200E;</a>
-      <a class="nav-link py-1" href="#disadvantages-of-functional-programming">Disadvantages of Functional Programming&#x200E;</a>
-      <a class="nav-link py-1" href="#guides-on-functional-programming">Guides on Functional Programming&#x200E;</a>
-    </nav>
-
-  </nav>
-</nav>
-
-<div id="flex-body">
-  <div id="site-nav">
-    <span id="toc">
-      <ul style="list-style-type: none; margin-left:-1em">
-        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-            <i class="dropdown-btn-icon">
-              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-          <div class="dropdown-container">
-            <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><button class="dropdown-btn">C++
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Java
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">JavaScript
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Kotlin
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-            </ul>
-          </div>
+  <div id="app">
+    <header>
+      <navbar placement="top" type="light">
+        <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
+        <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
+        <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
+        <li><a href="https://se-edu.github.io/addressbook-level3/" class="nav-link"><span>AB-3</span></a></li>
+        <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
+        <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
+        <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
+        <dropdown text="Resources" class="nav-link">
+          <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
+          <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
+          <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+        </dropdown>
+        <li slot="right" class="nav-link">
+          <form class="navbar-form">
+            <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
+          </form>
         </li>
-        <li style="margin-top: 10px"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-            <i class="dropdown-btn-icon rotate-icon">
-              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-          <div class="dropdown-container dropdown-container-open">
-            <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><button class="dropdown-btn">Architecture
+      </navbar>
+      <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
+    </header>
+    <div id="flex-body">
+      <nav id="site-nav" class="navbar navbar-light bg-transparent">
+        <div class="sticky-top spacer-top viewport-height-90 scrollable slim-scroll">
+          <span id="toc">
+            <ul class="px-3 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                  <ul class="site-nav-list">
+                    <li class="mt-2"><button class="dropdown-btn">C++
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Java
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">JavaScript
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Kotlin
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Code Quality
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                <div class="dropdown-container dropdown-container-open">
+                  <ul class="site-nav-list">
+                    <li class="mt-2"><button class="dropdown-btn">Architecture
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a current">Functional Programming</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Project Management
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Revision Control
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Testing
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a current">Functional Programming</a></li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Performance
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                  <ul class="site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Project Management
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                  <ul class="site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
                   </ul>
                 </div>
               </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Revision Control
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
                   <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Static Analysis
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Testing
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">UI/UX
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                  <ul class="site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/data/databases.html" class="site-nav__a">Databases</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Security
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
             </ul>
-          </div>
-        </li>
-        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-            <i class="dropdown-btn-icon">
-              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-          <div class="dropdown-container">
-            <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
-            </ul>
-          </div>
-        </li>
-        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-            <i class="dropdown-btn-icon">
-              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-          <div class="dropdown-container">
-            <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-            </ul>
-          </div>
-        </li>
-        <li style="margin-top: 10px"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-            <i class="dropdown-btn-icon">
-              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-          <div class="dropdown-container">
-            <ul style="list-style-type: none; margin-left:-1em">
-              <li style="margin-top: 10px"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/data/databases.html" class="site-nav__a">Databases</a></li>
-              <li style="margin-top: 10px"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Multi-Threading
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li style="margin-top: 10px"><button class="dropdown-btn">Security
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul style="list-style-type: none; margin-left:-1em">
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                    <li style="margin-top: 10px"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </span></div>
-  <div id="site-nav-btn-wrap">
-    <div id="site-nav-btn">
-      <div class="menu-top-bar"></div>
-      <div class="menu-middle-bar"></div>
-      <div class="menu-bottom-bar"></div>
-    </div>
-  </div>
-  <div id="page-content">
-    <div id="page-nav-content-wrapper">
+          </span></div>
+      </nav>
       <div id="content-wrapper">
-        <navbar placement="top" class="temp-navbar">
-          <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
-          <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
-          <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
-          <li><a href="https://se-edu.github.io/addressbook-level3/" class="nav-link"><span>AB-3</span></a></li>
-          <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
-          <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
-          <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-          <span class="nav-link temp-dropdown-placeholder">Resources</span>
-          <dropdown text="Resources" class="nav-link temp-dropdown">
-            <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
-            <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
-            <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
-            <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
-          </dropdown>
-          <li slot="right" class="nav-link">
-            <form class="navbar-form">
-              <searchbar :data="searchData" placeholder="Search Learning Resources" :on-hit="searchCallback" menu-align-right></searchbar>
-            </form>
-          </li>
-        </navbar>
-        <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
         <div class="website-content">
           <h1 id="an-introduction-to-functional-programming">An Introduction to Functional Programming<a class="fa fa-anchor" href="#an-introduction-to-functional-programming"></a></h1>
           <p>Authors: <a href="https://github.com/crphang">Phang Chun Rong</a></p>
@@ -379,15 +359,30 @@ print(length_of_names) <span class="hljs-comment"># [4,6,4]</span>
           </ul>
         </div>
       </div>
+      <nav id="page-nav" class="navbar navbar-light bg-transparent">
+        <div class="sticky-top spacer-top viewport-height-90 scrollable slim-scroll">
+
+          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
+            <a class="nav-link py-1" href="#an-introduction-to-functional-programming">An Introduction to Functional Programming&#x200E;</a>
+            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+              <a class="nav-link py-1" href="#what-is-functional-programming">What is Functional Programming&#x200E;</a>
+              <a class="nav-link py-1" href="#functional-programming-languages">Functional Programming Languages&#x200E;</a>
+              <a class="nav-link py-1" href="#concepts-in-functional-programming">Concepts in Functional Programming&#x200E;</a>
+              <a class="nav-link py-1" href="#techniques-in-functional-programming">Techniques in Functional Programming&#x200E;</a>
+              <a class="nav-link py-1" href="#advantages-of-functional-programming">Advantages of Functional Programming&#x200E;</a>
+              <a class="nav-link py-1" href="#disadvantages-of-functional-programming">Disadvantages of Functional Programming&#x200E;</a>
+              <a class="nav-link py-1" href="#guides-on-functional-programming">Guides on Functional Programming&#x200E;</a>
+            </nav>
+
+          </nav>
+        </div>
+      </nav>
     </div>
+    <footer>
+      <div class="text-center">
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.1.0</a> on Thu, 04 Apr 2019 11:56:51 GMT]</small></div>
+    </footer>
   </div>
-</div>
-<div id="flex-div"></div>
-<footer>
-  <div class="text-center">
-    <small>[Generated by <a href="https://markbind.org/">MarkBind 1.20.0</a> on Fri, 22 Mar 2019 09:43:12 GMT]</small></div>
-</footer>
-</div>
 </body>
 <script src="../../markbind/js/vue.min.js"></script>
 <script src="../../markbind/js/vue-strap.min.js"></script>
@@ -395,9 +390,10 @@ print(length_of_names) <span class="hljs-comment"># [4,6,4]</span>
 <script src="../../markbind/js/polyfill.min.js"></script>
 <script src="../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
-    const baseUrl = '/learningresources'
-    const enableSearch = true
+  const baseUrl = '/learningresources'
+  const enableSearch = true
 </script>
 <script src="../../markbind/js/setup.js"></script>
 <script src="../../markbind/layouts/default/scripts.js"></script>
+
 </html>
