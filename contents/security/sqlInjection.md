@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # SQL Injection
 
 Author: [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md)

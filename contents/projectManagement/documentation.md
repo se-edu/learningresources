@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Documentation
 
 Authors: [Chua Ka Yi Ong](https://github.com/kychua)

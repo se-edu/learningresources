@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Java Concurrency
 
 Authors: Vivek Lakshmanan

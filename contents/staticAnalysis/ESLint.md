@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # ESLint
 
 Author: [Nicholas Chua](https://github.com/nus-cs3281/2018/blob/master/students/nicholasChua/nicholasChua-Resume.md)

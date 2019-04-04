@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Advanced Java: Reflections
 
 Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)

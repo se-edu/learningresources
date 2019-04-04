@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Java Synchronization
 
 Authors: [Boxin](https://github.com/boxin-yang)

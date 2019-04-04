@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Node.js
 
 Author: Rachael Sim

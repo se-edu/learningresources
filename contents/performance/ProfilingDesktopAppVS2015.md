@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Profiling a Desktop Application In Visual Studio 2015
 
 Author: [Ong Heng Le](https://github.com/initialshl)

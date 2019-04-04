@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Ruby
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)

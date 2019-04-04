@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Databases & Database Management Systems (DBMS)
 
 Authors: [Syed Abdullah](https://github.com/Skaty)

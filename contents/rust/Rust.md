@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Rust
 
 Author(s): [Tan Li Hao](https://github.com/LiHaoTan)

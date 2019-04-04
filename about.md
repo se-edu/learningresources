@@ -7,6 +7,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # About Us
 
 This is a sub-project of the [SE-EDU Project](https://se-edu.github.io).

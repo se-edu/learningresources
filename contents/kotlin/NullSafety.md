@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Null Safety in Kotlin
 
 Author: [Pan Haozhe](https://github.com/Haozhe321)

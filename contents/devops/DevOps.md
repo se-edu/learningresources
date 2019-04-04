@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # DevOps
 
 Authors: [John Yong](https://github.com/whipermr5)

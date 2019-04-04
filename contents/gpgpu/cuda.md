@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # An Introduction to CUDA
 
 ###### Author: [Pierce Anderson Fu](https://github.com/PierceAndy)

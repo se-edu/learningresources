@@ -19,6 +19,4 @@
     </form>
   </li>
 </navbar>
-
-<p class="lead"><big><md>%%**Learning Resources for Software Engineering Students** »%%</md></big></p>
 </header>

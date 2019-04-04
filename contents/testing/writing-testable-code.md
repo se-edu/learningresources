@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Writing Testable Code
 
 When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented programs.

@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to computer vision (CV)
 Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 

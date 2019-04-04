@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # REST Architectural Style
 
 Author: [Wen Xin](https://github.com/wenmogu)

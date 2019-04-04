@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # VueJs
 
 Author: [Lu Lechuan](https://github.com/LuLechuan)

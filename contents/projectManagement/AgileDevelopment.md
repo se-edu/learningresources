@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Agile Development
 
 Author: [Joanne Ong](https://github.com/joanneong)

@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Best Practices with `git`
 
 Author(s): [Darren Wee](https://github.com/darrenwee)

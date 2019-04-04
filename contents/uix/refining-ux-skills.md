@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Refining UX Design Skills
 
 Author: [Tan Jun Kiat](https://github.com/junkiattan)

@@ -8,6 +8,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 <span class="lead">This [SE-EDU](https://se-edu.github.io) sub-project is **a collection of Software Engineering learning resources especially suitable for SE students**. </span>
 
 Here is the list of articles:

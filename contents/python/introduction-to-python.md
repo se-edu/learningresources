@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # An Introduction to Python
 
 Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang Chun Rong](https://www.github.com/Crphang)

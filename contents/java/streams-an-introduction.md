@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Java 8 Streams - An Introduction
 
 Author: Lee Yi Min

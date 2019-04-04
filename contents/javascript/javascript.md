@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Writing Testable Javascript
 
 Authors: Li Kai

@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Haskell
 
 Author: Thenaesh Elango

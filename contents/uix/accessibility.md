@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Accessibility
 
 **Author(s): [Monika Manuela Hengki](https://github.com/monmanuela)**

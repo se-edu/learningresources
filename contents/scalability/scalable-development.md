@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Scalable Development - An Introduction
 
 Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan

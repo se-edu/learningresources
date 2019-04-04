@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Javascript: Promises
 
 Author: Daniel Berzin Chua

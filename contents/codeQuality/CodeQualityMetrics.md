@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Code Quality Metrics
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)

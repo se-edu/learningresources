@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to UI/UX
 
 Authors: [Ang Shi Ya](https://github.com/AngShiYa), [Tan Jun Kiat](https://github.com/junkiattan)

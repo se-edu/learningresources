@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # An Introduction to Functional Programming
 
 Authors: [Phang Chun Rong](https://github.com/crphang)

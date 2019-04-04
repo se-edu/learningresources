@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # An Introduction to GPGPU
 
 ###### Authors: [Pierce Anderson Fu](https://github.com/PierceAndy), [Nguyen Quoc Bao](https://github.com/bqnguyen94)

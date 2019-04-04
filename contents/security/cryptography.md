@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Cryptography
 
 Authors: [Dickson Tan](https://github.com/neurrone)

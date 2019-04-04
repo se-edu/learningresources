@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Machine Learning (ML)
 Authors: [Alex Fong](https://github.com/alexfjw)
 

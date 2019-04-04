@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Android App Development
 
 Authors: [Lee Yan Hwa](https://github.com/leeyh20)

@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Kotlin
 
 Author: [Shradheya Thakre](https://github.com/tshradheya)

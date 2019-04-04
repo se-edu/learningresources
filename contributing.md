@@ -7,6 +7,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Contributing to this Project
 
 We welcome contributions to this project.

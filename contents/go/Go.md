@@ -9,6 +9,8 @@
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Introduction to Go
 
 **Author(s): [Cara Leong](https://github.com/craaaa)**<br>
