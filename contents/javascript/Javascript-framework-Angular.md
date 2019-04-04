@@ -34,11 +34,9 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 
 ``` html
 <h1>About Me!</h1>
-<h2>Hello World! My name is {hero.name}</h2>
+<h2>Hello World! My name is {person.name}</h2>
 <div>
-<label>NAME:
-  <input [(ngModel)]="hero.name"/>
-</label>
+<label>NAME: <input [(ngModel)]="person.name"/></label>
 </div>
 ```
   
@@ -49,12 +47,12 @@ Angular organizes the behavior instructions (written in the TypeScript language)
 
 ```typescript
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  selector: 'app-person',
+  templateUrl: './person.component.html',
+  styleUrls: ['./person.component.css']
 })
-export class HeroesComponent {
-  hero: Hero = {
+export class PersonComponent {
+  person: Person = {
     name: 'John Doe'
   };
   constructor() { }
@@ -63,8 +61,9 @@ export class HeroesComponent {
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-heroes` is how Angular identifies this component in a template and renders it.  
-* The `hero.name` used in the template, refers to the name property defined in the above component.
+* The use of `selector: app-person` is how Angular identifies this component in a template. For instance, if the `<app-person>` tag is encountered in any template across the project, Angular instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`.
+
+* The `person.name` used in the template, refers to the name property defined in the above component.
 
 Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform it's function. We can visualize this with the help of an example.
 
@@ -78,23 +77,23 @@ Dependency injection is a way of providing a class with the required services. T
  
 ```typescript
 import { Injectable } from '@angular/core';
-import { HEROES } from './mock-heroes';
+import { PERSONS } from './mock-persons';
 @Injectable({
   providedIn: 'root',
 })
-export class HeroService {
-  getHeroes() { return HEROES; }
+export class PersonService {
+  getPersons() { return PERSONS; }
 }
 ```
-The `HeroesComponent` declared previously, can make use of this `HeroService` by injecting the dependency in its constructor as a parameter.
+The `PersonComponent` declared previously, can make use of this `PersonService` by injecting the dependency in its constructor as a parameter.
 
 ```
-constructor(heroService: HeroService) {
- this.heroes = heroService.getHeroes();
+constructor(personService: PersonService) {
+ this.persons = personService.getPersons();
 }
 ```
 
-In the above example, we write the `getHeroes` method only once in the service class and we can access this method from any component by injecting the service in the constructor.
+In the above example, we write the `getPersons` method only once in the service class and we can access this method from any component by injecting the service in the constructor.
 This explains how DI increases "efficiency and modularity".
 
 Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
