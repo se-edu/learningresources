@@ -61,9 +61,13 @@ export class PersonComponent {
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-person` is how Angular identifies this component in a template. For instance, if the `<app-person>` tag is encountered in any template across the project, Angular instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`. Let us see an example.
+* The use of `selector: app-person` is how Angular identifies this component in a template. The following code constitutes the template of `app.component.html`.
 
-The template for `app.component.html` 
+    ```typescript
+    <app-person></app-person>
+    ```
+
+    Angular identifies the `<app-person>` tag, instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`.
 
 * The `person.name` used in the template, refers to the name property defined in the above component.
 
