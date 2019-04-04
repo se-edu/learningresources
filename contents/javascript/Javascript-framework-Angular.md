@@ -30,7 +30,7 @@ Consider a simple web application that displays the name of a person as shown be
     The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the Both button. 
 </box>
 
-The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags. The template for the above example is given below.
+The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags. The template for the above example (defined in `person.component.html`) is given below.
 
 ``` html
 <h1>About Me!</h1>
@@ -43,7 +43,7 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Angular organizes the behavior instructions (written in the TypeScript language) into what it calls _Components_. Here is an example:  
+Angular organizes the behavior instructions (written in the TypeScript language) into what it calls _Components_. Given below in the component file `person.component.ts` of the `PersonComponent` :  
 
 ```typescript
 @Component({
