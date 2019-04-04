@@ -69,7 +69,7 @@ The `@Component` tag is used to mark a component. It provides the metadata that 
 
     Angular identifies the `<app-person>` tag, instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`.
 
-* The `person.name` used in the template, refers to the name property defined in the above component.
+* The `person.name` used in the template `./person.component.html`, refers to the name property defined in the above component.
 
 Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform it's function. We can visualize this with the help of an example.
 
