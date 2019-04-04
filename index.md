@@ -1,11 +1,10 @@
 <frontmatter>
   title: "Learning Resources for Software Engineering Students"
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
 </frontmatter>
-
-{{ navbar | safe }}
 
 <div class="website-content">
 

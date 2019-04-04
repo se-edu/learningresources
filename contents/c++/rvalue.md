@@ -1,12 +1,11 @@
 <frontmatter>
   title: Rvalue References and Move Semantics
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
-
-{{ navbar | safe }}
 
 <div class="website-content">
 

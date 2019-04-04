@@ -1,10 +1,9 @@
 <frontmatter>
   title: "About Us"
+  header: pagetop.md
   footer: footer.md
   head: head.md
 </frontmatter>
-
-{{ navbar | safe }}
 
 <div class="website-content">
 

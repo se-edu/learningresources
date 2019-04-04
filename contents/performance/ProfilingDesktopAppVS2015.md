@@ -1,12 +1,11 @@
 <frontmatter>
   title: Profiling a Desktop Application In Visual Studio 2015
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
-
-{{ navbar | safe }}
 
 <div class="website-content">
 
