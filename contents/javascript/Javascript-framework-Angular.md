@@ -43,7 +43,7 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Angular organizes the behavior instructions (written in the TypeScript language) into what it calls _Components_. Given below in the component file `person.component.ts` of the `PersonComponent` :  
+Angular organizes the behavior instructions (written in the TypeScript language) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
 
 ```typescript
 @Component({
@@ -61,7 +61,9 @@ export class PersonComponent {
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-person` is how Angular identifies this component in a template. For instance, if the `<app-person>` tag is encountered in any template across the project, Angular instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`.
+* The use of `selector: app-person` is how Angular identifies this component in a template. For instance, if the `<app-person>` tag is encountered in any template across the project, Angular instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`. Let us see an example.
+
+The template for `app.component.html` 
 
 * The `person.name` used in the template, refers to the name property defined in the above component.
 
@@ -85,6 +87,7 @@ export class PersonService {
   getPersons() { return PERSONS; }
 }
 ```
+
 The `PersonComponent` declared previously, can make use of this `PersonService` by injecting the dependency in its constructor as a parameter.
 
 ```
