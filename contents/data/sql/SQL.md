@@ -21,7 +21,7 @@ Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Rahul Rajesh](ht
 A Relational Database Management System (RDBMS) is a popular database solution used by software applications to manage their data.
 
 **Structured Query Language** (**SQL**) is a programming language that is specifically designed for interacting with an RDBMS. Unlike other languages, SQL doesn't come as a standalone installation.
-Rather, RDBMSs %%like MySQL, Oracle, SQL Server and PostgreSQL%% come with an _implementation_ of SQL. Note that the syntaxes may <tooltip content="in terms of whether the syntax is case-sensitive, the format for specifying date and time, what functions are available out-of-the-box">vary</tooltip> across these RDBMSs.
+Rather, RDBMSs %%like MySQL, Oracle, SQL Server and PostgreSQL%% come with an _implementation_ of SQL.
 
 ---
 
@@ -63,7 +63,7 @@ So, the output of the query is:
 | CS101  | 2   |
 | CS202  | 3   |
 
-You can see how this simple query can prove to be extremely useful for getting this information when the table has tens of entries (or many more). Apart from retrieving information, SQL can also be used for creating, deleting and manipulating data with queries like `INSERT`, `DELETE` and `UPDATE` for entries, in addition to `CREATE`, `DROP` and `ALTER` for tables as a whole.
+You can see how this simple query can prove to be extremely useful for getting this information when the table has a large number of rows. Queries can also be used to retrieve data that span across multiple tables. Apart from retrieving information, SQL can used for creating, deleting and manipulating data with commands like `INSERT`, `DELETE` and `UPDATE` for entries, in addition to `CREATE`, `DROP` and `ALTER` for tables as a whole.
 
 For example, you can set up the structure of the table shown in Table 1 by executing the `CREATE TABLE` query shown here.
 It creates a new data table `Students`, with 4 fields (`ID`, `Name`, `Course` and `Faculty`) and specifies their data types.
@@ -85,7 +85,7 @@ WHERE Faculty='MA';
 </box>
 
 <center>
-<img src="DBFiddle.png" alt="Running queries on DB Fiddle" width="90%">  
+<img src="DBFiddle.png" alt="Running queries on DB Fiddle" width="100%">  
 
 _Figure 1. Using DB Fiddle to run queries in MySQL_
 </center>
@@ -94,37 +94,37 @@ _Figure 1. Using DB Fiddle to run queries in MySQL_
 
 - **RDBMS software**: RDBMS installations usually come with a <tooltip content="Graphical User Interface">GUI</tooltip> (see Figure 2), but can also be accessed from the command line (see Figure 3).
 
-    <center>
-    <img src="MySQL_Workbench.png" alt="MySQL Workbench GUI Software" width="85%">  
+<center>
+<img src="MySQL_Workbench.png" alt="MySQL Workbench GUI Software" width="100%">  
 
-    _Figure 2. MySQL (an RDBMS) can be used in the MySQL Workbench GUI application_ <sup>[source](https://www.mysql.com/products/workbench/)</sup>  
+_Figure 2. MySQL (an RDBMS) can be used in the MySQL Workbench GUI application_ ([source](https://www.mysql.com/products/workbench/))  
 
-    <img src="MySQL_CLI.png" alt="Running MySQL from the command line" width="60%">  
+<img src="MySQL_CLI.png" alt="Running MySQL from the command line" width="75%">  
 
-    _Figure 3. Logging in to the MySQL RDBMS and viewing tables from the command line_ <sup>[source](https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393)</sup>  
-    </center>
+_Figure 3. Logging in to the MySQL RDBMS and viewing tables from the command line_ ([source](https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393))  
+</center>
 
 - **APIs**: You can use APIs in programming languages or independent ones like [SQL API](https://carto.com/developers/sql-api/) (shown in Figure 4) to interact with databases. For example, the [SQLite3](https://www.pythoncentral.io/introduction-to-sqlite-in-python/) library can be used to interact with a database through Python.
 
     <center>
-    <img src="SQL_API.png" alt="Using SQL API to execute queries" width="80%">  
+    <img src="SQL_API.png" alt="Using SQL API to execute queries" width="95%">  
 
-    _Figure 4. An example of how to use CARTO's SQL API, which uses a PostgreSQL database_ <sup>[source](https://carto.com/developers/sql-api/)</sup>  
+    _Figure 4. An example of how to use CARTO's SQL API, which uses a PostgreSQL database_ ([source](https://carto.com/developers/sql-api/))  
     </center>
 
 ---
 
 ## Why learn SQL?
 
-The main reason why you should learn SQL relates to the widespread adoption of SQL. As SQL is not limited to any particular operating system or programming language, it is **widely used** in the RDBMSs used by a lot of software applications (web, mobile etc.). Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
+The main reason why you should learn SQL relates to the widespread adoption of SQL. As SQL is not limited to any particular operating system or programming language, it is **widely used** in the RDBMSs used by a lot of web, mobile and other software applications. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
 
 ## Disadvantage
 
 The biggest issue in SQL is with regards to the syntax and features.
 Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> & <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some RDBMSs %%(like PostgreSQL, for example)%% add proprietary extensions to standard SQL.
 Due to this, the available feature set can vary according to what you're using.
-Furthermore, there may be minor changes in the syntaxes across RDBMSs (case-sensitivity, for example).
-These factors can make SQL confusing and frustrating to use when switching across RDBMSs, since you would have to change your SQL code.
+Furthermore, there may be <tooltip content="case-sensitivity, date and time format, functions available out-of-the-box, etc.">minor changes in the syntaxes</tooltip> across RDBMSs.
+These factors can make SQL confusing and frustrating to use when switching across RDBMSs, since you would have to change your SQL queries.
 
 ---
 
@@ -132,12 +132,12 @@ These factors can make SQL confusing and frustrating to use when switching acros
 
 As you saw in the example in the previous section, SQL is not really that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.
 
-To get started with SQL, you can either just use an online SQL playground or install a RDBMS. There are many free RDBMSs available like [PostgreSQL](https://www.postgresql.org/) and [MySQL](https://dev.mysql.com/downloads/).
-However, for the sole purpose of learning SQL, our suggestion is to use online editors like [DB Fiddle](https://www.db-fiddle.com/) %%(supports MySQL and SQLite)%% or [SqliteOnline](https://sqliteonline.com/) %%(supports SQLite)%% since they allow you to start learning without the hassle of setting up anything.
+To get started with SQL, you can either just use an online SQL playground or install an RDBMS. There are many free RDBMSs available like [PostgreSQL](https://www.postgresql.org/) and [MySQL](https://dev.mysql.com/downloads/).
+At the early stages of learning SQL, you can even use online editors like [DB Fiddle](https://www.db-fiddle.com/) %%(supports MySQL and SQLite)%% or [SqliteOnline](https://sqliteonline.com/) %%(supports SQLite)%% since they allow you to start learning without the hassle of setting up anything.
 
 Here are some recommended steps for learning SQL:
 
-1. **Understand RDBMS**: Before jumping into the SQL language, refer to this book's [<tooltip content="DataBase Management System">**DBMS**</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) chapter to understand the basic database concepts. More specifically, understand the basic concepts of RDBMS by going through the [**SQL- RDBMS Concepts**](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) page. This is not _essential_, but will give you a better high-level understanding before diving into programming.
+1. **Understand RDBMS**: Before jumping into the SQL language, refer to this book's [<tooltip content="DataBase Management System">**DBMS**</tooltip>]({{baseUrl}}/contents/data/databases/databases.html) chapter to understand the basic database concepts. More specifically, understand the basic concepts of RDBMS by going through Tutorials Point's [**SQL- RDBMS Concepts**](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) page. This is not _essential_, but will give you a better high-level understanding before diving into programming.
 
 1. **Learn SQL Syntax**: These are some recommended resources that you can use to learn the SQL language.
     - The [**Guru99 SQL Tutorial for Beginners**](https://www.guru99.com/sql.html) is a good course for beginners. It is well organized and provides comprehensive information, which will ensure that you know the basics well.
