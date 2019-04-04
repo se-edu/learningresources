@@ -34,7 +34,7 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 
 ``` html
 <h1>About Me!</h1>
-<h2>Hello World! My name is {{hero.name}} </h2>
+<h2>Hello World! My name is {hero.name}</h2>
 <div>
 <label>NAME:
   <input [(ngModel)]="hero.name"/>
@@ -169,7 +169,7 @@ _Data binding_ refers to the exchange of data between the View and Model compone
 <center>
 <img src="data.jpg" width="50%">
 
-_Figure 1. Types of data binding_ <sup>[source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/)</sup>
+_Figure 2. Types of data binding_ <sup>[source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/)</sup>
 </center>
 
 Some frameworks like React provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
@@ -184,7 +184,7 @@ This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding
 Like any other framework/library, Angular has its share of disadvantages.
 
 1. **Steep Learning curve** - Angular requires you to learn many concepts, such as directives, modules, components, services and many more. 
-The large number of new concepts can be confusing to newcomers. Additionally, Angular also requires you to learn a new language, TypeScript.
+The large number of new concepts can be confusing to newcomers. Additionally, Angular requires you to learn a new language, TypeScript.
 
 2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
 In contrast, React allows you to integrate any third party services in your application.
