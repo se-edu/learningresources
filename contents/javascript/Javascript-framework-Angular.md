@@ -63,8 +63,10 @@ The `@Component` tag is used to mark a component. It provides the metadata that 
 
 * The use of `selector: app-person` is how Angular identifies this component in a template. The following code constitutes the template of `app.component.html`.
 
-    ```typescript
+    ```html
+    <h1>Person Data</h1>
     <app-person></app-person>
+    <hr/>
     ```
 
     Angular identifies the `<app-person>` tag, instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`.
