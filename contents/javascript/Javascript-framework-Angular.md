@@ -17,20 +17,20 @@ Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng]
 
 ## What is Angular?
 
-It's [official website](https://angular.io/docs) describes Angular as follows:
+The [official website](https://angular.io/docs) describes Angular as follows:
 
 >Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
 
-Let us understand some key terms in that definition starting with what _declarative templates_ means.
+Let us understand some key terms in that definition starting with _declarative templates_.
 Consider a simple web application that displays the name of a person as shown below.
 
 <iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/app.component.ts&view=preview" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
 
 <box type="info">
-    The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the Both button. 
+    The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the "Both" button. 
 </box>
 
-The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags. The template for the above example (defined in `person.component.html`) is given below.
+The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags. The template for the above example (defined in `person.component.html`) is given below:
 
 ``` html
 <h1>About Me!</h1>
@@ -40,10 +40,10 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 </div>
 ```
   
-The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want displayed (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
+The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want to display (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Angular organizes the behavior instructions (written in the TypeScript language) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
+Angular organizes the behavior instructions (written in TypeScript) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
 
 ```typescript
 @Component({
@@ -73,7 +73,7 @@ The `@Component` tag is used to mark a component. It provides the metadata that 
 
 * The `person.name` used in the template `./person.component.html`, refers to the name property defined in the above component.
 
-Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform it's function. We can visualize this with the help of an example.
+Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform its function. We can visualize this with the help of an example.
 
 <center>
 <img src="dependency.png" width="60%">
@@ -103,7 +103,7 @@ constructor(personService: PersonService) {
 ```
 
 In the above example, we write the `getPersons` method only once in the service class and we can access this method from any component by injecting the service in the constructor.
-This explains how DI increases "efficiency and modularity".
+This is how DI increases "efficiency and modularity".
 
 Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
  
@@ -191,7 +191,7 @@ This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding
 
 Like any other framework/library, Angular has its share of disadvantages.
 
-1. **Steep Learning curve** - Angular requires you to learn many concepts, such as directives, modules, components, services and many more. 
+1. **Steep Learning Curve** - Angular requires you to learn many concepts, such as directives, modules, components, services and many more. 
 The large number of new concepts can be confusing to newcomers. Additionally, Angular requires you to learn a new language, TypeScript.
 
 2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
