@@ -26,16 +26,15 @@ In a software application, each software module is usually designed and unit tes
 
 <box>Suppose you are in charge of a **data collection component** that passes the **data** collected from users to a **data analysis component**. If the **data analysis component** assumes your **data** to be of maximum 100 lines but the data you send has 200 lines, it may result in data loss, inaccurate results and even system errors. Integration tests find these discrepancies before any serious damage is done.</box>
 
-Hence, integration testing is an important process which should be applied in the development of most softwares products such as web, mobile and desktop applications. We will mainly be focusing on integration testing in terms of web applications. Similar concepts can be adopted by other applications.
+Hence, integration testing is an important process which should be applied in the development of most softwares products such as web, mobile and desktop applications. Concepts shared in this article can be adopted by other different software applications.
 
-:information_source: More information on instances where integration testing is important can be found on [this article](https://www.guru99.com/integration-testing.html).
+:fas-info-circle: More information on instances where integration testing is important can be found on [this article](https://www.guru99.com/integration-testing.html).
 
 ## How does integration testing work?
 
 Imagine that you are working on an online web ordering system and a sample architecture diagram of your application is shown as follows:
 
 <center>
-<b>Architecture diagram of an online web ordering system</b>
 
 ![Sample architecture diagram](integration-test/sample-architecture.png "Sample architecture diagram")
 </center>
@@ -63,23 +62,24 @@ An example of how big bang integration testing can be applied to our given examp
 
 #### [Incremental testing approach](https://www.quora.com/What-is-incremental-testing-in-software):
 
-This approach involves integrating two or more logically related components. The other related components are added and tested for proper functioning. This is repeated until all the components are joined and tested successfully. It is usually preferred with any applications having more than 10 different components.
+This approach involves integrating two or more logically related components. The other related components are added and tested for proper functioning. This is repeated until all the components are joined (or __integrated incrementally__) and tested successfully. It is usually preferred with any application having more than 10 different components.
 
 Incremental integration testing is further split into the 3 approaches shown below:
 
 | | [Top-down approach](https://www.guru99.com/integration-testing.html#9) | [Bottom-up approach](https://www.guru99.com/integration-testing.html#8) | [Hybrid / sandwich approach](https://www.guru99.com/integration-testing.html#10) |
 | -- | -- | -- | -- |
-| **Description**| <tooltip content="Refer to more abstract operations">High level modules</tooltip> are tested first and then <tooltip content="Refer to specific implementation details">lower level modules</tooltip> until all the modules are tested. | The reverse of top-down approach. | A mix of both top-down bottom-up approaches. |
+| **Description**| <tooltip content="Refer to more abstract operations">High level modules</tooltip> are tested first and then <tooltip content="Refer to specific implementation details">lower level modules</tooltip>, until all the modules are tested. | The reverse of top-down approach. | A mix of both top-down bottom-up approaches. |
 | <span style="color:red">**Advantages**</span>| Early discovery of high level architecture / design defects. | Easier to create test cases bottom up. | Beneficial for big project to distribute tasks on testing.
 | | Main control points of the system are tested early. | Critical modules on functionalities are tested first. | Allow top-down and bottom-up approach to run side by side. |
 | <span style="color:blue">**Disadvantages**</span> | Significant low level modules are tested late in the cycle. | There is no testable working system until the higher level modules are build. | It is difficult to test for highly interconnected modules. |
-| | A [<tooltip content="A program that simulates the behaviours of software components">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporalities replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
+| | A [<tooltip content="A program that simulates the behaviours of software components">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporarily replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
 
-:information_source: A more detailed guide on using specific methods for incremental testing together with examples can be found [here](https://www.softwaretestinghelp.com/incremental-testing/).
+:fas-info-circle: A more detailed guide on using specific methods for incremental testing together with examples can be found [here](https://www.softwaretestinghelp.com/incremental-testing/).
 
 ### 2. Design the test scenarios, cases and scripts
 
-Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example shown above, below shows a sample integration test used for the `login and ordering` modules:
+Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>.
+Using the example shown above, below shows a sample integration test used for the `login` and `ordering` modules:
 
 ~~~
 Test case ID: 1
@@ -98,31 +98,31 @@ Depending on the approach you have chosen for your integration plan and the test
 
 A big bang approach usually involves all the modules to be developed before you can start with the integration testing.
 
-As for incremental approach, it is usually conducted simultaneously with the modules' development. Hence, stubs and drivers are used to mimic the modules for writing tests.
+As for incremental approach, it is usually conducted simultaneously with the module's development. Stubs and drivers are used to mimic the modules for writing tests since not all modules are developed at the point of integration testing.
 
-In both cases, always ensure that all high prioritzed bugs are fixed and closed before moving on.
+In both cases, always ensure that all high prioritized bugs are fixed and closed before moving on.
 
-:information_source: [This article](https://www.guru99.com/test-environment-software-testing.html) shows more details on how to set up a test environment for better integration testing.
+:fas-info-circle: [This article](https://www.guru99.com/test-environment-software-testing.html) shows more details on how to set up a test environment for better integration testing.
 
 ### 4. Tracking defects and re-testing application
 
-In the event of failing your integration test case, it is important to learn how to track down the [<tooltip content="Incorrect behavior observed from the system">defects</tooltip>](https://qacomplete.com/resources/articles/what-is-a-software-defect/)occured. Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.
+In the event of failing your integration test case, it is important to learn how to track down the [<tooltip content="Incorrect behavior observed from the system">defects</tooltip>](https://qacomplete.com/resources/articles/what-is-a-software-defect/) occured. Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.
 
-:information_source: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
+:fas-info-circle: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
 
 ## Tips for better integration tests
 
-### :thumbsup: Make sure that each component is unit tested before integration testing
+### :fas-thumbs-up: Make sure that each component is unit tested before integration testing
 By ensuring that each unit test is completed properly, integration testing will be smoother as we can focus mainly on the flow of data between modules.
 
-### :thumbsup: Prioritize the modules to be tested
+### :fas-thumbs-up: Prioritize the modules to be tested
 Despite the need to cover all areas of integration of the application, it is important to ensure that critical modules needs to be tested first.
 
-### :thumbsup: Automate your tests (strongly encouraged)
+### :fas-thumbs-up: Automate your tests (strongly encouraged)
 As far as possible, automate all your tests, especially when you use the incremental approach, since regression testing is important each time you integrate a unit, and manual regression testing can be inefficient. You can find a list of most commonly used [automation tools](https://medium.com/@briananderson2209/best-automation-testing-tools-for-2018-top-10-reviews-8a4a19f664d2) for integration testing.
 
-### :thumbsup: Ensure that all executed test cases are documented
-This helps you to identify errors quickly through an integration test. It also helps to standadize the way integration testing is carried out in your application so that everyone can conform to the given standard.
+### :fas-thumbs-up: Ensure that all executed test cases are documented
+This helps you to identify errors quickly through an integration test. It also helps to standardize the way integration testing is carried out in your application so that everyone can conform to the given standard.
 
 ## Tools to get started with integration testing
 
