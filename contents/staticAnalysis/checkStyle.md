@@ -1,14 +1,15 @@
 <frontmatter>
   title: CheckStyle
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # CheckStyle
 
@@ -16,7 +17,7 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
 
 ## Overview
 
-CheckStyle is a static analyser for **Java**. It can be used to assist developers in [static analysis](intro.md) process.
+CheckStyle is a static analyser for **Java**. It can be used to assist developers in [static analysis](intro.html) process.
 
 ## Features
 CheckStyle will examine code based on different rules(or checks).

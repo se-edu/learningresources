@@ -1,14 +1,15 @@
 <frontmatter>
   title: Performance Profiling
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Performance Profiling
 
@@ -41,7 +42,7 @@ Most profilers are similar in their functionalities, user interface, and use of
 technical terms. You may adapt the tutorials in this article to your preferred profiling 
 tools on your own project. 
 
-* [Profiling a Desktop Application In Visual Studio 2015](ProfilingDesktopAppVS2015.md)
+* [Profiling a Desktop Application In Visual Studio 2015](ProfilingDesktopAppVS2015.html)
 
 ## Advanced Topics
 

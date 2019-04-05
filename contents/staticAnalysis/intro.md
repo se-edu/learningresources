@@ -1,14 +1,15 @@
 <frontmatter>
   title: Static Analysis
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Introduction to Static Analysis
 
@@ -91,7 +92,7 @@ try {
 ```
 For example, the above code will catch any `Throwable` object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching `Throwable` is regarded as a bad practice and thus the tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch `Throwable` and thus the violation detected by static analysis tools is a false positive.
 
-**Solution**: Many static analysis tools provide ways to suppress the warnings. For example, in [PMD](PMD.md) (a static analysis tool), `@SuppressWarnings` annotation can be used. In this case, 
+**Solution**: Many static analysis tools provide ways to suppress the warnings. For example, in [PMD](PMD.html) (a static analysis tool), `@SuppressWarnings` annotation can be used. In this case,
 
 ``` java 
 @SuppressWarnings("PMD.AvoidCatchingThrowable") // used as fallback
@@ -110,12 +111,12 @@ There are several static analysis tools that can be used to assist the process.
 Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.
 
 - Java
-	- [CheckStyle](CheckStyle.md)
-	- [PMD](PMD.md)
-	- [FindBugs](FindBugs.md)
+	- [CheckStyle](checkStyle.html)
+	- [PMD](PMD.html)
+	- [FindBugs](FindBugs.html)
 
 - JavaScript
-	- eslint
+	- [eslint](ESLint.html)
 
 ## References
 

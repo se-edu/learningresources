@@ -1,16 +1,16 @@
 <frontmatter>
   title: Cross Site Scripting
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
 
 # Cross Site Scripting (XSS)
+{{ booktitle | safe }}
 
 Authors: [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md) and [Chester Sng](https://github.com/ChesterSng)
 
