@@ -14,6 +14,8 @@
 
 **Author(s): [Tan Heng Yeow](https://github.com/tanhengyeow)**
 
+Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Metta Ong](https://github.com/ongspxm)
+
 ## What is a Design System
 
 The following definition best encapsulates the essence of a Design System.
@@ -27,7 +29,7 @@ _Figure 1. Typical structure of a Design System_ ([source](https://uxdesign.cc/c
 </center>
 
 Below is a brief explanation of the parts that make up a Design System. The explanation includes reference to a living example, [Polaris](https://polaris.shopify.com/), Shopify's Design System.
-- `Rules`: Rules include abstract elements such as brand values, mindset, and shared beliefs. For example, one of Polaris' [product experience principles](https://polaris.shopify.com/patterns-and-guides/product-experience-principles#navigation) is to `Put merchants first`. The principle promotes thinking about the needs of different types of merchants and be intentional about how to respond to them in the product or feature.
+- `Rules`: Rules include abstract elements such as brand values, mindset, and shared beliefs. For example, one of Polaris' [product experience principles](https://polaris.shopify.com/patterns-and-guides/product-experience-principles#navigation) is to *Put merchants first*. The principle promotes thinking about the needs of different types of merchants and be intentional about how to respond to them in the product or feature.
 - `Pattern Library`: A Pattern Library integrates functional components and their usage. For example, Shopify's [product component library](https://github.com/Shopify/polaris-react) contains a custom [Datepicker](https://github.com/Shopify/polaris-react/tree/master/src/components/DatePicker) component for merchants to select a date range.
 - `Building Blocks`: Building Blocks refer to documentation consisting of the collection of interface elements. Polaris has a section which describes their [components](https://polaris.shopify.com/components/get-started) in detail. For example, the custom [Datepicker](https://polaris.shopify.com/components/forms/date-picker#navigation) component is clearly documented with different examples.
 - `Style Guide`: A Style Guide focuses on graphic styles such as colors, fonts, illustrations, etc and their usage. For example, Polaris' [style guide](https://polaris.shopify.com/design/colors#section-color-usage) recommends to use Indigo for buttons and avoid using Indigo for text links.
@@ -55,9 +57,9 @@ _Figure 3. Conversation at Modus Create_ ([source](https://moduscreate.com/blog/
 </center>
 
 ## Why not front-end frameworks or style guides?
-Front-end frameworks such as [Bootstrap](https://getbootstrap.com/) have reusable components and saves a lot of time and effort. However, there are a few disadvantages:
-1. `Not suitable for designers`: [Sketch](https://www.sketch.com/) is an industry standard tool used by designers for UI design. Most front-end frameworks do not have relevant `.sketch` or source files that allow them to change the design of components in the framework.
-2. `Not suitable for extensive customization`: Products with a distinctive level of identity requires additional development effort, which defeats the point of using a framework.
+Front-end frameworks such as [Bootstrap](https://getbootstrap.com/) have reusable components that save a lot of time and effort. However, there are a few disadvantages:
+1. `Not suitable for designers`: [Sketch](https://www.sketch.com/) is an industry standard tool used by designers for UI design. Most front-end frameworks do not have relevant *.sketch* or source files that allow them to change the design of components in the framework.
+2. `Not suitable for extensive customization`: Products with a distinctive level of identity require additional development effort, which defeats the point of using a framework.
 3. `Not suitable for apps that emphasize on performance`: Front-end frameworks come with elements that the team may not need. The unused code could reduce overall performance.
 
 <box type="info">
@@ -125,6 +127,6 @@ Out of the list, there are some noteworthy open-source Design Systems that you c
 3. [Lightning Design System](https://www.lightningdesignsystem.com/): Used to build products/apps related to Salesforce. The component library can be found [here](https://github.com/salesforce/design-system-react). Note that they use Storybook in setting up the pattern library.
 4. [Shopify Polaris](https://polaris.shopify.com/): Used to build products/apps related to Shopify. The component library can be found [here](https://github.com/Shopify/polaris-react). Note that they use Storybook in setting up the pattern library.
 
-## Ending Notes
+## Summary
 
 Design Systems keep things in order by acting as a Single Source of Truth, providing a common shared language across the organization. It encourages reusability of components, resulting in faster development time.
