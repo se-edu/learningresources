@@ -16,7 +16,7 @@
 
 ## What is a Design System
 
-Design Systems has been a trending topic for the past 2 years. The following definition best encapsulates the essence of a Design System.
+The following definition best encapsulates the essence of a Design System.
 > A Design System is the Single Source of Truth which groups all the elements that will allow the teams to design, realize and develop a product. <sub>--[Blog post from UX Collective](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969)</sub>
 
 The typical structure of a Design System looks like this:
@@ -27,10 +27,10 @@ _Figure 1. Typical structure of a Design System_ ([source](https://uxdesign.cc/c
 </center>
 
 Below is a brief explanation of the parts that make up a Design System. The explanation includes reference to a living example, [Polaris](https://polaris.shopify.com/), Shopify's Design System.
-- `Rules`: Rules include abstract elements such as brand values, mindset, and shared beliefs. You can refer to Polaris' [product experience principles](https://polaris.shopify.com/patterns-and-guides/product-experience-principles#navigation).
-- `Pattern Library`: A Pattern Library integrates functional components and their usage. You can refer to Shopify's [product component library](https://github.com/Shopify/polaris-react).
-- `Building Blocks`: Building Blocks refer to documentation consisting of the collection of interface elements. You can refer to Polaris' documentation which describes their [components](https://polaris.shopify.com/components/get-started).
-- `Style Guide`: A Style Guide focuses on graphic styles such as colors, fonts, illustrations, etc and their usage. You can refer to Polaris' [style guide](https://polaris.shopify.com/design/colors).
+- `Rules`: Rules include abstract elements such as brand values, mindset, and shared beliefs. For example, one of Polaris' [product experience principles](https://polaris.shopify.com/patterns-and-guides/product-experience-principles#navigation) is to `Put merchants first`. The principle promotes thinking about the needs of different types of merchants and be intentional about how to respond to them in the product or feature.
+- `Pattern Library`: A Pattern Library integrates functional components and their usage. For example, Shopify's [product component library](https://github.com/Shopify/polaris-react) contains a custom [Datepicker](https://github.com/Shopify/polaris-react/tree/master/src/components/DatePicker) component for merchants to select a date range.
+- `Building Blocks`: Building Blocks refer to documentation consisting of the collection of interface elements. Polaris has a section which describes their [components](https://polaris.shopify.com/components/get-started) in detail. For example, the custom [Datepicker](https://polaris.shopify.com/components/forms/date-picker#navigation) component is clearly documented with different examples.
+- `Style Guide`: A Style Guide focuses on graphic styles such as colors, fonts, illustrations, etc and their usage. For example, Polaris' [style guide](https://polaris.shopify.com/design/colors#section-color-usage) recommends to use Indigo for buttons and avoid using Indigo for text links.
 
 ## Why should we use a Design System?
 
@@ -40,16 +40,16 @@ Below is a brief explanation of the parts that make up a Design System. The expl
 _Figure 2. Typical Design and Development process_ ([source](https://uxdesign.cc/can-design-systems-fix-the-relationship-between-designers-developers-eb12fc9329ab))
 </center>
 
-Consider the typical design and development process. Designers come up with sketches, wireframes and hand them over to the developers to implement them through code. Here's the problem.
+Consider the typical design and development process. Designers come up with sketches, wireframes and hand them over to the developers to implement them through code. Here's the problem:
 
 Designers are looking at multiple directions and solutions, constantly comparing and tweaking their design. On the other hand, developers are ultimately accountable for shipping code. They focus on making sure that the correct architecture is in place, thinking about security and the performance of the product, hoping that the designers already have all the design details thought out.
 
-Over time, it is likely that many teams working on different parts of the product will create inconsistencies in the product. For example, HubSpot [explained how they found inconsistencies](https://product.hubspot.com/blog/how-building-a-design-system-empowers-your-team-to-focus-on-people-not-pixels) in their interface after auditing their User Interface (UI) components.
+Over time, it is likely that many teams working on different parts of the product will create UI/UX design inconsistencies in the product. For example, HubSpot [explained how they found UI/UX design inconsistencies](https://product.hubspot.com/blog/how-building-a-design-system-empowers-your-team-to-focus-on-people-not-pixels) in their interface after auditing their User Interface (UI) components.
 
 Here is another example of a conversation held at [Modus Create](https://moduscreate.com/), a digital product agency, highlighting a similar problem.
 
 <center>
-<img src="https://3lhowb48prep40031529g5yj-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/chat.jpg" alt="Conversation at Modus Create" width="95%">
+<img src="https://3lhowb48prep40031529g5yj-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/chat.jpg" alt="Conversation at Modus Create" width="75%">
 
 _Figure 3. Conversation at Modus Create_ ([source](https://moduscreate.com/blog/design-systems-and-how-your-company-benefits-from-them/))
 </center>
@@ -58,7 +58,7 @@ _Figure 3. Conversation at Modus Create_ ([source](https://moduscreate.com/blog/
 Front-end frameworks such as [Bootstrap](https://getbootstrap.com/) have reusable components and saves a lot of time and effort. However, there are a few disadvantages:
 1. `Not suitable for designers`: [Sketch](https://www.sketch.com/) is an industry standard tool used by designers for UI design. Most front-end frameworks do not have relevant `.sketch` or source files that allow them to change the design of components in the framework.
 2. `Not suitable for extensive customization`: Products with a distinctive level of identity requires additional development effort, which defeats the point of using a framework.
-3. `Not suitable for apps that emphasize on performance`: Front-end frameworks come with elements that the team may not need. The unused code negatively affects overall performance.
+3. `Not suitable for apps that emphasize on performance`: Front-end frameworks come with elements that the team may not need. The unused code could reduce overall performance.
 
 <box type="info">
 Note that the style guide mentioned here is a term used in the past when Design Systems had not been explored yet. The Style Guide of a Design System is more focused and emphasizes on graphic styles only.
@@ -91,7 +91,7 @@ In a [blog post](https://airbnb.design/building-a-visual-language/) from Airbnb,
 
 ## How to build a Design System
 
-There are paid solutions out there to help organizations build Design Systems. However, I am going to focus on how you can use open source tools to assist you in building your own Design System.
+There are paid solutions out there to help organizations build Design Systems. However, there are open source tools to assist you in building your own Design System.
 
 They are [Storybook](https://github.com/storybooks/storybook) and [React Styleguidist](https://github.com/styleguidist/react-styleguidist). Here is a good [blog post](https://blog.hichroma.com/storybook-vs-styleguidist-2bd93d6dcc06) describing the difference between these tools and how they complement each other in setting up a Design System.
 
@@ -127,4 +127,4 @@ Out of the list, there are some noteworthy open-source Design Systems that you c
 
 ## Ending Notes
 
-Design Systems keep things in order by acting as a Single Source of Truth, providing a common shared language across the organization. It encourages reusability of components, resulting in faster development time. Consider building a Design System in your next company or contribute to one now.
+Design Systems keep things in order by acting as a Single Source of Truth, providing a common shared language across the organization. It encourages reusability of components, resulting in faster development time.
