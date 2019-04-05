@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Documentation</title>
+  <title>SE-EDU/LearningResources - Web Performance</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -128,16 +128,16 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a current">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Performance
+                        <i class="dropdown-btn-icon rotate-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
+                      <div class="dropdown-container dropdown-container-open">
                         <ul class="site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a current">Web Performance</a></li>
                         </ul>
                       </div>
                     </li>
@@ -257,136 +257,62 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="documentation">Documentation<a class="fa fa-anchor" href="#documentation"></a></h1>
-          <p>Authors: <a href="https://github.com/kychua">Chua Ka Yi Ong</a></p>
-          <h2 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction"></a></h2>
-          <p>Software documentation refers to information that explains the code in a software project or how to use a software product or API.
-            Many developers neglect writing documentation because they find it boring or troublesome, which is a pity because documentation communicates what you have done to the world - without documentation, people won't know about your awesome code or cool features.</p>
-          <blockquote>
-            <p>The difference between a tolerable programmer and a great programmer is not how many programming languages they know, and it’s not whether they prefer Python or Java. It’s whether they can communicate their ideas. By persuading other people, they get leverage. By writing clear comments and technical specs, they let other programmers understand their code, which means other programmers can use and work with their code instead of rewriting it. Absent this, their code is worthless. By writing clear technical documentation for end users, they allow people to figure out what their code is supposed to do, which is the only way those users can see the value in their code. There’s a lot of wonderful, useful code buried on sourceforge somewhere that nobody uses because it was created by programmers who don’t write very well (or don’t write at all), and so nobody knows what they’ve done and their brilliant code languishes.</p>
-            <p><a href="https://www.joelonsoftware.com/2005/01/02/advice-for-computer-science-college-students/">Advice for Computer Science College Students</a>, by Joel Spolsky</p>
-          </blockquote>
-          <h2 id="why-write-documentation">Why Write Documentation<a class="fa fa-anchor" href="#why-write-documentation"></a></h2>
-          <p>There are many benefits to writing good documentation, such as the following:</p>
+          <h1 id="web-performance">Web Performance<a class="fa fa-anchor" href="#web-performance"></a></h1>
+          <p><strong>Author(s): <a href="https://github.com/marvinchin">Marvin Chin</a></strong></p>
+          <p>Reviewers: <a href="https://github.com/luyangkenneth">Lu Yang Kenneth</a>, <a href="https://www.github.com/monmanuela">Monika Manuela Hengki</a></p>
+          <h2 id="what-is-web-performance">What is Web Performance<a class="fa fa-anchor" href="#what-is-web-performance"></a></h2>
+          <p>Web Performance is a broad term that refers to how performant a web application <em>feels</em> to its users. This includes many aspects such as how long the site takes to load, how quickly the site becomes interactive, and how responsive it feels when the user interacts with the site.</p>
+          <p>As web applications grow more complex, it becomes increasingly important for web developers to be aware of the factors that affect performance, and consider how performance can impact the user experience.</p>
+          <h2 id="why-web-performance-matters">Why Web Performance Matters<a class="fa fa-anchor" href="#why-web-performance-matters"></a></h2>
+          <p>The performance of your web application has a direct impact on its ability to attract and retain users:</p>
           <ul>
-            <li><strong>Makes things easier for yourself</strong>: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find yourself confused by your own work</li>
-            <li><strong>Improves your code</strong>: documentation forces you to think carefully about what you are trying to do and why you have chosen to implement it in a particular way</li>
-            <li><strong>Encourages others to contribute to your software</strong>: by documenting how to contribute, it makes easier for others to do so, so they are more likely to help out</li>
-            <li><strong>Encourages others to use your software</strong>: <a href="http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680">&quot;If it isn't documented, it doesn't exist.&quot;</a></li>
+            <li>Sites which take more than 3 seconds to load are more likely to be abandoned by users [<a href="https://developer.akamai.com/blog/2016/09/14/mobile-load-time-user-abandonment">source</a>].</li>
+            <li>Conversely, reducing page load times have been shown to have significant impact on improving user engagement [<a href="https://medium.com/carousell-insider/how-we-made-carousells-mobile-web-experience-3x-faster-bbb3be93e006">source</a>].</li>
+            <li>In addition, search engines have begun to use page load times as a factor in determining search rankings [<a href="https://webmasters.googleblog.com/2018/01/using-page-speed-in-mobile-search.html">source</a>].</li>
+            <li>Improving web performance is also essential in making your web application accessible to users from emerging markets, where low-end devices and limited bandwidth are the norm [<a href="https://building.calibreapp.com/beyond-the-bubble-real-world-performance-9c991dcd5342">source</a>].</li>
           </ul>
-          <h2 id="writing-good-documentation">Writing Good Documentation<a class="fa fa-anchor" href="#writing-good-documentation"></a></h2>
-          <p>Documentation should not be written for the sake of writing, but rather, to fulfill a need.
-            Good documentation is up-to-date and includes only what is necessary.</p>
-          <p>Documentation comes in many different forms.
-            Below are some guidelines on how to tackle each type of documentation.</p>
-          <h3 id="written-documentation">Written Documentation<a class="fa fa-anchor" href="#written-documentation"></a></h3>
-          <p>Written documentation refers to what people usually think of as documentation - READMEs, user guides and developer guides.</p>
-          <p>In general, written documentation should use:</p>
+          <p>In order to deliver a positive user experience, web developers must ensure that their applications meet acceptable performance standards.</p>
+          <h2 id="key-ideas-in-improving-web-performance">Key Ideas in Improving Web Performance<a class="fa fa-anchor" href="#key-ideas-in-improving-web-performance"></a></h2>
+          <p>There are many factors which affect web performance. Here, we give an overview of some of the key ideas that can be used to improve the performance of your web application.</p>
+          <p><strong>Idea 1: Reduce Javascript Payloads</strong></p>
+          <p>Loading and executing Javascript is often the slowest part of the page load process [<a href="https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4">source</a>]. Reducing the amount of Javascript that needs to be loaded thus significantly reduces the time taken for your site to load.</p>
+          <p>Here are some steps that web developers can take to reduce the amount of Javascript that clients need to load:</p>
           <ul>
-            <li>grammatically correct language</li>
-            <li><a href="https://wiki.zephyrproject.org/view/Documentation_style_guide#Simple_English">simple language</a>: your documentation might be read by non-native speakers and use of idioms or flowery language can make it difficult for readers to understand</li>
-            <li>markup: use formatting such as colors and italics and structural elements like admonition blocks to highlight important points</li>
-            <li>realistic examples</li>
+            <li>Use code splitting to load only the Javascript required for the page being accessed [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/">source</a>].</li>
+            <li>Remove unused code (often parts of libraries that are not used in the application) with tree shaking [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/">source</a>].</li>
+            <li>Ensure that the delivered Javascript is minified [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/javascript-startup-optimization/">source</a>].</li>
+            <li>Create performance budgets that specify the maximum size of Javascript payloads, and enforce them to ensure that the size of your Javascript payloads remain under control [<a href="https://web.dev/fast/incorporate-performance-budgets-into-your-build-tools">source</a>].</li>
           </ul>
-          <p>Futhermore, you should always:</p>
+          <p><strong>Idea 2: Optimize Images</strong></p>
+          <p>Images form a significant portion of the resources loaded on web applications [<a href="https://httparchive.org/reports/page-weight">source</a>]. To improve performance and speed up the site for users, web developers should thus try to reduce the amount of bandwidth used to load images.</p>
+          <p>Images can be optimized for the web in the following ways:</p>
           <ul>
-            <li><a href="http://idratherbewriting.com/2015/07/07/testing-your-instructions/">test your instructions</a></li>
-            <li>find <em>someone else</em> to test your instructions</li>
-            <li><a href="https://jacobian.org/writing/editors/">revise, revise and revise!</a></li>
+            <li>Use the correct file format that provides the appropriate balance between quality, detail, and file size. For example, you should use JPEG for photographs that contain lots of colors, PNG for logos and icons which have less colors but contain sharper details, and GIF for animated images [<a href="https://medium.com/beginners-guide-to-mobile-web-development/web-image-formats-googles-webp-17e2fe5fc53e">source</a>].</li>
+            <li>Compress your images to reduce the amount of data that needs to be loaded [<a href="https://www.html5rocks.com/en/tutorials/speed/img-compression/">source</a>]. Be careful to strike a balance between image size and quality for optimal user experience.</li>
+            <li>Deliver appropriately sized images based on the resolution of the client device [<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">source</a>]. This prevents smaller (often mobile or lower-end) devices from wasting bandwidth loading large images that cannot be displayed at their full resolution on the device.</li>
           </ul>
-          <p><a href="http://www.bluemangolearning.com/software-documentation/">This</a> provides useful general tips for writing documentation and
-            <a href="https://jacobian.org/writing/technical-style/">this guide</a> provides more tips on writing well.</p>
-          <h4 id="readme">README</h4>
-          <p>A README serves as an introduction to your project, and is often the first thing people see when encountering your project.<br>
-            A good README should convince users to use your product or contribute to your code, by providing enough information to make it easy for them to get started.</p>
-          <p>For a good guide on how to write a README, check out <a href="http://www.writethedocs.org/guide/writing/beginners-guide-to-docs/">this guide</a>.</p>
+          <p><strong>Idea 3: Use Progressive Rendering</strong></p>
+          <p>The sooner the user sees content being displayed on the page, the faster they perceives the site to be. Progressive rendering achieves this by avoiding rendering the entire page all at once, but instead ordering the loading of content in a manner that allows <em>some</em> parts of the page to be rendered as quickly as possible.</p>
+          <p>Here are several ways how progressive loading can be effectively applied:</p>
           <ul>
-            <li>Some suggest that READMEs should be written before you start coding, as it gives you an overview of your project and what you need to do.
-              This is known as <a href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html">Readme Driven Development</a>.</li>
+            <li>Load only the most critical content as part of the initial render, and fetch remaining resources asynchronously after the render [<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/">source</a>]. Code splitting can also be helpful here to reduce the amount of Javascript that needs to be loaded for the initial render [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/">source</a>].</li>
+            <li>Use lazy loading to defer requesting non-critical resources until they are needed [<a href="https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/">source</a>].</li>
+            <li>Show content placeholders while fetching resources to indicate loading progress to the user [<a href="https://medium.com/@praveencnaik/content-placeholder-the-new-design-trend-for-audience-involvement-e2ab533d7304">source</a>].</li>
           </ul>
-          <h4 id="user-guide">User Guide</h4>
-          <p>A user guide teaches users how to use your software.
-            User guides can include quickstart guides, reference materials, tutorials, cookbooks/recipes and more.</p>
-          <p><a href="https://jacobian.org/writing/what-to-write/">Here</a> is a useful guide on how to tackle different types of user documentation.
-            <a href="http://stevelosh.com/blog/2013/09/teach-dont-tell/">This</a> points out the problems with common approaches to documentation and builds on the previous article.</p>
-          <h4 id="developer-guide">Developer Guide</h4>
-          <p>Developer guides teach new developers how to contribute to the code base.
-            They should give an overview of the code and an explanation of the design, as well as include instructions for setting up, making changes and deploying.</p>
-          <p>See <a href="https://www.petrikainulainen.net/software-development/processes/writing-just-enough-documentation/">this</a> to learn more about what to include in a developer guide.</p>
-          <h3 id="code-documentation">Code Documentation<a class="fa fa-anchor" href="#code-documentation"></a></h3>
-          <p>Code docummentation refers to documentation that is found within the source code.
-            All the following types of code documentation are important and complement one another.
-            Note that such documentation should always be updated together with the code.</p>
-          <h4 id="comments">Comments</h4>
-          <p>Comments are a well-known form of documentation.
-            They <a href="http://softwareengineering.stackexchange.com/a/285789">complement the code</a> and are intended for developers who use and work on the code.
-            They include API documentation for variables, methods, classes, and packages, as well as inline comments.</p>
-          <p>API documentation for variables, methods, classes, and packages explain what they do.
-            Good API documentation should enable users to use the API without having to guess how to use it or be confronted with unexpected behavior.
-            Thus, comments for methods should include the input and output, assumptions, edge cases and possible exceptions or errors thrown by the method.</p>
-          <p>Comments can also refer to inline comments.
-            Even the most well-written code can leave ambiguous questions.
-            For example, code cannot explain why a line of code was written in a specific way, as discussed in <a href="https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/">this article</a>.
-            In such cases, well-written comments can clarify and make the code easier to understand.</p>
-          <p>Note however, that excessive comments are also a code smell.
-            Comments should not repeat what the code is saying and requiring a lot of comments to explain what you are doing can suggest that the code is too convoluted.
-            Often, comments can be replaced by clearer code.
-            As much as possible, code should be written as clearly as possible, with comments added in only when necessary.
-            <a href="http://stackoverflow.com/a/209089">This Stack Overflow answer</a> gives a good example on how to do this.
-            For a more detailed explanation, read <a href="https://blog.codinghorror.com/coding-without-comments/">this article</a>.</p>
-          <h4 id="source-code">Source Code</h4>
-          <p>The source code is a form of documentation.
-            Well-written code makes it easy for developers to understand what the code is doing.
-            This can be done via a number of ways, such as</p>
+          <h2 id="measuring-web-performance">Measuring Web Performance<a class="fa fa-anchor" href="#measuring-web-performance"></a></h2>
+          <p>Improving web performance is a continuous, ongoing process. The ability to measure and track performance is necessary for developers to monitor the impact of their changes over time.</p>
+          <p>Here are some ways that you can measure the performance of your web applications:</p>
           <ul>
-            <li>using meaningful names for variables, functions and classes</li>
-            <li>using useful error messages</li>
-            <li>being consistent</li>
-            <li>following software engineering principles</li>
+            <li>Test your site under various network conditions with <a href="https://developers.google.com/web/tools/chrome-devtools/network/network-conditions">Chrome DevTools</a>. This is helpful to get a feel for how the site feels for users on slower devices during the development process.</li>
+            <li>Audit web performance using <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>. This provides many useful metrics for understanding the performance of your site and identifying performance bottlenecks under controlled conditions.</li>
+            <li>Use <a href="https://www.webpagetest.org/">WebPageTest</a> to test the performance of your website from multiple locations around the world at real consumer connection speeds. This provides real-world performance indicators that is especially useful if the target audience of your site resides in a different region.</li>
+            <li>Collect user-centric performance metrics to help you to monitor how your application actually performs in a real-world scenario, and how your site performance relates to other user engagement metrics [<a href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics">source</a>].</li>
           </ul>
-          <h4 id="tests">Tests</h4>
-          <p>Tests are another form of documentation as they make the expected behavior of the methods clear for different types of input and edge cases.</p>
-          <h3 id="version-control">Version Control<a class="fa fa-anchor" href="#version-control"></a></h3>
-          <p>Version control is also a form of documentation.
-            Having access to how the code base was changed over time can shows how, when and why a piece of code was written or changed.
-            For this to work well, it is important to write good commit messages and follow good commit practices.</p>
-          <p><a href="https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message">This</a> explains what to include in commit messages while
-            <a href="http://mislav.net/2014/02/hidden-documentation/">this article</a> explains how to use Git to make full use of your code's version control history.
-            For more resources on commit messages, check out <a href="https://stackoverflow.com/questions/15324900/standard-to-follow-when-writing-git-commit-messages">this Stack Overflow thread</a>.</p>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
+          <h2 id="additional-resources">Additional Resources<a class="fa fa-anchor" href="#additional-resources"></a></h2>
           <ul>
-            <li>For inspiration: <a href="https://github.com/PharkMillups/beautiful-docs">https://github.com/PharkMillups/beautiful-docs</a></li>
-            <li>An overview of the different types of documentation and good examples of each type: <a href="http://www.ybrikman.com/writing/2014/05/05/you-are-what-you-document/">http://www.ybrikman.com/writing/2014/05/05/you-are-what-you-document/</a></li>
-            <li>Documentation principles: <a href="http://www.writethedocs.org/guide/writing/docs-principles/">http://www.writethedocs.org/guide/writing/docs-principles/</a></li>
-            <li>Agile documentation: <a href="http://www.agilemodeling.com/essays/agileDocumentationBestPractices.htm">http://www.agilemodeling.com/essays/agileDocumentationBestPractices.htm</a></li>
-            <li>Video on how to write great documentation: <a href="https://www.youtube.com/watch?v=z3fRu9pkuXE">https://www.youtube.com/watch?v=z3fRu9pkuXE</a></li>
-          </ul>
-          <h2 id="acknowledgements">Acknowledgements<a class="fa fa-anchor" href="#acknowledgements"></a></h2>
-          <p>In addition to the links mentioned above, here are the links used in the writing of this article:</p>
-          <ul>
-            <li><a href="https://opensource.com/business/15/5/write-better-docs">https://opensource.com/business/15/5/write-better-docs</a></li>
-            <li><a href="http://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm">http://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm</a></li>
-            <li><a href="https://spin.atomicobject.com/2015/04/17/code-as-documentation/">https://spin.atomicobject.com/2015/04/17/code-as-documentation/</a></li>
-            <li><a href="http://mikegrouchy.com/blog/2013/03/yes-your-code-does-need-comments.html">http://mikegrouchy.com/blog/2013/03/yes-your-code-does-need-comments.html</a></li>
-            <li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/documentation_best_practices.md#Documentation-is-the-story-of-your-code">https://chromium.googlesource.com/chromium/src/+/master/docs/documentation_best_practices.md#Documentation-is-the-story-of-your-code</a></li>
-            <li><a href="https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/">https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/</a></li>
-            <li><a href="https://bryce.fisher-fleig.org/blog/effective-commit-messages/">https://bryce.fisher-fleig.org/blog/effective-commit-messages/</a></li>
-            <li><a href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html">http://tom.preston-werner.com/2010/08/23/readme-driven-development.html</a></li>
-            <li><a href="http://www.cs.ecu.edu/karl/3300/spr14/Notes/Documentation/documentation.html">http://www.cs.ecu.edu/karl/3300/spr14/Notes/Documentation/documentation.html</a></li>
-            <li><a href="http://www.tylerbutler.com/2013/06/the-importance-of-documentation/">http://www.tylerbutler.com/2013/06/the-importance-of-documentation/</a></li>
-            <li><a href="https://softwareengineering.stackexchange.com/questions/154615/are-unit-tests-really-used-as-documentation">https://softwareengineering.stackexchange.com/questions/154615/are-unit-tests-really-used-as-documentation</a></li>
-            <li><a href="http://blog.smartbear.com/careers/13-things-people-hate-about-your-open-source-docs/">http://blog.smartbear.com/careers/13-things-people-hate-about-your-open-source-docs/</a></li>
-            <li><a href="https://byrslf.co/writing-great-documentation-44d90367115a#.qdxj6dcx4">https://byrslf.co/writing-great-documentation-44d90367115a#.qdxj6dcx4</a></li>
-            <li><a href="https://news.ycombinator.com/item?id=8414714">https://news.ycombinator.com/item?id=8414714</a></li>
-            <li><a href="http://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm">http://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm</a></li>
-            <li><a href="http://www.onlamp.com/pub/a/onlamp/2006/09/07/unit-testing-docs.html">http://www.onlamp.com/pub/a/onlamp/2006/09/07/unit-testing-docs.html</a></li>
-            <li><a href="https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/">https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/</a></li>
-            <li><a href="https://vip.wordpress.com/documentation/commit-messages/#a-good-commit-message-should-not-depend-on-the-code-to-explain-what-it-does-or-why-it-does-it">https://vip.wordpress.com/documentation/commit-messages/#a-good-commit-message-should-not-depend-on-the-code-to-explain-what-it-does-or-why-it-does-it</a></li>
-            <li><a href="https://news.ycombinator.com/item?id=10212582">https://news.ycombinator.com/item?id=10212582</a></li>
-            <li><a href="https://arialdomartini.wordpress.com/2012/09/03/pre-emptive-commit-comments/">https://arialdomartini.wordpress.com/2012/09/03/pre-emptive-commit-comments/</a></li>
-            <li><a href="https://spin.atomicobject.com/2015/04/24/source-control-documentation/">https://spin.atomicobject.com/2015/04/24/source-control-documentation/</a></li>
-            <li><a href="https://wiki.openstack.org/wiki/GitCommitMessages">https://wiki.openstack.org/wiki/GitCommitMessages</a></li>
-            <li><a href="https://github.com/matiassingers/awesome-readme">https://github.com/matiassingers/awesome-readme</a></li>
+            <li><a href="https://developers.google.com/web/fundamentals/performance/why-performance-matters/">Google's Web Performance Fundamentals</a> is a comprehensive resource that explains many factors that affect web performance.</li>
+            <li><a href="https://kinsta.com/learn/page-speed/">Kinsta's Beginner Guide to Website Speed Optimization</a> is a guided resource for improving website speeds.</li>
+            <li><a href="https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3">Twitter Lite Case Studey</a> is a real-world study that highlights how web performance principles can be applied to great effect.</li>
           </ul>
         </div>
       </div>
@@ -394,18 +320,13 @@
         <div class="sticky-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#documentation">Documentation&#x200E;</a>
+            <a class="nav-link py-1" href="#web-performance">Web Performance&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#introduction">Introduction&#x200E;</a>
-              <a class="nav-link py-1" href="#why-write-documentation">Why Write Documentation&#x200E;</a>
-              <a class="nav-link py-1" href="#writing-good-documentation">Writing Good Documentation&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#written-documentation">Written Documentation&#x200E;</a>
-                <a class="nav-link py-1" href="#code-documentation">Code Documentation&#x200E;</a>
-                <a class="nav-link py-1" href="#version-control">Version Control&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
-              <a class="nav-link py-1" href="#acknowledgements">Acknowledgements&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-web-performance">What is Web Performance&#x200E;</a>
+              <a class="nav-link py-1" href="#why-web-performance-matters">Why Web Performance Matters&#x200E;</a>
+              <a class="nav-link py-1" href="#key-ideas-in-improving-web-performance">Key Ideas in Improving Web Performance&#x200E;</a>
+              <a class="nav-link py-1" href="#measuring-web-performance">Measuring Web Performance&#x200E;</a>
+              <a class="nav-link py-1" href="#additional-resources">Additional Resources&#x200E;</a>
             </nav>
 
           </nav>

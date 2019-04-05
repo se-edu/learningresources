@@ -669,6 +669,24 @@
     },
     {
       "headings": {
+        "web-performance": "Web Performance",
+        "what-is-web-performance": "What is Web Performance",
+        "why-web-performance-matters": "Why Web Performance Matters",
+        "key-ideas-in-improving-web-performance": "Key Ideas in Improving Web Performance",
+        "measuring-web-performance": "Measuring Web Performance",
+        "additional-resources": "Additional Resources"
+      },
+      "title": "Web Performance",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/performance/WebPerformance.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "agile-development": "Agile Development",
         "overview": "Overview",
         "what-is-agile-development": "What is agile development?",
