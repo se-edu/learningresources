@@ -63,7 +63,7 @@ So, the output of the query is:
 | CS101  | 2   |
 | CS202  | 3   |
 
-You can see how this simple query can prove to be extremely useful for getting this information when the table has a large number of rows. Queries can also be used to retrieve data that span across multiple tables. Apart from retrieving information, SQL can used for creating, deleting and manipulating data with commands like `INSERT`, `DELETE` and `UPDATE` for entries, in addition to `CREATE`, `DROP` and `ALTER` for tables as a whole.
+You can see how this simple query can prove to be extremely useful for getting this information when the table has a large number of rows. Queries can also be used to retrieve data that span across multiple tables. Apart from retrieving information, SQL can be used for creating, deleting and manipulating data with commands like `INSERT`, `DELETE` and `UPDATE` for entries, in addition to `CREATE`, `DROP` and `ALTER` for tables as a whole.
 
 For example, you can set up the structure of the table shown in Table 1 by executing the `CREATE TABLE` query shown here.
 It creates a new data table `Students`, with 4 fields (`ID`, `Name`, `Course` and `Faculty`) and specifies their data types.
@@ -116,7 +116,7 @@ _Figure 3. Logging in to the MySQL RDBMS and viewing tables from the command lin
 
 ## Why learn SQL?
 
-The main reason why you should learn SQL relates to the widespread adoption of SQL. As SQL is not limited to any particular operating system or programming language, it is **widely used** in the RDBMSs used by a lot of web, mobile and other software applications. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
+The main reason why you should learn SQL relates to the widespread adoption of SQL. As SQL is not limited to any particular operating system or programming language, RDBMSs (which use SQL)  are **widely used** by a lot of software applications %%(web, mobile etc.)%%. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
 
 ## Disadvantage
 
