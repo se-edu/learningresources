@@ -16,7 +16,7 @@ Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)
 
 ## What is C#
 
-C# is an [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming "Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data, in the form of fields (often known as attributes), and code, in the form of procedures (often known as methods)")
+C# is an [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming "Object-oriented programming (OOP) is a programming paradigm based on the concept of \"objects\", which can contain data, in the form of fields (often known as attributes), and code, in the form of procedures (often known as methods)")
 Language on the .NET framework, and uses [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science) "In computer science, garbage collection (GC) is a form of automatic memory management. The garbage collector, or just collector, attempts to reclaim garbage, or memory occupied by objects that are no longer in use by the program.") for memory management.
 C# is considred a general-purpose, [multi-paradigm](https://en.wikipedia.org/wiki/Programming_paradigm "Programming paradigms are a way to classify programming languages based on their features. Languages can be classified into multiple paradigms.") programming language.
 
