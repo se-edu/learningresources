@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Web Performance
+  title: Introduction to C#
   header: pagetop.md
   footer: footer.md
   head: head.md
