@@ -164,6 +164,11 @@ Resources: [Overview of some features](https://dev.to/franndotexe/mstest-v2---ne
 
 Resources: [Introduction to Unit Testing](https://www.typemock.com/unit-test-patterns-for-net-part-i/)
 
+* XUnit
+    * Parameterization and DataTest
+    * Theory: Tests that are only true for a set of data. Fact: Tests that are always true.
+
+Resources: [Getting started with XUnit](https://xunit.net/docs/getting-started/netfx/visual-studio), [XUnit parameterized tests](https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/)
 
 ## How to Get Started
 
