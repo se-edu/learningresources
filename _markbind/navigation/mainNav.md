@@ -56,6 +56,7 @@
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
   * [NodeJS]({{baseUrl}}/contents/node/nodejs.html)
   * [VueJS]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
+  * [Ruby on Rails]({{baseURL}}/contents/ruby/rails.html)
 
 * ****Tools Useful for Software Engineers****
   * [Regular Expressions]({{baseUrl}}/contents/regex/Regex.html)
