@@ -1,18 +1,20 @@
 <frontmatter>
-  title: Introduction to C#
+  title: Web Performance
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Introduction to C#
 
-Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)
+**Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)**
+Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://github.com/sijie123)
 
 ## What is C#
 
@@ -178,7 +180,7 @@ Resources: [Getting started with XUnit](https://xunit.net/docs/getting-started/n
 
 ## How to Get Started
 
-* [Learn C#](https://www.sololearn.com/Course/CSharp/?ref=medcsharp)
-* [Common pitfalls](https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/)
-* [Design Patterns in C#](https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/)
+* [Learn C#](https://www.sololearn.com/Course/CSharp/?ref=medcsharp) is a good resource to get started with C# and OOP.
+* [Common pitfalls](https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/) covers some common mistakes made when programming in C#.
+* [Design Patterns in C#](https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/) introduces some common design patterns that can make planning and maintaining code easier.
 * [C# closures in greater depth](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
