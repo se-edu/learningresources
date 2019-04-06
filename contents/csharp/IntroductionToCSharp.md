@@ -59,12 +59,12 @@ namespace ProjectName.Model
     //Subclassing BaseClass
     class MyClass : BaseClass {
         ...
-		//Method declaration
-		public static void Main(String[] args) {
-		    //Variable definition
-		    string message = "Hello World!";
-			Console.WriteLine(message);
-		}
+        //Method declaration
+        public static void Main(String[] args) {
+            //Variable definition
+            string message = "Hello World!";
+        	Console.WriteLine(message);
+        }
     }
 }
 ```
