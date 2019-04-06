@@ -16,8 +16,9 @@ Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)
 
 ## What is C#
 
-C# is an Object-Oriented Programming Language on the .NET framework, and uses Garbage Collection for memory management.
-C# is considred a general-purpose, multi-paradigm programming language.
+C# is an [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming "Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data, in the form of fields (often known as attributes), and code, in the form of procedures (often known as methods)")
+Language on the .NET framework, and uses [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science) "In computer science, garbage collection (GC) is a form of automatic memory management. The garbage collector, or just collector, attempts to reclaim garbage, or memory occupied by objects that are no longer in use by the program.") for memory management.
+C# is considred a general-purpose, [multi-paradigm](https://en.wikipedia.org/wiki/Programming_paradigm "Programming paradigms are a way to classify programming languages based on their features. Languages can be classified into multiple paradigms.") programming language.
 
 ## Why Learn C#
 
@@ -25,7 +26,7 @@ Below are some common reasons why one should learn C#.
 
 ### Cross platform support
 
-C# is built on the .NET framework and has cross platform support extended by the [Mono project](https://www.mono-project.com/), and similarly the complete runtime implementation from open source [CoreCL](https://github.com/dotnet/coreclr).
+C# is built on the .NET framework and has [cross platform](https://en.wikipedia.org/wiki/Cross-platform_software "In computing, cross-platform software (also multi-platform software or platform-independent software) is computer software that is implemented on multiple computing platforms.") support extended by the [Mono project](https://www.mono-project.com/), and similarly the complete runtime implementation from open source [CoreCL](https://github.com/dotnet/coreclr).
 As Mono supports many platforms such as Windows, MacOS, Linux and even PlayStation 4, users can build for many platforms.
 C# is also used by the Unity Game Engine, which has high cross-platform support for game developers.
 
@@ -77,7 +78,9 @@ Most programming languages/frameworks have their own unique quirks, which can be
 
 ### Object / Array / Collection Initializers
 
-In C#, you can construct an Object, Array or Collection conveniently as shown. This can be useful when writing tests, as test data will be easier to read,
+In C#, you can construct an [Object](https://en.wikipedia.org/wiki/Object_(computer_science) "In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier.")
+, [Array](https://www.webopedia.com/TERM/A/array.html "In programming, a series of objects all of which are the same size and type. Each object in an array is called an array element. For example, you could have an array of integers or an array of characters or an array of anything that has a defined data type.") 
+or [Collection](https://computersciencewiki.org/index.php/Collections "A collection — sometimes called a container — is simply an object that groups multiple elements into a single unit.") conveniently as shown. This can be useful when writing tests, as test data will be easier to read,
 as compared to calling the actual constructor.
 
 ```csharp
@@ -93,7 +96,8 @@ Foo foo = new Foo() {
 
 ### Closures
 
-Sometimes, it may be useful to defer execution or capture a local context for later execution. Context capturing is reflected below:
+Sometimes, it may be useful to [defer execution](http://www.informit.com/articles/article.aspx?p=2171751 "Code that is executed only when results need to be evaluated. There are many reasons for executing code later") 
+or capture a local context for later execution. Context capturing is reflected below:
 
 ```csharp
 //Capturing local context
@@ -113,7 +117,8 @@ counter();
 
 ### Nullable type
 
-Often when dealing with possible sites of null pointer access, many if checks might be used. However, when dealing with nullable types, such code can be shortened
+Often when dealing with possible sites of [null pointer](https://en.wikipedia.org/wiki/Null_pointer "In computing, a null pointer or null reference has a value reserved for indicating that the pointer or reference does not refer to a valid object.") 
+access, many if checks might be used. However, when dealing with nullable types, such code can be shortened
 while remaining easy to read, using collaescing operators `??`, or null conditional operators `.?`. Some may find this similar to `optionals` in Swift.
 
 More can be read about Nullables [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/)
@@ -148,7 +153,8 @@ The following links below describes in greater detail of some exciting features 
 
 ### Testing facilities
 
-When it comes to testing, C# does not lack in variety. 3 common unit testing frameworks used are MSTest, NUnit, XUnit.
+When it comes to [testing](https://en.wikipedia.org/wiki/Software_testing "Software testing is an investigation conducted to provide stakeholders with information about the quality of the software product or service under test."), 
+C# does not lack in variety. 3 common unit testing frameworks used are MSTest, NUnit, XUnit.
 
 * MSTest
     * DataTest Methods and DataRows
