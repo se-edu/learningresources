@@ -66,7 +66,7 @@ namespace ProjectName.Model
         public static void Main(String[] args) {
             //Variable definition
             string message = "Hello World!";
-        	Console.WriteLine(message);
+            Console.WriteLine(message);
         }
     }
 }
