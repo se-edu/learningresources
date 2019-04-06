@@ -49,7 +49,7 @@ C# is a relatively high level language and is not difficult to pick up (a little
 
 Below is a sample code snippet of what a simple program in C# might look like:
 
-```
+```csharp
 //Comments can be marked with // or /**/
 //Namespaces are similar to packages, except the file does not need to be physically in the directory
 using ProjectName.Utils;
@@ -80,7 +80,7 @@ Most programming languages/frameworks have their own unique quirks, which can be
 In C#, you can construct an Object, Array or Collection conveniently as shown. This can be useful when writing tests, as test data will be easier to read,
 as compared to calling the actual constructor.
 
-```
+```csharp
 public class Foo {
     Bar MyBar;
 }
@@ -95,7 +95,7 @@ Foo foo = new Foo() {
 
 Sometimes, it may be useful to defer execution or capture a local context for later execution. Context capturing is reflected below:
 
-```
+```csharp
 //Capturing local context
 public class Context {
     public static Func<Int> GetCounter() {
@@ -118,7 +118,7 @@ while remaining easy to read, using collaescing operators `??`, or null conditio
 
 More can be read about Nullables [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/)
 
-```
+```csharp
 public Car? ManufactureCar() {
     return (hasError) ? null : new Car(param1, param2);
 }
