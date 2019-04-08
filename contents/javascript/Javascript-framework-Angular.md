@@ -213,7 +213,7 @@ Every framework has its own pros and cons. The framework you choose depends on t
 
 ## How to get started with Angular?
 
-Given below are a few steps that will help you ease into the Angular environment.
+Below are a few steps that can help you better ease into the Angular development environment:
 
 1. [Different versions of Angular](https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article) - Before you start learning Angular, you must have a clear idea of its different versions.
 
