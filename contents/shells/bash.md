@@ -17,7 +17,7 @@ Author: [Wang Junming](https://github.com/junming403)
 Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Ong Shu Peng](https://github.com/ongspxm), [Jeremy Choo](https://www.github.com/ChooJeremy), [Tan Zhen Yong
 ](https://github.com/Xenonym)
 
-## Overview
+## What is the shell?
 
 In general, a computer can be divided into 3 abstraction layers, hardware, kernel and applications. Users cannot control the hardware directly; instructions have to be given through kernel as the kernel is the one that controls the hardware.
 
@@ -25,28 +25,13 @@ In general, a computer can be divided into 3 abstraction layers, hardware, kerne
 
 <sub>[What (really) happens when you type ls -l in the shell](https://medium.com/meatandmachines/what-really-happens-when-you-type-ls-l-in-the-shell-a8914950fd73)</sub>
 
-The **shell** is the interface through which we pass instructions to the kernel. These instructions will then be executed through the hardware. In this chapter, we will look into **Linux bash shell**.
-
-> Linux is the best-known and most-used open source operating system. As an operating system, Linux is software that sits underneath all of the other software on a computer, receiving requests from those programs and relaying these requests to the computer’s hardware. -- <cite>[What is Linux](https://opensource.com/resources/linux)</cite>
+The **shell** is the interface through which we pass instructions to the kernel. These instructions will then be executed through the hardware. In this article, we will look into **Linux bash shell**.
 
 [**bash**](https://www.gnu.org/software/bash/manual/html_node/) stands for **Bourne Again SHell**, an enhanced version of the original Unix Shell program. It has become the standard shell of various linux distributions. 
 
-## Why use command-line based shell?
+### Bash script
 
-A common question many people ask is: "Why should we learn the command-line based shell when there are tons of Graphical User Interface (GUI) tools out there that appear to be more user-friendly and powerful?". Well, here are some key advantages the command-line shell can give you:
-
-- **Faster to use for remote operations**: A remote command-line shell makes it much easier to perform tasks in a cloud server, such as when a developer is connecting from home. A remote command-line shell usually requires less bandwidth, which results in less lag so that we can do things faster.
-
-- **More stable**: No matter what linux distribution you are running, the command line shell is always available and usage is almost the same. However, GUI tools might be different in different distributions, make it very hard to learn.
-
-- **More flexibility for power users**: You will have complete control in the command-line shell. GUIs tends to simplify things, giving the user fewer options. However, the command line always provides the full suite of options, giving you complete control.
-
-- **More powerful in the hands of an expert user**: While you might find command-line difficult to grasp, eventual usage will familiarize yourself such that the command-line is far easier to use than trying to find options in the drop-down menus and alike of a GUI. 
-
-
-### Benefit: the ability to automate tasks
-
-One important feature in bash is the **bash script**. It enables us to do **task automation**. For example, suppose that you are a system admin and there is a task you need to perform daily. Instead of typing in the commands for the task daily, you can store these commands in the **bash script** and run it.
+Bash supports a [**Turning complete**](https://en.wikipedia.org/wiki/Turing_completeness) language for writing scripts, which we usually refers to as **bash script**.
 
 Here's one example of bash script, suppose you have to check if some given file exist periodically. The following script will ask for your input and output the results. `filename` is a variable used to store user input.
 
@@ -66,7 +51,7 @@ test ! -e $filename && echo "The filename '$filename' DO NOT EXIST" && exit 0
 echo "The filename: $filename is a $filetype"
 ```
 
-The above bash script is still just a collection of bash commands. Although it saves us a lot of works if it is a daily routine task, it still can be done by typing those commands line by line. What makes bash script really exciting is the semantics of `conditionals`, `loops` and `functions`. Which makes bash script [**turning complete**](https://en.wikipedia.org/wiki/Turing_completeness).
+The above bash script is still just a collection of bash commands. but it still can be done by typing those commands line by line. What makes bash script really exciting is the semantics of `conditionals`, `loops` and `functions`.
 
 The following is an example of bash script that make use of conditionals and loops. Suppose you want to let user input a directory name, check if it exists, and then output the write permission for all files inside that directory.
 
@@ -76,24 +61,22 @@ The following is an example of bash script that make use of conditionals and loo
 # read user input and check if directory exists.
 read -p "Please enter a directory name: " dir
 if [ "$dir" == "" -o ! -d "$dir" ]; then
-	echo "The $dir is NOT exist in your system"
-	exit 1
+  echo "The $dir is NOT exist in your system"
+  exit 1
 fi
 
 # output permissions for each of the file under the directory.
 filelist=$(ls $dir)
 for filename in $filelist
 do 
-	perm=""
-	test -w "$dir/$filename" && perm="readable"
-	echo "The file $dir/$filename 's permission is $perm" 
+  perm=""
+  test -w "$dir/$filename" && perm="readable"
+  echo "The file $dir/$filename 's permission is $perm" 
 done
 ```
 **Functions** in bash script just like functions in normal programming languages, more semantics of bash script can be found [here](https://www.gnu.org/software/bash/manual/html_node/). 
 
-bash script allows us to automate the frequently performed operations, it is easy to use and can be executed on any Unix-like operating systems without any modifications.
-
-### Benefit: Data Stream Redirection
+### Combining of scripts via stream redirection
 
 In linux, everything is abstracted as file, including **input**, **output**, and **error** streams. **Redirection** is a feature in Linux such that when executing a command/user program, you can change the standard input/output devices by changing its [file descriptor](https://en.wikipedia.org/wiki/File_descriptor). Each command and user program in linux is an application with input, output and errors. We can redirect the output of one application to the input of another, as such, we combined the two applications together as if we build a pipe between them.
 
@@ -133,7 +116,31 @@ The following command make use of shell command [ps](http://man7.org/linux/man-p
 
 Input/output streams can easily be redirected, allowing information to be sent or received from files or other applications(commands and user programs). This can mean test data can be easily supplied or output captured. A more detailed introduction to I/O stream redirection can be found [here](https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection).
 
-### Benefit: Defined Standards for Help
+## Why use shell?
+
+A common question many people ask is: Why type commands in a shell when we can do the same things using GUI applications? Here are some reasons:
+
+- **Less lag in remote connection**: A remote command-line shell usually requires less bandwidth, which results in less lag. It makes it much easier to perform tasks in a cloud server, such as when a developer is connecting from home.
+
+- **Defined Standards**: No matter what linux distribution you are running, the command line shell is always available and usage is almost the same. However, GUI tools might be different in different distributions, make it very hard to learn.
+
+- **More powerful in the hands of an expert user**: You will have complete control of every option in shell. GUIs tends to simplify things, giving the user fewer options. While you might find command-line difficult to grasp, eventual usage will familiarize yourself such that the command-line is far easier to use than trying to find options in the drop-down menus and alike of a GUI. 
+
+- **Task automation**: bash script allows us to automate the frequently performed operations, it is easy to use and can be executed on any Unix-like operating systems without any modifications.
+
+## How to get started?
+
+In our opinion, there is no need to learn the shell in one go. Instead, whenever you use a GUI tool to accomplish a task, try to learn how to do the same using the shell. For example, when using git, use it via the shell instead of a GUI tool such as `Source Tree`. That way, you can learn the shell incrementally, over time.
+
+However, if you really wish to learn bash systematically, below are some resources you might find useful.
+
+- [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/) is a good reference manual of linux bash shell. 
+- The [Google Shell Style Guide](https://google.github.io/styleguide/shell.xml) is a good baseline for good shell scripting style.
+- Gentoo has a good [`bash` shell reference](https://devmanual.gentoo.org/tools-reference/bash/).
+- Apple's [Shell Scripting Primer](https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/Introduction/Introduction.html) is a in-depth introduction to shell scripting for beginners.
+
+Last but not least, one should always use [man](https://en.wikipedia.org/wiki/Man_page) when need more information. 
+
 If someone does not know a how to use certain command, they can easily see what the it provides with `man` command. There are also defined wildcard syntax standards for specifying multiple files, drawing on likely existing developer knowledge.
 
 For example, if you are new to bash and want to learn a new command `grep`, you can simply type in `man grep` in the terminal and a help page will show up. It thoroughly include **What**, **How** as well as many other details of the command.
@@ -159,21 +166,4 @@ DESCRIPTION
      the standard output ......
 
 ```
-## How to Get Started with linux command-line based shell?
-In our opinion, there is no need to learning linux command-line based shell in particular, because there are tons of linux commands out there, it is impossible to remember and master them all at one time without actual practices. Instead, when it comes to the time that you have to use it, try to use the terminal instead of GUI based tool. Although it might be hard at first, it will benefit you more later. For example, `git`, We highly recommend get started to use command-line based git instead of visualisation tools such as `Source Tree`.
-
-However, if you really wish to learn bash systematically, below are some resources you might find useful.
-
-
-# Where to Go from Here?
-
-- [Introduction to Linux](http://www.linfo.org/newbies.html) is a good introduction to Linux and contains many useful resource links.
-- [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/) is a good reference manual of linux bash shell. 
-- [Online man Page](https://www.linux.org/docs/) is a collection of  `man pages`  online.
-- [linux.org](https://www.linux.org/) is the Linux organization home page, you can find all relevant information about linux here. 
-- Still wondering why linux could be important to your career? This [article](https://opensource.com/business/14/8/learn-linux) might worth reading.
-- The [Google Shell Style Guide](https://google.github.io/styleguide/shell.xml) is a good baseline for good shell scripting style.
-- Gentoo has a good [`bash` shell reference](https://devmanual.gentoo.org/tools-reference/bash/).
-- Apple's [Shell Scripting Primer](https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/Introduction/Introduction.html) is a in-depth introduction to shell scripting for beginners.
-
 </div>
