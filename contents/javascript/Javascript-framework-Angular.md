@@ -205,7 +205,7 @@ React is a popular Javascript library, open sourced by Facebook. The ease of lea
 It also provides more flexibility as it allows integration of third party libraries.
 Similarly, Vue offers some advantages, like flexibility, simple structure and ease of integration.
 
-Every framework has its own pros and cons. The framework you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between the popular frontend frameworks.
+Every framework has its own pros and cons. The framework you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between these popular frontend frameworks.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
@@ -219,7 +219,7 @@ Below are a few steps that can help you better ease into the Angular development
 
 2. [Start learning TypeScript](https://www.typescriptlang.org/docs/home.html) - Development in Angular relies heavily on TypeScript. You can start learning the basics of the new language from its official website.
 
-3. [The official Angular website](https://angular.io/guide/quickstart) - offers a good tutorial to get started. It shows you how to build and run a simple Hello World application in Angular.
+3. [The official Angular website](https://angular.io/guide/quickstart) - offers a good tutorial to get started. It shows you how to build and run a simple "Hello World" application in Angular.
 
 4. [Build your first Angular app](https://scrimba.com/g/gyourfirstangularapp) - You are recommended to complete this course taught by an Angular expert. It teaches you the important concepts of Angular in the form of interactive tutorials.
 
