@@ -45,7 +45,7 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than give instructions on _how_ to construct the view. In the above example, we declare what we want to display (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Angular organizes the <tooltip content="Code that controls _how_ the view must rendered">behavior instructions</tooltip> (written in TypeScript) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
+Angular organizes the <tooltip content="Code that describes _how_ the view must rendered">behavior instructions</tooltip> (written in TypeScript) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
 
 ```typescript
 @Component({
