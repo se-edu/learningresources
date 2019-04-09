@@ -17,7 +17,7 @@ Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng]
 
 ## What is Angular?
 
-Its [official website](https://angular.io/docs) describes Angular as follows:
+The [official website](https://angular.io/docs) describes Angular as follows:
 
 >Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
 
@@ -27,10 +27,12 @@ Consider a simple web application that displays the name of a person as shown be
 <iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/app.component.ts&view=preview" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
 
 <box type="info">
-    The sandbox above is editable. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the "Both" button. 
+    The sandbox allows you to edit the code of the web application. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the "Both" button. 
 </box>
 
-The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like custom tags. The template for the above example (defined in `person.component.html`) is given below:
+### Templates and Components
+
+The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like <tooltip content="Tags that are defined by the users">custom tags</tooltip>. The template for the above example (defined in `person.component.html`) is given below:
 
 ``` html
 <h1>About Me!</h1>
@@ -40,10 +42,10 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 </div>
 ```
   
-The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than giving instructions on _how_ to construct the view. In the above example, we declare what we want to display (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
+The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than give instructions on _how_ to construct the view. In the above example, we declare what we want to display (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Angular organizes the behavior instructions (written in TypeScript) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
+Angular organizes the <tooltip content="Code that controls _how_ the view must rendered">behavior instructions</tooltip> (written in TypeScript) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
 
 ```typescript
 @Component({
@@ -61,7 +63,7 @@ export class PersonComponent {
 
 The `@Component` tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.
 
-* The use of `selector: app-person` is how Angular identifies this component in a template. The following code constitutes the template of `app.component.html`.
+* The use of `selector: app-person` is how Angular identifies this component in a template. This is an example of a custom tag used in Angular templates. The following code constitutes the template of `app.component.html`.
 
     ```html
     <h1>Person Data</h1>
@@ -72,6 +74,8 @@ The `@Component` tag is used to mark a component. It provides the metadata that 
     Angular identifies the `<app-person>` tag, instantiates the `PersonComponent` and renders the view defined by the template `./person.component.html`.
 
 * The `person.name` used in the template `./person.component.html`, refers to the name property defined in the above component.
+
+### Dependency Injection
 
 Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform its function. We can visualize this with the help of an example.
 
@@ -149,7 +153,7 @@ This helps the compiler show warnings about any potential errors in the code, be
     You can refer to the [official documentation](https://cli.angular.io/) for a complete list of the CLI commands.
     
     The Angular CLI also helps developers follow good development practices. For example, 
-    The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is an open source tool that checks whether the pre-defined coding guidelines have been followed or not">**Codelyzer**</tooltip>.
+    The Angular CLI has out-of-the-box integration with <tooltip content="Codelyzer is an open source tool that checks whether the pre-defined coding guidelines have been followed">**Codelyzer**</tooltip>.
     Codelyzer lints your code against the [official Angular style guide](https://angular.io/guide/styleguide). With Angular CLI, you can simply run the command `ng lint` to get an analysis of whether your code follows the "best practices".
         
 
@@ -159,7 +163,7 @@ This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-pe
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
-* **Progressive Web Apps** - PWAs are web-based applications that contain most of the benefits of a typical mobile app. The [official documentation](https://developers.google.com/web/progressive-web-apps/) by Google describes PWAs to be reliable, fast and engaging. With Angular you can develop PWAs and provide an "immersive user experience".
+* **Progressive Web Apps** - PWAs are web-based applications that contain most of the benefits of a typical mobile app. The [official documentation](https://developers.google.com/web/progressive-web-apps/) written by Google describes PWAs to be reliable, fast and engaging. With Angular you can develop PWAs and provide an "immersive user experience".
 This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-e36ea2378b5d) is a good place to learn the basics of building PWAs using Angular.
 
 * **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
