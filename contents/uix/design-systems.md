@@ -23,16 +23,16 @@ The following definition best encapsulates the essence of a Design System.
 
 The typical structure of a Design System looks like this:
 <center>
-<img src="https://cdn-images-1.medium.com/max/2600/1*wSHUJh069L618oXqVZYDtA.png" alt="MySQL Workbench GUI Software" width="95%">
+<img src="https://cdn-images-1.medium.com/max/2600/1*wSHUJh069L618oXqVZYDtA.png" alt="Typical structure of a Design System" width="95%">
 
 _Figure 1. Typical structure of a Design System_ ([source](https://uxdesign.cc/can-design-systems-fix-the-relationship-between-designers-developers-eb12fc9329ab))
 </center>
 
 Below is a brief explanation of the parts that make up a Design System. The explanation includes reference to a living example, [Polaris](https://polaris.shopify.com/), Shopify's Design System.
-- `Rules`: Rules include abstract elements such as brand values, mindset, and shared beliefs. For example, one of Polaris' [product experience principles](https://polaris.shopify.com/patterns-and-guides/product-experience-principles#navigation) is to *Put merchants first*. The principle promotes thinking about the needs of different types of merchants and be intentional about how to respond to them in the product or feature.
-- `Pattern Library`: A Pattern Library integrates functional components and their usage. For example, Shopify's [product component library](https://github.com/Shopify/polaris-react) contains a custom [Datepicker](https://github.com/Shopify/polaris-react/tree/master/src/components/DatePicker) component for merchants to select a date range.
-- `Building Blocks`: Building Blocks refer to documentation consisting of the collection of interface elements. Polaris has a section which describes their [components](https://polaris.shopify.com/components/get-started) in detail. For example, the custom [Datepicker](https://polaris.shopify.com/components/forms/date-picker#navigation) component is clearly documented with different examples.
-- `Style Guide`: A Style Guide focuses on graphic styles such as colors, fonts, illustrations, etc and their usage. For example, Polaris' [style guide](https://polaris.shopify.com/design/colors#section-color-usage) recommends to use Indigo for buttons and avoid using Indigo for text links.
+- **Rules**: Rules include abstract elements such as brand values, mindset, and shared beliefs. For example, one of Polaris' [product experience principles](https://polaris.shopify.com/patterns-and-guides/product-experience-principles#navigation) is to *Put merchants first*. The principle promotes thinking about the needs of different types of merchants and be intentional about how to respond to them in the product or feature.
+- **Pattern Library**: A Pattern Library integrates functional components and their usage. For example, Shopify's [product component library](https://github.com/Shopify/polaris-react) contains a custom [Datepicker](https://github.com/Shopify/polaris-react/tree/master/src/components/DatePicker) component for merchants to select a date range.
+- **Building Blocks**: Building Blocks refer to documentation consisting of the collection of interface elements. Polaris has a section which describes their [components](https://polaris.shopify.com/components/get-started) in detail. For example, the custom [Datepicker](https://polaris.shopify.com/components/forms/date-picker#navigation) component is clearly documented with different examples.
+- **Style Guide**: A Style Guide focuses on graphic styles such as colors, fonts, illustrations, etc and their usage. For example, Polaris' [style guide](https://polaris.shopify.com/design/colors#section-color-usage) recommends to use Indigo for buttons and avoid using Indigo for text links.
 
 ## Why should we use a Design System?
 
@@ -58,17 +58,17 @@ _Figure 3. Conversation at Modus Create_ ([source](https://moduscreate.com/blog/
 
 ## Why not front-end frameworks or style guides?
 Front-end frameworks such as [Bootstrap](https://getbootstrap.com/) have reusable components that save a lot of time and effort. However, there are a few disadvantages:
-1. `Not suitable for designers`: [Sketch](https://www.sketch.com/) is an industry standard tool used by designers for UI design. Most front-end frameworks do not have relevant *.sketch* or source files that allow them to change the design of components in the framework.
-2. `Not suitable for extensive customization`: Products with a distinctive level of identity require additional development effort, which defeats the point of using a framework.
-3. `Not suitable for apps that emphasize on performance`: Front-end frameworks come with elements that the team may not need. The unused code could reduce overall performance.
+1. **Not suitable for designers**: [Sketch](https://www.sketch.com/) is an industry standard tool used by designers for UI design. Most front-end frameworks do not have relevant *.sketch* or source files that allow them to change the design of components in the framework.
+2. **Not suitable for extensive customization**: Products with a distinctive level of identity require additional development effort, which defeats the point of using a framework.
+3. **Not suitable for apps that emphasize on performance**: Front-end frameworks come with elements that the team may not need. The unused code could reduce overall performance.
 
 <box type="info">
 Note that the style guide mentioned here is a term used in the past when Design Systems had not been explored yet. The Style Guide of a Design System is more focused and emphasizes on graphic styles only.
 </box>
 
 Style guides present components that can be used quickly in mockups. This is an example of Tor's [style guide](https://styleguide.torproject.org/components/).  However, there are a few disadvantages:
-1. `Not easily traceable`: It is hard to trace where the components came from as different types of components may be built over time by different teams.
-2. `Not easily documented`: Most of the time, style guides lack documentation on what each component does. Also, too much documentation may decrease reusability of components because it is infeasible for designers/developers to go through a lot of pages to find a component they wish to use.
+1. **Not easily traceable**: It is hard to trace where the components came from as different types of components may be built over time by different teams.
+2. **Not easily documented**: Most of the time, style guides lack documentation on what each component does. Also, too much documentation may decrease reusability of components because it is infeasible for designers/developers to go through a lot of pages to find a component they wish to use.
 
 ## Benefits of a Design System
 Design Systems combine the good parts of front-end frameworks and style guides.
