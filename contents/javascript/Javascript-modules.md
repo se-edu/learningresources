@@ -23,7 +23,7 @@ This article will be covering on JavaScript modules: What is it, Why use it, and
 
 You might often encounter the term such as *module, package, library, dependency, plugin,* etc. when developing your own application in any programming languages, including JavaScript. We will not dive into the exact definition of each term (because that is not the scope of this article), but we will define a module as a collection of code that share the common purpose or support a certain functionality that is placed in different file.
 
-Let's say you have an application with functionalities A and B, where functionality A needs functionality B. Without modules, both of these functionalities are mixed together in the code base without a clear separation. With modules, we can separate those 2 functionalities into separate module each. When A need B, A will "include" B and A will be able to work as if A and B has never been separated. The exact working of modules will be illustrated in the **How to Modularize JavaScript Code** section after the following section.
+Let's say you have an application with functionalities A and B, where functionality A needs functionality B. Without modules, both of these functionalities are mixed together in the code base without a clear separation. With modules, we can separate those 2 functionalities into separate module each. When A need B, A will "include" B and A will be able to work as if A and B has never been separated. The exact usage of modules will be illustrated in the **How to Modularize JavaScript Code** section after the following section.
 
 ## Why Use Modules in JavaScript?
 
@@ -40,7 +40,7 @@ As per [Don't Repeat Yourself (DRY) Principle](http://se-education.org/se-book/p
 
 ## How to Modularize JavaScript Code?
 
-There are 3 most common implementations of modules in JavaScript: ES6 modules as the most recent and official implementation in JavaScript, CommonJS which is used by NodeJS, and the old module pattern. This article will cover all those 3 implementations because there is still a large number of applications using those 3 implementations.
+There are 3 most common implementations of modules in JavaScript: *ES6 modules* as the most recent and official implementation, *CommonJS* which is used by NodeJS, and the old *module pattern*. This article will cover all those 3 implementations because there is still a large number of applications using those 3 implementations.
 
 ### ES6 modules
 
@@ -67,15 +67,17 @@ import * as anExampleModule from './anExampleModule.js';
 anExampleModule.sumOfVariable(); // 3
 ```
 
-Due to the very recent adoption of ES6 modules by browsers and there is still some browsers that do not support it, you might not be able to use ES6 modules right away in those unsupported browsers. Fear not there are 2 workarounds for this issue. You can use [transpiler](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them) such as [Babel](https://babeljs.io/) and [bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da) such as [Webpack](https://webpack.js.org/) to serve your application to those unsupported browsers, or use other implementations of modules which will be given below.
+Due to the very recent adoption of ES6 modules by browsers and there is still some browsers that do not support it, you might not be able to use ES6 modules right away in those unsupported browsers.
+
+There are 2 workarounds for this issue. You can use [transpiler](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them) such as [Babel](https://babeljs.io/) and [bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da) such as [Webpack](https://webpack.js.org/) to serve your application to those unsupported browsers, or use other module implementations such as CommonJS or module pattern.
 
 ### CommonJS
 
-It is one of the most popular modules implementation before ES6 module is rolled out because it is widely used by NodeJS. While it can be only be used outside of NodeJS by also using bundler like ES6 module, it doesn't need transpiler. Worry not if you also cannot use bundler because there is still another module implementation that you can use. Nevertheless CommonJS is still a valid module implementation because it is still used very extensively in NodeJS applications.
+It is one of the most popular modules implementation before ES6 modules is rolled out because it is used by NodeJS itself and hence a lot of NodeJS applications use it.
 
-Using CommonJS is very similar to using ES6 modules because everything else is the same, except the syntax. CommonJS uses `module.exports` and `require` syntax.
+Using CommonJS is very similar to using ES6 modules because everything is the same except the syntax. CommonJS uses `module.exports` and `require` syntax.
 
-The following example are the same with the one in ES6 modules, but implemented with CommonJS syntax:
+The following example follows the one in ES6 modules, but implemented with CommonJS syntax:
 
 ```js
 // anExampleModule.js
@@ -100,6 +102,10 @@ var anExampleModule = require('./anExampleModule.js');
 anExampleModule.sumOfVariable(); // 3
 ```
 
+While CommonJS and ES6 modules may look alike, ES6 modules has various advantages such as support for asynchronous loading, [tree shaking](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd), static code analysis, etc. (these features will not be covered in this article). But this does not make CommonJS to be obsolete because ES6 modules is not natively supported by NodeJS at the time this article is written.
+
+CommonJS is mainly used in NodeJS applications, but you can also use it outside of NodeJS by using bundler. It does not need transpiler like ES6 modules. Nevertheless, if your project requirement does not allow you to use bundler, there is still a modules implementation that does not need any external tool.
+
 ### Module Pattern
 
 This is the way JavaScript developers implement modules in the past before the inception of CommonJS and ES6 modules. Using a technique in JavaScript called [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE), they wrap their code in an IIFE.
@@ -107,7 +113,7 @@ This is the way JavaScript developers implement modules in the past before the i
 > An **IIFE (Immediately Invoked Function Expression)** is a JavaScript function that runs as soon as it is defined. <br>
 > Syntax: `(function() { statements })();`
 
-In example below, we will create a module called `anExampleModule` in a separate `anExampleModule.js` file, which is used by `index.js` file.
+The example below will replicate the same examples above but using module pattern.
 
 To include the module in `index.js`, we use the `<script>` tag in HTML to import it.
 
@@ -169,13 +175,13 @@ anExampleModule.sumOfVariable(); // 3
 
 ### Which to use?
 
-Despite ES6 modules being not supported by some browsers yet, it supports various advanced features not available in CommonJS such as asynchronous loading, support for [tree shaking](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd), static code analysis, etc. These features will not be covered in this article.
+With the launch of ES6 modules, one might think that why should we choose which one to use? Why not use ES6 modules right away?
 
-Nevertheless, both ES6 modules and CommonJS are a very valid approaches in modularizing your JavaScript project. You can take this opportunity to learn transpiling and bundling of JavaScript.
+As stated above, ES6 modules is currently not supported by all browsers without using transpiler and bundler. If an application does not allow you to use transpiler and bundler perhaps because of the additional overhead or you just need to create a simple and lean application, you might want to consider implementing module pattern. 
 
-The invention of ES6 modules and CommonJS has not made the old module pattern obsolete. It has the advantage of not requiring transpiling and bundling of your JavaScript code.
+ES6 modules is also currently not natively supported by NodeJS, which still uses CommonJS. This explains why a lot of NodeJS applications still use CommonJS.
 
-All in all, the best approach depends on your project requirements. For example if your project does not allow you to use bundler or transpiler, then you will need to use IIFE. If your project will mostly be a NodeJS application, you will most likely be using CommonJS. If your project require you to ship minimal code as it is a high performing web application, ES6 modules will be better than CommonJS as it supports tree shaking.
+All in all, the best implementation depends on the nature of your project.
 
 ## How to start?
 
