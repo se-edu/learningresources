@@ -32,7 +32,7 @@ Consider a simple web application that displays the name of a person as shown be
 
 ### Templates and Components
 
-The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like <tooltip content="Tags that are defined by the users">custom tags</tooltip>. The template for the above example (defined in `person.component.html`) is given below:
+The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like [custom tags](https://angular.io/guide/elements). The template for the above example (defined in `person.component.html`) is given below:
 
 ``` html
 <h1>About Me!</h1>
