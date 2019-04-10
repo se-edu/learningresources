@@ -30,7 +30,7 @@ One of the core tenets of Rails is 'Convention Over Configuration'. This means t
 The structure of apps following an MVC framework is as follows:-
 
 <center>
-<img src="MVC.jpeg">
+<img src="mvc.jpeg">
 
 _Figure 1. Model-View-Controller Framework_ <sup>[source](https://medium.com/@matthewmain/rails-request-response-cycle-819e9cd8fa4e)</sup>
 </center>
