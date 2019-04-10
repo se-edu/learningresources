@@ -49,11 +49,7 @@ While encryption might seem suitable for storing passwords, it faces some severe
 
 ## What is hashing?
 
-Hashing is the act of transforming a set of data into another set of data that is impossible to reverse. As an example, suppose you wanted to hash [the entire play of Romeo and Juliet](http://shakespeare.mit.edu/romeo_juliet/full.html). If you performed hashing using <tooltip content="A hashing function">SHA1</tooltip> on the entire contents of that file, excluding the header, you'll end up hashing the entire 6048 lines of that file into `7A52CDA9F04051B0D8263AA61A42531DD27FCE92`. 
-
-Obviously, it is impossible to condense all 6048 lines of text into just those 40 characters. This means that is is impossible to recreate the entire play of Romeo and Juliet from just the hash result. Thus, we say that a hashing function is a one-way function, as it can only be performed in a one direction, and it would be impossible to reverse the process. 
-
-Additionally, due to how <trigger for="pop:hashing-algo">hashing algorithms</trigger> work, even a small change in the file will result in a completely different hash. For example, if I were to change the first line from `ACT I` to `ACT IX`, it would change the hash to `D180AE51CEEFA8EF6D01F7FD54528AC21659433E`, completely different from the previous hash. This means that even very similar passwords that vary only by capitalization or a letter would still result in different <tooltip content="Hashes are the result of a hashing function">hashes</tooltip>, so attackers can't compare the hash to try and figure out which users have similar passwords.
+Hashing is the act of transforming a set of data into another set of data that is impossible to reverse. Additionally, due to how <trigger for="pop:hashing-algo">hashing algorithms</trigger> work, even a small change in the data will result in a completely different hash. This means that even very similar passwords that vary only by capitalization or a letter would still result in different <tooltip content="Hashes are the result of a hashing function">hashes</tooltip>, so attackers can't compare the hash to try and figure out which users have similar passwords.
 
 <popover id="pop:hashing-algo" title="A _hashing algorithm_ is a specific type of operation that hashes the input" placement="top">
   <div slot="content">
