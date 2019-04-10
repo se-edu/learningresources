@@ -22,7 +22,7 @@ A Microservices architecture is when you split your application into a set of sm
 
 With the increasing complexity of these applications, deployment starts to become a concern. Instead of running one service, some applications will require you to run a few services at the same time. There also needs to be configurations setup for each of these services. Applications like Docker help to make deployment a seamless process. This article provides an introduction to Docker along with the advantages that it is able to provide.
 
-### 1. What is Docker?
+### What is Docker?
 
 <img src="Docker_Logo.png" alt="Docker Logo" width="45%">
 
@@ -135,14 +135,14 @@ Each of the above services is encapsulated in a container using Docker. Docker p
 
 The set-up to use `docker-compose` involves the creation of a YAML file. Detailed information on this is available [here](https://docs.docker.com/compose/overview/).
 
-### When to use docker?
+### How to use Docker?
 
-At this point, you may have realised the advantages that Docker is able to give you and might be considering to switch over to Docker for your own projects.  Here are some resources that would aid you in this process:
+At this point, you would have realised the advantages that Docker is able to give you and might be considering to switch over to Docker for your own projects. 
+
+Here are some resources that would aid you in this process:
 - https://docs.docker.com/get-started/
 - https://scotch.io/tutorials/getting-started-with-docker
 - https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b 
-
-In a nutshell, Docker is a lightweight solution to run you application in an isolated environment. Docker provides a convenient out-of-the-box setup to deploy your applications and has added functionality to deploy complex microservices based applications.
 
 ### Additional tools - Docker Swarm and Kubernetes
 
@@ -151,5 +151,15 @@ If you have managed to familiarise yourself with the functionality that Docker i
 Kubernetes is open-source platform created by Google for container deployment operations, scaling up and down, and automation across the clusters of hosts. It is a tool that can help you manage many docker containers. You can read up more about it in their official documentation [here](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 
 Docker Swarm is another alternate tool that is Docker’s own native clustering solution for Docker containers. It monitors the number of containers spread across clusters of servers and is a way to create clustered docker application without additional hardware. The [docker official documentation](https://docs.docker.com/get-started/part4/) gives more information on this.
+
+### Conclusion / Further Readings
+
+In a nutshell, Docker is a lightweight solution to run you application in an isolated environment. Docker provides a convenient out-of-the-box setup to deploy your applications and has added functionality to deploy complex microservices based applications.
+
+Apart from those listed in the article, here are some further readings/references to get moving with Docker:
+- [Full Guide on multiple aspects of docker](https://docker-curriculum.com/)
+- [Video Series on Docker](https://medium.freecodecamp.org/docker-quick-start-video-tutorials-1dfc575522a0)
+- [Internals of Docker](http://docker-saigon.github.io/post/Docker-Internals/)
+- [List of books to read on Docker](https://github.com/eduleboss/the-best-docker-books)
 
 </div>
