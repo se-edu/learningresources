@@ -46,7 +46,7 @@ The UI of an Angular app is defined in _templates_ which contain a mix of HTML c
 The templates used in Angular are _declarative_ because they describe _what_ the view should look like rather than give instructions on _how_ to construct the view. In the above example, we declare what we want to display (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its _dynamic behavior_.
 You will notice that as you change the name in the text box, the name rendered on the app is also updated. This is because the UI and the application data are automatically synchronized by Angular as explained [here](https://angular.io/guide/template-syntax#binding-syntax-an-overview).
 
-Angular organizes the <tooltip content="Code that describes _how_ the view must rendered">behavior instructions</tooltip> (written in TypeScript) into what it calls _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
+Angular organizes the instructions (written in TypeScript) that describe _how_ the view must rendered, into _Components_. Given below is the component file `person.component.ts` of the `PersonComponent` :  
 
 ```typescript
 @Component({
@@ -116,7 +116,7 @@ Declarative Templates and Dependency Injection are only a couple of noteworthy f
 
 Now that we know what Angular is, let us look at some benefits it has to offer.
 
-### Benefit 1: Angular Provides Good Tooling Services.
+### Benefit 1: Angular Provides Good Tooling Services
 
 Angular provides developers with tools that enforce "best practices". Let us look at some of these tools.
 
@@ -160,7 +160,7 @@ This helps the compiler show warnings about any potential errors in the code, be
 
 This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
  
-### Benefit 2: Angular Allows Cross-platform Development.
+### Benefit 2: Angular Allows Cross-platform Development
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
@@ -174,10 +174,10 @@ that can be integrated with Angular for mobile application development. The [off
 You can integrate the Electron framework in your project using the Angular CLI and start building your application.
 This [article](https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2) is a good introduction to building desktop apps with Angular and Electron.
 
-### Benefit 3: Angular Provides Two-way Data Binding.
+### Benefit 3: Angular Provides Two-way Data Binding
 
 Web apps have two main components, a _View_ and a _Model_. The View component is responsible for displaying data (i.e., the part users see). The Model is concerned with the logic implementation of the application. It updates and retrieves the data to and from the database.
-_Data binding_ refers to the exchange of data between the View and Model components. There are two types of data binding as explained below.
+_Data binding_ refers to the exchange of data between the View and Model components. There are two types of data binding as shown below.
 
 <center>
 <img src="data.jpg" width="50%">
@@ -192,7 +192,7 @@ In contrast, Angular provides data binding in both ways. That means even changes
 
 This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding-3e618309d6c7) on Medium provides a good introduction to two-way data binding in Angular.
 
-### Disadvantages of Angular.
+### Disadvantages of Angular
 
 Like any other framework/library, Angular has its share of disadvantages.
 
@@ -202,7 +202,7 @@ The large number of new concepts can be confusing to newcomers. Additionally, An
 2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
 In contrast, React allows you to integrate any third party services in your application.
     
-### Angular when compared with other popular frontend frameworks
+### Comparison with other popular frontend frameworks
 
 [React]("https://reactjs.org/") and [Vue]("https://vuejs.org/") are two popular alternatives to Angular.
 
