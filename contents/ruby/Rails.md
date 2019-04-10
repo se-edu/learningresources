@@ -19,9 +19,9 @@ Authors: [Chattoraj Ayush](https://github.com/AyushChatto)
 **Ruby on Rails** is a web application framework written in the Ruby programming language. It is an opinionated framework, that was designed with the intention of making programming web applications easier and quicker by reducing the amount of code you write, instead replacing it with what it considers the "right" way of doing things - what they call the "Rails" way, although it does allow you to follow your own conventions (at the cost of speed and the productivity boost it promises). 
 
 The Rails philosophy includes two major principles, namely:-
-1. Don't Repeat Yourself (DRY)
+1. **Don't Repeat Yourself (DRY)**, 
 and
-2. Convention over Configuration 
+2. **Convention over Configuration** 
 
 ### The Rails Way 
 
@@ -35,13 +35,13 @@ The structure of apps following an MVC framework is as follows:-
 _Figure 1. Model-View-Controller Framework_ <sup>[source](https://medium.com/@matthewmain/rails-request-response-cycle-819e9cd8fa4e)</sup>
 </center>
 
-Let us follow along with the diagram, and trace the control flow as a Rails app responds to a request by the client. This app is a standard contacts app, that stores the names of "users" of a software.
+Let us follow along with the diagram, and trace the control flow as a Rails app responds to a request by the client. This app is a standard "Contacts" app that stores the names of "users" of a software.
 
 #### Router
 
-When Rails receives the URL, it first looks up the URI in the `Routes.rb` file, which defines, by default, all the routes in the application. Each valid URI is mapped to a function located inside a Controller (the 'C' in MVC), that is then invoked to provide a response to the request. 
+When Rails receives the URL, it first looks up the URI in the `routes.rb` file, which defines, by default, all the routes in the application. Each valid URI is mapped to a function located inside a Controller (the 'C' in MVC), that is then invoked to provide a response to the request. 
 
-In order to achieve this in the "Rails" way, it has a convenient abstraction called a "Resource". A resource refers to a RESTful resource that can be acted upon with the HTTP verbs (GET, POST, PUT, and DELETE), and can be Created, have its details Read, Updated, and Destroyed (CRUD). In order to declare a resource, you would mention it inside your `Routes.rb` in the following manner:- 
+In order to achieve this in the "Rails" way, it has a convenient abstraction called a "Resource". A resource refers to a RESTful resource that can be acted upon with the HTTP verbs (GET, POST, PUT, and DELETE), and can be Created, have its details Read, Updated, and Destroyed (CRUD). In order to declare a resource, you would mention it inside your `routes.rb` in the following manner:- 
 
 ```ruby
 resources :users
@@ -61,7 +61,7 @@ Now, you can check all the routes that you have in your application by running `
                           DELETE /users/:id(.:format)                                                                     users#destroy
 ```
 
-As can be seen, the common routes that you would need for the resources have already been mapped to URI's. Rails will then look for a controller called `userscontroller.rb`, as is convention, and invoke the name of the function mapped to the particular URI and Verb. More information about Rails routes and how they work can be found [here](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default).
+As can be seen, the common routes that you would need for the resources have already been mapped to URI's. Rails will then look for a controller called `users_controller.rb`, as is convention, and invoke the name of the function mapped to the particular URI and Verb. More information about Rails routes and how they work can be found [here](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default).
 
 #### Controller
 
@@ -69,7 +69,7 @@ In the standard Rails convention, once inside the application directory, if you 
 
 #### Model
 
-The Model (the M in MVC) is very similar to a Class (à la Object-Oriented Programming), and is a useful abstraction for representing and encapsulating ideas. In Rails, it is also referred to as the "Active Record", as it follows the Active Record pattern. In this pattern, the Models are mapped to tables in the database, and you can query for the fields in the database directly via the model in the native language (i.e. Ruby), instead of making queries the database's language(SQL etc).Models also have generic functions such as find, all, create, save, update, delete included in them by default, so you don't need to implement them or write long queries for each. 
+The Model (the M in MVC) is very similar to a Class (à la Object-Oriented Programming), and is a useful abstraction for representing and encapsulating ideas. In Rails, it is also referred to as the "Active Record", as it follows the Active Record pattern. In this pattern, the Models are mapped to tables in the database, and you can query for the fields in the database directly via the model in the native language (i.e. Ruby), instead of making queries the database's language (SQL, etc).Models also have generic functions such as `find`, `all`, `create`, `save`, `update`, `delete` included in them by default, so you don't need to implement them or write long queries for each. 
 
 In our diagram, the Controller calls the `all` method in the `User` model, which is, by convention in a file called `User.rb`, which is stored along with all other models at `app/models/`. The model then acts as an intermediary between the application and the database, and returns the results of the corresponding query. 
 
@@ -135,7 +135,7 @@ While newer releases have combatted this problem to a large degree, many of the 
 
 #### Learning Curve
 
-Rails' tendency to do things "automagically" can also be very confusing to new users, who might be more used to configuring routes and directory structures themselves. Furthermore, it becomes much harder to go from using Rails to a different framework, as the lack of conventions means you will have to learn some new topics to be proficient. You also have to learn the Ruby language, and it might be harder considering that most front-end applications are in JavaScript and its variants, and you will have to juggle multiple languages while you develop your application. 
+Rails' tendency to do things "automagically" can also be very confusing to new users, who might be more used to configuring routes and directory structures themselves. Furthermore, it becomes much harder to go from using Rails to a different framework, as the lack of conventions in other frameworks means you will have to learn some new topics to be proficient. You also have to learn the Ruby language, and it might be harder considering that most front-end applications are in JavaScript and its variants, and you will have to juggle multiple languages while you develop your application. 
 
 ## Getting Started
 
