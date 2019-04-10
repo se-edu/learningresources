@@ -117,7 +117,7 @@ _Figure 3. Logging in to the MySQL RDBMS and viewing tables from the command lin
 
 ## Why learn SQL?
 
-The main reason why you should learn SQL relates to the widespread adoption of SQL. As SQL is not limited to any particular operating system or programming language, RDBMSs (which use SQL)  are **widely used** by a lot of software applications %%(web, mobile etc.)%%. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
+The main reason why you should learn SQL is because of its widespread adoption. As SQL is not limited to any particular operating system or programming language, RDBMSs (which use SQL)  are **widely used** by a lot of software applications %%(web, mobile etc.)%%. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
 
 ## Disadvantage
 
@@ -131,7 +131,7 @@ These factors can make SQL confusing and frustrating to use when switching acros
 
 ## How to get started with SQL?
 
-As you saw in the example in the previous section, SQL is not really that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.
+As you saw in the example in the earlier section, SQL is really not that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.
 
 To get started with SQL, you can either just use an online SQL playground or install an RDBMS. There are many free RDBMSs available like [PostgreSQL](https://www.postgresql.org/) and [MySQL](https://dev.mysql.com/downloads/).
 At the early stages of learning SQL, you can even use online editors like [DB Fiddle](https://www.db-fiddle.com/) %%(supports MySQL and SQLite)%% or [SqliteOnline](https://sqliteonline.com/) %%(supports SQLite)%% since they allow you to start learning without the hassle of setting up anything.
