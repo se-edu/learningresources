@@ -19,6 +19,7 @@
     * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/javascript.html)
     * [Javascript Promises]({{baseUrl}}/contents/javascript/Javascript-promises.html)
     * [Javascript Modules]({{baseUrl}}/contents/javascript/Javascript-modules.html)
+    * [Static Typing with TypeScript]({{baseUrl}}/contents/javascript/staticTypingWithTypescript.html)
   * Kotlin
     * [Introduction to Kotlin]({{baseUrl}}/contents/kotlin/kotlin.html)
     * [Null Safety In Kotlin]({{baseUrl}}/contents/kotlin/NullSafety.html)
@@ -87,7 +88,7 @@
     * [Cryptography]({{baseUrl}}/contents/security/cryptography.html)
     * [HTTPS]({{baseUrl}}/contents/security/Https.html)
     * [SQL Injection]({{baseUrl}}/contents/security/sqlInjection.html)
-  * Shell 
+  * Shell
     * [bash]({{baseUrl}}/contents/shells/bash.html)
 
 </navigation>
