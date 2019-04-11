@@ -87,7 +87,7 @@ Now let us look at what **Dependency Injection** (DI) means. Dependencies are _s
 _Figure 1. What is a dependency?_ (source: [freecodecamp](https://medium.freecodecamp.org/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f))
 </center>
 
-Dependency injection is a way of providing a class with the required services. Given below is a an injectable service class.
+Dependency injection is a way of providing a class with the required services. Given below is an injectable service class.
  
 ```typescript
 import { Injectable } from '@angular/core';
