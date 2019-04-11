@@ -19,13 +19,13 @@ Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Ong Shu Peng](https
 
 ## What is the shell?
 
-In general, a computer can be divided into 3 abstraction layers, hardware, kernel and applications. Users cannot control the hardware directly; instructions have to be given through kernel as the kernel is the one that controls the hardware.
+In general, a computer can be divided into 3 abstraction layers: hardware, kernel and applications. As users, we cannot control the hardware directly. Instructions have to be given through the kernel as the kernel is the one that controls the hardware.
 
 <img src="https://cdn-images-1.medium.com/max/1200/1*zEv6mAa2wzHnz4a5uWW4gw.png" alt="shell-kernel" style="width:400px;"/>
 
 <sub>source of image: [What (really) happens when you type ls -l in the shell](https://medium.com/meatandmachines/what-really-happens-when-you-type-ls-l-in-the-shell-a8914950fd73)</sub>
 
-The **shell** is the interface through which we pass instructions to the kernel. These instructions will then be executed through the hardware. In this article, we will look into **Linux bash shell**.
+The **shell** is the interface through which we pass instructions to the kernel. These instructions will then be executed through the hardware. In this article, we will look specifically into the **Linux bash shell**.
 
 [**bash**](https://www.gnu.org/software/bash/manual/html_node/) stands for **Bourne Again SHell**, an enhanced version of the original Unix Shell program. It has become the standard shell of various linux distributions. 
 
@@ -33,18 +33,18 @@ The **shell** is the interface through which we pass instructions to the kernel.
 
 <sub>source of image: [The Best Keyboard Shortcuts for Bash](https://www.howtogeek.com/howto/ubuntu/keyboard-shortcuts-for-bash-command-shell-for-ubuntu-debian-suse-redhat-linux-etc/)</sub>
 
-Users interact with bash using various commands. There are countless bash commands, majority of them deals with file and directory manipulation, process management and network. Commands are like a list of APIs supported by the operating system, while you can combine them to accomplish something more complicated. 
+Users interact with the bash shell using various ‘commands’. A ‘command’ is an instruction that is used to execute a specific function. The functions that a command is able to execute range from file/directory manipulation, process management to even networking!  You can also combine different commands to carry out complex operations.
 
-One example of most widely used command is `ls`, which simply list out all the files under current directory. Here is an video demonstration of running the `ls` command.
+One of the most widely used command is `ls`, which lists out all the files under the current directory. Here is a video demonstration of the `ls` command in action:
 
-<a href="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP"><img src="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP.svg" alt="ls" style="width:500px;height:320px;"/></a>
+<a href="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP" target="_blank"><img src="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP.svg" alt="ls" style="width:500px;height:320px;"/></a>
 
 
 ### Bash scripts
 
-Bash supports a powerful language for writing scripts, which we usually refers to as **bash scripts**.
+Bash supports a powerful language for writing scripts, usually referred to as **bash scripts**.
 
-Here's one example of bash scripts, suppose you have to check if some given file exist periodically. The following script will ask for your input and output the results.
+Bash scripts are able to carry out a range of operations by executing different commands. Let us consider an example: suppose you want to check if a given file exists. The following script will be able to do that; you input the filename and it will tell you the answer.
 
 ```bash
 #!/bin/bash
@@ -65,11 +65,11 @@ echo "The file: $filename is a $filetype"
 
 Here is an video demonstration of running the script.
 
-<a href="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF"><img src="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF.svg" alt="check-file" style="width:500px;height:320px;"/></a>
+<a href="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF" target="_blank"><img src="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF.svg" alt="check-file" style="width:500px;height:320px;"/></a>
 
-The above bash script is still just a collection of bash commands, which means you can get the same results by typing those commands one at a time. What raises bash scripts to a whole new level is the support for `conditionals`, `loops` and `functions`.
+The above bash script is still just a collection of bash commands; this means you can get the same result by typing those commands one at a time. However, the true advantage of using a bash script is due to its support for `conditionals`, `loops` and `functions`.
 
-The following is an example of bash scripts that make use of conditionals and loops. Suppose you want to let user input a directory name, check if it exists, and then output the write permission for all files inside that directory.
+The following is an example of a bash script that make use of conditionals and loops. Suppose you want to let the user input a directory name, check if it exists, and then output the write permission for all files inside that directory.
 
 ```bash
 #!bin/bash
@@ -91,9 +91,9 @@ do
 done
 ```
 
-Here is an video demonstration of running the script.
+Here is an video demonstration of the script in action.
 
-<a href="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM"><img src="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM.svg" alt="check-permission" style="width:500px;height:320px;"/></a>
+<a href="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM" target="_blank"><img src="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM.svg" alt="check-permission" style="width:500px;height:320px;"/></a>
 
 **Functions** in bash scripts are just like functions in normal programming languages. More information about bash scripts can be found [here](https://www.gnu.org/software/bash/manual/html_node/). 
 
@@ -101,21 +101,22 @@ Here is an video demonstration of running the script.
 
 In Linux, you can _redirect_ the output of one application to the input of another, combining the two applications together as if there is a _pipe_ between them. In fact, Linux can _pipe_ data between programs, files, and input/output devices seamlessly. You can take advantage of these abilities in your shell commands/scripts to perform complex tasks with just a few commands.
 
-For example, suppose you wrote an executable calculate which takes a user input, do a calculation, and gives the output. To run it, you simply type:
+For example, suppose you wrote an executable calculate that takes in a user input, does a calculation, and gives the output. To run it, you simply type:
 
 ```bash
 ./calculate
 ```
 
-But you are not satisfied with manual testing, instead, you want to test with larger data set file `DataBundle`. And verify the output with another executable `verify`, which takes in the result as input and verify its correctness and output **PASS** or **FAIL**. Here's how we can do it.
+However, you do not want to manually test this program. Instead, you want to test with a larger data set known as `DataBundle`. You verify the output with another executable `verify`, which takes in the result as input, verifies its correctness and outputs **PASS** or **FAIL**. Here's how we can do it.
 
 ```bash
 ./calculate < DataBundle > result
 ./verify < result
 ```
+
 Notice in this case, `calculate` uses the data in `DataBundle` as input, and output the results to the file `result`. Then, `result` is taken as input to `verify`, and the final verification result is printed on screen.
 
-Furthermore, if the code we write is buggy, it throws exception and error messages are directed to error output, then our result file will be empty! To handle it properly, we can also redirect error output to a file `errors`, and verify it is empty (such that no error occurs during execution) before we execute `verify`.
+Furthermore, if the code we have written is buggy, it throws an exception and the error message will be redirected to the error output. As a result, our result file will be empty! In order to handle this properly, we can also redirect our error output to a file `errors`, and verify that it is empty (so that no errors have occurred during execution) before we execute `verify`.
 
 ```bash
 #!/bin/bash
@@ -127,19 +128,21 @@ else
      echo "error occured during execution."
 fi
 ```
-Another useful command is `|`, which chained linux commands together, as such the output of previous commands is passed as input to the next command.
+Another useful command is `|`, which chains various linux commands together such that the output of the previous commands is passed as input to the next command.
 
-The following command make use of shell command [ps](http://man7.org/linux/man-pages/man1/ps.1.html) and [grep](http://man7.org/linux/man-pages/man1/grep.1.html). ps displays information about a selection of the active processes and grep searchs for the pattern in given input. Suppose you want to check the status of process `p` running on your system. Thus you typed in `ps aux`, and all the processes' information are listed, but there are too many processes that you can't find `p`. As such, you can pass the result of `(ps) aux` to `grep 'p'` to capture process `p`'s status. Thus the command will be look like `ps aux | grep 'p'`.
+The following example make use of shell commands [ps](http://man7.org/linux/man-pages/man1/ps.1.html) and [grep](http://man7.org/linux/man-pages/man1/grep.1.html). ps displays information about a selection of the active processes and grep searches for the pattern in the given input. 
+
+Let us say you want to check the status of process `p` running on your system. After looking this up online, you type in `ps aux`, and all the processes' information are listed. However, there are too many processes listed and you cannot find `p`. In order to solve this, you can pass the result of `(ps) aux` to `grep 'p'` to capture process `p`'s status. The final command to check the status of process `p` will then be `ps aux | grep 'p'`.
 
 A more detailed introduction to I/O stream redirection can be found [here](https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection).
 
-## Why use shell?
+## Why use the shell?
 
 A common question many people ask is: Why type commands in a shell when we can do the same things using GUI applications? Here are some reasons:
 
-- **Faster**: Often, performing a task via the shell is faster than doing the same via a GUI application because the shell doesn't get slowed down by other overheads such as GUI rendering. For example, when performing tasks on a remote server using a shell, the lag will be less.
+- **Faster**: Often, performing a task via the shell is faster than doing the same via a GUI application. This is because the shell does not get slowed down by other factors like GUI rendering. For example, when performing tasks on a remote server using a shell, the lag will be less.
 - **Uniform**: Unlike GUI apps whose availability and usage can vary between Linux distributions, the shell is always available and the usage is almost the same across different Linux distributions. 
-- **More powerful**: GUIs tends to simplify things, giving the user fewer options. With a shell, you will have complete control of every option. While the shell has a steep learning curve, once you are familiar with it, you can do more things more efficiently with a shell compared to GUI applications. For example, you can automate things with a shell, something not easy to do with a GUI application.
+- **More powerful**: GUIs tends to simplify things, giving the user fewer options. With a shell, you will have complete control of every option. While the shell has a steep learning curve, once you are familiar with it, you can do more things efficiently as compared to a GUI application. For example, you can automate things with a shell, something not easy to do with a GUI application.
 
 ## How to get started?
 
