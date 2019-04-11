@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.1.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - VueJs</title>
+  <title>SE-EDU/LearningResources - Introduction to bash shell</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -198,14 +198,14 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a current">VueJS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
                   </ul>
                 </div>
               </li>
@@ -218,10 +218,10 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
                     <li class="mt-2"><button class="dropdown-btn">Databases
@@ -258,12 +258,12 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Shell
+                        <i class="dropdown-btn-icon rotate-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
+                      <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a current">bash</a></li>
                         </ul>
                       </div>
                     </li>
@@ -276,157 +276,141 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="vuejs">VueJs<a class="fa fa-anchor" href="#vuejs"></a></h1>
-          <p>Author: <a href="https://github.com/LuLechuan">Lu Lechuan</a></p>
-          <p>VueJs (also known as Vue) is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainablity.</p>
-          <h2 id="creating-a-simple-project-in-vuejs">Creating a Simple Project in VueJs<a class="fa fa-anchor" href="#creating-a-simple-project-in-vuejs"></a></h2>
-          <h4 id="installation">Installation</h4>
-          <p>There are <a href="https://vuejs.org/v2/guide/installation.html">multiple ways to install VueJs</a> and they are all easy. For example, one of the easiest ways is to run the npm command <code>$ npm install vue</code>.</p>
-          <p>Apart from installing VueJs, you can install <a href="https://github.com/vuejs/vue-devtools#vue-devtools">VueJs development tools</a> in your browser. This will allow you to inspect and debug the components that use VueJs in your projects.</p>
-          <h4 id="helloworld-in-vuejs">HelloWorld in VueJs</h4>
-          <p>This is a minimal example to show how easy it is to integrate VueJs into your web project:<br><br>
-            The main HTML file</p>
-          <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-</code></pre>
-          <p>This is inside the javacript file</p>
-          <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue ({
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
+          <h1 id="introduction-to-linux-bash-shell">Introduction to Linux bash shell<a class="fa fa-anchor" href="#introduction-to-linux-bash-shell"></a></h1>
+          <p>Author: <a href="https://github.com/junming403">Wang Junming</a></p>
+          <p>Reviewers: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>, <a href="https://github.com/ongspxm">Ong Shu Peng</a>, <a href="https://www.github.com/ChooJeremy">Jeremy Choo</a>, <a href="https://github.com/Xenonym">Tan Zhen Yong
+            </a></p>
+          <h2 id="what-is-the-shell">What is the shell?<a class="fa fa-anchor" href="#what-is-the-shell"></a></h2>
+          <p>In general, a computer can be divided into 3 abstraction layers: hardware, kernel and applications. As users, we cannot control the hardware directly. Instructions have to be given through the kernel as the kernel is the one that controls the hardware.</p>
+          <img src="https://cdn-images-1.medium.com/max/1200/1*zEv6mAa2wzHnz4a5uWW4gw.png" alt="shell-kernel" style="width:400px;">
+          <p><sub>source of image: <a href="https://medium.com/meatandmachines/what-really-happens-when-you-type-ls-l-in-the-shell-a8914950fd73">What (really) happens when you type ls -l in the shell</a></sub></p>
+          <p>The <strong>shell</strong> is the interface through which we pass instructions to the kernel. These instructions will then be executed through the hardware. In this article, we will look specifically into the <strong>Linux bash shell</strong>.</p>
+          <p><a href="https://www.gnu.org/software/bash/manual/html_node/"><strong>bash</strong></a> stands for <strong>Bourne Again SHell</strong>, an enhanced version of the original Unix Shell program. It has become the standard shell of various linux distributions.</p>
+          <img src="https://www.howtogeek.com/wp-content/uploads/2017/03/ximg_58c0939c2d487.png.pagespeed.gp+jp+jw+pj+ws+js+rj+rp+rw+ri+cp+md.ic.5lDzHl2vQG.png" alt="shell-kernel" style="width:600px;">
+          <p><sub>source of image: <a href="https://www.howtogeek.com/howto/ubuntu/keyboard-shortcuts-for-bash-command-shell-for-ubuntu-debian-suse-redhat-linux-etc/">The Best Keyboard Shortcuts for Bash</a></sub></p>
+          <p>Users interact with the bash shell using various <em>commands</em>. A command is an instruction that is used to execute a specific function. The functions that a command is able to execute range from file/directory manipulation, process management to even networking! You can also combine different commands to carry out complex operations.</p>
+          <p>One of the most widely used command is <code>ls</code>, which lists out all the files under the current directory. Here is a video demonstration of the <code>ls</code> command in action:</p>
+          <p><a href="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP" target="_blank"><img src="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP.svg" alt="ls" style="width:500px;height:320px;"></a></p>
+          <h3 id="bash-scripts">Bash scripts<a class="fa fa-anchor" href="#bash-scripts"></a></h3>
+          <p>Bash supports a powerful language for writing scripts, usually referred to as <strong>bash scripts</strong>.</p>
+          <p>Bash scripts are able to carry out a range of operations by executing different commands. Let us consider an example: suppose you want to check if a given file exists. The following script will be able to do that; you input the filename and it will tell you the answer.</p>
+          <pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash
+ </span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Please input a filename, I will check if the file exists.\n"</span>
 
-  <span class="hljs-attr">data</span>: {
-    <span class="hljs-attr">message</span>: <span class="hljs-string">"Hello World"</span>
-  }
-});
+<span class="hljs-comment"># waiting for user input.</span>
+<span class="hljs-built_in">read</span> -p <span class="hljs-string">"Input a filename : "</span> filename
+
+<span class="hljs-comment"># check if file exists.</span>
+<span class="hljs-built_in">test</span> ! -e <span class="hljs-variable">$filename</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file '<span class="hljs-variable">$filename</span>' DO NOT EXIST"</span> &amp;&amp; <span class="hljs-built_in">exit</span> 0
+<span class="hljs-built_in">test</span> -f <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"regular file"</span>
+<span class="hljs-built_in">test</span> -d <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"directory"</span>
+
+<span class="hljs-comment"># output result.</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"The file: <span class="hljs-variable">$filename</span> is a <span class="hljs-variable">$filetype</span>"</span>
 </code></pre>
-          <p>Step-by-step explanation of the code:</p>
-          <p><b>Step 1:</b> Import VueJs CDN and the JavaScript file in the main HTML file.</p>
-          <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+          <p>Here is an video demonstration of running the script.</p>
+          <p><a href="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF" target="_blank"><img src="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF.svg" alt="check-file" style="width:500px;height:320px;"></a></p>
+          <p>The above bash script is still just a collection of bash commands; this means you can get the same result by typing those commands one at a time. However, the true advantage of using a bash script is due to its support for <code>conditionals</code>, <code>loops</code> and <code>functions</code>.</p>
+          <p>The following is an example of a bash script that make use of conditionals and loops. Suppose you want to let the user input a directory name, check if it exists, and then output the write permission for all files inside that directory.</p>
+          <pre><code class="hljs bash"><span class="hljs-meta">#!bin/bash
+</span>
+<span class="hljs-comment"># read user input and check if directory exists.</span>
+<span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please enter a directory name: "</span> dir
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> == <span class="hljs-string">""</span> -o ! -d <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> ]; <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The <span class="hljs-variable">$dir</span> is NOT exist in your system"</span>
+  <span class="hljs-built_in">exit</span> 1
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment"># output permissions for each of the file under the directory.</span>
+filelist=$(ls <span class="hljs-variable">$dir</span>)
+<span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> <span class="hljs-variable">$filelist</span>
+<span class="hljs-keyword">do</span> 
+  perm=<span class="hljs-string">"readable"</span>
+  <span class="hljs-built_in">test</span> -w <span class="hljs-string">"<span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span>"</span> &amp;&amp; perm=<span class="hljs-string">"<span class="hljs-variable">$perm</span> writable"</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file <span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span> 's permission is <span class="hljs-variable">$perm</span>"</span> 
+<span class="hljs-keyword">done</span>
 </code></pre>
-          <p><b>Step 2:</b> Create an instance of Vue (Vue is an object) in the JavaScript file; bind the instance to one of the component in our html file (e.g. create a component with id <code>root</code> and bind it with the instance of Vue).<br>
-            In this case, only the <code>root</code> component can be accessed in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects.</p>
-          <pre><code class="hljs js">  <span class="hljs-keyword">new</span> Vue ({
-    <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
-  });
+          <p>Here is an video demonstration of the script in action.</p>
+          <p><a href="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM" target="_blank"><img src="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM.svg" alt="check-permission" style="width:500px;height:320px;"></a></p>
+          <p><strong>Functions</strong> in bash scripts are just like functions in normal programming languages. More information about bash scripts can be found <a href="https://www.gnu.org/software/bash/manual/html_node/">here</a>.</p>
+          <h3 id="combining-of-scripts-via-stream-redirection">Combining of scripts via stream redirection<a class="fa fa-anchor" href="#combining-of-scripts-via-stream-redirection"></a></h3>
+          <p>In Linux, you can <em>redirect</em> the output of one application to the input of another, combining the two applications together as if there is a <em>pipe</em> between them. In fact, Linux can <em>pipe</em> data between programs, files, and input/output devices seamlessly. You can take advantage of these abilities in your shell commands/scripts to perform complex tasks with just a few commands.</p>
+          <p>For example, suppose you wrote an executable <code>calculate</code> that takes in a user input, does a calculation, and gives the output. To run it, you simply type:</p>
+          <pre><code class="hljs bash">./calculate
 </code></pre>
-          <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <p>However, you do not want to manually test this program. Instead, you want to test with a larger data set known as <code>DataBundle</code>. You verify the output with another executable <code>verify</code>, which takes in the result as input, verifies its correctness and outputs <strong>PASS</strong> or <strong>FAIL</strong>. Here's how we can do it.</p>
+          <pre><code class="hljs bash">./calculate &lt; DataBundle &gt; result
+./verify &lt; result
 </code></pre>
-          <p><b>Step 3:</b> Specify our data (message: &quot;Hello World&quot;) in the instance of Vue Class.</p>
-          <pre><code class="hljs js">  data: {
-    <span class="hljs-attr">message</span>: <span class="hljs-string">"Hello World"</span>
-  }
+          <p>Notice in this case, <code>calculate</code> uses the data in <code>DataBundle</code> as input, and output the results to the file <code>result</code>. Then, <code>result</code> is taken as input to <code>verify</code>, and the final verification result is printed on screen.</p>
+          <p>Furthermore, if the code of <code>calculate</code> is buggy, it throws an exception and the error message will be redirected to the error output. As a result, our result file will be empty! In order to handle this properly, we can also redirect our error output to a file <code>errors</code>, and verify that it is empty (so that no errors have occurred during execution) before we execute <code>verify</code>.</p>
+          <pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
+./calculate &lt; DataBundle &gt; result 2&gt; errors
+<span class="hljs-keyword">if</span> [ -s errors ]
+<span class="hljs-keyword">then</span>
+     ./verify &lt; result
+<span class="hljs-keyword">else</span>
+     <span class="hljs-built_in">echo</span> <span class="hljs-string">"error occured during execution."</span>
+<span class="hljs-keyword">fi</span>
 </code></pre>
-          <p><b>Step 4:</b> Pass the message to the HTML file using double curly brackets.</p>
-          <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
-          <p><b>Step 5:</b> Open the brower and we will see &quot;Hello World&quot; being displayed:</p>
-          <blockquote>
-            <h2>Hello World<a class="fa fa-anchor" href="#undefined"></a></h2>
-          </blockquote>
-          <h2 id="advantages-and-disadvantages-of-vuejs">Advantages and Disadvantages of VueJs<a class="fa fa-anchor" href="#advantages-and-disadvantages-of-vuejs"></a></h2>
-          <h4 id="advantages-of-vuejs">Advantages of VueJs</h4>
-          <ol>
-            <li>
-              <p><strong>Approachable:</strong><br>
-                VueJs is very easy to learn. Compared to other framework such as Angular and ReactJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br><br>
-                How is iteration like in ReactJs:<br><br>
-                The JavaScript file in ReactJs</p>
-              <pre><code class="hljs js"><span class="hljs-keyword">var</span> Iteration = React.createClass({
-   getInitialState() {
-     <span class="hljs-keyword">return</span> {
-       <span class="hljs-attr">array</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]
-     }
-   },
-   render() {
-     <span class="hljs-keyword">this</span>.state.array.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date</span>) </span>{
-       <span class="hljs-keyword">return</span> (
-         <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{date}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
-       )
-     });
-   }
-});
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Iteration</span> /&gt;</span>, document.getElementById('array'));
-</span></code></pre>
-              <p>The HTML file in ReactJs</p>
-              <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
-              <p>How is iteration like in VueJs:<br><br>
-                The JavaScript file in VueJs</p>
-              <pre><code class="hljs js"><span class="hljs-keyword">var</span> Iteration = <span class="hljs-keyword">new</span> Vue({
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#array'</span>,
-  <span class="hljs-attr">data</span>: {
-    <span class="hljs-attr">array</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]
-  }
-});
-</code></pre>
-              <p>The HTML file in VueJs</p>
-              <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"date in array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
-            </li>
-            <li>
-              <p><strong>Progressive:</strong><br>
-                VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follow:</p>
-              <blockquote>
-                <p>Vue.js is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).</p>
-                <p>-- <a href="https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/">[source]</a></p>
-              </blockquote>
-            </li>
-            <li>
-              <p><strong>Versatile:</strong><br>
-                VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.</p>
-            </li>
-            <li>
-              <p><strong>Clean:</strong><br>
-                VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.</p>
-            </li>
-          </ol>
-          <h4 id="disadvantages-of-vuejs">Disadvantages of VueJs</h4>
-          <ol>
-            <li>
-              <p><strong>Relatively small size community:</strong><br>
-                VueJs is a relatively new JavaScript framework as compared to Angular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.</p>
-            </li>
-            <li>
-              <p><strong>Language barriers:</strong><br>
-                A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.</p>
-            </li>
-          </ol>
-          <h4 id="detailed-comparison-of-vuejs-with-other-javascript-frameworks-can-be-found-from">Detailed Comparison of VueJs with other JavaScript frameworks can be found from:</h4>
+          <p>Furthermore, you can use the <code>|</code> symbol to chain various Linux commands together such that the output of the previous commands is passed as input to the next command.</p>
+          <p>The following example make use of shell commands <a href="http://man7.org/linux/man-pages/man1/ps.1.html">ps</a> and <a href="http://man7.org/linux/man-pages/man1/grep.1.html">grep</a>. ps displays information about a selection of the active processes and grep searches for the pattern in the given input.</p>
+          <p>Let us say you want to check the status of process <code>p</code> running on your system. The <code>ps aux</code> command by itself lists all the processes currently running. If there are too many processes listed and you cannot find <code>p</code>, you can pass the result of <code>ps aux</code> to <code>grep 'p'</code> to as <code>ps aux | grep 'p'</code> to capture process <code>p</code>'s status.</p>
+          <p>A more detailed introduction to I/O stream redirection can be found <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection">here</a>.</p>
+          <h2 id="why-use-the-shell">Why use the shell?<a class="fa fa-anchor" href="#why-use-the-shell"></a></h2>
+          <p>A common question many people ask is: Why type commands in a shell when we can do the same things using GUI applications? Here are some reasons:</p>
           <ul>
-            <li><a href="https://vuejs.org/v2/guide/comparison.html">Vue Guild: Comparison with Other Frameworks</a></li>
-            <li><a href="https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176">Angular vs React vs Vue</a></li>
+            <li><strong>Faster</strong>: Often, performing a task via the shell is faster than doing the same via a GUI application. This is because the shell does not get slowed down by other factors like GUI rendering. For example, when performing tasks on a remote server using a shell, the lag will be less.</li>
+            <li><strong>Uniform</strong>: Unlike GUI apps whose availability and usage can vary between Linux distributions, the shell is always available and the usage is almost the same across different Linux distributions.</li>
+            <li><strong>More powerful</strong>: GUIs tends to simplify things, giving the user fewer options. With a shell, you will have complete control of every option. While the shell has a steep learning curve, once you are familiar with it, you can do more things efficiently as compared to a GUI application. For example, you can automate things with a shell, something not easy to do with a GUI application.</li>
           </ul>
-          <h2 id="links-to-vuejs-tutorials-and-practices">Links to VueJs tutorials and practices<a class="fa fa-anchor" href="#links-to-vuejs-tutorials-and-practices"></a></h2>
+          <h2 id="how-to-get-started">How to get started?<a class="fa fa-anchor" href="#how-to-get-started"></a></h2>
+          <p>In our opinion, there is no need to learn the shell in one go. Instead, whenever you use a GUI tool to accomplish a task, try to learn how to do the same using the shell. For example, when using git, use it via the shell instead of a GUI tool such as Source Tree. That way, you can learn the shell incrementally, over time.</p>
+          <p>However, if you really wish to learn bash systematically, below are some resources you might find useful.</p>
           <ul>
-            <li><a href="https://vuejs.org/">VueSchool</a></li>
-            <li><a href="https://laracasts.com/series/learn-vue-2-step-by-step">Laracast</a></li>
-            <li><a href="https://vuetifyjs.com/zh-Hans/">Vuetify</a></li>
+            <li><a href="https://www.gnu.org/software/bash/manual/html_node/">Bash Reference Manual</a> is a good reference manual of linux bash shell.</li>
+            <li>The <a href="https://google.github.io/styleguide/shell.xml">Google Shell Style Guide</a> is a good baseline for good shell scripting style.</li>
+            <li>Gentoo has a good <a href="https://devmanual.gentoo.org/tools-reference/bash/"><code>bash</code> shell reference</a>.</li>
+            <li>Apple's <a href="https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/Introduction/Introduction.html">Shell Scripting Primer</a> is a in-depth introduction to shell scripting for beginners.</li>
           </ul>
-          <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
-          <ul>
-            <li><a href="https://vuejs.org/">VueJS Official Website</a></li>
-          </ul>
+          <p>In addition, you can always use the <a href="https://en.wikipedia.org/wiki/Man_page"><code>man</code></a> command to find more information about a bash command. For example, the command <code>man grep</code> will give you the built-in help page about the <code>grep</code> command. These help pages are written in a programmer-friendly format and are very comprehensive.</p>
+          <p>Below is an example showing the man page for <code>grep</code> command.</p>
+          <pre><code class="hljs">GREP(1)                   BSD General Commands Manual                  GREP(1)
+
+NAME
+     grep, egrep, fgrep, zgrep, zegrep, zfgrep -- file pattern searcher
+
+SYNOPSIS
+     grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
+          [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
+          [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
+          [--null] [pattern] [file ...]
+
+DESCRIPTION
+     The grep utility searches any given input files, selecting lines that
+     match one or more patterns.  By default, a pattern matches an input line
+     if the regular expression (RE) in the pattern matches the input line
+     without its trailing newline.  An empty expression matches every line.
+     Each input line that matches at least one of the patterns is written to
+     the standard output ......
+
+</code></pre>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="sticky-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#vuejs">VueJs&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-linux-bash-shell">Introduction to Linux bash shell&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#creating-a-simple-project-in-vuejs">Creating a Simple Project in VueJs&#x200E;</a>
-              <a class="nav-link py-1" href="#advantages-and-disadvantages-of-vuejs">Advantages and Disadvantages of VueJs&#x200E;</a>
-              <a class="nav-link py-1" href="#links-to-vuejs-tutorials-and-practices">Links to VueJs tutorials and practices&#x200E;</a>
-              <a class="nav-link py-1" href="#references">References&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-the-shell">What is the shell?&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#bash-scripts">Bash scripts&#x200E;</a>
+                <a class="nav-link py-1" href="#combining-of-scripts-via-stream-redirection">Combining of scripts via stream redirection&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#why-use-the-shell">Why use the shell?&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-get-started">How to get started?&#x200E;</a>
             </nav>
 
           </nav>

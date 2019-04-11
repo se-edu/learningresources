@@ -989,6 +989,24 @@
     },
     {
       "headings": {
+        "introduction-to-linux-bash-shell": "Introduction to Linux bash shell",
+        "what-is-the-shell": "What is the shell?",
+        "bash-scripts": "Bash scripts",
+        "combining-of-scripts-via-stream-redirection": "Combining of scripts via stream redirection",
+        "why-use-the-shell": "Why use the shell?",
+        "how-to-get-started": "How to get started?"
+      },
+      "title": "Introduction to bash shell",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/shells/bash.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "eslint": "ESLint",
         "overview": "Overview",
         "rules": "Rules",
