@@ -1,14 +1,15 @@
 <frontmatter>
   title: Introduction to bash shell
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+  
+{{ booktitle | safe }}
 
 # Introduction to Linux bash shell 
 
@@ -33,7 +34,7 @@ The **shell** is the interface through which we pass instructions to the kernel.
 
 <sub>source of image: [The Best Keyboard Shortcuts for Bash](https://www.howtogeek.com/howto/ubuntu/keyboard-shortcuts-for-bash-command-shell-for-ubuntu-debian-suse-redhat-linux-etc/)</sub>
 
-Users interact with the bash shell using various ‘commands’. A ‘command’ is an instruction that is used to execute a specific function. The functions that a command is able to execute range from file/directory manipulation, process management to even networking!  You can also combine different commands to carry out complex operations.
+Users interact with the bash shell using various _commands_. A command is an instruction that is used to execute a specific function. The functions that a command is able to execute range from file/directory manipulation, process management to even networking!  You can also combine different commands to carry out complex operations.
 
 One of the most widely used command is `ls`, which lists out all the files under the current directory. Here is a video demonstration of the `ls` command in action:
 
@@ -101,7 +102,7 @@ Here is an video demonstration of the script in action.
 
 In Linux, you can _redirect_ the output of one application to the input of another, combining the two applications together as if there is a _pipe_ between them. In fact, Linux can _pipe_ data between programs, files, and input/output devices seamlessly. You can take advantage of these abilities in your shell commands/scripts to perform complex tasks with just a few commands.
 
-For example, suppose you wrote an executable calculate that takes in a user input, does a calculation, and gives the output. To run it, you simply type:
+For example, suppose you wrote an executable `calculate` that takes in a user input, does a calculation, and gives the output. To run it, you simply type:
 
 ```bash
 ./calculate
@@ -116,7 +117,7 @@ However, you do not want to manually test this program. Instead, you want to tes
 
 Notice in this case, `calculate` uses the data in `DataBundle` as input, and output the results to the file `result`. Then, `result` is taken as input to `verify`, and the final verification result is printed on screen.
 
-Furthermore, if the code we have written is buggy, it throws an exception and the error message will be redirected to the error output. As a result, our result file will be empty! In order to handle this properly, we can also redirect our error output to a file `errors`, and verify that it is empty (so that no errors have occurred during execution) before we execute `verify`.
+Furthermore, if the code of `calculate` is buggy, it throws an exception and the error message will be redirected to the error output. As a result, our result file will be empty! In order to handle this properly, we can also redirect our error output to a file `errors`, and verify that it is empty (so that no errors have occurred during execution) before we execute `verify`.
 
 ```bash
 #!/bin/bash
@@ -128,11 +129,11 @@ else
      echo "error occured during execution."
 fi
 ```
-Another useful command is `|`, which chains various linux commands together such that the output of the previous commands is passed as input to the next command.
+Furthermore, you can use the `|` symbol to chain various Linux commands together such that the output of the previous commands is passed as input to the next command.
 
 The following example make use of shell commands [ps](http://man7.org/linux/man-pages/man1/ps.1.html) and [grep](http://man7.org/linux/man-pages/man1/grep.1.html). ps displays information about a selection of the active processes and grep searches for the pattern in the given input. 
 
-Let us say you want to check the status of process `p` running on your system. After looking this up online, you type in `ps aux`, and all the processes' information are listed. However, there are too many processes listed and you cannot find `p`. In order to solve this, you can pass the result of `(ps) aux` to `grep 'p'` to capture process `p`'s status. The final command to check the status of process `p` will then be `ps aux | grep 'p'`.
+Let us say you want to check the status of process `p` running on your system. The `ps aux` command by itself lists all the processes currently running. If there are too many processes listed and you cannot find `p`, you can pass the result of `ps aux` to `grep 'p'` to as `ps aux | grep 'p'` to capture process `p`'s status.
 
 A more detailed introduction to I/O stream redirection can be found [here](https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection).
 
