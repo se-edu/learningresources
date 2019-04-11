@@ -183,7 +183,7 @@ _Data binding_ refers to the exchange of data between the View and Model compone
 <center>
 <img src="data.jpg" width="50%">
 
-_Figure 2. Types of data binding_ (source: [source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/))
+_Figure 2. Types of data binding_ ([source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/))
 </center>
 
 Some frameworks like [React](https://reactjs.org/docs/thinking-in-react.html) provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
