@@ -79,7 +79,7 @@ The `@Component` tag is used to mark a component. It provides the metadata that 
 
 ### Dependency Injection
 
-Now let us look at what **Dependency Injection** (DI) means. Dependencies are _services_ that a class needs in order to perform its function. We can visualize this with the help of an example.
+Now let us look at what _Dependency Injection_ (DI) means. Dependencies are _services_ that a class needs in order to perform its function. We can visualize this with the help of an example.
 
 <center>
 <img src="dependency.png" width="60%">
@@ -183,7 +183,7 @@ _Data binding_ refers to the exchange of data between the View and Model compone
 <center>
 <img src="data.jpg" width="50%">
 
-_Figure 2. Types of data binding_ <sup>[source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/)</sup>
+_Figure 2. Types of data binding_ (source: [source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/))
 </center>
 
 Some frameworks like [React](https://reactjs.org/docs/thinking-in-react.html) provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
