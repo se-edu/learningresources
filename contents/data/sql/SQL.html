@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.1.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Static Analysis</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
+  <title>SE-EDU/LearningResources - Introduction to SQL</title>
+  <link rel="stylesheet" href="../../../markbind/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../markbind/css/bootstrap-vue.min.css">
+  <link rel="stylesheet" href="../../../markbind/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+  <link rel="stylesheet" href="../../../markbind/css/github.min.css">
+  <link rel="stylesheet" href="../../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="../../../markbind/layouts/default/styles.css">
+  <link rel="stylesheet" href="../../../markbind/css/site-nav.css">
+  <link rel="stylesheet" href="../../../markbind/css/page-nav.css">
   <link rel="stylesheet" href="/learningresources/css/main.css">
   <link rel="icon" href="/learningresources/favicon.ico">
 </head>
@@ -105,10 +105,10 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">Architecture
                         <i class="dropdown-btn-icon">
@@ -161,12 +161,12 @@
                       </div>
                     </li>
                     <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Static Analysis
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a current">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
@@ -218,19 +218,19 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Databases
+                        <i class="dropdown-btn-icon rotate-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
+                      <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a current">SQL</a></li>
                         </ul>
                       </div>
                     </li>
@@ -267,118 +267,203 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-static-analysis">Introduction to Static Analysis<a class="fa fa-anchor" href="#introduction-to-static-analysis"></a></h1>
-          <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-          <p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p>
-          <p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p>
-          <h2 id="why-static-analysis">Why Static Analysis?<a class="fa fa-anchor" href="#why-static-analysis"></a></h2>
-          <h3 id="analyse-thoroughly">Analyse Thoroughly<a class="fa fa-anchor" href="#analyse-thoroughly"></a></h3>
-          <p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.</p>
-          <h3 id="find-potential-bugs-early">Find Potential Bugs Early<a class="fa fa-anchor" href="#find-potential-bugs-early"></a></h3>
-          <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">switch</span>(colour) {
-<span class="hljs-keyword">case</span> <span class="hljs-string">'blue'</span>:
-	value = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">case</span> <span class="hljs-string">'green'</span>:
-	value = <span class="hljs-number">2</span>;
-}
+          <h1 id="introduction-to-sql">Introduction to SQL<a class="fa fa-anchor" href="#introduction-to-sql"></a></h1>
+          <p><strong>Author(s): <a href="https://github.com/amrut-prabhu">Amrut Prabhu</a></strong></p>
+          <p>Reviewers: <a href="https://github.com/RonakLakhotia">Ronak Lakhotia</a>, <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a></p>
+          <h2 id="what-is-sql">What is SQL?<a class="fa fa-anchor" href="#what-is-sql"></a></h2>
+          <p>A Relational Database Management System (RDBMS) is a popular database solution used by software applications to manage their data.</p>
+          <p><strong>Structured Query Language</strong> (<strong>SQL</strong>) is a programming language that is specifically designed for interacting with an RDBMS. Unlike other languages, SQL doesn't come as a standalone installation.
+            Rather, RDBMSs <span class="dimmed">like MySQL, Oracle, SQL Server and PostgreSQL</span> come with an <em>implementation</em> of SQL.</p>
+          <hr>
+          <h3 id="how-does-sql-work">How does SQL work?<a class="fa fa-anchor" href="#how-does-sql-work"></a></h3>
+          <p>SQL uses <strong>queries</strong> to retrieve data. Here is an example of how an SQL query is used.</p>
+          <p>Suppose we have the data table <code>Students</code> shown here:</p>
+          <div class="table-responsive">
+            <table class="markbind-table table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Course</th>
+                  <th>Faculty</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Alex</td>
+                  <td>CS202</td>
+                  <td>CS</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Bob</td>
+                  <td>MA303</td>
+                  <td>MA</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Cathy</td>
+                  <td>CS202</td>
+                  <td>CS</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Daren</td>
+                  <td>CS202</td>
+                  <td>CS</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Ellie</td>
+                  <td>CS101</td>
+                  <td>CS</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Fred</td>
+                  <td>MA303</td>
+                  <td>MA</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Gary</td>
+                  <td>CS101</td>
+                  <td>CS</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Henry</td>
+                  <td>CS404</td>
+                  <td>CS</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>We can use this SQL query to retrieve information from this table:</p>
+          <pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Course, <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">num</span>
+<span class="hljs-keyword">FROM</span> Students
+<span class="hljs-keyword">WHERE</span> Faculty = <span class="hljs-string">'CS'</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> Course
+<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(*) &gt; <span class="hljs-number">1</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">num</span>;
 </code></pre>
-          <p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
-          <h3 id="enforce-a-standard-in-project">Enforce a Standard in Project<a class="fa fa-anchor" href="#enforce-a-standard-in-project"></a></h3>
-          <p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
-	<span class="hljs-comment">// true</span>
-} <span class="hljs-keyword">else</span> {
-	<span class="hljs-comment">// false</span>
-}
+          <p>This query first filters the entries in the <code>Students</code> table such that only entries that have <code>CS</code> as the faculty are considered.
+            After that, it groups those entries into the 3 courses: <code>CS101</code>, <code>CS202</code> and <code>CS404</code>.
+            Then, it removes courses that do not have more than 1 student, i.e., <code>CS404</code> is removed from consideration.
+            Finally, it returns a list of courses with a count of the number of students, ordered in increasing order.
+            So, the output of the query is:</p>
+          <div class="table-responsive">
+            <table class="markbind-table table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>num</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CS101</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>CS202</td>
+                  <td>3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>You can see how this simple query can prove to be extremely useful for getting this information when the table has a large number of rows. Queries can also be used to retrieve data that span across multiple tables. Apart from retrieving information, SQL can be used for creating, deleting and manipulating data with commands like <code>INSERT</code>, <code>DELETE</code> and <code>UPDATE</code> for entries, in addition to <code>CREATE</code>, <code>DROP</code> and <code>ALTER</code> for tables as a whole.</p>
+          <p>For example, you can set up the structure of the table shown in Table 1 by executing the <code>CREATE TABLE</code> query shown here.
+            It creates a new data table <code>Students</code>, with 4 fields (<code>ID</code>, <code>Name</code>, <code>Course</code> and <code>Faculty</code>) and specifies their data types.</p>
+          <pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Students(<span class="hljs-keyword">ID</span> <span class="hljs-built_in">int</span>, <span class="hljs-keyword">Name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>), Course <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>), Faculty <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>));
 </code></pre>
-          <p>While others enforce the following standard:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
-	<span class="hljs-comment">// true</span>
-}
-<span class="hljs-keyword">else</span> {
-	<span class="hljs-comment">// false</span>
-}
+          <p>We can also remove rows containing the <code>MA</code> faculty from Table 1 with this <code>DELETE</code> query.</p>
+          <pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span>
+<span class="hljs-keyword">FROM</span> Students
+<span class="hljs-keyword">WHERE</span> Faculty=<span class="hljs-string">'MA'</span>;
 </code></pre>
-          <p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
-          <h3 id="improve-code-quality">Improve Code Quality<a class="fa fa-anchor" href="#improve-code-quality"></a></h3>
-          <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (isConditionTrue()) {
-	<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-} <span class="hljs-keyword">else</span> {
-	<span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-}
-</code></pre>
-          <p>Majority of static analysis tools will point out that this can be simplified to:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">return</span> isConditionTrue();
-</code></pre>
-          <h2 id="limitation-of-static-analysis">Limitation of Static Analysis<a class="fa fa-anchor" href="#limitation-of-static-analysis"></a></h2>
-          <h3 id="false-positives">False positives<a class="fa fa-anchor" href="#false-positives"></a></h3>
-          <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
-	<span class="hljs-comment">// logic part</span>
-} <span class="hljs-keyword">catch</span> (Throwable t) {
-	<span class="hljs-comment">// alert user</span>
-}
-</code></pre>
-          <p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected by static analysis tools is a false positive.</p>
-          <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="PMD.html">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation can be used. In this case,</p>
-          <pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"PMD.AvoidCatchingThrowable"</span>) <span class="hljs-comment">// used as fallback</span>
-</code></pre>
-          <p>is the correct way to suppress warnings.</p>
-          <h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment<a class="fa fa-anchor" href="#cannot-catch-error-introduced-in-runtime-environment"></a></h3>
-          <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases are also needed to verify the functionalities in logic, UI and etc.</p>
-          <h2 id="how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)<a class="fa fa-anchor" href="#how-to-do-static-analysis-static-analysis-tools"></a></h2>
-          <p>There are several static analysis tools that can be used to assist the process.</p>
+          <box type="info">
+            You can experiment with <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/1">this example on DB Fiddle</a> (shown in Figure 1 below) by entering SQL queries and then running them.
+          </box>
+          <center>
+            <img src="/learningresources/contents/data/sql/DBFiddle.png" alt="Running queries on DB Fiddle" width="100%">
+            <p><em>Figure 1. Using DB Fiddle to run queries in MySQL</em></p>
+          </center>
+          <p><strong>Online editors</strong> like DB Fiddle can be used while learning SQL. However, to use SQL in application development, you need to consider other alternatives for running SQL queries:</p>
           <ul>
-            <li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li>
-            <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each commit.</li>
+            <li><strong>RDBMS software</strong>: RDBMS installations usually come with a <tooltip content="Graphical User Interface">GUI</tooltip> (see Figure 2), but can also be accessed from the command line (see Figure 3).</li>
           </ul>
-          <p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p>
+          <center>
+            <img src="/learningresources/contents/data/sql/MySQL_Workbench.png" alt="MySQL Workbench GUI Software" width="100%">
+            <p><em>Figure 2. MySQL (an RDBMS) can be used in the MySQL Workbench GUI application</em> (<a href="https://www.mysql.com/products/workbench/">source</a>)</p>
+            <img src="/learningresources/contents/data/sql/MySQL_CLI.png" alt="Running MySQL from the command line" width="75%">
+            <p><em>Figure 3. Logging in to the MySQL RDBMS and viewing tables from the command line</em> (<a href="https://www.researchgate.net/figure/The-MySQL-command-line-tool_fig5_328093393">source</a>)</p>
+          </center>
           <ul>
             <li>
-              <p>Java</p>
+              <p><strong>APIs</strong>: You can use APIs in programming languages or independent ones like <a href="https://carto.com/developers/sql-api/">SQL API</a> (shown in Figure 4) to interact with databases. For example, the <a href="https://www.pythoncentral.io/introduction-to-sqlite-in-python/">SQLite3</a> library can be used to interact with a database through Python.</p>
+              <center>
+                <img src="/learningresources/contents/data/sql/SQL_API.png" alt="Using SQL API to execute queries" width="95%">
+                <p><em>Figure 4. An example of how to use CARTO's SQL API, which uses a PostgreSQL database</em> (<a href="https://carto.com/developers/sql-api/">source</a>)</p>
+              </center>
+            </li>
+          </ul>
+          <hr>
+          <h2 id="why-learn-sql">Why learn SQL?<a class="fa fa-anchor" href="#why-learn-sql"></a></h2>
+          <p>The main reason why you should learn SQL is because of its widespread adoption. As SQL is not limited to any particular operating system or programming language, RDBMSs (which use SQL) are <strong>widely used</strong> by a lot of software applications <span class="dimmed">(web, mobile etc.)</span>. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.</p>
+          <h2 id="disadvantage">Disadvantage<a class="fa fa-anchor" href="#disadvantage"></a></h2>
+          <p>The biggest issue in SQL is with regards to the syntax and features.
+            Although SQL databases use established <tooltip content="American National Standard Institutes">ANSI</tooltip> &amp; <tooltip content="International Organization for Standardization">ISO</tooltip> standards, some RDBMSs <span class="dimmed">(like PostgreSQL, for example)</span> add proprietary extensions to standard SQL.
+            Due to this, the available feature set can vary according to what you're using.
+            Furthermore, there may be <tooltip content="case-sensitivity, date and time format, functions available out-of-the-box, etc.">minor changes in the syntaxes</tooltip> across RDBMSs.
+            These factors can make SQL confusing and frustrating to use when switching across RDBMSs, since you would have to change your SQL queries.</p>
+          <hr>
+          <h2 id="how-to-get-started-with-sql">How to get started with SQL?<a class="fa fa-anchor" href="#how-to-get-started-with-sql"></a></h2>
+          <p>As you saw in the example in the earlier section, SQL is really not that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.</p>
+          <p>To get started with SQL, you can either just use an online SQL playground or install an RDBMS. There are many free RDBMSs available like <a href="https://www.postgresql.org/">PostgreSQL</a> and <a href="https://dev.mysql.com/downloads/">MySQL</a>.
+            At the early stages of learning SQL, you can even use online editors like <a href="https://www.db-fiddle.com/">DB Fiddle</a> <span class="dimmed">(supports MySQL and SQLite)</span> or <a href="https://sqliteonline.com/">SqliteOnline</a> <span class="dimmed">(supports SQLite)</span> since they allow you to start learning without the hassle of setting up anything.</p>
+          <p>Here are some recommended steps for learning SQL:</p>
+          <ol>
+            <li>
+              <p><strong>Understand RDBMS</strong>: Before jumping into the SQL language, refer to this book's <a href="/learningresources/contents/data/databases/databases.html">
+                  <tooltip content="DataBase Management System"><strong>DBMS</strong></tooltip>
+                </a> chapter to understand the basic database concepts. More specifically, understand the basic concepts of RDBMS by going through Tutorials Point's <a href="https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm"><strong>SQL- RDBMS Concepts</strong></a> page. This is not <em>essential</em>, but will give you a better high-level understanding before diving into programming.</p>
+            </li>
+            <li>
+              <p><strong>Learn SQL Syntax</strong>: These are some recommended resources that you can use to learn the SQL language.</p>
               <ul>
-                <li><a href="checkStyle.html">CheckStyle</a></li>
-                <li><a href="PMD.html">PMD</a></li>
-                <li><a href="FindBugs.html">FindBugs</a></li>
+                <li>
+                  <p>The <a href="https://www.guru99.com/sql.html"><strong>Guru99 SQL Tutorial for Beginners</strong></a> is a good course for beginners. It is well organized and provides comprehensive information, which will ensure that you know the basics well.</p>
+                </li>
+                <li>
+                  <p>The <a href="https://www.w3schools.com/sql/default.asp"><strong>W3Schools SQL Tutorial</strong></a> is a useful, interactive written tutorial in which you can run and modify SQL queries to see the examples in action.</p>
+                </li>
+                <li>
+                  <p>In order to keep track of and remember the syntaxes that you're learning, you can refer to the <a href="https://www.w3schools.com/sql/sql_ref_mysql.asp"><strong>W3Schools SQL Quick Reference Guide</strong></a>. This is particularly useful when you want to look up specific information quickly.</p>
+                </li>
               </ul>
             </li>
             <li>
-              <p>JavaScript</p>
-              <ul>
-                <li><a href="ESLint.html">eslint</a></li>
-              </ul>
+              <p><strong>Use SQL in practice</strong>: Look into different RDBMSs and decide which one you want to work with. You can start by comparing the 3 mentioned in this <a href="https://blog.udemy.com/oracle-vs-mysql-vs-sql-server/"><strong>Oracle vs MySQL vs SQL Server</strong></a> post and work from there. Then, set up the corresponding RDBMS and integrate it with an application. This will give you good experience and exposure to how databases are used in practice.</p>
+              <p>In the case of MySQL, a good resource for getting started with this is <a href="http://www.mysqltutorial.org/"><strong>MySQLTutorial.org</strong></a>. The <code>Interfaces</code> section of the website contains multiple tutorials explaining how to integrate and work with MySQL from <a href="http://www.mysqltutorial.org/mysql-nodejs/">Node.js</a>, <a href="http://www.mysqltutorial.org/mysql-jdbc-tutorial/">Java</a>, <a href="http://www.mysqltutorial.org/python-mysql/">Python</a> and more.</p>
             </li>
-          </ul>
-          <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
-          <ul>
-            <li><a href="http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li>
-          </ul>
+          </ol>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="sticky-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-static-analysis">Introduction to Static Analysis&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-sql">Introduction to SQL&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-              <a class="nav-link py-1" href="#why-static-analysis">Why Static Analysis?&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-sql">What is SQL?&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#analyse-thoroughly">Analyse Thoroughly&#x200E;</a>
-                <a class="nav-link py-1" href="#find-potential-bugs-early">Find Potential Bugs Early&#x200E;</a>
-                <a class="nav-link py-1" href="#enforce-a-standard-in-project">Enforce a Standard in Project&#x200E;</a>
-                <a class="nav-link py-1" href="#improve-code-quality">Improve Code Quality&#x200E;</a>
+                <a class="nav-link py-1" href="#how-does-sql-work">How does SQL work?&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#limitation-of-static-analysis">Limitation of Static Analysis&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#false-positives">False positives&#x200E;</a>
-                <a class="nav-link py-1" href="#cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)&#x200E;</a>
-              <a class="nav-link py-1" href="#references">References&#x200E;</a>
+              <a class="nav-link py-1" href="#why-learn-sql">Why learn SQL?&#x200E;</a>
+              <a class="nav-link py-1" href="#disadvantage">Disadvantage&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-get-started-with-sql">How to get started with SQL?&#x200E;</a>
             </nav>
 
           </nav>
@@ -391,16 +476,16 @@
     </footer>
   </div>
 </body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+<script src="../../../markbind/js/vue.min.js"></script>
+<script src="../../../markbind/js/vue-strap.min.js"></script>
+<script src="../../../markbind/js/bootstrap-utility.min.js"></script>
+<script src="../../../markbind/js/polyfill.min.js"></script>
+<script src="../../../markbind/js/bootstrap-vue.min.js"></script>
 <script>
   const baseUrl = '/learningresources'
   const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<script src="../../../markbind/js/setup.js"></script>
+<script src="../../../markbind/layouts/default/scripts.js"></script>
 
 </html>
