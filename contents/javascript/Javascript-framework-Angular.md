@@ -23,6 +23,9 @@ The [official website](https://angular.io/docs) describes Angular as follows:
 >Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
 
 Let us understand some key terms in that definition starting with _declarative templates_.
+
+### Declarative Templates and Components
+
 Consider a simple web application that displays the name of a person as shown below.
 
 <iframe src="https://stackblitz.com/edit/angular-3qy4j2?embed=1&file=src/app/app.component.ts&view=preview" style="width:85%; height:380px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> 
@@ -30,8 +33,6 @@ Consider a simple web application that displays the name of a person as shown be
 <box type="info">
     The sandbox allows you to edit the code of the web application. You can enter your name in the text box and see how the UI is automatically updated. You can also view and edit the code by clicking on the "Both" button. 
 </box>
-
-### Templates and Components
 
 The UI of an Angular app is defined in _templates_ which contain a mix of HTML code and HTML-like [custom tags](https://angular.io/guide/elements). The template for the above example (defined in `person.component.html`) is given below:
 
@@ -78,15 +79,15 @@ The `@Component` tag is used to mark a component. It provides the metadata that 
 
 ### Dependency Injection
 
-Now let us look at what **Dependency Injection**(DI) means. Dependencies are services that a class needs in order to perform its function. We can visualize this with the help of an example.
+Now let us look at what **Dependency Injection** (DI) means. Dependencies are _services_ that a class needs in order to perform its function. We can visualize this with the help of an example.
 
 <center>
 <img src="dependency.png" width="60%">
 
-_Figure 1. What is a dependency?_ <sup>[source](https://medium.freecodecamp.org/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f)</sup>
+_Figure 1. What is a dependency?_ (source: [freecodecamp](https://medium.freecodecamp.org/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f))
 </center>
 
-Dependency injection is a way of providing a class with the required services. The official website claims that the DI framework increases the "efficiency and modularity" of an app. Given below is a an injectable service class.
+Dependency injection is a way of providing a class with the required services. Given below is a an injectable service class.
  
 ```typescript
 import { Injectable } from '@angular/core';
@@ -108,7 +109,7 @@ constructor(personService: PersonService) {
 ```
 
 In the above example, we write the `getPersons` method only once in the service class and we can access this method from any component by injecting the service in the constructor.
-This is how DI increases "efficiency and modularity".
+This way of using DI increases the efficiency and modularity (as per the [Angular official website](https://angular.io/guide/dependency-injection)).
 
 Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
  
@@ -160,15 +161,15 @@ This helps the compiler show warnings about any potential errors in the code, be
 
 This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
  
-### Benefit 2: Angular Allows Cross-platform Development
+### Benefit 2: Angular Allows Cross-Platform Development
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
-* **Progressive Web Apps** - PWAs are web-based applications that contain most of the benefits of a typical mobile app. The [official documentation](https://developers.google.com/web/progressive-web-apps/) written by Google describes PWAs to be reliable, fast and engaging. With Angular you can develop PWAs and provide an "immersive user experience".
+* **Progressive Web Apps** - PWAs are web-based applications that contain most of the benefits of a typical mobile app. The [official documentation](https://developers.google.com/web/progressive-web-apps/) written by Google describes PWAs to be reliable, fast and engaging. With Angular you can develop PWAs and provide an immersive user experience.
 This [article](https://medium.com/@nsmirnova/creating-pwa-with-angular-5-e36ea2378b5d) is a good place to learn the basics of building PWAs using Angular.
 
 * **Native Apps** - Angular can be used to build <tooltip content="a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems">native mobile applications</tooltip>. There are many frameworks such as [NativeScript](https://www.nativescript.org/) and [Ionic](https://ionicframework.com/)
-that can be integrated with Angular for mobile application development. The [official Ionic website](https://ionicframework.com/docs/intro) claims that "integration with the Angular ecosystem is a breeze".
+that can be integrated with Angular for mobile application development. As per the [official Ionic website](https://ionicframework.com/docs/intro), it is easy to integrate Ionic with the Angular.
 
 * **Desktop Apps** - With Angular you can create desktop applications across Mac, Windows and Linux systems. In order for your application to be compatible with the different Operating Systems, you can use the <tooltip content="Electron is a framework that provides a set of APIs to interact with the Windows, OS X, and Linux operating systems. It makes cross-platform development easier.">[Electron](https://electronjs.org/)</tooltip> framework.
 You can integrate the Electron framework in your project using the Angular CLI and start building your application.
@@ -185,7 +186,7 @@ _Data binding_ refers to the exchange of data between the View and Model compone
 _Figure 2. Types of data binding_ <sup>[source](https://osmangoni.info/posts/one-way-and-two-way-data-binding/)</sup>
 </center>
 
-Some frameworks like React provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
+Some frameworks like [React](https://reactjs.org/docs/thinking-in-react.html) provide one-way data binding i.e., when there is a change to the Model, the View updates automatically.
 However, if the app allows users to change data through the view (e.g., entering your name in the textbox), the developer has to write code to propagate that change to the Model.
 
 In contrast, Angular provides data binding in both ways. That means even changes to the View can be propagated to the Model automatically, without writing extra code for that.
@@ -196,7 +197,7 @@ This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding
 
 Like any other framework/library, Angular has its share of disadvantages.
 
-1. **Steep Learning Curve** - Angular requires you to learn many concepts, such as directives, modules, components, services and many more. 
+1. **Steep Learning Curve** - Angular requires you to learn many concepts, such as _directives_, modules, components, services and many more. 
 The large number of new concepts can be confusing to newcomers. Additionally, Angular requires you to learn a new language, TypeScript.
 
 2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
@@ -206,11 +207,12 @@ In contrast, React allows you to integrate any third party services in your appl
 
 [React]("https://reactjs.org/") and [Vue]("https://vuejs.org/") are two popular alternatives to Angular.
 
-React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage.
+React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage over Angular.
 It also provides more flexibility as it allows integration of third party libraries.
-Similarly, Vue offers some advantages, like flexibility, simple structure and ease of integration.
 
-Every framework has its own pros and cons. The framework you choose depends on the requirements of the application. Below are a few resources that give a brief comparison between these popular frontend frameworks.
+Vue, another open-source JavaScript framework, offers some advantages over Angular, like increased flexibility, simple structure and ease of integration. This makes it easier to learn Vue as compared to Angular or React.
+
+Below are a few resources that give a brief comparison between these popular frontend frameworks.
 
 1. [React vs Angular vs Vue](https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d) - A brief comparison between the three most popular frontend tools.
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
