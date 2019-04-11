@@ -16,6 +16,10 @@ Author: [Lu Lechuan](https://github.com/LuLechuan), [Chelsey Ong](https://github
 
 VueJs (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
 
+<box type="info">
+Reader should have basic knowledge of HTML and JavaScript before proceeding with this article.
+</box>
+
 ## Creating a Simple Project in VueJs
 
 #### Installation
@@ -48,7 +52,7 @@ new Vue ({
 });
 ```
 
-++Step-by-step explanation of the code++
+Step-by-step explanation of the code:
 
 <b>Step 1:</b> Import VueJs CDN and the JavaScript file in the main HTML file.
 ```HTML
@@ -84,6 +88,153 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <b>Step 5:</b> Open the brower and we will see "Hello World" being displayed:
 > <h2>Hello World</h2>
+<br>
+
+-----
+### Vue's Features
+Here are some features to get you started with Vue:
+1. **Mutating of data in the DOM**<br>
+    In Vue, the state of the data can be directly modified.
+
+    Let's say, there is a variable called `message` in your app. To modify `message`, you can do it as such:
+    ```js
+    this.message = 'Hello Space';
+    ```
+    When `message` is changed, the view will be re-rendered to show the new message. So you can say, DOM is "reacting" to `message`.
+
+    In situations when you want to tie data to the view, do ensure that this data already has an initial value, so that any subsequent updates to the data will trigger re-rendering.
+    ```js
+    data: {
+        this.message = '';
+    }
+    ```
+
+
+<br>
+
+2. **2-way binding**<br>
+    [`v-model`](https://vuejs.org/v2/api/#v-model) is a directive used by Vue to bind the DOM input field to its data variable.
+
+    This effectively allows the DOM variables and data to be in sync, regardless of which one is being updated first.
+    In other words, if you change input value, the bound data will change, vice versa.
+
+    This would also reduce the need for you to manually update the data.
+    ```html
+    <input type="checkbox", v-model=isChecked">
+        <label for="checked">Select</label>
+    ```
+
+    2-way binding is generally used for input form bindings such as checkboxes or drop-downs, where new data is entered by users and then updated in the view.
+
+<br>
+
+3. **1-way data flow**<br>
+    When you have components that are nested within each other, data can only be passed from the outer component to the inner component (outer -> inner), via `props`, where `props` are just custom data shared between the components.
+
+    The outer and inner components are also called parent and child, respectively.
+
+    On the other hand, if the inner component wants to pass data to the outer component (inner -> outer), `$emit` events have to be used instead.
+
+    In the code below, `to-do list` contains `item`, which means `to-do list` is the outer component (parent) and `item` is the inner component (child).
+
+    The data in `item` is being passed to `todo-list` for rendering. (`item` -> `todo-list`)
+    ```js
+    Vue.component('todo-list', {
+        props: ['item'],
+        data: ['totalCount'],
+        template:
+          <div class='todo-list'>
+            <p>Total:{ this.totalCount }</p>
+            <p>{ item.name }: { item.count }</p>
+    })
+
+    <todo-list
+      v-for='item in items'
+      v-bind:key='item.id'
+      v-bind:item='item'
+    ></todo-list>
+    ```
+    <box type="tip">
+        Difference between props and data: props is passed from the parent to the child while data is kept private within a component
+    </box>
+
+    However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
+
+    Under situations like this where the inner component has to pass data back to the outer component, the child component has to [emit events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
+    and the parent component will update after listening to these events.
+
+    ```js
+    Vue.component('item', {
+      data: ['count', 'name'],
+      template: {
+        <button v-on:click="$emit('increased-count', count+1)">Increment count for this item</button>
+      }
+    }
+
+    // Inside todo-list component
+    template:
+        v-on:increased-count="updateCount"
+    ```
+    Whenever the button is pressed, an event called `increased-count` will contain the new value of `count` and be emitted by the child `item`.
+    When the parent `todo-list` listens to the event, it will call `updateCount`.
+
+    <box type="success">
+        Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
+    </box>
+<br>
+
+
+4. **Computed properties**<br>
+    This is useful when you want to reduce the amount of logic written in templates.
+    Using the example from above, we can convert `totalCount` into a computed property.
+
+    ```js
+    computed: totalCount() {
+        let result = 0
+        this.items.forEach((item) => result += item.count);
+        return result;
+    }
+    ```
+
+    Unlike the use of methods, this updating of `totalCount` will only be triggered when the number of `items` in the list or any `item`'s `count` changed.
+    This computed property is also cached and can greatly improve the efficiency of your application, since computed properties will not run every time
+    the page refreshes.
+
+    <box type="warning">
+        Note: computed properties must return the new data i.e. reactive properties.
+        It cannot perform other operations in response to the change in data.
+    </box>
+
+<br>
+
+5. **Watched properties**<br>
+    This is another useful feature that is quite similar to `Computed properties`.
+    While computed properties are more appropriate to use when you want to update a new state or data,
+    watched properties are generally used to run other functions when this particular data has changed.
+    Watched property can only look for data changes in 1 variable, however computed properties allow
+    multiple variables to be observed.
+
+    Watched properties are also executed every time, while computed properties are cached.
+
+    If I switch computed property to watched property from the previous example, it will look like this:
+
+    ```js
+    watch: {
+        totalCount: function() {
+            let result = 0
+            this.items.forEach((item) => result += item.count);
+            this.totalCount = result;
+        }
+    }
+    ```
+    In this case, I have to update `this.totalCount` inside the function, instead of returning the new result of `totalCount`.
+    As such, computed properties is more intuitive to use here, where a state is updated automatically with new data.
+
+    Whereas, watched properties are commonly used to perform asynchronous operations (more details in JavaScript Promises) when a particular data has changed.
+    Such situations could happen, when a new `item` is added and I want to send an update to my friend to inform that
+    he a new `item` is added. A watched property on `items` is placed, then inside the function, a network request
+    can be sent whenever `items` has changed.
+
 <br>
 
 ---
@@ -152,134 +303,6 @@ VueJs is a relatively new JavaScript framework as compared to Angular and React.
 
 2. **Language barriers:**<br/>
 A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.
-
------
-### Main concepts needed in VueJs
-Here are some concepts that you need to start writing Vue code:
-1. **Mutating of data in the DOM**<br/>
-In Vue, the state of the data can be directly modified. Let's say, there is a message in your app. To change the message, insert this line:
-    ```js
-    // Vue way
-    this.message = 'Hello Space';
-    ```
-
-    In React, such a direct modification of data is not allowed, due to React's need to rerun lifecycle hooks after state is being updated. Data can only be updated using `this.setState` method.
-
-    If you have never heard of lifecycle hooks before, think of them as selected points in the program where Vue/React checks the virtual DOM to update it.
-    Here is more information about lifecycle hooks in [React](https://reactjs.org/docs/state-and-lifecycle.html) or [Vue](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks).
-    ```js
-    // React way
-    this.setState({ message: 'Hello Space' });
-    ```
-
-<br>
-
-2. **2-way binding**: `v-model` is used to bind the DOM input field to its data variable. This effectively allows your DOM variables to be automatically in sync with your data, regardless of which one is being updated.
-In other words, this reduces the need for you to manually update your data.
-    ```js
-    <input type="checkbox", v-model=isChecked">
-        <label for="checked">Select</label>
-    ```
-
-    2-way binding is generally used for input form bindings, where new data is given by users and processed to provide other useful data.
-    It is quite similar to the way Angular is currently doing. However, Angular discourages the use of two-way binding.
-
-<br>
-
-3. **1-way data flow**: Data can only be passed from parent to child, via `props`. Props can be of any data type, including Objects. On the other hand, if the child wants to pass data to its parent, `$emit` events have to be used instead.<br/>
-In the code below, `to-do list` is the parent and `item` is the child.
-The data in `item` is being passed to `todo-list` for rendering.
-    ```js
-    Vue.component('todo-list', {
-        props: ['item'],
-        data: ['totalCount'],
-        template:
-          <div class='todo-list'>
-            <p>Total:{ this.totalCount }</p>
-            <p>{ item.name }: { item.count }</p>
-    })
-
-    <todo-list
-      v-for='item in items'
-      v-bind:key='item.id'
-      v-bind:item='item'
-    ></todo-list>
-    ```
-
-
-    However, what if the user decides to update the `item.count`? The data for item.count has to be passed from `item` to `todo-list` so `totalCount` can be updated inside `todo-list` . Under situations like this where the child has to pass data back to the parent, the child component has to [emit events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
-    and the parent component will update after listening to these events.
-
-    ```js
-    Vue.component('item', {
-      data: ['count', 'name'],
-      template: {
-        <button v-on:click="$emit('increased-count', count+1)">Increment count for this item</button>
-      }
-    }
-
-    // Inside todo-list component
-    template:
-        v-on:increased-count="updateCount"
-    ```
-    Whenever the button is pressed, an event called `increased-count` with the new value of `count` will be emitted by the child `item`.
-    When `todo-list` listened to the event, it will execute `updateCount`.
-
-    Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
-
-<br>
-
-
-4. **Computed properties**: Useful when you want to reduce the amount of logic written in templates<br/>
-Using the example from above, we can convert `totalCount` into a computed property.
-
-    ```js
-    computed: totalCount() {
-        let result = 0
-        this.items.forEach((item) => result += item.count);
-        return result;
-    }
-    ```
-
-    Unlike the use of methods, this updating of `totalCount` will only be triggered when the number of `items` in the list or any `item`'s `count` changed.
-    This computed property is also cached and can greatly improve the efficiency of your application, since computed properties will not run every time
-    the page refreshes.
-
-    *Note: computed properties must return the new data i.e. reactive properties.
-    It cannot perform other operations in respond to the change in data.*
-
-<br>
-
-5. **Watched properties**: another useful feature that is quite similar to `Computed properties`.
-While computed properties are more appropriate to use when you want to update a new state or data,
-watched properties are generally used to run other functions when this particular data has changed.
-Watched property can only look for data changes in 1 variable, however computed properties allow
-multiple variables to be observed.
-
-    Watched properties are also executed every time, while computed properties are cached.
-
-    *_Be careful of using the correct property in the correct situation._*
-
-    If I implement the example shown in computed property with watched property instead. It will look like this:
-
-    ```js
-    watch: {
-        totalCount: function() {
-            let result = 0
-            this.items.forEach((item) => result += item.count);
-            this.totalCount = result;
-        }
-    }
-    ```
-    In this case, I have to update `this.totalCount` inside the function, instead of returning the new result of `totalCount`.
-    As such, computed properties is more intuitive to use here, where a state is updated automatically due to new data.
-
-    Whereas, watched properties are commonly used to perform asynchronous operations when a particular data has changed.
-    Such situations could happen, when a new `item` is added and I want to send an update to my friend to inform that
-    he a new `item` is added. A watched property on `items` is placed, then inside the function, a network request
-    can be sent whenever `items` has changed.
-
-<br>
 
 ---
 ### Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
