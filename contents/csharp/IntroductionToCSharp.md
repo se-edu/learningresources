@@ -98,17 +98,17 @@ or capture a local context for later execution. Context capturing is reflected b
 //Capturing local context
 public class Context
 {
-	//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.
+    //GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.
     public static Func<Int> GetCounter()
     {
-		//Inside the context of this function, there is an integer variable count.
+        //Inside the context of this function, there is an integer variable count.
         int count = 0;
-		//GetCounter is returning a function.
+        //GetCounter is returning a function.
         return () =>
         {
-			//The function increments the count variable inside this context, which is initialized to 0.
+            //The function increments the count variable inside this context, which is initialized to 0.
             count++;
-			//It then returns the current count value.
+            //It then returns the current count value.
             return count;
         }
     }
@@ -141,7 +141,7 @@ Double fuelLeft = 0;
 if (car != null)
 {
     car.Drive();
-	car.GetFuel();
+    car.GetFuel();
 }
 
 DoSomethingTo(fuelLeft);
