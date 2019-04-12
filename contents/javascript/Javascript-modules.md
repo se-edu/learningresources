@@ -15,9 +15,9 @@
 **Author: Gilbert Emerson**<br>
 Reviewers: Chelsey Ong, Ong Shu Peng, Amrut Prabhu
 
-## Preface
-
-This article will be covering on JavaScript modules: What is it, Why use it, and How to use it. While there will be links to various external resources explaining terms that is not covered by this article, readers are adviced to be familiar with JavaScript.
+<box type="info">
+This article assumes the reader has some basic knowledge of JavaScript.
+</box>
 
 ## What Is a Module?
 
