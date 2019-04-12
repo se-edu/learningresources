@@ -96,13 +96,16 @@ or capture a local context for later execution. Context capturing is reflected b
 
 ```csharp
 //Capturing local context
-public class Context {
+public class Context
+{
 	//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.
-    public static Func<Int> GetCounter() {
+    public static Func<Int> GetCounter()
+    {
 		//Inside the context of this function, there is an integer variable count.
         int count = 0;
 		//GetCounter is returning a function.
-        return () => {
+        return () =>
+        {
 			//The function increments the count variable inside this context, which is initialized to 0.
             count++;
 			//It then returns the current count value.
@@ -125,17 +128,42 @@ while remaining easy to read, using collaescing operators `??`, or null conditio
 
 More can be read about Nullables [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/)
 
+A code example without using Nullable features.
 ```csharp
-public Car? ManufactureCar() {
+public Car ManufactureCar()
+{
     return (hasError) ? null : new Car(param1, param2);
 }
 
-Car? car = ManufactureCar();
+Car car = ManufactureCar();
+Double fuelLeft = 0;
+//null check
+if (car != null)
+{
+    car.Drive();
+	car.GetFuel();
+}
+
+DoSomethingTo(fuelLeft);
+```
+
+A code example using Nullable features. The length of the code is approximately halved. For programmers familiar to Nullable operators,
+the code should be easy to read. Nullable operators can also reduce the need for indentation and the occurrences of nested indentations.
+
+```csharp
+public Car ManufactureCar() {
+    return (hasError) ? null : new Car(param1, param2);
+}
+
+Car car = ManufactureCar();
 //Call Drive method of car if not null
 car?.Drive();
 
 //Get amount of fuel left
 Double fuelLeft = car?.GetFuel() ?? 0;
+
+DoSomethingTo(fuelLeft);
+
 //Explanation:
 //If car is not null, one can expect the statement to evaluate to car.GetFuel().
 //If car is null, car?.GetFuel() evaluates to null
