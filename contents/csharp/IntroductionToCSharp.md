@@ -19,7 +19,7 @@ Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://gi
 
 ## What is C#
 
-C# is a _general purpose_, _multi-paradigm_, _garbage collected_, _cross-platform_ language by Microsoft, and part of the _.NET platform_.
+C# is a _general purpose_, _multi-paradigm_, _garbage collected_, _cross-platform_ language by Microsoft, and part of the _.NET platform_. Some claim C# is Microsoft's answer to Java.
 
 _general purpose_
 >From [Wikipedia](https://en.wikipedia.org/wiki/General-purpose_programming_language)
