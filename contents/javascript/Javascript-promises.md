@@ -22,7 +22,7 @@ If such an operation was to be executed in a synchronous manner, your applicatio
 
 However, asynchronous operations can cause programming and debugging to be difficult, because you would need some sort of way to know when the operation has finished, or in the case of debugging, the point at which the operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.
 
-To illustrate this problem in code, we'll use `setTimeout()`. This is an asynchronous function takes in 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed and lastly, additional parameters to pass to the *callback*. A callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. `setTimeout()` is asynchronous as the code below it will execute while the timer is counting down, as you will see in the following code snippet.
+To illustrate this problem in code, we'll use `setTimeout()`. This asynchronous function takes in 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed and lastly, additional parameters to pass to the *callback*. A callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. `setTimeout()` is asynchronous as the code below it will execute while the timer is counting down, as you will see in the following code snippet.
 
 You would probably expect `console.log(x)` to print `I have been updated` after 1 second has passed. Unfortunately, it prints `I have not been updated.` Give it a try in Google Chrome's developer console.
 
