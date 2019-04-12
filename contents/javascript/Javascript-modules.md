@@ -204,22 +204,3 @@ This article gives a broad explanation of JavaScript modules, explaining differe
 This article truly focuses on IIFE, CommonJS, and ES6 Modules, giving a very comprehensive usage example.
 - [Learn the basics of the JavaScript module system and build your own library](https://medium.freecodecamp.org/anatomy-of-js-module-systems-and-building-libraries-fadcd8dbd0e) <br>
 While the aim of the article may not be the same with the aim of this book article, this article gives a very comprehesive comparison between CommonJS and ES6 Modules.
-
-Additional resources for related concepts (including all the hyperlinks above):
-
-1. Software engineering principles <br>
-[Software Engineering for Self-Directed Learners: SOLID Principles](http://se-education.org/se-book/principles/solidPrinciples/index.html) <br>
-[Software Engineering for Self-Directed Learners: Don't Repeat Yourself (DRY)](http://se-education.org/se-book/principles/dryPrinciple/index.html)
-
-2. JavaScript concepts <br>
-[Demystifying JavaScript Variable Scope and Hoisting](https://www.sitepoint.com/demystifying-javascript-variable-scope-hoisting/) <br>
-[IIFE - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
-
-3. JavaScript development <br>
-[How JavaScript bundlers work](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da) <br>
-[JavaScript Transpilers: What They Are & Why We Need Them](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them) <br>
-[What is tree shaking? 🌲](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd)
-
-4. Tools <br>
-[Bundler: Webpack](https://webpack.js.org/) <br>
-[Transpiler: Babel](https://babeljs.io/)
