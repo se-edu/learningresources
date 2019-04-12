@@ -21,7 +21,7 @@ This article assumes the reader has some basic knowledge of JavaScript.
 
 ## What Is a Module?
 
-You might often encounter the term such as _module, package, library, dependency, plugin,_ etc. when developing your own application in any programming languages, including JavaScript. We will not dive into the exact definition of each term because that is not the scope of this article, but we will define a module as a collection of code that share the common purpose or support a certain functionality that is placed in different file.
+You might often encounter the term such as _module, package, library, dependency, plugin,_ etc. when developing your own application in any programming languages, including JavaScript. We will not dive into the exact definition of each term because that is not the scope of this article, but we will define a module as a small part of code that is broken up from a larger code base.
 
 Let's say you have an application with functionalities A and B, where functionality A needs functionality B. Without modules, both of these functionalities are mixed together in the code base without a clear separation. With modules, we can separate those 2 functionalities into separate module each. When A need B, A will "include" B and A will be able to work as if A and B has never been separated. The exact usage of modules will be illustrated in the **How to Modularize JavaScript Code** section after the following section.
 
