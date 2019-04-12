@@ -22,6 +22,12 @@ C# is an [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-orie
 Language on the .NET framework, and uses [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science) "In computer science, garbage collection (GC) is a form of automatic memory management. The garbage collector, or just collector, attempts to reclaim garbage, or memory occupied by objects that are no longer in use by the program.") for memory management.
 C# is considred a general-purpose, [multi-paradigm](https://en.wikipedia.org/wiki/Programming_paradigm "Programming paradigms are a way to classify programming languages based on their features. Languages can be classified into multiple paradigms.") programming language.
 
+<blockquote>
+Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are [5,000 C# jobs advertised in the US alone](https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo)
+(and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
+--[_It pays to learn to code with C# and here's why_ --Team Commerce](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
+</blockquote>
+
 ## Why Learn C#
 
 Below are some common reasons why one should learn C#.
@@ -34,17 +40,11 @@ C# is also used by the Unity Game Engine, which has high cross-platform support 
 
 ### Popular Language
 
-From [Armina Mkhitaryan on Medium](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
-
+<blockquote>
 Being powerful, flexible, and well-supported enabled C# has quickly become one of the most popular programming languages available.
 Today, it is the 4th most popular programming language, with approximately 31% of all developers using it regularly. It is also the 3rd largest community on StackOverflow (which was built using C#) with more than 1.1 million topics.
-
-### Job demand and opportunities
-
-From [Team Commerce on Mashable](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
-
-Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are [5,000 C# jobs advertised in the US alone](https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo)
-(and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
+--[_Why Is C# Among The Most Popular Programming Languages in The World?_ --Armina Mkhitaryan](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
+</blockquote>
 
 ## Glimpse of C# Syntax
 
@@ -72,8 +72,6 @@ namespace ProjectName.Model
 }
 ```
 
-[Click here to get started](#how-to-get-started)
-
 ## Some Noteworthy Features of C#
 
 Most programming languages/frameworks have their own unique quirks, which can be utilised for better code quality.
@@ -86,13 +84,8 @@ or [Collection](https://computersciencewiki.org/index.php/Collections "A collect
 as compared to calling the actual constructor.
 
 ```csharp
-public class Foo {
-    Bar MyBar;
-}
-
-Bar bar = new Bar();
-Foo foo = new Foo() {
-    MyBar = bar;
+BookShelf shelf = new BookShelf() {
+    Books = { book1, book2 };
 };
 ```
 
