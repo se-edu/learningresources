@@ -14,6 +14,7 @@
 # Introduction to C#
 
 **Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)**
+
 Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://github.com/sijie123)
 
 ## What is C#
