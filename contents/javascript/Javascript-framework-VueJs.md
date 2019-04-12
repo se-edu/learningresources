@@ -117,7 +117,7 @@ Here are some features to get you familiar with Vue:
 <br>
 
 2. **2-way binding**<br>
-    `v-model` is a [Vue directive](https://vuejs.org/v2/api/#v-model)  used to bind the DOM input field to its data variable.
+    `v-model` is a [Vue directive](https://vuejs.org/v2/api/#v-model) used to bind the DOM input field to its data variable.
 
     This effectively allows the DOM variables and data to be "in sync", regardless of which one is being updated first.
     In other words, if you change the input value, the bound data will change, vice versa.
