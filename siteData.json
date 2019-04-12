@@ -480,6 +480,29 @@
     },
     {
       "headings": {
+        "introduction-to-angular": "Introduction to Angular",
+        "what-is-angular": "What is Angular?",
+        "declarative-templates-and-components": "Declarative Templates and Components",
+        "dependency-injection": "Dependency Injection",
+        "why-angular": "Why Angular?",
+        "benefit-1-angular-provides-good-tooling-services": "Benefit 1: Angular Provides Good Tooling Services",
+        "benefit-2-angular-allows-cross-platform-development": "Benefit 2: Angular Allows Cross-Platform Development",
+        "benefit-3-angular-provides-two-way-data-binding": "Benefit 3: Angular Provides Two-way Data Binding",
+        "disadvantages-of-angular": "Disadvantages of Angular",
+        "comparison-with-other-popular-frontend-frameworks": "Comparison with other popular frontend frameworks",
+        "how-to-get-started-with-angular": "How to get started with Angular?"
+      },
+      "title": "Introduction to Angular",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/javascript/Javascript-framework-Angular.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "vuejs": "VueJs",
         "creating-a-simple-project-in-vuejs": "Creating a Simple Project in VueJs",
         "undefined": "Hello World",
