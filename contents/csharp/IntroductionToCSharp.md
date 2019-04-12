@@ -26,7 +26,7 @@ C# is considred a general-purpose, [multi-paradigm](https://en.wikipedia.org/wik
 >Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are [5,000 C# jobs advertised in the US alone](https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo)
 >(and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
 
->--[_It pays to learn to code with C# and here's why_ --Team Commerce](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
+>[_It pays to learn to code with C# and here's why_ Team Commerce](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
 
 ## Why Learn C#
 
@@ -43,7 +43,7 @@ C# is also used by the Unity Game Engine, which has high cross-platform support 
 >Being powerful, flexible, and well-supported enabled C# has quickly become one of the most popular programming languages available.
 >Today, it is the 4th most popular programming language, with approximately 31% of all developers using it regularly. It is also the 3rd largest community on StackOverflow (which was built using C#) with more than 1.1 million topics.
 
->--[_Why Is C# Among The Most Popular Programming Languages in The World?_ --Armina Mkhitaryan](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
+>[_Why Is C# Among The Most Popular Programming Languages in The World?_ Armina Mkhitaryan](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
 
 ## Glimpse of C# Syntax
 
