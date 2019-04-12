@@ -1,14 +1,15 @@
 <frontmatter>
   title: Null Safety in Kotlin
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Null Safety in Kotlin
 
@@ -17,7 +18,7 @@ Author: [Pan Haozhe](https://github.com/Haozhe321)
 >“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with **checking performed automatically by the compiler**. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”  
 -Tony Hoare
 
-This document explains Kotlin's null safety feature . For an overview of Kotlin, see [here](https://github.com/se-edu/learningresources/blob/master/contents/kotlin/kotlin.md).
+This document explains Kotlin's null safety feature. For an overview of Kotlin, see [here](kotlin.html).
 
 # What is Null Safety?
 _Null Safety_ (or _void safety_) is the guarantee that no object reference will have a `null` value.

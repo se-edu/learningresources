@@ -1,14 +1,15 @@
 <frontmatter>
   title: Introduction to Databases & Database Management Systems (DBMS)
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Introduction to Databases & Database Management Systems (DBMS)
 

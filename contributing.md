@@ -1,12 +1,13 @@
 <frontmatter>
   title: "Contributing to this Project"
+  header: pagetop.md
   footer: footer.md
   head: head.md
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Contributing to this Project
 
@@ -46,6 +47,11 @@ You can also add new topics or update existing content:
   original source.
   * Note that ==the reader should still get a complete and useful picture== even if she does not refer any of the given links. i.e., make the content self-contained and grounded/concrete instead of too abstract to be of much use. To that end, you may repeat/adapt content snippets from other resources (instead of simply giving a link) with proper attribution.
   * If you reuse assets from other sources %%(e.g., diagrams)%%, remember to ==cite the original source==.
+* **Stay an _independent_ observer**. When writing about a tool/technique that has competing alternatives, the article will have more credibility if you write it from the point of view of an independent observer. For example, avoid unsubstantiated marketing claims e.g., _X is the best tool for doing Y_. Instead, you can cite quotes by other credible sources or from the tool/technique itself. See the two examples below:
+  > Tool X claims to have the fastest performance [[source]()].
+  
+  > [Tool X's website]() has the following to say about its performance:
+  >> Tool X has the best performance of its class. ...
 * **Prefer visuals rather than long paragraphs.**
 * **Some of the existing articles might not follow the above guidelines** (the guidelines emerged over time). Feel free to revise existing content to fit the guidelines.
 
