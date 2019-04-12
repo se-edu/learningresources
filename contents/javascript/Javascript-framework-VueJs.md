@@ -35,7 +35,7 @@ The main HTML file:
 ```HTML
 <body>
   <div id="root">
-    <h2>{ message }</h2>
+    <h2>{\{ message }\}</h2>
   </div>
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
   <script src="the_path_to_the_javacript_file.js"></script>
@@ -51,6 +51,9 @@ new Vue ({
   }
 });
 ```
+<box type="warning">
+Note that `{\{` and `}\}` should not have the slash in your actual code.
+</box>
 
 Step-by-step explanation of the code:
 
@@ -82,7 +85,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <b>Step 4:</b> Pass the message to the HTML file using double curly brackets.
 ```HTML
   <div id="root">
-    <h2>{ message }</h2>
+    <h2>{\{message}\{</h2>
   </div>
 ```
 
@@ -144,8 +147,8 @@ Here are some features to get you started with Vue:
         data: ['totalCount'],
         template:
           <div class='todo-list'>
-            <p>Total:{ this.totalCount }</p>
-            <p>{ item.name }: { item.count }</p>
+            <p>Total:{\{this.totalCount}\{</p>
+            <p>{\{item.name}\{: {\{item.count}\{</p>
     })
 
     <todo-list
