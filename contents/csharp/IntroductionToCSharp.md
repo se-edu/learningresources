@@ -97,17 +97,24 @@ or capture a local context for later execution. Context capturing is reflected b
 ```csharp
 //Capturing local context
 public class Context {
+	//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.
     public static Func<Int> GetCounter() {
+		//Inside the context of this function, there is an integer variable count.
         int count = 0;
+		//GetCounter is returning a function.
         return () => {
+			//The function increments the count variable inside this context, which is initialized to 0.
             count++;
+			//It then returns the current count value.
             return count;
         }
     }
 }
 
 Func<Int> counter = Context.GetCounter();
-counter();
+//Every time the function is called, the variable count in the captured context would increment by 1, and its new value will be returned.
+counter(); //Returns 1
+counter(); //Returns 2
 ```
 
 ### Nullable type
