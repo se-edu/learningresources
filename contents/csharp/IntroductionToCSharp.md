@@ -120,6 +120,8 @@ counter(); //Returns 1
 counter(); //Returns 2
 ```
 
+If you wish to read more about closures, you may consult [this article by dixin](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
+
 ### Nullable type
 
 Often when dealing with possible sites of [null pointer](https://en.wikipedia.org/wiki/Null_pointer "In computing, a null pointer or null reference has a value reserved for indicating that the pointer or reference does not refer to a valid object.") 
@@ -219,7 +221,22 @@ and games that require networking.
 
 ## How to Get Started
 
-* [Learn C#](https://www.sololearn.com/Course/CSharp/?ref=medcsharp) is a good resource to get started with C# and OOP.
-* [Common pitfalls](https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/) covers some common mistakes made when programming in C#.
-* [Design Patterns in C#](https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/) introduces some common design patterns that can make planning and maintaining code easier.
-* [C# closures in greater depth](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
+Getting started with C# is not difficult. You can download Visual Studio and follow the setup instructions for C# programming [here](https://www.guru99.com/download-install-visual-studio.html).
+If you are new to C# but have some familiarity with Java, you may follow the tutorial at [Sololearn](https://www.sololearn.com/Play/CSharp). It is a rather comprehensive tutorial that teaches
+fundamental syntax and concepts in C#. If you feel that certain parts of the tutorial are too simple, you can also skip them.
+
+If you are entirely new to programming, you may find more hands on practice with simpler steps at [CSharp net](https://csharp.net-tutorials.com/getting-started/introduction/). This tutorial tends
+to be more rigorous and goes through in great detail the steps, starting from installing a development environment, to writing basic C# programs and finally topics commonly used in real applications
+, such as file handling and debugging. If you wish to skip certain parts of the tutorial, the structured contents are displayed on the right side of the website.
+
+If you want to have a go at maintaining and enhancing a small project, you may find this [airline reservation system](http://1000projects.org/airline-reservation-system-a-net-project-with-code.html) project
+to be a good starting point. It covers commonly used components of a software, such as UI (Application User Interface), data storage and handling, and the logic behind the program (such as buying a ticket).
+More similar projects can be found at [1000projects.org](http://1000projects.org/c-projects.html).
+
+If you feel that you have a grasp of C# fundamentals but find it difficult to write programs of bigger scale, such as an Address Book application, you may consult
+[CSharp corner](https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/) for a list of design patterns that you may employ to better organise and plan your
+program structure. Sometimes, you may find that you have problems collaborating on a C# project. This may be due to some common misconceptions and mistakes you are commiting without
+realisation. You may reduce these problems by reading about [some common mistakes in C# programming](https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/).
+
+If you want to develop a desktop application for Windows, you may consult [Microsoft's documentation](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?view=vs-2019)
+on creating an application with the `Windows Presentation Foundation`, a framework that is commonly used for creating UI for Windows Applications that has many useful features for building your UI.
