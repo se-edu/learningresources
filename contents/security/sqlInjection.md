@@ -15,6 +15,8 @@
 
 **Authors: [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md), [Jiang Chunhui](https://github.com/Adoby7)**
 
+**Reviewers: [Tran Tien Dat](https://github.com/tran-tien-dat), [Rachael Sim](https://github.com/rachx), [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Wen Xin](https://github.com/wenmogu), [Monika Manuela Hengki](https://github.com/monmanuela), [Ayush Chatto](https://github.com/AyushChatto)**
+
 ## SQL
 SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many "tables" organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:
 
@@ -130,13 +132,13 @@ DROP TABLE Users;
 
 Then the database will execute these two queries, and delete all user information. Then other users cannot access this website. In addition to the `DROP` query, the attacker may also inject `SELECT` and `INSERT` queries, which can either read sensitive data from database or add data to it. 
 
-## Why is it Important to Prevent SQL Injection？
+## Why is it Important to Prevent SQL Injection?
 
 1. **It is the most common type of attack.** According to [Open Web Application Security Project (OWASP) report](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf), the injection attack is always the annual top 1 application security risk from 2013 to 2017. In addition, [Statistics from Akamai](https://www.akamai.com/uk/en/resources/our-thinking/state-of-the-internet-report/web-attack-visualization.jsp) shows that in one week, over 80% of attacks are SQL injection.
 1. **It can have serious consequences.** SQL injection can cause the loss of large amount of money. Based on the [Global Threat Intelligence Report](https://www.helpnetsecurity.com/2014/03/28/analysis-of-three-billion-attacks-reveals-sql-injections-cost-196000/), even a small SQL injection attack may cause hundreds of thousands dollars lost. 
 Furthermore, information disclosure is another serious consequence. [An SQL injection attack on the toymaker company, VTech](https://coar.risc.anl.gov/consequences-of-sql-injection-attacks/), caused millions of parents' and children's profiles to be stolen. 
 Thus, we need to pay attention to prevent this attack in our code.
-1. **It is easy to prevent from SQL injection.** Referring to the section below, you do not need to put too many efforts on preventing from SQL injection. As it can prevent such a common attack, why not do it now?
+1. **It is easy to prevent.** Referring to the section below, you do not need to put too many efforts on preventing from SQL injection. As it can prevent such a common attack, why not do it now?
 
 ## Preventing SQL Injection
 
