@@ -22,21 +22,25 @@ Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://gi
 C# is a _general purpose_, _multi-paradigm_, _garbage collected_, _cross-platform_ language by Microsoft, and part of the _.NET platform_. Some claim C# is Microsoft's answer to Java.
 
 _general purpose_
+
 >From [Wikipedia](https://en.wikipedia.org/wiki/General-purpose_programming_language)
 >In computer software, a general-purpose programming language is a programming language designed to be used for writing software in the widest variety of application domains (a general-purpose language).
 >A general-purpose programming language has this status because it does not include language constructs designed to be used within a specific application domain.
 
 _multi-paradigm_
+
 **Programing Paradigms** are used to describe Programming Languages based on their features. Some commonly referred paradigms are [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
 (which primarily organizes code into objects that contain a state) and [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) (where code represents a sequence of stateless functions.)
 C# supports both Object-Oriented and Functional Programming, and many others that can be found [here](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)).
 You may also read more about [multi-paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) programming languages.
 
 _garbage collected_
+
 The intialization, storage and handling of variables require memory. *Garbage Collection* is a form of automatic memory management, where memory that is
 no longer referenced by the program will be deallocated. You may read more about [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)).
 
 _cross-platform_
+
 [Cross Platform](https://en.wikipedia.org/wiki/Cross-platform_software) software is software that can be run across multiple platforms, which may require recompilation depending on the software. Common platforms include Windows, MacOS and Linux, and for mobile platforms Android and iOS.
 The benefits of writing **Cross Platform** software is that developers will only need to primarily maintain 1 code base and be able to deploy to multiple platforms.
 
@@ -229,7 +233,7 @@ If you are entirely new to programming, you may find more hands on practice with
 to be more rigorous and goes through in great detail the steps, starting from installing a development environment, to writing basic C# programs and finally topics commonly used in real applications
 , such as file handling and debugging. If you wish to skip certain parts of the tutorial, the structured contents are displayed on the right side of the website.
 
-If you want to have a go at maintaining and enhancing a small project, you may find this [airline reservation system](http://1000projects.org/airline-reservation-system-a-net-project-with-code.html) project
+If you want to have a go at maintaining and enhancing a small project, you may find this [fictitious airline reservation system](http://1000projects.org/airline-reservation-system-a-net-project-with-code.html) project
 to be a good starting point. It covers commonly used components of a software, such as UI (Application User Interface), data storage and handling, and the logic behind the program (such as buying a ticket).
 More similar projects can be found at [1000projects.org](http://1000projects.org/c-projects.html).
 
