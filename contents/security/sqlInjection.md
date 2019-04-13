@@ -13,9 +13,9 @@
 
 # SQL Injection
 
-**Authors: [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md), [Jiang Chunhui](https://github.com/Adoby7)**
+**Authors: [Jiang Chunhui](https://github.com/Adoby7), [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md)**
 
-**Reviewers: [Tran Tien Dat](https://github.com/tran-tien-dat), [Rachael Sim](https://github.com/rachx), [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Wen Xin](https://github.com/wenmogu), [Monika Manuela Hengki](https://github.com/monmanuela), [Ayush Chatto](https://github.com/AyushChatto)**
+**Reviewers: [Ayush Chatto](https://github.com/AyushChatto), [Monika Manuela Hengki](https://github.com/monmanuela),  [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Rachael Sim](https://github.com/rachx), [Tran Tien Dat](https://github.com/tran-tien-dat), [Wen Xin](https://github.com/wenmogu)**
 
 ## SQL
 SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many "tables" organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:
@@ -43,7 +43,7 @@ More information about SQL can be found [here](https://www.w3schools.com/sql/).
 
 ## How does SQL Injection Work?
 
-**SQL injection is one of the most common web hacking techniques. It replaces malicious code in SQL statements via web page input.**
+**SQL injection is the placement of malicious code in SQL statements, via web page input.**
 
 For example, let us suppose that a typical website connects to a database which stores user information like below:
 
@@ -130,7 +130,7 @@ SELECT * FROM Users WHERE Username = ‘foo’ AND Password = ‘bar’;
 DROP TABLE Users;
 ```
 
-Then the database will execute these two queries, and delete all user information. Then other users cannot access this website. In addition to the `DROP` query, the attacker may also inject `SELECT` and `INSERT` queries, which can either read sensitive data from database or add data to it. 
+When the database executes these two queries, it will delete all user information. Then other users cannot access this website. In addition to the `DROP` query, the attacker may also inject `SELECT` and `INSERT` queries, which can either read sensitive data from database or add data to it. 
 
 ## Why is it Important to Prevent SQL Injection?
 
@@ -202,6 +202,7 @@ References:
 
 1. https://www.owasp.org/index.php/SQL_Injection
 (Basic description of SQL Injection attack taken from here)
+1. https://www.w3schools.com/sql/sql_injection.asp (Another reference of SQL Injection attack description)
 1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 105-110)
 (Description of the two types of SQL injection attack taken from here)
 
