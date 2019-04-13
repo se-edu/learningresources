@@ -91,7 +91,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <br>
 
 -----
-### Now that you have written your first program, to further extend your Vue project, we will introduce some features in greater detail!<br>
+### Now that you have written your first program, let's introduce some features so you can further extend your Vue project!<br>
 
 ### Vue's Features
 1. **Mutating of data in the DOM**<br>
