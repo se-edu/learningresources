@@ -128,7 +128,7 @@ The traditional <tooltip content="Imperative programming focuses on explicitly d
 
 Most web applications usually have to interact with a lot of DOM elements and events. Also, different browsers have variations in their implementations of the <tooltip content="The core DOM consists of the properties and methods of the DOM (nodeName, getElementById(), etc).">[core DOM](https://quirksmode.org/dom/core/)</tooltip>, <tooltip content="The events system consists of different kinds of events that the DOM supports (blur, change, etc).">[events system](https://www.quirksmode.org/dom/events/index.html)</tooltip> and even [styles](https://www.quirksmode.org/dom/w3c_css.html) that can be applied to DOM elements! If you want your application to work across different browsers, you would need to manually take care of these variations with the imperative approach. 
 
-React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally, React provides its own [event system](https://reactjs.org/docs/events.html) so that events can work in the same way across different browsers.
+React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally, React provides its own [events system](https://reactjs.org/docs/events.html) so that events can work in the same way across different browsers.
 
 #### Benefit 3: Testability
 
