@@ -37,7 +37,7 @@ The main HTML file:
   <script src="the_path_to_the_javacript_file.js"></script>
 </body>
 ```
-This is inside the javacript file:
+This is inside the JavaScript file:
 ```js
 new Vue ({
   el: '#root',
@@ -91,8 +91,9 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <br>
 
 -----
+### Now that you have written your first program, to further extend your Vue project, we will introduce some features in greater detail!
+
 ### Vue's Features
-Here are some features to get you familiar with Vue:
 1. **Mutating of data in the DOM**<br>
     In Vue, the state of the data can be directly modified.
 
@@ -123,11 +124,9 @@ Here are some features to get you familiar with Vue:
 3. **1-way data flow**<br>
     When you have components that are nested within each other, data can only be passed from the outer component to the inner component, via `props`, where `props` are just custom data shared between the components.
 
-    The outer and inner components are also called parent and child, respectively.
-
     On the other hand, if the inner component wants to pass data to the outer component, `$emit` events have to be used instead.
 
-    In the example below, `to-do list` contains `item`, which means `to-do list` is the outer component (parent) and `item` is the inner component (child).
+    In the example below, `to-do list` contains `item`, which means `to-do list` is the outer component and `item` is the inner component.
 
     The data in `item` is being passed to `todo-list` for rendering. (`item` -> `todo-list`)
     ```js
@@ -147,7 +146,7 @@ Here are some features to get you familiar with Vue:
     ></todo-list>
     ```
     <box type="tip">
-        Difference between props and data: props is passed from the parent to the child while data is kept private within a component
+        Difference between props and data: props is passed from the outer component to the inner component while data is kept private within a component
     </box>
 
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
@@ -168,8 +167,8 @@ Here are some features to get you familiar with Vue:
         v-on:increased-count="updateCount"
     }
     ```
-    Whenever the button is pressed, a custom event called `increased-count` will contain the new value of `count` and be emitted by the `item` (child).
-    When `todo-list` (parent) listens to the event, it will call `updateCount`.
+    Whenever the button is pressed, a custom event called `increased-count` will contain the new value of `count` and be emitted by the `item`.
+    When `todo-list` listens to the event, it will call `updateCount`.
 
     Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
 
