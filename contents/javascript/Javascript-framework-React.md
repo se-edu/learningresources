@@ -110,25 +110,25 @@ In the above application, you can see that the UI is updated whenever a differen
 
 Now that we know what React is, let us take a look at some of its benefits.
 
-#### Benefit 1: Abstraction
+#### Benefit 1: Better Performance
 
-The traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates.">*imperative*</tooltip> approach of building a web application requires you to describe how you want your UI to change when your application data changes. 
-
-Most web applications usually have to interact with a lot of <tooltip content="The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.">DOM</tooltip> elements and events. Also, different browsers have variations in their implementations of the [core DOM](https://quirksmode.org/dom/core/), [events system](https://www.quirksmode.org/dom/events/index.html) and even [styles](https://www.quirksmode.org/dom/w3c_css.html)! If you want your application to work across different browsers, you would need to manually take care of these variations with the imperative approach. 
-
-React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, it provides its own [event system](https://reactjs.org/docs/events.html) so that events can work in the same way across different browsers.
-
-#### Benefit 2: Better Performance
-
-Web applications can have a lot of user interaction and data updates, which results in changes being made to the DOM. Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to *[reflow and repaint](https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/)* the UI every time the DOM is changed.
+Web applications can have a lot of user interaction and data updates, which results in changes being made to the <tooltip content="The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.">DOM</tooltip>. Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to <tooltip content="A reflow occurs when the structure of the DOM tree changes, and a repaint occurs on style changes. These operations can get quite expensive for large DOM trees.">*[reflow and repaint](https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/)*</tooltip> the UI every time the DOM is changed.
 
 React minimizes this update time by using a *virtual DOM*. The virtual DOM is a JavaScript object that is kept in the memory of your application.
 
-![React's Virtual DOM](javascript-framework-react-imgs/ReactVirtualDOM.png "React's Virtual DOM")
+![React's Virtual DOM](javascript-framework-react-images/ReactVirtualDOM.png "React's Virtual DOM")
 _Figure 1. How React's actual DOM gets updated._
 
-As shown in Figure 2 above, updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a *[diffing algorithm](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm)*. 
+As shown in Figure 1 above, updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a *[diffing algorithm](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm)*. 
 Finally, React updates the actual DOM only in places it differs with the virtual DOM. It batches multiple changes together and updates the actual DOM in one go, minimizing update time. 
+
+#### Benefit 2: Abstraction
+
+The traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates.">*imperative*</tooltip> approach of building a web application requires you to describe how you want your UI to change when your application data changes. 
+
+Most web applications usually have to interact with a lot of DOM elements and events. Also, different browsers have variations in their implementations of the <tooltip content="The core DOM consists of the properties and methods of the DOM (nodeName, getElementById(), etc).">[core DOM](https://quirksmode.org/dom/core/)</tooltip>, <tooltip content="The events system consists of different kinds of events that the DOM supports (blur, change, etc).">[events system](https://www.quirksmode.org/dom/events/index.html)</tooltip> and even [styles](https://www.quirksmode.org/dom/w3c_css.html) that can be applied to DOM elements! If you want your application to work across different browsers, you would need to manually take care of these variations with the imperative approach. 
+
+React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally, React provides its own [event system](https://reactjs.org/docs/events.html) so that events can work in the same way across different browsers.
 
 #### Benefit 3: Testability
 
@@ -140,13 +140,13 @@ Additionally, React only allows data to flow downwards (one-way data binding) us
 
 Besides the three main benefits explained above, React has the following advantages:
  - React is not an <tooltip content="An opiniated framework guides or locks you into their preferred way of doing things.">*opinionated*</tooltip> framework, which gives you the flexibility to choose your application stack.
- - As React is an open-source library backed by Facebook, it is constantly being updated with new features and performance optimizations.
+ - React is constantly being updated with new features (e.g. [hooks](https://reactjs.org/docs/hooks-intro.html) were released in v16.8) and performance optimizations.
 
 ### Disadvantages of React
 
 Some of React's disadvantages are given below:
- - The high pace of development means that you would need to regularly relearn how to do things.
- - React is just a UI library. As React only allows one-way data binding, you can't use it in applications that follow the <tooltip content="MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.">*MVC*</tooltip> architecture. You would have to use [Flux](https://github.com/facebook/flux), an application architecture that favours one-way data binding instead.
+ - The high pace of development of React means that you would need to regularly relearn how to do things.
+ - React is just a UI library. As React only allows one-way data binding, you can't use it in applications that follow the <tooltip content="MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.">*MVC*</tooltip> architecture. You would have to use [Flux](https://github.com/facebook/flux), an application architecture that favors one-way data binding instead.
 
 ### React and Other Competing Alternatives
 
@@ -159,7 +159,7 @@ How do you decide which one to use? Here are some resources to help you choose b
 
 Every framework has its pros and cons, but hopefully you have managed to see that React [removes some of the complexity](https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome) that comes with building user interfaces. 
 
-### How to get started with React?
+### Getting Started with React
 
 The official React [website](https://reactjs.org/) is a great place to get started. It includes:
  - A step-by-step [tutorial](https://reactjs.org/tutorial/tutorial.html) for building a React application, if you prefer to learn by doing.
@@ -167,11 +167,11 @@ The official React [website](https://reactjs.org/) is a great place to get start
  
 If you want to add React to an existing project, you can take a look at React's official [guide](https://reactjs.org/docs/add-react-to-a-website.html) for doing so. Alternatively, if you are creating a new React application, you can use one of the [recommended toolchains](https://reactjs.org/docs/create-a-new-react-app.html) to get the best user and developer experience.
 
-[Create React App](https://github.com/facebook/create-react-app) is a comfortable environment for learning React, and it is the recommended way to create <tooltip content="A single-page application is an app that works inside a browser and does not require page reloading during use.">*single-page applications*</tooltip> with React.
+[Create React App](https://github.com/facebook/create-react-app) is a convenient environment for learning React, and it is the recommended way to create <tooltip content="A single-page application is an app that works inside a browser and does not require page reloading during use.">*single-page applications*</tooltip> with React.
 
 The official website also has [advanced guides](https://reactjs.org/docs/getting-started.html#advanced-concepts) if you want to understand how React works behind the scenes.
 
-### Where to go from here?
+### Other React Resources
 
 As React is a fairly popular library, you can find a lot of comprehensive resources online. Here are some resources that can be useful:
  - [The React Handbook](https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795) - This article provides a well-rounded overview of React.
