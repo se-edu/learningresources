@@ -13,7 +13,9 @@
 
 # Swift
 
-Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos), [Jiang Chunhui](https://github.com/Adoby7)
+**Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md),[Jiang Chunhui](https://github.com/Adoby7), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)**
+
+**Reviewers: [Aaron Chong](https://github.com/acjh), [Bryan Lew](https://github.com/blewjy), [Dickson Tan](https://github.com/Neurrone), [Rachael Sim](https://github.com/rachx), [Rahul Rajesh](https://github.com/rrtheonlyone), [Sam Yong](https://github.com/mauris), [Tan Wang Leng](https://github.com/yamgent), [Vivek Lakshmanan](https://github.com/vivekscl), [Wang Junming](https://github.com/junming403), [Xiao Pu](https://github.com/xpdavid)**
 
 ## What is Swift?
 
