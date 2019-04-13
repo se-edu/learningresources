@@ -19,16 +19,10 @@ Reviewers: [Ong Shu Peng](https://github.com/ongspxm), [Gilbert Emerson](https:/
 VueJs (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
 
 <box type="info">
-Reader should have basic knowledge of HTML and JavaScript before proceeding with this article.
+This article assumes the reader has a basic knowledge of HTML and JavaScript.
 </box>
 
 ## Creating a Simple Project in VueJs
-
-#### Installation
-
-There are [multiple ways to install VueJs](https://vuejs.org/v2/guide/installation.html) and they are all easy. For example, one of the easiest ways is to run the npm command `$ npm install vue`.
-
-Apart from installing VueJs, you can install [VueJs development tools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser. This will allow you to inspect and debug the components that use VueJs in your projects.
 
 #### HelloWorld in VueJs
 
@@ -54,12 +48,13 @@ new Vue ({
 });
 ```
 <box type="warning">
+
 Note that `{\{` and `}\}` should not have the slash in your actual code.
 </box>
 
 Step-by-step explanation of the code:
 
-<b>Step 1:</b> Import VueJs CDN and the JavaScript file in the main HTML file.
+<b>Step 1:</b> Import VueJs <tooltip content="Content Delivery Network" placement="top">CDN</tooltip> and the JavaScript file in the main HTML file.
 ```HTML
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
   <script src="the_path_to_the_javacript_file.js"></script>
@@ -101,19 +96,11 @@ Here are some features to get you familiar with Vue:
 1. **Mutating of data in the DOM**<br>
     In Vue, the state of the data can be directly modified.
 
-    Let's say, there is a variable called `message` in your app. To modify `message`, you can do it as such:
+    Let's say, there is a variable called `message` in your app. To modify `message`, you can do the following:
     ```js
     this.message = 'Hello Space';
     ```
     When `message` is changed, the view will be re-rendered to show the new message. So you can say, DOM is "reacting" to `message`.
-
-    In situations when you want to tie data to the view, do ensure that this data already has an initial value, so that any subsequent updates to this data will enable view to update itself
-    ```js
-    data: {
-        this.message = '';
-    }
-    ```
-
 
 <br>
 
@@ -121,7 +108,7 @@ Here are some features to get you familiar with Vue:
     `v-model` is a [Vue directive](https://vuejs.org/v2/api/#v-model) used to bind the DOM input field to its data variable.
 
     This effectively allows the DOM variables and data to be "in sync", regardless of which one is being updated first.
-    In other words, if you change the input value, the bound data will change, vice versa.
+    In other words, if you change the input value, the bound data will change, and vice versa.
 
     This would also reduce any extra step required to manually update the data.
     ```html
@@ -223,7 +210,7 @@ Here are some features to get you familiar with Vue:
     executed every time page refreshes | uses cached data and executes only when changed
     allow 1 variable to observed only | allow multiple variables to be observed
 
-    If I switch computed property to watched property from the previous example, it will look like this:
+    If we switch computed property to watched property from the previous example, it will look like this:
 
     ```js
     watch: {
@@ -238,7 +225,7 @@ Here are some features to get you familiar with Vue:
     As such, computed properties is more intuitive to use here, where a state is updated automatically with new data.
 
     Whereas, watched properties are commonly used to perform asynchronous operations (more details in JavaScript Promises) when a particular data has changed.
-    Such situations could happen when a new `item` is added and I want to send an update to my friend to inform that a new `item` is added.
+    Such situations could happen when a new `item` is added and we want to send an update to our friend to inform that a new `item` is added.
     A watched property on `items` can be added so that a network request can be sent whenever `items` has changed.
 
 <br>
