@@ -43,7 +43,7 @@ More information about SQL can be found [here](https://www.w3schools.com/sql/).
 
 ## How does SQL Injection Work?
 
-**SQL injection is the placement of malicious code in SQL statements, via web page input.**
+**SQL injection is the placement of malicious code in SQL statements, via web page input. (Source: [w3schools](https://www.w3schools.com/sql/sql_injection.asp))**
 
 For example, let us suppose that a typical website connects to a database which stores user information like below:
 
@@ -202,7 +202,6 @@ References:
 
 1. https://www.owasp.org/index.php/SQL_Injection
 (Basic description of SQL Injection attack taken from here)
-1. https://www.w3schools.com/sql/sql_injection.asp (Another reference of SQL Injection attack description)
 1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 105-110)
 (Description of the two types of SQL injection attack taken from here)
 
