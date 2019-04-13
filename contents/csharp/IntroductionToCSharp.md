@@ -176,10 +176,17 @@ Sometimes classes have a common interface but do not have a common ancestor and 
 A default implementation can be included in the interface to promote code reuse. Similarly, a certain class may not require certain methods listed in the interface.
 An example is a stub class that is required to implement an interface. A default method can be created with the `NotImplementedException`.
 
-The following links below describes in greater detail of some exciting features that can make your code more pleasant to read and write, such as `async/await`, `delegates` etc:
-* https://codeaddiction.net/articles/15/10-features-in-c-that-you-really-should-learn-and-use
-* https://stackify.com/csharp-8-features/
-* https://www.developer.com/net/csharp/slideshows/top-10-csharp-6.0-language-features.html
+### Async/Await
+
+Often in applications, some kind of heavy tasks need to be performed. These tasks include fetching data from a server or some data storage, I/O operations that read/write to disk,
+and computationally expensive tasks such as computing the shortest path from 1 point on a map to a destination of choice. If these tasks are run synchronously, they can cause the
+program to freeze up, leaving the UI (application User Interface) unresponsive, and this is undesired as consumers like us do not enjoy the lack of control over the program. In
+C#, this is done using the keywords `async` and `await`. More can be read up at [Microsoft's documentation](https://docs.microsoft.com/en-us/dotnet/csharp/async)
+
+### Other features
+
+The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. If you wish to explore
+other features, you may consult this [article](https://stackify.com/csharp-8-features/) and others online.
 
 ## Why Learn C#
 
@@ -200,7 +207,7 @@ C# is also used by the Unity Game Engine, which has high cross-platform support 
 
 >[_Why Is C# Among The Most Popular Programming Languages in The World?_ - Armina Mkhitaryan](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
 
->Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are 5,000 (Mar 17, 2018)[C# jobs advertised in the US alone](https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo)
+>Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are 5,000 (Mar 17, 2018) [C# jobs advertised in the US alone](https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo)
 >(and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
 
 >[_It pays to learn to code with C# and here's why_ - Team Commerce](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
