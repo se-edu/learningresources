@@ -108,27 +108,27 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 2. **2-way binding**<br>
     `v-model` is a [Vue directive](https://vuejs.org/v2/api/#v-model) used to bind the DOM input field to its data variable.
 
-    This effectively allows the DOM variables and data to be "in sync", regardless of which one is being updated first.
+    This allows the DOM variables and data to be "in sync", regardless of which one is being updated first.
     In other words, if you change the input value, the bound data will change, and vice versa.
 
-    This would also reduce any extra step required to manually update the data.
     ```html
     <input type="checkbox", v-model=isChecked">
         <label for="checked">Select</label>
     ```
 
-    2-way binding is generally used for input form bindings such as checkboxes or drop-downs, where new data is entered by users and then updated in the view.
+    When the checkbox is selected, `isChecked` is set to `true`. If the program sets `isChecked` to `false`, then checkbox will be unselected.
+    This reduces any extra step required to manually update the data.
+
+    2-way binding is useful for updating input form bindings such as checkboxes or drop-downs, where new data is entered by users and then updated in the view.
 
 <br>
 
-3. **1-way data flow**<br>
-    When you have components that are nested within each other, data can only be passed from the outer component to the inner component, via `props`, where `props` are just custom data shared between the components.
+3. **Passing data from outer to inner components**<br>
+    When you have components that are nested within each other, data is passed from the outer component to the inner component via `props`, where `props` are just custom data shared between the components.
 
-    On the other hand, if the inner component wants to pass data to the outer component, `$emit` events have to be used instead.
+    This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
+    ensures that data can only be changed by the component itself and also allows bugs to be easily traced in the code.
 
-    In the example below, `to-do list` contains `item`, which means `to-do list` is the outer component and `item` is the inner component.
-
-    The data in `item` is being passed to `todo-list` for rendering. (`item` -> `todo-list`)
     ```js
     Vue.component('todo-list', {
         props: ['item'],
@@ -145,14 +145,24 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
       v-bind:item='item'
     ></todo-list>
     ```
+    `to-do list` contains `item`, i.e. `to-do list` is the outer component and `item` is the inner component.
+
     <box type="tip">
-        Difference between props and data: props is passed from the outer component to the inner component while data is kept private within a component
+
+    Note that `props` is passed from the outer component to the inner component while `data` is kept private within a component.
     </box>
 
+<br>
+
+4. **Emitting events**<br>
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
 
-    Under situations like this where the inner component has to pass data back to the outer component, the inner component has to [emit custom events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
+    How do we do that if we have to follow the 1-way data flow rule?
+
+    Under situations like below where the inner component has to pass data back to the outer component, the inner component has to [emit custom events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
     and the outer component will update after listening to these events.
+
+    You can think of emitting events like putting out a flyer about an event. If someone is interested in this event, he or she can gather more information through reading the flyer.
 
     ```js
     Vue.component('item', {
@@ -167,21 +177,16 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
         v-on:increased-count="updateCount"
     }
     ```
-    Whenever the button is pressed, a custom event called `increased-count` will contain the new value of `count` and be emitted by the `item`.
-    When `todo-list` listens to the event, it will call `updateCount`.
-
-    Using 1-way data flow ensures that the data can only be changed by the component itself and allows bugs to be easily traced in the code.
 
 <br>
 
 
-4. **Computed properties**<br>
+5. **Computed properties**<br>
     This is useful when you want to reduce the amount of logic written in templates.
-    Using the example from above, we can convert `totalCount` into a computed property.
 
     ```js
     computed: totalCount() {
-        let result = 0
+        let result = 0;
         this.items.forEach((item) => result += item.count);
         return result;
     }
@@ -198,18 +203,11 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-5. **Watched properties**<br>
-    This is another useful feature that is quite similar to `Computed properties`.
+6. **Watched properties**<br>
+    Watched properties are used to call other functions when a particular data has been updated, such as post-processing of data or <tooltip content="independent operations">asynchronous operations</tooltip>.
 
-    While computed properties are more appropriate to use when you want to update a new state or data,
-    watched properties are generally used to run other functions when this particular data has changed.
-
-    Watched property | Computed property
-    :-------------- | :----------------
-    executed every time page refreshes | uses cached data and executes only when changed
-    allow 1 variable to observed only | allow multiple variables to be observed
-
-    If we switch computed property to watched property from the previous example, it will look like this:
+    For example, a new `item` is added and we want to send a notification to our friend to inform that a new `item` is added.
+    A watched property on `items` can be added so that a notification can be sent whenever `items` has changed.
 
     ```js
     watch: {
@@ -217,15 +215,17 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
             let result = 0
             this.items.forEach((item) => result += item.count);
             this.totalCount = result;
+
+            // notify friend about the change
         }
     }
     ```
-    In this case, `this.totalCount` has to be updated inside the function, instead of returning the new result of `totalCount`.
-    As such, computed properties is more intuitive to use here, where a state is updated automatically with new data.
 
-    Whereas, watched properties are commonly used to perform asynchronous operations (more details in JavaScript Promises) when a particular data has changed.
-    Such situations could happen when a new `item` is added and we want to send an update to our friend to inform that a new `item` is added.
-    A watched property on `items` can be added so that a network request can be sent whenever `items` has changed.
+    This may look quite similar to `Computed properties`. Computed properties are more appropriate to use when you want to update a new state which depends on the data changed.
+    Watched property | Computed property
+    :-------------- | :----------------
+    executed every time page refreshes | uses cached data and executes only when changed
+    allow 1 variable to observed only | allow multiple variables to be observed
 
 <br>
 
