@@ -30,13 +30,13 @@ Let's say you have an application with functionalities A and B, where functional
 Following are reasons why use modules in JavaScript. The reasons below are not exclusive to JavaScript, but may also be general reasons for using modules in other languages.
 
 **1. Better management of code base** <br>
-Using modules will break the code base into smaller parts which if done well can help in managing a code base, especially a large one. To be able to modularize your code well, you can apply Software Engineering principles such as [SOLID](http://se-education.org/se-book/principles/solidPrinciples/index.html), etc.
+Using modules will break the code base into smaller parts which if done well can help in managing a code base, especially a large one. To be able to modularize your code well, you can apply Software Engineering principles such as _[SOLID](http://se-education.org/se-book/principles/solidPrinciples/index.html)_, etc.
 
 **2. Namespacing** <br>
 Because of how [JavaScript scoping](https://www.sitepoint.com/demystifying-javascript-variable-scope-hoisting/) works, avoiding global variable can be an issue. Modules allows JavaScript developer to avoid this problem by isolating the namespace to a specific module.
 
 **3. Reusability** <br>
-As per [Don't Repeat Yourself (DRY) Principle](http://se-education.org/se-book/principles/dryPrinciple/index.html), modules allows developers to reuse their code that is contained in a module. If for example we have an application that rely on a fuctionality such as string comparison function, we can separate that function into a module and let the application to use the function from that module instead of having to always repeating that function in all the places where it is needed.
+As per _[Don't Repeat Yourself (DRY) Principle](http://se-education.org/se-book/principles/dryPrinciple/index.html)_, modules allows developers to reuse their code that is contained in a module. If for example we have an application that rely on a fuctionality such as string comparison function, we can separate that function into a module and let the application to use the function from that module instead of having to always repeating that function in all the places where it is needed.
 
 ## How to Modularize JavaScript Code?
 
@@ -46,7 +46,7 @@ There are 3 common ways to use modules in JavaScript: 1. using ES6 modules, 2. u
 
 Introduced in 2015, ES6 modules is the official implementation of modules in JavaScript. It introduces 2 new syntax `import` and `export` to use modules in JavaScript.
 
-In the example below, `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. So, `anExampleModule.js` module will need to "export" the function using `export` syntax and `index.js` module will need to "import" that function using `import` syntax.
+In the example below, `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. So, `anExampleModule.js` module will need to _export_ the function using `export` syntax and `index.js` module will need to _import_ that function using `import` syntax.
 
 ```js
 // anExampleModule.js
@@ -67,20 +67,20 @@ import * as anExampleModule from './anExampleModule.js';
 anExampleModule.sumOfVariable(); // 3
 ```
 
-ES6 modules supports advanced features such as asynchronous loading, [tree shaking](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd), static code analysis, etc. These features will not be covered in this article.
+ES6 modules supports advanced features such as _[asynchronous loading](http://exploringjs.com/es6/ch_modules.html#sec_modules-in-browsers), [tree shaking](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd), [static code analysis](http://exploringjs.com/es6/ch_modules.html#static-module-structure)_, etc. These features will not be covered in this article.
 
 Due to the very recent adoption of ES6 modules by browsers and there is still some browsers that do not support it, you might not be able to use ES6 modules right away in those unsupported browsers.
 
-There are 2 workarounds for this issue. You can use [transpiler](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them) such as [Babel](https://babeljs.io/) and [bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da) such as [Webpack](https://webpack.js.org/) to serve your application to those unsupported browsers or use one of the other two approaches mentioned below.
+There are 2 workarounds for this issue. You can use _[transpiler](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them)_ such as _[Babel](https://babeljs.io/)_ and _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_ to serve your application to those unsupported browsers or use one of the other two approaches mentioned below.
 
 Additional resources: <br>
 http://exploringjs.com/es6/ch_modules.html
 
 ### CommonJS
 
-It is common because it is used by NodeJS itself and hence a lot of NodeJS applications use it.
+It is common because it is used by _NodeJS_ itself and hence a lot of NodeJS applications use it.
 
-The example below will replicate the same example in previous chapter using CommonJS. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. So, `anExampleModule.js` module will need to "export" the function using `module.exports` syntax and `index.js` module will need to "import" that function using `require` syntax.
+The example below will replicate the same example in previous chapter using CommonJS. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. So, `anExampleModule.js` module will need to _export_ the function using `module.exports` syntax and `index.js` module will need to _import_ that function using `require` syntax.
 
 ```js
 // anExampleModule.js
@@ -105,19 +105,19 @@ var anExampleModule = require('./anExampleModule.js');
 anExampleModule.sumOfVariable(); // 3
 ```
 
-CommonJS is mainly used in NodeJS applications, but you can also use it outside of NodeJS by using [bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da) such as [Webpack](https://webpack.js.org/). If your project requirement does not allow you to use bundler, the approach given in the next section does not need any external tool.
+CommonJS is mainly used in NodeJS applications, but you can also use it outside of NodeJS by using _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_. If your project requirement does not allow you to use bundler, the approach given in the next section does not need any external tool.
 
 Additional resources: <br>
 https://nodejs.org/docs/latest/api/modules.html
 
 ### Module Pattern
 
-Using a technique in JavaScript called [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE), JavaScript developers can create module by wrapping their code in an IIFE.
+Using a technique in JavaScript called _[IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_, JavaScript developers can create module by wrapping their code in an IIFE.
 
 > An **IIFE (Immediately Invoked Function Expression)** is a JavaScript function that runs as soon as it is defined. <br>
 > **Syntax:** `(function() { statements })();`
 
-The example below will replicate the same example in previous chapters using module pattern. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. To achieve this, we use the `<script>` tag in HTML to "import" `anExampleModule.js` for `index.js` to use.
+The example below will replicate the same example in previous chapters using module pattern. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. To achieve this, we use the `<script>` tag in HTML to _import_ `anExampleModule.js` for `index.js` to use.
 
 ```html
 <!-- index.html -->
