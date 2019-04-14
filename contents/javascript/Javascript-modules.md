@@ -77,7 +77,7 @@ A more in-depth explanation of ES6 modules can be found in the [Modules chapter 
 
 ### CommonJS
 
-It is common because it is used by _NodeJS_ itself and hence a lot of NodeJS applications use it.
+CommonJS is in wide use today because it is used by _NodeJS_ which in turn is used by many JavaScript applications.
 
 The example below will replicate the same example in previous chapter using CommonJS. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. So, `anExampleModule.js` module will need to _export_ the function using `module.exports` syntax and `index.js` module will need to _import_ that function using `require` syntax.
 
@@ -104,7 +104,7 @@ var anExampleModule = require('./anExampleModule.js');
 anExampleModule.sumOfVariable(); // 3
 ```
 
-CommonJS is mainly used in NodeJS applications, but you can also use it outside of NodeJS by using _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_. If your project requirement does not allow you to use bundler, the approach given in the next section does not need any external tool.
+If your project does not use NodeJS and does not allow the use of  _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_, you can consider the approach given in the next section as it does not need any external tool.
 
 A more in-depth explanation of CommonJS can be found in the [Modules chapter of NodeJS API documentation](https://nodejs.org/docs/latest/api/modules.html).
 
@@ -112,8 +112,12 @@ A more in-depth explanation of CommonJS can be found in the [Modules chapter of 
 
 Using a technique in JavaScript called _[IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_, JavaScript developers can create module by wrapping their code in an IIFE.
 
-> An **IIFE (Immediately Invoked Function Expression)** is a JavaScript function that runs as soon as it is defined. <br>
-> **Syntax:** `(function() { statements })();`
+<box>
+An **IIFE (Immediately Invoked Function Expression)** is a JavaScript function that runs as soon as it is defined. <br>
+**Syntax:** `(function() { statements })();`
+
+_Source: [MDN Glossary - IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_
+</box>
 
 The example below will replicate the same example in previous chapters using module pattern. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. To achieve this, we use the `<script>` tag in HTML to _import_ `anExampleModule.js` for `index.js` to use.
 
