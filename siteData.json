@@ -503,6 +503,25 @@
     },
     {
       "headings": {
+        "react": "React",
+        "what-is-react": "What is React?",
+        "why-use-react": "Why use React?",
+        "disadvantages-of-react": "Disadvantages of React",
+        "react-and-other-competing-alternatives": "React and Other Competing Alternatives",
+        "getting-started-with-react": "Getting Started with React",
+        "other-react-resources": "Other React Resources"
+      },
+      "title": "React",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/javascript/Javascript-framework-React.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "vuejs": "VueJs",
         "creating-a-simple-project-in-vuejs": "Creating a Simple Project in VueJs",
         "undefined": "Hello World",

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.1.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to bash shell</title>
+  <title>SE-EDU/LearningResources - React</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -198,15 +198,15 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a current">React</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
                   </ul>
                 </div>
@@ -220,10 +220,10 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
                     <li class="mt-2"><button class="dropdown-btn">Databases
@@ -260,12 +260,12 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Shell
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">Shell
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a current">bash</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
                         </ul>
                       </div>
                     </li>
@@ -278,141 +278,154 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-linux-bash-shell">Introduction to Linux bash shell<a class="fa fa-anchor" href="#introduction-to-linux-bash-shell"></a></h1>
-          <p>Author: <a href="https://github.com/junming403">Wang Junming</a></p>
-          <p>Reviewers: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>, <a href="https://github.com/ongspxm">Ong Shu Peng</a>, <a href="https://www.github.com/ChooJeremy">Jeremy Choo</a>, <a href="https://github.com/Xenonym">Tan Zhen Yong
-            </a></p>
-          <h2 id="what-is-the-shell">What is the shell?<a class="fa fa-anchor" href="#what-is-the-shell"></a></h2>
-          <p>In general, a computer can be divided into 3 abstraction layers: hardware, kernel and applications. As users, we cannot control the hardware directly. Instructions have to be given through the kernel as the kernel is the one that controls the hardware.</p>
-          <img src="https://cdn-images-1.medium.com/max/1200/1*zEv6mAa2wzHnz4a5uWW4gw.png" alt="shell-kernel" style="width:400px;">
-          <p><sub>source of image: <a href="https://medium.com/meatandmachines/what-really-happens-when-you-type-ls-l-in-the-shell-a8914950fd73">What (really) happens when you type ls -l in the shell</a></sub></p>
-          <p>The <strong>shell</strong> is the interface through which we pass instructions to the kernel. These instructions will then be executed through the hardware. In this article, we will look specifically into the <strong>Linux bash shell</strong>.</p>
-          <p><a href="https://www.gnu.org/software/bash/manual/html_node/"><strong>bash</strong></a> stands for <strong>Bourne Again SHell</strong>, an enhanced version of the original Unix Shell program. It has become the standard shell of various linux distributions.</p>
-          <img src="https://www.howtogeek.com/wp-content/uploads/2017/03/ximg_58c0939c2d487.png.pagespeed.gp+jp+jw+pj+ws+js+rj+rp+rw+ri+cp+md.ic.5lDzHl2vQG.png" alt="shell-kernel" style="width:600px;">
-          <p><sub>source of image: <a href="https://www.howtogeek.com/howto/ubuntu/keyboard-shortcuts-for-bash-command-shell-for-ubuntu-debian-suse-redhat-linux-etc/">The Best Keyboard Shortcuts for Bash</a></sub></p>
-          <p>Users interact with the bash shell using various <em>commands</em>. A command is an instruction that is used to execute a specific function. The functions that a command is able to execute range from file/directory manipulation, process management to even networking! You can also combine different commands to carry out complex operations.</p>
-          <p>One of the most widely used command is <code>ls</code>, which lists out all the files under the current directory. Here is a video demonstration of the <code>ls</code> command in action:</p>
-          <p><a href="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP" target="_blank"><img src="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP.svg" alt="ls" style="width:500px;height:320px;"></a></p>
-          <h3 id="bash-scripts">Bash scripts<a class="fa fa-anchor" href="#bash-scripts"></a></h3>
-          <p>Bash supports a powerful language for writing scripts, usually referred to as <strong>bash scripts</strong>.</p>
-          <p>Bash scripts are able to carry out a range of operations by executing different commands. Let us consider an example: suppose you want to check if a given file exists. The following script will be able to do that; you input the filename and it will tell you the answer.</p>
-          <pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash
- </span>
-<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Please input a filename, I will check if the file exists.\n"</span>
+          <h1 id="react">React<a class="fa fa-anchor" href="#react"></a></h1>
+          <p><strong>Author: <a href="https://github.com/amad-person">Aadyaa Maddi</a></strong> <br>
+            Reviewers: <a href="https://github.com/amrut-prabhu">Amrut Prabhu</a>, <a href="https://github.com/marvinchin">Marvin Chin</a></p>
+          <h3 id="what-is-react">What is React?<a class="fa fa-anchor" href="#what-is-react"></a></h3>
+          <p>The <a href="https://reactjs.org/tutorial/tutorial.html#what-is-react">official website</a> describes React as follows:</p>
+          <blockquote>
+            <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called 'components'.</p>
+          </blockquote>
+          <p>Let us understand some key features of React with the help of an example. A web application that displays the name of a person is given below:</p>
+          <iframe src="https://codesandbox.io/embed/8kxx088nx2?fontsize=12&view=preview" style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+          <box type="info">
+            The sandbox above is editable. You can change the name using the textbox in the application and see how the UI automatically gets updated. You can view the application code by clicking the blue button next to "React: An Introductory Example".
+          </box>
+          <h4 id="declarative">Declarative</h4>
+          <p>The UI of a React application is defined using a mix of HTML code and HTML-like syntax, called <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>. The main view of the application above (defined in the <code>App.render()</code> method in <code>index.js</code>) is given as follows:</p>
+          <pre><code class="hljs jsx">&lt;div className=<span class="hljs-string">"App"</span>&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Person Data<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  &lt;PersonComponent
+    name={<span class="hljs-keyword">this</span>.state.name}
+    changeHandler={<span class="hljs-keyword">this</span>.handleChange}
+  /&gt;
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+</code></pre>
+          <p>In the above example, we declare what we want to display (i.e. <code>name</code>) and React renders the appropriate view based on the updated application data. This is known as the <tooltip content="Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result."><em>declarative</em></tooltip> approach. With the declarative approach, you just need to specify <em>what</em> you want to show in the UI when the application data changes, rather than giving instructions on <em>how</em> to update the UI.</p>
+          <h4 id="components">Components</h4>
+          <p>React encapsulates application views and relevant data and logic for updating the views using <em>components</em>. A combination of components that exchange information with one another is used to build the UI of a React application.</p>
+          <p>For example, the application above is divided into two components:</p>
+          <ol>
+            <li>
+              <p><strong>App</strong></p>
+              <p>The <code>App</code> component (defined in <code>index.js</code>) contains the main view of the application. It stores the application data (i.e. <code>name</code>) in an object called <em><code>state</code></em> and has a method to update the it every time the value in the textbox changes. It passes the application data and the method to the <code>PersonComponent</code>.</p>
+              <pre><code class="hljs jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  state = {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"John Doe"</span>
+  };
 
-<span class="hljs-comment"># waiting for user input.</span>
-<span class="hljs-built_in">read</span> -p <span class="hljs-string">"Input a filename : "</span> filename
+  handleChange = <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">name</span>: event.target.value
+    });
+  };
 
-<span class="hljs-comment"># check if file exists.</span>
-<span class="hljs-built_in">test</span> ! -e <span class="hljs-variable">$filename</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file '<span class="hljs-variable">$filename</span>' DO NOT EXIST"</span> &amp;&amp; <span class="hljs-built_in">exit</span> 0
-<span class="hljs-built_in">test</span> -f <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"regular file"</span>
-<span class="hljs-built_in">test</span> -d <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"directory"</span>
-
-<span class="hljs-comment"># output result.</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"The file: <span class="hljs-variable">$filename</span> is a <span class="hljs-variable">$filetype</span>"</span>
-</code></pre>
-          <p>Here is an video demonstration of running the script.</p>
-          <p><a href="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF" target="_blank"><img src="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF.svg" alt="check-file" style="width:500px;height:320px;"></a></p>
-          <p>The above bash script is still just a collection of bash commands; this means you can get the same result by typing those commands one at a time. However, the true advantage of using a bash script is due to its support for <code>conditionals</code>, <code>loops</code> and <code>functions</code>.</p>
-          <p>The following is an example of a bash script that make use of conditionals and loops. Suppose you want to let the user input a directory name, check if it exists, and then output the write permission for all files inside that directory.</p>
-          <pre><code class="hljs bash"><span class="hljs-meta">#!bin/bash
-</span>
-<span class="hljs-comment"># read user input and check if directory exists.</span>
-<span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please enter a directory name: "</span> dir
-<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> == <span class="hljs-string">""</span> -o ! -d <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> ]; <span class="hljs-keyword">then</span>
-  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The <span class="hljs-variable">$dir</span> is NOT exist in your system"</span>
-  <span class="hljs-built_in">exit</span> 1
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-comment"># output permissions for each of the file under the directory.</span>
-filelist=$(ls <span class="hljs-variable">$dir</span>)
-<span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> <span class="hljs-variable">$filelist</span>
-<span class="hljs-keyword">do</span> 
-  perm=<span class="hljs-string">"readable"</span>
-  <span class="hljs-built_in">test</span> -w <span class="hljs-string">"<span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span>"</span> &amp;&amp; perm=<span class="hljs-string">"<span class="hljs-variable">$perm</span> writable"</span>
-  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file <span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span> 's permission is <span class="hljs-variable">$perm</span>"</span> 
-<span class="hljs-keyword">done</span>
-</code></pre>
-          <p>Here is an video demonstration of the script in action.</p>
-          <p><a href="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM" target="_blank"><img src="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM.svg" alt="check-permission" style="width:500px;height:320px;"></a></p>
-          <p><strong>Functions</strong> in bash scripts are just like functions in normal programming languages. More information about bash scripts can be found <a href="https://www.gnu.org/software/bash/manual/html_node/">here</a>.</p>
-          <h3 id="combining-of-scripts-via-stream-redirection">Combining of scripts via stream redirection<a class="fa fa-anchor" href="#combining-of-scripts-via-stream-redirection"></a></h3>
-          <p>In Linux, you can <em>redirect</em> the output of one application to the input of another, combining the two applications together as if there is a <em>pipe</em> between them. In fact, Linux can <em>pipe</em> data between programs, files, and input/output devices seamlessly. You can take advantage of these abilities in your shell commands/scripts to perform complex tasks with just a few commands.</p>
-          <p>For example, suppose you wrote an executable <code>calculate</code> that takes in a user input, does a calculation, and gives the output. To run it, you simply type:</p>
-          <pre><code class="hljs bash">./calculate
-</code></pre>
-          <p>However, you do not want to manually test this program. Instead, you want to test with a larger data set known as <code>DataBundle</code>. You verify the output with another executable <code>verify</code>, which takes in the result as input, verifies its correctness and outputs <strong>PASS</strong> or <strong>FAIL</strong>. Here's how we can do it.</p>
-          <pre><code class="hljs bash">./calculate &lt; DataBundle &gt; result
-./verify &lt; result
-</code></pre>
-          <p>Notice in this case, <code>calculate</code> uses the data in <code>DataBundle</code> as input, and output the results to the file <code>result</code>. Then, <code>result</code> is taken as input to <code>verify</code>, and the final verification result is printed on screen.</p>
-          <p>Furthermore, if the code of <code>calculate</code> is buggy, it throws an exception and the error message will be redirected to the error output. As a result, our result file will be empty! In order to handle this properly, we can also redirect our error output to a file <code>errors</code>, and verify that it is empty (so that no errors have occurred during execution) before we execute <code>verify</code>.</p>
-          <pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
-./calculate &lt; DataBundle &gt; result 2&gt; errors
-<span class="hljs-keyword">if</span> [ -s errors ]
-<span class="hljs-keyword">then</span>
-     ./verify &lt; result
-<span class="hljs-keyword">else</span>
-     <span class="hljs-built_in">echo</span> <span class="hljs-string">"error occured during execution."</span>
-<span class="hljs-keyword">fi</span>
-</code></pre>
-          <p>Furthermore, you can use the <code>|</code> symbol to chain various Linux commands together such that the output of the previous commands is passed as input to the next command.</p>
-          <p>The following example make use of shell commands <a href="http://man7.org/linux/man-pages/man1/ps.1.html">ps</a> and <a href="http://man7.org/linux/man-pages/man1/grep.1.html">grep</a>. ps displays information about a selection of the active processes and grep searches for the pattern in the given input.</p>
-          <p>Let us say you want to check the status of process <code>p</code> running on your system. The <code>ps aux</code> command by itself lists all the processes currently running. If there are too many processes listed and you cannot find <code>p</code>, you can pass the result of <code>ps aux</code> to <code>grep 'p'</code> to as <code>ps aux | grep 'p'</code> to capture process <code>p</code>'s status.</p>
-          <p>A more detailed introduction to I/O stream redirection can be found <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection">here</a>.</p>
-          <h2 id="why-use-the-shell">Why use the shell?<a class="fa fa-anchor" href="#why-use-the-shell"></a></h2>
-          <p>A common question many people ask is: Why type commands in a shell when we can do the same things using GUI applications? Here are some reasons:</p>
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Person Data<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">PersonComponent</span>
+          <span class="hljs-attr">name</span>=<span class="hljs-string">{this.state.name}</span>
+          <span class="hljs-attr">changeHandler</span>=<span class="hljs-string">{this.handleChange}</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}
+</span></code></pre>
+            </li>
+            <li>
+              <p><strong>PersonComponent</strong></p>
+              <p><code>PersonComponent</code> (defined in <code>personComponent.js</code>) renders the details of the person. It accepts input from the <code>App</code> component in the form of <em><code>props</code></em>.</p>
+              <pre><code class="hljs jsx"><span class="hljs-keyword">const</span> PersonComponent = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"Person"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>About Me<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>My name is {props.name}.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">htmlFor</span>=<span class="hljs-string">"name"</span>&gt;</span>Name: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{props.changeHandler}</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{props.name}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  );
+};
+</span></code></pre>
+            </li>
+          </ol>
+          <p>As you can see, React components are just JavaScript functions that accept arbitrary input and return a declarative view describing what should appear in the application's UI.</p>
+          <h4 id="one-way-data-binding">One-Way Data Binding</h4>
+          <p><em>Data binding</em> refers to the exchange of information between the application data and the UI. React provides <em>one-way</em> data binding. In applications that use one-way data binding, changes to the application data are automatically reflected in the UI. However, changes to the UI need to be manually propagated to the application data.</p>
+          <p>In the above application, you can see that the UI is updated whenever a different name is entered in the textbox. These updates do not happen in a single step - the application data is first updated using the <code>handleChange()</code> method, and then the UI is updated to reflect these changes.</p>
+          <h3 id="why-use-react">Why use React?<a class="fa fa-anchor" href="#why-use-react"></a></h3>
+          <p>Now that we know what React is, let us take a look at some of its benefits.</p>
+          <h4 id="benefit-1-better-performance">Benefit 1: Better Performance</h4>
+          <p>Web applications can have a lot of user interaction and data updates, which results in changes being made to the <tooltip content="The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.">DOM</tooltip>. Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to <tooltip content="A reflow occurs when the structure of the DOM tree changes, and a repaint occurs on style changes. These operations can get quite expensive for large DOM trees."><em><a href="https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">reflow and repaint</a></em></tooltip> the UI every time the DOM is changed.</p>
+          <p>React minimizes this update time by using a <em>virtual DOM</em>. The virtual DOM is a JavaScript object that is kept in the memory of your application.</p>
+          <p><a href="javascript-framework-react-images/ReactVirtualDOM.png" target="_self"><img src="javascript-framework-react-images/ReactVirtualDOM.png" alt class="img-fluid" title="React's Virtual DOM"></a>
+            <em>Figure 1. How React's actual DOM gets updated.</em></p>
+          <p>As shown in Figure 1 above, updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a <em><a href="https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm">diffing algorithm</a></em>.
+            Finally, React updates the actual DOM only in places it differs with the virtual DOM. It batches multiple changes together and updates the actual DOM in one go, minimizing update time.</p>
+          <h4 id="benefit-2-abstraction">Benefit 2: Abstraction</h4>
+          <p>The traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates."><em>imperative</em></tooltip> approach of building a web application requires you to describe how you want your UI to change when your application data changes.</p>
+          <p>Most web applications usually have to interact with a lot of DOM elements and events. Also, different browsers have variations in their implementations of the <tooltip content="The core DOM consists of the properties and methods of the DOM (nodeName, getElementById(), etc)."><a href="https://quirksmode.org/dom/core/">core DOM</a></tooltip>, <tooltip content="The events system consists of different kinds of events that the DOM supports (blur, change, etc)."><a href="https://www.quirksmode.org/dom/events/index.html">events system</a></tooltip> and even <a href="https://www.quirksmode.org/dom/w3c_css.html">styles</a> that can be applied to DOM elements! If you want your application to work across different browsers, you would need to manually take care of these variations with the imperative approach.</p>
+          <p>React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally, React provides its own <a href="https://reactjs.org/docs/events.html">events system</a> so that events can work in the same way across different browsers.</p>
+          <h4 id="benefit-3-testability">Benefit 3: Testability</h4>
+          <p>A React application is made up of a combination of components. Components are independent from each other, and like functions, they map the same input to the same output. This makes it easy to write unit tests for your application.</p>
+          <p>Additionally, React only allows data to flow downwards (one-way data binding) using <code>state</code> and <code>props</code>, which makes your application <a href="https://reactjs.org/docs/design-principles.html#debugging">easier to debug</a> as you can be sure that the data updates the UI, and never the other way around.</p>
+          <h4 id="other-advantages-of-react">Other Advantages of React</h4>
+          <p>Besides the three main benefits explained above, React has the following advantages:</p>
           <ul>
-            <li><strong>Faster</strong>: Often, performing a task via the shell is faster than doing the same via a GUI application. This is because the shell does not get slowed down by other factors like GUI rendering. For example, when performing tasks on a remote server using a shell, the lag will be less.</li>
-            <li><strong>Uniform</strong>: Unlike GUI apps whose availability and usage can vary between Linux distributions, the shell is always available and the usage is almost the same across different Linux distributions.</li>
-            <li><strong>More powerful</strong>: GUIs tends to simplify things, giving the user fewer options. With a shell, you will have complete control of every option. While the shell has a steep learning curve, once you are familiar with it, you can do more things efficiently as compared to a GUI application. For example, you can automate things with a shell, something not easy to do with a GUI application.</li>
+            <li>React is not an <tooltip content="An opiniated framework guides or locks you into their preferred way of doing things."><em>opinionated</em></tooltip> framework, which gives you the flexibility to choose your application stack.</li>
+            <li>React is constantly being updated with new features (e.g. <a href="https://reactjs.org/docs/hooks-intro.html">hooks</a> were released in v16.8) and performance optimizations.</li>
           </ul>
-          <h2 id="how-to-get-started">How to get started?<a class="fa fa-anchor" href="#how-to-get-started"></a></h2>
-          <p>In our opinion, there is no need to learn the shell in one go. Instead, whenever you use a GUI tool to accomplish a task, try to learn how to do the same using the shell. For example, when using git, use it via the shell instead of a GUI tool such as Source Tree. That way, you can learn the shell incrementally, over time.</p>
-          <p>However, if you really wish to learn bash systematically, below are some resources you might find useful.</p>
+          <h3 id="disadvantages-of-react">Disadvantages of React<a class="fa fa-anchor" href="#disadvantages-of-react"></a></h3>
+          <p>Some of React's disadvantages are given below:</p>
           <ul>
-            <li><a href="https://www.gnu.org/software/bash/manual/html_node/">Bash Reference Manual</a> is a good reference manual of linux bash shell.</li>
-            <li>The <a href="https://google.github.io/styleguide/shell.xml">Google Shell Style Guide</a> is a good baseline for good shell scripting style.</li>
-            <li>Gentoo has a good <a href="https://devmanual.gentoo.org/tools-reference/bash/"><code>bash</code> shell reference</a>.</li>
-            <li>Apple's <a href="https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/Introduction/Introduction.html">Shell Scripting Primer</a> is a in-depth introduction to shell scripting for beginners.</li>
+            <li>The high pace of development of React means that you would need to regularly relearn how to do things.</li>
+            <li>React is just a UI library. As React only allows one-way data binding, you can't use it in applications that follow the <tooltip content="MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers."><em>MVC</em></tooltip> architecture. You would have to use <a href="https://github.com/facebook/flux">Flux</a>, an application architecture that favors one-way data binding instead.</li>
           </ul>
-          <p>In addition, you can always use the <a href="https://en.wikipedia.org/wiki/Man_page"><code>man</code></a> command to find more information about a bash command. For example, the command <code>man grep</code> will give you the built-in help page about the <code>grep</code> command. These help pages are written in a programmer-friendly format and are very comprehensive.</p>
-          <p>Below is an example showing the man page for <code>grep</code> command.</p>
-          <pre><code class="hljs">GREP(1)                   BSD General Commands Manual                  GREP(1)
-
-NAME
-     grep, egrep, fgrep, zgrep, zegrep, zfgrep -- file pattern searcher
-
-SYNOPSIS
-     grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
-          [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
-          [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
-          [--null] [pattern] [file ...]
-
-DESCRIPTION
-     The grep utility searches any given input files, selecting lines that
-     match one or more patterns.  By default, a pattern matches an input line
-     if the regular expression (RE) in the pattern matches the input line
-     without its trailing newline.  An empty expression matches every line.
-     Each input line that matches at least one of the patterns is written to
-     the standard output ......
-
-</code></pre>
+          <h3 id="react-and-other-competing-alternatives">React and Other Competing Alternatives<a class="fa fa-anchor" href="#react-and-other-competing-alternatives"></a></h3>
+          <p>There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are <a href="https://se-education.org/learningresources/contents/javascript/Javascript-framework-Angular.html">Angular</a> and <a href="https://se-education.org/learningresources/contents/javascript/Javascript-framework-VueJs.html">Vue</a>.</p>
+          <p>How do you decide which one to use? Here are some resources to help you choose between them:</p>
+          <ul>
+            <li><a href="https://blog.teamtreehouse.com/react-angular-vue">React, Angular, Vue: What they can do and which one is for you</a> - This article has guidelines for choosing which technology to learn.</li>
+            <li><a href="https://www.codeinwp.com/blog/angular-vs-vue-vs-react/">Angular vs Vue vs React</a> - In addition to comparing the three technologies, this article aims to give a general structure for comparing JavaScript frameworks and libraries. Hence, you can use this structure to choose between any new frameworks that may arrive in the future.</li>
+            <li><a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018: Front-end Frameworks</a> - This survey compares the average salaries, company size, developer satisfaction, etc. for the most used JavaScript front-end technologies, so you can decide which technology will be worth learning for a career in front-end software engineering.</li>
+          </ul>
+          <p>Every framework has its pros and cons, but hopefully you have managed to see that React <a href="https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome">removes some of the complexity</a> that comes with building user interfaces.</p>
+          <h3 id="getting-started-with-react">Getting Started with React<a class="fa fa-anchor" href="#getting-started-with-react"></a></h3>
+          <p>The official React <a href="https://reactjs.org/">website</a> is a great place to get started. It includes:</p>
+          <ul>
+            <li>A step-by-step <a href="https://reactjs.org/tutorial/tutorial.html">tutorial</a> for building a React application, if you prefer to learn by doing.</li>
+            <li>A <a href="https://reactjs.org/docs/hello-world.html">guide</a> to master the main concepts of React, if you prefer to learn by reading instead.</li>
+          </ul>
+          <p>If you want to add React to an existing project, you can take a look at React's official <a href="https://reactjs.org/docs/add-react-to-a-website.html">guide</a> for doing so. Alternatively, if you are creating a new React application, you can use one of the <a href="https://reactjs.org/docs/create-a-new-react-app.html">recommended toolchains</a> to get the best user and developer experience.</p>
+          <p><a href="https://github.com/facebook/create-react-app">Create React App</a> is a convenient environment for learning React, and it is the recommended way to create <tooltip content="A single-page application is an app that works inside a browser and does not require page reloading during use."><em>single-page applications</em></tooltip> with React.</p>
+          <p>The official website also has <a href="https://reactjs.org/docs/getting-started.html#advanced-concepts">advanced guides</a> if you want to understand how React works behind the scenes.</p>
+          <h3 id="other-react-resources">Other React Resources<a class="fa fa-anchor" href="#other-react-resources"></a></h3>
+          <p>As React is a fairly popular library, you can find a lot of comprehensive resources online. Here are some resources that can be useful:</p>
+          <ul>
+            <li><a href="https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795">The React Handbook</a> - This article provides a well-rounded overview of React.</li>
+            <li>A list of officially <a href="https://reactjs.org/community/courses.html">recommended courses</a> (some of which are free) - You can learn React from one of these resources if you prefer third-party books or video tutorials.</li>
+            <li>The React <a href="https://reactjs.org/blog/">Blog</a> - Updates about React's latest features will be available here.</li>
+            <li>React's <a href="https://reactjs.org/docs/react-api.html">API Reference</a> - You can learn more about React's API here.</li>
+            <li>The <a href="https://github.com/facebook/react-devtools">React DevTools</a> browser extension - This is used for inspecting and debugging React applications from within your browser's developer tools.</li>
+          </ul>
+          <p>If you need help with React, you can get support from React's <a href="https://reactjs.org/community/support.html">community</a> of millions of developers that are active on <a href="https://stackoverflow.com/questions/tagged/reactjs">Stack Overflow</a>
+            and discussion forums like <a href="https://dev.to/t/react">Dev</a> and <a href="https://hashnode.com/n/reactjs">Hashnode</a>.</p>
+          <p>Lastly, if you want to know what to learn after getting familiar with React, <a href="https://github.com/adam-golab/react-developer-roadmap">here is a comprehensive roadmap</a> that you can follow to become a full-fledged React developer.</p>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="sticky-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-linux-bash-shell">Introduction to Linux bash shell&#x200E;</a>
+            <a class="nav-link py-1" href="#react">React&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-the-shell">What is the shell?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#bash-scripts">Bash scripts&#x200E;</a>
-                <a class="nav-link py-1" href="#combining-of-scripts-via-stream-redirection">Combining of scripts via stream redirection&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#why-use-the-shell">Why use the shell?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-to-get-started">How to get started?&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-react">What is React?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-use-react">Why use React?&#x200E;</a>
+              <a class="nav-link py-1" href="#disadvantages-of-react">Disadvantages of React&#x200E;</a>
+              <a class="nav-link py-1" href="#react-and-other-competing-alternatives">React and Other Competing Alternatives&#x200E;</a>
+              <a class="nav-link py-1" href="#getting-started-with-react">Getting Started with React&#x200E;</a>
+              <a class="nav-link py-1" href="#other-react-resources">Other React Resources&#x200E;</a>
             </nav>
 
           </nav>
