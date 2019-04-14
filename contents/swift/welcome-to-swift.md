@@ -152,7 +152,7 @@ Here are some of the benefits of using `guard` statement over `if-let` statement
 1. Unlike the `if-let` statement, using the `guard` statement causes `past` to remain defined and can be used till the function exits.
 1. While using `if-let` statements can lead to deeply nested `if-let` statements (i.e. pyramid of doom), `guard` statements allow us to have the happy path to be not indented, thereby increasing code readability.
 
-### Benefit: Handle Post-operations easily
+### Benefit: Handle Post-operations Easily
 
 The `defer` key word in Swift provides an easy and safe way to execute some code before leaving current scope. It is helpful when you need to do post-operations in a function which has many points of return.
 
@@ -190,7 +190,7 @@ Using `defer` statement, the file will be closed no matter which branch the prog
 
 This [document](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_defer-statement) explains more about `defer` statement in Swift.
 
-### Benefit: Value-typed Structs
+### Benefit: Avoid Implicitly Sharing Data
 
 Apart from the classes (something you are familiar with if you have already learned languages like Java / Python) which you use for creating instances of Reference type, Swift also provides the use of Structs to create instances of Value type. 
 
@@ -212,11 +212,13 @@ x.data = 42                     // changes the instance referred to by x (and y)
 print("\(x.data), \(y.data)")   // prints "42, 42\n"
 ```
 
+In the example above, when you assign the value under reference type, two variables (i.e. `x` and `y`) will implicitly share the same memory space. Later when you modify one of the variables, another one will also be changed. This may cause unexpected behaviors. On the other hand, value-typed variables `a` and `b` will not suffer from the implicit data sharing.
+
 You can think of Structs as a way to create instances that have their own unique copies of data, which can help to make things a lot easier.
 
 If you wish to find out more, here is an [article](https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2) that explains the difference between the 2 types, as well as the benefits of value types and when to use them.
 
-### Benefit: Associate values in Enum
+### Benefit: Support associate values in Enum
 
 An enum is a data type that represents of a set of values. For example, we can use `String` to represent the possible types of a barcode. However, this allows us to assign invalid values to it:
 
@@ -261,9 +263,9 @@ barcode2.printCode() // prints "QR code: bar."
 
 Also, enums with associated values is not supported in languages such as [Java](https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum), and using a workaround to implement enums with associated values results in code verbosity. Take a look at [Swift's documentation on Enums](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html) for more information about enums.
 
-### Benefit: Protocol Oriented Programming
+### Benefit: Support Protocol Oriented Programming
 
-The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html). POP uses a kind of composition instead of inheritance for implementation. Therefore, if you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.
+The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html). POP uses composition instead of inheritance for implementation, where you can compose from multiple classes. Therefore, if you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.
 
 Here's some code to serve as a brief introduction to POP:
 
@@ -356,7 +358,7 @@ Reference cycles are bad, because they cause memory leaks. Even though A and B a
 
 Here is an [article](https://krakendev.io/blog/weak-and-unowned-references-in-swift) with greater in-depth explanation and examples.
 
-### Benefit: Reuse Existing Code
+### Benefit: Reuse Existing Code Easily
 
 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) is a dependency manager for Swift and Objective-C Cocoa projects which has over 58 thousand libraries and is used in over 3 million apps. Instead of reinventing the wheel, you can check this out to obtain code that helps resolve common issues. If you have done something new with Swift, you can also make your code into a library with CocoaPods for others to use!
 
