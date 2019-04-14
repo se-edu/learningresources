@@ -207,7 +207,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 6. **Watched properties**<br>
     Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
-    For example, a new `item` is added and we want to send a notification to our friend to inform that a new `item` is added.
+    For example, when a new `item` is added, we want to send a notification to our friend to alert him or her about the change.
     A watched property on `items` can be added so that a notification can be sent whenever `items` has changed.
 
     ```js
