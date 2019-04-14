@@ -64,13 +64,25 @@ This section covers some **interesting and noteworthy features** of C#, and most
 
 ### Object/Array/Collection Initializers
 
-In C#, you can construct an [Object](https://en.wikipedia.org/wiki/Object_(computer_science) "In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier."), [Array](https://www.webopedia.com/TERM/A/array.html "In programming, a series of objects all of which are the same size and type. Each object in an array is called an array element. For example, you could have an array of integers or an array of characters or an array of anything that has a defined data type.") or [Collection](https://computersciencewiki.org/index.php/Collections "A collection — sometimes called a container — is simply an object that groups multiple elements into a single unit.") conveniently as shown. This can be useful when writing tests, as test data will be easier to read, as compared to calling the actual constructor.
+In C#, you can construct an [Object](https://en.wikipedia.org/wiki/Object_(computer_science) "In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier."), [Array](https://www.webopedia.com/TERM/A/array.html "In programming, a series of objects all of which are the same size and type. Each object in an array is called an array element. For example, you could have an array of integers or an array of characters or an array of anything that has a defined data type.") or [Collection](https://computersciencewiki.org/index.php/Collections "A collection — sometimes called a container — is simply an object that groups multiple elements into a single unit.") in a single statement as shown. This can be useful when writing tests, as test data will be better organised, as compared to calling the actual constructor.
 
 ```csharp
-BookShelf shelf = new BookShelf() {
-    Books = { book1, book2 };
+public BookShelf(Book[] books, param2, param3, param4)
+{
+    this.books = books
+    // Do something with param 2, 3, 4
+}
+
+// Without use of Object Initializer
+BookShelf shelf1 = new BookShelf(books, param2, param3, param4)
+
+// With use of Object Initializer
+BookShelf shelf2 = new BookShelf() {
+    books = { book1, book2 };
 };
 ```
+
+In the above example, we want to test a `BookShelf`'s behaviors only related to the `Book[] array`. Instead of having to unnecessarily use param2, 3, 4 in construction, we can initialize a `BookShelf` only with the `Book[]` that we wanted to use.
 
 ### Closures
 
@@ -102,67 +114,66 @@ counter(); //Returns 1
 counter(); //Returns 2
 ```
 
-If you wish to read more about closures, you may consult [this article by dixin](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
+The ability to capture the value `count` outside of the defined function scope that returns `count`, is called a closure. If you wish to read more about closures, you may consult [this article by dixin](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
 
 ### Nullable type
 
-Often when dealing with possible sites of [null pointer](https://en.wikipedia.org/wiki/Null_pointer "In computing, a null pointer or null reference has a value reserved for indicating that the pointer or reference does not refer to a valid object.") access, many if checks might be used. However, when dealing with nullable types, such code can be shortened while remaining easy to read, using collaescing operators `??`, or null conditional operators `.?`. Some may find this similar to `optionals` in Swift.
+Often when dealing with possible sites of [null pointer](https://en.wikipedia.org/wiki/Null_pointer "In computing, a null pointer or null reference has a value reserved for indicating that the pointer or reference does not refer to a valid object.") access, many if checks might be used.
 
-More can be read about Nullables [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/)
-
-A code example without using Nullable features.
+Normally to guard against null pointers, an `if` branch or a guard clause that checks against `null` is used. Below is a code example of conventional null pointer handling.
 ```csharp
-public Car ManufactureCar()
-{
+public static Car ManufactureCar() {
     return (hasError) ? null : new Car(param1, param2);
 }
+public void AddFuelTank() {
+    fuelTank =  (hasError) ? null : new FuelTank(param3);
+}
 
-Car car = ManufactureCar();
+Car car = Car.ManufactureCar();
 Double fuelLeft = 0;
-//null check
 if (car != null)
 {
-    car.Drive();
-    car.GetFuel();
+    car.AddFuelTank();
+	fuelTank = car.GetFuelTank()
+	if (fuelTank != null) {
+        fuelLeft = fuelTank.GetFuel();
+    }
 }
 
 DoSomethingTo(fuelLeft);
 ```
 
-A code example using Nullable features. The length of the code is approximately halved. For programmers familiar to Nullable operators, the code should be easy to read. Nullable operators can also reduce the need for indentation and the occurrences of nested indentations.
+In C#, `null` handling does not need to be done the conventional way. C# has `Nullable` features, such as collaescing operators `??` and null conditional operators `.?`. Some may find this similar to `optionals` in Swift. Applying these features appropriately not only results in shorter and more concise code in general. It makes it easier to reduce the use of indentation as well. Nullables may appear less intuitive to new users, so its value may differ between communities.
 
 ```csharp
-public Car ManufactureCar() {
+public static Car ManufactureCar() {
     return (hasError) ? null : new Car(param1, param2);
 }
+public void AddFuelTank() {
+    fuelTank =  (hasError) ? null : new FuelTank(param3);
+}
 
-Car car = ManufactureCar();
+Car car = Car.ManufactureCar();
 //Call Drive method of car if not null
-car?.Drive();
+car?.AddFuelTank();
 
-//Get amount of fuel left
-Double fuelLeft = car?.GetFuel() ?? 0;
+//Get amount of fuel left with default value 0
+Double fuelLeft = car?.GetFuelTank()?.GetFuel() ?? 0;
 
 DoSomethingTo(fuelLeft);
 ```
 
 Some explanation of what `Double fuelLeft = car?.GetFuel() ?? 0` does:
 * If car is not null, one can expect the statement to evaluate to `car.GetFuel()`.
-* If car is null, `car?.GetFuel()` evaluates to null
-* `??` operator sees null, so the entire expression defaults to 0.
+* If car is null, `car?.GetFuel()` evaluates to null.
+* If GetFuelTank() returns null, or car evaluates to null, car?.GetFuelTank()?.GetFuel() evaluates to null.
+* `??` operator sees null, so the entire expression defaults to 0. If `??` sees a non-null value, the default value is not used.
 
-
-### Default Interface Implementations
-
-Sometimes classes have a common interface but do not have a common ancestor and require the same method implementation. A default implementation can be included in the interface to promote code reuse. Similarly, a certain class may not require certain methods listed in the interface. An example is a stub class that is required to implement an interface. A default method can be created with the `NotImplementedException`.
-
-### Async/Await
-
-Often in applications, some kind of heavy tasks need to be performed. These tasks include fetching data from a server or some data storage, I/O operations that read/write to disk, and computationally expensive tasks such as computing the shortest path from 1 point on a map to a destination of choice. If these tasks are run synchronously, they can cause the program to freeze up, leaving the UI (application User Interface) unresponsive, and this is undesired as consumers like us do not enjoy the lack of control over the program. In C#, this is done using the keywords `async` and `await`. More can be read up at [Microsoft's documentation](https://docs.microsoft.com/en-us/dotnet/csharp/async)
+More can be read about Nullables [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/)
 
 ### Other features
 
-The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. If you wish to explore other features, you may consult this [article](https://stackify.com/csharp-8-features/) and others online.
+The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. Some features that were not listed are [Async/Await](https://docs.microsoft.com/en-us/dotnet/csharp/async) and [Default Interface Implementation](https://www.infoq.com/articles/default-interface-methods-cs8). If you wish to explore other features, you may consult this [article](https://stackify.com/csharp-8-features/) and others online.
 
 ## Why Learn C#
 
@@ -174,6 +185,8 @@ C# is built on the .NET framework and has [cross platform](https://en.wikipedia.
 support extended by the [Mono project](https://www.mono-project.com/), and similarly the complete runtime implementation from open source [CoreCL](https://github.com/dotnet/coreclr). As Mono supports many platforms such as Windows, MacOS, Linux and even PlayStation 4, users can build for many platforms. C# is also used by the Unity Game Engine, which has high cross-platform support for game developers.
 
 ### Reason 2: High in Demand
+
+With more powerful computers, the difference in performance between Java and C# becomes less of a restriction. As such, tech companies are more open to adopting C# for software development.
 
 It is high in demand (as per [source1](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb), [source 2](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)). Especially well-suited for Windows apps and cross-platform games (via Unity).
 
