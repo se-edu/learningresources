@@ -159,7 +159,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
     How do we do that if we have to follow the 1-way data flow rule?
 
-    Under situations like below where the inner component has to pass data back to the outer component, the inner component has to [emit custom events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
+    In situations where the inner component has to pass data back to the outer component, the inner component has to [emit custom events](https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event)
     and the outer component will update after listening to these events.
 
     You can think of emitting events like putting out a flyer about an event. If someone is interested in this event, he or she can gather more information through reading the flyer.
@@ -182,7 +182,8 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 
 5. **Computed properties**<br>
-    This is useful when you want to reduce the amount of logic written in templates.
+    This is useful when you want to compose new data based on the data that has changed.
+    Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.
 
     ```js
     computed: totalCount() {
@@ -204,7 +205,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <br>
 
 6. **Watched properties**<br>
-    Watched properties are used to call other functions when a particular data has been updated, such as post-processing of data or <tooltip content="independent operations">asynchronous operations</tooltip>.
+    Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
     For example, a new `item` is added and we want to send a notification to our friend to inform that a new `item` is added.
     A watched property on `items` can be added so that a notification can be sent whenever `items` has changed.
@@ -221,11 +222,14 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
     }
     ```
 
-    This may look quite similar to `Computed properties`. Computed properties are more appropriate to use when you want to update a new state which depends on the data changed.
+    This may look quite similar to `Computed properties`.
+
+    To decide which is more suitable for your feature, here is a brief comparison:
     Watched property | Computed property
     :-------------- | :----------------
+    used for running expensive operations | used for updating data for dependencies
     executed every time page refreshes | uses cached data and executes only when changed
-    allow 1 variable to observed only | allow multiple variables to be observed
+    **watches** for change in 1 property | **creates** a new property that is updated when 1 or more dependencies change
 
 <br>
 
