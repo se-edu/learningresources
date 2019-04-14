@@ -19,29 +19,20 @@ Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://gi
 
 ## What is C#
 
-C# is a _general purpose_, _multi-paradigm_, _garbage collected_, _cross-platform_ language by Microsoft, and part of the _.NET platform_. Some claim C# is Microsoft's answer to Java.
+C# is a _general purpose_, _multi-paradigm_, _garbage collected_, _cross-platform_ language by Microsoft, and part of the _.NET platform_. Some claim C# is Microsoft's answer to Java due to the fact that the two languages have a lot of similarities.
 
-_general purpose_
+Given below are brief explanations of the key characteristics of C# mentioned above.
+* **General purpose**: 
+  <blockquote>In computer software, a general-purpose programming language is a programming language designed to be used for writing software in the widest variety of application domains (a general-purpose language). A general-purpose programming language has this status because it does not include language constructs designed to be used within a specific application domain.<br>--(source: [Wikipedia](https://en.wikipedia.org/wiki/General-purpose_programming_language))</blockquote>
+* **Multi-paradigm**: [_Programing Paradigms_](https://en.wikipedia.org/wiki/Programming_paradigm) are used to describe Programming Languages based on their features. Some commonly referred paradigms are [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (which primarily organizes code into objects that contain a state) and [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) (where code represents a sequence of stateless functions.) C# supports both Object-Oriented and Functional Programming, and many others that can be found [here](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)).
 
->From [Wikipedia](https://en.wikipedia.org/wiki/General-purpose_programming_language)
->In computer software, a general-purpose programming language is a programming language designed to be used for writing software in the widest variety of application domains (a general-purpose language).
->A general-purpose programming language has this status because it does not include language constructs designed to be used within a specific application domain.
+* **Garbage Collected**: The intialization, storage and handling of variables require memory. *Garbage Collection* is a form of automatic memory management, where memory that is no longer referenced by the program will be deallocated. You may read more about [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)).
 
-_multi-paradigm_
-
-**Programing Paradigms** are used to describe Programming Languages based on their features. Some commonly referred paradigms are [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (which primarily organizes code into objects that contain a state) and [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) (where code represents a sequence of stateless functions.) C# supports both Object-Oriented and Functional Programming, and many others that can be found [here](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)). You may also read more about [multi-paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) programming languages.
-
-_garbage collected_
-
-The intialization, storage and handling of variables require memory. *Garbage Collection* is a form of automatic memory management, where memory that is no longer referenced by the program will be deallocated. You may read more about [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)).
-
-_cross-platform_
-
-[Cross Platform](https://en.wikipedia.org/wiki/Cross-platform_software) software is software that can be run across multiple platforms, which may require recompilation depending on the software. Common platforms include Windows, MacOS and Linux, and for mobile platforms Android and iOS. The benefits of writing **Cross Platform** software is that developers will only need to primarily maintain 1 code base and be able to deploy to multiple platforms.
+* **Cross-Platform**: [Cross-Platform](https://en.wikipedia.org/wiki/Cross-platform_software) software is software that can be run across multiple platforms, which may require recompilation depending on the software. Common platforms include Windows, MacOS and Linux, and for mobile platforms Android and iOS. The benefits of writing Cross-Platform software is that developers will only need to primarily maintain 1 code base and be able to deploy to multiple platforms.
 
 ### A Glimpse of C#
 
-C# is a relatively high level language and is not difficult to pick up (a little more difficult than Python and a little easier than Java.)
+C# is not difficult to pick up.
 
 Below is a sample code snippet of what a simple program in C# might look like:
 
@@ -69,7 +60,7 @@ Developers that work with C# commonly use Visual Studio as their IDE and also as
 
 ## C# Syntax Features
 
-Most programming languages/frameworks have their own unique quirks, which can be utilised for better code quality. This section covers some **interesting and noteworthy features** that can help make code more concise, and most are common to other languages such as Java and Swift.
+This section covers some **interesting and noteworthy features** of C#, and most are common to other languages such as Java and Swift.
 
 ### Object/Array/Collection Initializers
 
@@ -184,16 +175,7 @@ support extended by the [Mono project](https://www.mono-project.com/), and simil
 
 ### Reason 2: High in Demand
 
->Oct 13, 2017
->Being powerful, flexible, and well-supported enabled C# has quickly become one of the most popular programming languages available.
->Today, it is the 4th most popular programming language, with approximately 31% of all developers using it regularly. It is also the 3rd largest community on StackOverflow (which was built using C#) with more than 1.1 million topics.
-
->[_Why Is C# Among The Most Popular Programming Languages in The World?_ - Armina Mkhitaryan](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb)
-
->Since it's such a robust and well-rounded language, it's no surprise that C# is utilized by thousands of companies. There are 5,000 (Mar 17, 2018) [C# jobs advertised in the US alone](https://gooroo.io/analytics/skill/C-Sharp#.WqipapPwYWo)
->(and 10,000 globally), with an [average base pay of nearly $80,000](https://www.glassdoor.com/Salaries/c-net-developer-salary-SRCH_KO0,15.htm).
-
->[_It pays to learn to code with C# and here's why_ - Team Commerce](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)
+It is high in demand (as per [source1](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb), [source 2](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)). Especially well-suited for Windows apps and cross-platform games (via Unity).
 
 ### Game Development
 
