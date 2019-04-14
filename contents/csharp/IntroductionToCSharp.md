@@ -30,11 +30,8 @@ Given below are brief explanations of the key characteristics of C# mentioned ab
 
 * **Cross-Platform**: [Cross-Platform](https://en.wikipedia.org/wiki/Cross-platform_software) software is software that can be run across multiple platforms, which may require recompilation depending on the software. Common platforms include Windows, MacOS and Linux, and for mobile platforms Android and iOS. The benefits of writing Cross-Platform software is that developers will only need to primarily maintain 1 code base and be able to deploy to multiple platforms.
 
-### A Glimpse of C#
 
-C# is not difficult to pick up.
-
-Below is a sample code snippet of what a simple program in C# might look like:
+Below is an example of of a simple C# program:
 
 ```csharp
 //Comments can be marked with // or /**/
@@ -60,7 +57,7 @@ Developers that work with C# commonly use Visual Studio as their IDE and also as
 
 ## C# Syntax Features
 
-This section covers some **interesting and noteworthy features** of C#, and most are common to other languages such as Java and Swift.
+This section covers some noteworthy features of C# syntax %%(some of them are found in other languages such as Java and Swift)%%.
 
 ### Object/Array/Collection Initializers
 
@@ -117,8 +114,6 @@ counter(); //Returns 2
 The ability to capture the value `count` outside of the defined function scope that returns `count`, is called a closure. If you wish to read more about closures, you may consult [this article by dixin](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
 
 ### Nullable type
-
-Often when dealing with possible sites of [null pointer](https://en.wikipedia.org/wiki/Null_pointer "In computing, a null pointer or null reference has a value reserved for indicating that the pointer or reference does not refer to a valid object.") access, many if checks might be used.
 
 Normally to guard against null pointers, an `if` branch or a guard clause that checks against `null` is used. Below is a code example of conventional null pointer handling.
 ```csharp
@@ -177,22 +172,8 @@ The list of features in C# can be quite long. This article only shows you select
 
 ## Why Learn C#
 
-Below are some common reasons why one should learn C#.
+C# is high in demand (as per [source1](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb), [source 2](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)). It is especially well-suited for Windows apps. It also thrives in game programming because the popualr game engine Unity has has great cross-platform compatibility for desktop, web, mobile and console, and has extensive support for 2D/3D games, VR/AR games and games that require networking. C# can even be used on non-Windows as the .NET framework has [cross platform](https://en.wikipedia.org/wiki/Cross-platform_software "In computing, cross-platform software (also multi-platform software or platform-independent software) is computer software that is implemented on multiple computing platforms.") support via the [Mono project](https://www.mono-project.com/).
 
-### Reason 1: Cross-platform support
-
-C# is built on the .NET framework and has [cross platform](https://en.wikipedia.org/wiki/Cross-platform_software "In computing, cross-platform software (also multi-platform software or platform-independent software) is computer software that is implemented on multiple computing platforms.")
-support extended by the [Mono project](https://www.mono-project.com/), and similarly the complete runtime implementation from open source [CoreCL](https://github.com/dotnet/coreclr). As Mono supports many platforms such as Windows, MacOS, Linux and even PlayStation 4, users can build for many platforms. C# is also used by the Unity Game Engine, which has high cross-platform support for game developers.
-
-### Reason 2: High in Demand
-
-With more powerful computers, the difference in performance between Java and C# becomes less of a restriction. As such, tech companies are more open to adopting C# for software development.
-
-It is high in demand (as per [source1](https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb), [source 2](https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ)). Especially well-suited for Windows apps and cross-platform games (via Unity).
-
-### Game Development
-
-The usage of C# in game development is fairly common due to the Unity game engine. Unity has great cross-platform compatibility for desktop, web, mobile and console, and has extensive support for 2D/3D games, VR/AR games and games that require networking.
 
 ## How to Get Started
 
