@@ -995,7 +995,9 @@
     {
       "headings": {
         "sql-injection": "SQL Injection",
-        "overview": "Overview",
+        "sql": "SQL",
+        "how-does-sql-injection-work": "How does SQL Injection Work?",
+        "why-is-it-important-to-prevent-sql-injection": "Why is it Important to Prevent SQL Injection?",
         "preventing-sql-injection": "Preventing SQL Injection",
         "solution-1-prepared-statements-using-parameterized-queries": "Solution 1: Prepared Statements using Parameterized Queries",
         "solution-2-whitelist-input-validation": "Solution 2: Whitelist Input Validation",
