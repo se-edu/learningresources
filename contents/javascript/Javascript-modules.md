@@ -16,6 +16,7 @@
 Reviewers: Chelsey Ong, Ong Shu Peng, Amrut Prabhu
 
 <box type="info">
+
 This article assumes the reader has some basic knowledge of JavaScript.
 </box>
 
@@ -113,7 +114,8 @@ A more in-depth explanation of CommonJS can be found in the [Modules chapter of 
 Using a technique in JavaScript called _[IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_, JavaScript developers can create module by wrapping their code in an IIFE.
 
 <box>
-An **IIFE (Immediately Invoked Function Expression)** is a JavaScript function that runs as soon as it is defined. <br>
+
+An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. <br>
 **Syntax:** `(function() { statements })();`
 
 _Source: [MDN Glossary - IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_
