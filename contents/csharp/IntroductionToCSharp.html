@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.1.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Libraries</title>
+  <title>SE-EDU/LearningResources - Introduction to C#</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -50,10 +50,10 @@
         <div class="sticky-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
           <span id="toc">
             <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">C++
                         <i class="dropdown-btn-icon">
@@ -64,12 +64,12 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">CSharp
+                        <i class="dropdown-btn-icon rotate-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
+                      <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a current">Introduction to CSharp</a></li>
                         </ul>
                       </div>
                     </li>
@@ -287,35 +287,170 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="libraries">Libraries<a class="fa fa-anchor" href="#libraries"></a></h1>
-          <p>Authors: Li Kai</p>
-          <p>As a beginner, there may be some hesistation in using libraries. The big advantage is the amount of benefit it brings to the team. Whether its the overhead of having to load the library, or having to learn a large library's syntax, not having to maintain more code makes the project more manageable, maintainable and that alone makes it worth its cost.</p>
-          <h2 id="utility-libraries">Utility Libraries<a class="fa fa-anchor" href="#utility-libraries"></a></h2>
-          <p>The limitation to Javascript is its limited utility library. That is why libraries like <a href="https://lodash.com/">lodash</a> is such a popular module. There are a lot of functions being provided, which would help a lot in making shorter, more coherent syntax. Lodash reduces the need to write and maintain your own <code>_.assign</code> or <code>_.range</code> and even provides powerful functions such as <code>_.merge</code> and <code>_.groupBy</code>.</p>
-          <h2 id="testing-libraries">Testing Libraries<a class="fa fa-anchor" href="#testing-libraries"></a></h2>
-          <p>There are a large amount of Javascript testing libraries. The below is a non-exhaustive list.</p>
+          <h1 id="introduction-to-c">Introduction to C#<a class="fa fa-anchor" href="#introduction-to-c"></a></h1>
+          <p><strong>Author(s:) <a href="https://github.com/YuPeiHenry">Yu Pei, Henry</a></strong></p>
+          <p>Reviewers: <a href="https://github.com/ChesterSng">Chester Sng</a>, <a href="https://github.com/sijie123">Lin Si Jie</a></p>
+          <h2 id="what-is-c">What is C#<a class="fa fa-anchor" href="#what-is-c"></a></h2>
+          <p>C# is a <em>general purpose</em>, <em>multi-paradigm</em>, <em>garbage collected</em>, <em>cross-platform</em> language by Microsoft, and part of the <em>.NET platform</em>. Some claim C# is Microsoft's answer to Java due to the fact that the two languages have a lot of similarities.</p>
+          <p>Given below are brief explanations of the key characteristics of C# mentioned above.</p>
           <ul>
-            <li><a href="https://github.com/avajs/ava">AVA</a></li>
-            <li><a href="https://jasmine.github.io/">Jasmine</a></li>
-            <li><a href="https://facebook.github.io/jest/">Jest</a></li>
-            <li><a href="https://mochajs.org/">Mocha</a></li>
-            <li><a href="https://qunitjs.com">QUnitJs</a></li>
-            <li><a href="https://github.com/substack/tape">Tape</a></li>
+            <li>
+              <p><strong>General purpose</strong>:</p>
+              <blockquote>In computer software, a general-purpose programming language is a programming language designed to be used for writing software in the widest variety of application domains (a general-purpose language). A general-purpose programming language has this status because it does not include language constructs designed to be used within a specific application domain.<br>--(source: [Wikipedia](https://en.wikipedia.org/wiki/General-purpose_programming_language))</blockquote>
+            </li>
+            <li>
+              <p><strong>Multi-paradigm</strong>: <a href="https://en.wikipedia.org/wiki/Programming_paradigm"><em>Programing Paradigms</em></a> are used to describe Programming Languages based on their features. Some commonly referred paradigms are <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Programming</a> (which primarily organizes code into objects that contain a state) and <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a> (where code represents a sequence of stateless functions.) C# supports both Object-Oriented and Functional Programming, and many others that can be found <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">here</a>.</p>
+            </li>
+            <li>
+              <p><strong>Garbage Collected</strong>: The intialization, storage and handling of variables require memory. <em>Garbage Collection</em> is a form of automatic memory management, where memory that is no longer referenced by the program will be deallocated. You may read more about <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">Garbage Collection</a>.</p>
+            </li>
+            <li>
+              <p><strong>Cross-Platform</strong>: <a href="https://en.wikipedia.org/wiki/Cross-platform_software">Cross-Platform</a> software is software that can be run across multiple platforms, which may require recompilation depending on the software. Common platforms include Windows, MacOS and Linux, and for mobile platforms Android and iOS. The benefits of writing Cross-Platform software is that developers will only need to primarily maintain 1 code base and be able to deploy to multiple platforms.</p>
+            </li>
           </ul>
-          <p>So which one do you choose? Among the above, I have had the opportunity of write in all of the above except Tape.</p>
-          <p>The general advice is to go for Mocha if you are new, due to its <a href="http://stateofjs.com/2016/testing/">large community</a> and therefore overall amount of help available. When you are familiar with Mocha and understand its pitfalls (speed and organisation), you can explore other libraries such as Jest.</p>
-          <p>Jest, due to its speed, support for React.js, support for asynchronous testing and helpful terminal outputs, seems to be the upcoming major player. The fact that it is being made by Facebook is icing to the cake.</p>
-          <p>The odd test framework in the list above is QUnit, which is a test framework that runs on the browser instead of node.js like the others. QUnit has been around longer. Unless you are running JQuery and need to test for browser or UI related bugs, it is no longer a conventional choice.</p>
+          <p>Below is an example of of a simple C# program:</p>
+          <pre><code class="hljs csharp"><span class="hljs-comment">//Comments can be marked with // or /**/</span>
+<span class="hljs-comment">//Namespaces are similar to packages, except the file does not need to be physically in the directory</span>
+<span class="hljs-keyword">using</span> ProjectName.Utils;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">ProjectName.Model</span>
+{
+    <span class="hljs-comment">//Subclassing BaseClass</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> : <span class="hljs-title">BaseClass</span> {
+        ...
+        <span class="hljs-comment">//Method declaration</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params">String[] args</span>)</span> {
+            <span class="hljs-comment">//Variable definition</span>
+            <span class="hljs-keyword">string</span> message = <span class="hljs-string">"Hello World!"</span>;
+            Console.WriteLine(message);
+        }
+    }
+}
+</code></pre>
+          <p>Developers that work with C# commonly use Visual Studio as their IDE and also as a build tool for compilation into common application/library formats, such as <code>.exe</code> or <code>.dll</code>. Using Visual Studio for C# development offers great convenience as it has an integrated testing framework, <a href="https://en.wikipedia.org/wiki/Visual_Studio_Unit_Testing_Framework">MSTest</a>.</p>
+          <h2 id="c-syntax-features">C# Syntax Features<a class="fa fa-anchor" href="#c-syntax-features"></a></h2>
+          <p>This section covers some noteworthy features of C# syntax <span class="dimmed">(some of them are found in other languages such as Java and Swift)</span>.</p>
+          <h3 id="object-array-collection-initializers">Object/Array/Collection Initializers<a class="fa fa-anchor" href="#object-array-collection-initializers"></a></h3>
+          <p>In C#, you can construct an <a href="https://en.wikipedia.org/wiki/Object_(computer_science)" title="In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier.">Object</a>, <a href="https://www.webopedia.com/TERM/A/array.html" title="In programming, a series of objects all of which are the same size and type. Each object in an array is called an array element. For example, you could have an array of integers or an array of characters or an array of anything that has a defined data type.">Array</a> or <a href="https://computersciencewiki.org/index.php/Collections" title="A collection — sometimes called a container — is simply an object that groups multiple elements into a single unit.">Collection</a> in a single statement as shown. This can be useful when writing tests, as test data will be better organised, as compared to calling the actual constructor.</p>
+          <pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BookShelf</span>(<span class="hljs-params">Book[] books, param2, param3, param4</span>)</span>
+{
+    <span class="hljs-keyword">this</span>.books = books
+    <span class="hljs-comment">// Do something with param 2, 3, 4</span>
+}
+
+<span class="hljs-comment">// Without use of Object Initializer</span>
+BookShelf shelf1 = <span class="hljs-keyword">new</span> BookShelf(books, param2, param3, param4)
+
+<span class="hljs-comment">// With use of Object Initializer</span>
+BookShelf shelf2 = <span class="hljs-keyword">new</span> BookShelf() {
+    books = { book1, book2 };
+};
+</code></pre>
+          <p>In the above example, we want to test a <code>BookShelf</code>'s behaviors only related to the <code>Book[] array</code>. Instead of having to unnecessarily use param2, 3, 4 in construction, we can initialize a <code>BookShelf</code> only with the <code>Book[]</code> that we wanted to use.</p>
+          <h3 id="closures">Closures<a class="fa fa-anchor" href="#closures"></a></h3>
+          <p>Sometimes, it may be useful to <a href="http://www.informit.com/articles/article.aspx?p=2171751" title="Code that is executed only when results need to be evaluated. There are many reasons for executing code later">defer execution</a> or capture a local context for later execution. Context capturing is reflected below:</p>
+          <pre><code class="hljs csharp"><span class="hljs-comment">//Capturing local context</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Context</span>
+{
+    <span class="hljs-comment">//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Func&lt;Int&gt; <span class="hljs-title">GetCounter</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">//Inside the context of this function, there is an integer variable count.</span>
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+        <span class="hljs-comment">//GetCounter is returning a function.</span>
+        <span class="hljs-keyword">return</span> () =&gt;
+        {
+            <span class="hljs-comment">//The function increments the count variable inside this context, which is initialized to 0.</span>
+            count++;
+            <span class="hljs-comment">//It then returns the current count value.</span>
+            <span class="hljs-keyword">return</span> count;
+        }
+    }
+}
+
+Func&lt;Int&gt; counter = Context.GetCounter();
+<span class="hljs-comment">//Every time the function is called, the variable count in the captured context would increment by 1, and its new value will be returned.</span>
+counter(); <span class="hljs-comment">//Returns 1</span>
+counter(); <span class="hljs-comment">//Returns 2</span>
+</code></pre>
+          <p>The ability to capture the value <code>count</code> outside of the defined function scope that returns <code>count</code>, is called a closure. If you wish to read more about closures, you may consult <a href="https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure">this article by dixin</a></p>
+          <h3 id="nullable-type">Nullable type<a class="fa fa-anchor" href="#nullable-type"></a></h3>
+          <p>Normally to guard against null pointers, an <code>if</code> branch or a guard clause that checks against <code>null</code> is used. Below is a code example of conventional null pointer handling.</p>
+          <pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {
+    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);
+}
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {
+    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);
+}
+
+Car car = Car.ManufactureCar();
+Double fuelLeft = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">if</span> (car != <span class="hljs-literal">null</span>)
+{
+    car.AddFuelTank();
+	fuelTank = car.GetFuelTank()
+	<span class="hljs-keyword">if</span> (fuelTank != <span class="hljs-literal">null</span>) {
+        fuelLeft = fuelTank.GetFuel();
+    }
+}
+
+DoSomethingTo(fuelLeft);
+</code></pre>
+          <p>In C#, <code>null</code> handling does not need to be done the conventional way. C# has <code>Nullable</code> features, such as collaescing operators <code>??</code> and null conditional operators <code>.?</code>. Some may find this similar to <code>optionals</code> in Swift. Applying these features appropriately not only results in shorter and more concise code in general. It makes it easier to reduce the use of indentation as well. Nullables may appear less intuitive to new users, so its value may differ between communities.</p>
+          <pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {
+    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);
+}
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {
+    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);
+}
+
+Car car = Car.ManufactureCar();
+<span class="hljs-comment">//Call Drive method of car if not null</span>
+car?.AddFuelTank();
+
+<span class="hljs-comment">//Get amount of fuel left with default value 0</span>
+Double fuelLeft = car?.GetFuelTank()?.GetFuel() ?? <span class="hljs-number">0</span>;
+
+DoSomethingTo(fuelLeft);
+</code></pre>
+          <p>Some explanation of what <code>Double fuelLeft = car?.GetFuel() ?? 0</code> does:</p>
+          <ul>
+            <li>If car is not null, one can expect the statement to evaluate to <code>car.GetFuel()</code>.</li>
+            <li>If car is null, <code>car?.GetFuel()</code> evaluates to null.</li>
+            <li>If GetFuelTank() returns null, or car evaluates to null, car?.GetFuelTank()?.GetFuel() evaluates to null.</li>
+            <li><code>??</code> operator sees null, so the entire expression defaults to 0. If <code>??</code> sees a non-null value, the default value is not used.</li>
+          </ul>
+          <p>More can be read about Nullables <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/">here</a></p>
+          <h3 id="other-features">Other features<a class="fa fa-anchor" href="#other-features"></a></h3>
+          <p>The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. Some features that were not listed are <a href="https://docs.microsoft.com/en-us/dotnet/csharp/async">Async/Await</a> and <a href="https://www.infoq.com/articles/default-interface-methods-cs8">Default Interface Implementation</a>. If you wish to explore other features, you may consult this <a href="https://stackify.com/csharp-8-features/">article</a> and others online.</p>
+          <h2 id="why-learn-c">Why Learn C#<a class="fa fa-anchor" href="#why-learn-c"></a></h2>
+          <p>C# is high in demand (as per <a href="https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb">source1</a>, <a href="https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ">source 2</a>). It is especially well-suited for Windows apps. It also thrives in game programming because the popualr game engine Unity has great cross-platform compatibility for desktop, web, mobile and console, and has extensive support for 2D/3D games, VR/AR games and games that require networking. C# can even be used on non-Windows environments as the .NET framework has <a href="https://en.wikipedia.org/wiki/Cross-platform_software" title="In computing, cross-platform software (also multi-platform software or platform-independent software) is computer software that is implemented on multiple computing platforms.">cross platform</a> support via the <a href="https://www.mono-project.com/">Mono project</a>.</p>
+          <h2 id="how-to-get-started">How to Get Started<a class="fa fa-anchor" href="#how-to-get-started"></a></h2>
+          <p>Getting started with C# is not difficult. You can download Visual Studio and follow the setup instructions for C# programming <a href="https://www.guru99.com/download-install-visual-studio.html">here</a>. If you are new to C# but have some familiarity with Java, you may follow the tutorial at <a href="https://www.sololearn.com/Play/CSharp">Sololearn</a>. It is a rather comprehensive tutorial that teaches fundamental syntax and concepts in C#. If you feel that certain parts of the tutorial are too simple, you can also skip them.</p>
+          <p>If you are entirely new to programming, you may find more hands on practice with simpler steps at <a href="https://csharp.net-tutorials.com/getting-started/introduction/">CSharp net</a>. This tutorial tends to be more rigorous and goes through in great detail the steps, starting from installing a development environment, to writing basic C# programs and finally topics commonly used in real applications, such as file handling and debugging. If you wish to skip certain parts of the tutorial, the structured contents are displayed on the right side of the website.</p>
+          <p>If you want to have a go at maintaining and enhancing a small project, you may find this <a href="http://1000projects.org/airline-reservation-system-a-net-project-with-code.html">fictitious airline reservation system</a> project
+            to be a good starting point. It covers commonly used components of a software, such as UI (Application User Interface), data storage and handling, and the logic behind the program (such as buying a ticket). More similar projects can be found at <a href="http://1000projects.org/c-projects.html">1000projects.org</a>.</p>
+          <p>If you feel that you have a grasp of C# fundamentals but find it difficult to write programs of bigger scale, you may consult
+            <a href="https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/">CSharp corner</a> for a list of design patterns that you may employ to better organise and plan your program structure. Sometimes, you may find that you have problems collaborating on a C# project. This may be due to some common misconceptions and mistakes you are commiting without realisation. You may reduce these problems by reading about <a href="https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/">some common mistakes in C# programming</a>.</p>
+          <p>If you want to develop a desktop application for Windows, you may consult <a href="https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?view=vs-2019">Microsoft's documentation</a> on creating an application with the <code>Windows Presentation Foundation</code>, a framework that is commonly used for creating UI for Windows Applications that has many useful features for building your UI.</p>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="sticky-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#libraries">Libraries&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-c">Introduction to C#&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#utility-libraries">Utility Libraries&#x200E;</a>
-              <a class="nav-link py-1" href="#testing-libraries">Testing Libraries&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-c">What is C#&#x200E;</a>
+              <a class="nav-link py-1" href="#c-syntax-features">C# Syntax Features&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#object-array-collection-initializers">Object/Array/Collection Initializers&#x200E;</a>
+                <a class="nav-link py-1" href="#closures">Closures&#x200E;</a>
+                <a class="nav-link py-1" href="#nullable-type">Nullable type&#x200E;</a>
+                <a class="nav-link py-1" href="#other-features">Other features&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#why-learn-c">Why Learn C#&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-get-started">How to Get Started&#x200E;</a>
             </nav>
 
           </nav>

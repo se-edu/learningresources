@@ -179,6 +179,27 @@
     },
     {
       "headings": {
+        "introduction-to-c": "Introduction to C#",
+        "what-is-c": "What is C#",
+        "c-syntax-features": "C# Syntax Features",
+        "object-array-collection-initializers": "Object/Array/Collection Initializers",
+        "closures": "Closures",
+        "nullable-type": "Nullable type",
+        "other-features": "Other features",
+        "why-learn-c": "Why Learn C#",
+        "how-to-get-started": "How to Get Started"
+      },
+      "title": "Introduction to C#",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/csharp/IntroductionToCSharp.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "introduction-to-databases-and-database-management-systems-dbms": "Introduction to Databases &amp; Database Management Systems (DBMS)",
         "why-learn-databases-and-dbmses": "Why learn databases and DBMSes?",
         "introduction": "Introduction",
