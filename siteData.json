@@ -523,11 +523,12 @@
     {
       "headings": {
         "vuejs": "VueJs",
-        "creating-a-simple-project-in-vuejs": "Creating a Simple Project in VueJs",
+        "what-is-vuejs": "What is VueJs?",
         "undefined": "Hello World",
-        "advantages-and-disadvantages-of-vuejs": "Advantages and Disadvantages of VueJs",
-        "links-to-vuejs-tutorials-and-practices": "Links to VueJs tutorials and practices",
-        "references": "References"
+        "vuejs-features": "VueJs Features",
+        "vuejs-advantages": "VueJs Advantages",
+        "vuejs-drawbacks": "VueJs Drawbacks",
+        "resources": "Resources"
       },
       "title": "VueJs",
       "header": "pagetop.md",

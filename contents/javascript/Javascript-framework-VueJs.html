@@ -279,24 +279,24 @@
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
           <h1 id="vuejs">VueJs<a class="fa fa-anchor" href="#vuejs"></a></h1>
-          <p>Author: <a href="https://github.com/LuLechuan">Lu Lechuan</a></p>
-          <p>VueJs (also known as Vue) is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainablity.</p>
-          <h2 id="creating-a-simple-project-in-vuejs">Creating a Simple Project in VueJs<a class="fa fa-anchor" href="#creating-a-simple-project-in-vuejs"></a></h2>
-          <h4 id="installation">Installation</h4>
-          <p>There are <a href="https://vuejs.org/v2/guide/installation.html">multiple ways to install VueJs</a> and they are all easy. For example, one of the easiest ways is to run the npm command <code>$ npm install vue</code>.</p>
-          <p>Apart from installing VueJs, you can install <a href="https://github.com/vuejs/vue-devtools#vue-devtools">VueJs development tools</a> in your browser. This will allow you to inspect and debug the components that use VueJs in your projects.</p>
-          <h4 id="helloworld-in-vuejs">HelloWorld in VueJs</h4>
-          <p>This is a minimal example to show how easy it is to integrate VueJs into your web project:<br><br>
-            The main HTML file</p>
+          <p><strong>Authors: <a href="https://github.com/chelseyong">Chelsey Ong</a>, <a href="https://github.com/LuLechuan">Lu Lechuan</a></strong> <br>
+            Reviewers: <a href="https://github.com/emer7">Gilbert Emerson</a>, <a href="https://github.com/ongspxm">Ong Shu Peng</a></p>
+          <box type="info">
+            This article assumes the reader has a basic knowledge of HTML and JavaScript.
+          </box>
+          <h2 id="what-is-vuejs">What is VueJs?<a class="fa fa-anchor" href="#what-is-vuejs"></a></h2>
+          <p>VueJs (also known as Vue) is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainability.</p>
+          <p>This is a simple example to show how easy it is to integrate VueJs into your web project:<br><br>
+            The main HTML file:</p>
           <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{ message }\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 </code></pre>
-          <p>This is inside the javacript file</p>
+          <p>This is inside the JavaScript file:</p>
           <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue ({
   <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
 
@@ -305,8 +305,12 @@
   }
 });
 </code></pre>
+          <box type="warning">
+            <p>Note that <code>{\{</code> and <code>}\}</code> should not have the slash in your actual code.
+            </p>
+          </box>
           <p>Step-by-step explanation of the code:</p>
-          <p><b>Step 1:</b> Import VueJs CDN and the JavaScript file in the main HTML file.</p>
+          <p><b>Step 1:</b> Import VueJs <tooltip content="Content Delivery Network" placement="top">CDN</tooltip> and the JavaScript file in the main HTML file.</p>
           <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
@@ -325,15 +329,159 @@
 </code></pre>
           <p><b>Step 4:</b> Pass the message to the HTML file using double curly brackets.</p>
           <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{message}\{<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
           <p><b>Step 5:</b> Open the brower and we will see &quot;Hello World&quot; being displayed:</p>
           <blockquote>
             <h2>Hello World<a class="fa fa-anchor" href="#undefined"></a></h2>
           </blockquote>
-          <h2 id="advantages-and-disadvantages-of-vuejs">Advantages and Disadvantages of VueJs<a class="fa fa-anchor" href="#advantages-and-disadvantages-of-vuejs"></a></h2>
-          <h4 id="advantages-of-vuejs">Advantages of VueJs</h4>
+          <br>
+          <h2 id="vuejs-features">VueJs Features<a class="fa fa-anchor" href="#vuejs-features"></a></h2>
+          <ol>
+            <li>
+              <p><strong>Mutating of data in the DOM</strong><br>
+                In Vue, the state of the data can be directly modified.</p>
+              <p>Let's say, there is a variable called <code>message</code> in your app. To modify <code>message</code>, you can do the following:</p>
+              <pre><code class="hljs js"><span class="hljs-keyword">this</span>.message = <span class="hljs-string">'Hello Space'</span>;
+</code></pre>
+              <p>When <code>message</code> is changed, the view will be re-rendered to show the new message. So you can say, DOM is &quot;reacting&quot; to <code>message</code>.</p>
+            </li>
+          </ol>
+          <br>
+          <ol start="2">
+            <li>
+              <p><strong>2-way binding</strong><br>
+                <code>v-model</code> is a <a href="https://vuejs.org/v2/api/#v-model">Vue directive</a> used to bind the DOM input field to its data variable.</p>
+              <p>This allows the DOM variables and data to be &quot;in sync&quot;, regardless of which one is being updated first.
+                In other words, if you change the input value, the bound data will change, and vice versa.</p>
+              <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>, <span class="hljs-attr">v-model</span>=<span class="hljs-string">isChecked</span>"&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"checked"</span>&gt;</span>Select<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</code></pre>
+              <p>When the checkbox is selected, <code>isChecked</code> is set to <code>true</code>. If the program sets <code>isChecked</code> to <code>false</code>, then checkbox will be unselected.
+                This reduces any extra step required to manually update the data.</p>
+              <p>2-way binding is useful for updating input form bindings such as checkboxes or drop-downs, where new data is entered by users and then updated in the view.</p>
+            </li>
+          </ol>
+          <br>
+          <ol start="3">
+            <li>
+              <p><strong>Passing data from outer to inner components</strong><br>
+                When you have components that are nested within each other, data is passed from the outer component to the inner component via <code>props</code>, where <code>props</code> are just custom data shared between the components.</p>
+              <p>This follows the <a href="https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow">1-way data flow</a> encouraged by Vue, which
+                ensures that data can only be changed by the component itself and also allows bugs to be easily traced in the code.</p>
+              <pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-list'</span>, {
+    <span class="hljs-attr">props</span>: [<span class="hljs-string">'item'</span>],
+    <span class="hljs-attr">data</span>: [<span class="hljs-string">'totalCount'</span>],
+    <span class="hljs-attr">template</span>:
+      &lt;div class='todo-list'&gt;
+        &lt;p&gt;Total:{\{this.totalCount}\{&lt;/p&gt;
+        &lt;p&gt;{\{item.name}\{: {\{item.count}\{&lt;/p&gt;
+})
+
+&lt;todo-list
+  v-for='item in items'
+  v-bind:key='item.id'
+  v-bind:item='item'
+&gt;&lt;/todo-list&gt;
+</code></pre>
+              <p><code>to-do list</code> contains <code>item</code>, i.e. <code>to-do list</code> is the outer component and <code>item</code> is the inner component.</p>
+              <box type="tip">
+                <p>Note that <code>props</code> is passed from the outer component to the inner component while <code>data</code> is kept private within a component.
+                </p>
+              </box>
+            </li>
+          </ol>
+          <br>
+          <ol start="4">
+            <li>
+              <p><strong>Emitting events</strong><br>
+                However, what if the user decides to update the <code>item.count</code>? The data for <code>item.count</code> has to be passed from <code>item</code> to <code>todo-list</code> so that <code>totalCount</code> can be updated inside <code>todo-list</code> .</p>
+              <p>How do we do that if we have to follow the 1-way data flow rule?</p>
+              <p>In situations where the inner component has to pass data back to the outer component, the inner component has to <a href="https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event">emit custom events</a>
+                and the outer component will update after listening to these events.</p>
+              <p>You can think of emitting events like putting out a flyer about an event. If someone is interested in this event, he or she can gather more information through reading the flyer.</p>
+              <pre><code class="hljs js">Vue.component(<span class="hljs-string">'item'</span>, {
+  <span class="hljs-attr">data</span>: [<span class="hljs-string">'count'</span>, <span class="hljs-string">'name'</span>],
+  <span class="hljs-attr">template</span>: {
+    &lt;button v-on:click=<span class="hljs-string">"$emit('increased-count', count+1)"</span>&gt;Increment item count&lt;<span class="hljs-regexp">/button&gt;
+  }
+}
+
+/</span>* Inside todo-list component *<span class="hljs-regexp">/
+template: {
+    v-on:increased-count="updateCount"
+}
+</span></code></pre>
+            </li>
+          </ol>
+          <br>
+          <ol start="5">
+            <li>
+              <p><strong>Computed properties</strong><br>
+                This is useful when you want to compose new data based on the data that has changed.
+                Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.</p>
+              <pre><code class="hljs js">computed: totalCount() {
+    <span class="hljs-keyword">let</span> result = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.items.forEach(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> result += item.count);
+    <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+              <p>Unlike the use of methods, this updating of <code>totalCount</code> will only be triggered when the number of <code>items</code> in the list or any <code>item</code>'s <code>count</code> changed.</p>
+              <p>Since computed properties are cached and will not be processed every time the page refreshes, this can greatly improve the efficiency of your application.</p>
+              <box type="warning">
+                Note: computed properties must return the new data i.e. reactive properties.
+                It cannot perform other operations in response to the change in data.
+              </box>
+            </li>
+          </ol>
+          <br>
+          <ol start="6">
+            <li>
+              <p><strong>Watched properties</strong><br>
+                Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.</p>
+              <p>For example, when a new <code>item</code> is added, we want to send a notification to our friend to alert him or her about the change.
+                A watched property on <code>items</code> can be added so that a notification can be sent whenever <code>items</code> has changed.</p>
+              <pre><code class="hljs js">watch: {
+    <span class="hljs-attr">totalCount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">let</span> result = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">this</span>.items.forEach(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> result += item.count);
+        <span class="hljs-keyword">this</span>.totalCount = result;
+
+        <span class="hljs-comment">// notify friend about the change</span>
+    }
+}
+</code></pre>
+              <p>This may look quite similar to <code>Computed properties</code>.</p>
+              <p>To decide which is more suitable for your feature, here is a brief comparison:</p>
+              <div class="table-responsive">
+                <table class="markbind-table table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th style="text-align:left">Watched property</th>
+                      <th style="text-align:left">Computed property</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align:left">used for running expensive operations</td>
+                      <td style="text-align:left">used for updating data for dependencies</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:left">executed every time page refreshes</td>
+                      <td style="text-align:left">uses cached data and executes only when changed</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:left"><strong>watches</strong> for change in 1 property</td>
+                      <td style="text-align:left"><strong>creates</strong> a new property that is updated when 1 or more dependencies change</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+          </ol>
+          <br>
+          <h2 id="vuejs-advantages">VueJs Advantages<a class="fa fa-anchor" href="#vuejs-advantages"></a></h2>
           <ol>
             <li>
               <p><strong>Approachable:</strong><br>
@@ -370,7 +518,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
 </code></pre>
               <p>The HTML file in VueJs</p>
               <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"date in array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"date in array"</span>&gt;</span>{date}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
             </li>
@@ -391,7 +539,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
                 VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.</p>
             </li>
           </ol>
-          <h4 id="disadvantages-of-vuejs">Disadvantages of VueJs</h4>
+          <h2 id="vuejs-drawbacks">VueJs Drawbacks<a class="fa fa-anchor" href="#vuejs-drawbacks"></a></h2>
           <ol>
             <li>
               <p><strong>Relatively small size community:</strong><br>
@@ -402,20 +550,18 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
                 A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.</p>
             </li>
           </ol>
-          <h4 id="detailed-comparison-of-vuejs-with-other-javascript-frameworks-can-be-found-from">Detailed Comparison of VueJs with other JavaScript frameworks can be found from:</h4>
+          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
+          <p>Detailed Comparison of VueJs with other JavaScript frameworks can be found from:</p>
           <ul>
             <li><a href="https://vuejs.org/v2/guide/comparison.html">Vue Guild: Comparison with Other Frameworks</a></li>
             <li><a href="https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176">Angular vs React vs Vue</a></li>
           </ul>
-          <h2 id="links-to-vuejs-tutorials-and-practices">Links to VueJs tutorials and practices<a class="fa fa-anchor" href="#links-to-vuejs-tutorials-and-practices"></a></h2>
+          <p>Links to VueJs tutorials and practices:</p>
           <ul>
+            <li><a href="https://vuejs.org">VueJS Official Website</a></li>
             <li><a href="https://vuejs.org/">VueSchool</a></li>
             <li><a href="https://laracasts.com/series/learn-vue-2-step-by-step">Laracast</a></li>
             <li><a href="https://vuetifyjs.com/zh-Hans/">Vuetify</a></li>
-          </ul>
-          <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
-          <ul>
-            <li><a href="https://vuejs.org/">VueJS Official Website</a></li>
           </ul>
         </div>
       </div>
@@ -425,10 +571,11 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#vuejs">VueJs&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#creating-a-simple-project-in-vuejs">Creating a Simple Project in VueJs&#x200E;</a>
-              <a class="nav-link py-1" href="#advantages-and-disadvantages-of-vuejs">Advantages and Disadvantages of VueJs&#x200E;</a>
-              <a class="nav-link py-1" href="#links-to-vuejs-tutorials-and-practices">Links to VueJs tutorials and practices&#x200E;</a>
-              <a class="nav-link py-1" href="#references">References&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-vuejs">What is VueJs?&#x200E;</a>
+              <a class="nav-link py-1" href="#vuejs-features">VueJs Features&#x200E;</a>
+              <a class="nav-link py-1" href="#vuejs-advantages">VueJs Advantages&#x200E;</a>
+              <a class="nav-link py-1" href="#vuejs-drawbacks">VueJs Drawbacks&#x200E;</a>
+              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
             </nav>
 
           </nav>
@@ -437,7 +584,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.1.1</a> on Sun, 14 Apr 2019 05:59:18 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.1.1</a> on Sun, 14 Apr 2019 12:40:54 GMT]</small></div>
     </footer>
   </div>
 </body>
