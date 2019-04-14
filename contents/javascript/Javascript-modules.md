@@ -73,8 +73,7 @@ Due to the very recent adoption of ES6 modules by browsers and there is still so
 
 There are 2 workarounds for this issue. You can use _[transpiler](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them)_ such as _[Babel](https://babeljs.io/)_ and _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_ to serve your application to those unsupported browsers or use one of the other two approaches mentioned below.
 
-Additional resources: <br>
-http://exploringjs.com/es6/ch_modules.html
+A more in-depth explanation of ES6 modules can be found in the [Modules chapter of the Exploring ES6 online book](http://exploringjs.com/es6/ch_modules.html).
 
 ### CommonJS
 
@@ -107,8 +106,7 @@ anExampleModule.sumOfVariable(); // 3
 
 CommonJS is mainly used in NodeJS applications, but you can also use it outside of NodeJS by using _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_. If your project requirement does not allow you to use bundler, the approach given in the next section does not need any external tool.
 
-Additional resources: <br>
-https://nodejs.org/docs/latest/api/modules.html
+A more in-depth explanation of CommonJS can be found in the [Modules chapter of NodeJS API documentation](https://nodejs.org/docs/latest/api/modules.html).
 
 ### Module Pattern
 
@@ -175,8 +173,7 @@ var anExampleModule = (function() {
 anExampleModule.sumOfVariable(); // 3
 ```
 
-Additional resources: <br>
-https://ultimatecourses.com/blog/mastering-the-module-pattern
+A more in-depth explanation of module pattern can be found in the [this course blog on mastering module pattern](https://ultimatecourses.com/blog/mastering-the-module-pattern).
 
 ## Which to use?
 
