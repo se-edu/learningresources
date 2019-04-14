@@ -13,8 +13,8 @@
 
 # VueJs
 
-**Authors**: [Lu Lechuan](https://github.com/LuLechuan), [Chelsey Ong](https://github.com/chelseyong)<br>
-Reviewers: [Ong Shu Peng](https://github.com/ongspxm), [Gilbert Emerson](https://github.com/emer7)
+**Authors: [Chelsey Ong](https://github.com/chelseyong), [Lu Lechuan](https://github.com/LuLechuan)** <br>
+Reviewers: [Gilbert Emerson](https://github.com/emer7), [Ong Shu Peng](https://github.com/ongspxm)
 
 VueJs (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
 
@@ -23,8 +23,6 @@ This article assumes the reader has a basic knowledge of HTML and JavaScript.
 </box>
 
 ## Creating a Simple Project in VueJs
-
-#### HelloWorld in VueJs
 
 This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
 The main HTML file:
@@ -91,9 +89,10 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <br>
 
 -----
-### Now that you have written your first program, let's introduce some features so you can further extend your Vue project!<br>
+Now that you have written your first program, let's introduce some features so you can further extend your Vue project!<br>
 
-### Vue's Features
+## VueJs Features
+
 1. **Mutating of data in the DOM**<br>
     In Vue, the state of the data can be directly modified.
 
@@ -234,9 +233,8 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <br>
 
 ---
-## Advantages and Disadvantages of VueJs
 
-#### Advantages of VueJs
+## VueJs Advantages
 
 1. **Approachable:**<br/>
 VueJs is very easy to learn. Compared to other framework such as Angular and ReactJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
@@ -292,7 +290,7 @@ VueJs is perfectly capable of powering sophisticated single-page applications wh
 4. **Clean:**<br/>
 VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.
 
-#### Disadvantages of VueJs
+### VueJs Drawbacks
 
 1. **Relatively small size community:**<br/>
 VueJs is a relatively new JavaScript framework as compared to Angular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
@@ -300,19 +298,16 @@ VueJs is a relatively new JavaScript framework as compared to Angular and React.
 2. **Language barriers:**<br/>
 A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.
 
----
-### Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
+## Resources
+
+Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
 - [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
 - [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
-### Links to VueJs tutorials and practices
-
+Links to VueJs tutorials and practices:
+- [VueJS Official Website](https://vuejs.org)
 - [VueSchool](https://vuejs.org/)
 - [Laracast](https://laracasts.com/series/learn-vue-2-step-by-step)
 - [Vuetify](https://vuetifyjs.com/zh-Hans/)
-
-### References
-
-- [VueJS Official Website](https://vuejs.org)
 
 </div>
