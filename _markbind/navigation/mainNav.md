@@ -33,6 +33,7 @@
   * Performance
     * [Introduction to Performance Optimization]({{baseUrl}}/contents/performance/Performance.html)
     * [Performance Profiling]({{baseUrl}}/contents/performance/PerformanceProfiling.html)
+    * [Web Performance]({{baseUrl}}/contents/performance/WebPerformance.html)
   * Project Management
     * [Agile Development]({{baseUrl}}/contents/projectManagement/AgileDevelopment.html)
     * [DevOps]({{baseUrl}}/contents/devops/DevOps.html)
@@ -50,6 +51,7 @@
   * UI/UX
     * [Introduction to UI/UX]({{baseUrl}}/contents/uix/uix.html)
     * [Refining UX Design Skills]({{baseUrl}}/contents/uix/refining-ux-skills.html)
+    * [Accessibility]({{baseUrl}}/contents/uix/accessibility.html)
 
 * ****App Frameworks****
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)

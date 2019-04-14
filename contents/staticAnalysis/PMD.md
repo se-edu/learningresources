@@ -1,14 +1,15 @@
 <frontmatter>
   title: PMD
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # PMD
 
@@ -49,7 +50,7 @@ PMD doesn't support checking rules for the following languages. Only Copy/Paste 
 - [Scala](https://pmd.github.io/pmd-5.5.3/pmd-scala/index.html)
 
 ## Limitation
-Limitations are almost the same as [CheckStyle](CheckStyle.md).
+Limitations are almost the same as [CheckStyle](CheckStyle.html).
 
 - The examined code has to be compilable. The reason is described in [How does it work](#how-does-it-work) section.
 - Files will be examined one by one, which means you cannot check multiple files at the same time. 
