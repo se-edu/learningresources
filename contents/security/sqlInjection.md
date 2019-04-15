@@ -1,27 +1,24 @@
 <frontmatter>
   title: SQL Injection
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # SQL Injection
 
-Author: [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md)
+**Authors: [Jiang Chunhui](https://github.com/Adoby7), [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md)**
 
-## Overview
+**Reviewers: [Ayush Chatto](https://github.com/AyushChatto), [Monika Manuela Hengki](https://github.com/monmanuela),  [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Rachael Sim](https://github.com/rachx), [Tran Tien Dat](https://github.com/tran-tien-dat), [Wen Xin](https://github.com/wenmogu)**
 
-SQL (Structured Query Language) Injection is a vulnerability found in websites using databases.
-
-SQL is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Databases are usually made of many "tables" 
-which are organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry.
-
-As an example, a table in a database may look like this:
+## SQL
+SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many "tables" organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:
 
 |   UserId   |    Username   |Password|
 |:----------:|:-------------:|:------:|
@@ -29,19 +26,41 @@ As an example, a table in a database may look like this:
 |      2     |     Alice     | pw1234 |
 |      3     |      ...      |   ...  |
 
-
 SQL is used to interact with the database by sending "queries" which the database responds to. Some common SQL commands used include: 
 * `SELECT` - retrieves information from a table
 * `UPDATE` - changes information from a table
 * `INSERT INTO` - adds a new entry into a table
 * `DELETE FROM` - deletes information from a table
+* `DROP` - deletes the whole table
 
-Websites combine SQL syntax with user input to query the underlying database of the website. For example, blog websites may ask for a username and password from users for them to log in to the site. This input is used to create the SQL statement that will be sent to the database. A website which is vulnerable to SQL injection attacks may construct the SQL query like this:
+In addition, a query could use parameters to filter, reorder, and group the returned results. For example, the following query will only returns the records in table "users" whose user name is "Admin". Here the parameter `Username = Admin` in the `WHERE clause` works as a filter.
+```SQL
+SELECT * FROM users WHERE Username = 'Admin'
+```
+
+
+More information about SQL can be found [here](https://www.w3schools.com/sql/).
+
+## How does SQL Injection Work?
+
+>**SQL injection is the placement of malicious code in SQL statements, via web page input.**<br>--source: [w3schools](https://www.w3schools.com/sql/sql_injection.asp)
+
+To learn about SQL injection, let us suppose that a typical website connects to a database which stores user information like below:
+
+|   UserId   |    Username   |Password|
+|:----------:|:-------------:|:------:|
+|      1     |     Admin     | 123456 |
+|      2     |     Alice     | pw1234 |
+|      3     |      ...      |   ...  |
+
+Then the website prompts a login form to require the user to enter `username` and `password`. After receiving the data, it generates the following SQL query: 
 
 ```sql
 String query = "SELECT * FROM Users WHERE Username = ‘" + input_username +"’ 
                 AND Password = ‘" + input_password + "’";
 ```
+
+ Next, the website checks whether the query returns any record to verify whether the user enters the correct password.
 
 As an example, if a user entered their username, `Alice`, and password, `pw1234` into the website to try to gain access:
 
@@ -50,48 +69,76 @@ Username: Alice
 Password: pw1234
 ```
 
-The constructured query would look like this:
+The constructed query would look like this:
 
 ```sql
 SELECT * FROM Users WHERE Username = ‘Alice’ 
 AND Password = ‘pw1234’
 ```
 
-This query would find all entries in the `Users` table in the database, and return any entries where the `Username` is `Alice` and the `Password` is `pw1234`. If the previous table was searched, it would return the details of the second row as the result. Since there was a result returned, the website would be able to tell that a legitimate username and password combination was entered since the query requires that both are matched to retrieve the data. Thus, the website would know that the user is legitimate, and the user would be allowed to log into the site. On the other hand, if no result was returned by the database, the website would know that the username and password combination does not match any of the users in the database, and would deny access to the person trying to log in.
+This query would find all entries in the `Users` table in the database, and return any entries where the `Username` is `Alice` and the `Password` is `pw1234`. If the previous table was searched, it would return the details of the second row as the result. Since there was a result returned, the website would be able to tell that a legitimate username and password combination was entered since the query requires that both are matched to retrieve the data. Thus, the website would know that the user is legitimate, and the user would be allowed to log into the site.
+ On the other hand, if no result was returned by the database, the website would know that the username and password combination does not match any of the users in the database, and would deny access to the person trying to log in.
 
 
-However, are users limited to just filling in legitimate username and password strings? Some websites directly use the information given by the user without any validation, thus the users are able to write code as input for their own malicious purposes. For example, users are able to add parameters to the query.
+**However, some websites may not check the syntax of user input rigorously, and therefore a malicious user can inject SQL query via the user input.** 
+
+In the example above, the website directly substitutes the information given by the user without any validation. In this case, an attacker can supply some malicious SQL code in the user input such that it changes the nature of the SQL statement executed.
+
+ For example, the attacker can add more parameters to the query:
 
 ```sql
-Username: foo
-Password: bar’ OR ‘’=’
+Username: Admin
+Password: foo’ OR ‘1’=‘1
 ```
-
 The SQL command string built from this input would be as follows:
 
 ```sql
-SELECT * FROM Users WHERE Username = ‘foo’ 
-AND Password = ‘bar’ OR ‘’=’’
+SELECT * FROM Users WHERE Username = ‘Admin’ 
+AND Password = ‘foo’ OR ‘1’=‘1’
 ```
 
 In SQL, `AND` operations are checked before `OR` operations.
 This query will check the database for entries where:
 
 ```
-Username = foo AND Password = bar
-OR
-‘’=’’
+(Username = Admin AND Password = foo) OR (‘1’=‘1’)
 ```
 
-This query will always return true, as `‘’=’’` is always true.
+This `where` clause will always return true, as `‘1’=‘1’` is always true.
 As such, the query can be simplified to this:
 
 ```sql
 SELECT * FROM Users
 ```
 
-This will return all the rows from the `Users` table in the database, regardless of username or password entered. If used in user authentication, the user will likely be able to gain access to the system.
+This will return all the rows from the `Users` table in the database, regardless of username or password entered. 
 
+The above technique of injecting malicious SQL code via user input is called SQL injection. If used in user authentication, the attacker is able to gain access to anyone's account. Moreover, this attacker can also modify sensitive information if the account owner has the privilege (e.g. a lecturer who can modify students' marks).
+
+
+**In addition to adding extra parameters to compromise the authentication, a malicious user may even add custom queries to view, modify the records in database, or even delete the whole database.**
+
+An SQL query ends with a semicolon ";". In the previous section the malicious user terminates one parameter by single quote "'", and add more parameters behind it. Now, he can also terminate the query by semicolon, and adds another query at the back:
+
+```sql
+Username: foo
+Password: bar’; DROP TABLE Users;
+```
+
+```sql
+SELECT * FROM Users WHERE Username = ‘foo’ AND Password = ‘bar’; 
+DROP TABLE Users;
+```
+
+When the database executes these two queries, it will delete all user information. Then other users cannot access this website. In addition to the `DROP` query, the attacker may also inject `SELECT` and `INSERT` queries, which can either read sensitive data from database or add data to it. 
+
+## Why is it Important to Prevent SQL Injection?
+
+1. **It is the most common type of attack.** According to [Open Web Application Security Project (OWASP) report](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf), the injection attack is always the annual top 1 application security risk from 2013 to 2017. In addition, [Statistics from Akamai](https://www.akamai.com/uk/en/resources/our-thinking/state-of-the-internet-report/web-attack-visualization.jsp) shows that in one week, over 80% of attacks are SQL injection.
+1. **It can have serious consequences.** SQL injection can cause the loss of large amount of money. Based on the [Global Threat Intelligence Report](https://www.helpnetsecurity.com/2014/03/28/analysis-of-three-billion-attacks-reveals-sql-injections-cost-196000/), even a small SQL injection attack may cause hundreds of thousands dollars lost. 
+Furthermore, information disclosure is another serious consequence. [An SQL injection attack on the toymaker company, VTech](https://coar.risc.anl.gov/consequences-of-sql-injection-attacks/), caused millions of parents' and children's profiles to be stolen. 
+Thus, we need to pay attention to prevent this attack in our code.
+1. **It is easy to prevent.** Referring to the section below, you do not need to put too many efforts on preventing from SQL injection. As it can prevent such a common attack, why not do it now?
 
 ## Preventing SQL Injection
 
