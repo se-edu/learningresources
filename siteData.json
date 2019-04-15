@@ -1000,10 +1000,14 @@
     },
     {
       "headings": {
-        "cross-site-scripting": "Cross Site Scripting",
-        "overview": "Overview",
-        "types-of-cross-site-scripting": "Types of Cross Site Scripting",
-        "preventing-cross-site-scripting": "Preventing Cross Site Scripting",
+        "cross-site-scripting-xss": "Cross Site Scripting (XSS)",
+        "what-is-xss": "What is XSS?",
+        "why-do-you-need-to-know-about-xss": "Why do you need to know about XSS?",
+        "how-does-xss-work": "How does XSS work?",
+        "types-of-xss": "Types of XSS",
+        "well-known-xss-incidents": "Well-Known XSS Incidents",
+        "how-to-prevent-xss": "How to prevent XSS?",
+        "where-to-go-from-here": "Where to go from here?",
         "resources": "Resources"
       },
       "title": "Cross Site Scripting",
