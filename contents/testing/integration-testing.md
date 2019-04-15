@@ -18,9 +18,8 @@ Reviewers:
 
 ## What is integration testing?
 
-Integration testing is a part of software testing where individual parts of your application are combined and tested as a whole. This usually happens after the [<tooltip content="Testing of individual components within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html) and it aims to discover faults related to the interaction between components.
+Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual components within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html) and it aims to discover faults related to the interaction between components.
 
-### Concrete example of unit, integration and system testing
 Imagine that you have built an online web ordering system and a sample architecture diagram of your application is shown as follows:
 
 <center>
@@ -60,8 +59,9 @@ In a software application, each software module is usually designed and unit tes
 Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is necessary to ensure that software modules work in unity and expose any faults in the interaction between different units.
 
 <box>
-Suppose you are developing the **Order Food** component as mentioned previously and you allow each user to submit up to 10 orders each time.
-If the **Order Summary** component can only record maximum of 5 orders each time, 5 orders by different users could be lost, resulting in problems such as data loss, inaccurate results and even system errors. 
+
+Suppose you are developing the `Order Food` component as mentioned previously and you allow each user to submit up to 10 orders each time.
+If the `Order Summary` component can only record maximum of 5 orders each time, 5 orders by different users could be lost, resulting in problems such as **data loss**, **inaccurate results** and even **system errors**.
 Integration tests find these discrepancies before any serious damage is done.
 </box>
 
@@ -89,7 +89,7 @@ Using this specific system as an example, below are a list of things you should 
 
 Before the actual implementation of your integration tests, it is important to decide on the approach used. There are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.
 
-#### [Big bang approach](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.htm):
+#### Big bang approach:
 
 This approach involves integrating all the components in your design diagram together and testing everything at once in a complete state. 
 This is convenient but it is difficult to isolate defects and there is a high chance of missing critical underlying defects.
@@ -102,7 +102,9 @@ An example of how big bang integration testing can be applied to our given examp
 ![Big bang integration testing diagram](integration-test/big-bang-integration.png "Big bang integration testing diagram]")
 </center>
 
-#### [Incremental testing approach](https://www.quora.com/What-is-incremental-testing-in-software):
+:fas-info-circle: You can find more use details on the big bang approach [here](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.htm).
+
+#### Incremental testing approach:
 
 This approach involves integrating two or more logically related components. The other related components are added and tested for proper functioning. This is repeated until all the components are joined (or _integrated incrementally_) and tested successfully. It is usually preferred with any application having more than 10 different components.
 
@@ -110,7 +112,7 @@ Incremental integration testing is further split into the 3 approaches shown bel
 
 | | [Top-down approach](https://www.guru99.com/integration-testing.html#9) | [Bottom-up approach](https://www.guru99.com/integration-testing.html#8) | [Hybrid / sandwich approach](https://www.guru99.com/integration-testing.html#10) |
 | -- | -- | -- | -- |
-| **Description**| <tooltip content="Refer to more abstract operations">High level modules</tooltip> are tested first and then <tooltip content="Refer to specific implementation details">lower level modules</tooltip>, until all the modules are tested. | The reverse of top-down approach. | A mix of both top-down bottom-up approaches. |
+| **Description**| Based on the dependency order of components, high level components are tested first, followed by lower level components. | The reverse of top-down approach. | A mix of both top-down bottom-up approaches. |
 | <span style="color:green">**Advantages**</span>| Early discovery of high level architecture / design defects. | Easier to create test cases bottom up. | Beneficial for big project to distribute tasks on testing.
 | | Main control points of the system are tested early. | Critical modules on functionalities are tested first. | Allow top-down and bottom-up approach to run side by side. |
 | <span style="color:red">**Disadvantages**</span> | Significant low level modules are tested late in the cycle. | There is no testable working system until the higher level modules are build. | It is difficult to test for highly interconnected modules. |
@@ -143,7 +145,7 @@ Depending on the approach you have chosen for your integration plan and the test
 - Big bang approach usually involves all the modules to be developed before you can start with the integration testing.
 
 - Incremental approach is usually conducted simultaneously with the module's development. Stubs and drivers are used to mimic the modules for writing tests since not all modules are developed at the point of integration testing.
-[NUS Software Engineer textbook](https://nus-cs2103-ay1819s1.github.io/cs2103-website/se-book-adapted/chapters/testing.html#stubs) provides concrete codes for using stubs.
+[NUS Software Engineer module site](https://nus-cs2103-ay1819s1.github.io/cs2103-website/se-book-adapted/chapters/testing.html#stubs) provides concrete codes for using stubs.
 
 Either way, you should always ensure that all high prioritized bugs are fixed before moving on.
 
@@ -156,38 +158,50 @@ Thereafter, you should make changes to your application to fix them and re-test 
 
 :fas-info-circle: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
 
+
+## Projects Adopting Integration Testing
+[Teammates](https://github.com/TEAMMATES/teammates), an online peer evaluations feedback platform, is an exaunit testing, followed by integration testing, then system testing needs to be performed before deploying the product.
+
+Each part of Teammates undergoes unit testing to ensure that each function such as filling up text, selecting dropdowns or checkboxes are working as expected. 
+Integration testing ensures that each interactable interface from one module like logging in, leads you correctly to another module such as the intructor or student home page
+System testing ensures that all the necessary specifications are available and the generatl feedback performance  and loading speed do not disappoint
+
+
+
 ## Tips for better integration tests
 
-### :fas-thumbs-up: Make sure that each component is unit tested before integration testing
+- **Make sure that each component is unit tested before integration testing**
 By ensuring that each unit test is completed properly, integration testing will be smoother as we can focus mainly on the flow of data between modules.
 
-### :fas-thumbs-up: Prioritize the modules to be tested
+- **Prioritize the modules to be tested**
 Despite the need to cover all areas of integration of the application, it is important to ensure that critical modules needs to be tested first.
 
-### :fas-thumbs-up: Keep testing suites separate
-Integration tests should be run separately from unit tests. Developers working on backend logic can run unit tests frequently and get immediate result. They do not have to meddle with integration testing unnecessarily.
+- **Keep testing suites separate**
+Integration tests should be run separately from unit tests. Developers working on backend logic can run unit tests frequently and get immediate result.
+They do not have to meddle with integration testing unnecessarily.
 
-### :fas-thumbs-up: Automate your tests (optional)
+- **Ensure that all executed test cases are documented**
+This helps you to identify errors quickly through an integration test.
+It also helps to standardize the way integration testing is carried out in your application so that everyone can conform to the given standard.
+
+- **Automate your tests (optional)**
 As far as possible, automate all your tests, especially when you use the incremental approach since regression testing is important each time you integrate a new unit, and manual regression testing can be inefficient. 
 You can find a list of most commonly used [automation tools](https://medium.com/@briananderson2209/best-automation-testing-tools-for-2018-top-10-reviews-8a4a19f664d2) for integration testing.
-
-### :fas-thumbs-up: Ensure that all executed test cases are documented
-This helps you to identify errors quickly through an integration test. It also helps to standardize the way integration testing is carried out in your application so that everyone can conform to the given standard.
 
 :fas-info-circle: [This article](https://techbeacon.com/devops/6-best-practices-integration-testing-continuous-integration) provides more useful tips for CI projects.
 
 ## Tools to get started with integration testing
 
-Here are some useful tools that you can use for your integration testing:
+Generally integration test can be implemented based on your existing unit testing tools.
+However, if you do not have an existing testing tool in place, here are some useful tools that you can consider for your integration testing:
+
+- [VectorCast](http://www.vectorcast.com/). VectorCAST tool operates based on executing single component unit tests first before integration tests as discussed in this article.
+
+- [Gauge](https://gauge.org/). Gauge acts as a plugin which can be incorporated to any language or IDE. 
+It is an lightweight cross-platform test automation tool which makes testing easier to maintain, more readable and scalable.
 
 - [Selenium](https://www.seleniumhq.org/). Selenium is an open source test automation framework focusing on web applications. 
 It supports a wide range of programming languages, cross-browser testing with extensive libraries and the ability to create robust test scripts to handle many scenarios.
-
-- [Robotium](https://github.com/RobotiumTech/robotium). Robotium is an Android test automation framework made to simplify black-box tests. 
-It can handle multiple activities automatically, producing fast and robust tests cases.
-
-- [Gauge](https://gauge.org/). Gauge acts as a plugin which can be incorporated to any language or IDE. 
-It is an lightweight cross-platform test automation tool which makes testing easier to maintain, more readable and flexible.
 
 - [Google EarlGrey](https://google.github.io/EarlGrey/). For non web applications, EarlGrey is a native iOS automation test framework allowing developers to write and maintain clear concise tests. 
 It has a powerful built-in synchornization which allows it to reproduce any UI interactivity and test them.
