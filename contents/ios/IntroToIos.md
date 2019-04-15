@@ -14,11 +14,11 @@
 
 Authors: [Bryan Lew](https://github.com/blewjy)
 
-## 1. Overview: What is iOS?
+## Overview: What is iOS?
 
 iOS is the mobile operating system that runs on Apple's mobile devices, most notably the iPhone and the iPad. Applications that run on iOS can be downloaded officially from the App Store, and developers of iOS applications can submit their own applications to the App Store to share it with the rest of the world. 
 
-## 2. Why iOS?
+## Why iOS?
 
 In the mobile world, [2 operating systems dominate the whole market share: iOS and Android](https://www.theverge.com/2017/2/16/14634656/android-ios-market-share-blackberry-2016). While Android boasts higher market share in terms of the total number of hardware devices running the operating system, iOS is no slouch in other aspects, especially those important to us sofware engineers.
 
@@ -38,27 +38,19 @@ More app revenue for iOS applications also means companies will look to tackle t
 
 #### Higher quality applications
 
-Publishing an application to the Apple App Store is by no means a simple task. First and foremost, there is an annual fee that you have to pay as a developer in order to [have your app published on the App Store](https://developer.apple.com/ios/submit/). Upon submission, the App Store will then [test your app](https://developer.apple.com/app-store/review/) for every possible bug and validation errors before they will proceed to publish on the store. This is drastically different from the Android Play Store where approval process is not as stringent. 
+The Apple App Store [subjects the apps to higher quality control](https://developer.apple.com/app-store/review/) (as compared to Android Play Store) before they are allowed to be published. This means that applications on the App Store are more robust, and of higher quality in general.
 
-This also means that applications on the App Store are of higher quality in general. As iOS developers, we will be required to pay more attention to our application development process to make sure that everything is working and tested well before attempting to publish it up to the App Store. One review period can take up to 1 week, and multiple rejections from the App Store can quickly delay your development time.
-
-## 3. Native iOS applications vs. cross-platform applications
+## Native iOS applications vs. cross-platform applications
 
 Mobile applications that run on the iOS platform can be written both natively and using [cross-platform solutions](http://www.businessofapps.com/guide/cross-platform-mobile-app-development/). Native iOS applications are written using [Objective-C or Swift](https://android.jlelse.eu/objective-c-or-swift-which-technology-to-learn-for-ios-app-development-3c681d1a05ac) on the Xcode IDE that you can download if you are running a MacOS. Cross-platform solutions are tools that allow you to write code once and develop applications for more than 1 platform. Some examples include [React Native](https://facebook.github.io/react-native/), [Xamarin](https://visualstudio.microsoft.com/xamarin/), and [Ionic](https://ionicframework.com/). Both methods have their own pros and cons, and these factors not only affect the app developers, but also the users to some extent.
 
-The main attraction to developing mobile applications using cross-platform solutions is development time. Cross-platform solutions allow you to write code once, but push it out to more than one OS, usually iOS and Android being two of these platforms. This means that essentially, your development time is cut by half, because you are only writing code once for 2 separate applications. While this may sound like an attractive deal, there are a bunch of caveats to consider that can potentially be a deal breaker, performance and compatability issues being the frontrunners.
-
-Some of these cross-platform solutions can be thought to work as an additional layer between your application and the native API calls, and with an additional layer comes inevitable performance compromise. This is most noticeable when it comes to more GPU demanding applications such as games. For less intensive applications such as social media apps, this is still manageable, as proven by Facebook and Instagram which are both written using React Native.
-
-Compatibility issues, especially with UI components, can come up when you are trying to develop a mobile application using cross-platform solutions, usually because some of these components are available on one OS but not the other, hence the cross-platform API will completely not give the component as an option to developers. 
+The main attraction to developing mobile applications using cross-platform solutions is development time. Cross-platform solutions allow you to write code once, but push it out to more than one OS, usually iOS and Android being two of these platforms. This means that essentially, your development time is cut by half, because you are only writing code once for 2 separate applications. While this may sound like an attractive deal, there are a bunch of caveats to consider that can potentially be a deal breaker, [performance and compatability issues being the frontrunners](https://codeburst.io/native-vs-cross-platform-app-development-pros-and-cons-49f397bb38ac).
 
 If you are coming from a web development background, you might want to consider starting with React Native. React Native as a cross-platform mobile development framework will give you a mobile development environment that is very similar to a web development one (especially if you are familiar with ReactJS), using the same JavaScript structure as ReactJS, and also uses `props`, `state`, and all the standard React component lifecycle methods. It will allow you to learn about mobile development while on familiar ground.
 
-If you are a complete beginner to programming or do not have much software engineering experience, native iOS development with Swift might be a better choice to start with. Given that Swift is a statically typed language, more errors will be caught earlier, and you will be forced to be more structured and disciplined in your code. With Swift being a fast and readable language, it is not a bad language to start learning programming with or to pick up general software engineering skills with. 
+If you are a complete beginner to programming or do not have much software engineering experience, native iOS development with Swift might be a better choice to start with. Given that Swift is a statically typed language, more errors will be caught earlier, and you will be forced to be more structured and disciplined in your code. With Swift being a fast and readable language, it is not a bad language to start learning programming with or to pick up general software engineering skills with.
 
-In a nutshell, there are many factors to consider when deciding to develop mobile applications using cross-platform or native solutions, but as budding software engineers, it definitely would not hurt to pick up both!
-
-## 4. Getting started with native iOS development
+## Getting started with native iOS development
 
 To get started with native iOS development, we have to first get some of the basic tools set up:
 
@@ -79,7 +71,7 @@ If you have worked with iOS applications before, are familiar with the whole dev
 - [Auto Layout](https://www.raywenderlich.com/443-auto-layout-tutorial-in-ios-11-getting-started)
 - [iOS Animations](https://www.raywenderlich.com/363-ios-animation-tutorial-getting-started)
 
-## 6. Useful links and further reading
+## Useful links and further reading
 
 Here are some links to more advanced topics on iOS development and Swift:
 - [Objective-C vs. Swift](https://www.altexsoft.com/blog/engineering/swift-vs-objective-c-out-with-the-old-in-with-the-new/)
