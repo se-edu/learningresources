@@ -20,6 +20,40 @@ Reviewers:
 
 Integration testing is a part of software testing where individual parts of your application are combined and tested as a whole. This usually happens after the [<tooltip content="Testing of individual components within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html) and it aims to discover faults related to the interaction between components.
 
+### Concrete example of unit, integration and system testing
+Imagine that you have built an online web ordering system and a sample architecture diagram of your application is shown as follows:
+
+<center>
+
+![Sample architecture diagram](integration-test/sample-architecture.png "Sample architecture diagram")
+</center>
+
+When focusing on the food ordering aspect of this system, a unit test on the `Order Summary` could look like this:
+```
+@Test
+public void isOrderSummaryCorrect(OrderSummary orderSummary) {
+	assertTrue(orderSummary.contains("cheese burger"));
+}
+```
+
+After unit testing of individual modules are completed, an integration test on `Order Food` and `Order Summary` could look like this:
+
+```
+public class FoodOrderingIntegrationTest {
+	public void testFoodOrderRecorded() {
+		FoodOrder foodOrder1 = new FoodOrder("cheese burger");
+		FoodSummary foodSummary = new FoodSummary();
+		foodSummary.add(foodOrder);
+		
+		isOrderSummaryCorrect(foodSummary);
+	}
+}
+```
+
+The system test is used to ensure that your entire application has the necessary working functionalities such as ordering, paying and generate reports. It usually involve different scenarios of using the entire system like this:
+
+- A customer ordered 3 items, made payment using his E-Wallet and generated a report to save the order record.
+
 ## Why is integration testing important?
 
 In a software application, each software module is usually designed and unit tested by different programmers. Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is necessary to ensure that software modules work in unity and expose any faults in the interaction between different units.
