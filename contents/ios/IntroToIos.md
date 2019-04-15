@@ -12,7 +12,8 @@
 
 # Introduction to iOS Development
 
-Authors: [Bryan Lew](https://github.com/blewjy)
+**Authors: [Bryan Lew](https://github.com/blewjy)**
+**Reviewers: [Chester Sng](https://github.com/ChesterSng), [Yu Pei, Henry](https://github.com/YuPeiHenry), [Jiang Chunhui](https://github.com/Adoby7)**
 
 ## Overview: What is iOS?
 
@@ -59,7 +60,6 @@ To get started with native iOS development, we have to first get some of the bas
 - Once you have an Apple Developer Account, you can either directly download Xcode from the [website](https://developer.apple.com/xcode/), or search for Xcode on your Mac App Store. Xcode is the Integrated Development Environment (IDE) that provides you with everything you need to develop an iOS app from scratch. It also comes with the iPhone and iPad simulator that you will need to test your application.
 
 ![Xcode and Simulator](https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png)
-
 ([Image](https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png) from Google)
 
 Native iOS applications can be written in [Objective-C or Swift](https://android.jlelse.eu/objective-c-or-swift-which-technology-to-learn-for-ios-app-development-3c681d1a05ac). Swift is a relatively newer language, introduced only in 2014, while Objective-C is more of an old school programming language. If you are just starting out on iOS development, you should strongly consider using Swift. The main reason being that many of the documentations and help on the internet are written for iOS development in Swift, hence it will be easier to look for resources that target Swift instead of Objective-C. Furthermore, Apple mostly regards Swift as the main language for iOS programming now, and Objective-C support is now more of a backward-compatability. 
