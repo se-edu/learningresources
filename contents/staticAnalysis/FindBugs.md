@@ -1,14 +1,15 @@
 <frontmatter>
   title: FindBugs
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # FindBugs
 
@@ -39,7 +40,7 @@ The "bug patterns" can be divided into nine groups:
 
 Refer to [FindBugs official documentation](http://findbugs.sourceforge.net/bugDescriptions.html) for a comprehensive list of bugs and the explanation of each bug.
 
-FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. This is unlike [CheckStyle](checkStyle.md) or [PMD](PMD.md) which can only check files one by one and analyse Java source code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
+FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. This is unlike [CheckStyle](checkStyle.html) or [PMD](PMD.html) which can only check files one by one and analyse Java source code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
 
 ## Examples of Bugs that can be found using FindBugs
 

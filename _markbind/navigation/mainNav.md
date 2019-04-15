@@ -5,6 +5,8 @@
 * ****Programming Languages****
   * C++
     * [Rvalue References and Move Semantics]({{baseUrl}}/contents/c++/rvalue.html)
+  * CSharp
+	* [Introduction to CSharp]({{baseUrl}}/contents/csharp/IntroductionToCSharp.html)
   * [Go]({{baseUrl}}/contents/go/Go.html)
   * [Haskell]({{baseUrl}}/contents/haskell/Haskell.html)
   * Java
@@ -33,6 +35,7 @@
   * Performance
     * [Introduction to Performance Optimization]({{baseUrl}}/contents/performance/Performance.html)
     * [Performance Profiling]({{baseUrl}}/contents/performance/PerformanceProfiling.html)
+    * [Web Performance]({{baseUrl}}/contents/performance/WebPerformance.html)
   * Project Management
     * [Agile Development]({{baseUrl}}/contents/projectManagement/AgileDevelopment.html)
     * [DevOps]({{baseUrl}}/contents/devops/DevOps.html)
@@ -48,13 +51,17 @@
   * Testing
     * [Writing Testable Code]({{baseUrl}}/contents/testing/writing-testable-code.html)
   * UI/UX
+    * [Accessibility]({{baseUrl}}/contents/uix/accessibility.html)
+    * [Design Systems]({{baseUrl}}/contents/uix/design-systems.html)
     * [Introduction to UI/UX]({{baseUrl}}/contents/uix/uix.html)
     * [Refining UX Design Skills]({{baseUrl}}/contents/uix/refining-ux-skills.html)
 
 * ****App Frameworks****
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
+  * [Angular]({{baseUrl}}/contents/javascript/Javascript-framework-Angular.html)
   * [iOS]({{baseUrl}}/contents/ios/IntroToIos.html)
   * [NodeJS]({{baseUrl}}/contents/node/nodejs.html)
+  * [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html)
   * [VueJS]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
 
 * ****Tools Useful for Software Engineers****
@@ -62,7 +69,9 @@
 
 * ****Other Topics****
   * [Computer Vision]({{baseUrl}}/contents/computerVision/cv.html)
-  * [Databases]({{baseUrl}}/contents/data/databases.html)
+  * Databases
+    * [DBMS]({{baseUrl}}/contents/data/databases/databases.html)
+    * [SQL]({{baseUrl}}/contents/data/sql/SQL.html)
   * [Machine Learning]({{baseUrl}}/contents/ai/ml.html)
   * Multi-Threading
     * [GPGPU]({{baseUrl}}/contents/gpgpu/gpgpu.html)
@@ -73,6 +82,8 @@
     * [Cryptography]({{baseUrl}}/contents/security/cryptography.html)
     * [HTTPS]({{baseUrl}}/contents/security/Https.html)
     * [SQL Injection]({{baseUrl}}/contents/security/sqlInjection.html)
+  * Shell 
+    * [bash]({{baseUrl}}/contents/shells/bash.html)
 
 </navigation>
 </span>

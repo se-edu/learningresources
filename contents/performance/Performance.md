@@ -1,14 +1,15 @@
 <frontmatter>
   title: Introduction to Performance Optimization
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Introduction to Performance Optimization
 
@@ -49,7 +50,7 @@ If you are interested in learning more about Data Structures and Algorithms, you
 
 ## Memory Management Usage
 
-Memory management is important for performance optimization for Computer systems. One of the common techniques in [algorithms optimization](#using-appropriate-data-structures-and-algorithms) is space and time trade off, where we increase runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to [Thrashing](https://en.wikipedia.org/wiki/Thrashing_(computer_science)). Thrashing occurs when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in  significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with appropriate [memory profiling](PerformanceProfiling.md).
+Memory management is important for performance optimization for Computer systems. One of the common techniques in [algorithms optimization](#using-appropriate-data-structures-and-algorithms) is space and time trade off, where we increase runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to [Thrashing](https://en.wikipedia.org/wiki/Thrashing_(computer_science)). Thrashing occurs when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in  significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with appropriate [memory profiling](PerformanceProfiling.html).
 
 If your system suffers from memory related performance issues, here are some solutions you can adopt to resolve them:
 
@@ -130,6 +131,6 @@ In the example above, Row major takes around 100ms, while column major takes aro
 
 If you want to know more about Optimization, especially for that critical 3%, these other resources could be useful:
 
-* Finding the critical path - [Performance Profiling](PerformanceProfiling.md)
+* Finding the critical path - [Performance Profiling](PerformanceProfiling.html)
 
 </div>
