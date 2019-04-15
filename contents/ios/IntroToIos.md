@@ -15,7 +15,7 @@
 **Authors: [Bryan Lew](https://github.com/blewjy)**
 **Reviewers: [Chester Sng](https://github.com/ChesterSng), [Yu Pei, Henry](https://github.com/YuPeiHenry), [Jiang Chunhui](https://github.com/Adoby7)**
 
-## Overview: What is iOS?
+## What is iOS?
 
 iOS is the mobile operating system that runs on Apple's mobile devices, most notably the iPhone and the iPad. Applications that run on iOS can be downloaded officially from the App Store, and developers of iOS applications can submit their own applications to the App Store to share it with the rest of the world. 
 
