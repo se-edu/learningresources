@@ -66,6 +66,8 @@ Now, you can check all the routes that you have in your application by running `
 As can be seen, the common routes that you would need for the resources have already been mapped to their respective URI's. This is equivalent to manually declaring the 7 resourceful routes for the `user` resource. By convention, Rails will then look for a controller called `users_controller.rb` and invoke the name of the function mapped to the particular URI and Verb. More information about Rails routes and how they work can be found [here](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default).
 
 #### Controller
+In the standard Rails convention, once inside the application directory, if you navigate to `app/controllers/`, you should be able to see all the controllers in your project. Rails will look for the controller with the `<name>_controller.rb`, where `<name>` would be replaced by the result under the `Controller` heading in the list of routes above, in this case, "users". It will then look for the function name under the `Action` heading mapped to the URI function inside the Controller, and then call it. This is where the bulk of the business logic of your application would be. So if the person makes a GET request to `/users`, then Rails will open `users_controller.rb`, and call its `index` method (refer to the code below).
+
 <center>
 
 ```ruby
@@ -78,7 +80,6 @@ end
 <i>`users_controller.rb` with an `index` method</i> 
 </center>
 
-In the standard Rails convention, once inside the application directory, if you navigate to `app/controllers/`, you should be able to see all the controllers in your project. Rails will look for the controller with the `<name>_controller.rb`, where `<name>` would be replaced by the result under the `Controller` heading in the list of routes above, in this case, "users". It will then look for the function name under the `Action` heading mapped to the URI function inside the Controller, and then call it. This is where the bulk of the business logic of your application would be. So if the person makes a GET request to `/users`, then Rails will open `users_controller.rb`, and call its `index` method.
 
 #### Model
 
