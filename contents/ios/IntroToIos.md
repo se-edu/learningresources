@@ -79,17 +79,11 @@ Here are some links to more advanced topics on iOS development and Swift:
 - [Unit testing on iOS](https://www.toptal.com/qa/how-to-write-testable-code-and-why-it-matters)
 - [RxSwift and RxCocoa](https://www.raywenderlich.com/900-getting-started-with-rxswift-and-rxcocoa)
 - [iOS UI Programmatically](https://fluffy.es/intro-to-creating-ui-in-code-1/)
-
-Popular frameworks/libraries:
-- [Alamofire (HTTP Networking)](https://medium.com/the-traveled-ios-developers-guide/thoughts-on-alamofire-55a52a3d3d57)
-- [AFNetworking (HTTP Networking)](https://github.com/AFNetworking/AFNetworking)
-- [CocoaLumberjack (Logging)](https://github.com/CocoaLumberjack/CocoaLumberjack)
-- [SDWebImage (Image Caching)](https://github.com/rs/SDWebImage)
+- [Popular Swift Libraries](https://www.codementor.io/kuprenkoauthor/top-10-swift-libraries-from-github-that-are-worth-using-k8g8gifph)
 
 Best "general" iOS development resources:
 - [Ray Wenderlich](https://www.raywenderlich.com/ios)
 - [Brian Advent](https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw)
 - [Let's Build That App](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA)
-- [Appcoda](https://www.appcoda.com/)
 
 </div>
