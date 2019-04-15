@@ -12,7 +12,7 @@
 # Cross Site Scripting (XSS)
 {{ booktitle | safe }}
 
-Authors: [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md) and [Chester Sng](https://github.com/ChesterSng)
+**Authors: [Chester Sng](https://github.com/ChesterSng), [Tan Wang Leng](https://github.com/nus-oss/cs3281-website/tree/master/students/AY1617S2/tanWangLeng/TanWangLeng-Resume.md)**
 
 Reviewers: [Bryan Lew](https://github.com/blewjy) and [Jeremy Choo](https://github.com/ChooJeremy)
 
@@ -195,14 +195,5 @@ Additional Reading Resources:
 (Discussion about DOM-based XSS attacks, a third possible type of XSS attacks)
 1. https://excess-xss.com/
 (Comprehensive coverage of *all* aspects of XSS)
-
-Additional Resources:
-
-1. https://github.com/OWASP/java-html-sanitizer (Java Sanitization framework)
-(Implementation of HTML sanitization in Java)
-1. https://github.com/rails/rails_xss
-(Ruby on Rails plugin responsible for escaping String input in Ruby on Rails websites)
-1. http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html
-(Ruby on Rails HTML sanitization function)
 
 </div>
