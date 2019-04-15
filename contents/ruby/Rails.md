@@ -67,13 +67,12 @@ As can be seen, the common routes that you would need for the resources have alr
 
 #### Controller
 <center>
+
 ```ruby
 class UsersController < ApplicationController
-
   def index
     ..
   end
-
 end
 ```
 `users_controller.rb` with an `index` method 
