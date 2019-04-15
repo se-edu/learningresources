@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   end
 end
 ```
-_`users\_controller.rb` with an `index` method_ 
+<i>`users_controller.rb` with an `index` method</i> 
 </center>
 
 In the standard Rails convention, once inside the application directory, if you navigate to `app/controllers/`, you should be able to see all the controllers in your project. Rails will look for the controller with the `<name>_controller.rb`, where `<name>` would be replaced by the result under the `Controller` heading in the list of routes above, in this case, "users". It will then look for the function name under the `Action` heading mapped to the URI function inside the Controller, and then call it. This is where the bulk of the business logic of your application would be. So if the person makes a GET request to `/users`, then Rails will open `users_controller.rb`, and call its `index` method.
