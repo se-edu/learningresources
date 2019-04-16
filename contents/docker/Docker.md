@@ -34,7 +34,7 @@ Docker is a platform that is used to develop, deploy and run applications inside
 
 The idea of containers is not so different from Virtual Machines (VM). Before the rise of Docker, people used VMs. A VM is an emulation of a real computer that is used to isolate an application and its dependencies into a self-contained unit that can run anywhere.  For example, you could use a VM to run an application on a Linux system even though you are running Windows.
 
-However, a container posses some advantages over a VM. With reference to the [Docker Documentation](https://docs.docker.com/get-started/), a container runs natively on Linux and shares the kernel of the host machine with other containers. It runs a discrete process, taking no more memory than any other executable, making it lightweight.
+However, a container posses some advantages over a VM. As per the [Docker Documentation](https://docs.docker.com/get-started/), a container runs natively on Linux and shares the kernel of the host machine with other containers. It runs a discrete process, taking no more memory than any other executable, making it lightweight.
 
 By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor. In general, VMs provide an environment with more resources than most applications need. The diagram below gives a depiction of this:
 
