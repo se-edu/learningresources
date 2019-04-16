@@ -26,7 +26,7 @@ The Rails philosophy includes two major principles, namely:
 
 One of the core tenets of Rails is "Convention over Configuration", which means that many decisions regarding the structure of your Rails application are made for you in advance, so that there is less effort needed to come up with your own set of best practices. This is perhaps most evident in Rails' decision to follow a Model-View-Controller (MVC) architecture by default.
 
-The structure of an app written in the MVC framework is as follows:
+Here's how a Rails application is structured:
 
 <center>
 <img src="mvc.jpeg">
@@ -52,23 +52,21 @@ resources :users
 Now, you can check all the routes that you have in your application by running `rails routes` in the command line. This should include:
 
 ```
-                   Prefix Verb   URI Pattern                                                                              Controller#Action
-                    users GET    /users(.:format)                                                                         users#index
-                          POST   /users(.:format)                                                                         users#create
-                 new_user GET    /users/new(.:format)                                                                     users#new
-                edit_user GET    /users/:id/edit(.:format)                                                                users#edit
-                     user GET    /users/:id(.:format)                                                                     users#show
-                          PATCH  /users/:id(.:format)                                                                     users#update
-                          PUT    /users/:id(.:format)                                                                     users#update
-                          DELETE /users/:id(.:format)                                                                     users#destroy
+    Prefix Verb   URI Pattern                          Controller#Action
+     users GET    /users(.:format)                     users#index
+           POST   /users(.:format)                     users#create
+  new_user GET    /users/new(.:format)                 users#new
+ edit_user GET    /users/:id/edit(.:format)            users#edit
+      user GET    /users/:id(.:format)                 users#show
+           PATCH  /users/:id(.:format)                 users#update
+           PUT    /users/:id(.:format)                 users#update
+           DELETE /users/:id(.:format)                 users#destroy
 ```
 
 As can be seen, the common routes that you would need for the resources have already been mapped to their respective URI's. This is equivalent to manually declaring the 7 resourceful routes for the `user` resource. By convention, Rails will then look for a controller called `users_controller.rb` and invoke the name of the function mapped to the particular URI and Verb. More information about Rails routes and how they work can be found [here](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default).
 
 #### Controller
-In the standard Rails convention, once inside the application directory, if you navigate to `app/controllers/`, you should be able to see all the controllers in your project. Rails will look for the controller with the `<name>_controller.rb`, where `<name>` would be replaced by the result under the `Controller` heading in the list of routes above, in this case, "users". It will then look for the function name under the `Action` heading mapped to the URI function inside the Controller, and then call it. This is where the bulk of the business logic of your application would be. So if the person makes a GET request to `/users`, then Rails will open `users_controller.rb`, and call its `index` method (refer to the code below).
-
-<center>
+In the standard Rails convention, once inside the application directory, if you navigate to `app/controllers/`, you should be able to see all the controllers in your project. Rails will look for the controller with the `<name>_controller.rb`, where `<name>` would be replaced by the result under the `Controller` heading in the list of routes above, in this case, `users`. It will then look for the function name under the `Action` heading mapped to the URI function inside the Controller, and then call it. For example, if someone makes a GET request to /users, Rails will then respond by calling the users#index controller action (refer to the code below). 
 
 ```ruby
 class UsersController < ApplicationController
@@ -77,6 +75,7 @@ class UsersController < ApplicationController
   end
 end
 ```
+<center>
 <i>`users_controller.rb` with an `index` method</i> 
 </center>
 
@@ -89,7 +88,7 @@ In our diagram, the Controller calls the `all` method in the `User` model, which
 
 #### View
 
-After the Controller has fetched all the data necessary and applied whatever transformations are needed, it passes in the requisite fields to its view. The View is what the client sees, and is a collection of `.erb` (**E**mbedded **R**u**B**y) files, which are basically just HTML files with lines of Ruby code embedded in it to modify its appearance and behavior. When the controller is generated using the Rails CLI, a corresponding folder of views is made inside `app/views/`. All the `.erb` files are stored here, and Rails will look for the file mapped to the controllers actions to serve up to the client at the end of the request-response cycle. 
+After the Controller has fetched all the data necessary and applied whatever transformations are needed, it passes in the requisite fields to its view. The View is what the client sees, and is a collection of `.erb` (**E**mbedded **R**u**B**y) files, which are basically just HTML files with lines of Ruby code embedded in it to modify its appearance and behavior. When the controller is generated using the Rails CLI, a corresponding folder of views is made inside `app/views/`. All the .erb files are named after the controller action and stored in folders named after the controller. Following the same example above, Rails will serve up the `app/views/users/index.html.erb` view to the client when executing the `users#index` controller action, thus concluding the request-response cycle. 
 
 ## Why Rails
 
@@ -97,9 +96,9 @@ Many popular and very technically mature websites started off using, and continu
 
 ### Fast iteration speed for product developement 
 
-As an opinionated framework, Rails helps to automate trivial tasks by following certain conventions, which can make the development process faster. For example, in a Rails project that is connected to a database, each class is mapped to a table, as described in the Active Record Pattern, and the table name is just a pluralised version of the class's name - the `User` class becomes the `Users` table, the `Person` class becomes the `People` table, etc. This means that you don't need to spend any time deliberating on the name of the tables, nor do you have to juggle multiple concepts while mapping out the database and application, as Rails will automatically connect the two and spare you from deliberating about the exact name of the table. A similar approach is used to handle resources, which also automates much of the process.
+As an opinionated framework, Rails helps to automate trivial tasks by following certain conventions, which can make the development process faster. For example, in a Rails project that is connected to a database, each class is mapped to a table, as described in the Active Record Pattern, and the table name is just a pluralized version of the class's name - the `User` class becomes the `Users` table, the `Person` class becomes the `People` table, etc. This means that you don't need to spend any time deliberating on the name of the tables, nor do you have to juggle multiple concepts while mapping out the database and application, as Rails will automatically connect the two and spare you from deliberating about the exact name of the table. A similar approach is used to handle resources, which also automates much of the process.
 
-The automation of these mundane tasks could make development a more enjoyable (more on that in a bit) and faster process. All of these optimizations can make developing an application between 30-40% faster on Rails [source](https://www.forbes.com/sites/quora/2018/04/03/is-ruby-a-dying-language/#10eb4d0b6a3d). It also makes Rails relatively easy to learn, as you do not need to understand HTTP verbs to make a basic Rails application (while mastery of the topic will certainly help). Furthermore, programmers experienced in Rails usually find it easier to start on existing Rails projects, since the conventions followed are usually the same, giving you the same directory structure and route naming conventions everywhere. 
+The automation of these mundane tasks could make development a more enjoyable (more on that in a bit) and faster process. All of these optimizations can make developing an application between 30-40% faster on Rails [[source](https://www.forbes.com/sites/quora/2018/04/03/is-ruby-a-dying-language/#10eb4d0b6a3d)]. It also makes Rails relatively easy to learn, as you do not need to understand HTTP verbs to make a basic Rails application (while mastery of the topic will certainly help). Furthermore, programmers experienced in Rails usually find it easier to start on existing Rails projects, since the conventions followed are usually the same, giving you the same directory structure and route naming conventions everywhere. 
   
 ### Optimized for Programmer Happiness
 
@@ -129,7 +128,7 @@ Rails developers can use ordinal representation to access the same element with 
 elements.second
 ```
 
-And while this may not reduce the amount one has to type, most Rails enthusiasts agree that it makes the code much more readable, easy to work with, and, consequently, happiness-inducing.
+And while this may not reduce the amount one has to type, most Rails enthusiasts agree that it makes the code much more readable, easy to work with, and therefore happiness-inducing.
 
 ### Large and Active Community of Developers
 
@@ -137,19 +136,19 @@ The Ruby language has a very passionate and extensive community of developers, a
 
 Furthermore, as a result of its popularity, it is very likely that any problems you encounter with Rails will have a solution that you can find on Google or StackOverflow. For any new problems, you are also likely to receive a response very quickly, because the Ruby community prides itself for being welcoming and helpful. 
 
-However, Rails might not be best suited for all use cases, and there are certain areas where other frameworks might be more suitable. For instance:
+## Drawbacks
 
-### Drawbacks
+Rails might not be best suited for all use cases,and there are a few areas that you should consider when deciding on your web framework of choice. 
 
-#### Lack of Flexibility
+### Lack of Flexibility
 
-Although Rails is highly optimized for most types of web applications, there are inevitably some cases where following an MVC architecture isn't suitable. In those cases, it might be better for developers to use frameworks that allow for more flexibility. You may also wish to have a different directory structure, or give your routes different names, and find Rails' defaults very stifling. While there are ways for you to configure Rails to your needs, it might be less painful to avoid those conventions from the beginning.
+Although Rails is highly optimized for most types of web applications, there are inevitably some cases where following an MVC architecture isn't suitable. In those cases, it might be better for developers to use frameworks that allow for more flexibility. You may also find Rails' defaults very stifling if you wish to have a different directory structure, or give your routes different names. While there are ways for you to configure Rails to your needs, it might be less painful to avoid those conventions from the beginning.
 
-#### Performance
+### Performance
 
 While newer releases have combated this problem to a large degree, many of the old releases of Rails have had a reputation for being very bloated and slow to respond. Applications in other frameworks, or purely client-side applications with a minimal backend, tend to have a much lower delay between an action and a response. While it should be noted that the vast majority of delays in applications occur due to poor optimization, and not the inherent speed of the framework, Rails still remains more bulky and slower than many of its competitors. 
 
-#### Learning Curve
+### Learning Curve
 
 Rails' tendency to do things "automagically" can also be very confusing to new users, who might be more used to configuring routes and directory structures themselves. You may also find it challenging to switch to other frameworks, where you may be required to configure routes and write SQL queries yourself, instead of having the framework do it for you. You will also have to learn the Ruby language, and it might be harder considering that most front-end applications are in JavaScript and its variants, and you will have to juggle multiple languages while you develop your application. 
 
