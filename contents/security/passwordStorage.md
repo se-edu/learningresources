@@ -29,15 +29,11 @@ It is a cryptography term generally referring to text before encyption or after 
   </div>
 </popover>
 
-<popover id="pop:oneway" title="" placement="top">
-<div slot="content">
-	A one way function is a function that is easy to compute the result of, but whose results are difficult to reverse back to the original input.
-</div>
-</popover>
-
 ## What is encryption?
 
-Encryption refers to the process of changing a message such that it becomes essentially random text. The opposite process is called decryption, which converts the text back into the original message. Encryption might seem like a good idea because it transfoms the data into essentially random bytes, which prevents all of the problems with storing the data directly in plaintext. However, because encryption is <tooltip content="If a function is reversible, and it converts from x to y, then it can also convert from y back to x"> reversible</tooltip>, it is always possible to regain the original password from the <trigger for="pop:ciphertext">ciphertext</trigger>.
+Encryption refers to the process of changing a message such that it becomes essentially random text. The opposite process is called _decryption_, which converts the text back into the original message. In order to do this, it takes in an <trigger for="pop:encrypt-key">encryption key</trigger>, which is then re-used in the decryption process. 
+
+Additionally, even a small change in the message will result in a completely different <trigger for="pop:ciphertext">ciphertext</trigger>. This means that even very similar passwords that vary only by capitalization or a letter would still result in different ciphertext, so attackers can't compare the hash to try and figure out which users have similar passwords.
 
 <popover id="pop:ciphertext" title="_Ciphertext_ refers to encrypted information" placement="top">
   <div slot="content">
@@ -45,11 +41,42 @@ It is a cryptography term generally referring to data after encrypting it.
   </div>
 </popover>
 
-While encryption might seem suitable for storing passwords, it faces some severe problems. Since the data is encrypted, the encryption key must also be stored somewhere. This means that if someone manages to hack into the application and read the encrypted passwords, it is also likely that they will be able to read the encryptio key. With the encryption key, they will be able to decrypt all the passwords and read them anyway. This makes encryption unsuitable for password storage.
+For example, the following python code encrypts and decrypts the message "EncryptionIsFun!" with <trigger for="pop:aes">AES</trigger>:
+```python
+from Crypto.Cipher import AES
+
+AESCipher = AES.new("Here's a AES Key", AES.MODE_CBC, "Here's a AES IV.")
+message = "EncryptionIsFun!"
+ciphertext = AESCipher.encrypt(message)
+
+AESCipher2 = AES.new("Here's a AES Key", AES.MODE_CBC, "Here's a AES IV.")
+plaintext = AESCipher2.decrypt(ciphertext)
+
+print(plaintext))
+```
+
+<popover id="pop:aes" title="_AES_ stands for Advanced Encryption Standard" placement="top">
+  <div slot="content">
+It is one of many possible encryption algorithms.
+  </div>
+</popover>
+
+Encryption might seem like a good idea because it transfoms the data into essentially random text, which prevents all of the problems with storing the data directly in plaintext. However, because encryption is <tooltip content="If a function is reversible, and it converts from x to y, then it can also convert from y back to x"> reversible</tooltip>, it is always possible to regain the original password from the <trigger for="pop:ciphertext">ciphertext</trigger>. Since the data is encrypted, the <trigger for="pop:encrypt-key">encryption key</trigger> must also be stored somewhere. This means that if someone manages to hack into the application and read the encrypted passwords, it is also likely that they will be able to read the encryption key. With the encryption key, they will be able to decrypt all the passwords and read them anyway. This makes encryption unsuitable for password storage.
+
+<popover id="pop:encrypt-key" title="All encryption algorithms require an _encryption key_" placement="top">
+  <div slot="content">
+The key is usually randomly generated text that is used to encrypt the original data. To then decrypt the data, the same key (and algorithm) must be used.
+  </div>
+</popover>
 
 ## What is hashing?
 
-Hashing is the act of transforming a set of data into another set of data that is impossible to reverse. Additionally, due to how <trigger for="pop:hashing-algo">hashing algorithms</trigger> work, even a small change in the data will result in a completely different hash. This means that even very similar passwords that vary only by capitalization or a letter would still result in different <tooltip content="Hashes are the result of a hashing function">hashes</tooltip>, so attackers can't compare the hash to try and figure out which users have similar passwords.
+Hashing is a <trigger for="pop:oneway">one-way</trigger> function that transforms a set of data into another set of data. Unlike encryption, hashing works by re-iterating on the input multiple times, each time using values that are dependent on the previous state, then destroying the previous state. This makes it impossible to reverse as a computer would have to test all possible states on each iteration, which compounds into several billion possible states. 
+<popover id="pop:oneway" title="" placement="top">
+  <div slot="content">
+    A one way function is a function that is easy to compute the result of, but whose results are difficult to reverse back to the original input.
+  </div>
+</popover>
 
 <popover id="pop:hashing-algo" title="A _hashing algorithm_ is a specific type of operation that hashes the input" placement="top">
   <div slot="content">
@@ -57,13 +84,21 @@ Different types of hashing algorithms will result in different output.
   </div>
 </popover>
 
-Some examples of cryptographic hashing algorithms are [MD5](https://www.quora.com/How-does-the-MD5-algorithm-work) and [SHA1](https://deadhacker.com/2006/02/21/sha-1-illustrated/). However, when you perform hashing for passwords, you should use password hashing algorithms (such as [Argon2](https://github.com/P-H-C/phc-winner-argon2), [SCrypt](https://passlib.readthedocs.io/en/stable/lib/passlib.hash.scrypt.html) and [bcrypt](https://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage)). The main difference between these password hashing algorithms are designed to be slow to prevent <trigger for="pop:brute">brute force</trigger> attacks, unlike cryptographic hashing algorithms which are built for speed. Despite that, if you plan on learning more about hashing algorithms, we recommend starting with MD5 and SHA1, as they are easier algorithms to learn about.
+Some examples of cryptographic <trigger for="pop:hashing-algo">hashing algorithms</trigger> are [MD5](https://www.quora.com/How-does-the-MD5-algorithm-work) and [SHA1](https://deadhacker.com/2006/02/21/sha-1-illustrated/). However, when you perform hashing for passwords, you should use password hashing algorithms (such as [Argon2](https://github.com/P-H-C/phc-winner-argon2), [SCrypt](https://passlib.readthedocs.io/en/stable/lib/passlib.hash.scrypt.html) and [bcrypt](https://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage)). The main difference between these are that password hashing algorithms are designed to be slow to prevent <trigger for="pop:brute">brute force</trigger> attacks, unlike cryptographic hashing algorithms which are built for speed. Despite that, if you plan on learning more about hashing algorithms, we recommend starting with MD5 and SHA1, as they are easier algorithms to learn about.
+
+For example, the following python code hashes the message "HashingIsFun!" with SHA1:
+```python
+import hashlib
+
+sha1Hash = hashlib.sha1()
+sha1Hash.update("HashingIsFun!".encode('utf-8'))
+hashOutput = sha1Hash.hexdigest()
+print(hashOutput)
+```
 
 ### Why isn't hashing enough?
 
-Because [rainbow tables](https://en.wikipedia.org/wiki/Rainbow_table) exist, unfortunately.
-
-A rainbow table is a precomputed table of hashes for some set of passwords. Basically, since the hashing function is easy to compute one-way, people build huge tables of hashes wherein the plaintext is already known, so that attempting to crack hashes becomes a simple problem of looking up the hash in the table and its corresponding value, instead of attempting to reverse the hash. Because of this, it is very easy to crack simple hashes by simply doing a lookup.
+A [rainbow tables](https://en.wikipedia.org/wiki/Rainbow_table) is a precomputed table of <tooltip content="Hashes are the result of a hashing function">hashes</tooltip> for some set of passwords. Basically, people build huge tables of hashes wherein the plaintext is already known, so that attempting to crack hashes becomes a simple problem of looking up the hash in the table and its corresponding value, instead of attempting to reverse the hash. Through this method, it is very easy to crack simple hashes by simply doing a lookup.
 
 An example of a service that provides this is [Crackstation](https://crackstation.net/).
 
@@ -87,7 +122,9 @@ One question that is commonly asked by developers is where to store the salt. Th
 
 Many good password hashing algorithms today have built-in salts, such as [Argon2](https://github.com/P-H-C/phc-winner-argon2), [SCrypt](https://passlib.readthedocs.io/en/stable/lib/passlib.hash.scrypt.html) and [bcrypt](https://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage). A good password hashing algorithm or library will salt automatically.
 
-### If an attacker has gained access to the entire application, what does it matter if passwords are stored in plaintext or not?
+### What if there is a server breach?
+
+A common question asked by developers is how much all of these security measures actually matter. After all, if an attacker has gained access to the entire application, does it matter if passwords are stored in plaintext or not?
 
 If an attacker has already gained access to the entire application, then he already has all the information that he could possibly want from the server. He would have access to all of the application's data, including data from users or from any analytics software that might be running. However, by adding salt and hashing passwords, the attacker still doesn't know customer's passwords and could take years to find out. Otherwise, since 59% of people use the same password across multiple sites <sup>[source](https://securityboulevard.com/2018/05/59-of-people-use-the-same-password-everywhere-poll-finds/)</sup>, the attacker could quickly try other websites such as banks to attempt to break into those accounts, which can potentially yield great returns in terms of information and/or money.
 
@@ -95,15 +132,15 @@ Additionally, when a user signed up on your website and provided you a password,
 
 ## Getting started
 
-<p style="color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; padding: .75rem 1.25rem; border: 1px solid transparent; border-radius: .25rem;">
-Reading this article doesn't make you an expert in writing your own password hashing code. It is far too easy to screw up and make a mistake. Instead, use one of the free libraries that provide a crypto function that has already been well-tested by the community. <b>Do not write your own crypto library.</b>
-</p>
+<box type="danger">
+It is far too easy to screw up and make a mistake. Instead, use one of the free libraries that provide a crypto function that has already been well-tested by the community. <b>Do not write your own crypto library.</b>
+</box>
 
-Here are some libraries you can use to implement password storage, depending on the language:
-* If you're using PHP, the [password_hash](https://secure.php.net/manual/en/function.password-hash.php) function will do the job for you. 
-* If you're using Java, use [SecretKeyFactory](https://www.owasp.org/index.php/Hashing_Java) to apply hashes with SHA256.
-* If you're using Python, use [PassLib](https://passlib.readthedocs.io/en/stable/narr/hash-tutorial.html).
-* If you're using JavaScript, use [bcrypt](https://www.npmjs.com/package/bcrypt).
+Here are some libraries you can use to implement password storage:
+* PHP: [password_hash](https://secure.php.net/manual/en/function.password-hash.php)
+* Java: [SecretKeyFactory](https://www.owasp.org/index.php/Hashing_Java) 
+* Python: [PassLib](https://passlib.readthedocs.io/en/stable/narr/hash-tutorial.html)
+* JavaScript: [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Other resources
 
