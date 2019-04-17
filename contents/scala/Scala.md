@@ -12,7 +12,9 @@
 
 # Introduction to Scala
 
-Author(s): [Wang Chao](https://github.com/fzdy1914)
+**Author(s): [Wang Chao](https://github.com/fzdy1914)**
+
+Reviewers: [Jiang Chunhui](https://github.com/Adoby7), [Wang Junming](https://github.com/junming403)
 
 **Table of Contents**
 
@@ -36,7 +38,7 @@ Author(s): [Wang Chao](https://github.com/fzdy1914)
 
 Scala's JVM runtimes allows us to build high-performance systems with easy access to huge ecosystems of libraries. Scala 
 provides language interoperability with Java, so that libraries written in Java may be referenced directly in Scala.
-Also, by Scala.js, Scala code can be easily compiled to JavaScript.
+Also, by *[Scala.js](http://www.scala-js.org/)*, Scala code can be easily compiled to JavaScript.
 
 ### Characteristic of Scala
 
@@ -49,9 +51,12 @@ type of an expression automatically. User is not required to annotate redundant 
 
 Type Inference Example:
 ```
-val x = "foo"
+var x = "foo"
 var y = 1.5
-var z = List(1, 2, 3)
+val z = List(1, 2, 3)
+
+x = 3 // Error: type mismatch
+x = "bar" // OK
 ```
 
 In combination, these features provide a clean but reliable programming basis for the user.
@@ -275,5 +280,5 @@ You can access the course material and exercises by signing up for the course.
 
 * [allaboutscala](http://allaboutscala.com/) provides detailed tutorials for beginners.
 
-More details can be find here: [LEARNING RESOURCES](https://scala-lang.org/documentation/learn.html).
+More details can be find here: [Scala Learning Resources](https://scala-lang.org/documentation/learn.html).
 </div>
