@@ -66,16 +66,16 @@ Now, you can check all the routes that you have in your application by running `
 As can be seen, the common routes that you would need for the resources have already been mapped to their respective URI's. This is equivalent to manually declaring the 7 resourceful routes for the `user` resource. By convention, Rails will then look for a controller called `users_controller.rb` and invoke the name of the function mapped to the particular URI and Verb. More information about Rails routes and how they work can be found [here](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default).
 
 #### Controller
-In the standard Rails convention, once inside the application directory, if you navigate to `app/controllers/`, you should be able to see all the controllers in your project. Rails will look for the controller with the `<name>_controller.rb`, where `<name>` would be replaced by the result under the `Controller` heading in the list of routes above, in this case, `users`. It will then look for the function name under the `Action` heading mapped to the URI function inside the Controller, and then call it. For example, if someone makes a GET request to /users, Rails will then respond by calling the users#index controller action (refer to the code below). 
+In the standard Rails convention, once inside the application directory, if you navigate to `app/controllers/`, you should be able to see all the controllers in your project. Rails will look for the controller with the `<name>_controller.rb`, where `<name>` would be replaced by the result under the `Controller` heading in the list of routes above, in this case, `users`. It will then look for the function name under the `Action` heading mapped to the URI function inside the Controller, and then call it. For example, if someone makes a GET request to `/users`, Rails will then respond by calling the `users#index` controller action (refer to the code below). 
 
 ```ruby
 class UsersController < ApplicationController
   def index
-    ..
+    # implementation goes here
   end
 end
 ```
-<center>
+<center><br>
 `users_controller.rb` <i>with an </i>`index` <i>method</i> 
 </center>
 
@@ -88,7 +88,7 @@ In our diagram, the Controller calls the `all` method in the `User` model, which
 
 #### View
 
-After the Controller has fetched all the data necessary and applied whatever transformations are needed, it passes in the requisite fields to its view. The View is what the client sees, and is a collection of `.erb` (**E**mbedded **R**u**B**y) files, which are basically just HTML files with lines of Ruby code embedded in it to modify its appearance and behavior. When the controller is generated using the Rails CLI, a corresponding folder of views is made inside `app/views/`. All the .erb files are named after the controller action and stored in folders named after the controller. Following the same example above, Rails will serve up the `app/views/users/index.html.erb` view to the client when executing the `users#index` controller action, thus concluding the request-response cycle. 
+After the Controller has fetched all the data necessary and applied whatever transformations are needed, it passes in the requisite fields to its view. The View is what the client sees, and is a collection of `.erb` (**E**mbedded **R**u**B**y) files, which are basically just HTML files with lines of Ruby code embedded in it to modify its appearance and behavior. When the controller is generated using the Rails CLI, a corresponding folder of views is made inside `app/views/`. All the `.erb` files are named after the controller action and stored in folders named after the controller. Following the same example above, Rails will serve up the `app/views/users/index.html.erb` view to the client when executing the `users#index` controller action, thus concluding the request-response cycle. 
 
 ## Why Rails
 
@@ -138,7 +138,7 @@ Furthermore, as a result of its popularity, it is very likely that any problems 
 
 ## Drawbacks
 
-Rails might not be best suited for all use cases,and there are a few areas that you should consider when deciding on your web framework of choice. 
+Rails might not be best suited for all use cases, and there are a few areas that you should consider when deciding on your web framework of choice. 
 
 ### Lack of Flexibility
 
