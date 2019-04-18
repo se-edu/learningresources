@@ -75,7 +75,8 @@ class UsersController < ApplicationController
   end
 end
 ```
-<center><br>
+<center>
+
 `users_controller.rb` <i>with an </i>`index` <i>method</i> 
 </center>
 
