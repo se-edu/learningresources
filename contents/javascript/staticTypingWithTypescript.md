@@ -44,7 +44,56 @@ While Flow and TypeScript integrate into your development workflow in slightly d
 
 ## TypeScript Basics
 
-WIP
+### Compilation to JavaScript
+
+As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. Besides static type checking, TypeScript offers support for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.
+
+While TypeScript can be configured to target different flavors of JavaScript, it is transpiled down to ES3 by default to maintain compatibility with all JavaScript engines. Because of this, you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.
+
+
+### Type Annotations and Type Inference
+
+A key feature of TypeScript is the ability to add **type annotations** to your JavaScript variables and functions. This is useful for recording the intended contract of a variable or function.
+
+Here's an example of declaring a variable with the `string` type and assigning it a `string` value:
+```typescript
+let myString: string = "abc";
+```
+
+If we try to assign it a `number` value later on, the TypeScript compiler will raise an error:
+```typescript
+myString = 123; // error: 123 is not assignable to type 'string'
+```
+
+The same type annotation syntax is used for function arguments and return types:
+```typescript
+function convertNumberToString(value: number): string {
+    return value.toString();
+}
+```
+
+TypeScript has the ability to perform **type inference**, where the compiler infers the types of your variables or functions automatically. This helps to cut down on excess verbosity in your code. In this next example, `myBoolean` is inferred as a `boolean` variable, so reassigning it to any `boolean` value is allowed:
+```typescript
+let myBoolean = true;
+
+// valid
+myBoolean = false;
+
+// error: "hello world" is not assignable to type 'boolean'
+myBoolean = "hello world";
+```
+
+Sometimes, we don't know what the type of a variable might be. In those cases, we would use the `any` type to opt out of compile-time type checking. For example, `myList` is an array that contains elements with a mix of different types:
+```typescript
+function printItemsToConsole(list: any[]): void {
+    list.forEach(item => console.log(item));
+}
+
+const myList = [1, "hello", false];
+printItemsToConsole(myList);
+```
+
+TypeScript also supports other variable types such as arrays and `void`, as seen in the example above. Check out [this article](https://www.typescriptlang.org/docs/handbook/basic-types.html) from the official TypeScript website for more details on those other types.
 
 
 ## Getting Started with TypeScript
