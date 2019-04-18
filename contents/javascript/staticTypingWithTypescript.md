@@ -96,6 +96,60 @@ printItemsToConsole(myList);
 TypeScript also supports other variable types such as arrays and `void`, as seen in the example above. Check out [this article](https://www.typescriptlang.org/docs/handbook/basic-types.html) from the official TypeScript website for more details on those other types.
 
 
+### Custom Types
+
+In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the shape of these objects. Let's use the `type` keyword to define our own `Person` type to describe an object that has the `firstName` and `lastName` properties:
+```typescript
+type Person = {
+    firstName: string;
+    lastName: string;
+}
+```
+
+By using this as a type annotation, TypeScript will now verify that any object we pass into the `greet` function has a compatible structure with `Person`:
+```typescript
+function greet(person: Person) {
+    console.log(`Nice to meet you, ${person.firstName} ${person.lastName}!`);
+}
+
+// valid
+greet({ firstName: "John", lastName: "Doe" });
+
+// error: property 'lastName' is required in type 'Person'
+greet({ firstName: "John" });
+```
+
+This also helps to catch implementation mistakes such as:
+```typescript
+function askAboutColor(person: Person) {
+    // error: property 'favoriteColor' does not exist on type 'Person'.
+    console.log(`Hey ${person.firstName}, is it true that you like ${person.favoriteColor}?`);
+}
+```
+
+
+### Optionals
+
+You can specify optional object properties and function arguments, which are denoted by a `?` at the end of the property or argument name:
+
+```typescript
+type Student = {
+    name: string;
+    major?: string;
+}
+```
+
+```typescript
+function sayHello(name: string, favoriteColor?: string) {
+    if (favoriteColor) {
+        return `My name is ${name} and my favorite color is ${favoriteColor}!`;
+    } else {
+        return `My name is ${name}!`;
+    }
+}
+```
+
+
 ## Getting Started with TypeScript
 
 WIP
