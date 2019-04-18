@@ -12,15 +12,16 @@
 
 # Javascript: Promises
 
-Author: Daniel Berzin Chua, Ong Shu Peng
+**Authors: Daniel Berzin Chua, Ong Shu Peng**
+Reviewers: Chelsey Ong, Damith C, Gilbert Emerson, Tan Heng Yeow
 
 ## Why Promises?
 
 We're often used to operations completing their work before proceeding with other operations in a sequential manner. These sorts of operations are *synchronous* (run one after another), and they're usually easy to understand and debug. However, take an HTTP request for example. It is an operation that takes a while to process, depending on your internet speed and where you are in the world.
 
-If such an operation was to be executed in a <tooltip content="code that runs one at a time" placement="top">*synchronous*</tooltip> manner, your application would be slow because it has to wait for this request to be resolved by the server and it would not make for a particularly good user experience. Instead, we can make HTTP requests to operate *asynchronously* in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished before proceeding on with other operations, which allow for them to continue processing in the background while other operations are executed. 
+If such an operation was to be executed in a <tooltip content="code that runs in order" placement="top">*synchronous*</tooltip> manner, your application would be slow because it has to wait for this request to be resolved by the server and it would not make for a particularly good user experience. Instead, we can make HTTP requests to operate *asynchronously* in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished before proceeding on with other operations, which allow for them to continue processing in the background while other operations are executed. 
 
-However, asynchronous operations can cause programming and debugging to be difficult, because you would need some sort of way to know when the operation has finished, or in the case of debugging, the point at which the operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.
+However, asynchronous operations can cause programming and debugging to be difficult, because you would need some way to know when the operation has finished, or in the case of debugging, the point at which the operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.
 
 To illustrate this problem in code, we'll use `setTimeout()`. This asynchronous function takes in 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed and lastly, additional parameters to pass to the *callback*. A callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. `setTimeout()` is asynchronous as the code below it will execute while the timer is counting down, as you will see in the following code snippet.
 
@@ -92,11 +93,11 @@ Promises provide the ability to specify how the execution of some part of your c
 Here, we will be showing you some sample code to get started with promises. Let's learn how to go from callbacks to promises using a few examples.
 
 ### From callbacks to promises
-Say we have two <tooltip content="requires a long time to complete">time intensive</tooltip> functions, `getData()` and `filterData()` which require some time to complete. You will have to get the data from some server using `getData()`, then process it using `filterData()`, before you can start displaying the results.
+Say we have two functions, `getData()` and `filterData()` which require some time to complete. You will have to get the data from some server using `getData()`, then process it using `filterData()`, before you can start displaying the results.
 
 How would such functions be implemented using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively "passing" any form of data out, without explicitly returning any value.
 
-We will implement the above use case in the 'callback style' (mimicking the long return time of the functions using `setTimeout`):
+We will implement the above use case in the callback-style (mimicking the long return time of the functions using `setTimeout`):
 
 ```javascript
 function executeWithDelay(val, callback) {
@@ -161,13 +162,13 @@ Using Promises keep the code clean and easy to read, which makes it easy to lear
 
 ### The imperative style of promises
 
-The 'promise style', which uses `.then()` to pass data from one function to the next is comparable to functional programming. The original promise is passed from one `.then()` to the other, and with each `.then()`, a new promise is returned for the next `.then()` to work on.
+The promise-style, which uses `.then()` to pass data from one function to the next is comparable to *functional programming*. The original promise is passed from one `.then()` to the other, and with each `.then()`, a new promise is returned for the next `.then()` to work on.
 
 That is somewhat different from the imperative programming style most programmers are more familiar with. The `async` and `await` keywords facilitate a imperative way of using promises.
 
 The `async` keyword ensures that the function returns a promise, and as for `await`, you can think of it as waiting for a pending promise to be fulfilled before continuing. So back to the same example.
 
-So here is the code in the 'promise style', consider the `main` function from the previous example:
+So here is the code in the promise-style, consider the `main` function from the previous example:
 
 ```javascript
 function main() {
@@ -179,7 +180,7 @@ function main() {
 main();
 ```
 
-It can be rewritten in the 'async-await' style as follows:
+It can be rewritten in the async-await-style as follows:
 
 ```javascript
 async function main() {
@@ -195,7 +196,7 @@ The `async` keyword ensures that the `main()` function returns a promise. In our
 
 Another interesting thing to note: `await` will wait for the promise to return before executing anything below. In this case, `console.log` will be executed after the two `await` calls, even when it doesn't depend on the results of those calls.
 
-In the promise-style, we handle errors using the `.catch()` block. However when using the 'async await'-style, we handle the errors using the more conventional `try ... catch` block. These can be explored further in this [section](https://javascript.info/async-await#error-handling) about error handling.
+In the promise-style, we handle errors using the `.catch()` block. However when using the async await-style, we handle the errors using the more conventional `try ... catch` block. These can be explored further in this [section](https://javascript.info/async-await#error-handling) about error handling.
 
 ## Where Promises can be used 
 ### HTTP Requests
