@@ -13,32 +13,28 @@
 
 # Swift
 
-**Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md),[Jiang Chunhui](https://github.com/Adoby7), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)**
+**Authors: [Ch'ng Ming Shin](https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md), [Jiang Chunhui](https://github.com/Adoby7), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)**
 
-**Reviewers: [Aaron Chong](https://github.com/acjh), [Bryan Lew](https://github.com/blewjy), [Dickson Tan](https://github.com/Neurrone), [Rachael Sim](https://github.com/rachx), [Rahul Rajesh](https://github.com/rrtheonlyone), [Sam Yong](https://github.com/mauris), [Tan Wang Leng](https://github.com/yamgent), [Vivek Lakshmanan](https://github.com/vivekscl), [Wang Junming](https://github.com/junming403), [Xiao Pu](https://github.com/xpdavid)**
+Reviewers: [Aaron Chong](https://github.com/acjh), [Bryan Lew](https://github.com/blewjy), [Dickson Tan](https://github.com/Neurrone), [Rachael Sim](https://github.com/rachx), [Rahul Rajesh](https://github.com/rrtheonlyone), [Sam Yong](https://github.com/mauris), [Tan Wang Leng](https://github.com/yamgent), [Vivek Lakshmanan](https://github.com/vivekscl), [Wang Junming](https://github.com/junming403), [Xiao Pu](https://github.com/xpdavid)
 
-## What is Swift?
+## Swift Overview
 
-Swift is a fast, modern and safe programming language mainly used for iOS programming.
-Introduced in 2014, Swift has concise and expressive syntax, especially when compared with its predecessor language **Objective-C**. On top of that, Swift also supports playgrounds, a feature that allows programmers to experiment with Swift code and see the results immediately (without the overhead of building and running an app).
+**Swift is the main programming language used for iOS programming.** Introduced in 2014 by Apple, Swift has more concise and more expressive syntax compared to its predecessor language [Objective-C](). Unlike most other software by Apple, Swift is [open source](https://github.com/apple/swift).
 
-## Why should I learn Swift?
+**One main attraction to learn Swift's is that iOS developers are well paid** ([example](https://www.indeed.com/salaries/iOS-Developer-Salaries)).
 
-1. **Learning Swift can help you land your dream career.**
-Swift is mainly used for iOS development and iOS developers are well paid. The [salary statistics](https://www.indeed.com/salaries/iOS-Developer-Salaries) shows that iOS developer in US can earn more than $120K per year. In addition, mobile application development is also becoming more popular as of recent times. A [survey in StackOverFlow](https://insights.stackoverflow.com/survey/2017#developer-profile-developer-type) shows that mobile development, although lesser than web development, still takes up a large share of the market.
+Swift syntax is not too different from other mainstream languages such as Python, Java or C++, which means switching to Swift is not difficult. On top of that, Swift also supports [_playgrounds_](), a feature that allows programmers to experiment with Swift code and see the results immediately, without the overhead of building and running an app.
 
-1. **Swift is easy to learn.** Swift is designed to be a simple and user-friendly language by Apple. Its syntax resembles English, making it easy to read and understand. Any programmer who is familiar with Python, Java or C++ can learn Swift quickly! Even if you are not familiar with any language, Swift is an excellent language to start out with.
+Here is HelloWorld in Swift:
 
-1. **Swift is an [open source project](https://github.com/apple/swift).** Learning about Swift and contributing to the language may be a useful experience for those interested. Apart from learning about Swift from its documentation, you can also dig into the source code to get new insights. Typically, you can start submitting issues or patches if you find there is any way to improve the language!
+```swift
+print("Hello World!")
+```
+## Noteworthy Swift Features
 
-Also note that Swift is not perfect. It is still very young, and therefore the language itself may have issues to be addressed, such as [stored properties in extension](https://medium.com/@valv0/computed-properties-and-extensions-a-pure-swift-approach-64733768112c).
-In addition, Swift's libraries/tools are still limited and resources dedicated to earlier Swift versions may not be usable with newer releases.
-However, such limitations also mean that there are plenty of opportunities for you to improve it!
+Here are some noteworthy Swift features for you to get a feel of Swift.
 
-
-Here are some cool features that you might not be familiar with but would definitely be useful to you if you are new to Swift. 
-
-### Benefit: Declare Variables Easily
+### Type Inference
 
 Swift supports type inference whereby the compiler automatically deduces the type of a variable during compilation by examining the values assigned to it. 
 
@@ -54,9 +50,7 @@ var str2 = "foo" // compiler infers that str2 is of type String
 str2 = 5 // compilation error
 ```
 
-### Benefit: Handle Special Values Meaningfully
-
-#### Optionals
+### Optionals
 
 Swift allows the use of `Optionals`, so that you can choose to either return nil or a data value, instead of returning a special value to indicate the absence of a value.
 
@@ -152,7 +146,7 @@ Here are some of the benefits of using `guard` statement over `if-let` statement
 1. Unlike the `if-let` statement, using the `guard` statement causes `past` to remain defined and can be used till the function exits.
 1. While using `if-let` statements can lead to deeply nested `if-let` statements (i.e. pyramid of doom), `guard` statements allow us to have the happy path to be not indented, thereby increasing code readability.
 
-### Benefit: Handle Post-operations Easily
+### Defer Statements
 
 The `defer` key word in Swift provides an easy and safe way to execute some code before leaving current scope. It is helpful when you need to do post-operations in a function which has many points of return.
 
@@ -190,7 +184,9 @@ Using `defer` statement, the file will be closed no matter which branch the prog
 
 This [document](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_defer-statement) explains more about `defer` statement in Swift.
 
-### Benefit: Avoid Implicitly Sharing Data
+### Data Types
+
+#### Structs
 
 Apart from the classes (something you are familiar with if you have already learned languages like Java / Python) which you use for creating instances of Reference type, Swift also provides the use of Structs to create instances of Value type. 
 
@@ -218,7 +214,7 @@ You can think of Structs as a way to create instances that have their own unique
 
 If you wish to find out more, here is an [article](https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2) that explains the difference between the 2 types, as well as the benefits of value types and when to use them.
 
-### Benefit: Support associate values in Enum
+#### Enums
 
 An enum is a data type that represents of a set of values. For example, we can use `String` to represent the possible types of a barcode. However, this allows us to assign invalid values to it:
 
@@ -263,7 +259,7 @@ barcode2.printCode() // prints "QR code: bar."
 
 Also, enums with associated values is not supported in languages such as [Java](https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum), and using a workaround to implement enums with associated values results in code verbosity. Take a look at [Swift's documentation on Enums](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html) for more information about enums.
 
-### Benefit: Support Protocol Oriented Programming
+### Protocol Oriented Programming
 
 The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html). POP uses composition instead of inheritance for implementation, where you can compose from multiple classes. Therefore, if you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.
 
@@ -299,7 +295,7 @@ And if you haven't noticed, protocols are extremely similar to interfaces in Jav
 
 To understand more about POP, watching this [WWDC 2015 talk](https://www.youtube.com/watch?v=g2LwFZatfTI) is highly recommended.
 
-### Benefit: Implement Default Behaviors and Isolate Existing Code
+### Extensions
 
 Extensions allow us to add new functionalities to an existing class, structure, enumeration, or protocol type. Suppose we have an `Eagle` struct:
 
@@ -348,7 +344,7 @@ print(foo.isAlphabetic()) // prints "false"
 
 To find out more about extensions, take a look at [Swift's documentation on Extensions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html)
 
-### Benefit: Prevent Memory Leak Easily
+### Automatic Reference Counting
 
 A few keywords unique to Swift are `strong`, `weak` and `unowned`, which have to do with Swift's way of memory management, [Automatic Reference Counting (ARC)](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html). 
 
@@ -358,7 +354,7 @@ Reference cycles are bad, because they cause memory leaks. Even though A and B a
 
 Here is an [article](https://krakendev.io/blog/weak-and-unowned-references-in-swift) with greater in-depth explanation and examples.
 
-### Benefit: Reuse Existing Code Easily
+### CocoaPods
 
 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) is a dependency manager for Swift and Objective-C Cocoa projects which has over 58 thousand libraries and is used in over 3 million apps. Instead of reinventing the wheel, you can check this out to obtain code that helps resolve common issues. If you have done something new with Swift, you can also make your code into a library with CocoaPods for others to use!
 
@@ -376,8 +372,4 @@ If you are really pressed for time, here are a couple of cheatsheets with code e
 - [Swift Cheat Sheet](https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html) (web-friendly)
 - [Swift 3.0 Cheat Sheet and Quick Reference](https://koenig-media.raywenderlich.com/uploads/2014/06/RW-Swift-Cheatsheet-0_7.pdf) (print-friendly)
 
-## Where to Go from Here
-If you're just looking to take a dip into Swift, here are the [basics](https://guides.codepath.com/ios/Swift-Basics) you'll need to understand.
-
-If you would like to learn software engineering in Swift. [Stanford course](https://www.youtube.com/watch?v=TZL5AmwuwlA&index=1&list=PL3d_SFOiG7_8ofjyKzX6Nl1wZehbdiZC_) is a good choice. Do note that Swift updates rapidly, and some contents in the video may be deprecated.
 </div>
