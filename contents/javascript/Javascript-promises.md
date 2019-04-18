@@ -12,7 +12,7 @@
 
 # Javascript: Promises
 
-**Authors: Daniel Berzin Chua, Ong Shu Peng**
+**Authors: Daniel Berzin Chua, Ong Shu Peng**<br />
 Reviewers: Chelsey Ong, Damith C, Gilbert Emerson, Tan Heng Yeow
 
 ## Why Promises?
