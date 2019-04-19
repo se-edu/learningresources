@@ -28,7 +28,7 @@ Imagine that you have built an online web ordering system and a sample architect
 </center>
 
 When focusing on the food ordering aspect of this system, a unit test on the `Order Summary` could look like this:
-```
+```java
 @Test
 public void isOrderSummaryCorrect(OrderSummary orderSummary) {
 	assertTrue(orderSummary.contains("cheese burger"));
@@ -37,7 +37,7 @@ public void isOrderSummaryCorrect(OrderSummary orderSummary) {
 
 After unit testing of individual modules are completed, an integration test on `Order Food` and `Order Summary` could look like this:
 
-```
+```java
 public class FoodOrderingIntegrationTest {
 	public void testFoodOrderRecorded() {
 		FoodOrder foodOrder1 = new FoodOrder("cheese burger");
@@ -49,7 +49,7 @@ public class FoodOrderingIntegrationTest {
 }
 ```
 
-The system test is used to ensure that your entire application has the necessary working functionalities such as ordering, paying and generate reports. It usually involve different scenarios of using the entire system like this:
+The system test is used to ensure that the entire application has all the necessary working functionalities such as ordering, paying and generating reports in different scenarios such as this:
 
 - A customer ordered 3 items, made payment using his E-Wallet and generated a report to save the order record.
 
@@ -61,17 +61,17 @@ Since these programmers may work in isolation and have different understandings 
 Suppose you are developing the `Order Food` component as mentioned previously and you allow each user to submit up to 10 orders each time, if the `Order Summary` component can only record a maximum of 5 orders each time, 5 orders by different users could be lost, resulting in problems such as **data loss**, **inaccurate results** and even **system errors**.
 Integration tests find these discrepancies before any serious damage is done.
 
-Although system testing also help to uncover faults between modules, integration testing is still highly encouraged as it is **easier to test**, **isolate failures** and **run faster** than a system test.
-Many integration problems can be resolved before they complicate further in your future development, making developers lives more difficult.
+Although system testing also help to uncover faults between modules, integration testing is still highly encouraged as it is **easier to test**, **isolate features better** and **runs faster** than a system test.
+Many integration problems can be resolved before they result in further complications in your future development, making developers lives more difficult.
 More advantages of integration testing before system testing can be found [here](https://bitwaretechnologies.com/integration-testing-important-software-testing-life-cycle/).
 
-Hence, integration testing is an important process which should be applied in the development of most softwares products such as web, mobile and desktop applications. 
-Concepts shared in this article can be adopted by other different software applications.
+Hence, integration testing is an important process which should be applied in the development of most software products such as web, mobile and desktop applications. 
+Concepts shared in this article can be adopted by different software applications.
 
-On top of that, in the current era of <tooltip content="Practice of merging all developers work  into a shared repository">Continuous Integration</tooltip> (CI), integration testing is useful to help early detecion of defects while maintaining the quality of the product throughout further developments.
+On top of that, in the current era of <tooltip content="Practice of merging developers' work continuously into a shared repository">Continuous Integration</tooltip> (CI), integration testing is useful to help early detecion of defects while maintaining the quality of the product throughout further developments.
 The concept of [Continuous Integration Testing](https://crossbrowsertesting.com/blog/continuous-integration/continuous-integration-testing-delivery/) is also formed to combine integration testing with continuous integration.
 
-:fas-info-circle: More information on instances where integration testing is important can be found on [this article](https://www.guru99.com/integration-testing.html).
+:fas-info-circle: More information on instances where integration testing is important can be found in [this article](https://www.guru99.com/integration-testing.html).
 
 ## How does integration testing work?
 
@@ -155,16 +155,6 @@ In the event of failing your integration test case, it is important to learn how
 Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.
 
 :fas-info-circle: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
-
-
-## Projects Adopting Integration Testing
-[Teammates](https://github.com/TEAMMATES/teammates), an online peer evaluations feedback platform, is an exaunit testing, followed by integration testing, then system testing needs to be performed before deploying the product.
-
-Each part of Teammates undergoes unit testing to ensure that each function such as filling up text, selecting dropdowns or checkboxes are working as expected. 
-Integration testing ensures that each interactable interface from one module like logging in, leads you correctly to another module such as the intructor or student home page
-System testing ensures that all the necessary specifications are available and the generatl feedback performance  and loading speed do not disappoint
-
-
 
 ## Tips for better integration tests
 
