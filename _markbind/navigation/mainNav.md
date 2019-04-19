@@ -60,12 +60,15 @@
 * ****App Frameworks****
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
   * [Angular]({{baseUrl}}/contents/javascript/Javascript-framework-Angular.html)
+  * [iOS]({{baseUrl}}/contents/ios/IntroToIos.html)
   * [NodeJS]({{baseUrl}}/contents/node/nodejs.html)
   * [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html)
+  * [Ruby on Rails]({{baseUrl}}/contents/ruby/Rails.html)
   * [VueJS]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
 
 * ****Tools Useful for Software Engineers****
   * [Regular Expressions]({{baseUrl}}/contents/regex/Regex.html)
+  * [Docker]({{baseUrl}}/contents/docker/Docker.html)
 
 * ****Other Topics****
   * [Computer Vision]({{baseUrl}}/contents/computerVision/cv.html)
