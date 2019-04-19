@@ -62,7 +62,7 @@
   * [iOS]({{baseUrl}}/contents/ios/IntroToIos.html)
   * [NodeJS]({{baseUrl}}/contents/node/nodejs.html)
   * [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html)
-  * [Ruby on Rails]({{baseURL}}/contents/ruby/Rails.html)
+  * [Ruby on Rails]({{baseUrl}}/contents/ruby/Rails.html)
   * [VueJS]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
 
 * ****Tools Useful for Software Engineers****
