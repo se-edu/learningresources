@@ -1,18 +1,21 @@
 <frontmatter>
-  title: DevOps
+  title: Docker
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
+
 
 <div class="website-content">
 
+{{ booktitle | safe }}
+
 # Docker
 
-Authors: [Rahul Rajesh](https://github.com/rrtheonlyone)
+**Authors: [Rahul Rajesh](https://github.com/rrtheonlyone)**
 
 Reviewers: [Monika Manuela Hengki](https://github.com/monmanuela), [Wang Junming](https://github.com/junming403)
 
