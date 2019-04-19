@@ -146,9 +146,9 @@ The set-up to use `docker-compose` involves the creation of a YAML file. Detaile
 At this point, you would have realised the advantages that Docker is able to give you and might be considering to switch over to Docker for your own projects. 
 
 Here is a learning path that you can follow to pick up Docker:
-- [Docker's getting started guide](https://docs.docker.com/get-started/) : Docker's offical documentation is a good place to start out. It is a good overview of the fundamentals behind Docker. They will take you through setting up your own docker environement, building an image, scaling it and finally deploying.
+- [Docker's getting started guide](https://docs.docker.com/get-started/) : Docker's offical documentation is a good place to start out. It is a good overview of the fundamentals behind Docker. They will take you through setting up your own docker environment, building an image, scaling and deploying.
 
-- [Article covering important concepts behind Docker](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) : After reading the official documentation, this is another excellent article to look through. It covers how Docker works in detail with good examples. Before jumping into a use case, it is a good to understand the internals of Docker and this article helps with that.
+- [Article covering important concepts behind Docker](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) : After reading the official documentation, this is another excellent article to look through. It covers how Docker works in detail with good examples. 
 
 - [Books covering specific use cases with Docker](https://github.com/eduleboss/the-best-docker-books) : Once you have a clearer picture on the fundamentals behind Docker, this resource will provide you with a collection of books that show you how to use Docker in a practical setting.  
 
