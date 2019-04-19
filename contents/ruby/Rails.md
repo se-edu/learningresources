@@ -10,7 +10,7 @@
 
 <div class="website-content">
 
-# Introduction to Ruby on Rails
+# Ruby on Rails
 
 <b> Authors: [Chattoraj Ayush](https://github.com/AyushChatto) </b>
 
