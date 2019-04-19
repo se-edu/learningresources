@@ -13,7 +13,7 @@
 # Introduction to iOS Development
 
 **Authors: [Bryan Lew](https://github.com/blewjy)**
-**Reviewers: [Chester Sng](https://github.com/ChesterSng), [Yu Pei, Henry](https://github.com/YuPeiHenry), [Jiang Chunhui](https://github.com/Adoby7)**
+Reviewers: [Chester Sng](https://github.com/ChesterSng), [Jiang Chunhui](https://github.com/Adoby7), [Yu Pei, Henry](https://github.com/YuPeiHenry)
 
 ## What is iOS?
 
@@ -21,7 +21,7 @@ iOS is the mobile operating system that runs on Apple's mobile devices, most not
 
 ## Why iOS?
 
-In the mobile world, [2 operating systems dominate the whole market share: iOS and Android](https://www.theverge.com/2017/2/16/14634656/android-ios-market-share-blackberry-2016). While Android boasts higher market share in terms of the total number of hardware devices running the operating system, iOS is no slouch in other aspects, especially those important to us sofware engineers.
+[2 operating systems dominate the whole market share: iOS and Android](https://www.theverge.com/2017/2/16/14634656/android-ios-market-share-blackberry-2016). While more devices are running Android compared to iOS, given below are some areas in which iOS outshines Android:
 
 #### Better compatibility and standardisation
 
@@ -60,7 +60,7 @@ To get started with native iOS development, we have to first get some of the bas
 - Once you have an Apple Developer Account, you can either directly download Xcode from the [website](https://developer.apple.com/xcode/), or search for Xcode on your Mac App Store. Xcode is the Integrated Development Environment (IDE) that provides you with everything you need to develop an iOS app from scratch. It also comes with the iPhone and iPad simulator that you will need to test your application.
 
 ![Xcode and Simulator](https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png)
-([Image](https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png) from Google)
+([Image](https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png) from [Dice Insights](https://insights.dice.com/))
 
 Native iOS applications can be written in [Objective-C or Swift](https://android.jlelse.eu/objective-c-or-swift-which-technology-to-learn-for-ios-app-development-3c681d1a05ac). Swift is a relatively newer language, introduced only in 2014, while Objective-C is more of an old school programming language. If you are just starting out on iOS development, you should strongly consider using Swift. The main reason being that many of the documentations and help on the internet are written for iOS development in Swift, hence it will be easier to look for resources that target Swift instead of Objective-C. Furthermore, Apple mostly regards Swift as the main language for iOS programming now, and Objective-C support is now more of a backward-compatability. 
 
@@ -70,22 +70,9 @@ If you are ready to begin developing your first iOS application, you will want t
 - [Codewithchris: How to make an iPhone app](https://codewithchris.com/how-to-make-an-iphone-app/)
 - [raywenderlich.com "How to build a simple iOS app"](https://www.raywenderlich.com/3114-ios-tutorial-how-to-create-a-simple-iphone-app-part-1-3)
 
-If you have worked with iOS applications before, are familiar with the whole development process and would like to take the next step, check out these more in-depth tutorials for iOS development and its intracacies:
-- [MVC Design Pattern for iOS apps](https://www.raywenderlich.com/1073-model-view-controller-mvc-in-ios-a-modern-approach)
-- [Auto Layout](https://www.raywenderlich.com/443-auto-layout-tutorial-in-ios-11-getting-started)
-- [iOS Animations](https://www.raywenderlich.com/363-ios-animation-tutorial-getting-started)
-
 ## Useful links and further reading
 
-Here are some links to more advanced topics on iOS development and Swift:
-- [Objective-C vs. Swift](https://www.altexsoft.com/blog/engineering/swift-vs-objective-c-out-with-the-old-in-with-the-new/)
-- [Comparisons between different iOS app architectures](https://academy.realm.io/posts/krzysztof-zablocki-mDevCamp-ios-architecture-mvvm-mvc-viper/)
-- [Unit testing on iOS](https://www.toptal.com/qa/how-to-write-testable-code-and-why-it-matters)
-- [RxSwift and RxCocoa](https://www.raywenderlich.com/900-getting-started-with-rxswift-and-rxcocoa)
-- [iOS UI Programmatically](https://fluffy.es/intro-to-creating-ui-in-code-1/)
-- [Popular Swift Libraries](https://www.codementor.io/kuprenkoauthor/top-10-swift-libraries-from-github-that-are-worth-using-k8g8gifph)
-
-Best "general" iOS development resources:
+Recommended iOS development resources:
 - [Ray Wenderlich](https://www.raywenderlich.com/ios)
 - [Brian Advent](https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw)
 - [Let's Build That App](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA)
