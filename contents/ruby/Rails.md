@@ -13,6 +13,7 @@
 # Introduction to Ruby on Rails
 
 <b> Authors: [Chattoraj Ayush](https://github.com/AyushChatto) </b>
+
 Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Marvin Chin](https://github.com/marvinchin)
 
 ## Ruby on Rails overview
