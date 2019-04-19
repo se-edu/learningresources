@@ -11,8 +11,6 @@
   
 {{ booktitle | safe }}
 
-{{ booktitle | safe }}
-
 # Javascript: Promises
 
 **Authors: Daniel Berzin Chua, Ong Shu Peng**<br/>
@@ -93,7 +91,6 @@ Promises provide the ability to specify how the execution of some part of your c
 
 Let's learn how promises work by starting with an example that uses callbacks and converting it to use promises.
 
-### From callbacks to promises
 Say we have two functions, `getData()` and `filterData()` which require some time to complete. You will have to get the data from some server using `getData()`, then process it using `filterData()`, before you can start displaying the results.
 
 How would such functions be implemented using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively "passing" any form of data out, without explicitly returning any value.
@@ -159,7 +156,7 @@ function main() {
 main();
 ```
 
-### The imperative style of promises: `async-await`
+## Imperative Style Promises: `async-await`
 
 The example above uses `.then()` to pass data from one function to the next is often seen in *functional programming*. The original promise is passed from one `.then()` to the other, and with each `.then()`, a new promise is returned for the next `.then()` to work on.
 
@@ -193,57 +190,60 @@ Another interesting thing to note: `await` will wait for the promise to return b
 
 In the promise-style, we handle errors using the `.catch()` block. However when using the async-await-style, we handle the errors using the more conventional `try ... catch` block. These can be explored further in [here](https://javascript.info/async-await#error-handling)
 
-## Where Promises can be used 
-### HTTP Requests
+## Where Promises can be used
 
-Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for the response to be returned.
+Given below are some examples where JavaScript promises can be used:
 
-The following code sends a GET request to a URL and logs the body of the response using Promises. By using Promises instead of callbacks, we have clean code and improved performance as the code is able to run in the background.
+* **HTTP Requests**
 
-Code adapted from [Promise MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+  Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for the response to be returned.
+  
+  The following code sends a GET request to a URL and logs the body of the response using Promises. By using Promises instead of callbacks, we have clean code and improved performance as the code is able to run in the background.
+  
+  Code adapted from [Promise MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+  
+  ```javascript
+  function fetchPage(url) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      xhr.onload = () => resolve(xhr.responseText);
+      xhr.onerror = () => reject(xhr.statusText);
+      xhr.send();
+    });
+  }
+  
+  fetchPage('path/to/resource')
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+  ```
 
-```javascript
-function fetchPage(url) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onload = () => resolve(xhr.responseText);
-    xhr.onerror = () => reject(xhr.statusText);
-    xhr.send();
-  });
-}
+* **Disk I/O**
 
-fetchPage('path/to/resource')
-    .then(response => console.log(response))
-    .catch(err => console.log(err));
-```
+  Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.
+  
+  ```javascript
+  const fs = require('fs');   // this is the in-built filesystem module from Node.js
+  
+  function readFileWithPromise(filePath) {
+      return new Promise(function(resolve, reject) {
+          fs.readFile(filePath, 'utf8', function(err, data) {
+              if (err) {
+                  reject(err);
+              } else {
+                  resolve(data);
+              }
+          });
+      })
+  
+  };
+  
+  readFileWithPromise('path/to/file')
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+  ```
 
-### Disk I/O
-
-Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.
-
-```javascript
-const fs = require('fs');   // this is the in-built filesystem module from Node.js
-
-function readFileWithPromise(filePath) {
-    return new Promise(function(resolve, reject) {
-        fs.readFile(filePath, 'utf8', function(err, data) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    })
-
-};
-
-readFileWithPromise('path/to/file')
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
-```
-
-## Other functions
+## Doing more with Promises
 
 Sometimes multiple promises may have to be used at a time, and Javascript provides excellent support with the `Promise.all` and `Promise.race` functions.
 
