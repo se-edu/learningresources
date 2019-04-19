@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.2.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Static Analysis</title>
+  <title>SE-EDU/LearningResources - Docker</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -114,10 +114,10 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">Architecture
                         <i class="dropdown-btn-icon">
@@ -170,12 +170,12 @@
                       </div>
                     </li>
                     <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Static Analysis
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a current">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
@@ -220,13 +220,13 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a current">Docker</a></li>
                   </ul>
                 </div>
               </li>
@@ -288,94 +288,111 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-static-analysis">Introduction to Static Analysis<a class="fa fa-anchor" href="#introduction-to-static-analysis"></a></h1>
-          <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-          <p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p>
-          <p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p>
-          <h2 id="why-static-analysis">Why Static Analysis?<a class="fa fa-anchor" href="#why-static-analysis"></a></h2>
-          <h3 id="analyse-thoroughly">Analyse Thoroughly<a class="fa fa-anchor" href="#analyse-thoroughly"></a></h3>
-          <p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.</p>
-          <h3 id="find-potential-bugs-early">Find Potential Bugs Early<a class="fa fa-anchor" href="#find-potential-bugs-early"></a></h3>
-          <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">switch</span>(colour) {
-<span class="hljs-keyword">case</span> <span class="hljs-string">'blue'</span>:
-	value = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">case</span> <span class="hljs-string">'green'</span>:
-	value = <span class="hljs-number">2</span>;
-}
-</code></pre>
-          <p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
-          <h3 id="enforce-a-standard-in-project">Enforce a Standard in Project<a class="fa fa-anchor" href="#enforce-a-standard-in-project"></a></h3>
-          <p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
-	<span class="hljs-comment">// true</span>
-} <span class="hljs-keyword">else</span> {
-	<span class="hljs-comment">// false</span>
-}
-</code></pre>
-          <p>While others enforce the following standard:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
-	<span class="hljs-comment">// true</span>
-}
-<span class="hljs-keyword">else</span> {
-	<span class="hljs-comment">// false</span>
-}
-</code></pre>
-          <p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
-          <h3 id="improve-code-quality">Improve Code Quality<a class="fa fa-anchor" href="#improve-code-quality"></a></h3>
-          <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (isConditionTrue()) {
-	<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-} <span class="hljs-keyword">else</span> {
-	<span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-}
-</code></pre>
-          <p>Majority of static analysis tools will point out that this can be simplified to:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">return</span> isConditionTrue();
-</code></pre>
-          <h2 id="limitation-of-static-analysis">Limitation of Static Analysis<a class="fa fa-anchor" href="#limitation-of-static-analysis"></a></h2>
-          <h3 id="false-positives">False positives<a class="fa fa-anchor" href="#false-positives"></a></h3>
-          <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
-	<span class="hljs-comment">// logic part</span>
-} <span class="hljs-keyword">catch</span> (Throwable t) {
-	<span class="hljs-comment">// alert user</span>
-}
-</code></pre>
-          <p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected by static analysis tools is a false positive.</p>
-          <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="PMD.html">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation can be used. In this case,</p>
-          <pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"PMD.AvoidCatchingThrowable"</span>) <span class="hljs-comment">// used as fallback</span>
-</code></pre>
-          <p>is the correct way to suppress warnings.</p>
-          <h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment<a class="fa fa-anchor" href="#cannot-catch-error-introduced-in-runtime-environment"></a></h3>
-          <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases are also needed to verify the functionalities in logic, UI and etc.</p>
-          <h2 id="how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)<a class="fa fa-anchor" href="#how-to-do-static-analysis-static-analysis-tools"></a></h2>
-          <p>There are several static analysis tools that can be used to assist the process.</p>
+          <h1 id="docker">Docker<a class="fa fa-anchor" href="#docker"></a></h1>
+          <p><strong>Authors: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a></strong></p>
+          <p>Reviewers: <a href="https://github.com/monmanuela">Monika Manuela Hengki</a>, <a href="https://github.com/junming403">Wang Junming</a></p>
+          <h3 id="what-is-docker">What is Docker?<a class="fa fa-anchor" href="#what-is-docker"></a></h3>
+          <pic src="/learningresources/contents/docker/Docker_Logo.png" alt="Docker Logo" width="45%">
+            <p><sub><em>Figure 1. Docker Logo</em> <a href="https://www.theverge.com/circuitbreaker/2018/5/25/17386716/docker-kubernetes-containers-explained">(source)</a></sub></p>
+          </pic>
+          <p>Docker is a platform that is used to develop, deploy and run applications inside “containers”.</p>
+          <blockquote>
+            <p>A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. <sub>--<a href="https://www.docker.com/resources/what-container">Docker Website</a></sub></p>
+          </blockquote>
+          <p>The idea of containers is not so different from <em>Virtual Machines</em> (VM). Before the rise of Docker, people used VMs. A VM is an emulation of a real computer that is used to isolate an application and its dependencies into a self-contained unit that can run anywhere. For example, you could use a VM to run an application on a Linux system even though you are running Windows.</p>
+          <p>However, a container posses some advantages over a VM. As per the <a href="https://docs.docker.com/get-started/">Docker Documentation</a>, a container runs natively on Linux and shares the kernel of the host machine with other containers. It runs a discrete process, taking no more memory than any other executable, making it lightweight.</p>
+          <pic src="/learningresources/contents/docker/Docker_Architecture.png" alt="Docker Architecture" width="100%">
+            <p><sub><em>Figure 2. Difference between a container and a VM</em> <a href="https://docs.docker.com/get-started">(source)</a></sub></p>
+          </pic>
+          <p>By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor. In general, VMs provide an environment with more resources than most applications need.</p>
+          <p>The idea behind Docker is to spin up a lightweight container that is able to execute services quickly without the overhead of a full-blown VM. With this in mind, let us move onto the the reasons to switch over to Docker. The subtleties between a container and VM will become more clear as you read the next few sections.</p>
+          <h3 id="why-docker">Why Docker?<a class="fa fa-anchor" href="#why-docker"></a></h3>
+          <p>Docker is a powerful tool that is rapidly gaining popularity. These are some statistics for Docker:</p>
+          <pic src="/learningresources/contents/docker/Docker_Statistics.png" alt="Docker Statistics" width="60%">
+            <p><sub><em>Figure 3. Usage of Docker</em> <a href="https://www.docker.com/company">(source)</a></sub></p>
+          </pic>
+          <p>Many leading companies (e.g. Spotify, Nginx, ElasticSearch etc.) are using Docker for their deployment!</p>
+          <p>If the numbers aren't enough to convince you to get started on Docker, as compiled by <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.0_release_notes/sect-red_hat_enterprise_linux-7.0_release_notes-linux_containers_with_docker_format-advantages_of_using_docker">RedHat</a> here are some of the notable advantages that Docker is able to provide:</p>
           <ul>
-            <li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li>
-            <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each commit.</li>
+            <li><strong>Rapid application deployment</strong> – containers include the minimal runtime requirements of the application, reducing their size and allowing them to be deployed quickly.</li>
+            <li><strong>Portability across machines</strong> – an application and all its dependencies can be bundled into a single container that is independent from the host version of Linux kernel, platform distribution, or deployment model. This container can be transferred to another machine that runs Docker, and executed there without compatibility issues.</li>
+            <li><strong>Version control and component reuse</strong> – you can track successive versions of a container, inspect differences, or roll-back to previous versions. Containers reuse components from the preceding layers, which makes them noticeably lightweight.</li>
+            <li><strong>Sharing</strong> – you can use a remote repository to share your container with others.Red Hat provides a registry for this purpose, and it is also possible to configure your own private repository.</li>
+            <li><strong>Lightweight footprint and minimal overhead</strong> – Docker images are typically very small, which facilitates rapid delivery and reduces the time to deploy new application containers.</li>
+            <li><strong>Simplified maintenance</strong> – Docker reduces effort and risk of problems with application dependencies.</li>
           </ul>
-          <p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p>
+          <box type="danger">
+            As you can read from above, Docker is undeniably a powerful tool that can alleviate your deployment troubles. However, be aware that Docker is not a one-size-fits-all solution to your problems. Docker also has its limitations e.g. refer to this <a href="https://www.channelfutures.com/open-source/when-not-to-use-docker-understanding-the-limitations-of-containers/">article</a>. Carefully consider your use case before turning to Docker.
+          </box>
+          <p>Now that we have a good idea of how Docker works and a summary of the notable advantages it is able to provide, let us take a closer look at some of the unique features that Docker is able to provide.</p>
+          <h4 id="feature-docker-is-lightweight">Feature: Docker is lightweight</h4>
+          <p>We have discussed above that Docker makes use of a container instead of a full-fledged VM to run your application. We have briefly covered the differences between a VM and a container above.</p>
+          <p>The table below lists some of the differences between a VM and a container:</p>
+          <pic src="/learningresources/contents/docker/VMvsContainer.png" alt="VM vs Container" width="100%">
+            <p><sub><em>Figure 4. VM vs Container</em> <a href="https://www.backblaze.com/blog/vm-vs-containers/">(source)</a></sub></p>
+          </pic>
+          <p>The image listed previously in the “What is Docker” section helps to give a pictorial representation of the points listed above in the table. To summarise, a Docker container shares the host OS and runs a discrete process on your operating system (much like any other application). As a result, Docker has a minimal footprint and is much more lightweight. This also makes it faster to run.</p>
+          <h4 id="feature-docker-allows-for-sharing-and-reuse">Feature: Docker allows for sharing and reuse</h4>
+          <p>Docker containers require a base image to run. An image corresponds to the service you want e.g. python image / ubuntu image etc. An image helps to define what you want your packaged application and its dependencies to look like.</p>
+          <p>One of the reasons why Docker is so great is that it provides a shared resource known as the <a href="https://hub.docker.com/">Docker Hub</a> to download prebuilt images. The docker hub has over a hundred thousand images created by the community that are readily available for use.</p>
+          <pic src="/learningresources/contents/docker/DockerHub.png" alt="Docker Hub" width="100%">
+            <p><sub><em>Figure 5. Docker Hub</em> <a href="https://hub.docker.com/">(source)</a></sub></p>
+          </pic>
+          <p>Hence, no matter what your use case is, there is a good chance that someone else has already built an image for it on the Docker Hub. With Docker, you do not have to spend hours thinking about how to configure your images. On top of that, you are free to augment existing images to fit you exact needs. You can then, share your new image back to the Docker Hub for others to use!</p>
+          <h4 id="feature-docker-is-accessible">Feature: Docker is accessible</h4>
+          <p>On top of the abovementioned advantages, Docker has made it much easier for anyone from developers to system admins to take advantage of containers to quickly build and run applications. Docker allows anyone to package an application on their laptop which in turn can run unmodified on any public cloud or private cloud. Hence the mantra, “build once, run anywhere”.</p>
+          <p>Docker is able to do this through what is known as a DockerFile. A DockerFile is where you write the instructions to build a Docker image. Once a DockerFile is set-up, run <code>docker build</code> to build the container.</p>
+          <p>An example of a simple DockerFile is as follows:</p>
+          <pre><code class="hljs bash"><span class="hljs-comment">#FROM - Image to start building on.</span>
+FROM ubuntu:14.04
+
+<span class="hljs-comment">#RUN - Runs a command in the container</span>
+RUN <span class="hljs-built_in">echo</span> <span class="hljs-string">"Hello Docker!"</span> &gt; /tmp/hello_docker.txt
+
+<span class="hljs-comment">#CMD - Identifies the command that should be used by default when running the image as a container.</span>
+CMD [<span class="hljs-string">"cat"</span>, <span class="hljs-string">"/tmp/hello_docker.txt"</span>]
+</code></pre>
+          <p>As you can see from above, a DockerFile is a series of instructions that is used to build the container. You start with a base image (ubuntu for the example above) and then add more “layers” to the image, with layers representing a portion of the images file system that either adds to or replaces the layer above it.</p>
+          <p>For the example used, the layers are simple bash commands that help print “Hello Docker”. A DockerFile is also able to do much more than this! It can install specific dependencies, it can run a couple of servers, set up configuration files etc. There are plenty of guides available out there that covers the fundamentals behind getting started with this (refer to next section for some links).</p>
+          <p>As a result, Docker is easy to get started with. Once you have configured a DockerFile, you can reuse it everywhere else to run your container! The process for creating a DockerFile is also made easier due to the plethora of resources available and the Docker Hub.</p>
+          <h4 id="feature-docker-is-modular-and-scalable">Feature: Docker is modular and scalable</h4>
+          <p>As mentioned earlier, Docker makes it much easier to deploy an application that is using a microservices based architecture. For example, you may have Postgres database running in one container, Redis server in another and a Python Flask application in another. Docker makes it much easier to group these containers together and scale/update individual components easily in the future.</p>
+          <p>In order to provide a little more clarity to this, let us consider a simple blog application that is running using Nginx, WordPress and MariaDB. We can organise this as follows:</p>
+          <pic src="/learningresources/contents/docker/Docker_MicroServices.jpg" alt="Docker Microservice Architecture" width="100%">
+            <p><sub><em>Figure 6. Docker Architecture</em> <a href="https://rubygarage.org/blog/advantages-of-using-docker-for-microservices">(source)</a></sub></p>
+          </pic>
+          <p>Each of the above services is encapsulated in a container using Docker. Docker provides an added functionality called <code>docker-compose</code> that allows you to run all the containers at once. <code>docker-compose</code> also has added advantages:</p>
+          <ul>
+            <li>Preserve volume data when containers are created</li>
+            <li>Only recreate containers that have changed</li>
+            <li>Variables and moving a composition between environments</li>
+          </ul>
+          <p>The set-up to use <code>docker-compose</code> involves the creation of a YAML file. Detailed information on this is available <a href="https://docs.docker.com/compose/overview/">here</a>.</p>
+          <h3 id="how-to-use-docker">How to use Docker?<a class="fa fa-anchor" href="#how-to-use-docker"></a></h3>
+          <p>At this point, you would have realised the advantages that Docker is able to give you and might be considering to switch over to Docker for your own projects.</p>
+          <p>Here is a learning path that you can follow to pick up Docker:</p>
           <ul>
             <li>
-              <p>Java</p>
-              <ul>
-                <li><a href="checkStyle.html">CheckStyle</a></li>
-                <li><a href="PMD.html">PMD</a></li>
-                <li><a href="FindBugs.html">FindBugs</a></li>
-              </ul>
+              <p><a href="https://docs.docker.com/get-started/">Docker's getting started guide</a> : Docker's offical documentation is a good place to start out. It is a good overview of the fundamentals behind Docker. They will take you through setting up your own docker environment, building an image, scaling and deploying.</p>
             </li>
             <li>
-              <p>JavaScript</p>
-              <ul>
-                <li><a href="ESLint.html">eslint</a></li>
-              </ul>
+              <p><a href="https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b">Article covering important concepts behind Docker</a> : After reading the official documentation, this is another excellent article to look through. It covers how Docker works in detail with good examples.</p>
+            </li>
+            <li>
+              <p><a href="https://github.com/eduleboss/the-best-docker-books">Books covering specific use cases with Docker</a> : Once you have a clearer picture on the fundamentals behind Docker, this resource will provide you with a collection of books that show you how to use Docker in a practical setting.</p>
             </li>
           </ul>
-          <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
+          <h3 id="additional-tools-docker-swarm-and-kubernetes">Additional tools - Docker Swarm and Kubernetes<a class="fa fa-anchor" href="#additional-tools-docker-swarm-and-kubernetes"></a></h3>
+          <p>If you have managed to familiarise yourself with the functionality that Docker is able to provide and have used Docker for your own projects, here are some additional tools that you might want to look into that make use of Docker.</p>
+          <p>Kubernetes is open-source platform created by Google for container deployment operations, scaling up and down, and automation across the clusters of hosts. It is a tool that can help you manage many docker containers. You can read up more about it in their official documentation <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">here</a></p>
+          <p>Docker Swarm is another alternate tool that is Docker’s own native clustering solution for Docker containers. It monitors the number of containers spread across clusters of servers and is a way to create clustered docker application without additional hardware. The <a href="https://docs.docker.com/get-started/part4/">docker official documentation</a> gives more information on this.</p>
+          <h3 id="conclusion-further-readings">Conclusion / Further Readings<a class="fa fa-anchor" href="#conclusion-further-readings"></a></h3>
+          <p>In a nutshell, Docker is a lightweight solution to run you application in an isolated environment. Docker provides a convenient out-of-the-box setup to deploy your applications and has added functionality to deploy complex microservices based applications.</p>
+          <p>Apart from those listed in the article, here are some further readings/references to get moving with Docker:</p>
           <ul>
-            <li><a href="http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li>
+            <li><a href="https://docker-curriculum.com/">Full Guide on multiple aspects of docker</a></li>
+            <li><a href="https://medium.freecodecamp.org/docker-quick-start-video-tutorials-1dfc575522a0">Video Series on Docker</a></li>
+            <li><a href="http://docker-saigon.github.io/post/Docker-Internals/">Internals of Docker</a></li>
           </ul>
         </div>
       </div>
@@ -383,23 +400,13 @@
         <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-static-analysis">Introduction to Static Analysis&#x200E;</a>
+            <a class="nav-link py-1" href="#docker">Docker&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-              <a class="nav-link py-1" href="#why-static-analysis">Why Static Analysis?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#analyse-thoroughly">Analyse Thoroughly&#x200E;</a>
-                <a class="nav-link py-1" href="#find-potential-bugs-early">Find Potential Bugs Early&#x200E;</a>
-                <a class="nav-link py-1" href="#enforce-a-standard-in-project">Enforce a Standard in Project&#x200E;</a>
-                <a class="nav-link py-1" href="#improve-code-quality">Improve Code Quality&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#limitation-of-static-analysis">Limitation of Static Analysis&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#false-positives">False positives&#x200E;</a>
-                <a class="nav-link py-1" href="#cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)&#x200E;</a>
-              <a class="nav-link py-1" href="#references">References&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-docker">What is Docker?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-docker">Why Docker?&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-use-docker">How to use Docker?&#x200E;</a>
+              <a class="nav-link py-1" href="#additional-tools-docker-swarm-and-kubernetes">Additional tools - Docker Swarm and Kubernetes&#x200E;</a>
+              <a class="nav-link py-1" href="#conclusion-further-readings">Conclusion / Further Readings&#x200E;</a>
             </nav>
 
           </nav>
