@@ -12,15 +12,12 @@
 
 # Introduction to Ruby on Rails
 
-Authors: [Chattoraj Ayush](https://github.com/AyushChatto)
+<b> Authors: [Chattoraj Ayush](https://github.com/AyushChatto) </b>
+Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Marvin Chin](https://github.com/marvinchin)
 
 ## Ruby on Rails overview
 
 **Ruby on Rails** is a web application framework written in the Ruby programming language. It was designed with the intention of making programming web applications easier and quicker by reducing the amount of code you write. Rails achieves this by being an "opinionated framework", which means that the developers believe that there is a certain approach - often called "The Rails Way" - that is ideal for building most types of web applications. By adhering to this approach, Rails allows you to focus primarily on the logic, and fills in much of the boilerplate code for you. 
-
-The Rails philosophy includes two major principles, namely:
-1. **Don't Repeat Yourself (DRY)**
-2. **Convention over Configuration** 
 
 ### The Rails Way 
 
@@ -89,7 +86,7 @@ In our diagram, the Controller calls the `all` method in the `User` model, which
 
 #### View
 
-After the Controller has fetched all the data necessary and applied whatever transformations are needed, it passes in the requisite fields to its view. The View is what the client sees, and is a collection of `.erb` (**E**mbedded **R**u**B**y) files, which are basically just HTML files with lines of Ruby code embedded in it to modify its appearance and behavior. When the controller is generated using the Rails CLI, a corresponding folder of views is made inside `app/views/`. All the `.erb` files are named after the controller action and stored in folders named after the controller. Following the same example above, Rails will serve up the `app/views/users/index.html.erb` view to the client when executing the `users#index` controller action, thus concluding the request-response cycle. 
+After the Controller has fetched all the data necessary and applied whatever transformations are needed, it passes in the requisite fields to its view. The View is what the client sees, and is a collection of `.erb` (**E**mbedded **R**u**B**y) files, which are basically just HTML files with lines of Ruby code embedded in it to modify its appearance and behavior. When the controller is generated, a corresponding folder of views is made inside `app/views/`. All the `.erb` files are named after the controller action and stored in folders named after the controller. Following the same example above, Rails will serve up the `app/views/users/index.html.erb` view to the client when executing the `users#index` controller action, thus concluding the request-response cycle. 
 
 ## Why Rails
 
