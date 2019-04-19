@@ -71,9 +71,7 @@ If you are ready to begin developing your first iOS application, you will want t
 - [Codewithchris: How to make an iPhone app](https://codewithchris.com/how-to-make-an-iphone-app/)
 - [raywenderlich.com "How to build a simple iOS app"](https://www.raywenderlich.com/3114-ios-tutorial-how-to-create-a-simple-iphone-app-part-1-3)
 
-## Useful links and further reading
-
-Recommended iOS development resources:
+Some useful iOS development resources:
 - [Ray Wenderlich](https://www.raywenderlich.com/ios)
 - [Brian Advent](https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw)
 - [Let's Build That App](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA)
