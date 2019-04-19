@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Introduction to Ruby on Rails
+  title: Ruby on Rails
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
