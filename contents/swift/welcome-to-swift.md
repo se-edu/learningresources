@@ -25,11 +25,6 @@ Reviewers: [Aaron Chong](https://github.com/acjh), [Bryan Lew](https://github.co
 
 Swift syntax is not too different from other mainstream languages such as Python, Java or C++, which means switching to Swift is not difficult. On top of that, Swift also supports [_playgrounds_](), a feature that allows programmers to experiment with Swift code and see the results immediately, without the overhead of building and running an app.
 
-Here is HelloWorld in Swift:
-
-```swift
-print("Hello World!")
-```
 ## Noteworthy Swift Features
 
 Here are some noteworthy Swift features for you to get a feel of Swift.
@@ -208,7 +203,7 @@ x.data = 42                     // changes the instance referred to by x (and y)
 print("\(x.data), \(y.data)")   // prints "42, 42\n"
 ```
 
-In the example above, when you assign the value under reference type, two variables (i.e. `x` and `y`) will implicitly share the same memory space. Later when you modify one of the variables, another one will also be changed. This may cause unexpected behaviors. On the other hand, value-typed variables `a` and `b` will not suffer from the implicit data sharing.
+In the example above, when you assign a reference type variable to another (i.e. `x` and `y`) they both refer to the same memory space. Later when you modify one of the variables, the other one will refer to the new value too. This may not be the desired behavior in some cases. In those cases, value-type variables (e.g., `a` and `b`) can be used to avoid implicit data sharing.
 
 You can think of Structs as a way to create instances that have their own unique copies of data, which can help to make things a lot easier.
 
@@ -261,11 +256,11 @@ Also, enums with associated values is not supported in languages such as [Java](
 
 ### Protocol Oriented Programming
 
-The heart of Swift is Protocol Oriented Programming (POP) which is about abstraction and simplicity. POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html). POP uses composition instead of inheritance for implementation, where you can compose from multiple classes. Therefore, if you ever find yourself having to inherit from multiple classes, you probably should consider using protocols instead.
+The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html) by using composition instead of inheritance for defining new classes based on existing classes.
 
 Here's some code to serve as a brief introduction to POP:
 
-First, we first introduce our protocols.
+First, we first define our protocols.
 
 ```swift
 protocol Bird {
@@ -277,7 +272,7 @@ protocol Flyable {
 }
 ```
 
-Next, we introduce the structs that conform to the protocols above.
+Next, we define the structs that conform to the protocols above.
 
 ```swift
 // Penguins can't fly ):
@@ -360,12 +355,11 @@ Here is an [article](https://krakendev.io/blog/weak-and-unowned-references-in-sw
 
 ## How to Get Started
 
-A Macbook is required for Swift development, but an iPhone or iPad are not. The Swift IDE `X-Code` has built-in simulators for all mobile devices.
+A Macbook is required for Swift development, but an iPhone or iPad is not. The Swift IDE `X-Code` has built-in simulators for all mobile devices.
 
 If you have not learnt any other programming languages before, this [Game App](https://www.apple.com/swift/playgrounds/) could be a good choice to learn swift as well as programming.
 
-If you have been familiar with some programming language, 
-reading the [Language Guide in the official documentation](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/) is recommended, since it explains everything quite clearly, albeit quite verbose.
+If you are familiar with some programming languages, reading the [Language Guide in the official documentation](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/) is recommended, since it explains everything quite clearly, albeit being quite verbose.
 
 If you are really pressed for time, here are a couple of cheatsheets with code examples:
 
