@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.2.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Accessibility</title>
+  <title>SE-EDU/LearningResources - Ruby on Rails</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -114,10 +114,10 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">Architecture
                         <i class="dropdown-btn-icon">
@@ -192,12 +192,12 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">UI/UX
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a current">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
@@ -289,176 +289,122 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="accessibility">Accessibility<a class="fa fa-anchor" href="#accessibility"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/monmanuela">Monika Manuela Hengki</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>, <a href="https://github.com/jacoblipech">Jacob Li Pengcheng</a>, <a href="https://github.com/tanhengyeow">Tan Heng Yeow</a></p>
-          <box type="info">
-            Note that although the scope of this article covers the accessibility of websites, many of the points also apply to accessibility and UI/UX of other softwares too.
-          </box>
-          <h2 id="what-is-accessibility">What is accessibility?<a class="fa fa-anchor" href="#what-is-accessibility"></a></h2>
-          <blockquote>
-            <p>Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections. <sub>--<a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility">MDN Web Docs</a></sub></p>
-          </blockquote>
-          <h2 id="why-is-accessibility-important">Why is accessibility important?<a class="fa fa-anchor" href="#why-is-accessibility-important"></a></h2>
-          <p>Accessibility is important for users with disabilities to access the Web. There are many kinds of disabilities, including:</p>
-          <ul>
-            <li>Visual <span class="dimmed">e.g., partial blindness, full blindness, color blindness, cataract, glaucoma, etc.</span></li>
-            <li>Auditory <span class="dimmed">e.g., hard of hearing, deafness, etc.</span></li>
-            <li>Cognitive <span class="dimmed">e.g., ADHD, autism spectrum, etc.</span></li>
-            <li>Mobility <span class="dimmed">e.g., quadriplegia, muscular dystrophy, etc.</span></li>
-          </ul>
-          <p>At the same time, accessibility also benefits people <em>without</em> disabilities, for example:</p>
-          <ul>
-            <li>Device limitations <span class="dimmed">e.g., using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.</span></li>
-            <li>Age-related limitations <span class="dimmed">e.g., poor dexterity, poor eyesight</span></li>
-            <li>Temporary limitations <span class="dimmed">e.g., broken arm, lost glasses</span></li>
-            <li>Situational limitations <span class="dimmed">e.g., under bright sunlight, an environment where one cannot listen to audio</span></li>
-            <li>Internet-related limitations <span class="dimmed">e.g., slow Internet connection, limited bandwidth</span></li>
-          </ul>
-          <p>More information on the above can be found on <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/#what">this article</a>.</p>
-          <p>Improving accessibility also brings some benefits to you as a developer:</p>
+          <h1 id="ruby-on-rails">Ruby on Rails<a class="fa fa-anchor" href="#ruby-on-rails"></a></h1>
+          <p><b> Authors: <a href="https://github.com/AyushChatto">Chattoraj Ayush</a></b></p>
+          <p>Reviewers: <a href="https://github.com/luyangkenneth">Lu Yang Kenneth</a>, <a href="https://github.com/marvinchin">Marvin Chin</a></p>
+          <h2 id="ruby-on-rails-overview">Ruby on Rails overview<a class="fa fa-anchor" href="#ruby-on-rails-overview"></a></h2>
+          <p><strong>Ruby on Rails</strong> is a web application framework written in the Ruby programming language. It was designed with the intention of making programming web applications easier and quicker by reducing the amount of code you write. Rails achieves this by being an &quot;opinionated framework&quot;, which means that the developers believe that there is a certain approach - often called &quot;The Rails Way&quot; - that is ideal for building most types of web applications. By adhering to this approach, Rails allows you to focus primarily on the logic, and fills in much of the boilerplate code for you.</p>
+          <h3 id="the-rails-way">The Rails Way<a class="fa fa-anchor" href="#the-rails-way"></a></h3>
+          <p>One of the core tenets of Rails is &quot;Convention over Configuration&quot;, which means that many decisions regarding the structure of your Rails application are made for you in advance, so that there is less effort needed to come up with your own set of best practices. This is perhaps most evident in Rails' decision to follow a Model-View-Controller (MVC) architecture by default.</p>
+          <p>Here's how a Rails application is structured:</p>
+          <center>
+            <img src="/learningresources/contents/ruby/mvc.jpeg">
+            <p><em>Figure 1. Model-View-Controller Framework</em> <sup><a href="https://medium.com/@matthewmain/rails-request-response-cycle-819e9cd8fa4e">source</a></sup></p>
+          </center>
+          <p>Let us follow the diagram, and trace the control flow as a Rails app responds to a request by the client. In this example, the client is making a query for all users in the database.</p>
+          <h4 id="router">Router</h4>
+          <p>When Rails receives the URL, it first looks up the
+            <tooltip effect="scale" content="A URI (Uniform Resource Identifier) is a string of characters that are used to identify a resource. URLs are a subset of URIs.">
+              <a href="/learningresources/contents/ruby/null">URI</a></tooltip> in the <code>routes.rb</code> file, which defines, by default, all the routes in the application. Each valid URI is mapped to a function located inside a Controller, that is then invoked to provide a response to the request.</p>
+          <p>In order to achieve this, Rails exposes a convenient abstraction called a &quot;Resource&quot;. A resource can refer to an object upon which you can perform CRUD (create, read, update, and delete) operations. These operations are often invoked via a HTTP request of the appropriate request verb (POST, GET, PUT, and DELETE respectively). In order to declare a resource called <code>user</code>, you would mention it inside your <code>routes.rb</code> in the following manner:</p>
+          <pre><code class="hljs ruby">resources <span class="hljs-symbol">:users</span>
+</code></pre>
+          <p>Now, you can check all the routes that you have in your application by running <code>rails routes</code> in the command line. This should include:</p>
+          <pre><code class="hljs">    Prefix Verb   URI Pattern                          Controller#Action
+     users GET    /users(.:format)                     users#index
+           POST   /users(.:format)                     users#create
+  new_user GET    /users/new(.:format)                 users#new
+ edit_user GET    /users/:id/edit(.:format)            users#edit
+      user GET    /users/:id(.:format)                 users#show
+           PATCH  /users/:id(.:format)                 users#update
+           PUT    /users/:id(.:format)                 users#update
+           DELETE /users/:id(.:format)                 users#destroy
+</code></pre>
+          <p>As can be seen, the common routes that you would need for the resources have already been mapped to their respective URI's. This is equivalent to manually declaring the 7 resourceful routes for the <code>user</code> resource. By convention, Rails will then look for a controller called <code>users_controller.rb</code> and invoke the name of the function mapped to the particular URI and Verb. More information about Rails routes and how they work can be found <a href="https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default">here</a>.</p>
+          <h4 id="controller">Controller</h4>
+          <p>In the standard Rails convention, once inside the application directory, if you navigate to <code>app/controllers/</code>, you should be able to see all the controllers in your project. Rails will look for the controller with the <code>&lt;name&gt;_controller.rb</code>, where <code>&lt;name&gt;</code> would be replaced by the result under the <code>Controller</code> heading in the list of routes above, in this case, <code>users</code>. It will then look for the function name under the <code>Action</code> heading mapped to the URI function inside the Controller, and then call it. For example, if someone makes a GET request to <code>/users</code>, Rails will then respond by calling the <code>users#index</code> controller action (refer to the code below).</p>
+          <pre><code class="hljs ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UsersController</span> &lt; ApplicationController</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span></span>
+    <span class="hljs-comment"># implementation goes here</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+          <center>
+            <p><code>users_controller.rb</code> <i>with an </i><code>index</code> <i>method</i></p>
+          </center>
+          <h4 id="model">Model</h4>
+          <p>The Model is very similar to a Class (à la Object-Oriented Programming), and is a useful abstraction for representing and encapsulating objects in your application. This is also known as the Active Record pattern in Rails. In this pattern, the Models are mapped to tables in the database, and you can query a model's fields directly in Ruby, instead of writing your own SQL queries. Models also have generic methods such as <code>find</code>, <code>all</code>, <code>create</code>, <code>save</code>, <code>update</code>, <code>delete</code> included in them by default, so you don't need to implement them yourself.</p>
+          <p>In our diagram, the Controller calls the <code>all</code> method in the <code>User</code> model, which is, by convention in a file called <code>User.rb</code>, which is stored along with all other models at <code>app/models/</code>. The model then acts as an intermediary between the application and the database, and returns the results of the corresponding query.</p>
+          <h4 id="view">View</h4>
+          <p>After the Controller has fetched all the data necessary and applied whatever transformations are needed, it passes in the requisite fields to its view. The View is what the client sees, and is a collection of <code>.erb</code> (<strong>E</strong>mbedded <strong>R</strong>u<strong>B</strong>y) files, which are basically just HTML files with lines of Ruby code embedded in it to modify its appearance and behavior. When the controller is generated, a corresponding folder of views is made inside <code>app/views/</code>. All the <code>.erb</code> files are named after the controller action and stored in folders named after the controller. Following the same example above, Rails will serve up the <code>app/views/users/index.html.erb</code> view to the client when executing the <code>users#index</code> controller action, thus concluding the request-response cycle.</p>
+          <h2 id="why-rails">Why Rails<a class="fa fa-anchor" href="#why-rails"></a></h2>
+          <p>Many popular and very technically mature websites started off using, and continue to use Rails. These include: GitHub, Airbnb, Twitter, Hulu, Shopify, and Twitch, among others. Some of the key features that makes Rails the framework of choice for these users are:</p>
+          <h3 id="fast-iteration-speed-for-product-developement">Fast iteration speed for product developement<a class="fa fa-anchor" href="#fast-iteration-speed-for-product-developement"></a></h3>
+          <p>As an opinionated framework, Rails helps to automate trivial tasks by following certain conventions, which can make the development process faster. For example, in a Rails project that is connected to a database, each class is mapped to a table, as described in the Active Record Pattern, and the table name is just a pluralized version of the class's name - the <code>User</code> class becomes the <code>Users</code> table, the <code>Person</code> class becomes the <code>People</code> table, etc. This means that you don't need to spend any time deliberating on the name of the tables, nor do you have to juggle multiple concepts while mapping out the database and application, as Rails will automatically connect the two and spare you from deliberating about the exact name of the table. A similar approach is used to handle resources, which also automates much of the process.</p>
+          <p>The automation of these mundane tasks could make development a more enjoyable (more on that in a bit) and faster process. All of these optimizations can make developing an application between 30-40% faster on Rails [<a href="https://www.forbes.com/sites/quora/2018/04/03/is-ruby-a-dying-language/#10eb4d0b6a3d">source</a>]. It also makes Rails relatively easy to learn, as you do not need to understand HTTP verbs to make a basic Rails application (while mastery of the topic will certainly help). Furthermore, programmers experienced in Rails usually find it easier to start on existing Rails projects, since the conventions followed are usually the same, giving you the same directory structure and route naming conventions everywhere.</p>
+          <h3 id="optimized-for-programmer-happiness">Optimized for Programmer Happiness<a class="fa fa-anchor" href="#optimized-for-programmer-happiness"></a></h3>
+          <p>One of the primary tenets of Ruby was to make it the &quot;Least Surprising Language&quot;, where the language was designed to feel intuitive and perform exactly as a developer would expect. In Rails, even more syntactic sugar is added on top of its Ruby foundations, in an effort to optimize for programmer happiness. As a result, Rails code tends to look very &quot;neat&quot; and feels inherently &quot;nice&quot; to write (as subjective as that sounds).</p>
+          <p>For example, in order to fetch yesterday's date in Python, one may have to write</p>
+          <pre><code class="hljs python"><span class="hljs-keyword">import</span> datetime
+datetime.datetime.now() - datetime.timedelta(days = <span class="hljs-number">1</span>)
+</code></pre>
+          <p>The same action in Rails is done using</p>
+          <pre><code class="hljs ruby"><span class="hljs-number">1</span>.day.ago
+</code></pre>
+          <p>Similarly, Rails also added a new method to access an array element. Instead of following the C convention of using square-brackets to access the second element in the array &quot;elements&quot; like</p>
+          <pre><code class="hljs c">elements[<span class="hljs-number">1</span>]
+</code></pre>
+          <p>Rails developers can use ordinal representation to access the same element with the command</p>
+          <pre><code class="hljs ruby">elements.second
+</code></pre>
+          <p>And while this may not reduce the amount one has to type, most Rails enthusiasts agree that it makes the code much more readable, easy to work with, and therefore happiness-inducing.</p>
+          <h3 id="large-and-active-community-of-developers">Large and Active Community of Developers<a class="fa fa-anchor" href="#large-and-active-community-of-developers"></a></h3>
+          <p>The Ruby language has a very passionate and extensive community of developers, and there is a vast array of libraries (called &quot;Gems&quot;), that can be used with your Rails projects. These libraries provide a lot of functionalities, and can be used to add flexibility to Rails projects when required.</p>
+          <p>Furthermore, as a result of its popularity, it is very likely that any problems you encounter with Rails will have a solution that you can find on Google or StackOverflow. For any new problems, you are also likely to receive a response very quickly, because the Ruby community prides itself for being welcoming and helpful.</p>
+          <h2 id="drawbacks">Drawbacks<a class="fa fa-anchor" href="#drawbacks"></a></h2>
+          <p>Rails might not be best suited for all use cases, and there are a few areas that you should consider when deciding on your web framework of choice.</p>
+          <h3 id="lack-of-flexibility">Lack of Flexibility<a class="fa fa-anchor" href="#lack-of-flexibility"></a></h3>
+          <p>Although Rails is highly optimized for most types of web applications, there are inevitably some cases where following an MVC architecture isn't suitable. In those cases, it might be better for developers to use frameworks that allow for more flexibility. You may also find Rails' defaults very stifling if you wish to have a different directory structure, or give your routes different names. While there are ways for you to configure Rails to your needs, it might be less painful to avoid those conventions from the beginning.</p>
+          <h3 id="performance">Performance<a class="fa fa-anchor" href="#performance"></a></h3>
+          <p>While newer releases have combated this problem to a large degree, many of the old releases of Rails have had a reputation for being very bloated and slow to respond. Applications in other frameworks, or purely client-side applications with a minimal backend, tend to have a much lower delay between an action and a response. While it should be noted that the vast majority of delays in applications occur due to poor optimization, and not the inherent speed of the framework, Rails still remains more bulky and slower than many of its competitors.</p>
+          <h3 id="learning-curve">Learning Curve<a class="fa fa-anchor" href="#learning-curve"></a></h3>
+          <p>Rails' tendency to do things &quot;automagically&quot; can also be very confusing to new users, who might be more used to configuring routes and directory structures themselves. You may also find it challenging to switch to other frameworks, where you may be required to configure routes and write SQL queries yourself, instead of having the framework do it for you. You will also have to learn the Ruby language, and it might be harder considering that most front-end applications are in JavaScript and its variants, and you will have to juggle multiple languages while you develop your application.</p>
+          <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h2>
+          <p>To install Rails on your computer, you will first need to install <a href="https://www.ruby-lang.org/en/">Ruby</a>. After this, you simply need to run:</p>
+          <pre><code class="hljs rb">gem install rails
+</code></pre>
+          <p><code>gem</code> is a package manager for Ruby that allows you to install Rails (as well as all the other Gems in Ruby). Once you're done with the setup, you can start developing applications right away. Here are some resources you might find helpful:</p>
           <ol>
-            <li><strong>Accessibility is a right</strong>. Caring about accessibility demonstrates good ethics/morals.</li>
-            <li><strong>Accessibility helps you improve your website's UX</strong>. <a href="https://www.w3.org/standards/webdesign/accessibility">W3C</a> notes that accessibility practices are good design practices in general, which improve the UX of your website.</li>
-            <li><strong>Accessibility makes your website more discoverable</strong>. Web pages with good accessibility practices are ranked higher by search engine crawlers, making your website more discoverable and marketable to new users. <span class="dimmed">(Read more on accessibility and search engine <a href="https://blogs.perficientdigital.com/2018/01/12/website-accessibility-benefit-seo/">here</a>)</span></li>
-            <li><strong>Accessibility helps you increase your user base</strong>. According to the <a href="https://www.who.int/disabilities/world_report/2011/report/en/">World Health Organization world report on disability</a>, about 15% of the world's population live with some form of disability. That makes up more than 1 billion people. It is a significant population of users, so improving accessibility can help you reach more people.</li>
-            <li><strong>Accessibility is part of the law in some places</strong>. In <a href="https://www.w3.org/WAI/policies/">some countries</a>, abiding by accessibility guidelines is mandatory. Be careful not to break the law!</li>
+            <li>The <a href="https://www.rubyguides.com/">Ruby Guides</a> are a must read, as you cannot use Rails without knowing the underlying language.</li>
+            <li>The <a href="https://guides.rubyonrails.org/">Rails Guides</a> are the definitive guide for Rails and you can be assured that it will always be up to date with the latest releases.</li>
+            <li><a href="https://gorails.com/">Go Rails</a> also has great screencast tutorials that really hold your hand through the multitude of features Rails has, and can be used by more visual learners.</li>
+            <li><a href="https://www.railstutorial.org/book">Rails Tutorial</a> is a book with a lot of advanced topics, so if you really want to study Rails in depth, consider this.</li>
           </ol>
-          <h2 id="how-can-i-improve-the-accessibility-of-my-website">How can I improve the accessibility of my website?<a class="fa fa-anchor" href="#how-can-i-improve-the-accessibility-of-my-website"></a></h2>
-          <p>There are many ways to improve the accessibility of your website. Below are some tips, based on the type of disabilities they address.</p>
-          <h3 id="visual">Visual<a class="fa fa-anchor" href="#visual"></a></h3>
-          <p>Users with visual impairments rely on assistive technologies such as a magnifier or a screen reader.</p>
-          <h5 id="best-practice-use-more-visual-indicators-to-convey-a-message"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use more visual indicators to convey a message</h5>
-          <p>Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.</p>
-          <p>This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
-            <a href="accessibility/fb-normal.png" target="_self"><img src="accessibility/fb-normal.png" alt class="img-fluid" title="Facebook sign up page"></a></p>
-          <p>However, to someone with a type of color blindness called <a href="https://en.wikipedia.org/wiki/Achromatopsia">achromatopsia</a>, this is how the page looks like:
-            <a href="accessibility/fb-achromatopsia.png" target="_self"><img src="accessibility/fb-achromatopsia.png" alt class="img-fluid" title="Facebook sign up page to someone with achromatopsia"></a></p>
-          <p>To someone with another type of color blindness, <a href="https://en.wikipedia.org/wiki/Deuteranopia">deuteranopia</a>, the page looks like this:
-            <a href="accessibility/fb-deuteranopia.png" target="_self"><img src="accessibility/fb-deuteranopia.png" alt class="img-fluid" title="Facebook sign up page to someone with deuteranopia"></a></p>
-          <p>It may be unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
-            <a href="accessibility/fb-more-indicators.png" target="_self"><img src="accessibility/fb-more-indicators.png" alt class="img-fluid" title="Facebook sign up page with more visual indicators"></a></p>
-          <h5 id="best-practice-maintain-good-color-contrast"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Maintain good color contrast</h5>
-          <p>Look at this page taken from Tech Crunch.
-            <a href="accessibility/tc-normal.png" target="_self"><img src="accessibility/tc-normal.png" alt class="img-fluid" title="Tech Crunch page"></a></p>
-          <p>To users with good vision, the design may look minimalist and clean. However, to someone suffering from cataract, the page looks like this.</p>
-          <p><a href="accessibility/tc-blurred.png" target="_self"><img src="accessibility/tc-blurred.png" alt class="img-fluid" title="Tech Crunch page to someone with cataract"></a>
-            It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good color contrast ratio in our websites for ease of reading.</p>
-          <h5 id="best-practice-use-alt-attribute-for-images"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use <code>alt</code> attribute for images</h5>
-          <p>The <code>alt</code> attribute provides alternative information for an image that can be read out by a screen reader to describe an image.</p>
-          <p><a href="accessibility/alt-tag.png" target="_self"><img src="accessibility/alt-tag.png" alt class="img-fluid" title="Alt tag"></a></p>
-          <p>The above are some examples of best practices to follow when developing for web accessibility. More can be found in <a href="https://www.w3.org/WAI/tips/developing/">this article on developing for accessibility</a>.</p>
-          <h3 id="auditory">Auditory<a class="fa fa-anchor" href="#auditory"></a></h3>
-          <p>Hearing-impaired users do use assistive technologies such as a <a href="https://en.wikipedia.org/wiki/Hearing_aid">hearing aid</a> or a <a href="https://en.wikipedia.org/wiki/Cochlear_implant">cochlear implant</a>, but these are not specific for accessing websites.</p>
-          <p>For users with hearing impairment, we should provide text alternatives to audio content, such as:</p>
-          <ul>
-            <li>Text transcripts</li>
-            <li>Captions</li>
-          </ul>
-          <p>Here's a <a href="https://www.w3.org/2017/04/xsmedia-tute/page5.html">tutorial on adding transcripts</a>. Adding captions is commonly supported in video hosting websites such as Youtube or Vimeo.</p>
-          <p>More information can be found on <a href="https://webaim.org/techniques/captions/">this article on transcripts and captions</a>.</p>
-          <h3 id="cognitive">Cognitive<a class="fa fa-anchor" href="#cognitive"></a></h3>
-          <p>Cognitive disabilities range from mental illnesses to learning difficulties, difficulties in comprehension and concentration, etc. Some examples include <a href="https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder">Attention Deficit Hyperactivity Disorder (ADHD)</a>, and <a href="https://en.wikipedia.org/wiki/Autism">autism</a>.</p>
-          <p>Such disabilities might affect how the user uses a website. It could be due to difficulty in understanding how to complete a task, remembering how to do something that was previously accomplished, increased frustration due to confusing workflows or inconsistent layouts/navigation/other page features.</p>
-          <p>Unlike other web accessibility issues, there is no quick fix to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here are some best practices mentioned by <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments">MDN Web Docs</a> and <a href="https://www.autism.org.uk/professionals/others/website-design.aspx">National Autistic Society</a>:</p>
-          <h5 id="best-practice-avoid-distractions"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Avoid distractions <br></h5>
-          <p>People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where cluttered pages can be overwhelming.</p>
-          <ul>
-            <li>Avoid unnecessary movements from animations or moving elements</li>
-            <li>Have a clean and uncluttered design</li>
-          </ul>
-          <p>Here's a comparison of a cluttered vs clean website landing page taken from <a href="https://www.britishgas.co.uk/">British Gas website</a>.</p>
-          <p>Cluttered page:
-            <a href="accessibility/bg-old.png" target="_self"><img src="accessibility/bg-old.png" alt class="img-fluid" title="Cluttered landing page"></a></p>
-          <p>Clean page:
-            <a href="accessibility/bg-new.png" target="_self"><img src="accessibility/bg-new.png" alt class="img-fluid" title="Clean landing page"></a></p>
-          <h5 id="best-practice-be-logical"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Be logical</h5>
-          <ul>
-            <li>Multi-stage processes should be broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.</li>
-            <li>Workflows are logical, simple, and require as little interaction as possible to complete.</li>
-          </ul>
-          <h5 id="best-practice-be-consistent"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Be consistent</h5>
-          <ul>
-            <li>Navigation, header, footer, and main content are always in the same places.</li>
-            <li>Navigation mechanisms are consistent in appearance and behaviour.</li>
-          </ul>
-          <h5 id="best-practice-communicate-well"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Communicate well <br></h5>
-          <p>People with cognitive disabilities are more likely to take things literally and can benefit from more visual cues.</p>
-          <ul>
-            <li>
-              <p>Pages are not overly long or dense in terms of the amount of information presented at once.</p>
-              <blockquote>
-                <p><a href="https://www.lifewire.com/web-page-length-3468959">An article</a> says a rule of thumb is &quot;No article should exceed 2 printed pages of double-spaced, 12 point text.&quot; whereas <a href="https://www.greenmellenmedia.com/how-long-should-my-website-content-be/">another article</a> says &quot;There is no &quot;magic number&quot; for a number of characters for content. As long as the web page content is clear, to the point and written for people&quot;. Ultimately, what's most important is what <em>your</em> users think, so validation during user testing is paramount.</p>
-              </blockquote>
-            </li>
-            <li>
-              <p>The language used is as plain and easy to follow, and not full of unneccessary jargon and slang.</p>
-            </li>
-            <li>
-              <p>Important points and content are highlighted in some way.</p>
-            </li>
-            <li>
-              <p>User errors are clearly highlighted, with help messages to suggest solutions.</p>
-            </li>
-          </ul>
-          <p>More importantly, after following the best practices, you should conduct user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.</p>
-          <p>WebAIM's <a href="http://webaim.org/articles/cognitive/">Cognitive</a> page provides a useful expansion of the ideas above, and is certainly worth reading.</p>
-          <h3 id="mobility">Mobility<a class="fa fa-anchor" href="#mobility"></a></h3>
-          <p>Mobility impairments include paralysis, physical weakness or loss of control in limbs. This can cause users to find it difficult or impossible to use a mouse as the main form of interaction with websites.</p>
-          <p>Assistive devices include a <a href="https://en.wikipedia.org/wiki/Switch_access">switch access</a>, or a <a href="https://www.performancehealth.com/baseball-cap-head-pointer">head pointer</a>. Users may also use a keyboard instead of a mouse to interact with the website.</p>
-          <p>The key to improve accessibility for mobility is to make the website keyboard accessible. Keyboard accessible means that users can navigate through the website using the keyboard. For example, users can use <code>Tab</code>, <code>Shift</code> + <code>Tab</code> keystrokes to navigate through interactive elements on a page, click <code>Enter</code> to open a hyperlink, etc.</p>
-          <p>WebAIM's article on <a href="https://webaim.org/techniques/keyboard/">keyboard accessibility</a> provides a thorough tutorial for this.</p>
-          <h2 id="tools-for-developers">Tools for Developers<a class="fa fa-anchor" href="#tools-for-developers"></a></h2>
-          <p>Here are some useful tools that you can use to improve the accessibility of your website:</p>
-          <ul>
-            <li>
-              <p><a href="https://developers.google.com/web/tools/lighthouse/"><strong>Google Lighthouse</strong></a>. Google Lighthouse is an automated tool that audits the accessibility level of your websites. It can be found in Chrome DevTools. Given a URL to audit, Lighthouse runs a series of audits and generates a report. The failing audits will show which part of the page causes it, and how to fix it. <br>
-                Here's how an audit report looks like:
-                <a href="accessibility/lh-audit.png" target="_self"><img src="accessibility/lh-audit.png" alt class="img-fluid" title="Lighthouse audit"></a></p>
-            </li>
-            <li>
-              <p><a href="http://colorsafe.co/"><strong>Color Safe Palette Generator</strong></a>. This website can help you to create a color palette that is based on the Web Content Accessibility Guidelines (WCAG) for text and background contrast ratios.</p>
-            </li>
-            <li>
-              <p><a href="http://chromelens.xyz/"><strong>ChromeLens</strong></a>. This Chrome extension has 2 useful features:</p>
-              <ul>
-                <li><strong>Filters</strong>: To simulate various color blindness so you can browse your website as how a color blind person sees it.
-                  <a href="http://chromelens.xyz/images/website_protanopia.png" target="_self"><img src="http://chromelens.xyz/images/website_protanopia.png" alt class="img-fluid"></a></li>
-                <li><strong>Tracker</strong>: To show the pathway a blind user will go through when browsing your web page with a screen reader. You can check if your web page goes through a logical flow and that the important content is included for the screen reader to narrate.
-                  <a href="http://chromelens.xyz/images/website_trace.png" target="_self"><img src="http://chromelens.xyz/images/website_trace.png" alt class="img-fluid"></a></li>
-              </ul>
-            </li>
-          </ul>
-          <p>Note that although there are many accessibility testing tools available, user testing with actual users with disabilities is still important. The automated testing tools may not point out all of the accessibility issues that actual users face.</p>
-          <h2 id="concluding-remarks">Concluding Remarks<a class="fa fa-anchor" href="#concluding-remarks"></a></h2>
-          <p>Ultimately, the most important thing you need to start designing accessible websites is empathy for your users. Each user is unique, and each user has different needs. As a developer, you need to put yourself in the users' shoes, understand their pain points, and then develop solutions for them so that everyone can navigate through your website freely.</p>
-          <h2 id="useful-resources">Useful Resources<a class="fa fa-anchor" href="#useful-resources"></a></h2>
-          <p>You are ready for your accessibility journey! Here are some resources to help you get started:</p>
-          <ul>
-            <li><a href="https://a11yproject.com/resources"><strong>The A11Y Project</strong></a>. The Accessibility Project is an open-source resource library on accessibility. It seeks to make it easier for developers to implement accessible websites by providing tips, tutorials and a widget and pattern library.</li>
-            <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/"><strong>Web Content Accessibility Guidelines (WCAG)</strong></a>. WCAG provides a single shared standard for web content accessibility that meets the needs of individuals, organizations, and governments internationally.</li>
-            <li><a href="https://webaim.org/articles"><strong>Web Accessibility in Mind (WebAIM)</strong></a>. WebAIM contains well-written articles on specific topics on accessibility issues and how to tackle them.</li>
-          </ul>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#accessibility">Accessibility&#x200E;</a>
+            <a class="nav-link py-1" href="#ruby-on-rails">Ruby on Rails&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-accessibility">What is accessibility?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-is-accessibility-important">Why is accessibility important?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-can-i-improve-the-accessibility-of-my-website">How can I improve the accessibility of my website?&#x200E;</a>
+              <a class="nav-link py-1" href="#ruby-on-rails-overview">Ruby on Rails overview&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#visual">Visual&#x200E;</a>
-                <a class="nav-link py-1" href="#auditory">Auditory&#x200E;</a>
-                <a class="nav-link py-1" href="#cognitive">Cognitive&#x200E;</a>
-                <a class="nav-link py-1" href="#mobility">Mobility&#x200E;</a>
+                <a class="nav-link py-1" href="#the-rails-way">The Rails Way&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#tools-for-developers">Tools for Developers&#x200E;</a>
-              <a class="nav-link py-1" href="#concluding-remarks">Concluding Remarks&#x200E;</a>
-              <a class="nav-link py-1" href="#useful-resources">Useful Resources&#x200E;</a>
+              <a class="nav-link py-1" href="#why-rails">Why Rails&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#fast-iteration-speed-for-product-developement">Fast iteration speed for product developement&#x200E;</a>
+                <a class="nav-link py-1" href="#optimized-for-programmer-happiness">Optimized for Programmer Happiness&#x200E;</a>
+                <a class="nav-link py-1" href="#large-and-active-community-of-developers">Large and Active Community of Developers&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#drawbacks">Drawbacks&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#lack-of-flexibility">Lack of Flexibility&#x200E;</a>
+                <a class="nav-link py-1" href="#performance">Performance&#x200E;</a>
+                <a class="nav-link py-1" href="#learning-curve">Learning Curve&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
             </nav>
 
           </nav>

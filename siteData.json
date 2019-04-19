@@ -916,6 +916,30 @@
     },
     {
       "headings": {
+        "ruby-on-rails": "Ruby on Rails",
+        "ruby-on-rails-overview": "Ruby on Rails overview",
+        "the-rails-way": "The Rails Way",
+        "why-rails": "Why Rails",
+        "fast-iteration-speed-for-product-developement": "Fast iteration speed for product developement",
+        "optimized-for-programmer-happiness": "Optimized for Programmer Happiness",
+        "large-and-active-community-of-developers": "Large and Active Community of Developers",
+        "drawbacks": "Drawbacks",
+        "lack-of-flexibility": "Lack of Flexibility",
+        "performance": "Performance",
+        "learning-curve": "Learning Curve",
+        "getting-started": "Getting Started"
+      },
+      "title": "Ruby on Rails",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/ruby/Rails.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "introduction-to-ruby": "Introduction to Ruby",
         "ruby-overview": "Ruby Overview",
         "getting-started": "Getting Started",
