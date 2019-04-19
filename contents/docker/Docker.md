@@ -7,8 +7,6 @@
   pageNav: 3
 </frontmatter>
 
-
-
 <div class="website-content">
 
 {{ booktitle | safe }}
@@ -131,7 +129,7 @@ As mentioned earlier, Docker makes it much easier to deploy an application that 
 
 In order to provide a little more clarity to this, let us consider a simple blog application that is running using Nginx, WordPress and MariaDB. We can organise this as follows:
 
-<pic src="Docker_MicroServices.jpg" alt="Docker Microservice Architecture" width="100%">
+<pic src="Docker_Microservices.jpg" alt="Docker Microservice Architecture" width="100%">
   
   <sub>_Figure 6. Docker Architecture_ [(source)](https://rubygarage.org/blog/advantages-of-using-docker-for-microservices)</sub>
 
