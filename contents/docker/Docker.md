@@ -148,7 +148,7 @@ At this point, you would have realised the advantages that Docker is able to giv
 Here is a learning path that you can follow to pick up Docker:
 - [Docker's getting started guide](https://docs.docker.com/get-started/) : Docker's offical documentation is a good place to start out. It is a good overview of the fundamentals behind Docker. They will take you through setting up your own docker environement, building an image, scaling it and finally deploying.
 
-- [Article covering important concepts behind Docker](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) : After reading the official documentation, this is another excellent article to look through. It covers how Docker works in detail with good examples. Before jumping into a use case, it is always a good idea to understand some of the internals of Docker and this article helps with that.
+- [Article covering important concepts behind Docker](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) : After reading the official documentation, this is another excellent article to look through. It covers how Docker works in detail with good examples. Before jumping into a use case, it is a good to understand the internals of Docker and this article helps with that.
 
 - [Books covering specific use cases with Docker](https://github.com/eduleboss/the-best-docker-books) : Once you have a clearer picture on the fundamentals behind Docker, this resource will provide you with a collection of books that show you how to use Docker in a practical setting.  
 
