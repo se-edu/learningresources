@@ -18,9 +18,9 @@ Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin Kun Son
 
 ## What is integration testing?
 
-Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual components within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html) and it aims to discover faults related to the interaction between components.
+Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual modules within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html) and it aims to discover faults related to the interaction between module.
 
-Imagine that you have built an online web ordering system and a sample architecture diagram of your application is shown as follows:
+Suppose that you have built an online food ordering system and the architecture diagram of your application is shown as follows:
 
 <center>
 
@@ -35,7 +35,7 @@ public void isOrderSummaryCorrect(OrderSummary orderSummary) {
 }
 ```
 
-After unit testing of individual modules are completed, an integration test on `Order Food` and `Order Summary` could look like this:
+After unit testing of individual modules are completed, an **integration test** on `Order Food` and `Order Summary` could look like this:
 
 ```java
 public class FoodOrderingIntegrationTest {
@@ -56,19 +56,20 @@ The system test is used to ensure that the entire application has all the necess
 ## Why is integration testing important?
 
 In a software application, each software module is usually designed and unit tested by different programmers.
-Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is necessary to ensure that software modules work in unity and expose any faults in the interaction between different units.
+Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is necessary to ensure that the software modules work in unity and expose any faults in the interaction between different units.
 
-Suppose you are developing the `Order Food` component as mentioned previously and you allow each user to submit up to 10 orders each time, if the `Order Summary` component can only record a maximum of 5 orders each time, 5 orders by different users could be lost, resulting in problems such as **data loss**, **inaccurate results** and even **system errors**.
+Suppose the `Order Food` module mentioned earlier allows each user to submit up to 10 orders each time. If the `Order Summary` module can only record a maximum of 5 orders each time, when the orders fromo `Order Food` are passed to the `Order Summary` module, 5 of the orders may not be taken into account. 
+Hence, there is potential for problems such as such as **data loss**, **inaccurate results** and even **system errors**.
 Integration tests find these discrepancies before any serious damage is done.
 
-Although system testing also help to uncover faults between modules, integration testing is still highly encouraged as it is **easier to test**, **isolate features better** and **runs faster** than a system test.
+Although system testing also help to uncover faults between modules, integration testing is still highly encouraged as it is able to **better isolate** the scope of the features during testing, making it **easier** and **faster** to test.
 Many integration problems can be resolved before they result in further complications in your future development, making developers lives more difficult.
 More advantages of integration testing before system testing can be found [here](https://bitwaretechnologies.com/integration-testing-important-software-testing-life-cycle/).
 
-Hence, integration testing is an important process which should be applied in the development of most software products such as web, mobile and desktop applications. 
+Hence, integration testing can be useful in the development of any non-trivial software product. 
 Concepts shared in this article can be adopted by different software applications.
 
-On top of that, in the current era of <tooltip content="Practice of merging developers' work continuously into a shared repository">Continuous Integration</tooltip> (CI), integration testing is useful to help early detecion of defects while maintaining the quality of the product throughout further developments.
+On top of that, in the current era of <tooltip content="Practice of merging developers' work continuously into a shared repository">Continuous Integration</tooltip> (CI), integration testing is useful to help with early detecion of defects while maintaining the quality of the product throughout further developments.
 The concept of [Continuous Integration Testing](https://crossbrowsertesting.com/blog/continuous-integration/continuous-integration-testing-delivery/) is also formed to combine integration testing with continuous integration.
 
 :fas-info-circle: More information on instances where integration testing is important can be found in [this article](https://www.guru99.com/integration-testing.html).
@@ -89,9 +90,9 @@ There are a few different approaches of integration testing in which you can ado
 
 #### Big bang approach:
 
-This approach involves integrating all the components in your design diagram together and testing everything at once in a complete state. 
+This approach involves integrating all the modules in your design diagram together and testing everything at once in a complete state. 
 This is convenient but it is difficult to isolate defects and there is a high chance of missing critical underlying defects.
-Big bang integration testing is usually used for smaller applications with few components.
+Big bang integration testing is usually used for smaller applications with few modules.
 
 An example of how big bang integration testing can be applied to our given example is shown below:
 
@@ -104,17 +105,17 @@ An example of how big bang integration testing can be applied to our given examp
 
 #### Incremental testing approach:
 
-This approach involves integrating two or more logically related components. The other related components are added and tested for proper functioning. This is repeated until all the components are joined (or _integrated incrementally_) and tested successfully. It is usually preferred with any application having more than 10 different components.
+This approach involves integrating two or more logically related modules. The other related modules are added and tested for proper functioning. This is repeated until all the modules are joined (or _integrated incrementally_) and tested successfully. It is usually preferred with any application having more than 10 different modules.
 
 Incremental integration testing is further split into the 3 approaches shown below:
 
 | | [Top-down approach](https://www.guru99.com/integration-testing.html#9) | [Bottom-up approach](https://www.guru99.com/integration-testing.html#8) | [Hybrid / sandwich approach](https://www.guru99.com/integration-testing.html#10) |
 | -- | -- | -- | -- |
-| **Description**| Based on the dependency order of components, high level components are tested first, followed by lower level components. | The reverse of top-down approach. | A mix of both top-down bottom-up approaches. |
+| **Description**| Based on the dependency order of modules, high level modules are tested first, followed by lower level modules. | The reverse of top-down approach. | A mix of both top-down bottom-up approaches. |
 | <span style="color:green">**Advantages**</span>| Early discovery of high level architecture / design defects. | Easier to create test cases bottom up. | Beneficial for big project to distribute tasks on testing.
 | | Main control points of the system are tested early. | Critical modules on functionalities are tested first. | Allow top-down and bottom-up approach to run side by side. |
 | <span style="color:red">**Disadvantages**</span> | Significant low level modules are tested late in the cycle. | There is no testable working system until the higher level modules are build. | It is difficult to test for highly interconnected modules. |
-| | A [<tooltip content="A program that simulates the behaviours of software components">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporarily replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
+| | A [<tooltip content="A program that simulates the behaviours of software modules">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporarily replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
 
 :fas-info-circle: A more detailed guide on using specific methods for incremental testing together with examples can be found [here](https://www.softwaretestinghelp.com/incremental-testing/).
 
@@ -158,7 +159,7 @@ Thereafter, you should make changes to your application to fix them and re-test 
 
 ## Tips for better integration tests
 
-- **Make sure that each component is unit tested before integration testing**<br>
+- **Make sure that each module is unit tested before integration testing**<br>
 By ensuring that each unit test is completed properly, integration testing will be smoother as we can focus mainly on the flow of data between modules.
 
 - **Prioritize the modules to be tested**<br>
@@ -183,7 +184,7 @@ You can find a list of most commonly used [automation tools](https://medium.com/
 Generally integration test can be implemented based on your existing unit testing tools.
 However, if you do not have an existing testing tool in place, here are some useful tools that you can consider for your integration testing:
 
-- [VectorCast](http://www.vectorcast.com/) tool operates based on executing single component unit tests first before integration tests as discussed in this article.
+- [VectorCast](http://www.vectorcast.com/) tool operates based on executing unit tests first before integration tests as discussed in this article.
 
 - [Gauge](https://gauge.org/) acts as a plugin which can be incorporated to any language or IDE. 
 It is an lightweight cross-platform test automation tool which makes testing easier to maintain, more readable and scalable.
