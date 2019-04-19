@@ -14,43 +14,43 @@
 
 Authors: [Rahul Rajesh](https://github.com/rrtheonlyone)
 
-In today’s age, web applications are becoming more complex. Web applications of recent times are starting to move from a monolithic architecture to one that is based off of microservices. 
-
-<box type="info">
-A Microservices architecture is when you split your application into a set of smaller, interconnected services that each have a specific role (as opposed to one big application). Read up more about it <a href="https://articles.microservices.com/monolithic-vs-microservices-architecture-5c4848858f59">here.</a>
-</box>
-
-With the increasing complexity of these applications, deployment starts to become a concern. Instead of running one service, some applications will require you to run a few services at the same time. There also needs to be configurations setup for each of these services. Applications like Docker help to make deployment a seamless process. This article provides an introduction to Docker along with the advantages that it is able to provide.
+Reviewers: [Monika Manuela Hengki](https://github.com/monmanuela), [Wang Junming](https://github.com/junming403)
 
 ### What is Docker?
 
-<img src="Docker_Logo.png" alt="Docker Logo" width="45%">
+<pic src="Docker_Logo.png" alt="Docker Logo" width="45%">
+  
+  <sub>_Figure 1. Docker Logo_ [(source)](https://www.theverge.com/circuitbreaker/2018/5/25/17386716/docker-kubernetes-containers-explained)</sub>
 
-<sub>_Figure 1. Docker Logo_ [(source)](https://www.theverge.com/circuitbreaker/2018/5/25/17386716/docker-kubernetes-containers-explained)</sub>
+</pic>
 
 Docker is a platform that is used to develop, deploy and run applications inside “containers”.
 
 > A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. <sub>--[Docker Website](https://www.docker.com/resources/what-container)</sub>
 
-The idea of containers is not so different from Virtual Machines (VM). Before the rise of Docker, people used VMs. A VM is an emulation of a real computer that is used to isolate an application and its dependencies into a self-contained unit that can run anywhere.  For example, you could use a VM to run an application on a Linux system even though you are running Windows.
+The idea of containers is not so different from _Virtual Machines_ (VM). Before the rise of Docker, people used VMs. A VM is an emulation of a real computer that is used to isolate an application and its dependencies into a self-contained unit that can run anywhere.  For example, you could use a VM to run an application on a Linux system even though you are running Windows.
 
 However, a container posses some advantages over a VM. As per the [Docker Documentation](https://docs.docker.com/get-started/), a container runs natively on Linux and shares the kernel of the host machine with other containers. It runs a discrete process, taking no more memory than any other executable, making it lightweight.
 
-By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor. In general, VMs provide an environment with more resources than most applications need. The diagram below gives a depiction of this:
+<pic src="Docker_Architecture.png" alt="Docker Architecture" width="100%">
+  
+  <sub>_Figure 2. Difference between a container and a VM_ [(source)](https://docs.docker.com/get-started)</sub>
 
-<img src="Docker_Architecture.png" alt="Docker Architecture" width="100%">
+</pic>
 
-<sub>_Figure 2. Difference between a container and a VM_ [(source)](https://docs.docker.com/get-started)</sub>
+By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor. In general, VMs provide an environment with more resources than most applications need. 
 
 The idea behind Docker is to spin up a lightweight container that is able to execute services quickly without the overhead of a full-blown VM. With this in mind, let us move onto the the reasons to switch over to Docker. The subtleties between a container and VM will become more clear as you read the next few sections.
 
-### Why learn Docker?
+### Why Docker?
 
 Docker is a powerful tool that is rapidly gaining popularity. These are some statistics for Docker:
 
-<img src="Docker_Statistics.png" alt="Docker Statistics" width="60%">
+<pic src="Docker_Statistics.png" alt="Docker Statistics" width="60%">
+  
+  <sub>_Figure 3. Usage of Docker_ [(source)](https://www.docker.com/company)</sub>
 
-<sub>_Figure 3. Usage of Docker_ [(source)](https://www.docker.com/company)</sub>
+</pic>
 
 Many leading companies (e.g. Spotify, Nginx, ElasticSearch etc.) are using Docker for their deployment!
 
@@ -69,31 +69,35 @@ As you can read from above, Docker is undeniably a powerful tool that can allevi
 
 Now that we have a good idea of how Docker works and a summary of the notable advantages it is able to provide, let us take a closer look at some of the unique features that Docker is able to provide.
 
-#### Benefit: Docker is lightweight 
+#### Feature: Docker is lightweight 
  
 We have discussed above that Docker makes use of a container instead of a full-fledged VM to run your application. We have briefly covered the differences between a VM and a container above.
 
 The table below lists some of the differences between a VM and a container:
 
-<img src="VMvsContainer.png" alt="VM vs Container" width="100%">
+<pic src="VMvsContainer.png" alt="VM vs Container" width="100%">
+  
+  <sub>_Figure 4. VM vs Container_ [(source)](https://www.backblaze.com/blog/vm-vs-containers/)</sub>
 
-<sub>_Figure 4. VM vs Container_ [(source)](https://www.backblaze.com/blog/vm-vs-containers/)</sub>
+</pic>
 
 The image listed previously in the “What is Docker” section helps to give a pictorial representation of the points listed above in the table. To summarise, a Docker container shares the host OS and runs a discrete process on your operating system (much like any other application). As a result, Docker has a minimal footprint and is much more lightweight. This also makes it faster to run.
 
-#### Benefit: Docker allows for sharing and reuse
+#### Feature: Docker allows for sharing and reuse
 
 Docker containers require a base image to run. An image corresponds to the service you want e.g. python image / ubuntu image etc. An image helps to define what you want your packaged application and its dependencies to look like.
 
 One of the reasons why Docker is so great is that it provides a shared resource known as the [Docker Hub](https://hub.docker.com/) to download prebuilt images. The docker hub has over a hundred thousand images created by the community that are readily available for use. 
 
-<img src="DockerHub.png" alt="Docker Hub" width="100%">
+<pic src="DockerHub.png" alt="Docker Hub" width="100%">
+  
+  <sub>_Figure 5. Docker Hub_ [(source)](https://hub.docker.com/)</sub>
 
-<sub>_Figure 5. Docker Hub_ [(source)](https://hub.docker.com/)</sub>
+</pic>
 
 Hence, no matter what your use case is, there is a good chance that someone else has already built an image for it on the Docker Hub. With Docker, you do not have to spend hours thinking about how to configure your images. On top of that, you are free to augment existing images to fit you exact needs. You can then, share your new image back to the Docker Hub for others to use! 
 
-#### Benefit: Docker is accessible
+#### Feature: Docker is accessible
 
 On top of the abovementioned advantages, Docker has made it much easier for anyone from developers to system admins to take advantage of containers to quickly build and run applications. Docker allows anyone to package an application on their laptop which in turn can run unmodified on any public cloud or private cloud. Hence the mantra, “build once, run anywhere”.
 
@@ -118,15 +122,17 @@ For the example used, the layers are simple bash commands that help print “Hel
 
 As a result, Docker is easy to get started with. Once you have configured a DockerFile, you can reuse it everywhere else to run your container! The process for creating a DockerFile is also made easier due to the plethora of resources available and the Docker Hub.
 
-#### Benefit: Docker is modular and scalable
+#### Feature: Docker is modular and scalable
 
 As mentioned earlier, Docker makes it much easier to deploy an application that is using a microservices based architecture. For example, you may have Postgres database running in one container, Redis server in another and a Python Flask application in another. Docker makes it much easier to group these containers together and scale/update individual components easily in the future.
 
 In order to provide a little more clarity to this, let us consider a simple blog application that is running using Nginx, WordPress and MariaDB. We can organise this as follows:
 
-<img src="Docker_MicroServices.jpg" alt="Docker Microservice Architecture" width="100%">
+<pic src="Docker_MicroServices.jpg" alt="Docker Microservice Architecture" width="100%">
+  
+  <sub>_Figure 6. Docker Architecture_ [(source)](https://rubygarage.org/blog/advantages-of-using-docker-for-microservices)</sub>
 
-<sub>_Figure 6. Docker Architecture_ [(source)](https://rubygarage.org/blog/advantages-of-using-docker-for-microservices)</sub>
+</pic>
 
 Each of the above services is encapsulated in a container using Docker. Docker provides an added functionality called `docker-compose` that allows you to run all the containers at once. `docker-compose` also has added advantages:
 - Preserve volume data when containers are created
@@ -139,10 +145,12 @@ The set-up to use `docker-compose` involves the creation of a YAML file. Detaile
 
 At this point, you would have realised the advantages that Docker is able to give you and might be considering to switch over to Docker for your own projects. 
 
-Here are some resources that would aid you in this process:
-- https://docs.docker.com/get-started/
-- https://scotch.io/tutorials/getting-started-with-docker
-- https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b 
+Here is a learning path that you can follow to pick up Docker:
+- [Docker's getting started guide](https://docs.docker.com/get-started/) : Docker's offical documentation is a good place to start out. It is a good overview of the fundamentals behind Docker. They will take you through setting up your own docker environement, building an image, scaling it and finally deploying.
+
+- [Article covering important concepts behind Docker](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) : After reading the official documentation, this is another excellent article to look through. It covers how Docker works in detail with good examples. Before jumping into a use case, it is always a good idea to understand some of the internals of Docker and this article helps with that.
+
+- [Books covering specific use cases with Docker](https://github.com/eduleboss/the-best-docker-books) : Once you have a clearer picture on the fundamentals behind Docker, this resource will provide you with a collection of books that show you how to use Docker in a practical setting.  
 
 ### Additional tools - Docker Swarm and Kubernetes
 
@@ -160,6 +168,5 @@ Apart from those listed in the article, here are some further readings/reference
 - [Full Guide on multiple aspects of docker](https://docker-curriculum.com/)
 - [Video Series on Docker](https://medium.freecodecamp.org/docker-quick-start-video-tutorials-1dfc575522a0)
 - [Internals of Docker](http://docker-saigon.github.io/post/Docker-Internals/)
-- [List of books to read on Docker](https://github.com/eduleboss/the-best-docker-books)
 
 </div>
