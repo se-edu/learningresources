@@ -15,29 +15,29 @@
 
 **Author(s): [Lu Yang Kenneth](https://github.com/luyangkenneth)**
 
-Reviewer(s): WIP FILL THIS OUT LATER
+Reviewer(s): [Marvin Chin](https://github.com/marvinchin)
 
 
 ## What is Static Typing?
 
-**Statically typed languages** like Java, Go, and C++ are able to catch type-related errors at compile time, while in **dynamically typed languages** like JavaScript, such errors are not as easily discoverable because the types of variables are only known at runtime.
+Statically typed languages like Java, Go, and C++ are able to catch type-related errors at compile time. However, in dynamically typed languages like Python, Ruby, and JavaScript, such errors are not as easily discoverable because the types of variables are only known at runtime.
 
-To help identify these problems without having to run any code, many developers have adopted technologies like Flow and TypeScript, which enable static type checking for codebases written in JavaScript.
+To help identify these problems without having to run any code, many developers have adopted technologies to enable static type checking for codebases written in dynamically typed languages. The decision to move towards a statically typed codebase is usually motivated by the following benefits:
 
-Equivalent type checking tools exist for other dynamically typed languages like Python and Ruby as well, which suggests that this issue is not specific to the JavaScript community. The decision to move towards a statically typed codebase is usually motivated by the following benefits:
-
-- Static type checking **reduces type-related errors during the development process**. These errors can be expensive to fix if they leak into production and cause downtime in your application, especially for teams that value stability over short-term productivity. A type checker provides an automatic way to verify the type safety and correctness of your application _before_ it goes live.
+- Static type checking **catches type errors earlier in the development cycle**. These errors can cause downtime in your application if undetected, and they are often expensive to triage and fix. Static type checking provides an automatic way to verify the type safety and correctness of your application during the development stage, ensuring that type errors are eliminated before your code is deployed to production. While the correctness of your application logic can also be determined via test suites and manual testing during development, those are often costlier and less reliable than static type checking when it comes to catching type errors.
 
 - Static type checking can **make developers more productive**. When paired with the appropriate IDE support, it enables features such as auto-completion and offers instant feedback by incrementally rechecking your code as you type.
 
-- Static type checking **improves collaboration on a large codebase**. Explicitly declared types allow developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change a method signature or the shape of an object, you can quickly discover the other parts of the codebase that also need to be changed, as they would be surfaced as errors by the type checker.
+- Static type checking **improves collaboration on a large codebase**. Statically typed code allows developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change a method signature or the shape of an object, you can quickly discover the other parts of the codebase that need to be changed, as they would be surfaced as errors by the type checker. Explicitly declared types are also a form of documentation, which makes it easier to understand code written by other developers.
 
 
-### What's the difference between Flow and TypeScript?
+## Adding Static Typing to JavaScript
 
-**[Flow](https://flow.org/)** is a static type checker for JavaScript. It is an open-source tool developed by Facebook.
+In the JavaScript community, Flow and TypeScript have emerged as the two main options for enabling static type checking:
 
-**[TypeScript](https://www.typescriptlang.org/)** is a statically typed superset of JavaScript that compiles to plain JavaScript. It is an open-source programming language developed by Microsoft.
+- **[Flow](https://flow.org/)** is a static type checker for JavaScript. It is an open-source tool developed by Facebook.
+
+- **[TypeScript](https://www.typescriptlang.org/)** is a statically typed superset of JavaScript that compiles to plain JavaScript. It is an open-source programming language developed by Microsoft.
 
 While Flow and TypeScript integrate into your development workflow in slightly different ways, they have the same goals and share many similarities in terms of syntax. As the industry seems to be shifting towards TypeScript as the top choice <sup>[source](https://dev.to/nickytonline/is-2019-the-year-of-typescript-18p2)</sup>, in this article I will introduce how TypeScript works and how you can get started with TypeScript.
 
