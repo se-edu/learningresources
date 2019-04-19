@@ -13,6 +13,7 @@
 # Introduction to iOS Development
 
 **Authors: [Bryan Lew](https://github.com/blewjy)**
+
 Reviewers: [Chester Sng](https://github.com/ChesterSng), [Jiang Chunhui](https://github.com/Adoby7), [Yu Pei, Henry](https://github.com/YuPeiHenry)
 
 ## What is iOS?
