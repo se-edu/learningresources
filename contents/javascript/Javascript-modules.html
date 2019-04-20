@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.2.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Javascript: Promises</title>
+  <title>SE-EDU/LearningResources - Javascript: Modules</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -93,8 +93,8 @@
                       <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a current">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a current">Javascript Modules</a></li>
                         </ul>
                       </div>
                     </li>
@@ -291,217 +291,146 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="javascript-promises">Javascript: Promises<a class="fa fa-anchor" href="#javascript-promises"></a></h1>
-          <p><strong>Authors: Daniel Berzin Chua, Ong Shu Peng</strong><br>
-            Reviewers: Chelsey Ong, Damith C, Gilbert Emerson, Tan Heng Yeow</p>
-          <h2 id="why-promises">Why Promises?<a class="fa fa-anchor" href="#why-promises"></a></h2>
-          <p>Typically, code we write executes in <em>synchronous</em> manner i.e., the current operation completes its work before proceeding with next operation. However, take an HTTP request for example. It is an operation that takes a while to process, depending on your internet speed and where you are in the world. If such an operation was to be executed in a synchronous manner, your application would be slow because it has to wait for this request to complete and it would not make for a particularly good user experience. Instead, we can make HTTP requests to operate <em>asynchronously</em> in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished before proceeding on with other operations; it allow those operations to continue processing in the background while other operations are executed.</p>
-          <p>However, programming and debugging of asynchronous operations is more difficult compared to synchronous operations, because you would need some way to know when the operation has finished, or in the case of debugging, the point at which the operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.</p>
-          <p>To illustrate this problem, we'll use <code>setTimeout()</code>: a function that has 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed, and an additional parameters to pass to the <em>callback</em>. A callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. <code>setTimeout()</code> is asynchronous as the code below it will execute while the timer is counting down, as you will see in the following code snippet.</p>
-          <p>You would probably expect <code>console.log(x)</code> to print <code>I have been updated</code> after 1 second has passed. Instead, it prints <code>I have not been updated.</code> Give it a try in Google Chrome's developer console.</p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
+          <h1 id="javascript-modules">Javascript: Modules<a class="fa fa-anchor" href="#javascript-modules"></a></h1>
+          <p><strong>Author: Gilbert Emerson</strong><br>
+            Reviewers: Chelsey Ong, Ong Shu Peng, Amrut Prabhu</p>
+          <box type="info">
+            <p>This article assumes the reader has some basic knowledge of JavaScript.
+            </p>
+          </box>
+          <h2 id="what-is-a-module">What Is a Module?<a class="fa fa-anchor" href="#what-is-a-module"></a></h2>
+          <p>In programming, the term module (other similar terms: <em>package, library, dependency, plugin, etc.</em>) is used to refer to <em>a small part of code that is broken up from a larger code base</em>.</p>
+          <p>Modules help programmers in many ways. Here are some of the examples:</p>
+          <p><strong>1. Modules make the code more managable</strong> <br>
+            Using modules will break the code base into smaller parts which if done well can help in managing a code base, especially a large one.</p>
+          <p>Let's say you have an application with functionalities A and B, where functionality A needs functionality B. Without modules, both of these functionalities are mixed together in the code base without a clear separation. With modules, we can separate those 2 functionalities into separate module each. When A need B, A will &quot;include&quot; B and A will be able to work as if A and B has never been separated.</p>
+          <p><strong>2. Modules help minimize name clashes</strong> <br>
+            Breaking code into modules result in breaking the code's namespace into smaller parts too. This will help in minimizing name clashes and the need for global variables.</p>
+          <p><strong>3. Modules promote reuse</strong> <br>
+            Modules allows developers to reuse their code that is contained in a module. If for example we have an application that rely on a fuctionality such as string comparison function, we can separate that function into a module and let the application to use the function from that module instead of having to always repeating that function in all the places where it is needed.</p>
+          <h2 id="how-to-modularize-javascript-code">How to Modularize JavaScript Code?<a class="fa fa-anchor" href="#how-to-modularize-javascript-code"></a></h2>
+          <p>There are 3 common ways to use modules in JavaScript: 1. using ES6 modules, 2. using CommonJS, 3. using the module pattern. While ES6 is the most recent and the official implementation, this article covers the other two as well because there is still a large number of existing projects that use them.</p>
+          <h3 id="es6-modules">ES6 modules<a class="fa fa-anchor" href="#es6-modules"></a></h3>
+          <p>Introduced in 2015, ES6 modules is the official implementation of modules in JavaScript. It introduces 2 new syntax <code>import</code> and <code>export</code> to use modules in JavaScript.</p>
+          <p>In the example below, <code>index.js</code> needs the function <code>sumOfVariable</code> from <code>anExampleModule.js</code>. So, <code>anExampleModule.js</code> module will need to <em>export</em> the function using <code>export</code> syntax and <code>index.js</code> module will need to <em>import</em> that function using <code>import</code> syntax.</p>
+          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
 
-setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
-    x = <span class="hljs-string">"I have been updated"</span>;
-}, <span class="hljs-number">1000</span>);
+<span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
 
-<span class="hljs-built_in">console</span>.log(x);
-</code></pre>
-          <p>To fix this problem, we can simply shift the <code>console.log(x)</code> into the callback to get the expected result. It will now print the correct value.</p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
-
-setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
-    x = <span class="hljs-string">"I have been updated"</span>;
-    <span class="hljs-built_in">console</span>.log(x);
-}, <span class="hljs-number">1000</span>);
-</code></pre>
-          <p>However, this fix will only go so far. If we had another <code>setTimeout()</code> that depended on the result of the earlier <code>setTimeout()</code>, we would have to nest the functions within each other which would make for hard-to-read code as follows.</p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
-
-setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
-    x = <span class="hljs-string">"I have been updated"</span>;
-    <span class="hljs-built_in">console</span>.log(x);
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        x = <span class="hljs-string">"I have been updated 2 times."</span>;
-        <span class="hljs-built_in">console</span>.log(x);
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-            x = <span class="hljs-string">"I have been updated 3 times."</span>;
-            <span class="hljs-built_in">console</span>.log(x);
-            <span class="hljs-comment">// and so on...</span>
-        }, <span class="hljs-number">1000</span>);
-    }, <span class="hljs-number">1000</span>);
-}, <span class="hljs-number">1000</span>);
-</code></pre>
-          <p>This is what's infamously known as <em>callback hell</em>. It's a natural result of using too many callbacks, as this would result in the code becoming deeply nested. It would be difficult for anyone to read your code and to understand what exactly is going on.</p>
-          <p>We can instead use Promises for cleaner code that would be easier to read, write and debug.</p>
-          <h2 id="what-is-a-promise">What is a Promise?<a class="fa fa-anchor" href="#what-is-a-promise"></a></h2>
-          <p>The following example is adapted from <a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies</a>.</p>
-          <p>Promises in Javascript behave the same way as Promises do in real life. Imagine that your friend promises to return you money that you have lent him. At the time this promise was made, you would not know if your friend would really return your money. Your friend could either return your money on time, or he could just not do it.</p>
-          <p>These situations correspond to the 3 states of Promises in Javascript.</p>
-          <div class="table-responsive">
-            <table class="markbind-table table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>State</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Pending</td>
-                  <td>You don't know if he would return your money.</td>
-                </tr>
-                <tr>
-                  <td>Fulfilled</td>
-                  <td>He returned your money.</td>
-                </tr>
-                <tr>
-                  <td>Rejected</td>
-                  <td>He refused to return your money.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p>Promises provide the ability to specify how the execution of some part of your code would depend on the status of an asynchronous operation. It can now wait for the asynchronous operation to resolve first before doing any work on its result.</p>
-          <h2 id="how-promises-work">How Promises Work<a class="fa fa-anchor" href="#how-promises-work"></a></h2>
-          <p>Let's learn how promises work by starting with an example that uses callbacks and converting it to use promises.</p>
-          <p>Say we have two functions, <code>getData()</code> and <code>filterData()</code> which require some time to complete. You will have to get the data from some server using <code>getData()</code>, then process it using <code>filterData()</code>, before you can start displaying the results.</p>
-          <p>How would such functions be implemented using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively &quot;passing&quot; any form of data out, without explicitly returning any value.</p>
-          <p>We will implement the above use case in the callback-style (mimicking the long return time of the functions using <code>setTimeout</code>):</p>
-          <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val, callback</span>) </span>{
-    <span class="hljs-comment">// return val after a short wait</span>
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        callback(val);
-    }, <span class="hljs-number">1000</span>);
-}
-
-<span class="hljs-comment">/** Delayed function calls **/</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">callback</span>) </span>{
-    executeWithDelay(<span class="hljs-string">'some random data'</span>, callback);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterData</span>(<span class="hljs-params">data, callback</span>) </span>{
-    executeWithDelay(data.split(<span class="hljs-string">' '</span>), callback);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    getData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
-        filterData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filtered</span>)</span>{
-            <span class="hljs-comment">// will print array of splitted text</span>
-            <span class="hljs-built_in">console</span>.log(filtered);
-        })
-    });
-}
-
-main();
-</code></pre>
-          <p>Now we will rewrite all these using promises. We will be using the same function and variable names, to show how exactly promise compare to callbacks.</p>
-          <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val</span>) </span>{
-    <span class="hljs-comment">// return val after a short wait</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            resolve(val);
-        }, <span class="hljs-number">1000</span>);
-    });
-}
-
-<span class="hljs-comment">/** note these functions now return a promise **/</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getdata</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> executeWithDelay(<span class="hljs-string">'some random data'</span>);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterdata</span>(<span class="hljs-params">data, callback</span>) </span>{
-    <span class="hljs-keyword">return</span> executeWithDelay(data.split(<span class="hljs-string">' '</span>));
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> getData()
-        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))
-        .then(<span class="hljs-function"><span class="hljs-params">filtered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));
-}
-
-main();
-</code></pre>
-          <h2 id="imperative-style-promises-async-await">Imperative Style Promises: <code>async-await</code><a class="fa fa-anchor" href="#imperative-style-promises-async-await"></a></h2>
-          <p>The example above uses <code>.then()</code> to pass data from one function to the next is often seen in <em>functional programming</em>. The original promise is passed from one <code>.then()</code> to the other, and with each <code>.then()</code>, a new promise is returned for the next <code>.then()</code> to work on.</p>
-          <p>That is somewhat different from the imperative programming style most programmers are more familiar with. The <code>async</code> and <code>await</code> keywords facilitate a imperative way of using promises.</p>
-          <p>Consider the <code>main</code> function from the previous example:</p>
-          <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> getData()
-        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))
-        .then(<span class="hljs-function"><span class="hljs-params">fltered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));
+<span class="hljs-keyword">export</span> sumOfVariable() {
+    <span class="hljs-keyword">return</span> variableOne + variableTwo;
 }
 </code></pre>
-          <p>It can be rewritten in the async-await-style as follows:</p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> getData();
-    <span class="hljs-keyword">const</span> filtered = <span class="hljs-keyword">await</span> filterData(data);
+          <pre><code class="hljs js"><span class="hljs-comment">// index.js</span>
 
-    <span class="hljs-built_in">console</span>.log(filtered);
-    <span class="hljs-keyword">return</span> filtered;
-}
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> anExampleModule <span class="hljs-keyword">from</span> <span class="hljs-string">'./anExampleModule.js'</span>;
+
+anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
 </code></pre>
-          <p>The <code>async</code> keyword ensures that the <code>main()</code> function returns a promise. In our case, this will cause <code>main()</code> to return a promise with <code>filtered</code> as its data. The information can then be used like so <code>main().then(filtered =&gt; alert(filtered));</code>.</p>
-          <p>Another interesting thing to note: <code>await</code> will wait for the promise to return before executing anything below. In this case, <code>console.log</code> will be executed after the two <code>await</code> calls, even when it doesn't depend on the results of those calls.</p>
-          <p>In the promise-style, we handle errors using the <code>.catch()</code> block. However when using the async-await-style, we handle the errors using the more conventional <code>try ... catch</code> block. These can be explored further in <a href="https://javascript.info/async-await#error-handling">here</a></p>
-          <h2 id="where-promises-can-be-used">Where Promises can be used<a class="fa fa-anchor" href="#where-promises-can-be-used"></a></h2>
-          <p>Given below are some examples where JavaScript promises can be used:</p>
-          <ul>
-            <li>
-              <p><strong>HTTP Requests</strong></p>
-              <p>Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for the response to be returned.</p>
-              <p>The following code sends a GET request to a URL and logs the body of the response using Promises. By using Promises instead of callbacks, we have clean code and improved performance as the code is able to run in the background.</p>
-              <p>Code adapted from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise MDN docs</a></p>
-              <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchPage</span>(<span class="hljs-params">url</span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-    <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-    xhr.open(<span class="hljs-string">"GET"</span>, url);
-    xhr.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(xhr.responseText);
-    xhr.onerror = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(xhr.statusText);
-    xhr.send();
-  });
+          <p>ES6 modules supports advanced features such as <em><a href="http://exploringjs.com/es6/ch_modules.html#sec_modules-in-browsers">asynchronous loading</a>, <a href="https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd">tree shaking</a>, <a href="http://exploringjs.com/es6/ch_modules.html#static-module-structure">static code analysis</a></em>, etc. These features will not be covered in this article.</p>
+          <p>Due to the very recent adoption of ES6 modules by browsers and there is still some browsers that do not support it, you might not be able to use ES6 modules right away in those unsupported browsers.</p>
+          <p>There are 2 workarounds for this issue. You can use <em><a href="https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them">transpiler</a></em> such as <em><a href="https://babeljs.io/">Babel</a></em> and <em><a href="https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da">bundler</a></em> such as <em><a href="https://webpack.js.org/">Webpack</a></em> to serve your application to those unsupported browsers or use one of the other two approaches mentioned below.</p>
+          <p>A more in-depth explanation of ES6 modules can be found in the <a href="http://exploringjs.com/es6/ch_modules.html">Modules chapter of the Exploring ES6 online book</a>.</p>
+          <h3 id="commonjs">CommonJS<a class="fa fa-anchor" href="#commonjs"></a></h3>
+          <p>CommonJS is in wide use today because it is used by <em>NodeJS</em> which in turn is used by many JavaScript applications.</p>
+          <p>The example below will replicate the same example in previous chapter using CommonJS. <code>index.js</code> needs the function <code>sumOfVariable</code> from <code>anExampleModule.js</code>. So, <code>anExampleModule.js</code> module will need to <em>export</em> the function using <code>module.exports</code> syntax and <code>index.js</code> module will need to <em>import</em> that function using <code>require</code> syntax.</p>
+          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
+
+<span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
+
+sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> variableOne + variableTwo;
 }
 
-fetchPage(<span class="hljs-string">'path/to/resource'</span>)
-    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(response))
-    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
-</code></pre>
-            </li>
-            <li>
-              <p><strong>Disk I/O</strong></p>
-              <p>Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.</p>
-              <pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);   <span class="hljs-comment">// this is the in-built filesystem module from Node.js</span>
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFileWithPromise</span>(<span class="hljs-params">filePath</span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{
-        fs.readFile(filePath, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, data</span>) </span>{
-            <span class="hljs-keyword">if</span> (err) {
-                reject(err);
-            } <span class="hljs-keyword">else</span> {
-                resolve(data);
-            }
-        });
-    })
-
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">sumOfVariable</span>: sumOfVariable,
 };
-
-readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)
-    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(data))
-    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
 </code></pre>
-            </li>
-          </ul>
-          <h2 id="doing-more-with-promises">Doing more with Promises<a class="fa fa-anchor" href="#doing-more-with-promises"></a></h2>
-          <p>Sometimes multiple promises may have to be used at a time, and Javascript provides excellent support with the <code>Promise.all</code> and <code>Promise.race</code> functions.</p>
-          <p>If multiple asynchronous operations have to be performed, and these operations are independent in that they do not rely on each other's values, <code>Promise.all()</code>can be used to execute all these operations at a go. It takes in an array of Promises and returns either an array with all the resolved values, or the value of the first rejected Promise. After which, <code>then()</code> which was previously mentioned, can be used to act on all these resolved values.</p>
-          <p>There is an excellent write up on these methods <a href="https://davidwalsh.name/promises">here</a>, which go through how best to use these functions.</p>
-          <p>In addition, there are other libraries such as <a href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> and <a href="https://github.com/kriskowal/q">Q</a> which offer even more functionality such as Promise monitoring and synchronous inspection of Promises.</p>
-          <h2 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading"></a></h2>
-          <p>You may read more about Promises, and how to use them at the following pages:</p>
+          <pre><code class="hljs js"><span class="hljs-comment">// index.js</span>
+
+<span class="hljs-keyword">var</span> anExampleModule = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./anExampleModule.js'</span>);
+
+anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
+</code></pre>
+          <p>If your project does not use NodeJS and does not allow the use of <em><a href="https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da">bundler</a></em> such as <em><a href="https://webpack.js.org/">Webpack</a></em>, you can consider the approach given in the next section as it does not need any external tool.</p>
+          <p>A more in-depth explanation of CommonJS can be found in the <a href="https://nodejs.org/docs/latest/api/modules.html">Modules chapter of NodeJS API documentation</a>.</p>
+          <h3 id="module-pattern">Module Pattern<a class="fa fa-anchor" href="#module-pattern"></a></h3>
+          <p>Using a technique in JavaScript called <em><a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">IIFE (Immediately Invoked Function Expression)</a></em>, JavaScript developers can create module by wrapping their code in an IIFE.</p>
+          <box>
+            <p>An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. <br>
+              <strong>Syntax:</strong> <code>(function() { statements })();</code></p>
+            <p><em>Source: <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">MDN Glossary - IIFE</a></em></p>
+          </box>
+          <p>The example below will replicate the same example in previous chapters using module pattern. <code>index.js</code> needs the function <code>sumOfVariable</code> from <code>anExampleModule.js</code>. To achieve this, we use the <code>&lt;script&gt;</code> tag in HTML to <em>import</em> <code>anExampleModule.js</code> for <code>index.js</code> to use.</p>
+          <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- index.html --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./anExampleModule.js"</span> /&gt;</span><span class="handlebars"><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./index.js"</span> /&gt;</span><span class="undefined">
+</span></span></span></code></pre>
+          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
+
+<span class="hljs-keyword">var</span> anExampleModule = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
+
+    <span class="hljs-keyword">var</span> sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> variableOne + variableTwo;
+    }
+
+    <span class="hljs-comment">// We return an object with functions or variables</span>
+    <span class="hljs-comment">// that we want to be exposed</span>
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">sumOfVariable</span>: sumOfVariable
+    }
+})()
+</code></pre>
+          <pre><code class="hljs js"><span class="hljs-comment">// index.js</span>
+
+anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
+</code></pre>
+          <p>The result of importing the modules in the HTML will be as follow:</p>
+          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
+
+<span class="hljs-keyword">var</span> anExampleModule = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
+
+    <span class="hljs-keyword">var</span> sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> variableOne + variableTwo;
+    }
+
+    <span class="hljs-comment">// We return an object with functions or variables</span>
+    <span class="hljs-comment">// that we want to be exposed</span>
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">sumOfVariable</span>: sumOfVariable
+    }
+})()
+
+<span class="hljs-comment">// index.js</span>
+
+anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
+</code></pre>
+          <p>A more in-depth explanation of module pattern can be found in the <a href="https://ultimatecourses.com/blog/mastering-the-module-pattern">this course blog on mastering module pattern</a>.</p>
+          <h2 id="which-to-use">Which to use?<a class="fa fa-anchor" href="#which-to-use"></a></h2>
+          <p>Although ES6 modules is the official way to implement modules, there are situations where you might have to use one of the other options. Here are some examples:</p>
           <ul>
-            <li><a href="https://developers.google.com/web/fundamentals/primers/promises">JavaScript Promises: an Introduction</a></li>
-            <li><a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies</a></li>
-            <li><a href="https://javascript.info/async-await">Javascript Async/Await</a></li>
+            <li>If your application does not allow you to use transpiler and bundler (e.g. because of the additional overhead they add), you can use the module pattern.</li>
+            <li>If your application is NodeJS based, you might want to use CommonJS because NodeJS does not natively support ES6 modules.</li>
+          </ul>
+          <h2 id="how-to-start">How to start?<a class="fa fa-anchor" href="#how-to-start"></a></h2>
+          <p>You can start with module pattern right away by refactoring segments of your code into different files and wrapping the code in IIFE.</p>
+          <p>If you are planning to use CommonJS or ES6 modules, you can start by refactoring segments of your code, but you will also need to be familiar with transpiler and bundler such as Babel and Webpack.</p>
+          <h2 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading"></a></h2>
+          <p>You can read more on JavaScript modules at following websites:</p>
+          <ul>
+            <li><a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc">JavaScript Modules: A Beginner’s Guide</a> <br>
+              This article gives a broad explanation of JavaScript modules, explaining different kinds of module system in JavaScript, yet easy to follow.</li>
+            <li><a href="https://tylermcginnis.com/javascript-modules-iifes-commonjs-esmodules/">JavaScript Modules: From IIFEs to CommonJS to ES6 Modules</a> <br>
+              This article truly focuses on IIFE, CommonJS, and ES6 Modules, giving a very comprehensive usage example.</li>
+            <li><a href="https://medium.freecodecamp.org/anatomy-of-js-module-systems-and-building-libraries-fadcd8dbd0e">Learn the basics of the JavaScript module system and build your own library</a> <br>
+              While the aim of the article may not be the same with the aim of this book article, this article gives a very comprehesive comparison between CommonJS and ES6 Modules.</li>
           </ul>
         </div>
       </div>
@@ -509,14 +438,17 @@ readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)
         <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#javascript-promises">Javascript: Promises&#x200E;</a>
+            <a class="nav-link py-1" href="#javascript-modules">Javascript: Modules&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#why-promises">Why Promises?&#x200E;</a>
-              <a class="nav-link py-1" href="#what-is-a-promise">What is a Promise?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-promises-work">How Promises Work&#x200E;</a>
-              <a class="nav-link py-1" href="#imperative-style-promises-async-await">Imperative Style Promises: async-await&#x200E;</a>
-              <a class="nav-link py-1" href="#where-promises-can-be-used">Where Promises can be used&#x200E;</a>
-              <a class="nav-link py-1" href="#doing-more-with-promises">Doing more with Promises&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-a-module">What Is a Module?&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-modularize-javascript-code">How to Modularize JavaScript Code?&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#es6-modules">ES6 modules&#x200E;</a>
+                <a class="nav-link py-1" href="#commonjs">CommonJS&#x200E;</a>
+                <a class="nav-link py-1" href="#module-pattern">Module Pattern&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#which-to-use">Which to use?&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-start">How to start?&#x200E;</a>
               <a class="nav-link py-1" href="#further-reading">Further Reading&#x200E;</a>
             </nav>
 

@@ -612,6 +612,27 @@
     },
     {
       "headings": {
+        "javascript-modules": "Javascript: Modules",
+        "what-is-a-module": "What Is a Module?",
+        "how-to-modularize-javascript-code": "How to Modularize JavaScript Code?",
+        "es6-modules": "ES6 modules",
+        "commonjs": "CommonJS",
+        "module-pattern": "Module Pattern",
+        "which-to-use": "Which to use?",
+        "how-to-start": "How to start?",
+        "further-reading": "Further Reading"
+      },
+      "title": "Javascript: Modules",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/javascript/Javascript-modules.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "javascript-promises": "Javascript: Promises",
         "why-promises": "Why Promises?",
         "what-is-a-promise": "What is a Promise?",
