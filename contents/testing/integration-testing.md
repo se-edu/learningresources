@@ -18,7 +18,7 @@ Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin Kun Son
 
 ## What is integration testing?
 
-Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual modules within a system">unit testing stage</tooltip>](http://softwaretestingfundamentals.com/unit-testing/) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html) and it aims to discover faults related to the interaction between module.
+Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual module units within a system">unit testing stage</tooltip>](https://www.guru99.com/unit-testing-guide.html) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html). Integration testing combines individual tested modules as a group and aims to discover faults related to the interaction between these modules.
 
 Suppose that you have built an online food ordering system and the architecture diagram of your application is shown as follows:
 
@@ -27,31 +27,11 @@ Suppose that you have built an online food ordering system and the architecture 
 ![Sample architecture diagram](integration-test/sample-architecture.png "Sample architecture diagram")
 </center>
 
-When focusing on the food ordering aspect of this system, a unit test on the `Order Summary` could look like this:
-```java
-@Test
-public void isOrderSummaryCorrect(OrderSummary orderSummary) {
-	assertTrue(orderSummary.contains("cheese burger"));
-}
-```
+Zooming in on the food ordering aspect of this system, an unit test on the `Order Summary` could check for the correctness of the order details recorded.
 
-After unit testing of individual modules are completed, an **integration test** on `Order Food` and `Order Summary` could look like this:
+After completion of unit testing on individual modules, an **integration test** on `Order Food` and `Order Summary` could check that upon ordering food, the order summary reflects the correct food orders.
 
-```java
-public class FoodOrderingIntegrationTest {
-	public void testFoodOrderRecorded() {
-		FoodOrder foodOrder1 = new FoodOrder("cheese burger");
-		FoodSummary foodSummary = new FoodSummary();
-		foodSummary.add(foodOrder);
-		
-		isOrderSummaryCorrect(foodSummary);
-	}
-}
-```
-
-The system test is used to ensure that the entire application has all the necessary working functionalities such as ordering, paying and generating reports in different scenarios such as this:
-
-- A customer ordered 3 items, made payment using his E-Wallet and generated a report to save the order record.
+After completion of integration testing, a system test on the entire application could mimic a customer's point of view and check that the functionalities of all the modules such as `Order Food`, `Payment` and `Generate Report` works as intended.
 
 ## Why is integration testing important?
 
@@ -105,7 +85,7 @@ An example of how big bang integration testing can be applied to our given examp
 
 #### Incremental testing approach:
 
-This approach involves integrating two or more logically related modules. The other related modules are added and tested for proper functioning. This is repeated until all the modules are joined (or _integrated incrementally_) and tested successfully. It is usually preferred with any application having more than 10 different modules.
+This approach involves integrating two or more logically related modules. The other related modules are added and tested for proper functioning. This is repeated until all the modules are joined (or _integrated incrementally_) and tested successfully. It is usually preferred for applications with many modules.
 
 Incremental integration testing is further split into the 3 approaches shown below:
 
