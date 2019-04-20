@@ -22,22 +22,20 @@ This article assumes the reader has some basic knowledge of JavaScript.
 
 ## What Is a Module?
 
-You might often encounter the term such as _module, package, library, dependency, plugin,_ etc. when developing your own application in any programming languages, including JavaScript. We will not dive into the exact definition of each term because that is not the scope of this article, but we will define a module as a small part of code that is broken up from a larger code base.
+In programming, the term module (other similar terms: _package, library, dependency, plugin, etc._) is used to refer to _a small part of code that is broken up from a larger code base_.
 
-Let's say you have an application with functionalities A and B, where functionality A needs functionality B. Without modules, both of these functionalities are mixed together in the code base without a clear separation. With modules, we can separate those 2 functionalities into separate module each. When A need B, A will "include" B and A will be able to work as if A and B has never been separated. The exact usage of modules will be illustrated in the **How to Modularize JavaScript Code** section after the following section.
+Modules help programmers in many ways. Here are some of the examples:
 
-## Why Use Modules in JavaScript?
+**1. Modules make the code more managable** <br>
+Using modules will break the code base into smaller parts which if done well can help in managing a code base, especially a large one.
 
-Following are reasons why use modules in JavaScript. The reasons below are not exclusive to JavaScript, but may also be general reasons for using modules in other languages.
+Let's say you have an application with functionalities A and B, where functionality A needs functionality B. Without modules, both of these functionalities are mixed together in the code base without a clear separation. With modules, we can separate those 2 functionalities into separate module each. When A need B, A will "include" B and A will be able to work as if A and B has never been separated.
 
-**1. Better management of code base** <br>
-Using modules will break the code base into smaller parts which if done well can help in managing a code base, especially a large one. To be able to modularize your code well, you can apply Software Engineering principles such as _[SOLID](http://se-education.org/se-book/principles/solidPrinciples/index.html)_, etc.
+**2. Modules help minimize name clashes** <br>
+Breaking code into modules result in breaking the code's namespace into smaller parts too. This will help in minimizing name clashes and the need for global variables.
 
-**2. Namespacing** <br>
-Because of how [JavaScript scoping](https://www.sitepoint.com/demystifying-javascript-variable-scope-hoisting/) works, avoiding global variable can be an issue. Modules allows JavaScript developer to avoid this problem by isolating the namespace to a specific module.
-
-**3. Reusability** <br>
-As per _[Don't Repeat Yourself (DRY) Principle](http://se-education.org/se-book/principles/dryPrinciple/index.html)_, modules allows developers to reuse their code that is contained in a module. If for example we have an application that rely on a fuctionality such as string comparison function, we can separate that function into a module and let the application to use the function from that module instead of having to always repeating that function in all the places where it is needed.
+**3. Modules promote reuse** <br>
+Modules allows developers to reuse their code that is contained in a module. If for example we have an application that rely on a fuctionality such as string comparison function, we can separate that function into a module and let the application to use the function from that module instead of having to always repeating that function in all the places where it is needed.
 
 ## How to Modularize JavaScript Code?
 
@@ -183,13 +181,9 @@ A more in-depth explanation of module pattern can be found in the [this course b
 
 ## Which to use?
 
-With the launch of ES6 modules, one might think that why should we choose which one to use? Why not use ES6 modules right away?
-
-If an application does not allow you to use transpiler and bundler perhaps because of the additional overhead or you just need to create a simple and lean application, you might want to consider implementing the module pattern.
-
-If you will be developing a NodeJS application, you might want to use CommonJS because NodeJS does not natively support ES6 modules.
-
-All in all, the best implementation depends on the nature of your project.
+Although ES6 modules is the official way to implement modules, there are situations where you might have to use one of the other options. Here are some examples:
+- If your application does not allow you to use transpiler and bundler (e.g. because of the additional overhead they add), you can use the module pattern.
+- If your application is NodeJS based, you might want to use CommonJS because NodeJS does not natively support ES6 modules.
 
 ## How to start?
 
