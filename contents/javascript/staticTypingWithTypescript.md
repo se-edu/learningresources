@@ -150,6 +150,31 @@ function sayHello(name: string, favoriteColor?: string) {
 
 ## Getting Started with TypeScript
 
-WIP
+### Installation
+
+The command-line TypeScript compiler can be installed as a Node.js package via `npm`:
+```bash
+npm install -g typescript
+```
+
+After installing TypeScript, you will have access to the `tsc` command for compiling TypeScript files:
+```bash
+tsc my_file.ts
+```
+
+This gets compiled into a `my_file.js` file, which you can execute in a browser or on Node.js.
+
+
+### Additional Resources
+
+- The [TypeScript Playground](https://www.typescriptlang.org/play/) is a convenient way to experiment with different scenarios in TypeScript (such as the examples in this article) without any setup required.
+
+- [Visual Studio Code](https://code.visualstudio.com/) is probably the code editor with the best TypeScript support. This is unsurprising given that VS Code is another open-source project by Microsoft, and is itself written in TypeScript. That being said, TypeScript is widely supported by other code editors, either natively or via the appropriate package/extension.
+
+- [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/) is the definitive online textbook on TypeScript which covers many practical topics.
+
+- The official TypeScript guide on [Migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html) contains best practices for incrementally converting your codebase to TypeScript.
+
+- For a more interactive demo of what it feels like to work with TypeScript, check out this YouTube video called [0-60 with TypeScript and Node.js](https://www.youtube.com/watch?v=vxvQPHFJDRo).
 
 </div>
