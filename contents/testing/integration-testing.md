@@ -44,9 +44,8 @@ Suppose the `Order Food` module mentioned earlier allows each user to submit up 
 Hence, there is potential for problems such as such as **data loss**, **inaccurate results** and even **system errors**.
 Integration tests find these discrepancies before any serious damage is done.
 
-Although system testing also help to uncover faults between modules, integration testing is still highly encouraged as it is able to **better isolate** the scope of the features during testing, making it **easier** and **faster** to test.
-In fact, many integration problems can be detected and resolved in the early stage of development, making a developer's life easier to debug when a problem arises in the future.
-More advantages of doing integration testing before system testing can be found [here](https://bitwaretechnologies.com/integration-testing-important-software-testing-life-cycle/).
+Although system testing also help to uncover faults between modules, integration testing is still preferable as it is able to **better isolate** the scope of the features during testing, making it **easier** and **faster** to test.
+In fact, many integration problems can be detected and resolved in the early stage of development, which makes debugging easier when problems arise in the future.
 
 Hence, integration testing can be useful in the development of any non-trivial software product. 
 Concepts shared in this article can be adopted by different software applications.
@@ -54,7 +53,9 @@ Concepts shared in this article can be adopted by different software application
 On top of that, in the current era of <tooltip content="Practice of merging developers' work continuously into a shared repository">Continuous Integration</tooltip> (CI), integration testing is useful to help with early detecion of defects while maintaining the quality of the product throughout further developments.
 The concept of [Continuous Integration Testing](https://crossbrowsertesting.com/blog/continuous-integration/continuous-integration-testing-delivery/) is also formed to combine integration testing with continuous integration.
 
-:fas-info-circle: More information on instances where integration testing is important can be found in [this article](https://www.guru99.com/integration-testing.html).
+:fas-info-circle: [This article](https://bitwaretechnologies.com/integration-testing-important-software-testing-life-cycle/) showcases more advantages of doing integration testing before system testing.
+
+:fas-info-circle: [This article](https://www.guru99.com/integration-testing.html) provides more information on instances where integration testing is important.
 
 ## How does integration testing work?
 
@@ -83,7 +84,7 @@ An example of how big bang integration testing can be applied to our given examp
 ![Big bang integration testing diagram](integration-test/big-bang-integration.png "Big bang integration testing diagram]")
 </center>
 
-:fas-info-circle: You can find more use details on the big bang approach [here](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.htm).
+:fas-info-circle: [This article](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.htm) provides more details on the big bang approach.
 
 #### Incremental testing approach:
 
@@ -97,11 +98,11 @@ Incremental integration testing is further split into the 3 approaches shown bel
 | <span style="color:green">**Advantages**</span>| Early discovery of high level architecture / design defects. | Easier to create test cases bottom up. | Beneficial for big project to distribute tasks on testing.
 | | Main control points of the system are tested early. | Critical modules on functionalities are tested first. | Allow top-down and bottom-up approach to run side by side. |
 | <span style="color:red">**Disadvantages**</span> | Significant low level modules are tested late in the cycle. | There is no testable working system until the higher level modules are build. | It is difficult to test for highly interconnected modules. |
-| | A [<tooltip content="A program that simulates the behaviours of software modules">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporarily replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
+| | A [<tooltip content="A program that simulates the behaviours of software modules">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporarily replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can better understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
 
-:fas-info-circle: A more detailed guide on using specific methods for incremental testing together with examples can be found [here](https://www.softwaretestinghelp.com/incremental-testing/).
+:fas-info-circle: [This article](https://www.softwaretestinghelp.com/incremental-testing/) provides a more detailed guide, with examples, on using specific methods for incremental testing together.
 
-:fas-info-circle: [NUS Software Engineer textbook](https://se-education.org/se-book/integration/#integration) also offer some concrete examples of different approaches of integration testing.
+:fas-info-circle: The [NUS Software Engineering textbook](https://se-education.org/se-book/integration/#integration) also offers some concrete examples of different approaches of integration testing.
 
 ### 2. Design the test scenarios, cases and scripts
 
@@ -117,7 +118,7 @@ Expected result: To be directed to order food page based on the login user
 
 <box type="warning">As integration test cases are <tooltip content="It generally takes longer time due to additional overheads such as waiting for dependent modules to respond">expensive operations</tooltip> compared to unit testing, it should focus mainly on the integration of modules together and not on specific actions within the same module.</box>
 
-:fas-info-circle: More details about the ways to structure incremental testing can be found on [this article](https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/)
+:fas-info-circle: [This article](https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/) explains more about the ways to structure incremental testing.
 
 ### 3. Execute the test scripts and report defects if any
 
@@ -126,7 +127,7 @@ Depending on the approach you have chosen for your integration plan and the test
 - Big bang approach usually requires all the modules to be developed before you can start with the integration testing.
 
 - Incremental approach is usually conducted simultaneously with the module's development. Stubs and drivers are used to mimic the modules for writing tests since not all modules are developed at the point of integration testing.
-[NUS Software Engineer module site](https://nus-cs2103-ay1819s1.github.io/cs2103-website/se-book-adapted/chapters/testing.html#stubs) provides concrete codes for using stubs.
+The [NUS Software Engineering module site](https://nus-cs2103-ay1819s1.github.io/cs2103-website/se-book-adapted/chapters/testing.html#stubs) provides concrete codes for using stubs.
 
 :fas-exclamation-circle: Either way, such test scripts can help you in singling out specific integration errors to be resolved before it gets more serious. Hence, you should ensure that all high prioritized bugs are fixed before moving on. 
 
@@ -166,7 +167,7 @@ You can find a list of most commonly used [automation tools](https://medium.com/
 Generally integration test can be implemented based on your existing unit testing tools.
 However, if you do not have an existing testing tool in place, here are some useful tools that you can consider for your integration testing:
 
-- [VectorCast](http://www.vectorcast.com/) tool operates based on executing unit tests first before integration tests as discussed in this article.
+- [VectorCast](http://www.vectorcast.com/) is a tool which operates based on executing unit tests first before integration tests as discussed in this article.
 
 - [Gauge](https://gauge.org/) acts as a plugin which can be incorporated to any language or IDE. 
 It is an lightweight cross-platform test automation tool which makes testing easier to maintain, more readable and scalable.
