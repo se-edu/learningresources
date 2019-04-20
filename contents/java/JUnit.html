@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.2.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Web Performance</title>
+  <title>SE-EDU/LearningResources - JUnit</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -50,10 +50,10 @@
         <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
           <span id="toc">
             <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">C++
                         <i class="dropdown-btn-icon">
@@ -75,16 +75,16 @@
                     </li>
                     <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Java
+                        <i class="dropdown-btn-icon rotate-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
+                      <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a current">JUnit</a></li>
                         </ul>
                       </div>
                     </li>
@@ -116,10 +116,10 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">Architecture
                         <i class="dropdown-btn-icon">
@@ -141,14 +141,14 @@
                     </li>
                     <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Performance
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a current">Web Performance</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
                         </ul>
                       </div>
                     </li>
@@ -292,76 +292,220 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="web-performance">Web Performance<a class="fa fa-anchor" href="#web-performance"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/marvinchin">Marvin Chin</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/luyangkenneth">Lu Yang Kenneth</a>, <a href="https://www.github.com/monmanuela">Monika Manuela Hengki</a></p>
-          <h2 id="what-is-web-performance">What is Web Performance<a class="fa fa-anchor" href="#what-is-web-performance"></a></h2>
-          <p>Web Performance is a broad term that refers to how performant a web application <em>feels</em> to its users. This includes many aspects such as how long the site takes to load, how quickly the site becomes interactive, and how responsive it feels when the user interacts with the site.</p>
-          <p>As web applications grow more complex, it becomes increasingly important for web developers to be aware of the factors that affect performance, and consider how performance can impact the user experience.</p>
-          <h2 id="why-web-performance-matters">Why Web Performance Matters<a class="fa fa-anchor" href="#why-web-performance-matters"></a></h2>
-          <p>The performance of your web application has a direct impact on its ability to attract and retain users:</p>
+          <h1 id="junit">JUnit<a class="fa fa-anchor" href="#junit"></a></h1>
+          <p><b>Author: <a href="https://github.com/sijie123">Lin Si Jie</a></b></p>
+          <p>Reviewers: <a href="https://github.com/amad-person">Aadyaa Maddi</a>, <a href="https://github.com/marvinchin">Marvin Chin</a></p>
+          <h2 id="what-is-junit">What is JUnit?<a class="fa fa-anchor" href="#what-is-junit"></a></h2>
+          <p><strong>JUnit is an <em>automated testing framework</em> for Java</strong> i.e., it can be used to programmatically verify the actual behavior of Java code against the expected behavior.</p>
+          <p>Let's use a simple example to see how JUnit is used. Suppose we want to test the method <code>calculateArraySum(int[] values, int n)</code> which returns the sum of the first <code>n</code> elements of <code>values</code>.</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span> </span>{
+  <span class="hljs-comment">// Sum up first n elements in values, and return the result</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">calculateArraySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] values, <span class="hljs-keyword">int</span> n)</span> </span>{
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) {
+      sum += values[i];
+    }
+    <span class="hljs-keyword">return</span> sum;
+  }
+}
+</code></pre>
+          <p>Let's write a test to check the correctness of our code. This test will use a sample array of size 5 that sums to 15, and check that our <code>calculateArraySum</code> returns the correct result.</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UtilsTest</span> </span>{
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">calculateArraySum_fiveNumbers_correctAnswer</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span>[] testArray = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+    assertEquals(<span class="hljs-number">15</span>, calculateArraySum(testArray, <span class="hljs-number">5</span>));
+  }
+}
+</code></pre>
+          <p>
+            <tip-box>💡 By convention, we append <code>Test</code> to the name of the tested class. It is also good practice to write a descriptive name for the test, so other developers will know the intention and scope of each test.</tip-box>
+          </p>
+          <p>That's it! We are ready to run the tests through our IDE. The <code>@Test</code> tag tells JUnit that the <code>calculateArraySum_fiveNumbers_correctAnswer</code> method is meant to be a test. JUnit will then automatically execute our test(s).</p>
+          <p>Let's have a look at the test results.</p>
+          <img src="/learningresources/contents/java/assertFailed.PNG">
+          <p>Hmm, the test seems to fail when we run it.
+            Did you notice the subtle bug in <code>calculateArraySum</code>?</p>
+          <p>We &quot;forgot&quot; to include the 0-th element of inputArray, a common off-by-one bug.
+            With JUnit, we can use automatic tests to ensure that our functions are correct. This is easier and less error-prone than repeatedly testing and calculating manually.</p>
+          <p>Now, let's fix the code.</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span> </span>{
+  <span class="hljs-comment">// Sum up first n elements in values, and return the result</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">calculateArraySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] values, <span class="hljs-keyword">int</span> n)</span> </span>{
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+      sum += values[i];
+    }
+    <span class="hljs-keyword">return</span> sum;
+  }
+}
+</code></pre>
+          <img src="/learningresources/contents/java/assertPass.PNG">
+          <p>Running the same unit test again, we now have a passing test. Our <code>calculateArraySum</code> function works as intended.</p>
+          <p>To assure ourselves that <code>calculateArraySum</code> works for more scenarios (what if <code>n</code> = 0?), we can write more tests covering these cases.</p>
+          <pre><code class="hljs">public class UtilsTest {
+  @Test
+  public void calculateArraySum_fiveNumbers_correctAnswer() {
+    int[] testArray = {1, 2, 3, 4, 5};
+    assertEquals(15, calculateArraySum(testArray, 5));
+  }
+  @Test
+  public void calculateArraySum_noNumbers_zero() {
+    int[] testArray = {};
+    assertEquals(0, calculateArraySum(testArray, 0));
+  }
+}
+</code></pre>
+          <p>Unit tests like these help to prevent against regression. If <code>calculateArraySum</code> is ever changed, these tests can quickly verify that its functionality remains correct.</p>
+          <p></p>
+          <h2 id="why-junit">Why JUnit?<a class="fa fa-anchor" href="#why-junit"></a></h2>
+          <p>Here are some key reasons why developers should consider using JUnit, as compared to other Java testing tools like TestNG:</p>
+          <ol>
+            <li>
+              <p><b>JUnit is well-integrated with development tools.</b> It is supported by many popular IDEs such as IntelliJ IDEA, Eclipse, NetBeans, Visual Studio Code and many more. <b>This makes it convenient for developers to write and run tests.</b></p>
+            </li>
+            <li>
+              <p><b>JUnit is well-established.</b> JUnit has a longer history and a larger community. It is also more popular among developers (according to <a href="https://snyk.io/blog/jvm-ecosystem-report-2018-tools/">Synk's 2018 report</a>). <b>This means that it is easier to find answers or get help with JUnit.</b></p>
+            </li>
+          </ol>
+          <p></p>
+          <h2 id="junit-features">JUnit Features<a class="fa fa-anchor" href="#junit-features"></a></h2>
+          <p>In addition to the basic example in the introduction, JUnit also has more powerful features that further simplifies the process of writing complex tests.</p>
+          <h3 id="assertions-api">Assertions API<a class="fa fa-anchor" href="#assertions-api"></a></h3>
+          <p>In addition to the <code>assertEquals</code> method illustrated in the introduction, JUnit allows us to check for many other things. These include:</p>
           <ul>
-            <li>Sites which take more than 3 seconds to load are more likely to be abandoned by users [<a href="https://developer.akamai.com/blog/2016/09/14/mobile-load-time-user-abandonment">source</a>].</li>
-            <li>Conversely, reducing page load times have been shown to have significant impact on improving user engagement [<a href="https://medium.com/carousell-insider/how-we-made-carousells-mobile-web-experience-3x-faster-bbb3be93e006">source</a>].</li>
-            <li>In addition, search engines have begun to use page load times as a factor in determining search rankings [<a href="https://webmasters.googleblog.com/2018/01/using-page-speed-in-mobile-search.html">source</a>].</li>
-            <li>Improving web performance is also essential in making your web application accessible to users from emerging markets, where low-end devices and limited bandwidth are the norm [<a href="https://building.calibreapp.com/beyond-the-bubble-real-world-performance-9c991dcd5342">source</a>].</li>
+            <li><code>assertTrue</code>/<code>assertFalse</code>: checks whether statements return true/false as expected.</li>
+            <li><code>assertNull</code>/<code>assertNotNull</code>: checks whether something is null or not, without causing a NullPointerException.</li>
+            <li><code>assertArrayEquals</code>: yes, it loops through an entire array for us!</li>
+            <li><code>assertThrows</code>/<code>assertDoesNotThrow</code>: verify the actual error handling behavior against the expected error handling behavior.</li>
+            <li><code>assertTimeout</code>: ensures that a piece of code runs within time constraints - we don't want to keep the user waiting!</li>
           </ul>
-          <p>In order to deliver a positive user experience, web developers must ensure that their applications meet acceptable performance standards.</p>
-          <h2 id="key-ideas-in-improving-web-performance">Key Ideas in Improving Web Performance<a class="fa fa-anchor" href="#key-ideas-in-improving-web-performance"></a></h2>
-          <p>There are many factors which affect web performance. Here, we give an overview of some of the key ideas that can be used to improve the performance of your web application.</p>
-          <p><strong>Idea 1: Reduce Javascript Payloads</strong></p>
-          <p>Loading and executing Javascript is often the slowest part of the page load process [<a href="https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4">source</a>]. Reducing the amount of Javascript that needs to be loaded thus significantly reduces the time taken for your site to load.</p>
-          <p>Here are some steps that web developers can take to reduce the amount of Javascript that clients need to load:</p>
+          <p>These powerful expressions means that we can write more expressive tests.
+            Without JUnit, developers can test by writing:</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">int</span> result = divide(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// Divides 100 by 0</span>
+} <span class="hljs-keyword">catch</span> (ArithmeticException ae) {
+  <span class="hljs-comment">// This is the expected behaviour.</span>
+  <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-comment">// If code is here, then the ArithmeticException wasn't thrown.</span>
+<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AssertionError(<span class="hljs-string">"Dividing 100 by 0 should throw an exception!"</span>);
+</code></pre>
+          <p>With JUnit, we can replace the above code with just this line:</p>
+          <pre><code class="hljs java">assertThrows(ArithmeticException.class, () -&gt; divide(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>));
+</code></pre>
+          <p>This expression is a lot easier to understand, and as an added bonus, the code is also much shorter to write!</p>
+          <h3 id="before-after-hooks">Before/After hooks<a class="fa fa-anchor" href="#before-after-hooks"></a></h3>
+          <p>Not every system can be tested so easily. Sometimes, testing is not as straightforward as running a function.
+            For example, we might want to store information in a database. We would have to first connect to the database before we can run any test.</p>
+          <p>JUnit exposes an API that allows developers to do this process easily and clearly. The <code>@BeforeAll</code> tag allows us to run code once before all tests. Using <code>@BeforeAll</code>, we can easily initialize our testing environment:</p>
+          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{
+  Database db;
+  <span class="hljs-meta">@BeforeAll</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initializeDatabaseConnection</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Initialize database connections</span>
+    db = connectToDatabase();
+  }
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addUserTest</span><span class="hljs-params">()</span> </span>{
+    db.addUser(<span class="hljs-string">'NewUser'</span>);
+    ...
+  }
+}
+</code></pre>
+          <p>JUnit also offers a <code>@BeforeEach</code> tag to run code before every test. One use case is to ensure that we standardise the testing environment before each test.
+            For example, we can clear our database before each test to ensure that tests do not <trigger for="modal:affectEachOther" trigger="click">affect each other</trigger>.</p>
+          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabase</span> </span>{
+  Database db;
+  <span class="hljs-meta">@BeforeEach</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">resetDatabaseTable</span><span class="hljs-params">()</span> </span>{
+    db.truncate(<span class="hljs-string">"testTable"</span>);
+  }
+}
+</code></pre>
+          <p>Similarly, we can use the <code>@AfterAll</code> and <code>@AfterEach</code> tags to run code after all tests, and after each test respectively:</p>
+          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{
+  Database db;
+  DatabaseSnapshot snapshot;
+  <span class="hljs-meta">@AfterEach</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">restoreDatabaseTable</span><span class="hljs-params">()</span> </span>{
+    db.restore(snapshot); <span class="hljs-comment">// Restore previous state of database</span>
+  }
+  <span class="hljs-meta">@AfterAll</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">closeDatabaseConnection</span><span class="hljs-params">()</span> </span>{
+    db.close(); <span class="hljs-comment">// Explicitly close DB connection instead of timing out.</span>
+  }
+  
+}
+</code></pre>
+          <h3 id="extension-model">Extension Model<a class="fa fa-anchor" href="#extension-model"></a></h3>
+          <p>Consider a project where tests need to:</p>
           <ul>
-            <li>Use code splitting to load only the Javascript required for the page being accessed [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/">source</a>].</li>
-            <li>Remove unused code (often parts of libraries that are not used in the application) with tree shaking [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/">source</a>].</li>
-            <li>Ensure that the delivered Javascript is minified [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/javascript-startup-optimization/">source</a>].</li>
-            <li>Create performance budgets that specify the maximum size of Javascript payloads, and enforce them to ensure that the size of your Javascript payloads remain under control [<a href="https://web.dev/fast/incorporate-performance-budgets-into-your-build-tools">source</a>].</li>
+            <li>connect to the database before all tests</li>
+            <li>clear a database before each test to ensure consistency</li>
           </ul>
-          <p><strong>Idea 2: Optimize Images</strong></p>
-          <p>Images form a significant portion of the resources loaded on web applications [<a href="https://httparchive.org/reports/page-weight">source</a>]. To improve performance and speed up the site for users, web developers should thus try to reduce the amount of bandwidth used to load images.</p>
-          <p>Images can be optimized for the web in the following ways:</p>
+          <p>One way would be to write helper methods <code>initializeDatabaseConnection()</code> and <code>resetDatabaseTable()</code> and invoke them as required, in the <code>@BeforeAll</code>/<code>@BeforeEach</code> methods.
+            However, this is prone to errors - if we do not explicitly call these methods, the database is not initialised or reset.</p>
+          <p>In JUnit, the extension model allows us to augment the test class. Instead of needing to invoke helper methods when we need them, we can introduce a <code>ManagedDatabase</code> extension that can automatically connect to a remote database and reset itself before each test.
+            This abstracts away the need to manage the database, allowing us to focus on testing our logic.</p>
+          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ManagedDatabase</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BeforeAllCallback</span>, <span class="hljs-title">BeforeEachCallback</span> </span>{
+  Database db;
+  String url;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ManagedDatabase</span><span class="hljs-params">(String url)</span> </span>{
+      <span class="hljs-keyword">this</span>.url = url;
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAll</span><span class="hljs-params">(ExtensionContext context)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+      db = connectToDB(url);
+  }
+  
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeEach</span><span class="hljs-params">(ExtensionContext context)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+      db.truncate(<span class="hljs-string">"testTable"</span>);
+  }
+}
+</code></pre>
+          <p>Now, any code requiring a database can simply do the following to initialize a database connection that resets itself before every test:</p>
+          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogicTest</span> </span>{
+  <span class="hljs-meta">@RegisterExtension</span>
+  <span class="hljs-keyword">public</span> ManagedDatabase db = <span class="hljs-keyword">new</span> ManagedDatabase(<span class="hljs-string">"localhost"</span>);
+}
+</code></pre>
+          <p></p>
+          <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h2>
+          <p>If this introduction has got you interested in using JUnit, do check out the following resources for an introduction to using JUnit:</p>
           <ul>
-            <li>Use the correct file format that provides the appropriate balance between quality, detail, and file size. For example, you should use JPEG for photographs that contain lots of colors, PNG for logos and icons which have less colors but contain sharper details, and GIF for animated images [<a href="https://medium.com/beginners-guide-to-mobile-web-development/web-image-formats-googles-webp-17e2fe5fc53e">source</a>].</li>
-            <li>Compress your images to reduce the amount of data that needs to be loaded [<a href="https://www.html5rocks.com/en/tutorials/speed/img-compression/">source</a>]. Be careful to strike a balance between image size and quality for optimal user experience.</li>
-            <li>Deliver appropriately sized images based on the resolution of the client device [<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">source</a>]. This prevents smaller (often mobile or lower-end) devices from wasting bandwidth loading large images that cannot be displayed at their full resolution on the device.</li>
-          </ul>
-          <p><strong>Idea 3: Use Progressive Rendering</strong></p>
-          <p>The sooner the user sees content being displayed on the page, the faster they perceives the site to be. Progressive rendering achieves this by avoiding rendering the entire page all at once, but instead ordering the loading of content in a manner that allows <em>some</em> parts of the page to be rendered as quickly as possible.</p>
-          <p>Here are several ways how progressive loading can be effectively applied:</p>
-          <ul>
-            <li>Load only the most critical content as part of the initial render, and fetch remaining resources asynchronously after the render [<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/">source</a>]. Code splitting can also be helpful here to reduce the amount of Javascript that needs to be loaded for the initial render [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/">source</a>].</li>
-            <li>Use lazy loading to defer requesting non-critical resources until they are needed [<a href="https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/">source</a>].</li>
-            <li>Show content placeholders while fetching resources to indicate loading progress to the user [<a href="https://medium.com/@praveencnaik/content-placeholder-the-new-design-trend-for-audience-involvement-e2ab533d7304">source</a>].</li>
-          </ul>
-          <h2 id="measuring-web-performance">Measuring Web Performance<a class="fa fa-anchor" href="#measuring-web-performance"></a></h2>
-          <p>Improving web performance is a continuous, ongoing process. The ability to measure and track performance is necessary for developers to monitor the impact of their changes over time.</p>
-          <p>Here are some ways that you can measure the performance of your web applications:</p>
-          <ul>
-            <li>Test your site under various network conditions with <a href="https://developers.google.com/web/tools/chrome-devtools/network/network-conditions">Chrome DevTools</a>. This is helpful to get a feel for how the site feels for users on slower devices during the development process.</li>
-            <li>Audit web performance using <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>. This provides many useful metrics for understanding the performance of your site and identifying performance bottlenecks under controlled conditions.</li>
-            <li>Use <a href="https://www.webpagetest.org/">WebPageTest</a> to test the performance of your website from multiple locations around the world at real consumer connection speeds. This provides real-world performance indicators that is especially useful if the target audience of your site resides in a different region.</li>
-            <li>Collect user-centric performance metrics to help you to monitor how your application actually performs in a real-world scenario, and how your site performance relates to other user engagement metrics [<a href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics">source</a>].</li>
-          </ul>
-          <h2 id="additional-resources">Additional Resources<a class="fa fa-anchor" href="#additional-resources"></a></h2>
-          <ul>
-            <li><a href="https://developers.google.com/web/fundamentals/performance/why-performance-matters/">Google's Web Performance Fundamentals</a> is a comprehensive resource that explains many factors that affect web performance.</li>
-            <li><a href="https://kinsta.com/learn/page-speed/">Kinsta's Beginner Guide to Website Speed Optimization</a> is a guided resource for improving website speeds.</li>
-            <li><a href="https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3">Twitter Lite Case Studey</a> is a real-world study that highlights how web performance principles can be applied to great effect.</li>
+            <li>Introductory JUnit guide: <a href="https://howtodoinjava.com/junit-5-tutorial/">JUnit 5 Tutorial</a></li>
+            <li>Comprehensive JUnit guide: <a href="https://www.baeldung.com/junit-5">A Guide to JUnit 5</a></li>
+            <li>Extensions and Lifecycle of Tests: <a href="https://www.infoq.com/articles/deep-dive-junit5-extensions">Deep Dive into JUnit 5 Extension Model</a></li>
+            <li>Official User Guide: <a href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5 User Guide</a></li>
           </ul>
         </div>
+        <modal id="modal:affectEachOther">
+          <div slot="modal-header" class="modal-title text-center">
+            <h4>How will tests affect each other?</h4>
+          </div>
+          <p>If we do not reset a shared resource (e.g. databse / file), a test that uses the resource permanently changes the resource. As a result, other tests cannot assume anything about the initial state of this resource.</p>
+          <p>For example, test A checks for a correctly set-up, empty database. Test B writes to an initially empty database. Without resetting the database, test A can fail if test B manages to runs first.</p>
+        </modal>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#web-performance">Web Performance&#x200E;</a>
+            <a class="nav-link py-1" href="#junit">JUnit&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-web-performance">What is Web Performance&#x200E;</a>
-              <a class="nav-link py-1" href="#why-web-performance-matters">Why Web Performance Matters&#x200E;</a>
-              <a class="nav-link py-1" href="#key-ideas-in-improving-web-performance">Key Ideas in Improving Web Performance&#x200E;</a>
-              <a class="nav-link py-1" href="#measuring-web-performance">Measuring Web Performance&#x200E;</a>
-              <a class="nav-link py-1" href="#additional-resources">Additional Resources&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-junit">What is JUnit?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-junit">Why JUnit?&#x200E;</a>
+              <a class="nav-link py-1" href="#junit-features">JUnit Features&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#assertions-api">Assertions API&#x200E;</a>
+                <a class="nav-link py-1" href="#before-after-hooks">Before/After hooks&#x200E;</a>
+                <a class="nav-link py-1" href="#extension-model">Extension Model&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
             </nav>
 
           </nav>

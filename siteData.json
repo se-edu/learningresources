@@ -442,6 +442,26 @@
     },
     {
       "headings": {
+        "junit": "JUnit",
+        "what-is-junit": "What is JUnit?",
+        "why-junit": "Why JUnit?",
+        "junit-features": "JUnit Features",
+        "assertions-api": "Assertions API",
+        "before-after-hooks": "Before/After hooks",
+        "extension-model": "Extension Model",
+        "getting-started": "Getting Started"
+      },
+      "title": "JUnit",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/java/JUnit.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "java-concurrency": "Java Concurrency",
         "what-is-java-concurrency": "What is Java Concurrency",
         "getting-started": "Getting Started",
