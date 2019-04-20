@@ -18,8 +18,10 @@ Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin Kun Son
 
 ## What is integration testing?
 
-Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual module units within a system">unit testing stage</tooltip>](https://www.guru99.com/unit-testing-guide.html) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html). Integration testing combines individual tested modules as a group and aims to discover faults related to the interaction between these modules.
+Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual module units within a system">unit testing stage</tooltip>](https://www.guru99.com/unit-testing-guide.html) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html).
+Integration testing combines individually tested modules as a group and aims to discover faults related to the interactions between these modules.
 
+Let's look at an example to better understand what these means.
 Suppose that you have built an online food ordering system and the architecture diagram of your application is shown as follows:
 
 <center>
@@ -27,24 +29,24 @@ Suppose that you have built an online food ordering system and the architecture 
 ![Sample architecture diagram](integration-test/sample-architecture.png "Sample architecture diagram")
 </center>
 
-Zooming in on the food ordering aspect of this system, an unit test on the `Order Summary` could check for the correctness of the order details recorded.
+Zooming in on the food ordering aspect of this system, a unit test on the `Order Summary` checks for the correctness of the order details recorded and a unit test on the `Order Food` checks that the food ordered is in the correct format.
 
-After completion of unit testing on individual modules, an **integration test** on `Order Food` and `Order Summary` could check that upon ordering food, the order summary reflects the correct food orders.
+After completion of unit testing on individual modules, an **integration test** on `Order Food` and `Order Summary` checks that upon ordering food, the order summary reflects the correct food orders.
 
-After completion of integration testing, a system test on the entire application could mimic a customer's point of view and check that the functionalities of all the modules such as `Order Food`, `Payment` and `Generate Report` works as intended.
+After completion of integration testing, a system test on the entire application could mimic a customer's point of view and checks that the functionalities such as `Order Food`, `Payment` and `Generate Report` work as intended.
 
 ## Why is integration testing important?
 
 In a software application, each software module is usually designed and unit tested by different programmers.
 Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is necessary to ensure that the software modules work in unity and expose any faults in the interaction between different units.
 
-Suppose the `Order Food` module mentioned earlier allows each user to submit up to 10 orders each time. If the `Order Summary` module can only record a maximum of 5 orders each time, when the orders fromo `Order Food` are passed to the `Order Summary` module, 5 of the orders may not be taken into account. 
+Suppose the `Order Food` module mentioned earlier allows each user to submit up to 10 orders each time. If the `Order Summary` module can only record a maximum of 5 orders each time, when the orders from `Order Food` are passed to the `Order Summary` module, 5 of the orders may not be taken into account. 
 Hence, there is potential for problems such as such as **data loss**, **inaccurate results** and even **system errors**.
 Integration tests find these discrepancies before any serious damage is done.
 
 Although system testing also help to uncover faults between modules, integration testing is still highly encouraged as it is able to **better isolate** the scope of the features during testing, making it **easier** and **faster** to test.
-Many integration problems can be resolved before they result in further complications in your future development, making developers lives more difficult.
-More advantages of integration testing before system testing can be found [here](https://bitwaretechnologies.com/integration-testing-important-software-testing-life-cycle/).
+In fact, many integration problems can be detected and resolved in the early stage of development, making a developer's life easier to debug when a problem arises in the future.
+More advantages of doing integration testing before system testing can be found [here](https://bitwaretechnologies.com/integration-testing-important-software-testing-life-cycle/).
 
 Hence, integration testing can be useful in the development of any non-trivial software product. 
 Concepts shared in this article can be adopted by different software applications.
