@@ -28,7 +28,7 @@ To help identify these problems without having to run any code, many developers 
 
 - Static type checking can **make developers more productive**. When paired with the appropriate IDE support, it enables features such as auto-completion and offers instant feedback by incrementally rechecking your code as you type.
 
-- Static type checking **improves collaboration on a large codebase**. Statically typed code allows developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change a method signature or the shape of an object, you can quickly discover the other parts of the codebase that need to be changed, as they would be surfaced as errors by the type checker. Explicitly declared types are also a form of documentation, which makes it easier to understand code written by other developers.
+- Static type checking **improves collaboration on a large codebase**. Statically typed code allows developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change the signature of a method, you can quickly discover the other parts of the codebase that need to be changed, as they would be surfaced as errors by the type checker. Explicitly declared types are also a form of documentation, which makes it easier to understand code written by other developers.
 
 
 ## Adding Static Typing to JavaScript
@@ -46,16 +46,14 @@ While Flow and TypeScript integrate into your development workflow in slightly d
 
 ### Compilation to JavaScript
 
-As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. Besides static type checking, TypeScript offers support for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.
+As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. TypeScript can be configured to target different flavors of JavaScript while offering support for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.
 
-While TypeScript can be configured to target different flavors of JavaScript, it is transpiled down to ES3 by default to maintain compatibility with all JavaScript engines. Because of this, you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.
+Because TypeScript is transpiled down to ES3 by default, it maintains compatibility with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.
 
 
 ### Type Annotations and Type Inference
 
-A key feature of TypeScript is the ability to add **type annotations** to your JavaScript variables and functions. This is useful for recording the intended contract of a variable or function.
-
-Here's an example of declaring a variable with the `string` type and assigning it a `string` value:
+TypeScript enables static type checking by giving you the ability to add **type annotations** to your JavaScript variables and functions. Here's an example of declaring a variable with the `string` type and assigning it a `string` value:
 ```typescript
 let myString: string = "abc";
 ```
@@ -72,7 +70,7 @@ function convertNumberToString(value: number): string {
 }
 ```
 
-TypeScript has the ability to perform **type inference**, where the compiler infers the types of your variables or functions automatically. This helps to cut down on excess verbosity in your code. In this next example, `myBoolean` is inferred as a `boolean` variable, so reassigning it to any `boolean` value is allowed:
+It isn't always necessary to add type annotations because TypeScript performs **type inference**, where the compiler infers the types of your variables or functions automatically. This helps to cut down on excess verbosity in your code. In this next example, `myBoolean` is inferred as a `boolean` variable, so reassigning it to any `boolean` value is allowed:
 ```typescript
 let myBoolean = true;
 
