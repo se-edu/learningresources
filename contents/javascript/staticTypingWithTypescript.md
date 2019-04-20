@@ -48,7 +48,7 @@ While Flow and TypeScript integrate into your development workflow in slightly d
 
 As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. TypeScript can be configured to target different flavors of JavaScript while offering support for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.
 
-Because TypeScript is transpiled down to ES3 by default, it maintains compatibility with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.
+Because TypeScript is <tooltip content="Transpilation is the process of translating source code into a different language or into a different flavor of the same language.">transpiled</tooltip> down to ES3 by default, it maintains compatibility with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.
 
 
 ### Type Annotations and Type Inference
@@ -96,7 +96,7 @@ TypeScript also supports other variable types such as arrays and `void`, as seen
 
 ### Custom Types
 
-In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the shape of these objects. Let's use the `type` keyword to define our own `Person` type to describe an object that has the `firstName` and `lastName` properties:
+In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the <tooltip content="The shape of an JavaScript object refers to its set of property keys.">shape</tooltip> of these objects. Let's use the `type` keyword to define our own `Person` type to describe an object that has the `firstName` and `lastName` properties:
 ```typescript
 type Person = {
     firstName: string;
@@ -104,7 +104,7 @@ type Person = {
 }
 ```
 
-By using this as a type annotation, TypeScript will now verify that any object we pass into the `greet` function has a compatible structure with `Person`:
+By using `Person` as a type annotation, TypeScript will now verify that any object we pass into the `greet` function has a compatible structure:
 ```typescript
 function greet(person: Person) {
     console.log(`Nice to meet you, ${person.firstName} ${person.lastName}!`);
