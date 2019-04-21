@@ -19,7 +19,7 @@
     * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/javascript.html)
     * [Javascript Promises]({{baseUrl}}/contents/javascript/Javascript-promises.html)
     * [Javascript Modules]({{baseUrl}}/contents/javascript/Javascript-modules.html)
-    * [Static Typing with TypeScript]({{baseUrl}}/contents/javascript/staticTypingWithTypescript.html)
+    * [Static Typing in JavaScript]({{baseUrl}}/contents/javascript/staticTypingInJavascript.html)
   * Kotlin
     * [Introduction to Kotlin]({{baseUrl}}/contents/kotlin/kotlin.html)
     * [Null Safety In Kotlin]({{baseUrl}}/contents/kotlin/NullSafety.html)

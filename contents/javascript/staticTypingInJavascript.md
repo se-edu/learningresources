@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Static Typing with TypeScript
+  title: Static Typing in JavaScript
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Static Typing with TypeScript
+# Static Typing in JavaScript
 
 **Author(s): [Lu Yang Kenneth](https://github.com/luyangkenneth)**
 
