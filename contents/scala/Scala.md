@@ -32,7 +32,7 @@ As Scala supports both OOP and FP paradigms, it is considered a *multi-paradigm*
 
 ## Noteworthy Scala Features
 
-Following are some noteworthy Scala features:
+Given below are some noteworthy Scala features:
 
 ### Type Inference
 Scala allows [**type inference**](https://docs.scala-lang.org/tour/type-inference.html), which means it detects the data type of an expression automatically. The user is not required to annotate redundant type information in Scala.
@@ -95,7 +95,7 @@ ComplexInt d = (c.negative()).add(a);
 ```
 
 
-### Mixed-In Trait
+### Mixings, Traits
 In scala, types and behavior of objects are described by *classes* and *traits*. 
 
 [*Traits*](https://docs.scala-lang.org/tour/traits.html) are used to share interfaces and fields between classes, which are similar to Java's interfaces. 
@@ -104,8 +104,8 @@ Classes are extended by *subclassing* and a flexible *mixin-based* mechanism to 
 
 Classes cannot have *static members*. A singleton object with same name of the class can be used to achieve the same effect. A singleton object is basically a class that can have only one instance.
 
-Following is the piece of code to show the uniqueness of OOP in Scala:
-```
+The following Scala code illustrates some of the concepts mentioned above:
+```scala
 abstract class ParentTrait {
   // abstract
   def print()
@@ -138,20 +138,20 @@ object Sample {
   }
 }
 ```
-The following is the execution result of above code:
+The output from running the above code:
 ```
 print in TraitB
 print in TraitA
 print in Sample
 ```
-The explanation is that the call to `print()` firstly executes the code in `TraitB`, which is the last trait mixed in. Then through the `super()` calls, it threads back through the other mixed-in traits. And eventually to the code in `Sample`. Even though none of the traits inherited from one another, it works properly. 
+The explanation is that the call to `print()`  executes the code in `TraitB`, which is the last trait mixed in. Then, through the `super()` calls, it threads back through the other mixin traits. And eventually to the code in `Sample`. Note thath none of the traits inherited from others. 
 
-This is similar to the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) but is more *concise* and less *error-prone*. In other languages, a similar effect could be achieved with a long linear chain of inheritance. But the disadvantage is that for every possible combination of the mix-ins, we need to declare an inheritance chain for it.
+This is similar to the [_decorator pattern_](https://en.wikipedia.org/wiki/Decorator_pattern) but is more concise and less error-prone. In other languages, a similar effect could be achieved with a long linear chain of inheritance. But the disadvantage is that for every possible combination, we need to declare an inheritance chain for it.
 
 
 ### Type Enrichment
-Have you ever imagine that you are able to add new function to existing library? An implicit class in Scala can help you to do so. This technique allows new methods to be added to an existing class using an add-on library such that only code that imports the add-on library gets the new functionality, and all other code is unaffected. See the code below:
-```
+Have you ever needed to add new function to an existing library? An implicit class in Scala can help you to do so. This technique allows new methods to be added to an existing class using an add-on library such that only code that imports the add-on library gets the new functionality, and all other code is unaffected. See the code below:
+```scala
 object MyExtensions {
   implicit class IntParity(i: Int) {
     def isEven = i % 2 == 0
@@ -163,14 +163,14 @@ import MyExtensions._  // bring implicit enrichment into scope
 4.isEven  // -> true
 4.isOdd   // -> false
 ```
-This is the implicit class that extend the library of class Int. The name of the class does not matter. After importing this class, we can use `isEven()` and `isOdd()` method just as if it has been declared in its own class. 
+This is the implicit class that extend the library of class `Int`. The name of the class does not matter. After importing this class, we can use `isEven()` and `isOdd()` method just as if it has been declared in the original `Int` class. 
 
 
 ### Pattern Matching
-Scala has built-in support for **pattern matching**, which can be thought of as a more extensible version of a **switch** statement, where arbitrary data types can be matched. The `match` operator is used to do **pattern matching** .
+Scala has built-in support for _pattern matching_, which can be thought of as a more extensible version of a `switch` statement, where arbitrary data types can be matched. The `match` operator is used to do the pattern matching.
 
 There are many kinds of pattern matching in Scala, let's start with a simplest pattern matching function:
-```
+```scala
 def matchTest(x: Int): String = x match {
   case 0 => "zero"
   case 1 => "one"
@@ -182,13 +182,13 @@ matchTest(0)  // zero
 matchTest(3)  // many
 matchTest(1)  // one
 ```
-The parameter x is the left operand of the `match` operator and on the right is an expression with four cases. Each case expression is tried to see if it will match, and the first match will be returned. The last case _ is a "catch all" case which can match all inputs.
+The parameter `x` is the left operand of the `match` operator and on the right is an expression with four cases. Each case expression is tried to see if it will match, and the first match will be returned. The last case `_` is a "catch all" case which can match all inputs.
 
-The **pattern matching** in Scala also includes Case Class Matching, List Matching, Type Matching, Tuple Matching and etc. You can see [PATTERN MATCHING](https://docs.scala-lang.org/tour/pattern-matching.html) for more details.
+The pattern matching in Scala also includes _Case Class Matching_, _List Matching_, _Type Matching_, _Tuple Matching_ etc. See [here](https://docs.scala-lang.org/tour/pattern-matching.html) for more details.
 
-Following is an example of QuickSort algorithm to show how strong is Scala's pattern matching:
+Following is an example of [QuickSort](https://en.wikipedia.org/wiki/Quicksort) algorithm to show how strong is Scala's pattern matching:
 
-```
+```scala
 def qsort(list: List[Int]): List[Int] = list match {
   case Nil => Nil
   case pivot :: tail =>
@@ -196,13 +196,11 @@ def qsort(list: List[Int]): List[Int] = list match {
     qsort(smaller) ::: pivot :: qsort(rest)
 }
 ```
-
-The idea here is that we *partition* a list recursively, sort each part and combine the results together.(See [QuickSort](https://en.wikipedia.org/wiki/Quicksort) for the details of the algorithm)
-
-In this case, `Nil` only matches the object `Nil` (Empty list). But `pivot :: tail` matches a non-empty list, and it will destructure the list according to the pattern given. 
+Explanation of the code:
+* The idea here is that we *partition* a list recursively, sort each part and combine the results together.
+* In this case, `Nil` only matches the object `Nil` (Empty list). But `pivot :: tail` matches a non-empty list, and it will destructure the list according to the pattern given. 
 In this case, the code will have a variable `pivot` holding the head of the list, and another variable `tail` holding the tail of the list.
- 
-In local variable declarations, tuple matching is used. The return value of the call to `tail.partition` is a tuple. 
+* In local variable declarations, tuple matching is used. The return value of the call to `tail.partition` is a tuple. 
 In this case, the code will have a variable `smaller` holding the first element of the tuple, and another variable `rest` holding the second element of the list. 
 
 ## Getting Started
@@ -213,20 +211,6 @@ There are mainly two ways to work in Scala.
 
 A more detailed tutorial can be found here: [Tour of Scala](https://docs.scala-lang.org/tour/tour-of-scala.html)
 
-### Learning Path
-Following is a suggested learning path to follow to learn Scala:
-
-* [Formatting](http://twitter.github.io/effectivescala/index.html#Formatting): Whitespace, Naming, Imports, Braces, Pattern matching, Comments
-* [Types and Generics](http://twitter.github.io/effectivescala/index.html#Types%20and%20Generics): Return type annotations, Variance, Type aliases, Implicits
-* [Collections](http://twitter.github.io/effectivescala/index.html#Collections): Hierarchy, Use, Style, Performance, Java Collections
-* [Concurrency](http://twitter.github.io/effectivescala/index.html#Concurrency): Futures, Collections
-* [Control structures](http://twitter.github.io/effectivescala/index.html#Control%20structures): Recursion, Returns, for loops and comprehensions, require and assert
-* [Functional programming](http://twitter.github.io/effectivescala/index.html#Functional%20programming): Case classes as algebraic data types, Options, Pattern matching, Partial functions, Destructuring bindings, Laziness, Call by name, flatMap
-* [Object oriented programming](http://twitter.github.io/effectivescala/index.html#Object%20oriented%20programming): Dependency injection, Traits, Visibility, Structural typing
-* [Error handling](http://twitter.github.io/effectivescala/index.html#Error%20handling): Handling exceptions
-* [Garbage collection](http://twitter.github.io/effectivescala/index.html#Garbage%20collection)
-
-### Where to go from here
 Some useful resources are listed below if you want to learn more about Scala:
 
 * [Scala Exercises](https://www.scala-exercises.org/) is a series of lessons and exercises created by 47 Degrees. 
