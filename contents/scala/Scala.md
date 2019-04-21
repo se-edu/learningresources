@@ -95,7 +95,7 @@ ComplexInt d = (c.negative()).add(a);
 ```
 
 
-### Mixings, Traits
+### Mixins, Traits
 In scala, types and behavior of objects are described by *classes* and *traits*. 
 
 [*Traits*](https://docs.scala-lang.org/tour/traits.html) are used to share interfaces and fields between classes, which are similar to Java's interfaces. 
