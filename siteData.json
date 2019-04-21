@@ -1321,6 +1321,28 @@
     },
     {
       "headings": {
+        "integration-testing": "Integration Testing",
+        "what-is-integration-testing": "What is integration testing?",
+        "why-is-integration-testing-important": "Why is integration testing important?",
+        "how-does-integration-testing-work": "How does integration testing work?",
+        "1-prepare-the-integration-test-plan": "1. Prepare the integration test plan",
+        "2-design-the-test-scenarios-cases-and-scripts": "2. Design the test scenarios, cases and scripts",
+        "3-execute-the-test-scripts-and-report-defects-if-any": "3. Execute the test scripts and report defects if any",
+        "4-track-defects-and-re-test-application": "4. Track defects and re-test application",
+        "tips-for-better-integration-tests": "Tips for better integration tests",
+        "tools-used-for-integration-testing": "Tools used for Integration Testing"
+      },
+      "title": "Integration Testing",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/testing/integration-testing.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "writing-testable-code": "Writing Testable Code",
         "flaw-1-no-seams-for-isolating-the-class-under-test": "Flaw #1: No seams for isolating the class under test",
         "rule-1-don-t-do-actual-work-in-constructors": "Rule #1: Don't do actual work in constructors",
