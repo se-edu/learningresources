@@ -1,14 +1,15 @@
 <frontmatter>
   title: Introduction to Scala
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Introduction to Scala
 
@@ -27,19 +28,17 @@ Let's look at some characteristics of Scala mentioned in the above quote:
 * **Scala is _statically typed_**: It enforces type checking like verifying and enforcing the constraints of types at compile-time. 
 * **Scala can work the Java and JavaScript runtimes**: Scala provides language interoperability with Java, so that libraries written in Java can be referenced directly in Scala. Also, by *[Scala.js](http://www.scala-js.org/)*, Scala code can be easily compiled to JavaScript.
 
+As Scala supports both OOP and FP paradigms, it is considered a *multi-paradigm* language. Furthermore, Scala proponents claim it to have a simple syntax that can produce elegant code.
+
 ## Noteworthy Scala Features
-There are mainly two benefits of Scala, **simple syntax** and **multi-paradigm**. 
 
-*Simple syntax* allows us to write more simple and elegant code. 
+Following are some noteworthy Scala features:
 
-*Multi-paradigm* allows us to use an OOP language while using the feature in functional programming. 
-
-Following are some noteworthy Scala features to illustrate the benefits of Scala:
 ### Type Inference
-Scala allows [**type inference**](https://docs.scala-lang.org/tour/type-inference.html), which means it detects the data type of an expression automatically. User is not required to annotate redundant type information in Scala. 
+Scala allows [**type inference**](https://docs.scala-lang.org/tour/type-inference.html), which means it detects the data type of an expression automatically. The user is not required to annotate redundant type information in Scala.
 
 Type Inference Example:
-```
+```scala
 var x = "foo"
 var y = 1.5
 val z = List(1, 2, 3)
@@ -48,24 +47,22 @@ x = 3 // Error: type mismatch
 x = "bar" // OK
 ```
 
-In combination with statically type, these features provide a clean but reliable programming basis for the user.
-
 ### Operator Overloading
-All operators in Scala such as +, -, *, /. are actually methods.
+All operators in Scala such as `+`, `-`, `*`, `/` are actually methods.
 
 Normally, we write addition in following way:
 
-`val a = 1 + 2`
+`val a = 1 + 2`{.scala}
 
 However, in Scala, it will be interpreted as following:
 
-`val a = 1.+(2)`
+`val a = 1.+(2)`{.scala}
 
 Knowing that, we are able to overload operators just like method overloading. It allows us to redefine the behavior of arithmetic operators and give them meaning for our own custom classes.
 
-Following is an elegant *ComplexInt* class which uses **operator overloading**.
+Following is a *ComplexInt* class which uses operator overloading.
 
-```
+```scala
 case class ComplexInt(real: Int, im: Int) {
   def + (other: ComplexInt) = ComplexInt(real + other.real, im + other.im)
   def * (other: ComplexInt) = ComplexInt(
@@ -81,16 +78,16 @@ case class ComplexInt(real: Int, im: Int) {
 
 We are able to use the class like below:
 
-```
+```scala
 val a = ComplexInt(1, 1)
 val b = ComplexInt(1, -1)
 val c = a * b
 val d = -c + a
 ```
 
-In other languages like Java, the similar operations of the same class may need to performed like following:
+In contrast, this is how the same operations would look like if written in Java:
 
-```
+```java
 ComplexInt a = new ComplexInt(1, 1);
 ComplexInt b = new ComplexInt(1, -1);
 ComplexInt c = a.times(b);
