@@ -16,38 +16,27 @@
 
 Reviewers: [Jiang Chunhui](https://github.com/Adoby7), [Wang Junming](https://github.com/junming403)
 
-**Table of Contents**
-
-* [Overview](#overview)
-  * [Characteristic of Scala](#characteristic-of-scala)
-    * [Statically Typed](#statically-typed)
-    * [Object Oriented](#object-oriented)
-    * [Functional](#functional)
-* [Why Scala](#why-scala)
-  * [Operator Overloading](#operator-overloading)
-  * [Mixed-In Trait](#mixed-in-trait)
-  * [Type Enrichment](#type-enrichment)
-  * [Pattern Matching](#pattern-matching)
-* [Getting Started](#getting-started)
-* [Where to go from here](#where-to-go-from-here)
-
 ## Overview
 
-**Scala** is a modern *multi-paradigm* programming language. It designed to integrate features of 
-*object-oriented* and *functional* languages in a *concise*, *elegant*, and *type-safe* way.
+> Scala combines object-oriented and functional programming in one concise, high-level language. Scala's static types help avoid bugs in complex applications, and its JVM and JavaScript runtimes let you build high-performance systems with easy access to huge ecosystems of libraries. -- [Scala Website](https://www.scala-lang.org/)
 
-Scala's JVM runtimes allows us to build high-performance systems with easy access to huge ecosystems of libraries. Scala 
-provides language interoperability with Java, so that libraries written in Java may be referenced directly in Scala.
-Also, by *[Scala.js](http://www.scala-js.org/)*, Scala code can be easily compiled to JavaScript.
+Let's look at some characteristics of Scala mentioned in the above quote:
 
-### Characteristic of Scala
+* **Scala supports _object-oriented_ programming**: Every value in Scala is an object, including functions and primitives. Classes are extended by *subclassing* and a flexible *mixin-based* mechanism to avoid the problems of multiple inheritance.
+* **Scala supports _functional_ programming**: Every function in Scala is a value. Scala provides a lightweight syntax for defining [*anonymous functions*](https://docs.scala-lang.org/tour/basics.html#functions). It also support many other features of FP including [*higher-order functions*](https://docs.scala-lang.org/tour/higher-order-functions.html), [*nested functions*](https://docs.scala-lang.org/tour/nested-functions.html), [*currying*](https://docs.scala-lang.org/tour/multiple-parameter-lists.html), [*pattern matching*](https://docs.scala-lang.org/tour/pattern-matching.html), *immutability* and *lazy evaluation*.
+* **Scala is _statically typed_**: It enforces type checking like verifying and enforcing the constraints of types at compile-time. 
+* **Scala can work the Java and JavaScript runtimes**: Scala provides language interoperability with Java, so that libraries written in Java can be referenced directly in Scala. Also, by *[Scala.js](http://www.scala-js.org/)*, Scala code can be easily compiled to JavaScript.
 
-#### Statically Typed
-Scala is **statically typed**, which means it enforces type checking like verifying and enforcing the constraints of 
-types at compile-time. 
+## Noteworthy Scala Features
+There are mainly two benefits of Scala, **simple syntax** and **multi-paradigm**. 
 
-Scala allows [**type inference**](https://docs.scala-lang.org/tour/type-inference.html), which means it detects the data 
-type of an expression automatically. User is not required to annotate redundant type information in Scala. 
+*Simple syntax* allows us to write more simple and elegant code. 
+
+*Multi-paradigm* allows us to use an OOP language while using the feature in functional programming. 
+
+Following are some noteworthy Scala features to illustrate the benefits of Scala:
+### Type Inference
+Scala allows [**type inference**](https://docs.scala-lang.org/tour/type-inference.html), which means it detects the data type of an expression automatically. User is not required to annotate redundant type information in Scala. 
 
 Type Inference Example:
 ```
@@ -59,38 +48,7 @@ x = 3 // Error: type mismatch
 x = "bar" // OK
 ```
 
-In combination, these features provide a clean but reliable programming basis for the user.
-
-#### Object Oriented
-Scala is a **pure OOP language**, which is similar to Java. Every value in Scala is an object, including functions and 
-primitives.
-
-Types and behavior of objects are described by *classes* and *traits*. 
-
-[*Traits*](https://docs.scala-lang.org/tour/traits.html) are used to share interfaces and fields between classes, which are similar to Java's interfaces. 
-
-Classes are extended by *subclassing* and a flexible *mixin-based* mechanism to avoid the problems of multiple inheritance.
-
-Classes cannot have *static members*. A singleton object with same name of the class can be used to achieve the same effect. 
-A singleton object is basically a class that can have only one instance.
-
-#### Functional
-Scala is a **Functional Programming language** in the sense that every function in Scala is a value. 
-
-Scala provides a lightweight syntax for defining [*anonymous functions*](https://docs.scala-lang.org/tour/basics.html#functions).
-
-It also support many other features of FP including [*higher-order functions*](https://docs.scala-lang.org/tour/higher-order-functions.html), 
-[*nested functions*](https://docs.scala-lang.org/tour/nested-functions.html), [*currying*](https://docs.scala-lang.org/tour/multiple-parameter-lists.html), 
-[*pattern matching*](https://docs.scala-lang.org/tour/pattern-matching.html), *immutability* and *lazy evaluation*.
-
-## Why Scala
-There are mainly two benefits of Scala, **simple syntax** and **multi-paradigm**. 
-
-*Simple syntax* allows us to write more simple and elegant code. 
-
-*Multi-paradigm* allows us to use an OOP language while using the feature in functional programming. 
-
-Following are some examples to illustrate the benefits of Scala:
+In combination with statically type, these features provide a clean but reliable programming basis for the user.
 
 ### Operator Overloading
 All operators in Scala such as +, -, *, /. are actually methods.
@@ -103,8 +61,7 @@ However, in Scala, it will be interpreted as following:
 
 `val a = 1.+(2)`
 
-Knowing that, we are able to overload operators just like method overloading. It allows us to redefine the behavior of
-arithmetic operators and give them meaning for our own custom classes.
+Knowing that, we are able to overload operators just like method overloading. It allows us to redefine the behavior of arithmetic operators and give them meaning for our own custom classes.
 
 Following is an elegant *ComplexInt* class which uses **operator overloading**.
 
@@ -142,8 +99,13 @@ ComplexInt d = (c.negative()).add(a);
 
 
 ### Mixed-In Trait
-In Scala, class abstractions are extended by subclassing and by a flexible mixin-based composition mechanism to 
-avoid the problems of multiple inheritance. 
+In scala, types and behavior of objects are described by *classes* and *traits*. 
+
+[*Traits*](https://docs.scala-lang.org/tour/traits.html) are used to share interfaces and fields between classes, which are similar to Java's interfaces. 
+
+Classes are extended by *subclassing* and a flexible *mixin-based* mechanism to avoid the problems of multiple inheritance.
+
+Classes cannot have *static members*. A singleton object with same name of the class can be used to achieve the same effect. A singleton object is basically a class that can have only one instance.
 
 Following is the piece of code to show the uniqueness of OOP in Scala:
 ```
@@ -185,19 +147,13 @@ print in TraitB
 print in TraitA
 print in Sample
 ```
-The explanation is that the call to `print()` firstly executes the code in `TraitB`, which is the last trait mixed in.
-Then through the `super()` calls, it threads back through the other mixed-in traits. And eventually to the code in 
-`Sample`. Even though none of the traits inherited from one another, it works properly. 
+The explanation is that the call to `print()` firstly executes the code in `TraitB`, which is the last trait mixed in. Then through the `super()` calls, it threads back through the other mixed-in traits. And eventually to the code in `Sample`. Even though none of the traits inherited from one another, it works properly. 
 
-This is similar to the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) but is more *concise* and 
-less *error-prone*. In other languages, a similar effect could be achieved with a long linear chain of inheritance. But 
-the disadvantage is that for every possible combination of the mix-ins, we need to declare an inheritance chain for it.
+This is similar to the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) but is more *concise* and less *error-prone*. In other languages, a similar effect could be achieved with a long linear chain of inheritance. But the disadvantage is that for every possible combination of the mix-ins, we need to declare an inheritance chain for it.
 
 
 ### Type Enrichment
-Have you ever imagine that you are able to add new function to existing library? An implicit class in Scala can help you 
-to do so. This technique allows new methods to be added to an existing class using an add-on library such that only code 
-that imports the add-on library gets the new functionality, and all other code is unaffected. See the code below:
+Have you ever imagine that you are able to add new function to existing library? An implicit class in Scala can help you to do so. This technique allows new methods to be added to an existing class using an add-on library such that only code that imports the add-on library gets the new functionality, and all other code is unaffected. See the code below:
 ```
 object MyExtensions {
   implicit class IntParity(i: Int) {
@@ -210,13 +166,11 @@ import MyExtensions._  // bring implicit enrichment into scope
 4.isEven  // -> true
 4.isOdd   // -> false
 ```
-This is the implicit class that extend the library of class Int. The name of the class does not matter. 
-After importing this class, we can use `isEven()` and `isOdd()` method just as if it has been declared in its own class. 
+This is the implicit class that extend the library of class Int. The name of the class does not matter. After importing this class, we can use `isEven()` and `isOdd()` method just as if it has been declared in its own class. 
 
 
 ### Pattern Matching
-Scala has built-in support for **pattern matching**, which can be thought of as a more extensible version of a **switch** 
-statement, where arbitrary data types can be matched. The `match` operator is used to do **pattern matching** .
+Scala has built-in support for **pattern matching**, which can be thought of as a more extensible version of a **switch** statement, where arbitrary data types can be matched. The `match` operator is used to do **pattern matching** .
 
 There are many kinds of pattern matching in Scala, let's start with a simplest pattern matching function:
 ```
@@ -231,12 +185,9 @@ matchTest(0)  // zero
 matchTest(3)  // many
 matchTest(1)  // one
 ```
-The parameter x is the left operand of the `match` operator and on the right is an expression with four cases. Each case 
-expression is tried to see if it will match, and the first match will be returned. The last case _ is a "catch all" case 
-which can match all inputs.
+The parameter x is the left operand of the `match` operator and on the right is an expression with four cases. Each case expression is tried to see if it will match, and the first match will be returned. The last case _ is a "catch all" case which can match all inputs.
 
-The **pattern matching** in Scala also includes Case Class Matching, List Matching, Type Matching, Tuple Matching and etc. 
-You can see [PATTERN MATCHING](https://docs.scala-lang.org/tour/pattern-matching.html) for more details.
+The **pattern matching** in Scala also includes Case Class Matching, List Matching, Type Matching, Tuple Matching and etc. You can see [PATTERN MATCHING](https://docs.scala-lang.org/tour/pattern-matching.html) for more details.
 
 Following is an example of QuickSort algorithm to show how strong is Scala's pattern matching:
 
@@ -251,24 +202,34 @@ def qsort(list: List[Int]): List[Int] = list match {
 
 The idea here is that we *partition* a list recursively, sort each part and combine the results together.(See [QuickSort](https://en.wikipedia.org/wiki/Quicksort) for the details of the algorithm)
 
-In this case, `Nil` only matches the object `Nil` (Empty list).
-But `pivot :: tail` matches a non-empty list, and it will destructure the list according to the pattern given. 
-In this case, the code will have a variable `pivot` holding the head of the list, and another variable `tail`
- holding the tail of the list.
+In this case, `Nil` only matches the object `Nil` (Empty list). But `pivot :: tail` matches a non-empty list, and it will destructure the list according to the pattern given. 
+In this case, the code will have a variable `pivot` holding the head of the list, and another variable `tail` holding the tail of the list.
  
-In local variable declarations, tuple matching is used. The return value of the call to `tail.partition` is a 
-tuple. In this case, the code will have a variable `smaller` holding the first element of the tuple, and another 
-variable `rest` holding the second element of the list. 
+In local variable declarations, tuple matching is used. The return value of the call to `tail.partition` is a tuple. 
+In this case, the code will have a variable `smaller` holding the first element of the tuple, and another variable `rest` holding the second element of the list. 
 
 ## Getting Started
 There are mainly two ways to work in Scala.
 
-1. Using the **INTELLIJ IDE**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-scala-in-intellij.html) for more details.
+1. Using the **IDE**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-scala-in-intellij.html) for more details.
 2. Using the **command line**. Refer to the [instructions](https://docs.scala-lang.org/getting-started-sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html) for more details.
 
 A more detailed tutorial can be found here: [Tour of Scala](https://docs.scala-lang.org/tour/tour-of-scala.html)
 
-## Where to go from here
+### Learning Path
+Following is a suggested learning path to follow to learn Scala:
+
+* [Formatting](http://twitter.github.io/effectivescala/index.html#Formatting): Whitespace, Naming, Imports, Braces, Pattern matching, Comments
+* [Types and Generics](http://twitter.github.io/effectivescala/index.html#Types%20and%20Generics): Return type annotations, Variance, Type aliases, Implicits
+* [Collections](http://twitter.github.io/effectivescala/index.html#Collections): Hierarchy, Use, Style, Performance, Java Collections
+* [Concurrency](http://twitter.github.io/effectivescala/index.html#Concurrency): Futures, Collections
+* [Control structures](http://twitter.github.io/effectivescala/index.html#Control%20structures): Recursion, Returns, for loops and comprehensions, require and assert
+* [Functional programming](http://twitter.github.io/effectivescala/index.html#Functional%20programming): Case classes as algebraic data types, Options, Pattern matching, Partial functions, Destructuring bindings, Laziness, Call by name, flatMap
+* [Object oriented programming](http://twitter.github.io/effectivescala/index.html#Object%20oriented%20programming): Dependency injection, Traits, Visibility, Structural typing
+* [Error handling](http://twitter.github.io/effectivescala/index.html#Error%20handling): Handling exceptions
+* [Garbage collection](http://twitter.github.io/effectivescala/index.html#Garbage%20collection)
+
+### Where to go from here
 Some useful resources are listed below if you want to learn more about Scala:
 
 * [Scala Exercises](https://www.scala-exercises.org/) is a series of lessons and exercises created by 47 Degrees. 
