@@ -1,14 +1,15 @@
 <frontmatter>
   title: Integration Testing
+  header: pagetop.md
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
-{{ navbar | safe }}
-
 <div class="website-content">
+
+{{ booktitle | safe }}
 
 # Integration Testing
 
@@ -158,11 +159,11 @@ It also helps to standardize the way integration testing is carried out in your 
 
 - **Automate your tests (optional)**<br>
 As far as possible, automate all your tests, especially when you use the incremental approach since regression testing is important each time you integrate a new unit, and manual regression testing can be inefficient. 
-You can find a list of most commonly used [automation tools](https://medium.com/@briananderson2209/best-automation-testing-tools-for-2018-top-10-reviews-8a4a19f664d2) for integration testing.
+You can find a list of most commonly used [automation tools](https://medium.com/@briananderson2209/best-automation-testing-tools-for-2018-top-10-reviews-8a4a19f664d2) for integration testing. [This article](https://techbeacon.com/devops/6-best-practices-integration-testing-continuous-integration) provides more useful tips for CI projects.
 
-:fas-info-circle: [This article](https://techbeacon.com/devops/6-best-practices-integration-testing-continuous-integration) provides more useful tips for CI projects.
+:fas-info-circle: The article [Dos and donts of integration testing](https://www.fogbugz.com/blog/9-integration-testing-dos-and-donts/) has further advices on specific details to take note when writing your own integration test.
 
-## Tools to get started with integration testing
+## Tools used for Integration Testing
 
 Generally integration test can be implemented based on your existing unit testing tools.
 However, if you do not have an existing testing tool in place, here are some useful tools that you can consider for your integration testing:
@@ -173,26 +174,11 @@ However, if you do not have an existing testing tool in place, here are some use
 It is an lightweight cross-platform test automation tool which makes testing easier to maintain, more readable and scalable.
 
 - [Selenium](https://www.seleniumhq.org/) is an open source test automation framework focusing on web applications. 
-It supports a wide range of programming languages, cross-browser testing with extensive libraries and the ability to create robust test scripts to handle many scenarios.
+It supports a wide range of programming languages, cross-browser testing with extensive libraries and the ability to create robust test scripts to handle many scenarios. The article [Getting started with Selenium for automated website testing](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing) gives an overall guide to integrating selenium to automate integration testing for your web application.
 
 - [Google EarlGrey](https://google.github.io/EarlGrey/) is a native iOS automation test framework allowing developers to write and maintain clear concise tests. 
 It has a powerful built-in synchornization which allows it to reproduce any UI interactivity and test them.
 
-:fas-info-circle: Although there are many integration testing tools available, more research needs to be conducted to ensure the compatibility of the tools with your application.
-
-## Concluding Remarks
-
-Ultimately, as a developer, it is important to recognize the importance of integration testing in your application. 
-To better complete integration testing, follow the integration plan and ensure that all of the interfaces in your application are tested.
-
-## Useful Resources
-
-Here are some resources to help you with integration testing:
-
-- [Dos and donts of integration testing](https://www.fogbugz.com/blog/9-integration-testing-dos-and-donts/). This article shows further advices on specific details to take note when writing your own integration test.
-
-- [Other testing tools to start your integration testing](https://www.softwaretestinghelp.com/integration-testing-tools/). Depending on your application, you can refer to more tools which can assist you in getting started with integration testing.
-
-- [Getting started with Selenium for automated website testing](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing). This article gives an overall guide to integrating selenium to automate integration testing for your web application.
+:fas-info-circle: Although there are many integration testing tools available, more research needs to be conducted to ensure the compatibility of the tools with your application. [This article](https://www.softwaretestinghelp.com/integration-testing-tools/) has more integration testing tools.
 
 </div>
