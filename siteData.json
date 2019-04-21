@@ -1044,7 +1044,7 @@
         "noteworthy-scala-features": "Noteworthy Scala Features",
         "type-inference": "Type Inference",
         "operator-overloading": "Operator Overloading",
-        "mixings-traits": "Mixings, Traits",
+        "mixins-traits": "Mixins, Traits",
         "type-enrichment": "Type Enrichment",
         "pattern-matching": "Pattern Matching",
         "getting-started": "Getting Started"
