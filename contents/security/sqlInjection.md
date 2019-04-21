@@ -15,7 +15,7 @@
 
 **Authors: [Jiang Chunhui](https://github.com/Adoby7), [Lewis Koh](https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md)**
 
-Reviewers: [Ayush Chatto](https://github.com/AyushChatto), [Monika Manuela Hengki](https://github.com/monmanuela),  [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Rachael Sim](https://github.com/rachx), [Tran Tien Dat](https://github.com/tran-tien-dat), [Wen Xin](https://github.com/wenmogu)
+Reviewers: [Chattoraj Ayush](https://github.com/AyushChatto), [Monika Manuela Hengki](https://github.com/monmanuela),  [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Rachael Sim](https://github.com/rachx), [Tran Tien Dat](https://github.com/tran-tien-dat), [Wen Xin](https://github.com/wenmogu)
 
 ## SQL
 SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many "tables" organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:
