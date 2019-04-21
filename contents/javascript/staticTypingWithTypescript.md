@@ -26,7 +26,7 @@ To help identify these problems without having to run any code, many developers 
 
 - Static type checking **catches type errors earlier in the development cycle**. These errors can cause downtime in your application if undetected, and they are often expensive to triage and fix. Static type checking provides an automatic way to verify the type safety and correctness of your application during the development stage, ensuring that type errors are eliminated before your code is deployed to production. While the correctness of your application logic can also be determined via test suites and manual testing during development, those are often costlier and less reliable than static type checking when it comes to catching type errors.
 
-- Static type checking can **make developers more productive**. When paired with the appropriate IDE support, it enables features such as auto-completion and offers instant feedback by incrementally rechecking your code as you type.
+- Static type checking can **make developers more productive**. With the additional type information made available to IDEs, features such as auto-completion, code hinting, incremental error checking, and automatic refactoring become more powerful.
 
 - Static type checking **improves collaboration on a large codebase**. Statically typed code allows developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change the signature of a method, you can quickly discover the other parts of the codebase that need to be changed, as they would be surfaced as errors by the type checker. Explicitly declared types are also a form of documentation, which makes it easier to understand code written by other developers.
 
@@ -39,7 +39,7 @@ In the JavaScript community, Flow and TypeScript have emerged as the two main op
 
 - **[TypeScript](https://www.typescriptlang.org/)** is a statically typed superset of JavaScript that compiles to plain JavaScript. It is an open-source programming language developed by Microsoft.
 
-While Flow and TypeScript integrate into your development workflow in slightly different ways, they have the same goals and share many similarities in terms of syntax. As the industry seems to be shifting towards TypeScript as the top choice <sup>[source](https://dev.to/nickytonline/is-2019-the-year-of-typescript-18p2)</sup>, in this article I will introduce how TypeScript works and how you can get started with TypeScript.
+While Flow and TypeScript integrate into your development workflow in slightly different ways, they have the same goals and share many similarities in terms of syntax. As the industry seems to be shifting towards TypeScript as the top choice <sup>[source](https://dev.to/nickytonline/is-2019-the-year-of-typescript-18p2)</sup>, this article will introduce how TypeScript works and how you can get started with TypeScript.
 
 
 ## TypeScript Basics
