@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.2.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Accessibility</title>
+  <title>SE-EDU/LearningResources - Introduction to Scala</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -50,10 +50,10 @@
         <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
           <span id="toc">
             <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">C++
                         <i class="dropdown-btn-icon">
@@ -112,15 +112,15 @@
                     <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a current">Scala</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">Architecture
                         <i class="dropdown-btn-icon">
@@ -196,12 +196,12 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">UI/UX
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a current">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
@@ -294,176 +294,197 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="accessibility">Accessibility<a class="fa fa-anchor" href="#accessibility"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/monmanuela">Monika Manuela Hengki</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>, <a href="https://github.com/jacoblipech">Jacob Li Pengcheng</a>, <a href="https://github.com/tanhengyeow">Tan Heng Yeow</a></p>
-          <box type="info">
-            Note that although the scope of this article covers the accessibility of websites, many of the points also apply to accessibility and UI/UX of other softwares too.
-          </box>
-          <h2 id="what-is-accessibility">What is accessibility?<a class="fa fa-anchor" href="#what-is-accessibility"></a></h2>
+          <h1 id="introduction-to-scala">Introduction to Scala<a class="fa fa-anchor" href="#introduction-to-scala"></a></h1>
+          <p><strong>Author(s): <a href="https://github.com/fzdy1914">Wang Chao</a></strong></p>
+          <p>Reviewers: <a href="https://github.com/Adoby7">Jiang Chunhui</a>, <a href="https://github.com/junming403">Wang Junming</a></p>
+          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
           <blockquote>
-            <p>Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections. <sub>--<a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility">MDN Web Docs</a></sub></p>
+            <p>Scala combines object-oriented and functional programming in one concise, high-level language. Scala's static types help avoid bugs in complex applications, and its JVM and JavaScript runtimes let you build high-performance systems with easy access to huge ecosystems of libraries. -- <a href="https://www.scala-lang.org/">Scala Website</a></p>
           </blockquote>
-          <h2 id="why-is-accessibility-important">Why is accessibility important?<a class="fa fa-anchor" href="#why-is-accessibility-important"></a></h2>
-          <p>Accessibility is important for users with disabilities to access the Web. There are many kinds of disabilities, including:</p>
+          <p>Let's look at some characteristics of Scala mentioned in the above quote:</p>
           <ul>
-            <li>Visual <span class="dimmed">e.g., partial blindness, full blindness, color blindness, cataract, glaucoma, etc.</span></li>
-            <li>Auditory <span class="dimmed">e.g., hard of hearing, deafness, etc.</span></li>
-            <li>Cognitive <span class="dimmed">e.g., ADHD, autism spectrum, etc.</span></li>
-            <li>Mobility <span class="dimmed">e.g., quadriplegia, muscular dystrophy, etc.</span></li>
+            <li><strong>Scala supports <em>object-oriented</em> programming</strong>: Every value in Scala is an object, including functions and primitives. Classes are extended by <em>subclassing</em> and a flexible <em>mixin-based</em> mechanism to avoid the problems of multiple inheritance.</li>
+            <li><strong>Scala supports <em>functional</em> programming</strong>: Every function in Scala is a value. Scala provides a lightweight syntax for defining <a href="https://docs.scala-lang.org/tour/basics.html#functions"><em>anonymous functions</em></a>. It also support many other features of FP including <a href="https://docs.scala-lang.org/tour/higher-order-functions.html"><em>higher-order functions</em></a>, <a href="https://docs.scala-lang.org/tour/nested-functions.html"><em>nested functions</em></a>, <a href="https://docs.scala-lang.org/tour/multiple-parameter-lists.html"><em>currying</em></a>, <a href="https://docs.scala-lang.org/tour/pattern-matching.html"><em>pattern matching</em></a>, <em>immutability</em> and <em>lazy evaluation</em>.</li>
+            <li><strong>Scala is <em>statically typed</em></strong>: It enforces type checking like verifying and enforcing the constraints of types at compile-time.</li>
+            <li><strong>Scala can work the Java and JavaScript runtimes</strong>: Scala provides language interoperability with Java, so that libraries written in Java can be referenced directly in Scala. Also, by <em><a href="http://www.scala-js.org/">Scala.js</a></em>, Scala code can be easily compiled to JavaScript.</li>
           </ul>
-          <p>At the same time, accessibility also benefits people <em>without</em> disabilities, for example:</p>
+          <p>As Scala supports both OOP and FP paradigms, it is considered a <em>multi-paradigm</em> language. Furthermore, Scala proponents claim it to have a simple syntax that can produce elegant code.</p>
+          <h2 id="noteworthy-scala-features">Noteworthy Scala Features<a class="fa fa-anchor" href="#noteworthy-scala-features"></a></h2>
+          <p>Given below are some noteworthy Scala features:</p>
+          <h3 id="type-inference">Type Inference<a class="fa fa-anchor" href="#type-inference"></a></h3>
+          <p>Scala allows <a href="https://docs.scala-lang.org/tour/type-inference.html"><strong>type inference</strong></a>, which means it detects the data type of an expression automatically. The user is not required to annotate redundant type information in Scala.</p>
+          <p>Type Inference Example:</p>
+          <pre><code class="hljs scala"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"foo"</span>
+<span class="hljs-keyword">var</span> y = <span class="hljs-number">1.5</span>
+<span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+
+x = <span class="hljs-number">3</span> <span class="hljs-comment">// Error: type mismatch</span>
+x = <span class="hljs-string">"bar"</span> <span class="hljs-comment">// OK</span>
+</code></pre>
+          <h3 id="operator-overloading">Operator Overloading<a class="fa fa-anchor" href="#operator-overloading"></a></h3>
+          <p>All operators in Scala such as <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> are actually methods.</p>
+          <p>Normally, we write addition in following way:</p>
+          <p><code class="hljs inline scala"><span class="hljs-keyword">val</span> a = <span class="hljs-number">1</span> + <span class="hljs-number">2</span></code></p>
+          <p>However, in Scala, it will be interpreted as following:</p>
+          <p><code class="hljs inline scala"><span class="hljs-keyword">val</span> a = <span class="hljs-number">1.</span>+(<span class="hljs-number">2</span>)</code></p>
+          <p>Knowing that, we are able to overload operators just like method overloading. It allows us to redefine the behavior of arithmetic operators and give them meaning for our own custom classes.</p>
+          <p>Following is a <em>ComplexInt</em> class which uses operator overloading.</p>
+          <pre><code class="hljs scala"><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ComplexInt</span>(<span class="hljs-params">real: <span class="hljs-type">Int</span>, im: <span class="hljs-type">Int</span></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-type">ComplexInt</span>(real + other.real, im + other.im)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-type">ComplexInt</span>(
+    real * other.real - im * other.im,
+    real * other.im + im * other.real
+  )
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unary_-</span> </span>= <span class="hljs-type">ComplexInt</span>(-real, -im)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">-</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-keyword">this</span> + -other
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> </span>= real + <span class="hljs-string">" + "</span> + im + <span class="hljs-string">"i"</span>
+}
+</code></pre>
+          <p>We are able to use the class like below:</p>
+          <pre><code class="hljs scala"><span class="hljs-keyword">val</span> a = <span class="hljs-type">ComplexInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">val</span> b = <span class="hljs-type">ComplexInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>)
+<span class="hljs-keyword">val</span> c = a * b
+<span class="hljs-keyword">val</span> d = -c + a
+</code></pre>
+          <p>In contrast, this is how the same operations would look like if written in Java:</p>
+          <pre><code class="hljs java">ComplexInt a = <span class="hljs-keyword">new</span> ComplexInt(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+ComplexInt b = <span class="hljs-keyword">new</span> ComplexInt(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>);
+ComplexInt c = a.times(b);
+ComplexInt d = (c.negative()).add(a);
+</code></pre>
+          <h3 id="mixings-traits">Mixings, Traits<a class="fa fa-anchor" href="#mixings-traits"></a></h3>
+          <p>In scala, types and behavior of objects are described by <em>classes</em> and <em>traits</em>.</p>
+          <p><a href="https://docs.scala-lang.org/tour/traits.html"><em>Traits</em></a> are used to share interfaces and fields between classes, which are similar to Java's interfaces.</p>
+          <p>Classes are extended by <em>subclassing</em> and a flexible <em>mixin-based</em> mechanism to avoid the problems of multiple inheritance.</p>
+          <p>Classes cannot have <em>static members</em>. A singleton object with same name of the class can be used to achieve the same effect. A singleton object is basically a class that can have only one instance.</p>
+          <p>The following Scala code illustrates some of the concepts mentioned above:</p>
+          <pre><code class="hljs scala"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentTrait</span> </span>{
+  <span class="hljs-comment">// abstract</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>()
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {
+    println(<span class="hljs-string">"print in Sample"</span>)
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{
+  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {
+    println(<span class="hljs-string">"print in TraitA"</span>)
+    <span class="hljs-keyword">super</span>.print()
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{
+  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {
+    println(<span class="hljs-string">"print in TraitB"</span>)
+    <span class="hljs-keyword">super</span>.print()
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Sample</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-keyword">val</span> example = <span class="hljs-keyword">new</span> <span class="hljs-type">Sample</span> <span class="hljs-keyword">with</span> <span class="hljs-type">TraitA</span> <span class="hljs-keyword">with</span> <span class="hljs-type">TraitB</span>
+   example.print()
+  }
+}
+</code></pre>
+          <p>The output from running the above code:</p>
+          <pre><code class="hljs">print in TraitB
+print in TraitA
+print in Sample
+</code></pre>
+          <p>The explanation is that the call to <code>print()</code> executes the code in <code>TraitB</code>, which is the last trait mixed in. Then, through the <code>super()</code> calls, it threads back through the other mixin traits. And eventually to the code in <code>Sample</code>. Note thath none of the traits inherited from others.</p>
+          <p>This is similar to the <a href="https://en.wikipedia.org/wiki/Decorator_pattern"><em>decorator pattern</em></a> but is more concise and less error-prone. In other languages, a similar effect could be achieved with a long linear chain of inheritance. But the disadvantage is that for every possible combination, we need to declare an inheritance chain for it.</p>
+          <h3 id="type-enrichment">Type Enrichment<a class="fa fa-anchor" href="#type-enrichment"></a></h3>
+          <p>Have you ever needed to add new function to an existing library? An implicit class in Scala can help you to do so. This technique allows new methods to be added to an existing class using an add-on library such that only code that imports the add-on library gets the new functionality, and all other code is unaffected. See the code below:</p>
+          <pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MyExtensions</span> </span>{
+  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntParity</span>(<span class="hljs-params">i: <span class="hljs-type">Int</span></span>) </span>{
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isEven</span> </span>= i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isOdd</span>  </span>= !isEven
+  }
+}
+
+<span class="hljs-keyword">import</span> <span class="hljs-type">MyExtensions</span>._  <span class="hljs-comment">// bring implicit enrichment into scope</span>
+<span class="hljs-number">4.</span>isEven  <span class="hljs-comment">// -&gt; true</span>
+<span class="hljs-number">4.</span>isOdd   <span class="hljs-comment">// -&gt; false</span>
+</code></pre>
+          <p>This is the implicit class that extend the library of class <code>Int</code>. The name of the class does not matter. After importing this class, we can use <code>isEven()</code> and <code>isOdd()</code> method just as if it has been declared in the original <code>Int</code> class.</p>
+          <h3 id="pattern-matching">Pattern Matching<a class="fa fa-anchor" href="#pattern-matching"></a></h3>
+          <p>Scala has built-in support for <em>pattern matching</em>, which can be thought of as a more extensible version of a <code>switch</code> statement, where arbitrary data types can be matched. The <code>match</code> operator is used to do the pattern matching.</p>
+          <p>There are many kinds of pattern matching in Scala, let's start with a simplest pattern matching function:</p>
+          <pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">matchTest</span></span>(x: <span class="hljs-type">Int</span>): <span class="hljs-type">String</span> = x <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-number">0</span> =&gt; <span class="hljs-string">"zero"</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">"one"</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">"two"</span>
+  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">"many"</span>
+}
+
+matchTest(<span class="hljs-number">0</span>)  <span class="hljs-comment">// zero</span>
+matchTest(<span class="hljs-number">3</span>)  <span class="hljs-comment">// many</span>
+matchTest(<span class="hljs-number">1</span>)  <span class="hljs-comment">// one</span>
+</code></pre>
+          <p>The parameter <code>x</code> is the left operand of the <code>match</code> operator and on the right is an expression with four cases. Each case expression is tried to see if it will match, and the first match will be returned. The last case <code>_</code> is a &quot;catch all&quot; case which can match all inputs.</p>
+          <p>The pattern matching in Scala also includes <em>Case Class Matching</em>, <em>List Matching</em>, <em>Type Matching</em>, <em>Tuple Matching</em> etc. See <a href="https://docs.scala-lang.org/tour/pattern-matching.html">here</a> for more details.</p>
+          <p>Following is an example of <a href="https://en.wikipedia.org/wiki/Quicksort">QuickSort</a> algorithm to show how strong is Scala's pattern matching:</p>
+          <pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qsort</span></span>(list: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]): <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>] = list <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> =&gt; <span class="hljs-type">Nil</span>
+  <span class="hljs-keyword">case</span> pivot :: tail =&gt;
+    <span class="hljs-keyword">val</span> (smaller, rest) = tail.partition(_ &lt; pivot)
+    qsort(smaller) ::: pivot :: qsort(rest)
+}
+</code></pre>
+          <p>Explanation of the code:</p>
           <ul>
-            <li>Device limitations <span class="dimmed">e.g., using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.</span></li>
-            <li>Age-related limitations <span class="dimmed">e.g., poor dexterity, poor eyesight</span></li>
-            <li>Temporary limitations <span class="dimmed">e.g., broken arm, lost glasses</span></li>
-            <li>Situational limitations <span class="dimmed">e.g., under bright sunlight, an environment where one cannot listen to audio</span></li>
-            <li>Internet-related limitations <span class="dimmed">e.g., slow Internet connection, limited bandwidth</span></li>
+            <li>The idea here is that we <em>partition</em> a list recursively, sort each part and combine the results together.</li>
+            <li>In this case, <code>Nil</code> only matches the object <code>Nil</code> (Empty list). But <code>pivot :: tail</code> matches a non-empty list, and it will destructure the list according to the pattern given.
+              In this case, the code will have a variable <code>pivot</code> holding the head of the list, and another variable <code>tail</code> holding the tail of the list.</li>
+            <li>In local variable declarations, tuple matching is used. The return value of the call to <code>tail.partition</code> is a tuple.
+              In this case, the code will have a variable <code>smaller</code> holding the first element of the tuple, and another variable <code>rest</code> holding the second element of the list.</li>
           </ul>
-          <p>More information on the above can be found on <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/#what">this article</a>.</p>
-          <p>Improving accessibility also brings some benefits to you as a developer:</p>
+          <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h2>
+          <p>There are mainly two ways to work in Scala.</p>
           <ol>
-            <li><strong>Accessibility is a right</strong>. Caring about accessibility demonstrates good ethics/morals.</li>
-            <li><strong>Accessibility helps you improve your website's UX</strong>. <a href="https://www.w3.org/standards/webdesign/accessibility">W3C</a> notes that accessibility practices are good design practices in general, which improve the UX of your website.</li>
-            <li><strong>Accessibility makes your website more discoverable</strong>. Web pages with good accessibility practices are ranked higher by search engine crawlers, making your website more discoverable and marketable to new users. <span class="dimmed">(Read more on accessibility and search engine <a href="https://blogs.perficientdigital.com/2018/01/12/website-accessibility-benefit-seo/">here</a>)</span></li>
-            <li><strong>Accessibility helps you increase your user base</strong>. According to the <a href="https://www.who.int/disabilities/world_report/2011/report/en/">World Health Organization world report on disability</a>, about 15% of the world's population live with some form of disability. That makes up more than 1 billion people. It is a significant population of users, so improving accessibility can help you reach more people.</li>
-            <li><strong>Accessibility is part of the law in some places</strong>. In <a href="https://www.w3.org/WAI/policies/">some countries</a>, abiding by accessibility guidelines is mandatory. Be careful not to break the law!</li>
+            <li>Using the <strong>IDE</strong>. Refer to the <a href="https://docs.scala-lang.org/getting-started-intellij-track/getting-started-with-scala-in-intellij.html">instructions</a> for more details.</li>
+            <li>Using the <strong>command line</strong>. Refer to the <a href="https://docs.scala-lang.org/getting-started-sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html">instructions</a> for more details.</li>
           </ol>
-          <h2 id="how-can-i-improve-the-accessibility-of-my-website">How can I improve the accessibility of my website?<a class="fa fa-anchor" href="#how-can-i-improve-the-accessibility-of-my-website"></a></h2>
-          <p>There are many ways to improve the accessibility of your website. Below are some tips, based on the type of disabilities they address.</p>
-          <h3 id="visual">Visual<a class="fa fa-anchor" href="#visual"></a></h3>
-          <p>Users with visual impairments rely on assistive technologies such as a magnifier or a screen reader.</p>
-          <h5 id="best-practice-use-more-visual-indicators-to-convey-a-message"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use more visual indicators to convey a message</h5>
-          <p>Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.</p>
-          <p>This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
-            <a href="accessibility/fb-normal.png" target="_self"><img src="accessibility/fb-normal.png" alt class="img-fluid" title="Facebook sign up page"></a></p>
-          <p>However, to someone with a type of color blindness called <a href="https://en.wikipedia.org/wiki/Achromatopsia">achromatopsia</a>, this is how the page looks like:
-            <a href="accessibility/fb-achromatopsia.png" target="_self"><img src="accessibility/fb-achromatopsia.png" alt class="img-fluid" title="Facebook sign up page to someone with achromatopsia"></a></p>
-          <p>To someone with another type of color blindness, <a href="https://en.wikipedia.org/wiki/Deuteranopia">deuteranopia</a>, the page looks like this:
-            <a href="accessibility/fb-deuteranopia.png" target="_self"><img src="accessibility/fb-deuteranopia.png" alt class="img-fluid" title="Facebook sign up page to someone with deuteranopia"></a></p>
-          <p>It may be unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
-            <a href="accessibility/fb-more-indicators.png" target="_self"><img src="accessibility/fb-more-indicators.png" alt class="img-fluid" title="Facebook sign up page with more visual indicators"></a></p>
-          <h5 id="best-practice-maintain-good-color-contrast"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Maintain good color contrast</h5>
-          <p>Look at this page taken from Tech Crunch.
-            <a href="accessibility/tc-normal.png" target="_self"><img src="accessibility/tc-normal.png" alt class="img-fluid" title="Tech Crunch page"></a></p>
-          <p>To users with good vision, the design may look minimalist and clean. However, to someone suffering from cataract, the page looks like this.</p>
-          <p><a href="accessibility/tc-blurred.png" target="_self"><img src="accessibility/tc-blurred.png" alt class="img-fluid" title="Tech Crunch page to someone with cataract"></a>
-            It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good color contrast ratio in our websites for ease of reading.</p>
-          <h5 id="best-practice-use-alt-attribute-for-images"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use <code>alt</code> attribute for images</h5>
-          <p>The <code>alt</code> attribute provides alternative information for an image that can be read out by a screen reader to describe an image.</p>
-          <p><a href="accessibility/alt-tag.png" target="_self"><img src="accessibility/alt-tag.png" alt class="img-fluid" title="Alt tag"></a></p>
-          <p>The above are some examples of best practices to follow when developing for web accessibility. More can be found in <a href="https://www.w3.org/WAI/tips/developing/">this article on developing for accessibility</a>.</p>
-          <h3 id="auditory">Auditory<a class="fa fa-anchor" href="#auditory"></a></h3>
-          <p>Hearing-impaired users do use assistive technologies such as a <a href="https://en.wikipedia.org/wiki/Hearing_aid">hearing aid</a> or a <a href="https://en.wikipedia.org/wiki/Cochlear_implant">cochlear implant</a>, but these are not specific for accessing websites.</p>
-          <p>For users with hearing impairment, we should provide text alternatives to audio content, such as:</p>
-          <ul>
-            <li>Text transcripts</li>
-            <li>Captions</li>
-          </ul>
-          <p>Here's a <a href="https://www.w3.org/2017/04/xsmedia-tute/page5.html">tutorial on adding transcripts</a>. Adding captions is commonly supported in video hosting websites such as Youtube or Vimeo.</p>
-          <p>More information can be found on <a href="https://webaim.org/techniques/captions/">this article on transcripts and captions</a>.</p>
-          <h3 id="cognitive">Cognitive<a class="fa fa-anchor" href="#cognitive"></a></h3>
-          <p>Cognitive disabilities range from mental illnesses to learning difficulties, difficulties in comprehension and concentration, etc. Some examples include <a href="https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder">Attention Deficit Hyperactivity Disorder (ADHD)</a>, and <a href="https://en.wikipedia.org/wiki/Autism">autism</a>.</p>
-          <p>Such disabilities might affect how the user uses a website. It could be due to difficulty in understanding how to complete a task, remembering how to do something that was previously accomplished, increased frustration due to confusing workflows or inconsistent layouts/navigation/other page features.</p>
-          <p>Unlike other web accessibility issues, there is no quick fix to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here are some best practices mentioned by <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments">MDN Web Docs</a> and <a href="https://www.autism.org.uk/professionals/others/website-design.aspx">National Autistic Society</a>:</p>
-          <h5 id="best-practice-avoid-distractions"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Avoid distractions <br></h5>
-          <p>People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where cluttered pages can be overwhelming.</p>
-          <ul>
-            <li>Avoid unnecessary movements from animations or moving elements</li>
-            <li>Have a clean and uncluttered design</li>
-          </ul>
-          <p>Here's a comparison of a cluttered vs clean website landing page taken from <a href="https://www.britishgas.co.uk/">British Gas website</a>.</p>
-          <p>Cluttered page:
-            <a href="accessibility/bg-old.png" target="_self"><img src="accessibility/bg-old.png" alt class="img-fluid" title="Cluttered landing page"></a></p>
-          <p>Clean page:
-            <a href="accessibility/bg-new.png" target="_self"><img src="accessibility/bg-new.png" alt class="img-fluid" title="Clean landing page"></a></p>
-          <h5 id="best-practice-be-logical"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Be logical</h5>
-          <ul>
-            <li>Multi-stage processes should be broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.</li>
-            <li>Workflows are logical, simple, and require as little interaction as possible to complete.</li>
-          </ul>
-          <h5 id="best-practice-be-consistent"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Be consistent</h5>
-          <ul>
-            <li>Navigation, header, footer, and main content are always in the same places.</li>
-            <li>Navigation mechanisms are consistent in appearance and behaviour.</li>
-          </ul>
-          <h5 id="best-practice-communicate-well"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Communicate well <br></h5>
-          <p>People with cognitive disabilities are more likely to take things literally and can benefit from more visual cues.</p>
+          <p>A more detailed tutorial can be found here: <a href="https://docs.scala-lang.org/tour/tour-of-scala.html">Tour of Scala</a></p>
+          <p>Some useful resources are listed below if you want to learn more about Scala:</p>
           <ul>
             <li>
-              <p>Pages are not overly long or dense in terms of the amount of information presented at once.</p>
-              <blockquote>
-                <p><a href="https://www.lifewire.com/web-page-length-3468959">An article</a> says a rule of thumb is &quot;No article should exceed 2 printed pages of double-spaced, 12 point text.&quot; whereas <a href="https://www.greenmellenmedia.com/how-long-should-my-website-content-be/">another article</a> says &quot;There is no &quot;magic number&quot; for a number of characters for content. As long as the web page content is clear, to the point and written for people&quot;. Ultimately, what's most important is what <em>your</em> users think, so validation during user testing is paramount.</p>
-              </blockquote>
+              <p><a href="https://www.scala-exercises.org/">Scala Exercises</a> is a series of lessons and exercises created by 47 Degrees.
+                It's a great way to get a brief introduction to Scala while testing your knowledge along the way.</p>
             </li>
             <li>
-              <p>The language used is as plain and easy to follow, and not full of unneccessary jargon and slang.</p>
+              <p><a href="https://www.coursera.org/course/progfun">Functional Programming Principles in Scala</a>, free on Coursera.
+                This is a course about functional programming given by Martin Odersky himself.
+                You can access the course material and exercises by signing up for the course.</p>
             </li>
             <li>
-              <p>Important points and content are highlighted in some way.</p>
-            </li>
-            <li>
-              <p>User errors are clearly highlighted, with help messages to suggest solutions.</p>
+              <p><a href="http://allaboutscala.com/">allaboutscala</a> provides detailed tutorials for beginners.</p>
             </li>
           </ul>
-          <p>More importantly, after following the best practices, you should conduct user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.</p>
-          <p>WebAIM's <a href="http://webaim.org/articles/cognitive/">Cognitive</a> page provides a useful expansion of the ideas above, and is certainly worth reading.</p>
-          <h3 id="mobility">Mobility<a class="fa fa-anchor" href="#mobility"></a></h3>
-          <p>Mobility impairments include paralysis, physical weakness or loss of control in limbs. This can cause users to find it difficult or impossible to use a mouse as the main form of interaction with websites.</p>
-          <p>Assistive devices include a <a href="https://en.wikipedia.org/wiki/Switch_access">switch access</a>, or a <a href="https://www.performancehealth.com/baseball-cap-head-pointer">head pointer</a>. Users may also use a keyboard instead of a mouse to interact with the website.</p>
-          <p>The key to improve accessibility for mobility is to make the website keyboard accessible. Keyboard accessible means that users can navigate through the website using the keyboard. For example, users can use <code>Tab</code>, <code>Shift</code> + <code>Tab</code> keystrokes to navigate through interactive elements on a page, click <code>Enter</code> to open a hyperlink, etc.</p>
-          <p>WebAIM's article on <a href="https://webaim.org/techniques/keyboard/">keyboard accessibility</a> provides a thorough tutorial for this.</p>
-          <h2 id="tools-for-developers">Tools for Developers<a class="fa fa-anchor" href="#tools-for-developers"></a></h2>
-          <p>Here are some useful tools that you can use to improve the accessibility of your website:</p>
-          <ul>
-            <li>
-              <p><a href="https://developers.google.com/web/tools/lighthouse/"><strong>Google Lighthouse</strong></a>. Google Lighthouse is an automated tool that audits the accessibility level of your websites. It can be found in Chrome DevTools. Given a URL to audit, Lighthouse runs a series of audits and generates a report. The failing audits will show which part of the page causes it, and how to fix it. <br>
-                Here's how an audit report looks like:
-                <a href="accessibility/lh-audit.png" target="_self"><img src="accessibility/lh-audit.png" alt class="img-fluid" title="Lighthouse audit"></a></p>
-            </li>
-            <li>
-              <p><a href="http://colorsafe.co/"><strong>Color Safe Palette Generator</strong></a>. This website can help you to create a color palette that is based on the Web Content Accessibility Guidelines (WCAG) for text and background contrast ratios.</p>
-            </li>
-            <li>
-              <p><a href="http://chromelens.xyz/"><strong>ChromeLens</strong></a>. This Chrome extension has 2 useful features:</p>
-              <ul>
-                <li><strong>Filters</strong>: To simulate various color blindness so you can browse your website as how a color blind person sees it.
-                  <a href="http://chromelens.xyz/images/website_protanopia.png" target="_self"><img src="http://chromelens.xyz/images/website_protanopia.png" alt class="img-fluid"></a></li>
-                <li><strong>Tracker</strong>: To show the pathway a blind user will go through when browsing your web page with a screen reader. You can check if your web page goes through a logical flow and that the important content is included for the screen reader to narrate.
-                  <a href="http://chromelens.xyz/images/website_trace.png" target="_self"><img src="http://chromelens.xyz/images/website_trace.png" alt class="img-fluid"></a></li>
-              </ul>
-            </li>
-          </ul>
-          <p>Note that although there are many accessibility testing tools available, user testing with actual users with disabilities is still important. The automated testing tools may not point out all of the accessibility issues that actual users face.</p>
-          <h2 id="concluding-remarks">Concluding Remarks<a class="fa fa-anchor" href="#concluding-remarks"></a></h2>
-          <p>Ultimately, the most important thing you need to start designing accessible websites is empathy for your users. Each user is unique, and each user has different needs. As a developer, you need to put yourself in the users' shoes, understand their pain points, and then develop solutions for them so that everyone can navigate through your website freely.</p>
-          <h2 id="useful-resources">Useful Resources<a class="fa fa-anchor" href="#useful-resources"></a></h2>
-          <p>You are ready for your accessibility journey! Here are some resources to help you get started:</p>
-          <ul>
-            <li><a href="https://a11yproject.com/resources"><strong>The A11Y Project</strong></a>. The Accessibility Project is an open-source resource library on accessibility. It seeks to make it easier for developers to implement accessible websites by providing tips, tutorials and a widget and pattern library.</li>
-            <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/"><strong>Web Content Accessibility Guidelines (WCAG)</strong></a>. WCAG provides a single shared standard for web content accessibility that meets the needs of individuals, organizations, and governments internationally.</li>
-            <li><a href="https://webaim.org/articles"><strong>Web Accessibility in Mind (WebAIM)</strong></a>. WebAIM contains well-written articles on specific topics on accessibility issues and how to tackle them.</li>
-          </ul>
+          <p>More details can be find here: <a href="https://scala-lang.org/documentation/learn.html">Scala Learning Resources</a>.</p>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#accessibility">Accessibility&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-scala">Introduction to Scala&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-accessibility">What is accessibility?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-is-accessibility-important">Why is accessibility important?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-can-i-improve-the-accessibility-of-my-website">How can I improve the accessibility of my website?&#x200E;</a>
+              <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
+              <a class="nav-link py-1" href="#noteworthy-scala-features">Noteworthy Scala Features&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#visual">Visual&#x200E;</a>
-                <a class="nav-link py-1" href="#auditory">Auditory&#x200E;</a>
-                <a class="nav-link py-1" href="#cognitive">Cognitive&#x200E;</a>
-                <a class="nav-link py-1" href="#mobility">Mobility&#x200E;</a>
+                <a class="nav-link py-1" href="#type-inference">Type Inference&#x200E;</a>
+                <a class="nav-link py-1" href="#operator-overloading">Operator Overloading&#x200E;</a>
+                <a class="nav-link py-1" href="#mixings-traits">Mixings, Traits&#x200E;</a>
+                <a class="nav-link py-1" href="#type-enrichment">Type Enrichment&#x200E;</a>
+                <a class="nav-link py-1" href="#pattern-matching">Pattern Matching&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#tools-for-developers">Tools for Developers&#x200E;</a>
-              <a class="nav-link py-1" href="#concluding-remarks">Concluding Remarks&#x200E;</a>
-              <a class="nav-link py-1" href="#useful-resources">Useful Resources&#x200E;</a>
+              <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
             </nav>
 
           </nav>

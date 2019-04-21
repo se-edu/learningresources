@@ -1039,6 +1039,27 @@
     },
     {
       "headings": {
+        "introduction-to-scala": "Introduction to Scala",
+        "overview": "Overview",
+        "noteworthy-scala-features": "Noteworthy Scala Features",
+        "type-inference": "Type Inference",
+        "operator-overloading": "Operator Overloading",
+        "mixings-traits": "Mixings, Traits",
+        "type-enrichment": "Type Enrichment",
+        "pattern-matching": "Pattern Matching",
+        "getting-started": "Getting Started"
+      },
+      "title": "Introduction to Scala",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/scala/Scala.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "scalable-development-an-introduction": "Scalable Development - An Introduction",
         "scalable-development": "Scalable Development",
         "scalability": "Scalability",
