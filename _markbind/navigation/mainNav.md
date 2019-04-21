@@ -14,9 +14,11 @@
     * [Java Streams]({{baseUrl}}/contents/java/streams-an-introduction.html)
     * [Java Synchronization]({{baseUrl}}/contents/java/JavaSynchronization.html)
     * [Java Reflection]({{baseUrl}}/contents/java/JavaReflections.html)
+    * [JUnit]({{baseUrl}}/contents/java/JUnit.html)
   * JavaScript
     * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/javascript.html)
     * [Javascript Promises]({{baseUrl}}/contents/javascript/Javascript-promises.html)
+    * [Javascript Modules]({{baseUrl}}/contents/javascript/Javascript-modules.html)
   * Kotlin
     * [Introduction to Kotlin]({{baseUrl}}/contents/kotlin/kotlin.html)
     * [Null Safety In Kotlin]({{baseUrl}}/contents/kotlin/NullSafety.html)
@@ -50,6 +52,7 @@
     * [FindBugs]({{baseUrl}}/contents/staticAnalysis/FindBugs.html)
     * [ESLint]({{baseUrl}}/contents/staticAnalysis/ESLint.html)
   * Testing
+    * [Integration Testing]({{baseUrl}}/contents/testing/integration-testing.html)
     * [Writing Testable Code]({{baseUrl}}/contents/testing/writing-testable-code.html)
   * UI/UX
     * [Accessibility]({{baseUrl}}/contents/uix/accessibility.html)
