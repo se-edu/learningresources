@@ -697,6 +697,29 @@
     },
     {
       "headings": {
+        "static-typing-in-javascript": "Static Typing in JavaScript",
+        "what-is-static-typing": "What is Static Typing?",
+        "adding-static-typing-to-javascript": "Adding Static Typing to JavaScript",
+        "typescript-basics": "TypeScript Basics",
+        "compilation-to-javascript": "Compilation to JavaScript",
+        "type-annotations-and-type-inference": "Type Annotations and Type Inference",
+        "custom-types": "Custom Types",
+        "optionals": "Optionals",
+        "getting-started-with-typescript": "Getting Started with TypeScript",
+        "installation": "Installation",
+        "additional-resources": "Additional Resources"
+      },
+      "title": "Static Typing in JavaScript",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/javascript/staticTypingInJavascript.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "null-safety-in-kotlin": "Null Safety in Kotlin",
         "what-is-null-safety": "What is Null Safety?",
         "nullpointerexception": "NullPointerException",

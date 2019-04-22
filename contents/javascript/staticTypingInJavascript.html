@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.3.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Code Quality Metrics</title>
+  <title>SE-EDU/LearningResources - Static Typing in JavaScript</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -50,10 +50,10 @@
         <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
           <span id="toc">
             <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">C++
                         <i class="dropdown-btn-icon">
@@ -88,15 +88,15 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">JavaScript
+                        <i class="dropdown-btn-icon rotate-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
+                      <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a current">Static Typing in JavaScript</a></li>
                         </ul>
                       </div>
                     </li>
@@ -118,10 +118,10 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
                     <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><button class="dropdown-btn">Architecture
                         <i class="dropdown-btn-icon">
@@ -132,12 +132,12 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Code Quality
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a current">Code Quality Metrics</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
                         </ul>
                       </div>
                     </li>
@@ -295,94 +295,133 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="code-quality-metrics">Code Quality Metrics<a class="fa fa-anchor" href="#code-quality-metrics"></a></h1>
-          <p>Authors: <a href="https://github.com/wkurniawan07">Wilson Kurniawan</a></p>
-          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
+          <h1 id="static-typing-in-javascript">Static Typing in JavaScript<a class="fa fa-anchor" href="#static-typing-in-javascript"></a></h1>
+          <p><strong>Author(s): <a href="https://github.com/luyangkenneth">Lu Yang Kenneth</a></strong></p>
+          <p>Reviewer(s): <a href="https://github.com/marvinchin">Marvin Chin</a></p>
+          <h2 id="what-is-static-typing">What is Static Typing?<a class="fa fa-anchor" href="#what-is-static-typing"></a></h2>
+          <p>Statically typed languages like Java, Go, and C++ are able to catch type-related errors at compile time. However, in dynamically typed languages like Python, Ruby, and JavaScript, such errors are not as easily discoverable because the types of variables are only known at runtime.</p>
+          <p>To help identify these problems without having to run any code, many developers have adopted technologies to enable static type checking for codebases written in dynamically typed languages. The decision to move towards a statically typed codebase is usually motivated by the following benefits:</p>
           <ul>
-            <li>It is undisputed that developers, code reviewers, testers, QA team members, and software architects alike want code to be as simple, understandable, and (put more positive adjectives here) as possible.</li>
-            <li>It is, however, disputable how &quot;simple&quot;, &quot;understandable&quot;, etc. is defined, because they are all qualitative. What is &quot;...&quot; for one person may not be so &quot;...&quot; for another; in fact, it may not be so for that person three months later.</li>
+            <li>
+              <p>Static type checking <strong>catches type errors earlier in the development cycle</strong>. These errors can cause downtime in your application if undetected, and they are often expensive to triage and fix. Static type checking provides an automatic way to verify the type safety and correctness of your application during the development stage, ensuring that type errors are eliminated before your code is deployed to production. While the correctness of your application logic can also be determined via test suites and manual testing during development, those are often costlier and less reliable than static type checking when it comes to catching type errors.</p>
+            </li>
+            <li>
+              <p>Static type checking can <strong>make developers more productive</strong>. With the additional type information made available to IDEs, features such as auto-completion, code hinting, incremental error checking, and automatic refactoring become more powerful.</p>
+            </li>
+            <li>
+              <p>Static type checking <strong>improves collaboration on a large codebase</strong>. Statically typed code allows developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change the signature of a method, you can quickly discover the other parts of the codebase that need to be changed, as they would be surfaced as errors by the type checker. Explicitly declared types are also a form of documentation, which makes it easier to understand code written by other developers.</p>
+            </li>
           </ul>
-          <p>A quantitative approach needs to be adopted to measure those qualities precisely. <strong>Code Quality Metrics</strong> is the answer. It provides a <strong>quantitative measure</strong> of the quality of a piece of code.</p>
-          <blockquote>
-            <p>Since quantitative measurements are essential in all sciences, there is a continuous effort by computer science practitioners and theoreticians to bring similar approaches to software development.
-              The goal is obtaining objective, reproducible and quantifiable measurements, which may have numerous valuable applications in schedule and budget planning, cost estimation, quality assurance testing, software debugging, software performance optimization, and optimal personnel task assignments.</p>
-            <p><a href="https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics">https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics</a></p>
-          </blockquote>
-          <p>In fact, <a href="https://thesai.org/Downloads/Volume3No1/Paper%2021-Survey%20on%20Impact%20of%20Software%20Metrics%20on%20Software%20Quality.pdf">the Boeing 777 project attributed its success to excellent usage of Quality Metrics (both code and non-code)</a>.</p>
-          <p><em>Note that the term &quot;Code Quality&quot; here is scoped to be the readability, understandability, and maintainability of the code. While performance can be considered a legitimate basis for some metrics (e.g. time taken to run certain operations, based on profiling), it is not considered for this purpose.</em></p>
-          <h2 id="examples-of-metrics">Examples of Metrics<a class="fa fa-anchor" href="#examples-of-metrics"></a></h2>
-          <h3 id="complexity-metrics">Complexity Metrics<a class="fa fa-anchor" href="#complexity-metrics"></a></h3>
-          <p>Complexity metrics measure how &quot;complex&quot; methods, classes, packages, etc. are. &quot;Complex&quot; here is defined as difficult to understand and difficult to maintain.</p>
-          <p>They are arguably the most useful metrics for the largest number of developers because they are the easiest to grasp, the most directly relevant to the coding activity, and applicable to most/all programming languages.</p>
+          <h2 id="adding-static-typing-to-javascript">Adding Static Typing to JavaScript<a class="fa fa-anchor" href="#adding-static-typing-to-javascript"></a></h2>
+          <p>In the JavaScript community, Flow and TypeScript have emerged as the two main options for enabling static type checking:</p>
           <ul>
-            <li>The most well-known complexity metric is <strong>Cyclomatic Complexity (CC)</strong>, invented by Thomas McCabe in 1976. CC corresponds to the <strong>minimum number of test cases needed to achieve 100% branch coverage</strong>. <a href="http://www.whiteboxtest.com/cyclomatic-complexity.php">Here</a> is an excellent explanation on how to make use of it to measure your code quality.</li>
-            <li>An alternative, less well-known, harder to calculate complexity metric is <strong>NPath Complexity (NC)</strong>, invented by Brian A. Nejmeh in 1988. NC corresponds to the <strong>minimum number of test cases needed to achieve 100% path coverage</strong>.</li>
+            <li>
+              <p><strong><a href="https://flow.org/">Flow</a></strong> is a static type checker for JavaScript. It is an open-source tool developed by Facebook.</p>
+            </li>
+            <li>
+              <p><strong><a href="https://www.typescriptlang.org/">TypeScript</a></strong> is a statically typed superset of JavaScript that compiles to plain JavaScript. It is an open-source programming language developed by Microsoft.</p>
+            </li>
           </ul>
-          <blockquote>
-            <p><a href="http://www.literateprogramming.com/mccabe.pdf">Here</a> is the original paper by McCabe, and <a href="http://dl.acm.org/citation.cfm?doid=42372.42379">here</a> is the original paper by Nejmeh.</p>
-          </blockquote>
-          <p>These complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.</p>
-          <h3 id="class-design-metrics">Class Design Metrics<a class="fa fa-anchor" href="#class-design-metrics"></a></h3>
-          <p>Class design metrics measure how &quot;well-designed&quot; a class is. &quot;Well-designed&quot; here is defined as conformance to good software engineering principles such as high cohesion, low coupling, promoting encapsulation and information hiding. Well-designed classes promote reuse and ease maintenance effort.</p>
-          <p>Metrics on this level are more applicable for QA team members and software architects, but still hold some relevance to students and junior developers who have to design a class-level API.</p>
-          <p>The most well-accepted metrics for class design are <a href="http://www.virtualmachinery.com/sidebar3.htm"><strong>The Chidamber and Kemerer Metrics</strong></a>:</p>
+          <p>While Flow and TypeScript integrate into your development workflow in slightly different ways, they have the same goals and share many similarities in terms of syntax. As the industry seems to be shifting towards TypeScript as the top choice <sup><a href="https://dev.to/nickytonline/is-2019-the-year-of-typescript-18p2">source</a></sup>, this article will introduce how TypeScript works and how you can get started with TypeScript.</p>
+          <h2 id="typescript-basics">TypeScript Basics<a class="fa fa-anchor" href="#typescript-basics"></a></h2>
+          <h3 id="compilation-to-javascript">Compilation to JavaScript<a class="fa fa-anchor" href="#compilation-to-javascript"></a></h3>
+          <p>As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. TypeScript can be configured to target different flavors of JavaScript while offering support for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.</p>
+          <p>Because TypeScript is <tooltip content="Transpilation is the process of translating source code into a different language or into a different flavor of the same language.">transpiled</tooltip> down to ES3 by default, it maintains compatibility with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.</p>
+          <h3 id="type-annotations-and-type-inference">Type Annotations and Type Inference<a class="fa fa-anchor" href="#type-annotations-and-type-inference"></a></h3>
+          <p>TypeScript enables static type checking by giving you the ability to add <strong>type annotations</strong> to your JavaScript variables and functions. Here's an example of declaring a variable with the <code>string</code> type and assigning it a <code>string</code> value:</p>
+          <pre><code class="hljs typescript"><span class="hljs-keyword">let</span> myString: <span class="hljs-built_in">string</span> = <span class="hljs-string">"abc"</span>;
+</code></pre>
+          <p>If we try to assign it a <code>number</code> value later on, the TypeScript compiler will raise an error:</p>
+          <pre><code class="hljs typescript">myString = <span class="hljs-number">123</span>; <span class="hljs-comment">// error: 123 is not assignable to type 'string'</span>
+</code></pre>
+          <p>The same type annotation syntax is used for function arguments and return types:</p>
+          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertNumberToString</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span> </span>{
+    <span class="hljs-keyword">return</span> value.toString();
+}
+</code></pre>
+          <p>It isn't always necessary to add type annotations because TypeScript performs <strong>type inference</strong>, where the compiler infers the types of your variables or functions automatically. This helps to cut down on excess verbosity in your code. In this next example, <code>myBoolean</code> is inferred as a <code>boolean</code> variable, so reassigning it to any <code>boolean</code> value is allowed:</p>
+          <pre><code class="hljs typescript"><span class="hljs-keyword">let</span> myBoolean = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// valid</span>
+myBoolean = <span class="hljs-literal">false</span>;
+
+<span class="hljs-comment">// error: "hello world" is not assignable to type 'boolean'</span>
+myBoolean = <span class="hljs-string">"hello world"</span>;
+</code></pre>
+          <p>Sometimes, we don't know what the type of a variable might be. In those cases, we would use the <code>any</code> type to opt out of compile-time type checking. For example, <code>myList</code> is an array that contains elements with a mix of different types:</p>
+          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printItemsToConsole</span>(<span class="hljs-params">list: <span class="hljs-built_in">any</span>[]</span>): <span class="hljs-title">void</span> </span>{
+    list.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item));
+}
+
+<span class="hljs-keyword">const</span> myList = [<span class="hljs-number">1</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-literal">false</span>];
+printItemsToConsole(myList);
+</code></pre>
+          <p>TypeScript also supports other variable types such as arrays and <code>void</code>, as seen in the example above. Check out <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">this article</a> from the official TypeScript website for more details on those other types.</p>
+          <h3 id="custom-types">Custom Types<a class="fa fa-anchor" href="#custom-types"></a></h3>
+          <p>In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the <tooltip content="The shape of an JavaScript object refers to its set of property keys.">shape</tooltip> of these objects. Let's use the <code>type</code> keyword to define our own <code>Person</code> type to describe an object that has the <code>firstName</code> and <code>lastName</code> properties:</p>
+          <pre><code class="hljs typescript"><span class="hljs-keyword">type</span> Person = {
+    firstName: <span class="hljs-built_in">string</span>;
+    lastName: <span class="hljs-built_in">string</span>;
+}
+</code></pre>
+          <p>By using <code>Person</code> as a type annotation, TypeScript will now verify that any object we pass into the <code>greet</code> function has a compatible structure:</p>
+          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">person: Person</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Nice to meet you, <span class="hljs-subst">${person.firstName}</span> <span class="hljs-subst">${person.lastName}</span>!`</span>);
+}
+
+<span class="hljs-comment">// valid</span>
+greet({ firstName: <span class="hljs-string">"John"</span>, lastName: <span class="hljs-string">"Doe"</span> });
+
+<span class="hljs-comment">// error: property 'lastName' is required in type 'Person'</span>
+greet({ firstName: <span class="hljs-string">"John"</span> });
+</code></pre>
+          <p>This also helps to catch implementation mistakes such as:</p>
+          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">askAboutColor</span>(<span class="hljs-params">person: Person</span>) </span>{
+    <span class="hljs-comment">// error: property 'favoriteColor' does not exist on type 'Person'.</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hey <span class="hljs-subst">${person.firstName}</span>, is it true that you like <span class="hljs-subst">${person.favoriteColor}</span>?`</span>);
+}
+</code></pre>
+          <h3 id="optionals">Optionals<a class="fa fa-anchor" href="#optionals"></a></h3>
+          <p>You can specify optional object properties and function arguments, which are denoted by a <code>?</code> at the end of the property or argument name:</p>
+          <pre><code class="hljs typescript"><span class="hljs-keyword">type</span> Student = {
+    name: <span class="hljs-built_in">string</span>;
+    major?: <span class="hljs-built_in">string</span>;
+}
+</code></pre>
+          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, favoriteColor?: <span class="hljs-built_in">string</span></span>) </span>{
+    <span class="hljs-keyword">if</span> (favoriteColor) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span> and my favorite color is <span class="hljs-subst">${favoriteColor}</span>!`</span>;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span>!`</span>;
+    }
+}
+</code></pre>
+          <h2 id="getting-started-with-typescript">Getting Started with TypeScript<a class="fa fa-anchor" href="#getting-started-with-typescript"></a></h2>
+          <h3 id="installation">Installation<a class="fa fa-anchor" href="#installation"></a></h3>
+          <p>The command-line TypeScript compiler can be installed as a Node.js package via <code>npm</code>:</p>
+          <pre><code class="hljs bash">npm install -g typescript
+</code></pre>
+          <p>After installing TypeScript, you will have access to the <code>tsc</code> command for compiling TypeScript files:</p>
+          <pre><code class="hljs bash">tsc my_file.ts
+</code></pre>
+          <p>This gets compiled into a <code>my_file.js</code> file, which you can execute in a browser or on Node.js.</p>
+          <h3 id="additional-resources">Additional Resources<a class="fa fa-anchor" href="#additional-resources"></a></h3>
           <ul>
-            <li>Weighted Methods per Class (WMC)</li>
-            <li>Coupling Between Objects (CBO)</li>
-            <li>Response For Class (RFC)</li>
-            <li>Lack of Cohesion of Methods (LCOM)</li>
-            <li>Depth of Inheritance Tree (DIT)</li>
-            <li>Number of Children (NOC)</li>
-          </ul>
-          <h3 id="package-design-metrics">Package Design Metrics<a class="fa fa-anchor" href="#package-design-metrics"></a></h3>
-          <p>Package design metrics measure how &quot;well-designed&quot; a package is. &quot;Well-designed&quot; here is similarly defined as the one in class design metrics. Metrics on this level are mostly applicable only for QA team members and software architects.</p>
-          <p>The most well-accepted metrics for package design are <a href="http://www.virtualmachinery.com/jhawkmetricssyspack.htm"><strong>&quot;the group of five&quot;</strong></a>:</p>
-          <ul>
-            <li>Afferent Coupling (Ca)</li>
-            <li>Efferent Coupling (Ce)</li>
-            <li>Instability (I)</li>
-            <li>Abstractness (A)</li>
-            <li>Distance from Main Sequence (D)</li>
-          </ul>
-          <h3 id="seemingly-trivial-metrics">Seemingly Trivial Metrics<a class="fa fa-anchor" href="#seemingly-trivial-metrics"></a></h3>
-          <p>The previous sections have introduced mostly new concepts that are foreign to many developers.
-            However, measures that are seemingly trivial and easy-to-overlook can also count as metrics, such as the following:</p>
-          <ul>
-            <li>Number of lines of codes in a class/method/...</li>
-            <li>Number of methods in a class</li>
-            <li>Number of fields in a class</li>
-            <li>Number of parameters in a method</li>
-            <li>Nesting depth of a method</li>
-            <li>Code coverage</li>
-            <li>Percentage of comments</li>
-            <li>Percentage of code duplication</li>
-          </ul>
-          <h2 id="define-your-own-metric">Define Your Own Metric<a class="fa fa-anchor" href="#define-your-own-metric"></a></h2>
-          <p>You would have noticed that these metrics are self-formulated rather than being inherent properties of a piece of software, and you are right.</p>
-          <p>You might then ask: can I define my own code quality metric? Yes, you can. <a href="http://www.developer.com/tech/article.php/3644656/Software-Quality-Metrics.htm">This page</a> has a good guide on how to formulate your own metric.</p>
-          <h2 id="making-sense-of-it">Making Sense of It<a class="fa fa-anchor" href="#making-sense-of-it"></a></h2>
-          <p>Any code quality metric is as good as how it is used; without context, it is merely a number. <strong>Do not</strong> use any metric just for the sake of it.</p>
-          <ul>
-            <li>It makes little sense to say: &quot;This method has a CC value of 42. It is bad.&quot;</li>
-            <li>It makes more sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it, and it is bad.&quot;</li>
-            <li>It makes the most sense to say: &quot;This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it. This indicates an overly complex method, and it will be difficult to maintain in the long run. Try to separate it to calls of a few methods of CC value of 10 or less each; that way we can better design test cases for those smaller methods and achieve perfect coverage.&quot;</li>
-          </ul>
-          <p><a href="http://homepages.dcc.ufmg.br/~figueiredo/disciplinas/lectures/detection-strategy-examples_v01.pdf">Here</a> is an excellent example of how different metrics are used to determine which classes/methods need some maintenance works.</p>
-          <h2 id="code-quality-metrics-tools">Code Quality Metrics Tools<a class="fa fa-anchor" href="#code-quality-metrics-tools"></a></h2>
-          <p>Measuring complexity (relevant to most developers):</p>
-          <ul>
-            <li>Java: <a href="https://pmd.github.io">PMD</a></li>
-            <li>JavaScript: <a href="http://eslint.org">ESLint</a></li>
-            <li>C#: <a href="https://blogs.msdn.microsoft.com/zainnab/2011/05/17/code-metrics-cyclomatic-complexity/">Visual Studio Code Analysis</a></li>
-            <li>Python: <a href="https://pypi.python.org/pypi/radon">radon</a></li>
-            <li>Ruby: <a href="http://batsov.com/rubocop/">RuboCop</a></li>
-            <li>PHP: <a href="https://phpmd.org">PHPMD</a></li>
-          </ul>
-          <p>Measuring design (relevant to architects, QA team), most of them commercial:</p>
-          <ul>
-            <li>Java: <a href="http://www.jarchitect.com">JArchitect</a></li>
-            <li>C#: <a href="http://www.ndepend.com">NDepend</a></li>
-            <li>PHP: <a href="https://pdepend.org">PHP Depend</a></li>
+            <li>
+              <p>The <a href="https://www.typescriptlang.org/play/">TypeScript Playground</a> is a convenient way to experiment with different scenarios in TypeScript (such as the examples in this article) without any setup required.</p>
+            </li>
+            <li>
+              <p><a href="https://code.visualstudio.com/">Visual Studio Code</a> is probably the code editor with the best TypeScript support. This is unsurprising given that VS Code is another open-source project by Microsoft, and is itself written in TypeScript. That being said, TypeScript is widely supported by other code editors, either natively or via the appropriate package/extension.</p>
+            </li>
+            <li>
+              <p><a href="https://basarat.gitbooks.io/typescript/">TypeScript Deep Dive</a> is the definitive online textbook on TypeScript which covers many practical topics.</p>
+            </li>
+            <li>
+              <p>The official TypeScript guide on <a href="https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html">Migrating from JavaScript</a> contains best practices for incrementally converting your codebase to TypeScript.</p>
+            </li>
+            <li>
+              <p>For a more interactive demo of what it feels like to work with TypeScript, check out this YouTube video called <a href="https://www.youtube.com/watch?v=vxvQPHFJDRo">0-60 with TypeScript and Node.js</a>.</p>
+            </li>
           </ul>
         </div>
       </div>
@@ -390,19 +429,22 @@
         <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#code-quality-metrics">Code Quality Metrics&#x200E;</a>
+            <a class="nav-link py-1" href="#static-typing-in-javascript">Static Typing in JavaScript&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-              <a class="nav-link py-1" href="#examples-of-metrics">Examples of Metrics&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-static-typing">What is Static Typing?&#x200E;</a>
+              <a class="nav-link py-1" href="#adding-static-typing-to-javascript">Adding Static Typing to JavaScript&#x200E;</a>
+              <a class="nav-link py-1" href="#typescript-basics">TypeScript Basics&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#complexity-metrics">Complexity Metrics&#x200E;</a>
-                <a class="nav-link py-1" href="#class-design-metrics">Class Design Metrics&#x200E;</a>
-                <a class="nav-link py-1" href="#package-design-metrics">Package Design Metrics&#x200E;</a>
-                <a class="nav-link py-1" href="#seemingly-trivial-metrics">Seemingly Trivial Metrics&#x200E;</a>
+                <a class="nav-link py-1" href="#compilation-to-javascript">Compilation to JavaScript&#x200E;</a>
+                <a class="nav-link py-1" href="#type-annotations-and-type-inference">Type Annotations and Type Inference&#x200E;</a>
+                <a class="nav-link py-1" href="#custom-types">Custom Types&#x200E;</a>
+                <a class="nav-link py-1" href="#optionals">Optionals&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#define-your-own-metric">Define Your Own Metric&#x200E;</a>
-              <a class="nav-link py-1" href="#making-sense-of-it">Making Sense of It&#x200E;</a>
-              <a class="nav-link py-1" href="#code-quality-metrics-tools">Code Quality Metrics Tools&#x200E;</a>
+              <a class="nav-link py-1" href="#getting-started-with-typescript">Getting Started with TypeScript&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#installation">Installation&#x200E;</a>
+                <a class="nav-link py-1" href="#additional-resources">Additional Resources&#x200E;</a>
+              </nav>
             </nav>
 
           </nav>

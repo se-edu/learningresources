@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.2.0">
+  <meta name="generator" content="MarkBind 2.3.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Accessibility</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -96,6 +96,7 @@
                           <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
                         </ul>
                       </div>
                     </li>
@@ -336,22 +337,22 @@
           <h5 id="best-practice-use-more-visual-indicators-to-convey-a-message"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use more visual indicators to convey a message</h5>
           <p>Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.</p>
           <p>This page below uses a red color border around the text box to show that the information needed is missing. As red usually signifies failure, this seems enough.
-            <a href="accessibility/fb-normal.png" target="_self"><img src="accessibility/fb-normal.png" alt class="img-fluid" title="Facebook sign up page"></a></p>
+            <a href="/learningresources/contents/uix/accessibility/fb-normal.png" target="_self"><img src="/learningresources/contents/uix/accessibility/fb-normal.png" alt class="img-fluid" title="Facebook sign up page"></a></p>
           <p>However, to someone with a type of color blindness called <a href="https://en.wikipedia.org/wiki/Achromatopsia">achromatopsia</a>, this is how the page looks like:
-            <a href="accessibility/fb-achromatopsia.png" target="_self"><img src="accessibility/fb-achromatopsia.png" alt class="img-fluid" title="Facebook sign up page to someone with achromatopsia"></a></p>
+            <a href="/learningresources/contents/uix/accessibility/fb-achromatopsia.png" target="_self"><img src="/learningresources/contents/uix/accessibility/fb-achromatopsia.png" alt class="img-fluid" title="Facebook sign up page to someone with achromatopsia"></a></p>
           <p>To someone with another type of color blindness, <a href="https://en.wikipedia.org/wiki/Deuteranopia">deuteranopia</a>, the page looks like this:
-            <a href="accessibility/fb-deuteranopia.png" target="_self"><img src="accessibility/fb-deuteranopia.png" alt class="img-fluid" title="Facebook sign up page to someone with deuteranopia"></a></p>
+            <a href="/learningresources/contents/uix/accessibility/fb-deuteranopia.png" target="_self"><img src="/learningresources/contents/uix/accessibility/fb-deuteranopia.png" alt class="img-fluid" title="Facebook sign up page to someone with deuteranopia"></a></p>
           <p>It may be unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
-            <a href="accessibility/fb-more-indicators.png" target="_self"><img src="accessibility/fb-more-indicators.png" alt class="img-fluid" title="Facebook sign up page with more visual indicators"></a></p>
+            <a href="/learningresources/contents/uix/accessibility/fb-more-indicators.png" target="_self"><img src="/learningresources/contents/uix/accessibility/fb-more-indicators.png" alt class="img-fluid" title="Facebook sign up page with more visual indicators"></a></p>
           <h5 id="best-practice-maintain-good-color-contrast"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Maintain good color contrast</h5>
           <p>Look at this page taken from Tech Crunch.
-            <a href="accessibility/tc-normal.png" target="_self"><img src="accessibility/tc-normal.png" alt class="img-fluid" title="Tech Crunch page"></a></p>
+            <a href="/learningresources/contents/uix/accessibility/tc-normal.png" target="_self"><img src="/learningresources/contents/uix/accessibility/tc-normal.png" alt class="img-fluid" title="Tech Crunch page"></a></p>
           <p>To users with good vision, the design may look minimalist and clean. However, to someone suffering from cataract, the page looks like this.</p>
-          <p><a href="accessibility/tc-blurred.png" target="_self"><img src="accessibility/tc-blurred.png" alt class="img-fluid" title="Tech Crunch page to someone with cataract"></a>
+          <p><a href="/learningresources/contents/uix/accessibility/tc-blurred.png" target="_self"><img src="/learningresources/contents/uix/accessibility/tc-blurred.png" alt class="img-fluid" title="Tech Crunch page to someone with cataract"></a>
             It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good color contrast ratio in our websites for ease of reading.</p>
           <h5 id="best-practice-use-alt-attribute-for-images"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Use <code>alt</code> attribute for images</h5>
           <p>The <code>alt</code> attribute provides alternative information for an image that can be read out by a screen reader to describe an image.</p>
-          <p><a href="accessibility/alt-tag.png" target="_self"><img src="accessibility/alt-tag.png" alt class="img-fluid" title="Alt tag"></a></p>
+          <p><a href="/learningresources/contents/uix/accessibility/alt-tag.png" target="_self"><img src="/learningresources/contents/uix/accessibility/alt-tag.png" alt class="img-fluid" title="Alt tag"></a></p>
           <p>The above are some examples of best practices to follow when developing for web accessibility. More can be found in <a href="https://www.w3.org/WAI/tips/developing/">this article on developing for accessibility</a>.</p>
           <h3 id="auditory">Auditory<a class="fa fa-anchor" href="#auditory"></a></h3>
           <p>Hearing-impaired users do use assistive technologies such as a <a href="https://en.wikipedia.org/wiki/Hearing_aid">hearing aid</a> or a <a href="https://en.wikipedia.org/wiki/Cochlear_implant">cochlear implant</a>, but these are not specific for accessing websites.</p>
@@ -374,9 +375,9 @@
           </ul>
           <p>Here's a comparison of a cluttered vs clean website landing page taken from <a href="https://www.britishgas.co.uk/">British Gas website</a>.</p>
           <p>Cluttered page:
-            <a href="accessibility/bg-old.png" target="_self"><img src="accessibility/bg-old.png" alt class="img-fluid" title="Cluttered landing page"></a></p>
+            <a href="/learningresources/contents/uix/accessibility/bg-old.png" target="_self"><img src="/learningresources/contents/uix/accessibility/bg-old.png" alt class="img-fluid" title="Cluttered landing page"></a></p>
           <p>Clean page:
-            <a href="accessibility/bg-new.png" target="_self"><img src="accessibility/bg-new.png" alt class="img-fluid" title="Clean landing page"></a></p>
+            <a href="/learningresources/contents/uix/accessibility/bg-new.png" target="_self"><img src="/learningresources/contents/uix/accessibility/bg-new.png" alt class="img-fluid" title="Clean landing page"></a></p>
           <h5 id="best-practice-be-logical"><span aria-hidden="true" class="fas fa-thumbs-up"></span> Best practice: Be logical</h5>
           <ul>
             <li>Multi-stage processes should be broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.</li>
@@ -419,7 +420,7 @@
             <li>
               <p><a href="https://developers.google.com/web/tools/lighthouse/"><strong>Google Lighthouse</strong></a>. Google Lighthouse is an automated tool that audits the accessibility level of your websites. It can be found in Chrome DevTools. Given a URL to audit, Lighthouse runs a series of audits and generates a report. The failing audits will show which part of the page causes it, and how to fix it. <br>
                 Here's how an audit report looks like:
-                <a href="accessibility/lh-audit.png" target="_self"><img src="accessibility/lh-audit.png" alt class="img-fluid" title="Lighthouse audit"></a></p>
+                <a href="/learningresources/contents/uix/accessibility/lh-audit.png" target="_self"><img src="/learningresources/contents/uix/accessibility/lh-audit.png" alt class="img-fluid" title="Lighthouse audit"></a></p>
             </li>
             <li>
               <p><a href="http://colorsafe.co/"><strong>Color Safe Palette Generator</strong></a>. This website can help you to create a color palette that is based on the Web Content Accessibility Guidelines (WCAG) for text and background contrast ratios.</p>
@@ -472,7 +473,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.2.0</a> on Sun, 21 Apr 2019 13:53:42 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.3.0</a> on Mon, 22 Apr 2019 11:06:07 GMT]</small></div>
     </footer>
   </div>
 </body>
