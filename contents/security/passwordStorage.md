@@ -45,25 +45,34 @@ Without this decryption key, decryption cannot be performed. Only the intended r
   </div>
 </popover>
 
-For example, the following python code encrypts and decrypts the message "EncryptionIsFun!" with <trigger for="pop:aes">AES</trigger>:
-```python
-from Crypto.Cipher import AES
+One common example of encryption is the use of shifting each letter of the alphabet to the left or right by a number of positions. This is known as the _Caesar cipher_ For example, if we chose to shift all the letters by 3, then the encryption key (and decryption key) for this algorithm would be 3. This would result in the following encryption algorithm:
 
-AESCipher = AES.new("Here's a AES Key", AES.MODE_CBC, "Here's a AES IV.")
-message = "EncryptionIsFun!"
-ciphertext = AESCipher.encrypt(message)
-
-AESCipher2 = AES.new("Here's a AES Key", AES.MODE_CBC, "Here's a AES IV.")
-plaintext = AESCipher2.decrypt(ciphertext)
-
-print(plaintext))
+```
+Plaintext:  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Ciphertext: DEFGHIJKLMNOPQRSTUVWXYZABC
 ```
 
-<popover id="pop:aes" title="_AES_ stands for Advanced Encryption Standard" placement="top">
+This would mean that encrypting the message `I love you` would result in `L oryh brx`
+
+Naturally, this isn't a very good encryption method because even if one doesn't know the decryption key, the method can be easily <trigger for="pop:brute">brute forced</trigger> by trying all <tooltip content="25 combinations because shifting by 26 simply results in the ciphertext being identical to the plaintext">25</tooltip> possible combinations and seeing if any of the results in a readable message. 
+
+<popover id="pop:brute" title="A brute force attack is an attack where all possible combinations are tested to see if they work." placement="top">
   <div slot="content">
-It is one of many possible encryption algorithms.
+ A brute force attack usually takes very long to carry out.
   </div>
 </popover>
+
+Another encryption method is the _Pigpen Cipher_, where letters are <tooltip content="Substitution is a common technique in encrypting data by converting all instances of one letter to something else">substituted</tooltip> with symbols. The encryption key usually looks something like this:
+
+![Pigpen Cipher diagram](passwordStorage/pigpen.png "The Pigpen cipher substitution") 
+
+In this case, each letter is substituted with a symbol that matches the exterior walls of where that letter is. For example, the letter `W` would be encrypted to the symbol ![W](passwordStorage/W.png "Pigpen cipher substitution for W") . If the letter is located on the right side instead, then a dot is placed in the middle of the symbol to indicate that it refers to the right letter instead of the one on the left. For example, the letter P would be encrypted to the symbol ![P](passwordStorage/P.png "Pigpen cipher substitution for P")
+
+Naturally, the decryption key would be the encryption key itself, as it can be re-used to decrypt the ciphertext. Compared to the Caesar cipher, The Pigpen cipher is more resilient to brute force attacks if one doesn't know the decryption key, as it could result in one trying all possible substitution for each symbol. 
+
+I had a secret agent send me information about the secret ingredient of Mick's cheeseburgers earlier, as they were delicious and I found myself constantly eating it. I suspect it's some addictive substance to make customers keep coming back for more. To ensure that Mick didn't know their secret ingredient was being leaked, I had my agent send it in Pigpen cipher:
+
+![Cheese](passwordStorage/cheese.png "Secret ingredient of Mick's cheeseburgers") 
 
 Encryption might seem like a good idea because the ciphertext is meaningless without the decryption key, which prevents all of the problems with storing the data directly in plaintext. However, because encryption is <tooltip content="If a function is reversible, and it converts from x to y, then it can also convert from y back to x"> reversible</tooltip>, it is always possible to regain the original password from the ciphertext. Since the password is encrypted, the decryption key must also be stored somewhere. This means that if someone manages to hack into the application and read the encrypted passwords, it is also likely that they will be able to read the decryption key. With the decryption key, they will be able to decrypt all the passwords and read them anyway. This makes encryption unsuitable for password storage.
 
@@ -75,7 +84,7 @@ The key is usually randomly generated text that is used to encrypt the original 
 
 ## Hashing
 
-Hashing is a <tooltip content="A one way function is a function that is easy to compute the result of, but whose results are difficult to reverse back to the original input">one-way</tooltip> function that transforms a set of data into another set of data. Unlike encryption, hashing works by re-iterating on the input multiple times, each time using values that are dependent on the previous state, then destroying the previous state. This makes it impossible to reverse as a computer would have to test all possible states on each iteration, which compounds into several billion possible states. 
+_Hashing_ is a <tooltip content="A one way function is a function that is easy to compute the result of, but whose results are difficult to reverse back to the original input">one-way</tooltip> function that transforms a set of data into another set of data. Unlike encryption, when hashing is done, information that describes the original set of data is lost irrevocably in the process. This means that it is impossible to recover the original input from the <tooltip content="A hash is the output of a hashing algorithm">hash.
 
 <popover id="pop:hashing-algo" title="A _hashing algorithm_ is a specific type of operation that hashes the input" placement="top">
   <div slot="content">
@@ -83,21 +92,13 @@ Different types of hashing algorithms will result in different output.
   </div>
 </popover>
 
-Some examples of cryptographic <trigger for="pop:hashing-algo">hashing algorithms</trigger> are [MD5](https://www.quora.com/How-does-the-MD5-algorithm-work) and [SHA1](https://deadhacker.com/2006/02/21/sha-1-illustrated/). However, when you perform hashing for passwords, you should use password hashing algorithms (such as [Argon2](https://github.com/P-H-C/phc-winner-argon2), [SCrypt](https://passlib.readthedocs.io/en/stable/lib/passlib.hash.scrypt.html) and [bcrypt](https://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage)). The main difference between these are that password hashing algorithms are designed to be slow to prevent <trigger for="pop:brute">brute force</trigger> attacks, unlike cryptographic hashing algorithms which are built for speed. Despite that, if you plan on learning more about hashing algorithms, we recommend starting with MD5 and SHA1, as they are easier algorithms to learn about.
+Some examples of cryptographic <trigger for="pop:hashing-algo">hashing algorithms</trigger> are [MD5](https://www.quora.com/How-does-the-MD5-algorithm-work) and [SHA1](https://deadhacker.com/2006/02/21/sha-1-illustrated/). However, when you perform hashing for passwords, you should use password hashing algorithms (such as [Argon2](https://github.com/P-H-C/phc-winner-argon2), [SCrypt](https://passlib.readthedocs.io/en/stable/lib/passlib.hash.scrypt.html) and [bcrypt](https://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage)). The main difference between these are that password hashing algorithms are designed to be slow to prevent brute force attacks, unlike cryptographic hashing algorithms which are built for speed. Despite that, if you plan on learning more about hashing algorithms, we recommend starting with MD5 and SHA1, as they are easier algorithms to learn about.
 
-For example, the following python code hashes the message "HashingIsFun!" with SHA1:
-```python
-import hashlib
-
-sha1Hash = hashlib.sha1()
-sha1Hash.update("HashingIsFun!".encode('utf-8'))
-hashOutput = sha1Hash.hexdigest()
-print(hashOutput)
-```
+For example, a simple hashing algorithm that acts on numbers could add up all the digits in that number. This would mean hashing the number `1013` would result in 1+0+1+3 = `5`. Hashing the number `761` would result in `14`. Note that after hashing the number, there is no way to regain back the original number - data about the original number (such as number and position of digits) have been irrevocably lost in the process. Additionally, many different numbers could result in the same hash. For example, the numbers `101` and `20` both result in the hash of `2`. This is called a _hash collision_. A good hashing algorithm attempts to minimize the amount of hash collisions such that the probability of it happening is close to 0. In the case of the MD5 algorithm, the probability of a hash collision given any two inputs is 1 in 2<sup>128</sup> which is 1 in 340,282,366,920,938,463,463,374,607,431,768,211,456.
 
 ### Why isn't hashing enough?
 
-A [rainbow tables](https://en.wikipedia.org/wiki/Rainbow_table) is a precomputed table of <tooltip content="Hashes are the result of a hashing function">hashes</tooltip> for some set of passwords. Basically, people build huge tables of hashes wherein the plaintext is already known, so that attempting to crack hashes becomes a simple problem of looking up the hash in the table and its corresponding value, instead of attempting to reverse the hash. Through this method, it is very easy to crack simple hashes by simply doing a lookup.
+A _[rainbow table](https://en.wikipedia.org/wiki/Rainbow_table)_ is a precomputed table of hashes for some set of passwords. Basically, people build huge tables of hashes wherein the plaintext is already known, so that attempting to crack hashes becomes a simple problem of looking up the hash in the table and its corresponding value, instead of attempting to reverse the hash. Through this method, it is very easy to crack simple hashes by simply doing a lookup.
 
 An example of a service that provides this is [Crackstation](https://crackstation.net/).
 
@@ -105,17 +106,11 @@ Since attacks like rainbow tables exist, passwords need another layer of securit
 
 ## Salting
 
-A salt refers to appending a string of text, unique to each user, to their password before hashing them. Since each user has a unique salt, this makes rainbow tables ineffective, as the majority of the precomputed hashes won't even contain the salt, so they wouldn't even matter anyway! In this way, the salt forces the attacker to recompute the rainbow table for each password in order to be able to effectively use it. This effectively converts the attack to <trigger for="pop:brute">brute force</trigger>, as each hash must be recomputed for each possible password. Additionally, the computed rainbow table would only be useful for that specific user, as each user would have a different salt. It could take years before a password is cracked!
+_Salting_ refers to appending a string of text, unique to each user, to their password before hashing them. Since each user has a unique salt, this makes rainbow tables ineffective, as the majority of the precomputed hashes won't even contain the salt, so they wouldn't even matter anyway! In this way, the salt forces the attacker to recompute the rainbow table for each password in order to be able to effectively use it. This effectively converts the attack to brute force, as each hash must be recomputed for each possible password. Additionally, the computed rainbow table would only be useful for that specific user, as each user would have a different salt. It could take years before a password is cracked!
 
-<popover id="pop:brute" title="A brute force attack is an attack where all possible combinations are tested to see if they work." placement="top">
-  <div slot="content">
- A brute force attack usually takes very long to carry out. A cryptographic hashing algorithm helps 
-  </div>
-</popover>
+Note that the salt should be randomly generated, as opposed to choosing a static value that is different for every user. For example, if an application used the username of the user as the salt, then attackers can pre-generate rainbow tables for common usernames, causing users with common username to be vulnerable to a rainbow table attack, even with salt applied to their passwords.
 
-Note that the salt should be randomly generated, as opposed to choosing a static value that is different for every user. For example, if an application used the username of the user as the salt, then attackers can pre-generate rainbow tables for common usernames, causing users with common users to be vulnerable to a rainbow table attack, even with salt applied to their passwords.
-
-Thus, the way to store passwords properly is to use a salted hash - take the user's password, append some bytes to it, and hash the result. That hash is the user's hashed password. When the user attempts to log in again, perform the same procedure again. If the hash matches, then you know that the user is who he says he is, even if you don't actually know the original password that the user provided. 
+Thus, the way to store passwords properly is to use a _salted hash_ - take the user's password, append some data to it, and hash the result. That hash is the user's hashed password. When the user attempts to log in again, perform the same procedure again. If the hash matches, then you know that the user is who he says he is, even if you don't actually know the original password that the user provided. 
 
 One question that is commonly asked by developers is where to store the salt. The salt can be stored in plaintext, along with the user in the database. Since the goal of the salt is only to prevent precomputed rainbow tables from being used, it doesn't need to be encrypted in the database.
 
