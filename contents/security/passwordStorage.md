@@ -29,15 +29,19 @@ It is a cryptography term generally referring to text before encyption or after 
   </div>
 </popover>
 
-## What is encryption?
+## Encryption
 
-Encryption refers to the process of changing a message such that it becomes essentially random text. The opposite process is called _decryption_, which converts the text back into the original message. In order to do this, it takes in an <trigger for="pop:encrypt-key">encryption key</trigger>, which is then re-used in the decryption process. 
-
-Additionally, even a small change in the message will result in a completely different <trigger for="pop:ciphertext">ciphertext</trigger>. This means that even very similar passwords that vary only by capitalization or a letter would still result in different ciphertext, so attackers can't compare the hash to try and figure out which users have similar passwords.
+_Encryption_ is the process of converting plaintext into <trigger for="pop:ciphertext">ciphertext</trigger> along with an <trigger for="pop:encrypt-key">encryption key</trigger>. To <tooltip content="The opposite of encryption">decrypt</tooltip> the message, a <trigger for="pop:decrypt-key">decryption key</trigger> is required to convert the ciphertext back into it's original plaintext for it to be read. This process is called _decryption_. Without the decryption key, the ciphertext is simply a bunch of meaningless data. There are two main types of <tooltip content="When you choose to encrypt data, you must choose a specific algorithm to encrypt with. There are many, such as AES, DES and RSA">encryption algorithms</tooltip>: _Symmetric key algorithms_, where encryption and decryption keys are identical or closely related, and _Asymmetric key algorithms_, where encryption and decryption keys are different.
 
 <popover id="pop:ciphertext" title="_Ciphertext_ refers to encrypted information" placement="top">
   <div slot="content">
 It is a cryptography term generally referring to data after encrypting it.
+  </div>
+</popover>
+
+<popover id="pop:decrypt-key" title="All decryption algorithms require a _decryption key_" placement="top">
+  <div slot="content">
+Without this decryption key, decryption cannot be performed. Only the intended recipient of the data should have the decryption key.
   </div>
 </popover>
 
@@ -61,22 +65,17 @@ It is one of many possible encryption algorithms.
   </div>
 </popover>
 
-Encryption might seem like a good idea because it transfoms the data into essentially random text, which prevents all of the problems with storing the data directly in plaintext. However, because encryption is <tooltip content="If a function is reversible, and it converts from x to y, then it can also convert from y back to x"> reversible</tooltip>, it is always possible to regain the original password from the <trigger for="pop:ciphertext">ciphertext</trigger>. Since the data is encrypted, the <trigger for="pop:encrypt-key">encryption key</trigger> must also be stored somewhere. This means that if someone manages to hack into the application and read the encrypted passwords, it is also likely that they will be able to read the encryption key. With the encryption key, they will be able to decrypt all the passwords and read them anyway. This makes encryption unsuitable for password storage.
+Encryption might seem like a good idea because the ciphertext is meaningless without the decryption key, which prevents all of the problems with storing the data directly in plaintext. However, because encryption is <tooltip content="If a function is reversible, and it converts from x to y, then it can also convert from y back to x"> reversible</tooltip>, it is always possible to regain the original password from the ciphertext. Since the password is encrypted, the decryption key must also be stored somewhere. This means that if someone manages to hack into the application and read the encrypted passwords, it is also likely that they will be able to read the decryption key. With the decryption key, they will be able to decrypt all the passwords and read them anyway. This makes encryption unsuitable for password storage.
 
 <popover id="pop:encrypt-key" title="All encryption algorithms require an _encryption key_" placement="top">
   <div slot="content">
-The key is usually randomly generated text that is used to encrypt the original data. To then decrypt the data, the same key (and algorithm) must be used.
+The key is usually randomly generated text that is used to encrypt the original data.
   </div>
 </popover>
 
-## What is hashing?
+## Hashing
 
-Hashing is a <trigger for="pop:oneway">one-way</trigger> function that transforms a set of data into another set of data. Unlike encryption, hashing works by re-iterating on the input multiple times, each time using values that are dependent on the previous state, then destroying the previous state. This makes it impossible to reverse as a computer would have to test all possible states on each iteration, which compounds into several billion possible states. 
-<popover id="pop:oneway" title="" placement="top">
-  <div slot="content">
-    A one way function is a function that is easy to compute the result of, but whose results are difficult to reverse back to the original input.
-  </div>
-</popover>
+Hashing is a <tooltip content="A one way function is a function that is easy to compute the result of, but whose results are difficult to reverse back to the original input">one-way</tooltip> function that transforms a set of data into another set of data. Unlike encryption, hashing works by re-iterating on the input multiple times, each time using values that are dependent on the previous state, then destroying the previous state. This makes it impossible to reverse as a computer would have to test all possible states on each iteration, which compounds into several billion possible states. 
 
 <popover id="pop:hashing-algo" title="A _hashing algorithm_ is a specific type of operation that hashes the input" placement="top">
   <div slot="content">
@@ -104,7 +103,7 @@ An example of a service that provides this is [Crackstation](https://crackstatio
 
 Since attacks like rainbow tables exist, passwords need another layer of security.
 
-## Adding salt
+## Salting
 
 A salt refers to appending a string of text, unique to each user, to their password before hashing them. Since each user has a unique salt, this makes rainbow tables ineffective, as the majority of the precomputed hashes won't even contain the salt, so they wouldn't even matter anyway! In this way, the salt forces the attacker to recompute the rainbow table for each password in order to be able to effectively use it. This effectively converts the attack to <trigger for="pop:brute">brute force</trigger>, as each hash must be recomputed for each possible password. Additionally, the computed rainbow table would only be useful for that specific user, as each user would have a different salt. It could take years before a password is cracked!
 
