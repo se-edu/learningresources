@@ -1182,6 +1182,27 @@
     },
     {
       "headings": {
+        "introduction-to-password-storage": "Introduction to Password Storage",
+        "overview": "Overview",
+        "encryption": "Encryption",
+        "hashing": "Hashing",
+        "why-isn-t-hashing-enough": "Why isn't hashing enough?",
+        "salting": "Salting",
+        "what-if-there-is-a-server-breach": "What if there is a server breach?",
+        "getting-started": "Getting started",
+        "other-resources": "Other resources"
+      },
+      "title": "Introduction to Password Storage",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/security/passwordStorage.md",
+      "layout": "default"
+    },
+    {
+      "headings": {
         "sql-injection": "SQL Injection",
         "sql": "SQL",
         "how-does-sql-injection-work": "How does SQL Injection Work?",
