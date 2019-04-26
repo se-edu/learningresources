@@ -7,5 +7,3 @@ This repository is a collection of Software Engineering learning resources.
 ---
 
 [Guidelines for Contributors](https://se-education.org/learningresources/contributing.html) | [Contact](https://se-education.org/learningresources/about.html) | License: MIT
-
-</div>
