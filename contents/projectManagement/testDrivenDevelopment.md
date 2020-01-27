@@ -51,17 +51,6 @@ Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the ge
 
 Steps 1-5 outline one **iteration** of the TDD cycle. In practice, several such iterations are required - sometimes even to get the same test or portion of the test to pass.
 
-<tooltip content="Acceptance Test-Driven Development">ATDD</tooltip> and <tooltip content="Developer Test-Driven Development">DTDD</tooltip>[^2] are important aspects of TDD:
-
-* ATDD : Acceptance TDD involves the use of <trigger trigger="click" for="modal:index-acceptance">acceptance tests</trigger> or behavioural specifications in its workflows. By following Acceptance TDD, a detailed specification of the requirements of your product can be obtained.
-
-* Developer TDD: This is the form of development that actually involves writing tests followed by <tooltip content="No more; No less">minimal</tooltip> production code that passes the test. This helps in achieveing the goal of a detailed specification of the executable design for your solution. DTDD is often simply called TDD.
-
-<modal title="Acceptance Tests" id="modal:index-acceptance">
-Acceptance tests, also called Customer Acceptance tests, are tests that describe the behavior of a software product. They are tests that have the power to encode the technical and non-functional requirements, business logic, and detailed usage requirements of the product. They are similar to unit tests in that they have binary results - pass or fail. 
-</modal>
-
-
 Figure 1 below shows the general TDD (or DTDD, whichever you prefer) cycle.
 
 <center>
@@ -71,23 +60,12 @@ _Figure 1. General TDD cycle._[^2]
 </pic>
 </center>
 
-Shown below is the figure that depicts a combination of ATDD and DTDD.
-
-Ideally, you start off by writing acceptance tests and ensuring that they pass. The DTDD cycle is used to write code for those tests that fail.
-
-<center>
-<pic src="images/effectiveSteps.jpg" alt="effectiveSteps" height="500">
-
-_Figure 2. Combination of ATDD and DTDD._[^2]
-</pic>
-</center>
-
 The essence of TDD can therefore be summarized into the mnemonic "Red, Green, Refactor", where "Red" signifies failure and "Green" signifies success (of the test). "Refactor" refers to the refactoring step in the TDD cycle.
 
 <center>
 <pic src="images/mantra.jpg" alt="mantra" height="170">
 
-_Figure 3. Red, Green, Refactor._[^2]
+_Figure 2. Red, Green, Refactor._[^2]
 </pic>
 </center>
 
@@ -107,7 +85,7 @@ Mock objects are simulated objects whose sole purpose is to act as a black-box t
 
 ### Benefit 2: Test-driven Development Ensures that Product Requirements are Understood
 
-Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is (ideally) writing acceptance tests. Coming up with acceptance tests without a clear picture of the requirements or specifications  can be dangerous as - 
+Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is (ideally) writing tests. Coming up with tests without a clear picture of the requirements or specifications  can be dangerous as - 
 
 1. you could end up testing something that doesn't need to be tested, thus giving you a false sense of accomplishment when you write production code to pass the test, or 
 1. you could end up overlooking some requirements that _must_ be tested, which is far worse.
@@ -185,6 +163,30 @@ At this juncture, you know how to write tests and how to use test doubles. What'
 The last step of the TDD cycle is refactoring your code. There is more to refactoring than just renaming variables and extracting methods. Martin Fowler's [refactoring.com](https://refactoring.com/catalog/) catalogs a whole array of refactoring principles and tips that can be very handy - even to the most experienced of developers.
 
 ['Test-Driven Development: By Example'](https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&s=books&ie=UTF8&qid=1495080564&sr=1-1&keywords=tdd+by+example) by Kent Beck is a worthwile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.
+
+## Appendix
+
+<tooltip content="Acceptance Test-Driven Development">ATDD</tooltip> and <tooltip content="Developer Test-Driven Development">DTDD</tooltip>[^2] are what comprise TDD:
+
+* ATDD : Acceptance TDD involves the use of <trigger trigger="click" for="modal:index-acceptance">acceptance tests</trigger> or behavioural specifications in its workflows. By following Acceptance TDD, a detailed specification of the requirements of your product can be obtained.
+
+* Developer TDD: This is the form of development that actually involves writing tests followed by <tooltip content="No more; No less">minimal</tooltip> production code that passes the test. This helps in achieveing the goal of a detailed specification of the executable design for your solution. DTDD is often simply called TDD.
+
+<modal title="Acceptance Tests" id="modal:index-acceptance">
+Acceptance tests, also called Customer Acceptance tests, are tests that describe the behavior of a software product. They are tests that have the power to encode the technical and non-functional requirements, business logic, and detailed usage requirements of the product. They are similar to unit tests in that they have binary results - pass or fail. 
+</modal>
+
+Shown below is the figure that depicts a combination of ATDD and DTDD.
+
+Ideally, you start off by writing acceptance tests and ensuring that they pass. The DTDD cycle is used to write code for those tests that fail.
+
+<center>
+<pic src="images/effectiveSteps.jpg" alt="effectiveSteps" height="500">
+
+_Figure 3. Combination of ATDD and DTDD._[^2]
+</pic>
+</center>
+
 
 
 [^1]: Beck, K. 2000. ["Extreme Programming Explained"](https://dl.acm.org/doi/book/10.5555/318762)
