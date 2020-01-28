@@ -13,7 +13,7 @@
 
 Author: [Yash Chowdhary](https://github.com/yash-chowdhary)
 
-## What is Test-Driven Development? 
+## What is Test-driven Development? 
 
 Typically when you write unit tests, you test out the functionality of code you've already written. Test-driven development (a.k.a TDD) is a software development process that emphasizes the opposite - writing tests before production code. It is a design technique aimed at understanding requirements before writing functional code.
 
@@ -51,7 +51,7 @@ Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the ge
 
 Steps 1-5 outline one **iteration** of the TDD cycle. In practice, several such iterations are required - sometimes even to get the same test or portion of the test to pass.
 
-Figure 1 below shows the general TDD (or DTDD, whichever you prefer) cycle.
+Figure 1 below shows the general TDD cycle.
 
 <center>
 <pic src="images/tddSteps.jpg" alt="tddSteps" height="420">
@@ -73,7 +73,7 @@ _Figure 2. Red, Green, Refactor._[^2]
 
 Some reasons why teams can choose to adopt the approach of test-driven development are: 
 
-### Benefit 1: Test-driven Development Improves Code Quality
+### Benefit 1: Test-Driven Development Improves Code Quality
 
 TDD can lead to well-written code. This is a direct consequence of the cycle that was explained [above](#development-cycle). One of the best practices while following TDD is to focus on small units of code. This can lead to more modular, flexible code with looser coupling that can be scaled[^3]. This way the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new-comer to understand it. Additionally, developers will work on units that can be written and tested independently and integrated later. This can be achieved through <trigger trigger="click" for="modal:index-mock">mock frameworks</trigger>, which help drive home the rationale of writing unit tests.
 
@@ -83,7 +83,7 @@ The tests also cover all possible branches and paths that the production code ca
 Mock objects are simulated objects whose sole purpose is to act as a black-box that mimics the behaviour of real-world objects during testing. They are especially useful in writing unit tests, which are meant to test the functionality of a portion of code assuming that the rest of the code behaves as it should. 
 </modal>
 
-### Benefit 2: Test-driven Development Ensures that Product Requirements are Understood
+### Benefit 2: Test-Driven Development Ensures that Product Requirements are Understood
 
 Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is (ideally) writing tests. Coming up with tests without a clear picture of the requirements or specifications  can be dangerous as - 
 
@@ -127,6 +127,29 @@ Even with some of the attractive benefits of adopting TDD, there is no one-size-
 
     Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests[^3].
 
+## Advanced Test-Driven Development
+
+Advanced practices of test-driven development can lead you to <tooltip content="Acceptance Test-Driven Development">ATDD</tooltip> and consequently <tooltip content="Developer Test-Driven Development">DTDD</tooltip>[^2]:
+
+* ATDD : Acceptance TDD involves the use of <trigger trigger="click" for="modal:index-acceptance">acceptance tests</trigger> or behavioural specifications in its workflows. By following Acceptance TDD, a detailed specification of the requirements of your product can be obtained.
+
+* Developer TDD: This is the form of development that actually involves writing tests followed by <tooltip content="No more; No less">minimal</tooltip> production code that passes the test. This helps in achieveing the goal of a detailed specification of the executable design for your solution. DTDD is often simply called TDD.
+
+<modal title="Acceptance Tests" id="modal:index-acceptance">
+Acceptance tests, also called Customer Acceptance tests, are tests that describe the behavior of a software product. They are tests that have the power to encode the technical and non-functional requirements, business logic, and detailed usage requirements of the product. They are similar to unit tests in that they have binary results - pass or fail. 
+</modal>
+
+Shown below is the figure that depicts a combination of ATDD and DTDD.
+
+Ideally, you start off by writing acceptance tests and ensuring that they pass. The DTDD cycle is used to write code for those tests that fail.
+
+<center>
+<pic src="images/effectiveSteps.jpg" alt="effectiveSteps" height="500">
+
+_Figure 3. Combination of ATDD and DTDD._[^2]
+</pic>
+</center>
+
 
 ## Getting Started with TDD
 
@@ -163,29 +186,6 @@ At this juncture, you know how to write tests and how to use test doubles. What'
 The last step of the TDD cycle is refactoring your code. There is more to refactoring than just renaming variables and extracting methods. Martin Fowler's [refactoring.com](https://refactoring.com/catalog/) catalogs a whole array of refactoring principles and tips that can be very handy - even to the most experienced of developers.
 
 ['Test-Driven Development: By Example'](https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&s=books&ie=UTF8&qid=1495080564&sr=1-1&keywords=tdd+by+example) by Kent Beck is a worthwile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.
-
-## Appendix
-
-<tooltip content="Acceptance Test-Driven Development">ATDD</tooltip> and <tooltip content="Developer Test-Driven Development">DTDD</tooltip>[^2] are what comprise TDD:
-
-* ATDD : Acceptance TDD involves the use of <trigger trigger="click" for="modal:index-acceptance">acceptance tests</trigger> or behavioural specifications in its workflows. By following Acceptance TDD, a detailed specification of the requirements of your product can be obtained.
-
-* Developer TDD: This is the form of development that actually involves writing tests followed by <tooltip content="No more; No less">minimal</tooltip> production code that passes the test. This helps in achieveing the goal of a detailed specification of the executable design for your solution. DTDD is often simply called TDD.
-
-<modal title="Acceptance Tests" id="modal:index-acceptance">
-Acceptance tests, also called Customer Acceptance tests, are tests that describe the behavior of a software product. They are tests that have the power to encode the technical and non-functional requirements, business logic, and detailed usage requirements of the product. They are similar to unit tests in that they have binary results - pass or fail. 
-</modal>
-
-Shown below is the figure that depicts a combination of ATDD and DTDD.
-
-Ideally, you start off by writing acceptance tests and ensuring that they pass. The DTDD cycle is used to write code for those tests that fail.
-
-<center>
-<pic src="images/effectiveSteps.jpg" alt="effectiveSteps" height="500">
-
-_Figure 3. Combination of ATDD and DTDD._[^2]
-</pic>
-</center>
 
 
 
