@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Introduction to Angular
+# Angular
 
 **Author: [Ronak Lakhotia](https://github.com/RonakLakhotia)**                                                              
 Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng](https://github.com/jacoblipech)
@@ -20,7 +20,7 @@ Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng]
 
 The [official website](https://angular.io/docs) describes Angular as follows:
 
->Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
+>*Angular* is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop.
 
 Let us understand some key terms in that definition starting with _declarative templates_.
 
@@ -113,7 +113,7 @@ This way of using DI increases the efficiency and modularity (as per the [Angula
 
 Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
  
-## Why Angular?
+## Why use Angular?
 
 Now that we know what Angular is, let us look at some benefits it has to offer.
 
@@ -193,17 +193,18 @@ In contrast, Angular provides data binding in both ways. That means even changes
 
 This [article](https://medium.com/@preethi.s/angular-custom-two-way-data-binding-3e618309d6c7) on Medium provides a good introduction to two-way data binding in Angular.
 
-### Disadvantages of Angular
+## Disadvantages of Angular
 
 Like any other framework/library, Angular has its share of disadvantages.
 
-1. **Steep Learning Curve** - Angular requires you to learn many concepts, such as _directives_, modules, components, services and many more. 
-The large number of new concepts can be confusing to newcomers. Additionally, Angular requires you to learn a new language, TypeScript.
+1. **Steep Learning Curve:** <br/>
+Angular requires you to learn many concepts, such as _directives_, modules, components, services and many more. The large number of new concepts can be confusing to newcomers. Additionally, Angular requires you to learn a new language, TypeScript.
 
-2. **Opinionated Framework** - Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
+2. **Opinionated Framework:**<br/>
+Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
 In contrast, React allows you to integrate any third party services in your application.
     
-### Comparison with other popular frontend frameworks
+## Comparison with other popular frontend frameworks
 
 [React]("https://reactjs.org/") and [Vue]("https://vuejs.org/") are two popular alternatives to Angular.
 
