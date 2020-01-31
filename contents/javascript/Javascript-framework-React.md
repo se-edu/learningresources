@@ -16,11 +16,13 @@
 **Author: [Aadyaa Maddi](https://github.com/amad-person)** <br>
 Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin)
 
-### What is React?
+## What is React?
 
 The [official website](https://reactjs.org/tutorial/tutorial.html#what-is-react) describes React as follows:
 
-> React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called 'components'. 
+>*React* is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called 'components'. 
+
+## React Features
 
 Let us understand some key features of React with the help of an example. A web application that displays the name of a person is given below:  
 
@@ -30,7 +32,7 @@ Let us understand some key features of React with the help of an example. A web 
     The sandbox above is editable. You can change the name using the textbox in the application and see how the UI automatically gets updated. You can view the application code by clicking the blue button next to "React: An Introductory Example". 
 </box>
 
-#### Declarative
+### Declarative
 
 The UI of a React application is defined using a mix of HTML code and HTML-like syntax, called [JSX](https://reactjs.org/docs/introducing-jsx.html). The main view of the application above (defined in the `App.render()` method in `index.js`) is given as follows:
 
@@ -46,7 +48,7 @@ The UI of a React application is defined using a mix of HTML code and HTML-like 
 
 In the above example, we declare what we want to display (i.e. `name`) and React renders the appropriate view based on the updated application data. This is known as the <tooltip content="Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.">*declarative*</tooltip> approach. With the declarative approach, you just need to specify *what* you want to show in the UI when the application data changes, rather than giving instructions on *how* to update the UI. 
 
-#### Components
+### Components
 
 React encapsulates application views and relevant data and logic for updating the views using *components*. A combination of components that exchange information with one another is used to build the UI of a React application. 
 
@@ -101,17 +103,17 @@ For example, the application above is divided into two components:
 
 As you can see, React components are just JavaScript functions that accept arbitrary input and return a declarative view describing what should appear in the application's UI. 
 
-#### One-Way Data Binding
+### One-Way Data Binding
 
 *Data binding* refers to the exchange of information between the application data and the UI. React provides *one-way* data binding. In applications that use one-way data binding, changes to the application data are automatically reflected in the UI. However, changes to the UI need to be manually propagated to the application data. 
 
 In the above application, you can see that the UI is updated whenever a different name is entered in the textbox. These updates do not happen in a single step - the application data is first updated using the `handleChange()` method, and then the UI is updated to reflect these changes. 
 
-### Why use React?
+## Why use React?
 
-Now that we know what React is, let us take a look at some of its benefits.
+Now that we know what React is, let us look at some benefits it has to offer.
 
-#### Benefit 1: Better Performance
+### Benefit 1: Better Performance
 
 Web applications can have a lot of user interaction and data updates, which results in changes being made to the <tooltip content="The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.">DOM</tooltip>. Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to <tooltip content="A reflow occurs when the structure of the DOM tree changes, and a repaint occurs on style changes. These operations can get quite expensive for large DOM trees.">*[reflow and repaint](https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/)*</tooltip> the UI every time the DOM is changed.
 
@@ -123,7 +125,7 @@ _Figure 1. How React's actual DOM gets updated._
 As shown in Figure 1 above, updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a *[diffing algorithm](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm)*. 
 Finally, React updates the actual DOM only in places it differs with the virtual DOM. It batches multiple changes together and updates the actual DOM in one go, minimizing update time. 
 
-#### Benefit 2: Abstraction
+### Benefit 2: Abstraction
 
 The traditional <tooltip content="Imperative programming focuses on explicitly describing how a program operates.">*imperative*</tooltip> approach of building a web application requires you to describe how you want your UI to change when your application data changes. 
 
@@ -131,25 +133,28 @@ Most web applications usually have to interact with a lot of DOM elements and ev
 
 React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally, React provides its own [events system](https://reactjs.org/docs/events.html) so that events can work in the same way across different browsers.
 
-#### Benefit 3: Testability
+### Benefit 3: Testability
 
 A React application is made up of a combination of components. Components are independent from each other, and like functions, they map the same input to the same output. This makes it easy to write unit tests for your application.
 
 Additionally, React only allows data to flow downwards (one-way data binding) using `state` and `props`, which makes your application [easier to debug](https://reactjs.org/docs/design-principles.html#debugging) as you can be sure that the data updates the UI, and never the other way around. 
 
-#### Other Advantages of React
+### Other Advantages of React
 
 Besides the three main benefits explained above, React has the following advantages:
  - React is not an <tooltip content="An opiniated framework guides or locks you into their preferred way of doing things.">*opinionated*</tooltip> framework, which gives you the flexibility to choose your application stack.
  - React is constantly being updated with new features (e.g. [hooks](https://reactjs.org/docs/hooks-intro.html) were released in v16.8) and performance optimizations.
 
-### Disadvantages of React
+## Disadvantages of React
 
-Some of React's disadvantages are given below:
- - The high pace of development of React means that you would need to regularly relearn how to do things.
- - React is just a UI library. As React only allows one-way data binding, you can't use it in applications that follow the <tooltip content="MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.">*MVC*</tooltip> architecture. You would have to use [Flux](https://github.com/facebook/flux), an application architecture that favors one-way data binding instead.
+Like any other framework/library, React has its share of disadvantages.
 
-### React and Other Competing Alternatives
+1. **High pace development:** <br/>
+The high pace of development of React means that you would need to regularly relearn how to do things.
+ 2. **React is just a UI library:**<br/>
+As React only allows one-way data binding, you can't use it in applications that follow the <tooltip content="MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.">*MVC*</tooltip> architecture. You would have to use [Flux](https://github.com/facebook/flux), an application architecture that favors one-way data binding instead.
+
+## React and Other Competing Alternatives
 
 There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are [Angular](https://se-education.org/learningresources/contents/javascript/Javascript-framework-Angular.html) and [Vue](https://se-education.org/learningresources/contents/javascript/Javascript-framework-VueJs.html).
 
@@ -160,7 +165,7 @@ How do you decide which one to use? Here are some resources to help you choose b
 
 Every framework has its pros and cons, but hopefully you have managed to see that React [removes some of the complexity](https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome) that comes with building user interfaces. 
 
-### Getting Started with React
+## How to get started with React?
 
 The official React [website](https://reactjs.org/) is a great place to get started. It includes:
  - A step-by-step [tutorial](https://reactjs.org/tutorial/tutorial.html) for building a React application, if you prefer to learn by doing.
@@ -172,7 +177,7 @@ If you want to add React to an existing project, you can take a look at React's 
 
 The official website also has [advanced guides](https://reactjs.org/docs/getting-started.html#advanced-concepts) if you want to understand how React works behind the scenes.
 
-### Other React Resources
+## Resources
 
 As React is a fairly popular library, you can find a lot of comprehensive resources online. Here are some resources that can be useful:
  - [The React Handbook](https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795) - This article provides a well-rounded overview of React.
