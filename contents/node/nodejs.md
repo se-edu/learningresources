@@ -11,23 +11,25 @@
 
 {{ booktitle | safe }}
 
-# Introduction to Node.js
+# Node.js
 
 Author: Rachael Sim
 
-# Overview
+<box type="info">
+This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance) as asynchronous programming is key in Node.
+</box>
 
-_This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance) as asynchronous programming is key in Node._
+## What is Node.js?
 
 >*Node.js* is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--https://nodejs.org</sub>
 
 Node is mostly used in back-end and server side scenarios. For example, LinkedIn mobile app backend is built on Node JS and Uber built its massive matching system between customers and drivers on Node.js. However, Node can also be used in the front-end to automate tasks such as building, testing, pre and post processing code.
 
-# Benefits
+## Why use Node.js?
 
-Why should you use Node?
+Now that we know what Node.js is, let us look at some benefits it has to offer.
 
-## Benefit 1: Easy to get started
+### Benefit 1: Easy to get started
 
 To install Node, simply download the installer from the [official Node.js website](https://nodejs.org/en/download/) based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install and manage node.js packages. The use of npm will be explained in the next section.
 
@@ -62,23 +64,23 @@ To test the server, open a browser tab and navigate to http://localhost:3000/. Y
 
 Read on to find out about how to incorporate external dependencies, manage them and use Node's module system to organize your code.
 
-## Benefit 2: Avoid synchronization problems and overheads
+### Benefit 2: Avoid synchronization problems and overheads
 
 Node is designed to be **event-driven**. When an event happens e.g. an I/O event is complete, the event handler/callback function will be enqueued in a queue where it will be subsequently scheduled to run by the [event loop](https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c). The main event loop (where Javascript code is executed) is single-threaded.
 
 This means that we can avoid thread overheads and synchronization problems including deadlocks and race conditions.
 
-## Benefit 3: Fast for I/O intensive tasks
+### Benefit 3: Fast for I/O intensive tasks
 
 This is due to the **non-blocking** I/O model.
 
 When file and other I/O operations requests are made in Python or Java, they are blocking -- subsequent requests (in the same thread) have to be enqueued and can only be processed after the current operation and request completes. Meanwhile, the program remains idle. In contrast, Node.js has an event loop which delegates the actual tasks to other systems (e.g. file system and databases) and it is almost never blocked after delegation. While an I/O operation is incomplete, the event loop can still process subsequent requests.
 
-## Benefit 4: Use JavaScript for both front and back-end development
+### Benefit 4: Use JavaScript for both front and back-end development
 
 Using Node for back-end development makes it possible to share and reuse code between the front-end and back-end. Teams can be more efficient and less reliant on documentation as they can read the code directly. The team can also become more cross-functional as developers can contribute to both development.
 
-## Benefit 5: Easy dependency management with npm
+### Benefit 5: Easy dependency management with npm
 
 Node Package Manager (npm) is used to
 * Search for node.js packages online
@@ -135,7 +137,7 @@ When a dependency is installed, the package's code will be added to the local `/
 
 The [module section](#benefit-7-easy-to-reuse-code-from-others) describes how to import packages in your code.
 
-## Benefit 6: npm `scripts` is versatile and help to save time in the development process
+### Benefit 6: npm `scripts` is versatile and help to save time in the development process
 
 `package.json` also contains a `scripts` property. It is a useful tool that can be used to perform repetitive tasks such as testing and building. `scripts` takes in an object. For each property, the key is the name of the command and the corresponding value is the actual command that will be run.
 
@@ -151,7 +153,7 @@ For example, inside your `package.json`, you might have
 ```
 Running `npm run build` in the command shell will execute `node app.js` and similarly `npm run lint-fix` will fix your linting errors in your JavaScript files. npm scripts are much more powerful - you can use them as shortcuts to [uglify JavaScript, auto-prefix CSS](https://css-tricks.com/why-npm-scripts/) and even execute multiple tasks at a go. To find out more about how you can use npm scripts, refer to [freeCodeCamp's Introduction to NPM Scripts](https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633).
 
-## Benefit 7: Easy to reuse code from others
+### Benefit 7: Easy to reuse code from others
 
 Node module system allows you to include other Javascript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.
 
@@ -167,11 +169,11 @@ const Promise = require('bluebird'); // import a non-core module
 
 Node will first check if the module identifier passed to `require` is a core module or a relative path. If so, it will return the core module or the object which references the value of `module.exports` in the specified file path respectively. Otherwise, Node will attempt to load the module from the `node_modules` folder in the parent directory of the current module.
 
-## Benefit 8: Good support
+### Benefit 8: Good support
 
 npm (Node Package Manager) is the largest ecosystem of open source libraries in the world. You can find a wide range of helpful and well-tested packages that can serve your needs on [npmjs](https://www.npmjs.com/).
 
-## Benefit 9: Support for better code organization
+### Benefit 9: Support for better code organization
 
 We can also create separate files and modules in our codebase such that each module is focused on a single functionality. This makes your code more maintainable and testable.
 
@@ -198,7 +200,7 @@ newParser.parse(content);
 
 To better understand how to use `module.exports`, checkout [Tendai Mutunhire's article](http://stackabuse.com/how-to-use-module-exports-in-node-js/).
 
-# Use cases
+## Use cases
 
 Node.js is **good** for
 * **Processing high volumes of IO-bound requests**. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than other usual servers (such as those written in Ruby on Rails). This makes the Node server faster and more scalable.
@@ -211,7 +213,8 @@ However, Node.js is **not suitable** for
 
 To find out more about when you should or should not use Node.js, checkout these articles by [netguru](https://www.netguru.co/blog/use-node-js-backend) and [Node.js foundation](https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e).
 
-# Resources
+## Resources
+
 * Try out Node.js online - [Node prototyping with Runkit](https://runkit.com/home)
 * A guide on asynchronous programming in JS - [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
 * A comprehensive introduction to Node -  [The art of node](https://github.com/maxogden/art-of-node/)
