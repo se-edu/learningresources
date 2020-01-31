@@ -11,18 +11,18 @@
 
 {{ booktitle | safe }}
 
-# VueJs
+# Vue.js
 
 **Authors: [Chelsey Ong](https://github.com/chelseyong), [Lu Lechuan](https://github.com/LuLechuan)** <br>
 Reviewers: [Gilbert Emerson](https://github.com/emer7), [Ong Shu Peng](https://github.com/ongspxm)
 
 <box type="info">
-This article assumes the reader has a basic knowledge of HTML and JavaScript.
+This chapter assumes that the reader has a basic knowledge of HTML and JavaScript.
 </box>
 
-## What is VueJs?
+## What is Vue.js?
 
-VueJs (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
+>*Vue.js* (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
 
 This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
 The main HTML file:
@@ -88,7 +88,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 > <h2>Hello World</h2>
 <br>
 
-## VueJs Features
+## Vue.js Features
 
 1. **Mutating of data in the DOM**<br>
     In Vue, the state of the data can be directly modified.
@@ -228,9 +228,12 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-## VueJs Advantages
+## Why use Vue.js?
 
-1. **Approachable:**<br/>
+Now that we know what Vue.js is, let us look at some benefits it has to offer.
+
+### Benefit 1: Approachable
+
 VueJs is very easy to learn. Compared to other framework such as Angular and ReactJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
 How is iteration like in ReactJs:<br/><br/>
 The JavaScript file in ReactJs
@@ -272,19 +275,22 @@ The JavaScript file in ReactJs
     </div>
     ```
 
-2. **Progressive:**<br/>
+### Benefit 2: Progressive
+
 VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follow:
     > Vue.js is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
     >
     > -- [[source]](https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/)
 
-3. **Versatile:**<br/>
+### Benefit 3: Versatile
 VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
 
-4. **Clean:**<br/>
+### Benefit 4: Clean
 VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.
 
-## VueJs Drawbacks
+## Disadvantages of Vue.js
+
+Like any other framework/library, Vue.js has its share of disadvantages.
 
 1. **Relatively small size community:**<br/>
 VueJs is a relatively new JavaScript framework as compared to Angular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
