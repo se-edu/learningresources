@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Introduction to Angular
+  title: Angular
   header: pagetop.md
   footer: footer.md
   head: head.md

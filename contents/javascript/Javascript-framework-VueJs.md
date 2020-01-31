@@ -1,5 +1,5 @@
 <frontmatter>
-  title: VueJs
+  title: Vue.js
   header: pagetop.md
   footer: footer.md
   head: head.md

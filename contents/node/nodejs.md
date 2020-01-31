@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Introduction to Node.js
+  title: Node.js
   header: pagetop.md
   footer: footer.md
   head: head.md
