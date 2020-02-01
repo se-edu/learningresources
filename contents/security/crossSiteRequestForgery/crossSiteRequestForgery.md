@@ -117,8 +117,8 @@ So a valid request by Alice made from the bank's own website will also carry thi
 
 ## References
 
-- https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF) (A more technical description of the attack)
-- https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet (In-depth discussion of the various defense approaches, including those that do not work)
+- https://owasp.org/www-community/attacks/csrf (A more technical description of the attack)
+- https://owasp.org/www-project-cheat-sheets/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html (In-depth discussion of the various defense approaches, including those that do not work)
 - http://www.cgisecurity.com/csrf-faq.html (Short FAQs about CSRF)
 - https://docs.djangoproject.com/en/2.0/ref/csrf/ (CSRF Protection in Django)
 
