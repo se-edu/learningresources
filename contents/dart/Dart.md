@@ -15,9 +15,62 @@
 **Author(s): [Tan Yuanhong](https://github.com/le0tan)**<br>
 
 ## What Is Dart?
+Dart (previously also known as `dartlang`) is an object-oriented, <tooltip content="a style of Object-oriented programming (OOP) in which inheritance occurs via defining classes of objects, instead of inheritance occurring via the objects alone (compare prototype-based programming)">class defined</tooltip>, garbage-collected language using a C-style syntax that <tooltip content="also known as source-to-source compilation">transcompiles</tooltip> optionally into JavaScript. It's rumored that Dart was invented out of Google engineers' frustration with JavaScript (they even built [a version of Chromium browser](http://dartdoc.takyam.com/tools/dartium/) with Dart VM so that Dart code can be run on the web without transcompiling to JavaScript). However, as most developers still stick to JavaScript and it turned out that TypeScript is a much more widely-accepted solution for statically typed JavaScript transcompilation, Dart is then, with the emergence of <tooltip content="a cross-platform mobile UI framework developed by Google">Flutter</tooltip>, re-purposed as a **client-optimized** language that's optimized for **UI creation** and **cross-platform execution**.
 
 ## Why Learn Dart?
+### Flutter
+**If you are to try Flutter, you have to learn Dart. :smirk:** Let's face it, Dart is basically *revived* by the development of Flutter, and that's not a bad thing at all - there are many excellent programming languages that don't receive much attention simply because they're not used in production by huge companies or by an active community. In other words, as long as Google is still committed to maintaining Flutter and the community is still building apps using Flutter, Dart remains an actively updated programming language.
+### Tooling support
+Dart has out-of-the-box dependency management ([pub.dev](https://pub.dev/)), linting solution ([dartfmt](https://dart.dev/tools/dartfmt)), documentation generator ([dartdoc](https://dart.dev/tools/dartdoc)) and [official testing framework](https://pub.dev/packages/test). After installing Dart SDK, you're ready to go 99% of the time.
+### Easy to learn
+Like many devs who tried Dart says, you might already know Dart. If you already have *any* prior programming experience in any language (say, C, C++, Java, JavaScript, Python, Kotlin, Swift), you're pretty likely to master Dart within weeks for the following reasons:
+* Dart is using a C-style syntax: it won't be a surprise if a function written in Java can be compiled and run in Dart with minor (or no) changes.
+* Dart is a **strongly-typed** language with type-inference support: static typing makes IDE much more helpful and if your program compiles, it most likely works just fine.
+* You may find your favorite syntax (sugar) in Dart, for example
+  * Similar to JavaScript: arrow functions, named parameters (more on that later)
+  * Similar to Kotlin: `get` and `set` keywords for OOP, null safety syntax
+### Versatility
+Dart can run on all major desktop and mobile platforms and can be transpiled to JavaScript for browser execution. It even has three execution modes (again, supporting all major platforms) for the best of all words:
+* for fast development, <tooltip content="Just-in-time">JIT</tooltip> + Dart VM; 
+* for native performance: <tooltip content="Ahead-of-time">AOT</tooltip> compilation to platform-specific instructions; 
+* for browser support: source-to-source compiler to JavaScript
+Moreover, Dart has interoperability with [C](https://dart.dev/guides/libraries/c-interop) and [JavaScript](https://dart.dev/web/js-interop) (i.e. you may execute C or JavaScript code directly from your Dart program). In Flutter, you may also invoke OS-specific methods using [platform channels](https://flutter.dev/docs/development/platform-integration/platform-channels). With regards to this point, Dart is similar to Python as a "glue language".
+### Designed for Declarative UI
+**Dart is a useful declarative UI language.** Dart's syntax allows you to write statically typed code in a JSON-like way, and writing asynchronous code is a breeze in Dart (more on those later).
+
+Of course, like any other language, Dart is [not perfect](https://news.ycombinator.com/item?id=16475074). Even if Dart appears to be open-sourced, it has been pretty internally focused. And unlike Java, C++ or Python, although technically you can write most types of application using Dart, it may not be your safest choice a lot of the times (i.e. you may find yourself writing Dart in a Flutter project most of the time).
+
+## What makes Dart appealing?
+
+### Benefit: Asynchrony support
+https://dart.dev/guides/language/language-tour#asynchrony-support
+https://dart.dev/codelabs/async-await
+
+### Benefit: Extension methods
+https://dart.dev/guides/language/language-tour#extension-methods
+
+### Benefit: Named and optional parameters
+This is what makes Dart code look like JavaScript code (or JSON-like, as mentioned before).
+https://dart.dev/guides/language/language-tour#optional-parameters
+
+### Benefit: Cascade notation
+https://dart.dev/guides/language/language-tour#cascade-notation-
+
+### Benefit: Metadata
+https://dart.dev/guides/language/language-tour#metadata
+(This is also used for **required** parameters [here](https://pub.dev/documentation/meta/latest/meta/Required-class.html))
+
+### Benefit (advanced): Interoperability
+https://dart.dev/guides/libraries/c-interop
+https://dart.dev/web/js-interop
 
 ## How to Get Started with Dart?
+For beginners
+- [Dart tutorials](https://dart.dev/tutorials)
+
+For experienced programmers
+- [A tour of the Dart language](https://dart.dev/guides/language/language-tour)
+- [Effective Dart](https://dart.dev/guides/language/effective-dart)
+- [Dart Academy](https://dart.academy/)
 
 </div>
