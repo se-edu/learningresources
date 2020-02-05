@@ -127,7 +127,23 @@ main() {
 </panel>
 
 ### Benefit: Extension methods
-https://dart.dev/guides/language/language-tour#extension-methods
+Extension methods aim to solve one problem: when using an external library, you may want to extend or even change some of the methods for your own needs. For example, instead of using `int.parse(42)`, you want to extend the `String` class so that it has a method `parseInt()` to parse a string to int. You can easily do so by extending `String` class in Dart:
+
+```dart
+extension NumberParsing on String {
+  int parseInt() {
+    return int.parse(this);
+  }
+}
+
+main(List<String> args) {
+  print('42'.parseInt());
+}
+```
+
+<panel header="DartPad example"><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=c162704838776bb7da6568c3c1589f69&split=50"></iframe></panel>
+
+Extending classes, especially core classes like `String`, could be quite tricky if not impossible without extension methods. However, in Dart, you can easily customize the behavior of built-in classes like so. Extension methods in Dart have even more interesting stuff like [generic support](https://dart.dev/guides/language/extension-methods#implementing-generic-extensions).
 
 ### Benefit: Named and optional parameters
 This is what makes Dart code look like JavaScript code (or JSON-like, as mentioned before).
