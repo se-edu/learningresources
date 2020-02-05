@@ -43,8 +43,88 @@ Of course, like any other language, Dart is [not perfect](https://news.ycombinat
 ## What makes Dart appealing?
 
 ### Benefit: Asynchrony support
-https://dart.dev/guides/language/language-tour#asynchrony-support
-https://dart.dev/codelabs/async-await
+
+There are three major ways Dart supports asynchronous programming
+* [`Future`](https://api.dart.dev/stable/2.7.1/dart-async/Future-class.html) object, which is very similar to [JavaScript promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [`Stream`](https://api.dart.dev/stable/2.7.1/dart-async/Stream-class.html) object, which can be "subscribed" to
+* `async` and `await` syntax
+
+Asynchronous programming is commonly used in UI because certain operations are not instant, most common of which is HTTP requests:
+
+```dart
+import 'dart:html';
+
+main(List<String> args) {
+  Future<String> respFuture = HttpRequest.getString('https://jsonplaceholder.typicode.com/todos/1');
+  respFuture.then((result) => print(result));
+  print("Hello world");
+}
+```
+
+<panel header="DartPad example"><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=9dfa68887ae9b57f87d2eccfd061c675&split=50"></iframe></panel>
+
+You should expect "Hello world" to be printed before the HTTP request's result because `Future` object makes sure that the progress of `main` will not be hindered by the HTTP request. Instead, *callback function* `(result) => print(result)` is called whenever the result is ready - thus **asynchronous**.
+
+However it's possible to enforce the "line-by-line" execution order by using `await` in an `async` function:
+
+```dart
+import 'dart:html';
+
+main(List<String> args) async {
+  var result = await HttpRequest.getString('https://jsonplaceholder.typicode.com/todos/1');
+  print(result);
+  print("Hello world");
+}
+```
+
+<panel header="DartPad example"><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=1aa4acd76e7a874844564913d26a72b3&split=50"></iframe></panel>
+
+You may understand `await` as "waiting for the result, do not proceed until it's ready". `.then` and `await` are two different ways of consuming the result of a `Future`. To help you better understand the difference between `async-await` and `then`, here is an example:
+
+<panel header="Example">
+
+If you are to write callback functions for futures `f1` and `f2` separately, they will execute "in parallel". You should expect to see "String from the future" before "Must come second".
+
+```dart
+main() {
+  var f1 = Future.delayed(Duration(seconds: 1), () => 'String from the future');
+  var f2 = Future.delayed(Duration(seconds: 2), () => 'Must come second');
+  f1.then((res1) => print(res1));
+  f2.then((res2) => print(res2));
+}
+```
+
+<panel header="DartPad example"><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=ebdcc9d8de89c26ceed7b1255bf40395&split=50"></iframe></panel>
+
+However, if you only want to request the content of `f2` after `f1` is ready, you may nest callback functions like below:
+
+```dart
+main() {
+  var f1 = Future.delayed(Duration(seconds: 1), () => 'String from the future');
+  var f2 = Future.delayed(Duration(seconds: 2), () => 'Must come second');
+  f1.then((res1) {
+    f2.then((res2) {
+      print(res1 + " " + res2);
+    });
+  });
+}
+```
+
+<panel header="DartPad example"><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=ff4a94d26a59c373b7cd94cd8df7094a&split=50"></iframe></panel>
+
+This time, after 2 seconds, two strings should be printed out at the same time. However, using `async-await`, there's a more elegant way to do the same thing:
+
+```dart
+main() {
+  var f1 = Future.delayed(Duration(seconds: 1), () => 'String from the future');
+  var f2 = Future.delayed(Duration(seconds: 2), () => 'Must come second');
+  f1.then((res1) async {
+    print(res1 + " " + await f2);
+  });
+}
+```
+<panel header="DartPad example"><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=077d288e4a705324c4aa268810904305&split=50"></iframe></panel>
+</panel>
 
 ### Benefit: Extension methods
 https://dart.dev/guides/language/language-tour#extension-methods
