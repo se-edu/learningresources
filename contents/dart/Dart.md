@@ -145,20 +145,26 @@ main(List<String> args) {
 
 Extending classes, especially core classes like `String`, could be quite tricky if not impossible without extension methods. However, in Dart, you can easily customize the behavior of built-in classes like so. Extension methods in Dart have even more interesting stuff like [generic support](https://dart.dev/guides/language/extension-methods#implementing-generic-extensions).
 
-### Benefit: Named and optional parameters
-This is what makes Dart code look like JavaScript code (or JSON-like, as mentioned before).
-https://dart.dev/guides/language/language-tour#optional-parameters
+### Benefit: Named parameters
+This is what makes Dart code look like JavaScript code (or JSON-like, as mentioned before). In languages like Java, the order of a function's parameters is specified by the function's definition, and when the function is called, if you only look at the function call, it might be difficult for you to figure out what those parameters mean. One classic example is the `put(K key, V value)` method of the `Map<K, V>` interface in Java - if you only see `m.put(1, 2)`, can you tell with confidence, which one is key?
 
-### Benefit: Cascade notation
-https://dart.dev/guides/language/language-tour#cascade-notation-
+That's when named parameters become handy:
 
-### Benefit: Metadata
-https://dart.dev/guides/language/language-tour#metadata
-(This is also used for **required** parameters [here](https://pub.dev/documentation/meta/latest/meta/Required-class.html))
+When calling a function, you can specify named parameters using `paramName: value`. For example:
+```dart
+enableFlags(bold: true, hidden: false);
+```
+
+When defining a function, use `{param1, param2, ...}` to specify named parameters:
+```dart
+/// Sets the [bold] and [hidden] flags ...
+void enableFlags({bool bold, bool hidden}) {...}
+```
+
+Note that if named parameters are used, the order no longer matters, you can write `enableFlags(hidden: false, bold: true);` as well.
 
 ### Benefit (advanced): Interoperability
-https://dart.dev/guides/libraries/c-interop
-https://dart.dev/web/js-interop
+You can call C and JavaScript code from Dart using [dart:ffi](https://api.dart.dev/dev/2.8.0-dev.7.0/dart-ffi/dart-ffi-library.html) for C or [js](https://pub.dev/packages/js) for JavaScript. These libraries translate data types from other languages to native Dart data types for mixed operation.
 
 ## How to Get Started with Dart?
 For beginners
