@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Angular
+  title: Introduction to Angular
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Angular
+# Introduction to Angular
 
 **Author: [Ronak Lakhotia](https://github.com/RonakLakhotia)**                                                              
 Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng](https://github.com/jacoblipech)
