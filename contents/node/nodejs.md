@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Node.js
+  title: Introduction to Node.js
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Node.js
+# Introduction to Node.js
 
 Author: Rachael Sim
 
