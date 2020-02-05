@@ -1,5 +1,5 @@
 <frontmatter>
-  title: React
+  title: Introduction to React
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -11,7 +11,7 @@
   
 {{ booktitle | safe }}
 
-# React
+# Introduction to React
 
 **Author: [Aadyaa Maddi](https://github.com/amad-person)** <br>
 Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin)
@@ -32,7 +32,7 @@ Let us understand some key features of React with the help of an example. A web 
     The sandbox above is editable. You can change the name using the textbox in the application and see how the UI automatically gets updated. You can view the application code by clicking the blue button next to "React: An Introductory Example". 
 </box>
 
-### Declarative
+### Declarative Framework
 
 The UI of a React application is defined using a mix of HTML code and HTML-like syntax, called [JSX](https://reactjs.org/docs/introducing-jsx.html). The main view of the application above (defined in the `App.render()` method in `index.js`) is given as follows:
 
@@ -84,7 +84,7 @@ For example, the application above is divided into two components:
     }
     ```
 
-1. **PersonComponent**
+2. **PersonComponent**
 
     `PersonComponent` (defined in `personComponent.js`) renders the details of the person. It accepts input from the `App` component in the form of *`props`*.
     
