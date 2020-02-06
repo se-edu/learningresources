@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Introductio to Vue
+  title: Introduction to Vue
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Introducion to Vue
+# Introduction to Vue
 
 **Authors: [Chelsey Ong](https://github.com/chelseyong), [Lu Lechuan](https://github.com/LuLechuan)** <br>
 Reviewers: [Gilbert Emerson](https://github.com/emer7), [Ong Shu Peng](https://github.com/ongspxm)
