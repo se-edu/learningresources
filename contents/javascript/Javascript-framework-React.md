@@ -149,7 +149,7 @@ Besides the three main benefits explained above, React has the following advanta
 
 Like any other framework/library, React has its share of disadvantages.
 
-1. **High pace development:** <br/>
+1. **Fast-paced development:** <br/>
 The high pace of development of React means that you would need to regularly relearn how to do things.
  2. **React is just a UI library:**<br/>
 As React only allows one-way data binding, you can't use it in applications that follow the <tooltip content="MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.">*MVC*</tooltip> architecture. You would have to use [Flux](https://github.com/facebook/flux), an application architecture that favors one-way data binding instead.
