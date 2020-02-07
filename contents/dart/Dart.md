@@ -19,7 +19,7 @@ Dart (previously also known as `dartlang`) is an object-oriented, <tooltip conte
 
 ## Why Learn Dart?
 ### Flutter
-**If you are to try Flutter, you have to learn Dart. :smirk:** Let's face it, Dart is basically *revived* by the development of Flutter, and that's not a bad thing at all - there are many excellent programming languages that don't receive much attention simply because they're not used in production by huge companies or by an active community. In other words, as long as Google is still committed to maintaining Flutter and the community is still building apps using Flutter, Dart remains an actively updated programming language.
+**If you are to try Flutter, you have to learn Dart. :smirk:** Let's face it, Dart is basically <tooltip content="at least to most developers, Dart has never been dead inside Google as Google's most critical business - Google Ads is written entirely with Dart.">"revived"</tooltip> by the development of Flutter, and that's not a bad thing at all - there are many excellent programming languages that don't receive much attention simply because they're not used in production by huge companies or by an active community. In other words, as long as Google is still committed to maintaining Flutter and the community is still building apps using Flutter, Dart remains an actively updated programming language.
 ### Tooling support
 Dart has out-of-the-box dependency management ([pub.dev](https://pub.dev/)), linting solution ([dartfmt](https://dart.dev/tools/dartfmt)), documentation generator ([dartdoc](https://dart.dev/tools/dartdoc)) and [official testing framework](https://pub.dev/packages/test). After installing Dart SDK, you're ready to go 99% of the time.
 ### Easy to learn
@@ -146,7 +146,7 @@ main(List<String> args) {
 Extending classes, especially core classes like `String`, could be quite tricky if not impossible without extension methods. However, in Dart, you can easily customize the behavior of built-in classes like so. Extension methods in Dart have even more interesting stuff like [generic support](https://dart.dev/guides/language/extension-methods#implementing-generic-extensions).
 
 ### Benefit: Named parameters
-This is what makes Dart code look like JavaScript code (or JSON-like, as mentioned before). In languages like Java, the order of a function's parameters is specified by the function's definition, and when the function is called, if you only look at the function call, it might be difficult for you to figure out what those parameters mean. One classic example is the `put(K key, V value)` method of the `Map<K, V>` interface in Java - if you only see `m.put(1, 2)`, can you tell with confidence, which one is key?
+This is what makes Dart code look like JavaScript code (or JSON-like, as mentioned before). In languages like Java, the order of a function's parameters is specified by the function's definition, and if you only look at the function call, it might be difficult for you to figure out what those parameters mean. One classic example is the `put(K key, V value)` method of  `Map<K, V>` interface in Java - if you only see `m.put(1, 2)`, can you tell which one is key without prior knowledge?
 
 That's when named parameters become handy:
 
@@ -161,12 +161,46 @@ When defining a function, use `{param1, param2, ...}` to specify named parameter
 void enableFlags({bool bold, bool hidden}) {...}
 ```
 
-Note that if named parameters are used, the order no longer matters, you can write `enableFlags(hidden: false, bold: true);` as well.
+Note that if named parameters are used, the order no longer matters, you can write `enableFlags(hidden: false, bold: true);` as well. This feature is especially useful for declarative UI as the properties of a widget are, most of the time, parameters passed to the constructor of the object. Below is a concrete example in Flutter. Imagine how messy and frustrating the code would look like if the parameters are not named and we have to refer to the documentation for the exact order of them!
+
+```dart
+// Copyright 2018 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to Flutter'),
+        ),
+        body: Center(
+          child: Text('Hello World'),
+        ),
+      ),
+    );
+  }
+}
+```
+
+<panel header="DartPad example"><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-flutter.html?id=719143b1a625dbdefb853c96de0ddbc2&split=50"></iframe></panel>
+
+Note that **named** parameters are a type of [**optional** parameters](https://dart.dev/guides/language/language-tour#optional-parameters) (i.e. you can omit those parameters and they will be assigned `null` or the default value upon entry of the function). You can also make use of [`@required`](https://pub.dev/documentation/meta/latest/meta/required-constant.html) annotation to make certain named parameters compulsory.
 
 ### Benefit (advanced): Interoperability
 You can call C and JavaScript code from Dart using [dart:ffi](https://api.dart.dev/dev/2.8.0-dev.7.0/dart-ffi/dart-ffi-library.html) for C or [js](https://pub.dev/packages/js) for JavaScript. These libraries translate data types from other languages to native Dart data types for mixed operation.
 
 ## How to Get Started with Dart?
+
+Dart is well-documented and you should find solutions to most of your Dart problems on [their website](https://dart.dev/guides). You may get the Dart SDK [here](https://dart.dev/get-dart). Listed below are some useful resources for you to get started with Dart:
+
 For beginners
 - [Dart tutorials](https://dart.dev/tutorials)
 
