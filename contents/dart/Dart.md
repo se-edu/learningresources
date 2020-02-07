@@ -199,13 +199,29 @@ You can call C and JavaScript code from Dart using [dart:ffi](https://api.dart.d
 
 ## How to Get Started with Dart?
 
-Dart is well-documented and you should find solutions to most of your Dart problems on [their website](https://dart.dev/guides). You may get the Dart SDK [here](https://dart.dev/get-dart). Listed below are some useful resources for you to get started with Dart:
+Dart is well-documented and you should find solutions to most of your Dart problems on [their website](https://dart.dev/guides). 
+
+* Installation: You may get the Dart SDK [here](https://dart.dev/get-dart).
+* Syntax tour: [A tour of the Dart language](https://dart.dev/guides/language/language-tour)
+* Essential concepts in Dart:
+  * [Asynchronous programming using `futures`, `async`, `await`](https://dart.dev/codelabs/async-await)
+  * [Asynchronous programming using streams](https://dart.dev/tutorials/language/streams)
+  * [Dart type system](https://dart.dev/guides/language/sound-dart)
+
+Do note that a lot of the knowledge learnt from programming with Dart is applicable to other languages as well (e.g. asynchronous programming, generics, etc.).
+
+## Where to Go from Here?
+
+Listed below are some useful resources for you to get started with Dart:
+
+For exploring more usage of Dart
+- [Core library tour of Dart](https://dart.dev/guides/libraries/library-tour)
+- [Flutter](https://flutter.dev/docs/get-started/install)
 
 For beginners
 - [Dart tutorials](https://dart.dev/tutorials)
 
 For experienced programmers
-- [A tour of the Dart language](https://dart.dev/guides/language/language-tour)
 - [Effective Dart](https://dart.dev/guides/language/effective-dart)
 - [Dart Academy](https://dart.academy/)
 
