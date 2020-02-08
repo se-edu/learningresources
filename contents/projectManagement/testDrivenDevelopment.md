@@ -73,7 +73,7 @@ _Figure 2. Red, Green, Refactor._[^2]
 
 Some reasons why teams can choose to adopt the approach of test-driven development are: 
 
-### Benefit 1: Test-Driven Development Improves Code Quality
+### Benefit 1: Improves Code Quality
 
 TDD can lead to well-written code. This is a direct consequence of the cycle that was explained [above](#development-cycle). One of the best practices while following TDD is to focus on small units of code. This can lead to more modular, flexible code with looser coupling that can be scaled[^3]. This way the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new-comer to understand it. Additionally, developers will work on units that can be written and tested independently and integrated later. This can be achieved through <trigger trigger="click" for="modal:index-mock">mock frameworks</trigger>, which help drive home the rationale of writing unit tests.
 
@@ -83,7 +83,7 @@ The tests also cover all possible branches and paths that the production code ca
 Mock objects are simulated objects whose sole purpose is to act as a black-box that mimics the behaviour of real-world objects during testing. They are especially useful in writing unit tests, which are meant to test the functionality of a portion of code assuming that the rest of the code behaves as it should. 
 </modal>
 
-### Benefit 2: Test-Driven Development Ensures that Product Requirements are Understood
+### Benefit 2: Ensures that Product Requirements are Understood
 
 Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is (ideally) writing tests. Coming up with tests without a clear picture of the requirements or specifications  can be dangerous as - 
 
@@ -94,7 +94,7 @@ TDD thus prevents the team from rushing into development, and pushes them to pri
 
 
 
-### Benefit 3: Test-Driven Development can Increase Productivity
+### Benefit 3: Increases Productivity
 
 Hakan Erdogmus, Professor of Software Engineering at Carnegie Mellon University, found that programmers who wrote more tests tended to be more productive^[Erdogmus, 2005. ["On the Effectiveness of Test-first Approach to Programming"](https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&index=an&req=5763742&lang=en)], and since employing TDD meant writing more tests, there is a correlation between productivity and TDD.
 
@@ -111,7 +111,7 @@ Even with some of the attractive benefits of adopting TDD, there is no one-size-
 
     As a result, a lot of man hours can go into making sure the requirements are in order -  consequently, this could result in a slow start to development.
 
-2. **It is tough to incorporate TDD into <trigger trigger="click" for="modal:index-legacy">legacy projects [^6]</trigger>**
+2. **Tough to incorporate TDD into <trigger trigger="click" for="modal:index-legacy">legacy projects [^6]</trigger>**
 
     Legacy projects are hard to maintain even without having to incorporate TDD into them. As these projects have a history of design and implementation choices made based on the requirements and/or the resources at the time, investing man hours in revamping or "modernizing" them is not always deemed as top priority. 
 
@@ -186,7 +186,6 @@ At this juncture, you know how to write tests and how to use test doubles. What'
 The last step of the TDD cycle is refactoring your code. There is more to refactoring than just renaming variables and extracting methods. Martin Fowler's [refactoring.com](https://refactoring.com/catalog/) catalogs a whole array of refactoring principles and tips that can be very handy - even to the most experienced of developers.
 
 ['Test-Driven Development: By Example'](https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&s=books&ie=UTF8&qid=1495080564&sr=1-1&keywords=tdd+by+example) by Kent Beck is a worthwile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.
-
 
 
 [^1]: Beck, K. 2000. ["Extreme Programming Explained"](https://dl.acm.org/doi/book/10.5555/318762)
