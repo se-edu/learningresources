@@ -161,7 +161,7 @@ This helps the compiler show warnings about any potential errors in the code, be
 
 This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
  
-### Benefit 2:  Cross-Platform Development
+### Benefit 2: Cross-Platform Development
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
