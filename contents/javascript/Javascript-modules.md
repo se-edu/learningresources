@@ -71,13 +71,13 @@ ES6 modules supports advanced features such as _[asynchronous loading](http://ex
 
 Due to the very recent adoption of ES6 modules by browsers and there is still some browsers that do not support it, you might not be able to use ES6 modules right away in those unsupported browsers.
 
-There are 2 workarounds for this issue. You can use _[transpiler](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them)_ such as _[Babel](https://babeljs.io/)_ and _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_ to serve your application to those unsupported browsers or use one of the other two approaches mentioned below.
+There are 2 workarounds for this issue. You can use a _[transpiler](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them)_ such as _[Babel](https://babeljs.io/)_ and a _[bundler](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da)_ such as _[Webpack](https://webpack.js.org/)_ to serve your application to those unsupported browsers or use one of the other two approaches mentioned below.
 
 A more in-depth explanation of ES6 modules can be found in the [Modules chapter of the Exploring ES6 online book](http://exploringjs.com/es6/ch_modules.html).
 
 ### CommonJS
 
-CommonJS is in wide use today because it is used by _NodeJS_ which in turn is used by many JavaScript applications.
+CommonJS is in wide use today because it is used by _Node.js_ which in turn is used by many JavaScript applications.
 
 The example below will replicate the same example in previous chapter using CommonJS. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. So, `anExampleModule.js` module will need to _export_ the function using `module.exports` syntax and `index.js` module will need to _import_ that function using `require` syntax.
 
@@ -108,9 +108,9 @@ If your project does not use NodeJS and does not allow the use of  _[bundler](ht
 
 A more in-depth explanation of CommonJS can be found in the [Modules chapter of NodeJS API documentation](https://nodejs.org/docs/latest/api/modules.html).
 
-### Module Pattern
+### Module Pattern via Namespaces
 
-Using a technique in JavaScript called _[IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_, JavaScript developers can create module by wrapping their code in an IIFE.
+Using a technique in JavaScript called _[IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_, JavaScript developers can create a namespace by wrapping their code in an IIFE.
 
 <box>
 
@@ -120,19 +120,19 @@ An IIFE (Immediately Invoked Function Expression) is a JavaScript function that 
 _Source: [MDN Glossary - IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)_
 </box>
 
-The example below will replicate the same example in previous chapters using module pattern. `index.js` needs the function `sumOfVariable` from `anExampleModule.js`. To achieve this, we use the `<script>` tag in HTML to _import_ `anExampleModule.js` for `index.js` to use.
+The example below will replicate the same example in previous chapters using the module pattern. `index.js` needs the function `sumOfVariable` from `anExampleNamespace.js`. To achieve this, we use the `<script>` tag in HTML to include `anExampleNamespace.js` for `index.js` to use.
 
 ```html
 <!-- index.html -->
 
-<script src="./anExampleModule.js" />
+<script src="./anExampleNamespace.js" />
 <script src="./index.js" />
 ```
 
 ```js
-// anExampleModule.js
+// anExampleNamespace.js
 
-var anExampleModule = (function() {
+var anExampleNamespace = (function() {
     var variableOne = 1;
     var variableTwo = 2;
 
@@ -151,14 +151,14 @@ var anExampleModule = (function() {
 ```js
 // index.js
 
-anExampleModule.sumOfVariable(); // 3
+anExampleNamespace.sumOfVariable(); // 3
 ```
 
-The result of importing the modules in the HTML will be as follow:
+The result of including the script containing the `anExampleNamespace` object in the HTML will be as follows:
 ```js
-// anExampleModule.js
+// anExampleNamespace.js
 
-var anExampleModule = (function() {
+var anExampleNamespace = (function() {
     var variableOne = 1;
     var variableTwo = 2;
 
@@ -175,22 +175,22 @@ var anExampleModule = (function() {
 
 // index.js
 
-anExampleModule.sumOfVariable(); // 3
+anExampleNamespace.sumOfVariable(); // 3
 ```
 
-A more in-depth explanation of module pattern can be found in the [this course blog on mastering module pattern](https://ultimatecourses.com/blog/mastering-the-module-pattern).
+A more in-depth explanation of the module pattern can be found in the [this course blog on mastering module pattern](https://ultimatecourses.com/blog/mastering-the-module-pattern).
 
 ## Which to use?
 
-Although ES6 modules is the official way to implement modules, there are situations where you might have to use one of the other options. Here are some examples:
-- If your application does not allow you to use transpiler and bundler (e.g. because of the additional overhead they add), you can use the module pattern.
-- If your application is NodeJS based, you might want to use CommonJS because NodeJS does not natively support ES6 modules.
+Although ES6 modules are the official way to implement modules, there are situations where you might have to use one of the other options. Here are some examples:
+- If your application does not allow you to use a transpiler or a bundler (e.g. because of the additional overhead they add), you can use the module pattern via namespaces.
+- If your application is using Node.js, you might want to use CommonJS because Node.js only has experimental support for ES6 modules as of Node.js 13.8.0.
 
 ## How to start?
 
-You can start with module pattern right away by refactoring segments of your code into different files and wrapping the code in IIFE.
+You can use the module pattern right away by refactoring segments of your code into different files and wrapping your code in an IIFE.
 
-If you are planning to use CommonJS or ES6 modules, you can start by refactoring segments of your code, but you will also need to be familiar with transpiler and bundler such as Babel and Webpack.
+If you are planning to use CommonJS or ES6 modules, you can start by refactoring segments of your code, but you will also need to be familiar with transpilers and bundlers such as Babel and Webpack.
 
 ## Further Reading
 
@@ -202,3 +202,4 @@ This article gives a broad explanation of JavaScript modules, explaining differe
 This article truly focuses on IIFE, CommonJS, and ES6 Modules, giving a very comprehensive usage example.
 - [Learn the basics of the JavaScript module system and build your own library](https://medium.freecodecamp.org/anatomy-of-js-module-systems-and-building-libraries-fadcd8dbd0e) <br>
 While the aim of the article may not be the same with the aim of this book article, this article gives a very comprehesive comparison between CommonJS and ES6 Modules.
+- [Namespacing in Javascript](https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/)
