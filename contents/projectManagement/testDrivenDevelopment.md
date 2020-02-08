@@ -187,6 +187,7 @@ The last step of the TDD cycle is refactoring your code. There is more to refact
 
 ['Test-Driven Development: By Example'](https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&s=books&ie=UTF8&qid=1495080564&sr=1-1&keywords=tdd+by+example) by Kent Beck is a worthwile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.
 
+## References
 
 [^1]: Beck, K. 2000. ["Extreme Programming Explained"](https://dl.acm.org/doi/book/10.5555/318762)
 [^2]: [Agile Data, Scott W. Ambler](http://agiledata.org/essays/tdd.html)
