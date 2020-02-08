@@ -117,7 +117,7 @@ Declarative Templates and Dependency Injection are only a couple of noteworthy f
 
 Now that we know what Angular is, let us look at some benefits it has to offer.
 
-### Benefit 1: Angular Provides Good Tooling Services
+### Benefit 1: Good Tooling Services
 
 Angular provides developers with tools that enforce "best practices". Let us look at some of these tools.
 
@@ -161,7 +161,7 @@ This helps the compiler show warnings about any potential errors in the code, be
 
 This [article](https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f) provides a comprehensive list of best tooling services offered by Angular.
  
-### Benefit 2: Angular Allows Cross-Platform Development
+### Benefit 2:  Cross-Platform Development
 
 Using the modern versions of Angular, developers can build applications that live on the web, mobile, or the desktop.
 
@@ -175,7 +175,7 @@ that can be integrated with Angular for mobile application development. As per t
 You can integrate the Electron framework in your project using the Angular CLI and start building your application.
 This [article](https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2) is a good introduction to building desktop apps with Angular and Electron.
 
-### Benefit 3: Angular Provides Two-way Data Binding
+### Benefit 3: Two-way Data Binding
 
 Web apps have two main components, a _View_ and a _Model_. The View component is responsible for displaying data (i.e., the part users see). The Model is concerned with the logic implementation of the application. It updates and retrieves the data to and from the database.
 _Data binding_ refers to the exchange of data between the View and Model components. There are two types of data binding as shown below.
