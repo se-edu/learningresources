@@ -202,7 +202,7 @@ createPopUp('Warning', 'This will delete everything!', dangerStatus, { bodyColor
 
 ### Understand method chaining
 
-Method chaining is syntax such as `array.concat([1, 2]).push(1).filter(isEven)`. It is also sometimes referred to as the fluent interface. (see: [Method Chaining in JavaScript]())
+Method chaining is syntax such as `array.concat([1, 2]).filter(isEven)`. It is also sometimes referred to as the fluent interface. (see: [Method Chaining in JavaScript]())
 
 It is achieved by returning the object itself in the call.
 ```js
