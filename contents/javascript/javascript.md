@@ -189,8 +189,7 @@ function createPopUp(title, content, status, optionals) {
     ...
 }
 // es6 syntax with destructuring and default parameters
-function createPopUp(title, content, status, optionals) {
-    const { headerColor = 'default', bodyColor = 'default' } = optionals;
+function createPopUp(title, content, status, { headerColor = 'default', bodyColor = 'default' }) {
     ...
 }
 ```
