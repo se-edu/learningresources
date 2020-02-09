@@ -234,8 +234,8 @@ Now that we know what Vue is, let us look at some benefits it has to offer.
 
 ### Benefit 1: Approachable
 
-Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
-How is iteration like in ReactJs:<br/><br/>
+Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
+Iteration in React:<br/><br/>
 The JavaScript file in ReactJs
     ```js
     var Iteration = React.createClass({
@@ -277,7 +277,7 @@ The JavaScript file in ReactJs
 
 ### Benefit 2: Progressive
 
-Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follow:
+Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follows:
     > Vue is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
     >
     > -- [[source]](https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/)
@@ -300,7 +300,7 @@ A majority of users of Vue are the Chinese as Vue is developed by a Chinese Amer
 
 ## Resources
 
-Detailed Comparison of Vue with other JavaScript frameworks can be found from:
+Detailed comparison of Vue with other JavaScript frameworks can be found from:
 - [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
 - [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
