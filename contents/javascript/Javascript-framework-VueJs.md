@@ -258,7 +258,7 @@ The JavaScript file in ReactJs
     ```html
     <div id="array"></div>
     ```
-    How is iteration like in Vue:<br/><br/>
+    Iteration in Vue:<br/><br/>
     The JavaScript file in Vue
     ```js
     var Iteration = new Vue({
