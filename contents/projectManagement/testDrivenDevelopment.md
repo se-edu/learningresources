@@ -15,7 +15,7 @@ Author: [Yash Chowdhary](https://github.com/yash-chowdhary)
 
 ## What is Test-driven Development? 
 
-Typically when you write unit tests, you test out the functionality of code you've already written. Test-driven development (a.k.a TDD) is a software development process that emphasizes the opposite - writing tests before production code. It is a design technique aimed at understanding requirements before writing functional code.
+Typically, when you write unit tests, you test out the functionality of code you've already written. Test-driven development (a.k.a TDD) is a software development process that emphasizes the opposite - writing tests before production code. It is a design technique aimed at understanding requirements before writing functional code.
 
 ### Development Cycle
 
@@ -25,6 +25,15 @@ Robert Martin describes the "Three Laws of TDD" as -
 > Second Law: You may not write more of a unit test than is sufficient to fail, and not compiling is failing. 
 >
 > Third Law: You may not write more production code than is sufficient to pass the currently failing test.”
+
+Figure 1 below shows the general TDD cycle.
+
+<center>
+<pic src="images/tddSteps.jpg" alt="tddSteps" height="650">
+
+_Figure 1. General TDD cycle._[^2]
+</pic>
+</center>
 
 Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the general development cycle is as follows[^1]:
 
@@ -42,7 +51,7 @@ Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the ge
 
 1. **Re-run test(s)**
 
-    Re-running the test suite and ensuring the test passes not only helps in keeping the cycle running, but also in increasing your confidence in the code that you have just written. This is because it shows that the new code meets the test requirements, and does not break any existing features/requirements. 
+    Re-running the test suite and ensuring the test passes not only helps in keeping the cycle running, but also in increasing your confidence in the code that you have just written. This is because it shows that the new code meets the test requirements and does not break any existing features/requirements. 
 
 1. **Refactor the code**
 
@@ -51,19 +60,10 @@ Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the ge
 
 Steps 1-5 outline one **iteration** of the TDD cycle. In practice, several such iterations are required - sometimes even to get the same test or portion of the test to pass.
 
-Figure 1 below shows the general TDD cycle.
-
-<center>
-<pic src="images/tddSteps.jpg" alt="tddSteps" height="420">
-
-_Figure 1. General TDD cycle._[^2]
-</pic>
-</center>
-
 The essence of TDD can therefore be summarized into the mnemonic "Red, Green, Refactor", where "Red" signifies failure and "Green" signifies success (of the test). "Refactor" refers to the refactoring step in the TDD cycle.
 
 <center>
-<pic src="images/mantra.jpg" alt="mantra" height="170">
+<pic src="images/mantra.jpg" alt="mantra" height="240">
 
 _Figure 2. Red, Green, Refactor._[^2]
 </pic>
@@ -75,22 +75,24 @@ Some reasons why teams can choose to adopt the approach of test-driven developme
 
 ### Benefit 1: Improves Code Quality
 
-TDD can lead to well-written code. This is a direct consequence of the cycle that was explained [above](#development-cycle). One of the best practices while following TDD is to focus on small units of code. This can lead to more modular, flexible code with looser coupling that can be scaled[^3]. This way the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new-comer to understand it. Additionally, developers will work on units that can be written and tested independently and integrated later. This can be achieved through <trigger trigger="click" for="modal:index-mock">mock frameworks</trigger>, which help drive home the rationale of writing unit tests.
+TDD can lead to well-written code. This is a direct consequence of the cycle that was explained [above](#development-cycle). One of the best practices while following TDD is to focus on small units of code (methods, classes, modules, etc). This can lead to more modular, flexible code with looser coupling that can be scaled[^3]. This way the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new comer to understand it.
+
+Additionally, developers will work on units of code that can be written and tested independently and integrated later. This can be achieved through <trigger trigger="click" for="modal:index-mock">mock frameworks</trigger>, which help drive home the rationale of writing unit tests.
 
 The tests also cover all possible branches and paths that the production code can take because no more code is written than is necessary[^3]. Detecting bugs at early stages is easier when you're working with code that has high coverage [^5]. 
 
 <modal title="Mock Objects and Frameworks" id="modal:index-mock">
-Mock objects are simulated objects whose sole purpose is to act as a black-box that mimics the behaviour of real-world objects during testing. They are especially useful in writing unit tests, which are meant to test the functionality of a portion of code assuming that the rest of the code behaves as it should. 
+Mock objects are simulated objects whose sole purpose is to act as a black box that mimics the behaviour of real-world objects during testing. They are especially useful in writing unit tests, which are meant to test the functionality of a portion of code assuming that the rest of the code behaves as it should. 
 </modal>
 
 ### Benefit 2: Ensures that Product Requirements are Understood
 
-Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is (ideally) writing tests. Coming up with tests without a clear picture of the requirements or specifications  can be dangerous as - 
+Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is writing tests. Coming up with tests without a clear picture of the requirements or specifications  can be dangerous as: 
 
-1. you could end up testing something that doesn't need to be tested, thus giving you a false sense of accomplishment when you write production code to pass the test, or 
-1. you could end up overlooking some requirements that _must_ be tested, which is far worse.
+1. you could end up testing something that doesn't need to be tested, or 
+1. you could end up overlooking some requirements that _must_ be tested, thus giving you a false sense of accomplishment when you write production code to pass the test
 
-TDD thus prevents the team from rushing into development, and pushes them to prioritize the requirements-gathering step. 
+TDD thus prevents the team from rushing into development and pushes them to prioritize the requirements-gathering step. 
 
 
 
@@ -98,7 +100,9 @@ TDD thus prevents the team from rushing into development, and pushes them to pri
 
 Hakan Erdogmus, Professor of Software Engineering at Carnegie Mellon University, found that programmers who wrote more tests tended to be more productive^[Erdogmus, 2005. ["On the Effectiveness of Test-first Approach to Programming"](https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&index=an&req=5763742&lang=en)], and since employing TDD meant writing more tests, there is a correlation between productivity and TDD.
 
-Employing TDD also lays out the design of a program. It forces programmers to think about coming up with failing tests and working their way up to writing code that passes the test. Furthermore, since tests are written first, there is close to 100% coverage. This ensures that production code is covered by atleast one test. This can boost individial and team morale, confidence in the code, and productivity as a consequence.
+Employing TDD also lays out the design of a program. It forces programmers to think about coming up with failing tests and working their way up to writing code that passes the test.
+
+Furthermore, since tests are written first, there is close to 100% coverage. This ensures that production code is covered by at least one test. This can boost individual and team morale, confidence in the code, and productivity as a consequence.
 
 
 ## Caveats and Limitations
@@ -119,11 +123,15 @@ Even with some of the attractive benefits of adopting TDD, there is no one-size-
     Legacy code refers to an application system source code type that is no longer supported. Legacy code can also refer to unsupported operating systems, hardware and formats. In most cases, legacy code is converted to a modern software language and platform. However, to retain familiar user functionality, legacy code is sometimes carried into new environments. 
     </modal>
 
-    When you bring TDD into the picture, things get more complex as failing tests are written at first with the assumption that production code will be written to ensure they pass. Writing production code in legacy systems with the goal of passing a specific test is harder than it seems. For instance, there may be dependencies between components that need to be "broken" for them to be testable, which could result in  several workarounds. This could potentially add on to the complexity of the project, making it counter-productive as the entire point of the refactoring step is to make the code more readable[^4].
+    When you bring TDD into the picture, things get more complex as failing tests are written at first with the assumption that production code will be written to ensure they pass. 
+    
+    Writing production code in legacy systems with the goal of passing a specific test is harder than it seems. For instance, there may be dependencies between components that need to be "broken" for them to be testable, which could result in  several workarounds. This could potentially add on to the complexity of the project, making it counter-productive as the entire point of the refactoring step is to make the code more readable[^4].
 
 3. **High Maintenance**
     
     Maintaining test-suites becomes a part of the overall overhead of the project. Since TDD-style approaches rely heavily on tests, there is a need for the tests to be in proper shape in order to prevent a false sense of correctness. TDD also has a steep learning curve. The entire process takes time to get accustomed to. Refactoring of code by using good design patterns comes with time, experience, and a lot of practice.
+
+4. **Great Importance given to Unit Tests**    
 
     Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests[^3].
 
@@ -133,7 +141,7 @@ Advanced practices of test-driven development can lead you to <tooltip content="
 
 * ATDD : Acceptance TDD involves the use of <trigger trigger="click" for="modal:index-acceptance">acceptance tests</trigger> or behavioural specifications in its workflows. By following Acceptance TDD, a detailed specification of the requirements of your product can be obtained.
 
-* Developer TDD: This is the form of development that actually involves writing tests followed by <tooltip content="No more; No less">minimal</tooltip> production code that passes the test. This helps in achieveing the goal of a detailed specification of the executable design for your solution. DTDD is often simply called TDD.
+* Developer TDD: This is the form of development that actually involves writing tests followed by <tooltip content="No more; No less">minimal</tooltip> production code that passes the test. This helps in achieving the goal of a detailed specification of the executable design for your solution. DTDD is often simply called TDD.
 
 <modal title="Acceptance Tests" id="modal:index-acceptance">
 Acceptance tests, also called Customer Acceptance tests, are tests that describe the behavior of a software product. They are tests that have the power to encode the technical and non-functional requirements, business logic, and detailed usage requirements of the product. They are similar to unit tests in that they have binary results - pass or fail. 
@@ -144,7 +152,7 @@ Shown below is the figure that depicts a combination of ATDD and DTDD.
 Ideally, you start off by writing acceptance tests and ensuring that they pass. The DTDD cycle is used to write code for those tests that fail.
 
 <center>
-<pic src="images/effectiveSteps.jpg" alt="effectiveSteps" height="500">
+<pic src="images/effectiveSteps.jpg" alt="effectiveSteps" height="700">
 
 _Figure 3. Combination of ATDD and DTDD._[^2]
 </pic>
@@ -153,7 +161,7 @@ _Figure 3. Combination of ATDD and DTDD._[^2]
 
 ## Getting Started with TDD
 
-As explained above, test-driven development is a software design paradigm. While it does have an established and inelaborate framework, there are elements of the development cycle that -
+As explained above, test-driven development is a software design paradigm. While it does have an established and unelaborate framework, there are elements of the development cycle that -
 1. could be new to you (such as testing and mock frameworks), or 
 1. you require practice in (such as refactoring code)
 
@@ -174,7 +182,7 @@ TutorialsPoint's [<tooltip content="Mockito is a Java-based mocking framework.">
 Here are some resources for other programming languages that may be useful -  
 1. Test framework tutorials:
     * [pytest (Python)](https://docs.pytest.org/en/latest/)
-    * [Jest (NodeJS, React, Angular, VueJS)](https://jestjs.io/docs/en/getting-started)
+    * [Jest (NodeJS, React, Angular, Vue)](https://jestjs.io/docs/en/getting-started)
 1. Mock Framework tutorials:
     * [mock (Python)](https://docs.python.org/3/library/unittest.mock.html)
     * [SinonJs (Javascript)](https://sinonjs.org/)
@@ -185,7 +193,7 @@ At this juncture, you know how to write tests and how to use test doubles. What'
 
 The last step of the TDD cycle is refactoring your code. There is more to refactoring than just renaming variables and extracting methods. Martin Fowler's [refactoring.com](https://refactoring.com/catalog/) catalogs a whole array of refactoring principles and tips that can be very handy - even to the most experienced of developers.
 
-['Test-Driven Development: By Example'](https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&s=books&ie=UTF8&qid=1495080564&sr=1-1&keywords=tdd+by+example) by Kent Beck is a worthwile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.
+['Test-Driven Development: By Example'](https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&s=books&ie=UTF8&qid=1495080564&sr=1-1&keywords=tdd+by+example) by Kent Beck is a worthwhile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.
 
 ## References
 
