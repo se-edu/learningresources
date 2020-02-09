@@ -206,7 +206,7 @@ In contrast, React allows you to integrate any third party services in your appl
     
 ## Comparison with other popular frontend frameworks
 
-[React]("https://reactjs.org/") and [Vue]("https://vuejs.org/") are two popular alternatives to Angular.
+[React](https://reactjs.org/) and [Vue](https://vuejs.org/) are two popular alternatives to Angular.
 
 React is a popular Javascript library, open sourced by Facebook. The ease of learning React is a key advantage over Angular.
 It also provides more flexibility as it allows integration of third party libraries.
