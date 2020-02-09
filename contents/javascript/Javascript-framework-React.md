@@ -165,7 +165,7 @@ How do you decide which one to use? Here are some resources to help you choose b
 
 Every framework has its pros and cons, but hopefully you have managed to see that React [removes some of the complexity](https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome) that comes with building user interfaces. 
 
-## How to get started with React?
+## Getting started with React
 
 The official React [website](https://reactjs.org/) is a great place to get started. It includes:
  - A step-by-step [tutorial](https://reactjs.org/tutorial/tutorial.html) for building a React application, if you prefer to learn by doing.
