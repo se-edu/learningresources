@@ -22,7 +22,7 @@ This chapter assumes that the reader has a basic knowledge of HTML and JavaScrip
 
 ## What is Vue?
 
->*Vue* (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
+>*Vue* is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
 
 This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
 The main HTML file:
