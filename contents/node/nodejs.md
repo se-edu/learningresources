@@ -1,5 +1,5 @@
 <frontmatter>
-  title: Introduction to Node.js
+  title: Introduction to Node
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Introduction to Node.js
+# Introduction to Node
 
 Author: Rachael Sim
 
@@ -19,23 +19,23 @@ Author: Rachael Sim
 This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance) as asynchronous programming is key in Node.
 </box>
 
-## What is Node.js?
+## What is Node?
 
->*Node.js* is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--https://nodejs.org</sub>
+>*Node* is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--https://nodejs.org</sub>
 
-Node is mostly used in back-end and server side scenarios. For example, LinkedIn mobile app backend is built on Node JS and Uber built its massive matching system between customers and drivers on Node.js. However, Node can also be used in the front-end to automate tasks such as building, testing, pre and post processing code.
+Node is mostly used in back-end and server side scenarios. For example, LinkedIn mobile app backend is built on Node and Uber built its massive matching system between customers and drivers on Node. However, Node can also be used in the front-end to automate tasks such as building, testing, pre and post processing code.
 
-## Why use Node.js?
+## Why use Node?
 
-Now that we know what Node.js is, let us look at some benefits it has to offer.
+Now that we know what Node is, let us look at some benefits it has to offer.
 
 ### Benefit 1: Easy to get started
 
-To install Node, simply download the installer from the [official Node.js website](https://nodejs.org/en/download/) based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install and manage node.js packages. The use of npm will be explained in the next section.
+To install Node, simply download the installer from the [official Node website](https://nodejs.org/en/download/) based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install and manage node packages. The use of npm will be explained in the next section.
 
-Here is an example of how to write a working Node.js server taken from [codeburst](https://codeburst.io/getting-started-with-node-js-a-beginners-guide-b03e25bca71b).
+Here is an example of how to write a working Node server taken from [codeburst](https://codeburst.io/getting-started-with-node-js-a-beginners-guide-b03e25bca71b).
 
-It is extremely short and simple but it demonstrates how a Node.js application import required modules, create a server to listen to client's request, read the request and returns a response.
+It is extremely short and simple but it demonstrates how a Node application import required modules, create a server to listen to client's request, read the request and returns a response.
 
 Create a file `server.js` with following content:
 
@@ -74,7 +74,7 @@ This means that we can avoid thread overheads and synchronization problems inclu
 
 This is due to the **non-blocking** I/O model.
 
-When file and other I/O operations requests are made in Python or Java, they are blocking -- subsequent requests (in the same thread) have to be enqueued and can only be processed after the current operation and request completes. Meanwhile, the program remains idle. In contrast, Node.js has an event loop which delegates the actual tasks to other systems (e.g. file system and databases) and it is almost never blocked after delegation. While an I/O operation is incomplete, the event loop can still process subsequent requests.
+When file and other I/O operations requests are made in Python or Java, they are blocking -- subsequent requests (in the same thread) have to be enqueued and can only be processed after the current operation and request completes. Meanwhile, the program remains idle. In contrast, Node has an event loop which delegates the actual tasks to other systems (e.g. file system and databases) and it is almost never blocked after delegation. While an I/O operation is incomplete, the event loop can still process subsequent requests.
 
 ### Benefit 4: Use JavaScript for both front and back-end development
 
@@ -137,7 +137,7 @@ When a dependency is installed, the package's code will be added to the local `/
 
 The [module section](#benefit-7-easy-to-reuse-code-from-others) describes how to import packages in your code.
 
-### Benefit 6: npm `scripts` is versatile and help to save time in the development process
+### Benefit 6: Versatile npm `scripts`
 
 `package.json` also contains a `scripts` property. It is a useful tool that can be used to perform repetitive tasks such as testing and building. `scripts` takes in an object. For each property, the key is the name of the command and the corresponding value is the actual command that will be run.
 
@@ -169,7 +169,7 @@ const Promise = require('bluebird'); // import a non-core module
 
 Node will first check if the module identifier passed to `require` is a core module or a relative path. If so, it will return the core module or the object which references the value of `module.exports` in the specified file path respectively. Otherwise, Node will attempt to load the module from the `node_modules` folder in the parent directory of the current module.
 
-### Benefit 8: Good support
+### Benefit 8: Large developer community
 
 npm (Node Package Manager) is the largest ecosystem of open source libraries in the world. You can find a wide range of helpful and well-tested packages that can serve your needs on [npmjs](https://www.npmjs.com/).
 
@@ -202,27 +202,27 @@ To better understand how to use `module.exports`, checkout [Tendai Mutunhire's a
 
 ## Use cases
 
-Node.js is **good** for
+Node is **good** for
 * **Processing high volumes of IO-bound requests**. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than other usual servers (such as those written in Ruby on Rails). This makes the Node server faster and more scalable.
-* **Real time apps** where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as Trello and Google Docs. Node.js is a good choice as it can handle multiple client requests (even while waiting for responses).
+* **Real time apps** where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as Trello and Google Docs. Node is a good choice as it can handle multiple client requests (even while waiting for responses).
 * **Single-page apps** where a lot of processing and rendering is done on the client's side and the backend server only needs to provide a simple API. Node can process many requests with low response times. In addition, you can reuse and share code, such as those for validation, between the client and server.
 
-However, Node.js is **not suitable** for
-* **CPU-intensive jobs**. Remember that Node.js is single-threaded. If the thread is busy doing CPU-heavy operations, it will not be able to process incoming requests timely. This removes the biggest advantage of Node. Perhaps, you should consider an alternative technology such as Go which supports concurrency.
+However, Node is **not suitable** for
+* **CPU-intensive jobs**. Remember that Node is single-threaded. If the thread is busy doing CPU-heavy operations, it will not be able to process incoming requests timely. This removes the biggest advantage of Node. Perhaps, you should consider an alternative technology such as Go which supports concurrency.
 
 
-To find out more about when you should or should not use Node.js, checkout these articles by [netguru](https://www.netguru.co/blog/use-node-js-backend) and [Node.js foundation](https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e).
+To find out more about when you should or should not use Node, checkout these articles by [netguru](https://www.netguru.co/blog/use-node-js-backend) and [Node.js foundation](https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e).
 
 ## Resources
 
-* Try out Node.js online - [Node prototyping with Runkit](https://runkit.com/home)
+* Try out Node online - [Node prototyping with Runkit](https://runkit.com/home)
 * A guide on asynchronous programming in JS - [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
 * A comprehensive introduction to Node -  [The art of node](https://github.com/maxogden/art-of-node/)
 * Making better use of npm scripts - [How to Use npm as a Build Tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 * Advice on how to write clean code that makes it easy to add new features - [Fundamental rules of a Node.js project structure](https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/)
 * A compilation of useful node modules - [Awesome Nodejs](https://github.com/sindresorhus/awesome-nodejs)
-*  A summary and curation of the top-ranked content on Node.js best practices - [Node.js Best Practices](https://github.com/i0natan/nodebestpractices)
-* Node.js architecture and features - [All About Node.Js You Wanted To Know](https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7)
+*  A summary and curation of the top-ranked content on Node best practices - [Node.js Best Practices](https://github.com/i0natan/nodebestpractices)
+* Node architecture and features - [All About Node.Js You Wanted To Know](https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7)
 * More about `package.json` - [npm official documentation on package.json](https://docs.npmjs.com/files/package.json).
 
 </div>
