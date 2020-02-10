@@ -65,7 +65,7 @@
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
   * [Angular]({{baseUrl}}/contents/javascript/Javascript-framework-Angular.html)
   * [iOS]({{baseUrl}}/contents/ios/IntroToIos.html)
-  * [Node.js]({{baseUrl}}/contents/node/nodejs.html)
+  * [Node]({{baseUrl}}/contents/node/nodejs.html)
   * [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html)
   * [Ruby on Rails]({{baseUrl}}/contents/ruby/Rails.html)
   * [Vue]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
