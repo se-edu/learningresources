@@ -43,7 +43,7 @@ Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the ge
 
 1. **Run the test**
 
-    In this phase, you check if the new test added fails. This is an important step, as it shows that the new test does not pass without requiring new code because the required behavior already exists, and also rules out false positives (i.e. the test passes when it shouldn't). Furthermore, the reason for its failure must be clear. 
+    In this phase, you check if the new test added fails. This is an important step as it shows that the new test does not pass without requiring new code, and also rules out false positives (i.e. the test passes when it shouldn't). Furthermore, the reason for its failure must be clear. 
 
 1. **Write functional code**
 
