@@ -204,7 +204,7 @@ Angular requires you to learn many concepts, such as _directives_, modules, comp
 Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
 In contrast, React allows you to integrate any third party services in your application.
     
-## Comparison with other popular frontend frameworks
+## Comparison with Other Popular Frontend Frameworks
 
 [React](https://reactjs.org/) and [Vue](https://vuejs.org/) are two popular alternatives to Angular.
 
@@ -219,7 +219,7 @@ Below are a few resources that give a brief comparison between these popular fro
 2. [Why use Vue](https://medium.com/@brainmobi/advantages-of-using-vue-js-for-your-web-applications-7e460cadfffc) - Advantages of using Vue.
 3. [Angular vs React](https://programmingwithmosh.com/react/react-vs-angular/) - A comprehensive comparison between React and Angular.
 
-## How to get started with Angular?
+## Getting Started With Angular
 
 Given below are a few steps that will help you ease into the Angular environment:
 
