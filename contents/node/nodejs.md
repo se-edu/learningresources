@@ -29,7 +29,7 @@ Node is mostly used in back-end and server side scenarios. For example, LinkedIn
 
 Now that we know what Node is, let us look at some benefits it has to offer.
 
-### Benefit 1: Easy to get started
+### Benefit 1: Easy to get Started
 
 To install Node, simply download the installer from the [official Node website](https://nodejs.org/en/download/) based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install and manage node packages. The use of npm will be explained in the next section.
 
@@ -64,23 +64,23 @@ To test the server, open a browser tab and navigate to http://localhost:3000/. Y
 
 Read on to find out about how to incorporate external dependencies, manage them and use Node's module system to organize your code.
 
-### Benefit 2: Avoid synchronization problems and overheads
+### Benefit 2: Avoid Synchronization Problems and Overheads
 
 Node is designed to be **event-driven**. When an event happens e.g. an I/O event is complete, the event handler/callback function will be enqueued in a queue where it will be subsequently scheduled to run by the [event loop](https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c). The main event loop (where Javascript code is executed) is single-threaded.
 
 This means that we can avoid thread overheads and synchronization problems including deadlocks and race conditions.
 
-### Benefit 3: Fast for I/O intensive tasks
+### Benefit 3: Fast for I/O Intensive Tasks
 
 This is due to the **non-blocking** I/O model.
 
 When file and other I/O operations requests are made in Python or Java, they are blocking -- subsequent requests (in the same thread) have to be enqueued and can only be processed after the current operation and request completes. Meanwhile, the program remains idle. In contrast, Node has an event loop which delegates the actual tasks to other systems (e.g. file system and databases) and it is almost never blocked after delegation. While an I/O operation is incomplete, the event loop can still process subsequent requests.
 
-### Benefit 4: Use JavaScript for both front and back-end development
+### Benefit 4: Use JavaScript for Both Front and Back-end Development
 
 Using Node for back-end development makes it possible to share and reuse code between the front-end and back-end. Teams can be more efficient and less reliant on documentation as they can read the code directly. The team can also become more cross-functional as developers can contribute to both development.
 
-### Benefit 5: Easy dependency management with npm
+### Benefit 5: Easy Dependency Management With npm
 
 Node Package Manager (npm) is used to
 * Search for node.js packages online
@@ -153,7 +153,7 @@ For example, inside your `package.json`, you might have
 ```
 Running `npm run build` in the command shell will execute `node app.js` and similarly `npm run lint-fix` will fix your linting errors in your JavaScript files. npm scripts are much more powerful - you can use them as shortcuts to [uglify JavaScript, auto-prefix CSS](https://css-tricks.com/why-npm-scripts/) and even execute multiple tasks at a go. To find out more about how you can use npm scripts, refer to [freeCodeCamp's Introduction to NPM Scripts](https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633).
 
-### Benefit 7: Easy to reuse code from others
+### Benefit 7: Easy to Reuse Code From Others
 
 Node module system allows you to include other Javascript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.
 
@@ -169,11 +169,11 @@ const Promise = require('bluebird'); // import a non-core module
 
 Node will first check if the module identifier passed to `require` is a core module or a relative path. If so, it will return the core module or the object which references the value of `module.exports` in the specified file path respectively. Otherwise, Node will attempt to load the module from the `node_modules` folder in the parent directory of the current module.
 
-### Benefit 8: Large developer community
+### Benefit 8: Relatively Large Developer Community
 
 npm (Node Package Manager) is the largest ecosystem of open source libraries in the world. You can find a wide range of helpful and well-tested packages that can serve your needs on [npmjs](https://www.npmjs.com/).
 
-### Benefit 9: Support for better code organization
+### Benefit 9: Support for Better Code Organization
 
 We can also create separate files and modules in our codebase such that each module is focused on a single functionality. This makes your code more maintainable and testable.
 
