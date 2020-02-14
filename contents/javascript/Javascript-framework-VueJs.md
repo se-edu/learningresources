@@ -90,7 +90,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 ## Vue Features
 
-1. **Mutating of data in the DOM**<br>
+1. **Mutating of Data in the DOM**<br>
     In Vue, the state of the data can be directly modified.
 
     Let's say, there is a variable called `message` in your app. To modify `message`, you can do the following:
@@ -101,7 +101,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-2. **2-way binding**<br>
+2. **Two-way binding**<br>
     `v-model` is a [Vue directive](https://vuejs.org/v2/api/#v-model) used to bind the DOM input field to its data variable.
 
     This allows the DOM variables and data to be "in sync", regardless of which one is being updated first.
@@ -119,7 +119,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-3. **Passing data from outer to inner components**<br>
+3. **Passing Data From Outer to Inner Components**<br>
     When you have components that are nested within each other, data is passed from the outer component to the inner component via `props`, where `props` are just custom data shared between the components.
 
     This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
@@ -150,7 +150,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-4. **Emitting events**<br>
+4. **Emitting Events**<br>
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
 
     How do we do that if we have to follow the 1-way data flow rule?
@@ -176,7 +176,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-5. **Computed properties**<br>
+5. **Computed Properties**<br>
     This is useful when you want to compose new data based on the data that has changed.
     Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.
 
@@ -199,7 +199,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-6. **Watched properties**<br>
+6. **Watched Properties**<br>
     Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
     For example, when a new `item` is added, we want to send a notification to our friend to alert him or her about the change.
@@ -292,10 +292,10 @@ Vue syntax is simple and this can make the HTML pages very clean. This would all
 
 Like any other framework/library, Vue has its share of disadvantages.
 
-1. **Relatively small size community:**<br/>
+1. **Relatively Small Size Community:**<br/>
 Vue is a relatively new JavaScript framework as compared to Angular and React. The size of the community for Vue is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
 
-2. **Language barriers:**<br/>
+2. **Language Barriers:**<br/>
 A majority of users of Vue are the Chinese as Vue is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for Vue resources.
 
 ## Resources
