@@ -240,7 +240,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     ![Vue's Lifecycle Diagram](javascript-framework-vue-images/vue-lifecycle-diagram.png "Vue's Lifecycle Diagram")
     _Figure 1. Vue's Lifecycle Diagram_
    
-    To run code to a specific stage, you can just define the corresponding hook function and add your code within the function.
+    To run code at a specific stage, you can just define the corresponding hook function and add your code within the function.
     For example, the `created` hook can be used to run code right after the Vue instance is created:
     ```js
     Vue.component('todo-list', {
