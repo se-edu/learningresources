@@ -17,6 +17,19 @@
 
 Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://github.com/sijie123)
 
+<box id="article-toc">
+
+* [Introduction to C#‎](#introduction-to-c#)
+    * [What is C#‎](#what-is-c#)
+    * [C# Syntax Features‎](#c#-syntax-features)
+        * [Object/Array/Collection Initializers‎](#object/array/collection-initializers)
+        * [Closures‎](#closures)
+        * [Nullable type‎](#nullable-type)
+        * [Other features](#other-features)
+    * [Why Learn C#‎](#why-learn-c#)
+    * [How to Get Started‎](#how-to-get-started)
+</box>
+
 ## What is C#
 
 C# is a _general purpose_, _multi-paradigm_, _garbage collected_, _cross-platform_ language by Microsoft, and part of the _.NET platform_. Some claim C# is Microsoft's answer to Java due to the fact that the two languages have a lot of similarities.
