@@ -15,7 +15,7 @@
 
 Author: Thenaesh Elango
 
-**Table of Contents**
+<box id="article-toc">
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
@@ -32,6 +32,7 @@ Author: Thenaesh Elango
   * [Applicative Functors](#applicative-functors)
   * [Monads](#monads)
 * [Guides](#guides)
+</box>
 
 
 # Overview
