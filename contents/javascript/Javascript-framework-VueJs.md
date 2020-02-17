@@ -170,7 +170,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
       }
     })
 
-    // Inside todo-list component
+    /* Inside todo-list component */
     template: {
       v-on:increased-count="updateCount"
     }
