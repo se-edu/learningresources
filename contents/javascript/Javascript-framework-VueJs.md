@@ -175,7 +175,8 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
       v-on:increased-count="updateCount"
     }
     ```
-   <box type="info">
+   <box type="tip">
+   
    When the increment item count button is clicked, the `item` component will emit a custom event named `increased-count` while the `todo-list` component listens to the `increased-count` event and executes it's own `updateCount` method.
    </box>
 
