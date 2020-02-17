@@ -125,7 +125,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
     ensures that data can only be changed by the component itself and also allows bugs to be easily traced in the code.
     
-    To pass props to a Vue component, `v-bind:prop-name` is used. A demonstration of passing props is shown in the code segment below:
+    To pass props to a Vue component, `v-bind:<prop-name>` is used. A demonstration of passing props is shown in the code segment below:
 
     ```js
     Vue.component('todo-list', {
@@ -177,7 +177,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     ```
    <box type="tip">
    
-   When the increment item count button is clicked, the `item` component will emit a custom event named `increased-count` while the `todo-list` component listens to the `increased-count` event and executes it's own `updateCount` method.
+   When the button is clicked, the `item` component will emit a custom event named `increased-count` while the `todo-list` component listens for this event and executes its own `updateCount` method.
    </box>
 
 <br>
@@ -235,8 +235,13 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 <br>
 
 7. **Lifecycle Hooks**<br>
-    Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions called lifecycle hooks, allowing users to add code at specific steps.<br/><br/>
-    For example, the `created` hook can be used to run code after the Vue instance is created:
+    Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions in the background called lifecycle hooks, allowing users to add code at each stage that could improve its rendering speed.<br/><br/>
+    The following diagram shows all hooks and their specific execution stages:<br/>
+    ![Vue's Lifecycle Diagram](javascript-framework-vue-images/vue-lifecycle-diagram.png "Vue's Lifecycle Diagram")
+    _Figure 1. Vue's Lifecycle Diagram_
+   
+    To run code to a specific stage, you can just define the corresponding hook function and add your code within the function.
+    For example, the `created` hook can be used to run code right after the Vue instance is created:
     ```js
     Vue.component('todo-list', {
       ...
@@ -245,9 +250,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
       }
     })
     ```
-   There are also other hooks that will be called at different stages of the instance's lifecycle, such as `beforeCreate`, `beforeMount`, `mounted`, `beforeUpdate`, `updated`, `beforeDestroy` and `destroyed`. The lifecycle diagram below shows specific stages when each hook is executed:<br/>
-   ![Vue's Lifecycle Diagram](javascript-framework-vue-images/vue-lifecycle-diagram.png "Vue's Lifecycle Diagram")
-   _Figure 1. Vue's Lifecycle Diagram_ 
+   For more detailed information about Vue lifecycle hooks, visit [here](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks).
      
 ## Why use Vue?
 
