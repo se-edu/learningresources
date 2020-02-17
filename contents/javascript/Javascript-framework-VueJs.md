@@ -129,12 +129,12 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
     ```js
     Vue.component('todo-list', {
-        props: ['item'],
-        data: ['totalCount'],
-        template:
-          <div class='todo-list'>
-            <p>Total:{\{this.totalCount}\{</p>
-            <p>{\{item.name}\{: {\{item.count}\{</p>
+      props: ['item'],
+      data: ['totalCount'],
+      template:
+        <div class='todo-list'>
+          <p>Total:{\{this.totalCount}\}</p>
+          <p>{\{item.name}\}: {\{item.count}\}</p>
     })
 
     <todo-list
@@ -168,11 +168,11 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
       template: {
         <button v-on:click="$emit('increased-count', count+1)">Increment item count</button>
       }
-    }
+    })
 
     // Inside todo-list component
     template: {
-        v-on:increased-count="updateCount"
+      v-on:increased-count="updateCount"
     }
     ```
    <box type="info">
@@ -187,9 +187,9 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
     ```js
     computed: totalCount() {
-        let result = 0;
-        this.items.forEach((item) => result += item.count);
-        return result;
+      let result = 0;
+      this.items.forEach((item) => result += item.count);
+      return result;
     }
     ```
 
@@ -212,13 +212,13 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
     ```js
     watch: {
-        totalCount: function() {
-            let result = 0
-            this.items.forEach((item) => result += item.count);
-            this.totalCount = result;
+      totalCount: function() {
+        let result = 0
+        this.items.forEach((item) => result += item.count);
+        this.totalCount = result;
 
-            // notify friend about the change
-        }
+        // notify friend about the change
+      }
     }
     ```
 
@@ -232,6 +232,22 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
     **watches** for change in 1 property | **creates** a new property that is updated when 1 or more dependencies change
 
 <br>
+
+7. **Lifecycle Hooks**<br>
+    Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions called lifecycle hooks, allowing users to add code at specific steps.<br/><br/>
+    For example, the `created` hook can be used to run code after the Vue instance is created:
+    ```js
+    Vue.component('todo-list', {
+      ...
+      created: function() {
+        console.log("to-do list is created.");
+      }
+    })
+    ```
+   There are also other hooks that will be called at different stages of the instance's lifecycle, such as `beforeCreate`, `beforeMount`, `mounted`, `beforeUpdate`, `updated`, `beforeDestroy` and `destroyed`. The lifecycle diagram below shows specific stages when each hook is executed:<br/>
+   ![Vue's Lifecycle Diagram](javascript-framework-vue-images/vue-lifecycle-diagram.png "Vue's Lifecycle Diagram")
+   _Figure 1. Vue's Lifecycle Diagram_ 
+     
 
 ## VueJs Advantages
 
