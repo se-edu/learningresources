@@ -236,7 +236,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 7. **Lifecycle Hooks**<br>
     Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions in the background called lifecycle hooks, allowing users to add code at each stage that could improve its rendering speed.<br/><br/>
-    The following diagram shows all hooks and their specific execution stages:<br/>
+    The following diagram shows all lifecycle hooks and their specific execution stages:<br/>
     ![Vue's Lifecycle Diagram](javascript-framework-vue-images/vue-lifecycle-diagram.png "Vue's Lifecycle Diagram")
     _Figure 1. Vue's Lifecycle Diagram_
    
@@ -250,7 +250,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
       }
     })
     ```
-   For more detailed information about Vue lifecycle hooks, visit [here](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks).
+   For more detailed information about Vue lifecycle hooks, visit [here](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks).<br/>
      
 ## Why use Vue?
 
