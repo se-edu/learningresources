@@ -1,5 +1,5 @@
 <frontmatter>
-  title: VueJs
+  title: Introduction to Vue
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -11,18 +11,18 @@
 
 {{ booktitle | safe }}
 
-# VueJs
+# Introduction to Vue
 
 **Authors: [Chelsey Ong](https://github.com/chelseyong), [Lu Lechuan](https://github.com/LuLechuan)** <br>
 Reviewers: [Gilbert Emerson](https://github.com/emer7), [Ong Shu Peng](https://github.com/ongspxm)
 
 <box type="info">
-This article assumes the reader has a basic knowledge of HTML and JavaScript.
+This chapter assumes that the reader has a basic knowledge of HTML and JavaScript.
 </box>
 
-## What is VueJs?
+## What is Vue?
 
-VueJs (also known as Vue) is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
+>*Vue* is an open-source [JavaScript framework](https://en.wikipedia.org/wiki/JavaScript_framework) for building user interfaces. It is designed to improve code quality and maintainability.
 
 This is a simple example to show how easy it is to integrate VueJs into your web project:<br/><br/>
 The main HTML file:
@@ -52,14 +52,14 @@ Note that `{\{` and `}\}` should not have the slash in your actual code.
 
 Step-by-step explanation of the code:
 
-<b>Step 1:</b> Import VueJs <tooltip content="Content Delivery Network" placement="top">CDN</tooltip> and the JavaScript file in the main HTML file.
+<b>Step 1:</b> Import Vue <tooltip content="Content Delivery Network" placement="top">CDN</tooltip> and the JavaScript file in the main HTML file.
 ```HTML
   <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
   <script src="the_path_to_the_javacript_file.js"></script>
 ```
 
 <b>Step 2:</b> Create an instance of Vue (Vue is an object) in the JavaScript file; bind the instance to one of the component in our html file (e.g. create a component with id `root` and bind it with the instance of Vue).<br/>
-In this case, only the `root` component can be accessed in VueJs while the rest are unaffected. This is how we progressively plug in VueJs into our projects.
+In this case, only the `root` component can be accessed in Vue while the rest are unaffected. This is how we progressively plug in Vue into our projects.
 
 ```js
   new Vue ({
@@ -88,9 +88,9 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 > <h2>Hello World</h2>
 <br>
 
-## VueJs Features
+## Vue Features
 
-1. **Mutating of data in the DOM**<br>
+1. **Mutating of Data in the DOM**<br>
     In Vue, the state of the data can be directly modified.
 
     Let's say, there is a variable called `message` in your app. To modify `message`, you can do the following:
@@ -101,7 +101,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-2. **2-way binding**<br>
+2. **Two-way binding**<br>
     `v-model` is a [Vue directive](https://vuejs.org/v2/api/#v-model) used to bind the DOM input field to its data variable.
 
     This allows the DOM variables and data to be "in sync", regardless of which one is being updated first.
@@ -119,7 +119,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-3. **Passing data from outer to inner components**<br>
+3. **Passing Data From Outer to Inner Components**<br>
     When you have components that are nested within each other, data is passed from the outer component to the inner component via `props`, where `props` are just custom data shared between the components.
 
     This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
@@ -150,7 +150,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-4. **Emitting events**<br>
+4. **Emitting Events**<br>
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
 
     How do we do that if we have to follow the 1-way data flow rule?
@@ -176,7 +176,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-5. **Computed properties**<br>
+5. **Computed Properties**<br>
     This is useful when you want to compose new data based on the data that has changed.
     Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.
 
@@ -199,7 +199,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-6. **Watched properties**<br>
+6. **Watched Properties**<br>
     Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
     For example, when a new `item` is added, we want to send a notification to our friend to alert him or her about the change.
@@ -228,11 +228,14 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
 <br>
 
-## VueJs Advantages
+## Why use Vue?
 
-1. **Approachable:**<br/>
-VueJs is very easy to learn. Compared to other framework such as Angular and ReactJs, VueJs is simple in term of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
-How is iteration like in ReactJs:<br/><br/>
+Now that we know what Vue is, let us look at some benefits it has to offer.
+
+### Benefit 1: Approachable
+
+Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
+Iteration in React:<br/><br/>
 The JavaScript file in ReactJs
     ```js
     var Iteration = React.createClass({
@@ -255,8 +258,8 @@ The JavaScript file in ReactJs
     ```html
     <div id="array"></div>
     ```
-    How is iteration like in VueJs:<br/><br/>
-    The JavaScript file in VueJs
+    Iteration in Vue:<br/><br/>
+    The JavaScript file in Vue
     ```js
     var Iteration = new Vue({
       el: '#array',
@@ -265,36 +268,39 @@ The JavaScript file in ReactJs
       }
     });
     ```
-    The HTML file in VueJs
+    The HTML file in Vue
     ```html
     <div id="array">
       <span v-for="date in array">{date}</span>
     </div>
     ```
 
-2. **Progressive:**<br/>
-VueJs is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug VueJs into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follow:
-    > Vue.js is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
+### Benefit 2: Progressive
+
+Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follows:
+    > Vue is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
     >
     > -- [[source]](https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/)
 
-3. **Versatile:**<br/>
-VueJs is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
+### Benefit 3: Versatile
+Vue is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.
 
-4. **Clean:**<br/>
-VueJs syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by VueJs to be more maintainable and testable.
+### Benefit 4: Clean
+Vue syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by Vue to be more maintainable and testable.
 
-## VueJs Drawbacks
+## Disadvantages of Vue
 
-1. **Relatively small size community:**<br/>
-VueJs is a relatively new JavaScript framework as compared to Angular and React. The size of the community for VueJs is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
+Like any other framework/library, Vue has its share of disadvantages.
 
-2. **Language barriers:**<br/>
-A majority of users of VueJs are the Chinese as VueJs is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for VueJs resources.
+1. **Relatively Small Size Community:**<br/>
+Vue is a relatively new JavaScript framework as compared to Angular and React. The size of the community for Vue is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.
+
+2. **Language Barriers:**<br/>
+A majority of users of Vue are the Chinese as Vue is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for Vue resources.
 
 ## Resources
 
-Detailed Comparison of VueJs with other JavaScript frameworks can be found from:
+Detailed comparison of Vue with other JavaScript frameworks can be found from:
 - [Vue Guild: Comparison with Other Frameworks](https://vuejs.org/v2/guide/comparison.html)
 - [Angular vs React vs Vue](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
