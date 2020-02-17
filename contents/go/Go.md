@@ -16,6 +16,21 @@
 **Author(s): [Cara Leong](https://github.com/craaaa)**<br>
 Reviewers: [Darren Wee](https://github.com/darrenwee), [Tran Tien Dat](https://github.com/tran-tien-dat)
 
+<box id="article-toc">
+
+* [Introduction to Go‎](#introduction-to-go)
+    * [What Is Go?‎](#what-is-go)
+    * [Why Learn Go?](#why-learn-go)
+        * [Benefit: Better Variable Declarations](#benefit-better-variable-declarations)
+        * [Benefit: Better Support for Concurrency‎](#benefit-better-support-for-concurrency)
+        * [Benefit: Better Error Handling](#benefit-better-error-handling)‎
+        * [Benefit: `defer` Execution‎](#benefit-defer-execution)
+        * [Benefit: Good Support for Interfaces](#benefit-good-support-for-interfaces)
+        * [Benefit: Canonical Coding Style‎](#benefit-canonical-coding-style)
+    * [How to Get Started with Go?‎](#how-to-get-started-with-go)
+        * [Where to Go from Here?‎](#where-to-go-from-here)
+</box>
+
 ## What Is Go?
 Go (also known as `golang`) is a compiled, statically-typed, garbage-collected language that has special memory safety and concurrent programming features. Born out of frustration with the available languages (e.g. C, C++, Java) and environments for systems programming, Go was [conceptualized by programmers at Google](https://talks.golang.org/2012/splash.article) who sought to create a single language that was efficient to write, build and execute. Go also supports newer developments in computing such as multicore processors and network systems.
 
