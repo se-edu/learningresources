@@ -13,8 +13,7 @@
 
 # Introduction to C#
 
-**Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)**
-
+**Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)**<br>
 Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://github.com/sijie123)
 
 <box id="article-toc">
