@@ -24,7 +24,7 @@ Authors: [Tan Jun An](https://github.com/yamidark)
   * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
   * [Using Rvalue References](#using-rvalue-references)
   * [Move Semantics](#move-semantics)
-* [Rvalue Anti-Pattern](#rvalue-anti-pattern)
+* [Rvalue Reference Anti-Pattern](#rvalue-reference-anti-pattern)
 * [Resources](#resources)
 </box>
 
