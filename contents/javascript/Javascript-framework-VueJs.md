@@ -80,11 +80,11 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 <b>Step 4:</b> Pass the message to the HTML file using double curly brackets.
 ```HTML
   <div id="root">
-    <h2>{\{message}\{</h2>
+    <h2>{\{message}\}</h2>
   </div>
 ```
 
-<b>Step 5:</b> Open the brower and we will see "Hello World" being displayed:
+<b>Step 5:</b> Open the browser and we will see "Hello World" being displayed:
 > <h2>Hello World</h2>
 <br>
 
@@ -97,7 +97,7 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
     ```js
     this.message = 'Hello Space';
     ```
-    When `message` is changed, the view will be re-rendered to show the new message. So you can say, DOM is "reacting" to `message`.
+    When `message` is changed, the view will be re-rendered to show the new message. So you can say, DOM is "reacting" to the changes in `message`.
 
 <br>
 
@@ -124,6 +124,8 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
 
     This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
     ensures that data can only be changed by the component itself and also allows bugs to be easily traced in the code.
+    
+    To pass props to a Vue component, `v-bind:prop-name` is used. A demonstration of passing props is shown in the code segment below:
 
     ```js
     Vue.component('todo-list', {
@@ -168,11 +170,14 @@ In this case, only the `root` component can be accessed in VueJs while the rest 
       }
     }
 
-    /* Inside todo-list component */
+    // Inside todo-list component
     template: {
         v-on:increased-count="updateCount"
     }
     ```
+   <box type="info">
+   When the increment item count button is clicked, the `item` component will emit a custom event named `increased-count` while the `todo-list` component listens to the `increased-count` event and executes it's own `updateCount` method.
+   </box>
 
 <br>
 
@@ -268,7 +273,7 @@ The JavaScript file in ReactJs
     The HTML file in VueJs
     ```html
     <div id="array">
-      <span v-for="date in array">{date}</span>
+      <span v-for="date in array">{\{date}\}</span>
     </div>
     ```
 
