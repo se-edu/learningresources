@@ -246,7 +246,7 @@ for each document by default.
 
 ### Horizontal scaling :fas-server:
 
-Another key characteristic of NoSQL databases is ability to scale horizontally (distributing workload across
+Another key characteristic of NoSQL databases is the ability to scale horizontally (distributing workload across
 multiple servers), without discarding much of its key features.
 
 This is largely due to the schema-less architecture of such databases, allowing data to split across
