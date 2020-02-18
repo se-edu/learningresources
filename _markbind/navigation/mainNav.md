@@ -79,7 +79,7 @@
   * Databases
     * [DBMS]({{baseUrl}}/contents/data/databases/databases.html)
     * [SQL]({{baseUrl}}/contents/data/sql/SQL.html)
-	* [NoSQL]({{baseUrl}}/contents/data/nosql/NoSQL.html)
+    * [NoSQL]({{baseUrl}}/contents/data/nosql/NoSQL.html)
   * [Machine Learning]({{baseUrl}}/contents/ai/ml.html)
   * Multi-Threading
     * [GPGPU]({{baseUrl}}/contents/gpgpu/gpgpu.html)

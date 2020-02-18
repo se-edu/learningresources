@@ -15,7 +15,7 @@
 
 **Author(s): [Ang Ze Yu](https://github.com/ang-zeyu)**
 
-**Reviewer(s):** [Neil Brian](https://github.com/nbriannl)
+**Reviewer(s):** [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg)
 
 ---
 
@@ -205,7 +205,7 @@ For example, for a customer and his / her shopping cart, we may have the followi
 Such simple relations are extremely suited to and expressable with the schema-less characteristic
 of NoSQL databases.
 
-In the case of more complicated many-to-many relationships, references are commonly stored using references,
+In the case of more complicated many-to-many relationships, relations are commonly stored using references,
 to avoid duplication of data.
 
 For example, items in an e-commerce website are related to the many customers through their carts.
@@ -386,7 +386,7 @@ nodeJS driver which is very close to the shell syntax.
 
 Congratulations! You should have a good handle on mongoDB by now, and learnt how you would generally interact with NoSQL databases.
 
-If you're interested in learning more about mongoDB, I recommend going through the following topics in order in the above resources:
+If you're interested in learning more about mongoDB, I recommend going through the following topics in order:
 1. Indexes 
 2. Schema validation
 3. Sharding (horizontal scaling)
