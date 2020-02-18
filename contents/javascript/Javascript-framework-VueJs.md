@@ -97,7 +97,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     ```js
     this.message = 'Hello Space';
     ```
-    When `message` is changed, the view will be re-rendered to show the new message. So you can say, DOM is "reacting" to the changes in `message`.
+    When `message` is changed, the view will be re-rendered to show the new message. So you can say, the DOM is "reacting" to the changes in `message`.
 
 <br>
 
@@ -172,7 +172,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
     /* Inside todo-list component */
     template: {
-      v-on:increased-count="updateCount"
+      on:increased-count="updateCount"
     }
     ```
    <box type="tip">
