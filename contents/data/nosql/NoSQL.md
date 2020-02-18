@@ -15,7 +15,7 @@
 
 **Author(s): [Ang Ze Yu](https://github.com/ang-zeyu)**
 
-**Reviewer(s):**
+**Reviewer(s):** [Neil Brian](https://github.com/nbriannl)
 
 ---
 
@@ -148,7 +148,7 @@ One key characteristic of most NoSQL databases is that they are **schema-less**.
 
 This means that each individual document has no restriction on what keys it must have,
 the number of keys, the type of values, etc.
-(Note the missing fields for the second item in the earlier code example [above](#schemaless), which are intentionally ommitted.)
+(Note the missing fields for the second item in the earlier code example [above](#schemaless), which are intentionally omitted.)
 
 Documents can even contain other documents (json objects), arrays - anything the database used
 can serialize and deserialize.
@@ -195,7 +195,7 @@ For example, for a customer and his / her shopping cart, we may have the followi
   cart: {
     totalPrice: 100,
     cartItems: [ ... ],
-	discountCode: "panda"
+    discountCode: "panda"
   },
   email: "panda@pandas.com",
   ...
@@ -274,7 +274,7 @@ we can split the collection like so:
 
 <img src="horizontalScalability.png" width="500" />
 
-As a result, the database access workload likely can be distributed evenly and efficiently across
+As a result, the database access workload can be distributed evenly and efficiently across
 multiple servers easily.
 
 ---
@@ -295,7 +295,7 @@ in NoSQL, this means that developers can adapt the database quicker to changing 
 As explained above, NoSQL databases are easily horizontally scalable.
 
 As businesses grow and see increasing amounts of web traffic, it is crucial that its databases can scale to meet
-consumer and buisness demands.
+consumer and business demands.
 Vertical scaling (increasing the processing power of the machine) can only go so far until the single machine hits its limit.
 
 ### 3. Widespread adoption
@@ -361,7 +361,7 @@ Firstly, here are some great resources on mongoDB:
 - [Data-flair](https://data-flair.training/blogs/mongodb-create-database/) is a great starting point on administration of
 your local mongoDB instance (creating databases, collections, etc.). Thereafter, it also goes briefly into
 each topic of mongoDB.
-- [MongoDB documentation](https://docs.mongodb.com/manual/crud/) can be overwhelming, it is also
+- [MongoDB documentation](https://docs.mongodb.com/manual/crud/) can be overwhelming, but it is also
 a great starting point to learn and test features of mongoDB, and is the defacto reference for it.
 
 To guide you through your journey, here are the topics that you should peruse on the above sites _in order_.
@@ -393,7 +393,7 @@ If you're interested in learning more about mongoDB, I recommend going through t
 4. Replica sets (redundancy)
 
 Otherwise, you could check out some other popular NoSQL databases, which can even be complementary to mongoDB.
-- [Redis](https://redis.io/) - An in-memory NoSQL database used for caching purposes.
+- [Redis](https://redis.io/) - An in-memory NoSQL _key-value_ database used for caching purposes.
 - [Neo4j](https://neo4j.com/) - A NoSQL _graph database_
 
 
