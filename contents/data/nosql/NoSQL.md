@@ -15,6 +15,8 @@
 
 **Author(s): [Ang Ze Yu](https://github.com/ang-zeyu)**
 
+**Reviewer(s):**
+
 ---
 
 ## What is NoSQL?
@@ -37,13 +39,13 @@ One such commonly used database is MongoDB, which is a document based database.
 In contrast to tables and table entries in SQL databases, we typically have collections and documents.
 A database comprises of multiple collections, which in turn consists of multiple documents.
 
-In a simplistic e-commerce website for example, you may have the following collections:
+In a simplified e-commerce website for example, you may have the following collections:
 - customers - storing the account details of customers, their purchase histories, etc.
-- items - a collection of all items (documents) available for purchase
+- items - a collection of all items available for purchase (which are documents) 
 - admin - a collection storing admin account details
 - **...**
 
-The following might be how an item available for purchase under the *items* collection
+The following might be how an item document available for purchase under the *items* collection
 is represented in a JSON format.
 
 
@@ -78,7 +80,9 @@ Let's get back to the above example. Say you already have the _customers_ collec
 A potential new user sends a POST request to register a new account, and your server would then simply call
 the following mongoDB code to store the details after some processing.
 
+
 ```js
+// Example insertion of a customer document into the _customers_ collection
 db.customers.insertOne({
   username: "panda",
   password: hashedPassword,
@@ -88,31 +92,50 @@ db.customers.insertOne({
 
 That was a rather simple use case, but you get the idea. Let's get into something more powerful.
 
-<p id="schemaless">
+<div id="schemaless">
+
 Suppose our _items_ collection is structured like so:
-</p>
+</div>
 
 ```js
 [
   {
     type: "book",
-	title: "about pandas"
+    title: "about pandas",
     price: 20,
     popularity: 9.7,
-	author: "panda1"
+    author: "panda1",
     ...
   },
   {
-	title: "more pandas",
-	author: "panda2",
+    title: "more pandas",
+    author: "panda2",
   },
   ...
 ]
 ```
 
-Here, the code simply provides a query JSON object matching the structure of the items collection.
+And a customer filters through your catalogue with a price of less than 30, and a popularity with more than 8.
+Furthermore, he / she sorts the items lexicographically by the price, then by descending order of the title.
+
+To retrieve that data, your backend would make a query like so:
+```js
+db.items.find({
+  price: { $lt: 30 },
+  popularity: { $gt: 8 }
+}).sort({
+  // Here 1 means ascending order, and -1 means descending
+  price: 1,
+  title: -1
+})
+```
+
+Here, the code simply provides a query JSON object matching the structure of an item document.
+
 Specifically, items with a price of less than 30 are filtered with the `$lt: 30` key-value pair,
-and items with a popularity of more than 8 are filtered with the `$gt: 8`.
+and items with a popularity of more than 8 are filtered with the `$gt: 8`.<br>
+Subsequently, a "cursor" is returned, which undergoes a `sort` operation by the respective fields of `price`
+and `title`.
 
 CRUD operations with NoSQL databases are just as powerful as traditional SQL databases, and in some
 cases even more succinct.
@@ -188,17 +211,7 @@ to avoid duplication of data.
 For example, items in an e-commerce website are related to the many customers through their carts.
 In these carts, it is much more space efficient to store references (to the items), than the item documents themselves.
 
-```js
-...
-cartItems: [
-  "itemId1",
-  "itemId2",
-]
-...
-```
-
-... And the item documents could hold an id field for lookup later.
-
+Let's introduce a uniquely generated `_id` field for each item document in the items collection:
 ```js
 {
   type: "book",
@@ -208,14 +221,30 @@ cartItems: [
 }
 ```
 
+In the user's cart, we would simply store these item `_ids`, which are used to lookup the item documents in the items collection later:
+```js
+...
+cart: {
+  totalPrice: 100,
+  cartItems: [
+    "9d1793bd491349n913847n93d",
+    "9d1793bd491349n913847njh8",
+  ],
+  discountCode: "panda"
+}
+...
+```
+
+
+
 <box type="info" icon-size="2x">
-For this reason, many NoSQL database solutions (e.g. MongoDB) implements an unique <code>id</code> field for each
-document by default.
+For this reason, many NoSQL database solutions (e.g. MongoDB) implement a unique <code>id</code> field
+for each document by default.
 </box>
 
 <br>
 
-### Horizontal scaling
+### Horizontal scaling :fas-server:
 
 Another key characteristic of NoSQL databases is ability to scale horizontally (distributing workload across
 multiple servers), without discarding much of its key features.
