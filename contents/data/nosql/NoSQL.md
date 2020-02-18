@@ -15,7 +15,7 @@
 
 **Author(s): [Ang Ze Yu](https://github.com/ang-zeyu)**
 
-**Reviewer(s):** [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg)
+**Reviewer(s): [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg)**
 
 ---
 
@@ -300,7 +300,14 @@ Vertical scaling (increasing the processing power of the machine) can only go so
 
 ### 3. Widespread adoption
 
-![](databaseSurvey.png)
+<br>
+<figure>
+<img src="databaseSurvey.png" width="90%" style="margin:0 auto" />
+<figcaption>
+<small>Most popular database technologies from Stack Overflow developer survey 2019</small>
+</figcaption>
+</figure>
+<br>
 
 While certainly trending behind SQL databases, NoSQL databases have been booming over the past couple of years,
 due to the increasing applicability of its benefits to requirements today. (Amazon uses a proprietary NoSQL database!)
