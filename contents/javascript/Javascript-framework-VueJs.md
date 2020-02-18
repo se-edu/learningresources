@@ -172,7 +172,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
     /* Inside todo-list component */
     template: {
-      on:increased-count="updateCount"
+      <item v-on:increased-count="updateCount" v-for="item in items"/>
     }
     ```
    <box type="tip">
