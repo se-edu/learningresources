@@ -15,7 +15,7 @@
 
 **Author(s): [Ang Ze Yu](https://github.com/ang-zeyu)**
 
-**Reviewer(s): [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg)**
+**Reviewer(s): [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg), [Daryl Tan](https://github.com/openorclose)**
 
 ---
 
