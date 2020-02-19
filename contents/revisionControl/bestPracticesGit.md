@@ -15,6 +15,8 @@
 
 Author(s): [Darren Wee](https://github.com/darrenwee)
 
+<box id="article-toc">
+
 * [Best Practices with git‎](#best-practices-with-git)
 * [Introduction‎](#introduction)
 * [Best Practices‎](#best-practices)
@@ -32,6 +34,7 @@ Author(s): [Darren Wee](https://github.com/darrenwee)
         * [Rebase versus Merging‎](#rebase-versus-merging)
 * [Resources‎](#resources)
     * [Further Reading‎](#further-reading)
+</box>
 
 # Introduction
 [`git`](https://git-scm.com/) is a popular source code management tool and commonly used in many open-source projects, especially those on [GitHub](https://github.com).
