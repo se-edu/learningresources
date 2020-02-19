@@ -17,6 +17,22 @@
 
 Reviewers: [Aaron Chong](https://github.com/acjh), [Bryan Lew](https://github.com/blewjy), [Dickson Tan](https://github.com/Neurrone), [Rachael Sim](https://github.com/rachx), [Rahul Rajesh](https://github.com/rrtheonlyone), [Sam Yong](https://github.com/mauris), [Tan Wang Leng](https://github.com/yamgent), [Vivek Lakshmanan](https://github.com/vivekscl), [Wang Junming](https://github.com/junming403), [Xiao Pu](https://github.com/xpdavid)
 
+<box id="article-toc">
+
+* [Swift‎](#swift)
+    * [Swift Overview‎](#swift-overview)
+    * [Noteworthy Swift Features‎](#noteworthy-swift-features)
+        * [Type Inference‎](#type-inference)
+        * [Optionals‎](#optionals)
+        * [Defer Statements‎](#defer-statements)
+        * [Data Types‎](#data-types)
+        * [Protocol Oriented Programming‎](#protocol-oriented-programming)
+        * [Extensions‎](#extensions)
+        * [Automatic Reference Counting‎](#automatic-reference-counting)
+        * [CocoaPods‎](#cocoapods)
+    * [How to Get Started‎](#how-to-get-started)
+</box>
+
 ## Swift Overview
 
 **Swift is the main programming language used for iOS programming.** Introduced in 2014 by Apple, Swift has more concise and more expressive syntax compared to its predecessor language [Objective-C](). Unlike most other software by Apple, Swift is [open source](https://github.com/apple/swift).
