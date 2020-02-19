@@ -271,43 +271,45 @@ Now that we know what Vue is, let us look at some benefits it has to offer.
 Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
 Iteration in React:<br/><br/>
 The JavaScript file in ReactJs
-    ```js
-    var Iteration = React.createClass({
-       getInitialState() {
-         return {
-           array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-         }
-       },
-       render() {
-         this.state.array.map(function(date) {
-           return (
-             <span>{date}</span>
-           )
-         });
-       }
+
+```js
+var Iteration = React.createClass({
+  getInitialState() {
+    return {
+      array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    }
+  },
+  render() {
+    this.state.array.map(function(date) {
+      return (
+        <span>{date}</span>
+      )
     });
-    ReactDOM.render(<Iteration />, document.getElementById('array'));
-    ```
-    The HTML file in ReactJs
-    ```html
-    <div id="array"></div>
-    ```
-    Iteration in Vue:<br/><br/>
-    The JavaScript file in Vue
-    ```js
-    var Iteration = new Vue({
-      el: '#array',
-      data: {
-        array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-      }
-    });
-    ```
-    The HTML file in Vue
-    ```html
-    <div id="array">
-      <span v-for="date in array">{\{date}\}</span>
-    </div>
-    ```
+  }
+});
+ReactDOM.render(<Iteration />, document.getElementById('array'));
+```
+    
+The HTML file in ReactJs
+```html
+<div id="array"></div>
+```
+Iteration in Vue:<br/><br/>
+The JavaScript file in Vue
+```js
+var Iteration = new Vue({
+  el: '#array',
+  data: {
+    array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  }
+});
+```
+The HTML file in Vue
+```html
+<div id="array">
+  <span v-for="date in array">{\{date}\}</span>
+</div>
+```
 
 ### Benefit 2: Progressive
 
