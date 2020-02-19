@@ -15,8 +15,7 @@
 
 Author: Lee Yi Min
 
-
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<box id="article-toc">
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
@@ -42,8 +41,8 @@ Author: Lee Yi Min
 	- [Lambda Expressions](#lambda-expressions)
 	- [Stream](#stream)
 		- [Common pitfalls](#common-pitfalls)
+</box>
 
-<!-- /TOC -->
 ## Overview
 
 In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with lambda expressions and stream operations.
