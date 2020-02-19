@@ -108,7 +108,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     In other words, if you change the input value, the bound data will change, and vice versa.
 
     ```html
-    <input type="checkbox", v-model=isChecked">
+    <input type="checkbox", v-model="isChecked">
         <label for="checked">Select</label>
     ```
 
@@ -131,10 +131,11 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     Vue.component('todo-list', {
       props: ['item'],
       data: ['totalCount'],
-      template:
+      template:`
         <div class='todo-list'>
           <p>Total:{\{this.totalCount}\}</p>
           <p>{\{item.name}\}: {\{item.count}\}</p>
+      `
     })
 
     <todo-list
@@ -165,15 +166,11 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     ```js
     Vue.component('item', {
       data: ['count', 'name'],
-      template: {
-        <button v-on:click="$emit('increased-count', count+1)">Increment item count</button>
-      }
+      template: `<button v-on:click="$emit('increased-count', count+1)">Increment item count</button>`
     })
 
     /* Inside todo-list component */
-    template: {
-      <item v-on:increased-count="updateCount" v-for="item in items"/>
-    }
+    template: `<item v-on:increased-count="updateCount" v-for="item in items"/>`
     ```
    <box type="tip">
    
