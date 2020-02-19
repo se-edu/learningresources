@@ -217,7 +217,7 @@ Let's introduce a uniquely generated `_id` field for each item document in the i
   type: "book",
   price: 20,
   popularity: 9.7,
-  _id: 9d1793bd491349n913847n93d
+  _id: "9d1793bd491349n913847n93d"
 }
 ```
 
