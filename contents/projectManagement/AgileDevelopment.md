@@ -15,6 +15,18 @@
 
 Author: [Joanne Ong](https://github.com/joanneong)
 
+<box id="article-toc">
+
+* [Agile Development‎](#agile-development)
+    * [Overview‎](#overview)
+    * [What is agile development?‎](#what-is-agile-development)
+    * [Why adopt agile development?‎](#why-adopt-agile-development)
+    * [How to adopt agile development?‎](#how-to-adopt-agile-development)
+    * [Caveats: What can possibly go wrong?‎](#caveats-what-can-possibly-go-wrong)
+    * [Putting it all together: The Spotify success story‎](#putting-it-all-together-the-spotify-success-story)
+    * [Other related resources‎](#other-related-resources)
+</box>
+
 ## Overview
 
 In 2015, Forbes published an article boldly titled [Agile: The World's Most Popular Innovation Engine](https://www.forbes.com/sites/stevedenning/2015/07/23/the-worlds-most-popular-innovation-engine/#22b176267c76). Indeed, as a software engineering student, you may have heard of the term "agile development", "agile model" or even simply "agile" before. In this chapter, we will explore agile development in greater depth, and learn why agile development is still thriving today.
