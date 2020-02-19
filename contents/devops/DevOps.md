@@ -15,6 +15,21 @@
 
 Authors: [John Yong](https://github.com/whipermr5)
 
+<box id="article-toc">
+
+* [DevOps‎](#devops)
+  * [What is DevOps?‎](#what-is-devops)
+  * [Aspects of DevOps‎](#aspects-of-devops)
+    * [Code Development & Review‎](#code-development-and-review)
+    * [Build & Test Automation‎](#build-and-test-automation)
+    * [Deployment & Infrastructure‎](#deployment-and-infrastructure)
+    * [Monitoring‎](#monitoring)
+  * [Getting Started‎](#getting-started)
+  * [Useful Links‎](#useful-links)
+    * [Quick References‎](#quick-references)
+    * [Further Reading‎](#further-reading)
+</box>
+
 ## What is DevOps?
 
 > &ldquo;DevOps is the practice of operations and development engineers participating together in the entire service lifecycle, from design through the development process to production support.&rdquo; &mdash; [the agile admin](https://theagileadmin.com/what-is-devops/)
