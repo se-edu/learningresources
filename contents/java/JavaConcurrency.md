@@ -15,16 +15,17 @@
 
 Authors: Vivek Lakshmanan
 
-* [What is Java Concurrency](#what-is-java-concurrency)
-* [Getting started](#getting-started)
-    * [Understanding Threads](#understanding-threads)
-    * [Creating and Starting Threads](#creating-and-starting-threads)
-    * [Operations on Threads](#operations-on-threads)
-    * [Thread Interference](#thread-interference)
-    * [Executors](#executors)
-* [Disadvantages of Java Concurrency](#disadvantages-of-java-concurrency)
-* [Resources](#resources)
-    * [Further Reading](#further-reading)
+* [Java Concurrency‎](#java-concurrency)
+    * [What is Java Concurrency](#what-is-java-concurrency)
+    * [Getting started](#getting-started)
+        * [Understanding Threads](#understanding-threads)
+        * [Creating and Starting Threads](#creating-and-starting-threads)
+        * [Operations on Threads](#operations-on-threads)
+        * [Thread Interference](#thread-interference)
+        * [Executors](#executors)
+    * [Disadvantages of Java Concurrency](#disadvantages-of-java-concurrency)
+    * [Resources](#resources)
+        * [Further Reading](#further-reading)
 
 ## What is Java Concurrency
 _Concurrency_ is the ability to run several programs or several parts of a program **out-of-order**, in an **interleaved fashion**. Simply put, if a program is running concurrently, the processor will execute one part of the program, pause it, execute another part and repeat. 
