@@ -15,6 +15,19 @@
 
 Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan
 
+<box id="article-toc">
+
+* [Scalable Development - An Introduction‎](#scalable-development-an-introduction)
+  * [Scalable Development‎](#scalable-development)
+  * [Scalability‎](#scalability)
+  * [Ways to scale‎](#ways-to-scale)
+    * [Horizontal vs Vertical Scaling‎](#horizontal-vs-vertical-scaling)
+    * [Faster Algorithms‎](#faster-algorithms)
+    * [Avoid Bottlenecks‎](#avoid-bottlenecks)
+  * [But wait!‎](#but-wait)
+  * [Conclusion‎](#conclusion)
+</box>
+
 ## Scalable Development
 When Pokémon Go first launched in 2016, the heavy traffic from users caused its servers to crash as the server was built to handle an expected maximum of five times the average network traffic when in reality, it was fifty times that. However, as of 2017, Google handles at least 3.5 billion searches daily, Whatsapp handles at least 10 billion messages a day, and Facebook hosts 1.2 billion daily active users. What makes these companies different?
 
