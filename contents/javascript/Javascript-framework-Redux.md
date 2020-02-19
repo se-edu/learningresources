@@ -80,7 +80,9 @@ The current state, and an action is passed into a **reducer**, a pure function w
 
 In real-world application, instead of one complex reducer, we have multiple simpler reducers and combine them into one reducer.
 
-For example, we two simpler reducers, firstly, a reducer for the visibility filter `visibilityFilter`:
+For example, we have two simpler reducers.
+
+Firstly, a reducer for the visibility filter `visibilityFilter`:
 
 ```js
 function visibilityFilter(state = 'SHOW_ALL', action) {
@@ -111,7 +113,7 @@ function todos(state = [], action) {
 }
 ```
 
-These two reducers are called by a main reducer, that esssentially manages the complete app state.
+These two reducers are called by a main reducer, and with that the complete app state is managed.
 
 ```js
 function todoApp(state = {}, action) {
@@ -122,9 +124,9 @@ function todoApp(state = {}, action) {
 }
 ```
 
-The reducers are pure functions. They take the previous state and an action and return the next state, as new state objects, instead of mutating the previous state.
+The reducers are **pure** functions. They take the previous state and an action, and return the next state, as new state objects, instead of mutating the previous state.
 
-A careful eye would notice that the above code block examples on reducer the are not pure function. In fact, with some Redux API, a more proper example for reducer(s) would be:
+A careful eye would notice that the above code block examples on reducers are not pure function. In fact, with some Redux API, a more proper example would then be:
 
 ```js
 function visibilityFilter(state = 'SHOW_ALL', action) {
@@ -164,8 +166,6 @@ const store = createStore(reducer)
 ```
 
 Now you know what Redux is!
-
-### UI
 
 ## Why Redux
 
