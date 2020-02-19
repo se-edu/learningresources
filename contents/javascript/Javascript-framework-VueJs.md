@@ -119,7 +119,22 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-3. **Passing Data From Outer to Inner Components**<br>
+3. **Conditionals and Loops**<br>
+    `v-if` allows you to conditionally insert/remove elements based on the truthfulness of the binding value.
+    
+    `v-for` allows you to loop through and render a list of items.
+    
+    Following the previous checkbox example, if you want to display a list of messages when the checkbox is checked, you can do the following:
+    ```html
+    <div v-if="isChecked">
+        <div v-for="message in messages">
+           <li>{\{message}\}</li>
+        </div>
+    </div>
+    ```
+<br>
+
+4. **Passing Data From Outer to Inner Components**<br>
     When you have components that are nested within each other, data is passed from the outer component to the inner component via `props`, where `props` are just custom data shared between the components.
 
     This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
@@ -153,7 +168,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-4. **Emitting Events**<br>
+5. **Emitting Events**<br>
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
 
     How do we do that if we have to follow the 1-way data flow rule?
@@ -179,15 +194,13 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-5. **Computed Properties**<br>
+6. **Computed Properties**<br>
     This is useful when you want to compose new data based on the data that has changed.
     Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.
 
     ```js
     computed: totalCount() {
-      let result = 0;
-      this.items.forEach((item) => result += item.count);
-      return result;
+      return this.items.reduce((sum, item) => sum + item.count);
     }
     ```
 
@@ -202,7 +215,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-6. **Watched Properties**<br>
+7. **Watched Properties**<br>
     Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
     For example, when a new `item` is added, we want to send a notification to our friend to alert him or her about the change.
@@ -211,9 +224,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     ```js
     watch: {
       totalCount: function() {
-        let result = 0
-        this.items.forEach((item) => result += item.count);
-        this.totalCount = result;
+        this.totalCount = this.items.reduce((sum, item) => sum + item.count);
 
         // notify friend about the change
       }
@@ -231,7 +242,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-7. **Lifecycle Hooks**<br>
+8. **Lifecycle Hooks**<br>
     Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions in the background called lifecycle hooks, allowing users to add code at each stage that could improve its rendering speed.<br/><br/>
     The following diagram shows all lifecycle hooks and their specific execution stages:<br/>
     ![Vue's Lifecycle Diagram](javascript-framework-vue-images/vue-lifecycle-diagram.png "Vue's Lifecycle Diagram")
