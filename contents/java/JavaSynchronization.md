@@ -15,6 +15,22 @@
 
 Authors: [Boxin](https://github.com/boxin-yang)
 
+<box id="article-toc">
+
+* [Java Synchronization‎](#java-synchronization)
+* [Introduction‎](#introduction)
+* [Basic Syntax‎](#basic-syntax)
+	* [synchronized statement‎](#synchronized-statement)
+	* [synchronized method‎](#synchronized-method)
+* [More features of Java synchronization‎](#more-features-of-java-synchronization)
+	* [wait() and notifyAll()‎](#wait-and-notifyall)
+		* [Understand which object is used as Monitor‎](#understand-which-object-is-used-as-monitor)
+		* [Check condition for wait() with while loop‎](#check-condition-for-wait-with-while-loop)
+		* [Breakpoint of notifyAll()‎](#breakpoint-of-notifyall)
+	* [notify()‎](#notify)
+* [Related areas‎](#related-areas)
+</box>
+
 # Introduction
 
 Java Synchronization is the Java implementation of [Monitor][1]. The Monitor is used with [parallel threads][2] to ensure [mutual exclusion][3] in [critical section][4]. It is a mechanism to ensure [thread safety][5] when parallel threads are accessing shared data of an object.
