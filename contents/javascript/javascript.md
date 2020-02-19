@@ -27,8 +27,8 @@ Authors: Li Kai
         * [Optional parameters‎](#optional-parameters)
         * [Understand method chaining‎](#understand-method-chaining)
         * [Addendum‎](#addendum)
-* [Resources‎](#resources)
-* [References‎](#references)
+    * [Resources‎](#resources)
+    * [References‎](#references)
 </box>
 
 JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing.
