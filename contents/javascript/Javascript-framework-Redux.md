@@ -180,6 +180,12 @@ Since actions and state are plain objects, it is possible to serialize them and 
 
 ![Redux Devtool](https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png)
 
+
+<center>
+
+_Redux DevTools_ <sup>[image source](https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png)</sup>
+</center>
+
 3. **Easier testing**<br/>
 It is easy make tests since the reducers used to change the state are pure functions. When writing code with Redux means writing small, pure and isolated reducer functions, we simply write small and isolated tests. Using Redux makes for testable code.
 
@@ -206,10 +212,6 @@ There are many sites and articles speaking of why you shouldn't or when you shou
 
 - [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 - [When should I use Redux?](https://redux.js.org/faq/general#when-should-i-use-redux)
-
-### Alternative state managers and state related solutions
-
-
 
 ## Getting Started With Redux
 
