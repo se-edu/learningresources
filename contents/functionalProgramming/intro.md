@@ -15,6 +15,22 @@
 
 Authors: [Phang Chun Rong](https://github.com/crphang)
 
+<box id="article-toc">
+
+* [An Introduction to Functional Programming‎](#an-introduction-to-functional-programming)
+    * [What is Functional Programming‎](#what-is-functional-programming)
+    * [Functional Programming Languages‎](#functional-programming-languages)
+    * [Concepts in Functional Programming‎](#concepts-in-functional-programming)
+        * [Pure Functions](#pure-functions)
+        * [Immutability](#immutability)
+    * [Techniques in Functional Programming‎](#techniques-in-functional-programming)
+        * [Recursion](#recursion)
+        * [Higher Order Functions](#higher-order-functions)
+    * [Advantages of Functional Programming‎](#advantages-of-functional-programming)
+    * [Disadvantages of Functional Programming‎](#disadvantages-of-functional-programming)
+    * [Guides on Functional Programming‎](#guides-on-functional-programming)
+</box>
+
 ## What is Functional Programming
 
 Functional programming is a programming paradigm that treats computation as the evaluation of mathematical function and avoids mutating state and variables. Unlike [imperative programming](https://en.wikipedia.org/wiki/Imperative_programming) languages like C, functional programming languages are [declarative](https://en.wikipedia.org/wiki/Declarative_programming). Even though this demands a shift in mindset from most programmers who are used to imperative form of programming, functional programming paradigm is still [increasingly popular](https://blog.appdynamics.com/engineering/the-most-popular-programming-languages-for-2017/) due to its [advantages](#advantages-of-functional-programming).
