@@ -15,6 +15,19 @@
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)
 
+<box id="article-toc">
+
+* [Introduction to Ruby‎](#introduction-to-ruby)
+  * [Ruby Overview‎](#ruby-overview)
+  * [Getting Started‎](#getting-started)
+    * [Everything is an object‎](#everything-is-an-object)
+    * [Readability is king‎](#readability-is-king)
+    * [Functional programming is encouraged‎](#functional-programming-is-encouraged)
+    * [Object-oriented programming is possible, too‎](#object-oriented-programming-is-possible-too)
+  * [Advanced Topics‎](#advanced-topics)
+  * [Ruby Frameworks and DevOps‎](#ruby-frameworks-and-devops)
+</box>
+
 ## Ruby Overview
 
 **Ruby** is a **dynamic**, **reflective**, **object-oriented**, **general-purpose** programming-language, designed and developed by Yukihiro "Matz" Matsumoto in 1990s.
