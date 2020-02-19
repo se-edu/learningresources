@@ -15,6 +15,21 @@
 
 Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang Chun Rong](https://www.github.com/Crphang)
 
+<box id="article-toc">
+
+* [An Introduction to Python‎](#an-introduction-to-python)
+  * [Getting started with Python‎](#getting-started-with-python)
+  * [Python 2 vs Python 3‎](#python-2-vs-python-3)
+  * [Virtual Environment‎](#virtual-environment)
+  * [Common Data Structures‎](#common-data-structures)
+  * [Indexing and Slicing‎](#indexing-and-slicing)
+  * [Object Oriented Programming in Python‎](#object-oriented-programming-in-python)
+  * [Functional Programming‎](#functional-programming)
+  * [Python for Data Science‎](#python-for-data-science)
+    * [Tutorials‎](#tutorials)
+  * [Gotchas‎](#gotchas)
+</box>
+
 Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.
 
 ## Getting started with Python
