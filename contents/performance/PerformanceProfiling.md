@@ -15,6 +15,18 @@
 
 Author: [Ong Heng Le](https://github.com/initialshl)
 
+<box id="article-toc">
+
+* [Performance Profiling‎](#performance-profiling)
+  * [Overview‎](#overview)
+  * [Performance Profiling For The First Time‎](#performance-profiling-for-the-first-time)
+  * [Advanced Topics‎](#advanced-topics)
+    * [Sampling Interval‎](#sampling-interval)
+    * [Instrumentation Overhead‎](#instrumentation-overhead)
+  * [Profiling Other Types Of Data‎](#profiling-other-types-of-data)
+  * [Resources‎](#resources)
+</box>
+
 ## Overview
 
 A performance profiler is a tool which collects data (such as function timings) about 
