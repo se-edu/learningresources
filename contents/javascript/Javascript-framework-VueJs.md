@@ -47,7 +47,7 @@ new Vue ({
 ```
 <box type="warning">
 
-Note that `{\{` and `}\}` should be `{<span>{</span>` and `}<span>}</span>` respectively, due to the limitations of [MarkBind](https://markbind.org).
+Note that `{\{` and `}\}` should be <code>{<span>{</span></code> and <code>}<span>}</span></code> respectively, due to the limitations of [MarkBind](https://markbind.org).
 </box>
 
 Step-by-step explanation of the code:
