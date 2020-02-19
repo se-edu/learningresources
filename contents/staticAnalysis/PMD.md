@@ -15,6 +15,25 @@
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
 
+<box id="article-toc">
+
+* [PMD‎](#pmd)
+  * [Overview‎](#overview)
+  * [Features‎](#features)
+  * [Limitation‎](#limitation)
+  * [How to use it‎](#how-to-use-it)
+    * [Download‎](#download)
+    * [Configuration‎](#configuration)
+    * [Suppress Warnings‎](#suppress-warnings)
+    * [Command Line Usage‎](#command-line-usage)
+    * [Integration with Build Automation Tools‎](#integration-with-build-automation-tools)
+    * [Integration with IDEs‎](#integration-with-ides)
+  * [Available Rulesets‎](#available-rulesets)
+  * [How does it work‎](#how-does-it-work)
+  * [Customization‎](#customization)
+  * [Resources‎](#resources)
+</box>
+
 ## Overview
 
 PMD is a static analyser for Java, JavaScript, Salesforce.com Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)), which helps to find duplicated code, is also included as an add-on in PMD.
