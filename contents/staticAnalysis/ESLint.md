@@ -15,6 +15,17 @@
 
 Author: [Nicholas Chua](https://github.com/nus-cs3281/2018/blob/master/students/nicholasChua/nicholasChua-Resume.md)
 
+<box id="article-toc">
+
+* [ESLint](#eslint)
+  * [Overview](#overview)
+  * [Rules](#rules)
+  * [Setting Up](#setting-up)
+  * [Usage](#usage)
+  * [Plugins](#plugins)
+  * [Resources](#resources)
+</box>
+
 ## Overview
 
 [ESLint](https://eslint.org/docs/about/) is an open source JavaScript linter.
