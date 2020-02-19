@@ -109,7 +109,8 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
     ```html
     <input type="checkbox", v-model="isChecked">
-        <label for="checked">Select</label>
+      <label for="checked">Select</label>
+    </input>
     ```
 
     When the checkbox is selected, `isChecked` is set to `true`. If the program sets `isChecked` to `false`, then checkbox will be unselected.
@@ -127,9 +128,9 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     Following the previous checkbox example, if you want to display a list of messages when the checkbox is checked, you can do the following:
     ```html
     <div v-if="isChecked">
-        <div v-for="message in messages">
-           <li>{\{message}\}</li>
-        </div>
+      <div v-for="message in messages">
+        <li>{\{message}\}</li>
+      </div>
     </div>
     ```
 <br>
@@ -150,6 +151,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
         <div class='todo-list'>
           <p>Total:{\{this.totalCount}\}</p>
           <p>{\{item.name}\}: {\{item.count}\}</p>
+        </div>
       `
     })
 
