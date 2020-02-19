@@ -47,7 +47,7 @@ new Vue ({
 ```
 <box type="warning">
 
-Note that `{\{` and `}\}` should not have the slash in your actual code.
+Note that `{\{` and `}\}` should be `{{` and `}}` respectively, due to the limitations of [MarkBind](https://markbind.org).
 </box>
 
 Step-by-step explanation of the code:
