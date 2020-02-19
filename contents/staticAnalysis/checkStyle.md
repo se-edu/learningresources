@@ -15,6 +15,22 @@
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
 
+<box id="article-toc">
+
+* [CheckStyle‎](#checkstyle)
+  * [Overview‎](#overview)
+  * [Features‎](#features)
+  * [Limitations‎](#limitations)
+  * [How to use it‎](#how-to-use-it)
+    * [Configuration‎](#configuration)
+    * [Suppress Warnings‎](#suppress-warnings)
+    * [Running‎](#running)
+  * [Available Configurations‎](#available-configurations)
+  * [How does it work‎](#how-does-it-work)
+  * [Customisation‎](#customisation)
+  * [Resources‎](#resources)
+</box>
+
 ## Overview
 
 CheckStyle is a static analyser for **Java**. It can be used to assist developers in [static analysis](intro.html) process.
