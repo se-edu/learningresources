@@ -166,10 +166,10 @@ operations.
 {
   $jsonSchema: {
     bsonType: "object",
-	require: [ "username", "password", "email" ]
-	properties: {
-	  ...
-	}
+    require: [ "username", "password", "email" ]
+    properties: {
+      ...
+    }
   }
 }
 ...
