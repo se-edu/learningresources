@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
