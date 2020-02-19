@@ -17,6 +17,19 @@
 
 Reviewers: [Jiang Chunhui](https://github.com/Adoby7), [Wang Junming](https://github.com/junming403)
 
+<box id="article-toc">
+
+* [Introduction to Scala‎](#introduction-to-scala)
+  * [Overview‎](#overview)
+  * [Noteworthy Scala Features‎](#noteworthy-scala-features)
+    * [Type Inference‎](#type-inference)
+    * [Operator Overloading‎](#operator-overloading)
+    * [Mixins, Traits‎](#mixins-traits)
+    * [Type Enrichment‎](#type-enrichment)
+    * [Pattern Matching‎](#pattern-matching)
+  * [Getting Started‎](#getting-started)
+</box>
+
 ## Overview
 
 > Scala combines object-oriented and functional programming in one concise, high-level language. Scala's static types help avoid bugs in complex applications, and its JVM and JavaScript runtimes let you build high-performance systems with easy access to huge ecosystems of libraries. -- [Scala Website](https://www.scala-lang.org/)
