@@ -15,6 +15,16 @@
 
 Author: [Ian Teo](https://github.com/IanTeo), [Phang Chun Rong](https://www.github.com/Crphang)
 
+<box id="article-toc">
+
+* [Introduction to Performance Optimization‎](#introduction-to-performance-optimization)
+    * [Overview‎](#overview)
+    * [Using Appropriate Data Structures and Algorithms‎](#using-appropriate-data-structures-and-algorithms)
+    * [Memory Management Usage‎](#memory-management-usage)
+    * [Using Cache Friendly Code‎](#using-cache-friendly-code)
+    * [Other Resources‎](#other-resources)
+</box>
+
 ## Overview
 
 Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; from applications running in small battery operated devices to huge data centres.
