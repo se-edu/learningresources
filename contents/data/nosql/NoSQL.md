@@ -17,6 +17,29 @@
 
 **Reviewer(s): [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg), [Daryl Tan](https://github.com/openorclose)**
 
+<box id="article-toc">
+
+* [Introduction to NoSQL](#introduction-to-nosql)
+  * [What is NoSQL‎](#what-is-nosql)
+  * [How does NoSQL work?‎](#how-does-nosql-work)
+    * [Basic structure of document-based databases‎](#basic-structure-of-document-based-databases)
+    * [Basic CRUD operation examples‎](#basic-crud-operation-examples)
+    * [Schemas in NoSQL](#schemas-in-nosql)
+    * [Relation storage in NoSQL](#relation-storage-in-nosql)
+    * [Horizontal Scaling](#horizontal-scaling)
+  * [Why NoSQL](#why-nosql)
+    * [1. Highly suited for agile development](#1-highly-suited-for-agile-development)
+    * [2. Horizontal scalability](#2-horizontal-scalability)
+    * [3. Widespread adoption](#3-widespread-adoption)
+  * [Caveats of NoSQL‎](#caveats-of-nosql)
+    * [Lack of standardisation](#1-lack-of-standardisation)
+    * [Not suited for complex relational queries‎](#2-not-suited-for-complex-relational-queries)  
+  * [How to get started with NoSQL?‎](#how-to-get-started-with-nosql)
+
+{.px-3}
+
+</box>
+
 ---
 
 ## What is NoSQL?
