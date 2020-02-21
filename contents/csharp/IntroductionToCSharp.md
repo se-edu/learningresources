@@ -13,9 +13,21 @@
 
 # Introduction to C#
 
-**Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)**
-
+**Author(s:) [Yu Pei, Henry](https://github.com/YuPeiHenry)**<br>
 Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://github.com/sijie123)
+
+<box id="article-toc">
+
+* [Introduction to C#‎](#introduction-to-c)
+    * [What is C#‎](#what-is-c)
+    * [C# Syntax Features‎](#c-syntax-features)
+        * [Object/Array/Collection Initializers‎](#object-array-collection-initializers)
+        * [Closures‎](#closures)
+        * [Nullable type‎](#nullable-type)
+        * [Other features](#other-features)
+    * [Why Learn C#‎](#why-learn-c)
+    * [How to Get Started‎](#how-to-get-started)
+</box>
 
 ## What is C#
 
