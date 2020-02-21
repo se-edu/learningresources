@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.3.0">
+  <meta name="generator" content="MarkBind 2.10.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Refining UX Design Skills</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
   <div id="app">
     <header>
-      <navbar placement="top" type="light">
+      <navbar placement="top" type="light" class="temp-navbar">
         <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
         <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
         <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -32,11 +32,12 @@
         <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
         <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
         <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-        <dropdown text="Resources" class="nav-link">
+        <div class="nav-link temp-dropdown-placeholder">Resources</div>
+        <dropdown text="Resources" class="nav-link temp-dropdown">
           <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
           <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
           <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
-          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span> GitHub</span></a></li>
         </dropdown>
         <li slot="right" class="nav-link">
           <form class="navbar-form">
@@ -47,251 +48,253 @@
     </header>
     <div id="flex-body">
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
+        <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+<ul class="px-0 site-nav-list">
+<li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
+          </button>
+          <div class="dropdown-container">
+            <ul class="pl-3 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn">C++
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">UI/UX
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a current">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">CSharp
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Java
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">JavaScript
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
                   </ul>
                 </div>
               </li>
+              <li class="mt-2"><button class="dropdown-btn">Kotlin
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
             </ul>
-          </span></div>
+          </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container dropdown-container-open">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><button class="dropdown-btn">Architecture
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Code Quality
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Performance
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Project Management
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Revision Control
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Static Analysis
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Testing
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">UI/UX
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container dropdown-container-open">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a current">Refining UX Design Skills</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Databases
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Security
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Shell
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          </ul>
+          </span>
+        </div>
       </nav>
       <div id="content-wrapper">
         <div class="website-content">
@@ -308,8 +311,9 @@
             <li><a href="#additional-resource-s">Additional Resource(s)</a></li>
           </ul>
           <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-          <p>As someone new to UX Design, honing your design skills is crucial to getting a UX-related career. In addition to knowing the definition of UX Design and it's stages, it is also important to know the practical aspect of starting and refining the required skillsets. This section will explain a few tactics to help you on this journey of improvement.</p>
-          <h4 id="summary-of-keypoints">Summary of keypoints</h4>
+          <p>As someone new to UX Design, honing your design skills is crucial to getting a UX-related career. In addition to knowing the definition of UX Design and it's stages, it is also important to know the practical aspect of starting and refining
+            the required skillsets. This section will explain a few tactics to help you on this journey of improvement.</p>
+          <h4 id="summary-of-keypoints">Summary of keypoints<a class="fa fa-anchor" href="#summary-of-keypoints"></a></h4>
           <ol>
             <li>Building a relationship with a UX mentor</li>
             <li>Becoming a UX apprentice</li>
@@ -317,7 +321,8 @@
           </ol>
           <p>Each keypoint represents a tactic to help you refine your UX skillsets, supplemented with the potential pitfalls of each tactic and solutions to consider.</p>
           <h2 id="building-a-relationship-with-a-ux-mentor">Building a relationship with a UX mentor<a class="fa fa-anchor" href="#building-a-relationship-with-a-ux-mentor"></a></h2>
-          <p>Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding UX designer would have at the beginning. Chances are that they have already asked the same questions you are having and can therefore provide constructive feedback on workable solutions. Even if they have not tried tackled the same issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.</p>
+          <p>Mentors are invaluable because they are able to use their experience to fill in any knowledge gaps a budding UX designer would have at the beginning. Chances are that they have already asked the same questions you are having and can therefore
+            provide constructive feedback on workable solutions. Even if they have not tried tackled the same issues, they stand in a better position to provide sound advice by using any transferable lessons learnt in their own expert areas.</p>
           <p>There are many avenues to find a UX mentor. Listed below are some links to get you started on some ways you can find a potential mentor.</p>
           <p>Mentoring networks:</p>
           <ol>
@@ -342,16 +347,23 @@
             <li><a href="https://www.uxbeginner.com/how-to-find-a-ux-mentor/">How to Find a UX Mentor</a></li>
             <li><a href="https://medium.com/@myplanet/how-and-why-you-want-to-find-a-great-design-mentor-6faa7c0fffd9">How (and Why) You Want to Find a Great Design Mentor</a></li>
           </ol>
-          <h4 id="potential-pitfalls">Potential pitfalls</h4>
-          <p><em>Unresponsive or ineffective mentors</em>: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.</p>
+          <h4 id="potential-pitfalls">Potential pitfalls<a class="fa fa-anchor" href="#potential-pitfalls"></a></h4>
+          <p><em>Unresponsive or ineffective mentors</em>: Not everyone would be cut out to be a mentor, hence it is up to you to determine if your needs are being met by a specific mentor. The key thing is to always be proactive on your side by following
+            up with your mentor, and having the courage to move on if you feel that the specific mentorship isn't working out.</p>
           <h2 id="becoming-a-ux-apprentice">Becoming a UX apprentice<a class="fa fa-anchor" href="#becoming-a-ux-apprentice"></a></h2>
-          <p>This tactic may sound similar to the first one, but apprenticeship here connotes a stronger meaning for a formal learning experience. While the previous point talks about getting on-the-job advice from more experienced individuals, this tactic mainly discusses learning bootcamps that focuses on bringing an individual from &quot;UX Zero&quot; to &quot;UX Hero&quot; within the span of a few months.</p>
+          <p>This tactic may sound similar to the first one, but apprenticeship here connotes a stronger meaning for a formal learning experience. While the previous point talks about getting on-the-job advice from more experienced individuals, this tactic
+            mainly discusses learning bootcamps that focuses on bringing an individual from &quot;UX Zero&quot; to &quot;UX Hero&quot; within the span of a few months.</p>
           <p>Bootcamps can be classified into online or in-person, each with its advantages and disadvantages.</p>
-          <h4 id="online">Online</h4>
-          <p>Broadly speaking, the main advantages of online courses are it's convenience and price. Online courses cater to students globally and are generally more affordable than in-person courses. Most online courses are also self-paced based on each student's schedule. However, online courses lack the in-person interactions which can impact the learning experience. Completing online courses also requires long term self-discipline, which places more responsibility on the student. Hence, completion rates are generally not as high compared to in-person courses.</p>
-          <h4 id="in-person">In-person</h4>
-          <p>The main advantages of in-person courses are the interactions, which can help to solidify learning experiences and concepts. For UX Design specifically, students might benefit learning skills like drafting user-scenarios or prototyping with in-class guidance rather than through the web. As a result of in-person learning and collaboration, students would also be more motivated and completion rates for in-person courses are higher in general. However, such courses are limited by price and their locations.</p>
-          <h4 id="recommendations">Recommendations</h4>
+          <h4 id="online">Online<a class="fa fa-anchor" href="#online"></a></h4>
+          <p>Broadly speaking, the main advantages of online courses are it's convenience and price. Online courses cater to students globally and are generally more affordable than in-person courses. Most online courses are also self-paced based on each
+            student's schedule. However, online courses lack the in-person interactions which can impact the learning experience. Completing online courses also requires long term self-discipline, which places more responsibility on the student. Hence,
+            completion rates are generally not as high compared to in-person courses.</p>
+          <h4 id="in-person">In-person<a class="fa fa-anchor" href="#in-person"></a></h4>
+          <p>The main advantages of in-person courses are the interactions, which can help to solidify learning experiences and concepts. For UX Design specifically, students might benefit learning skills like drafting user-scenarios or prototyping with
+            in-class guidance rather than through the web. As a result of in-person learning and collaboration, students would also be more motivated and completion rates for in-person courses are higher in general. However, such courses are limited by
+            price and their locations.
+          </p>
+          <h4 id="recommendations">Recommendations<a class="fa fa-anchor" href="#recommendations"></a></h4>
           <p>There are many bootcamps of both classifications for considerations. I have listed a few famous ones below for consideration that are more applicable for Singaporean students.</p>
           <p>Online:</p>
           <ol>
@@ -366,8 +378,9 @@
             <li><a href="https://sg.alphacamp.co/full-time-product-design/">Product Design (Alpha Camp)</a></li>
             <li><a href="https://www.hyperisland.com/programs-and-courses/human-centered-design">Human Centered Design (Hyper Island)</a></li>
           </ol>
-          <h4 id="potential-pitfalls-2">Potential pitfalls</h4>
-          <p><em>Ineffective learning experiences</em>: A common mistake is signing up for any program thinking that all UX Design programs are the same. The curriculum of most courses were developed separately, hence their teaching methodology and focus would be different from each other. Consider requesting the course syllabus for each couse and asking a few questions:</p>
+          <h4 id="potential-pitfalls-2">Potential pitfalls<a class="fa fa-anchor" href="#potential-pitfalls-2"></a></h4>
+          <p><em>Ineffective learning experiences</em>: A common mistake is signing up for any program thinking that all UX Design programs are the same. The curriculum of most courses were developed separately, hence their teaching methodology and focus
+            would be different from each other. Consider requesting the course syllabus for each couse and asking a few questions:</p>
           <ul>
             <li>What kinds of portfolio deliverables will you produce through the program? Will you actually produce things you can showcase as evidence of your problem-solving skills?</li>
             <li>Does the program have a trusted network of potential employers that you can be connected with?</li>
@@ -375,16 +388,20 @@
           </ul>
           <p>Be honest with your expectations on what you wish to get out of the course and find a suitable one based on your answers to the questions above.</p>
           <h2 id="engaging-in-individual-ux-projects">Engaging in individual UX projects<a class="fa fa-anchor" href="#engaging-in-individual-ux-projects"></a></h2>
-          <p>This is the tactic that shows your proactiveness and desire to excel in UX Design. Whether you have a mentor or have participated in a UX Bootcamp, nothing shows your commitment to UX Design more than if you had further honed those learned skills in actual UX projects.</p>
-          <p>Find a local organisation with a website/app that you believe needs design help. Approach them via call/email to let them know that you are new to design but would like to gain some experience by providing advice on how certain aspects of their websites can be improved, bearing in mind that it's good to always frame design issues as business issues. Afterwards, simply treat it as your own UX project and work with the organisation to produce value-added content such as prototypes that can help to showcase your ideas. By doing it well, you can gain experience and even add value to your resume.</p>
+          <p>This is the tactic that shows your proactiveness and desire to excel in UX Design. Whether you have a mentor or have participated in a UX Bootcamp, nothing shows your commitment to UX Design more than if you had further honed those learned skills
+            in actual UX projects.</p>
+          <p>Find a local organisation with a website/app that you believe needs design help. Approach them via call/email to let them know that you are new to design but would like to gain some experience by providing advice on how certain aspects of their
+            websites can be improved, bearing in mind that it's good to always frame design issues as business issues. Afterwards, simply treat it as your own UX project and work with the organisation to produce value-added content such as prototypes
+            that can help to showcase your ideas. By doing it well, you can gain experience and even add value to your resume.</p>
           <p>Listed below are some examples of UX projects that can be self-initiated.</p>
           <ol>
             <li><a href="https://www.rookieup.com/blog/10-uxui-projects-help-build-portfolio/">10 UX/UI Projects to Help You Build Your Portfolio</a></li>
             <li><a href="https://www.uxbeginner.com/5-hidden-sources-of-ux-portfolio-projects/">5 Hidden Sources of UX Portfolio Projects</a></li>
             <li><a href="http://thehipperelement.com/post/145959249463/two-projects-to-hone-your-ux-skills">Two Projects to Hone your UX Skills</a></li>
           </ol>
-          <h4 id="potential-pitfalls-3">Potential pitfalls:</h4>
-          <p><em>Projects that don’t count as legitimate UX experience</em>: It is important to be careful of the type of projects you end up taking. Producing content for non-digital media, such as a brochure or an advertisement, would not be as relevant as producing wireframes for a website. Furthermore, even with a relevant UX experience, it is crucial to be able to link your work to communicate the following points:</p>
+          <h4 id="potential-pitfalls-3">Potential pitfalls:<a class="fa fa-anchor" href="#potential-pitfalls-3"></a></h4>
+          <p><em>Projects that don’t count as legitimate UX experience</em>: It is important to be careful of the type of projects you end up taking. Producing content for non-digital media, such as a brochure or an advertisement, would not be as relevant
+            as producing wireframes for a website. Furthermore, even with a relevant UX experience, it is crucial to be able to link your work to communicate the following points:</p>
           <ul>
             <li>How you helped the team balance user goals and business goals</li>
             <li>How you analyzed the business and technology constraints</li>
@@ -394,8 +411,11 @@
           </ul>
           <p>Applying UX skills and being able to communicate your ideas/results clearly to your clients based on the questions listed above helps you to sell the true value of your design work.</p>
           <h2 id="summary">Summary<a class="fa fa-anchor" href="#summary"></a></h2>
-          <p>Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Therefore, knowing the tactics and solutions to common pitfalls would definitely help clarify the steps needed to refine your UX skills. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey of mastering UX Design.</p>
-          <p>Know that there are many others before you who were new but successfully went into UX Design through their tenacity and hard work. Check out the below links for some success stories of individuals who started with zero experience but managed to secure full-time UX jobs. Use those stories as inspiration to motivate your own UX journey!</p>
+          <p>Being a UX designer requires tenacity as a lot of the responsibility, i.e. be it approaching a right mentor, determining a right course syllabus for yourself or approaching a local organisation for potential work, ultimately falls on you. Therefore,
+            knowing the tactics and solutions to common pitfalls would definitely help clarify the steps needed to refine your UX skills. Bear in mind that the tactics are not used exclusively, as all of them can be applied simultaneously in your journey
+            of mastering UX Design.</p>
+          <p>Know that there are many others before you who were new but successfully went into UX Design through their tenacity and hard work. Check out the below links for some success stories of individuals who started with zero experience but managed
+            to secure full-time UX jobs. Use those stories as inspiration to motivate your own UX journey!</p>
           <ul>
             <li><a href="https://blog.prototypr.io/how-i-landed-a-job-in-ux-design-with-no-degree-or-work-experience-ca22c22a1c68">How I landed a job in UX Design with no degree or work experience</a></li>
             <li><a href="https://medium.com/capitalonedesign/how-i-landed-a-ux-job-in-8-months-without-work-experience-or-a-degree-a057d32df1f9">How I Landed a UX Job in 8 Months Without Work Experience or a Degree</a></li>
@@ -407,7 +427,7 @@
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
+        <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#refining-ux-design-skills">Refining UX Design Skills&#x200E;</a>
@@ -427,7 +447,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.3.0</a> on Wed, 24 Apr 2019 08:25:36 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.10.0</a> on Fri, 21 Feb 2020 04:31:19 GMT]</small></div>
     </footer>
   </div>
 </body>
@@ -441,6 +461,7 @@
   const enableSearch = true
 </script>
 <script src="../../markbind/js/setup.js"></script>
+
 <script src="../../markbind/layouts/default/scripts.js"></script>
 
 </html>

@@ -5,9 +5,9 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.3.0">
+  <meta name="generator" content="MarkBind 2.10.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Node.js</title>
+  <title>SE-EDU/LearningResources - Introduction to Node</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -24,7 +24,7 @@
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
   <div id="app">
     <header>
-      <navbar placement="top" type="light">
+      <navbar placement="top" type="light" class="temp-navbar">
         <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
         <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
         <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -32,11 +32,12 @@
         <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
         <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
         <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-        <dropdown text="Resources" class="nav-link">
+        <div class="nav-link temp-dropdown-placeholder">Resources</div>
+        <dropdown text="Resources" class="nav-link temp-dropdown">
           <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
           <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
           <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
-          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span> GitHub</span></a></li>
         </dropdown>
         <li slot="right" class="nav-link">
           <form class="navbar-form">
@@ -47,269 +48,276 @@
     </header>
     <div id="flex-body">
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
+        <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+<ul class="px-0 site-nav-list">
+<li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
+          </button>
+          <div class="dropdown-container">
+            <ul class="pl-3 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn">C++
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">CSharp
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a current">NodeJS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Java
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">JavaScript
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
                   </ul>
                 </div>
               </li>
+              <li class="mt-2"><button class="dropdown-btn">Kotlin
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
             </ul>
-          </span></div>
+          </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><button class="dropdown-btn">Architecture
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Code Quality
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Performance
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Project Management
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Revision Control
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Static Analysis
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Testing
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">UI/UX
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container dropdown-container-open">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a current">Node</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Databases
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Security
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Shell
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          </ul>
+          </span>
+        </div>
       </nav>
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-node-js">Introduction to Node.js<a class="fa fa-anchor" href="#introduction-to-node-js"></a></h1>
+          <h1 id="introduction-to-node">Introduction to Node<a class="fa fa-anchor" href="#introduction-to-node"></a></h1>
           <p>Author: Rachael Sim</p>
-          <h1 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h1>
-          <p><em>This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&amp;%20performance/README.md#you-dont-know-js-async--performance">asynchronous programming section of the You Don't Know JS guide </a> as asynchronous programming is key in Node.</em></p>
+          <box type="info">
+            This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
+            as asynchronous programming is key in Node.
+          </box>
+          <h2 id="what-is-node">What is Node?<a class="fa fa-anchor" href="#what-is-node"></a></h2>
           <blockquote>
-            <p><em>Node.js</em> is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--<a href="https://nodejs.org">https://nodejs.org</a></sub></p>
+            <p><em>Node</em> is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--<a href="https://nodejs.org">https://nodejs.org</a></sub></p>
           </blockquote>
-          <p>Node is mostly used in back-end and server side scenarios. For example, LinkedIn mobile app backend is built on Node JS and Uber built its massive matching system between customers and drivers on Node.js. However, Node can also be used in the front-end to automate tasks such as building, testing, pre and post processing code.</p>
-          <h1 id="benefits">Benefits<a class="fa fa-anchor" href="#benefits"></a></h1>
-          <p>Why should you use Node?</p>
-          <h2 id="benefit-1-easy-to-get-started">Benefit 1: Easy to get started<a class="fa fa-anchor" href="#benefit-1-easy-to-get-started"></a></h2>
-          <p>To install Node, simply download the installer from the <a href="https://nodejs.org/en/download/">official Node.js website</a> based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install and manage node.js packages. The use of npm will be explained in the next section.</p>
-          <p>Here is an example of how to write a working Node.js server taken from <a href="https://codeburst.io/getting-started-with-node-js-a-beginners-guide-b03e25bca71b">codeburst</a>.</p>
-          <p>It is extremely short and simple but it demonstrates how a Node.js application import required modules, create a server to listen to client's request, read the request and returns a response.</p>
+          <p>Node is mostly used in back-end and server side scenarios. For example, LinkedIn mobile app backend is built on Node and Uber built its massive matching system between customers and drivers on Node. However, Node can also be used in the front-end
+            to automate tasks such as building, testing, pre and post processing code.</p>
+          <h2 id="why-use-node">Why use Node?<a class="fa fa-anchor" href="#why-use-node"></a></h2>
+          <p>Now that we know what Node is, let us look at some benefits it has to offer.</p>
+          <h3 id="benefit-1-easy-to-get-started">Benefit 1: Easy to get Started<a class="fa fa-anchor" href="#benefit-1-easy-to-get-started"></a></h3>
+          <p>To install Node, simply download the installer from the <a href="https://nodejs.org/en/download/">official Node website</a> based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install
+            and manage node packages. The use of npm will be explained in the next section.</p>
+          <p>Here is an example of how to write a working Node server taken from <a href="https://codeburst.io/getting-started-with-node-js-a-beginners-guide-b03e25bca71b">codeburst</a>.</p>
+          <p>It is extremely short and simple but it demonstrates how a Node application import required modules, create a server to listen to client's request, read the request and returns a response.</p>
           <p>Create a file <code>server.js</code> with following content:</p>
           <pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);
 
@@ -331,15 +339,19 @@ Server running at http://127.0.0.1:3000/
 </code></pre>
           <p>To test the server, open a browser tab and navigate to <a href="http://localhost:3000/">http://localhost:3000/</a>. You should see 'Hello world'.</p>
           <p>Read on to find out about how to incorporate external dependencies, manage them and use Node's module system to organize your code.</p>
-          <h2 id="benefit-2-avoid-synchronization-problems-and-overheads">Benefit 2: Avoid synchronization problems and overheads<a class="fa fa-anchor" href="#benefit-2-avoid-synchronization-problems-and-overheads"></a></h2>
-          <p>Node is designed to be <strong>event-driven</strong>. When an event happens e.g. an I/O event is complete, the event handler/callback function will be enqueued in a queue where it will be subsequently scheduled to run by the <a href="https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c">event loop</a>. The main event loop (where Javascript code is executed) is single-threaded.</p>
+          <h3 id="benefit-2-avoid-synchronization-problems-and-overheads">Benefit 2: Avoid Synchronization Problems and Overheads<a class="fa fa-anchor" href="#benefit-2-avoid-synchronization-problems-and-overheads"></a></h3>
+          <p>Node is designed to be <strong>event-driven</strong>. When an event happens e.g. an I/O event is complete, the event handler/callback function will be enqueued in a queue where it will be subsequently scheduled to run by the <a href="https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c">event loop</a>.
+            The main event loop (where Javascript code is executed) is single-threaded.</p>
           <p>This means that we can avoid thread overheads and synchronization problems including deadlocks and race conditions.</p>
-          <h2 id="benefit-3-fast-for-i-o-intensive-tasks">Benefit 3: Fast for I/O intensive tasks<a class="fa fa-anchor" href="#benefit-3-fast-for-i-o-intensive-tasks"></a></h2>
+          <h3 id="benefit-3-fast-for-i-o-intensive-tasks">Benefit 3: Fast for I/O Intensive Tasks<a class="fa fa-anchor" href="#benefit-3-fast-for-i-o-intensive-tasks"></a></h3>
           <p>This is due to the <strong>non-blocking</strong> I/O model.</p>
-          <p>When file and other I/O operations requests are made in Python or Java, they are blocking -- subsequent requests (in the same thread) have to be enqueued and can only be processed after the current operation and request completes. Meanwhile, the program remains idle. In contrast, Node.js has an event loop which delegates the actual tasks to other systems (e.g. file system and databases) and it is almost never blocked after delegation. While an I/O operation is incomplete, the event loop can still process subsequent requests.</p>
-          <h2 id="benefit-4-use-javascript-for-both-front-and-back-end-development">Benefit 4: Use JavaScript for both front and back-end development<a class="fa fa-anchor" href="#benefit-4-use-javascript-for-both-front-and-back-end-development"></a></h2>
-          <p>Using Node for back-end development makes it possible to share and reuse code between the front-end and back-end. Teams can be more efficient and less reliant on documentation as they can read the code directly. The team can also become more cross-functional as developers can contribute to both development.</p>
-          <h2 id="benefit-5-easy-dependency-management-with-npm">Benefit 5: Easy dependency management with npm<a class="fa fa-anchor" href="#benefit-5-easy-dependency-management-with-npm"></a></h2>
+          <p>When file and other I/O operations requests are made in Python or Java, they are blocking -- subsequent requests (in the same thread) have to be enqueued and can only be processed after the current operation and request completes. Meanwhile,
+            the program remains idle. In contrast, Node has an event loop which delegates the actual tasks to other systems (e.g. file system and databases) and it is almost never blocked after delegation. While an I/O operation is incomplete, the event
+            loop can still process subsequent requests.</p>
+          <h3 id="benefit-4-use-javascript-for-both-front-and-back-end-development">Benefit 4: Use JavaScript for Both Front and Back-end Development<a class="fa fa-anchor" href="#benefit-4-use-javascript-for-both-front-and-back-end-development"></a></h3>
+          <p>Using Node for back-end development makes it possible to share and reuse code between the front-end and back-end. Teams can be more efficient and less reliant on documentation as they can read the code directly. The team can also become more
+            cross-functional as developers can contribute to both development.</p>
+          <h3 id="benefit-5-easy-dependency-management-with-npm">Benefit 5: Easy Dependency Management With npm<a class="fa fa-anchor" href="#benefit-5-easy-dependency-management-with-npm"></a></h3>
           <p>Node Package Manager (npm) is used to</p>
           <ul>
             <li>Search for node.js packages online</li>
@@ -363,7 +375,7 @@ Server running at http://127.0.0.1:3000/
   <span class="hljs-attr">"license"</span>: <span class="hljs-string">"ISC"</span>
 }
 </code></pre>
-          <p>Every package needs a <strong>name</strong> and a <strong>version</strong>. Together, they should form a unique identifier. When a package is updated, the version number must be updated. A good <strong>description</strong> string and <strong>keywords</strong> e.g. <code>[&quot;promise&quot;, &quot;lock&quot;]</code> will help others to discover your package.</p>
+          <p>Every package needs a <strong>name</strong> and a <strong>version</strong>. Together, they should form a unique identifier. When a package is updated, the version number must be updated. A good <strong>description</strong> string and <strong>keywords</strong>            e.g. <code>[&quot;promise&quot;, &quot;lock&quot;]</code> will help others to discover your package.</p>
           <p>The <code>dependencies</code> property specifies dependencies needed in production while the <code>devDependencies</code> property specifies dependencies needed in development. It is also used to ensure consistency.</p>
           <pre><code class="hljs json">{
   <span class="hljs-attr">"dependencies"</span>: {
@@ -379,14 +391,18 @@ Server running at http://127.0.0.1:3000/
   }
 }
 </code></pre>
-          <p>The <code>dependencies</code> property maps to an object that has the name and version range for each dependency. It is common to find carets (<code>^</code>) and tildes (<code>~</code>) in the version range. To understand what they are for, checkout <a href="https://nodesource.com/blog/semver-a-primer/">NodeSource's article on semvers</a>. It is important to specify an appropriate version range to ensure consistency and so that users and developers will have compatible versions. For example, it is not advisable to always use the latest version of a dependency as it might introduce breaking changes (e.g. deprecate API) and the use of different versions by different developers and users might make debugging harder.</p>
+          <p>The <code>dependencies</code> property maps to an object that has the name and version range for each dependency. It is common to find carets (<code>^</code>) and tildes (<code>~</code>) in the version range. To understand what they are for,
+            checkout
+            <a href="https://nodesource.com/blog/semver-a-primer/">NodeSource's article on semvers</a>. It is important to specify an appropriate version range to ensure consistency and so that users and developers will have compatible versions. For example,
+            it is not advisable to always use the latest version of a dependency as it might introduce breaking changes (e.g. deprecate API) and the use of different versions by different developers and users might make debugging harder.</p>
           <p>It is possible and easier to install a new dependency and update <code>package.json</code> directly from the command line with</p>
           <pre><code class="hljs">$ npm install &lt;package_name&gt; --save
 </code></pre>
           <p>When a dependency is installed, the package's code will be added to the local <code>/node_modules</code> folder.</p>
           <p>The <a href="#benefit-7-easy-to-reuse-code-from-others">module section</a> describes how to import packages in your code.</p>
-          <h2 id="benefit-6-npm-scripts-is-versatile-and-help-to-save-time-in-the-development-process">Benefit 6: npm <code>scripts</code> is versatile and help to save time in the development process<a class="fa fa-anchor" href="#benefit-6-npm-scripts-is-versatile-and-help-to-save-time-in-the-development-process"></a></h2>
-          <p><code>package.json</code> also contains a <code>scripts</code> property. It is a useful tool that can be used to perform repetitive tasks such as testing and building. <code>scripts</code> takes in an object. For each property, the key is the name of the command and the corresponding value is the actual command that will be run.</p>
+          <h3 id="benefit-6-versatile-npm-scripts">Benefit 6: Versatile npm <code>scripts</code><a class="fa fa-anchor" href="#benefit-6-versatile-npm-scripts"></a></h3>
+          <p><code>package.json</code> also contains a <code>scripts</code> property. It is a useful tool that can be used to perform repetitive tasks such as testing and building. <code>scripts</code> takes in an object. For each property, the key is the
+            name of the command and the corresponding value is the actual command that will be run.</p>
           <p>For example, inside your <code>package.json</code>, you might have</p>
           <pre><code class="hljs json">{
   <span class="hljs-attr">"scripts"</span>: {
@@ -396,19 +412,22 @@ Server running at http://127.0.0.1:3000/
   }
 }
 </code></pre>
-          <p>Running <code>npm run build</code> in the command shell will execute <code>node app.js</code> and similarly <code>npm run lint-fix</code> will fix your linting errors in your JavaScript files. npm scripts are much more powerful - you can use them as shortcuts to <a href="https://css-tricks.com/why-npm-scripts/">uglify JavaScript, auto-prefix CSS</a> and even execute multiple tasks at a go. To find out more about how you can use npm scripts, refer to <a href="https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633">freeCodeCamp's Introduction to NPM Scripts</a>.</p>
-          <h2 id="benefit-7-easy-to-reuse-code-from-others">Benefit 7: Easy to reuse code from others<a class="fa fa-anchor" href="#benefit-7-easy-to-reuse-code-from-others"></a></h2>
+          <p>Running <code>npm run build</code> in the command shell will execute <code>node app.js</code> and similarly <code>npm run lint-fix</code> will fix your linting errors in your JavaScript files. npm scripts are much more powerful - you can use
+            them as shortcuts to <a href="https://css-tricks.com/why-npm-scripts/">uglify JavaScript, auto-prefix CSS</a> and even execute multiple tasks at a go. To find out more about how you can use npm scripts, refer to <a href="https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633">freeCodeCamp's Introduction to NPM Scripts</a>.</p>
+          <h3 id="benefit-7-easy-to-reuse-code-from-others">Benefit 7: Easy to Reuse Code From Others<a class="fa fa-anchor" href="#benefit-7-easy-to-reuse-code-from-others"></a></h3>
           <p>Node module system allows you to include other Javascript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.</p>
-          <p>Node comes bundled with useful <a href="https://nodejs.org/api/">core modules</a> such as the <code>fs</code> (file system) module which includes classes, methods and events to deal with file I/O operations and the <code>http</code> module which helps Node to transfer data over HTTP.</p>
-          <p>There are also useful and well-tested non-core modules maintained by the community and external developers such as <em>Bluebird</em> for promises. Before importing them, remember to install them and include them in your <code>package.json</code> dependencies by following the instructions from the <a href="#benefit-5-easy-dependency-management-with-npm">npm section</a>.</p>
+          <p>Node comes bundled with useful <a href="https://nodejs.org/api/">core modules</a> such as the <code>fs</code> (file system) module which includes classes, methods and events to deal with file I/O operations and the <code>http</code> module which
+            helps Node to transfer data over HTTP.</p>
+          <p>There are also useful and well-tested non-core modules maintained by the community and external developers such as <em>Bluebird</em> for promises. Before importing them, remember to install them and include them in your <code>package.json</code>            dependencies by following the instructions from the <a href="#benefit-5-easy-dependency-management-with-npm">npm section</a>.</p>
           <p>Importing modules is simple - just use the <code>require()</code> function and provide the module identifier or the file path.</p>
           <pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>); <span class="hljs-comment">// import a core module</span>
 <span class="hljs-keyword">const</span> <span class="hljs-built_in">Promise</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bluebird'</span>); <span class="hljs-comment">// import a non-core module</span>
 </code></pre>
-          <p>Node will first check if the module identifier passed to <code>require</code> is a core module or a relative path. If so, it will return the core module or the object which references the value of <code>module.exports</code> in the specified file path respectively. Otherwise, Node will attempt to load the module from the <code>node_modules</code> folder in the parent directory of the current module.</p>
-          <h2 id="benefit-8-good-support">Benefit 8: Good support<a class="fa fa-anchor" href="#benefit-8-good-support"></a></h2>
+          <p>Node will first check if the module identifier passed to <code>require</code> is a core module or a relative path. If so, it will return the core module or the object which references the value of <code>module.exports</code> in the specified
+            file path respectively. Otherwise, Node will attempt to load the module from the <code>node_modules</code> folder in the parent directory of the current module.</p>
+          <h3 id="benefit-8-relatively-large-developer-community">Benefit 8: Relatively Large Developer Community<a class="fa fa-anchor" href="#benefit-8-relatively-large-developer-community"></a></h3>
           <p>npm (Node Package Manager) is the largest ecosystem of open source libraries in the world. You can find a wide range of helpful and well-tested packages that can serve your needs on <a href="https://www.npmjs.com/">npmjs</a>.</p>
-          <h2 id="benefit-9-support-for-better-code-organization">Benefit 9: Support for better code organization<a class="fa fa-anchor" href="#benefit-9-support-for-better-code-organization"></a></h2>
+          <h3 id="benefit-9-support-for-better-code-organization">Benefit 9: Support for Better Code Organization<a class="fa fa-anchor" href="#benefit-9-support-for-better-code-organization"></a></h3>
           <p>We can also create separate files and modules in our codebase such that each module is focused on a single functionality. This makes your code more maintainable and testable.</p>
           <p>To export the <code>Parser</code> constructor in <code>parser.js</code>,</p>
           <pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parser</span>(<span class="hljs-params">options</span>) </span>{
@@ -428,52 +447,58 @@ Parser.prototype.parse = <span class="hljs-function"><span class="hljs-keyword">
 newParser.parse(content);
 </code></pre>
           <p>To better understand how to use <code>module.exports</code>, checkout <a href="http://stackabuse.com/how-to-use-module-exports-in-node-js/">Tendai Mutunhire's article</a>.</p>
-          <h1 id="use-cases">Use cases<a class="fa fa-anchor" href="#use-cases"></a></h1>
-          <p>Node.js is <strong>good</strong> for</p>
+          <h2 id="use-cases">Use cases<a class="fa fa-anchor" href="#use-cases"></a></h2>
+          <p>Node is <strong>good</strong> for</p>
           <ul>
-            <li><strong>Processing high volumes of IO-bound requests</strong>. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than other usual servers (such as those written in Ruby on Rails). This makes the Node server faster and more scalable.</li>
-            <li><strong>Real time apps</strong> where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as Trello and Google Docs. Node.js is a good choice as it can handle multiple client requests (even while waiting for responses).</li>
-            <li><strong>Single-page apps</strong> where a lot of processing and rendering is done on the client's side and the backend server only needs to provide a simple API. Node can process many requests with low response times. In addition, you can reuse and share code, such as those for validation, between the client and server.</li>
+            <li><strong>Processing high volumes of IO-bound requests</strong>. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than other usual servers (such as those written in Ruby on Rails).
+              This makes the Node server faster and more scalable.</li>
+            <li><strong>Real time apps</strong> where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as Trello
+              and Google Docs. Node is a good choice as it can handle multiple client requests (even while waiting for responses).</li>
+            <li><strong>Single-page apps</strong> where a lot of processing and rendering is done on the client's side and the backend server only needs to provide a simple API. Node can process many requests with low response times. In addition, you can
+              reuse and share code, such as those for validation, between the client and server.</li>
           </ul>
-          <p>However, Node.js is <strong>not suitable</strong> for</p>
+          <p>However, Node is <strong>not suitable</strong> for</p>
           <ul>
-            <li><strong>CPU-intensive jobs</strong>. Remember that Node.js is single-threaded. If the thread is busy doing CPU-heavy operations, it will not be able to process incoming requests timely. This removes the biggest advantage of Node. Perhaps, you should consider an alternative technology such as Go which supports concurrency.</li>
+            <li><strong>CPU-intensive jobs</strong>. Remember that Node is single-threaded. If the thread is busy doing CPU-heavy operations, it will not be able to process incoming requests timely. This removes the biggest advantage of Node. Perhaps, you
+              should consider an alternative technology such as Go which supports concurrency.</li>
           </ul>
-          <p>To find out more about when you should or should not use Node.js, checkout these articles by <a href="https://www.netguru.co/blog/use-node-js-backend">netguru</a> and <a href="https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e">Node.js foundation</a>.</p>
-          <h1 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h1>
+          <p>To find out more about when you should or should not use Node, checkout these articles by <a href="https://www.netguru.co/blog/use-node-js-backend">netguru</a> and <a href="https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e">Node.js foundation</a>.</p>
+          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
           <ul>
-            <li>Try out Node.js online - <a href="https://runkit.com/home">Node prototyping with Runkit</a></li>
+            <li>Try out Node online - <a href="https://runkit.com/home">Node prototyping with Runkit</a></li>
             <li>A guide on asynchronous programming in JS - <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&amp;%20performance/README.md#you-dont-know-js-async--performance">You Don't Know JS: Async &amp; Performance</a></li>
             <li>A comprehensive introduction to Node - <a href="https://github.com/maxogden/art-of-node/">The art of node</a></li>
             <li>Making better use of npm scripts - <a href="https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">How to Use npm as a Build Tool</a></li>
             <li>Advice on how to write clean code that makes it easy to add new features - <a href="https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/">Fundamental rules of a Node.js project structure</a></li>
             <li>A compilation of useful node modules - <a href="https://github.com/sindresorhus/awesome-nodejs">Awesome Nodejs</a></li>
-            <li>A summary and curation of the top-ranked content on Node.js best practices - <a href="https://github.com/i0natan/nodebestpractices">Node.js Best Practices</a></li>
-            <li>Node.js architecture and features - <a href="https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7">All About Node.Js You Wanted To Know</a></li>
+            <li>A summary and curation of the top-ranked content on Node best practices - <a href="https://github.com/i0natan/nodebestpractices">Node.js Best Practices</a></li>
+            <li>Node architecture and features - <a href="https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7">All About Node.Js You Wanted To Know</a></li>
             <li>More about <code>package.json</code> - <a href="https://docs.npmjs.com/files/package.json">npm official documentation on package.json</a>.</li>
           </ul>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
+        <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-node-js">Introduction to Node.js&#x200E;</a>
-            <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-            <a class="nav-link py-1" href="#benefits">Benefits&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-node">Introduction to Node&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#benefit-1-easy-to-get-started">Benefit 1: Easy to get started&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-2-avoid-synchronization-problems-and-overheads">Benefit 2: Avoid synchronization problems and overheads&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-3-fast-for-i-o-intensive-tasks">Benefit 3: Fast for I/O intensive tasks&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-4-use-javascript-for-both-front-and-back-end-development">Benefit 4: Use JavaScript for both front and back-end development&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-5-easy-dependency-management-with-npm">Benefit 5: Easy dependency management with npm&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-6-npm-scripts-is-versatile-and-help-to-save-time-in-the-development-process">Benefit 6: npm scripts is versatile and help to save time in the development process&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-7-easy-to-reuse-code-from-others">Benefit 7: Easy to reuse code from others&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-8-good-support">Benefit 8: Good support&#x200E;</a>
-              <a class="nav-link py-1" href="#benefit-9-support-for-better-code-organization">Benefit 9: Support for better code organization&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-node">What is Node?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-use-node">Why use Node?&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#benefit-1-easy-to-get-started">Benefit 1: Easy to get Started&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-2-avoid-synchronization-problems-and-overheads">Benefit 2: Avoid Synchronization Problems and Overheads&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-3-fast-for-i-o-intensive-tasks">Benefit 3: Fast for I/O Intensive Tasks&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-4-use-javascript-for-both-front-and-back-end-development">Benefit 4: Use JavaScript for Both Front and Back-end Development&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-5-easy-dependency-management-with-npm">Benefit 5: Easy Dependency Management With npm&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-6-versatile-npm-scripts">Benefit 6: Versatile npm scripts&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-7-easy-to-reuse-code-from-others">Benefit 7: Easy to Reuse Code From Others&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-8-relatively-large-developer-community">Benefit 8: Relatively Large Developer Community&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-9-support-for-better-code-organization">Benefit 9: Support for Better Code Organization&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#use-cases">Use cases&#x200E;</a>
+              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
             </nav>
-            <a class="nav-link py-1" href="#use-cases">Use cases&#x200E;</a>
-            <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
 
           </nav>
         </div>
@@ -481,7 +506,7 @@ newParser.parse(content);
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.3.0</a> on Wed, 24 Apr 2019 08:25:36 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.10.0</a> on Fri, 21 Feb 2020 04:31:19 GMT]</small></div>
     </footer>
   </div>
 </body>
@@ -495,6 +520,7 @@ newParser.parse(content);
   const enableSearch = true
 </script>
 <script src="../../markbind/js/setup.js"></script>
+
 <script src="../../markbind/layouts/default/scripts.js"></script>
 
 </html>

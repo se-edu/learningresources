@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.3.0">
+  <meta name="generator" content="MarkBind 2.10.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Performance Optimization</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
   <div id="app">
     <header>
-      <navbar placement="top" type="light">
+      <navbar placement="top" type="light" class="temp-navbar">
         <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
         <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
         <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -32,11 +32,12 @@
         <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
         <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
         <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-        <dropdown text="Resources" class="nav-link">
+        <div class="nav-link temp-dropdown-placeholder">Resources</div>
+        <dropdown text="Resources" class="nav-link temp-dropdown">
           <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
           <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
           <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
-          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span> GitHub</span></a></li>
         </dropdown>
         <li slot="right" class="nav-link">
           <form class="navbar-form">
@@ -47,251 +48,253 @@
     </header>
     <div id="flex-body">
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
+        <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+<ul class="px-0 site-nav-list">
+<li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
+          </button>
+          <div class="dropdown-container">
+            <ul class="pl-3 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn">C++
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Performance
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a current">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">CSharp
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Java
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">JavaScript
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
                   </ul>
                 </div>
               </li>
+              <li class="mt-2"><button class="dropdown-btn">Kotlin
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
             </ul>
-          </span></div>
+          </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container dropdown-container-open">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><button class="dropdown-btn">Architecture
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Code Quality
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Performance
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container dropdown-container-open">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a current">Introduction to Performance Optimization</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Project Management
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Revision Control
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Static Analysis
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Testing
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">UI/UX
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Databases
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Security
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Shell
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          </ul>
+          </span>
+        </div>
       </nav>
       <div id="content-wrapper">
         <div class="website-content">
@@ -299,7 +302,8 @@
           <h1 id="introduction-to-performance-optimization">Introduction to Performance Optimization<a class="fa fa-anchor" href="#introduction-to-performance-optimization"></a></h1>
           <p>Author: <a href="https://github.com/IanTeo">Ian Teo</a>, <a href="https://www.github.com/Crphang">Phang Chun Rong</a></p>
           <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-          <p>Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; from applications running in small battery operated devices to huge data centres.</p>
+          <p>Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; from applications
+            running in small battery operated devices to huge data centres.</p>
           <blockquote>
             <p>Premature optimization is the root of all evil.</p>
           </blockquote>
@@ -308,7 +312,8 @@
             <p>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.</p>
           </blockquote>
           <p>You can find a nice explaination of the quote <a href="http://wiki.c2.com/?PrematureOptimization">here</a>.</p>
-          <p>This is not a guide on how to optimize that 3%, but rather, to explain standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out more about optimizing that 3%, you can find more at <a href="#other-resources">Other Resources</a> below.</p>
+          <p>This is not a guide on how to optimize that 3%, but rather, to explain standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out
+            more about optimizing that 3%, you can find more at <a href="#other-resources">Other Resources</a> below.</p>
           <p>The 3 techniques you should know are:</p>
           <ul>
             <li>Using appropriate Data Structures and Algorithms</li>
@@ -317,7 +322,8 @@
           </ul>
           <h2 id="using-appropriate-data-structures-and-algorithms">Using Appropriate Data Structures and Algorithms<a class="fa fa-anchor" href="#using-appropriate-data-structures-and-algorithms"></a></h2>
           <p>Using appropriate Data Structures and Algorithms can improve the execution speed of your program trememdously. However, it requires time to learn and understand the nuances of each Data Structure and Algorithm and when to use them.</p>
-          <p>A good example of how Data Structures and Algorithms can improve execution time is with <a href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">binary search</a>. When finding a particular element in a list, you need to search through the entire list. If it has a million entries, every find will require you to look through <strong>1,000,000</strong> entries. However, if you have a <a href="https://www.tutorialspoint.com/data_structures_algorithms/sorting_algorithms.htm">sorted</a> list, you can use binary search to reduce the number of entries you have to look through to around <strong>20</strong>!</p>
+          <p>A good example of how Data Structures and Algorithms can improve execution time is with <a href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">binary search</a>. When finding a particular element in a
+            list, you need to search through the entire list. If it has a million entries, every find will require you to look through <strong>1,000,000</strong> entries. However, if you have a <a href="https://www.tutorialspoint.com/data_structures_algorithms/sorting_algorithms.htm">sorted</a>            list, you can use binary search to reduce the number of entries you have to look through to around <strong>20</strong>!</p>
           <p>If you are interested in learning more about Data Structures and Algorithms, you can learn more from the following resources:</p>
           <ul>
             <li><a href="http://www.geeksforgeeks.org/data-structures/">Geeksforgeeks.org</a>: Introduction to data structures with code examples</li>
@@ -326,41 +332,54 @@
             <li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/the-importance-of-algorithms/">topcoder.com</a>: A good write up on the importance of algorithms</li>
           </ul>
           <h2 id="memory-management-usage">Memory Management Usage<a class="fa fa-anchor" href="#memory-management-usage"></a></h2>
-          <p>Memory management is important for performance optimization for Computer systems. One of the common techniques in <a href="#using-appropriate-data-structures-and-algorithms">algorithms optimization</a> is space and time trade off, where we increase runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to <a href="https://en.wikipedia.org/wiki/Thrashing_(computer_science)">Thrashing</a>. Thrashing occurs when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with appropriate <a href="/learningresources/contents/performance/PerformanceProfiling.html">memory profiling</a>.</p>
+          <p>Memory management is important for performance optimization for Computer systems. One of the common techniques in <a href="#using-appropriate-data-structures-and-algorithms">algorithms optimization</a> is space and time trade off, where we increase
+            runtime memory usage to decrease overall runtime. While this theoretically optimizes your system runtime, it might overall slowdown the system due to <a href="https://en.wikipedia.org/wiki/Thrashing_(computer_science)">Thrashing</a>. Thrashing
+            occurs when the system runs out of Random Access Memory and the Operating System swaps main memory to disk memory resulting in significant time spent on disk access. Detecting if the performance slowdown is memory related can be done with
+            appropriate
+            <a href="/learningresources/contents/performance/PerformanceProfiling.html">memory profiling</a>.</p>
           <p>If your system suffers from memory related performance issues, here are some solutions you can adopt to resolve them:</p>
           <ul>
             <li>
-              <p>Using generators to reduce memory used. <a href="https://en.wikipedia.org/wiki/Generator_(computer_programming)">Generators</a> are functions that generates a sequence of values. Instead of returning an explicit array upfront, a generator returns a value at each iteration. This can greatly <a href="https://letstalkdata.com/2015/05/how-to-use-python-generators-to-save-memory/">reduce memory usage</a> for large arrays.</p>
+              <p>Using generators to reduce memory used. <a href="https://en.wikipedia.org/wiki/Generator_(computer_programming)">Generators</a> are functions that generates a sequence of values. Instead of returning an explicit array upfront, a generator
+                returns a value at each iteration. This can greatly <a href="https://letstalkdata.com/2015/05/how-to-use-python-generators-to-save-memory/">reduce memory usage</a> for large arrays.</p>
             </li>
             <li>
-              <p>Sometimes memory usage of your program remains high because the unnecessary variables are yet to be freed from memory. If you are using a garbage collected language like Java, consider <a href="https://www.javacodegeeks.com/2017/11/minimize-java-memory-usage-right-garbage-collector.html">tuning</a> your garbage collector to suit your needs. If such options is not good enough, you can explicitly free memory even in garbage collected language. An example from Python is shown below:</p>
+              <p>Sometimes memory usage of your program remains high because the unnecessary variables are yet to be freed from memory. If you are using a garbage collected language like Java, consider <a href="https://www.javacodegeeks.com/2017/11/minimize-java-memory-usage-right-garbage-collector.html">tuning</a>                your garbage collector to suit your needs. If such options is not good enough, you can explicitly free memory even in garbage collected language. An example from Python is shown below:</p>
               <pre><code class="hljs python"><span class="hljs-keyword">import</span> gc
 gc.collect()
 </code></pre>
             </li>
             <li>
-              <p>Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive <code>int</code> over <code>Integer</code> to reduce the overhead introduce by the <code>Integer</code> Object wrapper. This <a href="http://java-performance.info/overview-of-memory-saving-techniques-java/">guide</a> for Java also proposes ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object wrappers.</p>
+              <p>Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive <code>int</code> over <code>Integer</code> to reduce the overhead introduce by the <code>Integer</code> Object wrapper.
+                This
+                <a href="http://java-performance.info/overview-of-memory-saving-techniques-java/">guide</a> for Java also proposes ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object
+                wrappers.
+              </p>
             </li>
           </ul>
           <h2 id="using-cache-friendly-code">Using Cache Friendly Code<a class="fa fa-anchor" href="#using-cache-friendly-code"></a></h2>
-          <p>Before we can talk about this, we need to know what the computer memory is. Computer memory has different components, <a href="https://en.wikipedia.org/wiki/Processor_register">registers</a>, <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/cache.html">L1/L2/L3 cache</a>, <a href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, and <a href="https://en.wikipedia.org/wiki/Hard_disk_drive">disk</a> in order of their speed.</p>
+          <p>Before we can talk about this, we need to know what the computer memory is. Computer memory has different components, <a href="https://en.wikipedia.org/wiki/Processor_register">registers</a>, <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/cache.html">L1/L2/L3 cache</a>,
+            <a href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, and <a href="https://en.wikipedia.org/wiki/Hard_disk_drive">disk</a> in order of their speed.</p>
           <blockquote>
-            <p>You can take a look at the extent of the difference of their access speeds <a href="https://gist.github.com/jboner/2841832">here</a> <br>
-              You can also check out this <a href="http://imgur.com/8LIwV4C">infographic</a></p>
+            <p>You can take a look at the extent of the difference of their access speeds <a href="https://gist.github.com/jboner/2841832">here</a> <br> You can also check out this <a href="http://imgur.com/8LIwV4C">infographic</a></p>
           </blockquote>
-          <p>To understand this topic, you only need to know how the cache works. It is okay if you do not understand exactly how the other components, registers, RAM and disk work. The cache is simply a place to store memory so that it can be accessed quickly. The cache is usually split into a few layers, L1, L2 and L3 cache, where the L1 cache is the fastest and L3 is the slowest. The faster a cache is, the more expensive it is. This means that the L1 cache (a few kilobytes big) is smaller than the L2 cache (a few megabytes big) and so on, until the RAM (a few gigabytes big).</p>
-          <p>Whenever data is requested, the computer will first look in the cache for the data. If it exists, this is known as a <strong>cache hit</strong>. If it does not exist, this is known as a <strong>cache miss</strong>. When a <strong>cache miss</strong> happens, a contiguous block of memory containing the requested data is retrieved and stored onto the cache. Because of this, we want to remember these rules to make cache friendly codes:</p>
+          <p>To understand this topic, you only need to know how the cache works. It is okay if you do not understand exactly how the other components, registers, RAM and disk work. The cache is simply a place to store memory so that it can be accessed quickly.
+            The cache is usually split into a few layers, L1, L2 and L3 cache, where the L1 cache is the fastest and L3 is the slowest. The faster a cache is, the more expensive it is. This means that the L1 cache (a few kilobytes big) is smaller than
+            the L2 cache (a few megabytes big) and so on, until the RAM (a few gigabytes big).</p>
+          <p>Whenever data is requested, the computer will first look in the cache for the data. If it exists, this is known as a <strong>cache hit</strong>. If it does not exist, this is known as a <strong>cache miss</strong>. When a <strong>cache miss</strong>            happens, a contiguous block of memory containing the requested data is retrieved and stored onto the cache. Because of this, we want to remember these rules to make cache friendly codes:</p>
           <ul>
             <li>Temporal Locality</li>
             <li>Spatial Locality</li>
             <li>Row/Column Major Order</li>
           </ul>
-          <h4 id="temporal-locality">Temporal Locality</h4>
+          <h4 id="temporal-locality">Temporal Locality<a class="fa fa-anchor" href="#temporal-locality"></a></h4>
           <p>This rule states that recently used memory will likely be used in the near future. This means that making the scope of your variables smaller helps with execution times, as it will likely result in less cache misses.</p>
-          <h4 id="spatial-locality">Spatial Locality</h4>
-          <p>This rule states that memory stored near each other will likely be used in the near future. This means that using contiguous data structures, such as arrays, help improve the execution times. This is because the contiguous block of memory will likely contain the other elements of the array, resulting in less <strong>cache misses</strong>.</p>
-          <p>An example of a Data Structure that does not do well in this aspect is <a href="https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm">Linked List</a>. In a Linked List, each node can be stored anywhere on the memory. This means that there will likely be more cache misses when trying to iterate through a Linked List. This can cause Linked Lists to be much slower than what you would expect in theory.</p>
-          <h4 id="row-column-major-order">Row/Column Major Order</h4>
+          <h4 id="spatial-locality">Spatial Locality<a class="fa fa-anchor" href="#spatial-locality"></a></h4>
+          <p>This rule states that memory stored near each other will likely be used in the near future. This means that using contiguous data structures, such as arrays, help improve the execution times. This is because the contiguous block of memory will
+            likely contain the other elements of the array, resulting in less <strong>cache misses</strong>.</p>
+          <p>An example of a Data Structure that does not do well in this aspect is <a href="https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm">Linked List</a>. In a Linked List, each node can be stored anywhere on the
+            memory. This means that there will likely be more cache misses when trying to iterate through a Linked List. This can cause Linked Lists to be much slower than what you would expect in theory.</p>
+          <h4 id="row-column-major-order">Row/Column Major Order<a class="fa fa-anchor" href="#row-column-major-order"></a></h4>
           <p>This rule is about how multidimensional arrays are stored in memory. Different programming languages have different methods of storing multidimensional arrays. <a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">More Information</a>.</p>
           <p>Using the incorrect method of access can cause many cache misses, resulting in a much slower execution time. Thus, it is important to be aware of which major order the programming language is using.</p>
           <p>For example, Java uses Row Major Order. We can create a test to see how big an impact using the wrong Major Order can be on the execution time.</p>
@@ -390,7 +409,8 @@ System.out.println(<span class="hljs-string">"Column major: "</span> +(System.cu
           <blockquote>
             <p>This test was done on a typical notebook. Your results may vary based on the hardware of your computer</p>
           </blockquote>
-          <p><a href="https://en.wikipedia.org/wiki/Locality_of_reference">Wikipedia</a> and the <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/matrix.html">University of Maryland</a> have excellent articles which covers everything I have mentioned and more.</p>
+          <p><a href="https://en.wikipedia.org/wiki/Locality_of_reference">Wikipedia</a> and the <a href="https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/matrix.html">University of Maryland</a> have excellent articles which covers everything I
+            have mentioned and more.</p>
           <h2 id="other-resources">Other Resources<a class="fa fa-anchor" href="#other-resources"></a></h2>
           <p>If you want to know more about Optimization, especially for that critical 3%, these other resources could be useful:</p>
           <ul>
@@ -399,7 +419,7 @@ System.out.println(<span class="hljs-string">"Column major: "</span> +(System.cu
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
+        <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#introduction-to-performance-optimization">Introduction to Performance Optimization&#x200E;</a>
@@ -417,7 +437,7 @@ System.out.println(<span class="hljs-string">"Column major: "</span> +(System.cu
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.3.0</a> on Wed, 24 Apr 2019 08:25:36 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.10.0</a> on Fri, 21 Feb 2020 04:31:19 GMT]</small></div>
     </footer>
   </div>
 </body>
@@ -431,6 +451,7 @@ System.out.println(<span class="hljs-string">"Column major: "</span> +(System.cu
   const enableSearch = true
 </script>
 <script src="../../markbind/js/setup.js"></script>
+
 <script src="../../markbind/layouts/default/scripts.js"></script>
 
 </html>

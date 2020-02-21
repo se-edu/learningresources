@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.3.0">
+  <meta name="generator" content="MarkBind 2.10.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Swift</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
   <div id="app">
     <header>
-      <navbar placement="top" type="light">
+      <navbar placement="top" type="light" class="temp-navbar">
         <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
         <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
         <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -32,11 +32,12 @@
         <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
         <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
         <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-        <dropdown text="Resources" class="nav-link">
+        <div class="nav-link temp-dropdown-placeholder">Resources</div>
+        <dropdown text="Resources" class="nav-link temp-dropdown">
           <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
           <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
           <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
-          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span> GitHub</span></a></li>
         </dropdown>
         <li slot="right" class="nav-link">
           <form class="navbar-form">
@@ -47,262 +48,267 @@
     </header>
     <div id="flex-body">
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
+        <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a current">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+<ul class="px-0 site-nav-list">
+<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
+          </button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul class="pl-3 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn">C++
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">CSharp
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Java
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">JavaScript
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
                   </ul>
                 </div>
               </li>
+              <li class="mt-2"><button class="dropdown-btn">Kotlin
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a current">Swift</a></li>
             </ul>
-          </span></div>
+          </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><button class="dropdown-btn">Architecture
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Code Quality
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Performance
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Project Management
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Revision Control
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Static Analysis
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Testing
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">UI/UX
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Databases
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Security
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Shell
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          </ul>
+          </span>
+        </div>
       </nav>
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
           <h1 id="swift">Swift<a class="fa fa-anchor" href="#swift"></a></h1>
           <p><strong>Authors: <a href="https://github.com/ablyx/cs3281-website/blob/mingshin-week6-progress/students/AY1617S2/ch'ngMingShin/Ch'ngMingShin-Resume.md">Ch'ng Ming Shin</a>, <a href="https://github.com/Adoby7">Jiang Chunhui</a>, <a href="https://github.com/Zhiyuan-Amos">Yong Zhi Yuan</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/acjh">Aaron Chong</a>, <a href="https://github.com/blewjy">Bryan Lew</a>, <a href="https://github.com/Neurrone">Dickson Tan</a>, <a href="https://github.com/rachx">Rachael Sim</a>, <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>, <a href="https://github.com/mauris">Sam Yong</a>, <a href="https://github.com/yamgent">Tan Wang Leng</a>, <a href="https://github.com/vivekscl">Vivek Lakshmanan</a>, <a href="https://github.com/junming403">Wang Junming</a>, <a href="https://github.com/xpdavid">Xiao Pu</a></p>
+          <p>Reviewers: <a href="https://github.com/acjh">Aaron Chong</a>, <a href="https://github.com/blewjy">Bryan Lew</a>, <a href="https://github.com/Neurrone">Dickson Tan</a>, <a href="https://github.com/rachx">Rachael Sim</a>, <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>,
+            <a href="https://github.com/mauris">Sam Yong</a>, <a href="https://github.com/yamgent">Tan Wang Leng</a>, <a href="https://github.com/vivekscl">Vivek Lakshmanan</a>, <a href="https://github.com/junming403">Wang Junming</a>, <a href="https://github.com/xpdavid">Xiao Pu</a></p>
           <h2 id="swift-overview">Swift Overview<a class="fa fa-anchor" href="#swift-overview"></a></h2>
-          <p><strong>Swift is the main programming language used for iOS programming.</strong> Introduced in 2014 by Apple, Swift has more concise and more expressive syntax compared to its predecessor language <a href>Objective-C</a>. Unlike most other software by Apple, Swift is <a href="https://github.com/apple/swift">open source</a>.</p>
+          <p><strong>Swift is the main programming language used for iOS programming.</strong> Introduced in 2014 by Apple, Swift has more concise and more expressive syntax compared to its predecessor language <a href>Objective-C</a>. Unlike most other
+            software by Apple, Swift is <a href="https://github.com/apple/swift">open source</a>.</p>
           <p><strong>One main attraction to learn Swift's is that iOS developers are well paid</strong> (<a href="https://www.indeed.com/salaries/iOS-Developer-Salaries">example</a>).</p>
-          <p>Swift syntax is not too different from other mainstream languages such as Python, Java or C++, which means switching to Swift is not difficult. On top of that, Swift also supports <a href><em>playgrounds</em></a>, a feature that allows programmers to experiment with Swift code and see the results immediately, without the overhead of building and running an app.</p>
+          <p>Swift syntax is not too different from other mainstream languages such as Python, Java or C++, which means switching to Swift is not difficult. On top of that, Swift also supports <a href><em>playgrounds</em></a>, a feature that allows programmers
+            to experiment with Swift code and see the results immediately, without the overhead of building and running an app.</p>
           <h2 id="noteworthy-swift-features">Noteworthy Swift Features<a class="fa fa-anchor" href="#noteworthy-swift-features"></a></h2>
           <p>Here are some noteworthy Swift features for you to get a feel of Swift.</p>
           <h3 id="type-inference">Type Inference<a class="fa fa-anchor" href="#type-inference"></a></h3>
@@ -310,7 +316,8 @@
           <pre><code class="hljs swift"><span class="hljs-keyword">var</span> str1: <span class="hljs-type">String</span> = <span class="hljs-string">"foo"</span>
 <span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span>
 </code></pre>
-          <p>Unlike <strong>Python</strong> or <strong>JavaScript</strong> which are dynamically typed, variables in Swift are statically typed. Statically-typed languages have will have the code checked at compile-time instead of run-time, which eliminates many (often) trivial bugs early, which in turn makes debugging the program easier.</p>
+          <p>Unlike <strong>Python</strong> or <strong>JavaScript</strong> which are dynamically typed, variables in Swift are statically typed. Statically-typed languages have will have the code checked at compile-time instead of run-time, which eliminates
+            many (often) trivial bugs early, which in turn makes debugging the program easier.</p>
           <pre><code class="hljs swift"><span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span>
 str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilation error</span>
 </code></pre>
@@ -341,7 +348,7 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
     }
 }
 </code></pre>
-          <h4 id="optional-binding">Optional Binding</h4>
+          <h4 id="optional-binding">Optional Binding<a class="fa fa-anchor" href="#optional-binding"></a></h4>
           <p>Then, you can unwrap the Optional safely using an <code>if-let</code> statement to distinguish whether it is <code>nil</code> or not, and handle them separately:</p>
           <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
     <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
@@ -358,7 +365,7 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
             <li><a href="https://hackernoon.com/swift-optionals-explained-simply-e109a4297298">Swift optionals explained simply</a></li>
             <li><a href="http://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift">What is an optional value in Swift?</a></li>
           </ul>
-          <h4 id="guard-statements">Guard Statements</h4>
+          <h4 id="guard-statements">Guard Statements<a class="fa fa-anchor" href="#guard-statements"></a></h4>
           <p>Notice that the <a href="http://xunitpatterns.com/happy%20path.html">happy path</a> in the code above is indented:</p>
           <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
     <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
@@ -388,7 +395,8 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
           <p>Let's understand how the code above works:</p>
           <ol>
             <li>The code within a <code>guard</code> block is only executed if <code>year</code> contains a nil value.</li>
-            <li>As the <code>guard</code> statement is used to transfer program control out of a scope, you must call one of the following functions within the <code>guard</code> block: <code>return</code>, <code>break</code>, <code>continue</code>, <code>throw</code>. As such, the <code>guard</code> statement is meant to enforce the pre-conditions of a method and to perform early return.</li>
+            <li>As the <code>guard</code> statement is used to transfer program control out of a scope, you must call one of the following functions within the <code>guard</code> block: <code>return</code>, <code>break</code>, <code>continue</code>, <code>throw</code>.
+              As such, the <code>guard</code> statement is meant to enforce the pre-conditions of a method and to perform early return.</li>
           </ol>
           <p>Here are some of the benefits of using <code>guard</code> statement over <code>if-let</code> statement:</p>
           <ol>
@@ -425,7 +433,7 @@ close(fileDescriptor)
           <p>Using <code>defer</code> statement, the file will be closed no matter which branch the program returns. It also has the added advantage of preventing the developer from forgetting to close the file in some cases.</p>
           <p>This <a href="https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_defer-statement">document</a> explains more about <code>defer</code> statement in Swift.</p>
           <h3 id="data-types">Data Types<a class="fa fa-anchor" href="#data-types"></a></h3>
-          <h4 id="structs">Structs</h4>
+          <h4 id="structs">Structs<a class="fa fa-anchor" href="#structs"></a></h4>
           <p>Apart from the classes (something you are familiar with if you have already learned languages like Java / Python) which you use for creating instances of Reference type, Swift also provides the use of Structs to create instances of Value type.</p>
           <p>Let's use a simple example (from <a href="https://developer.apple.com/swift/blog/?id=10">Apple's own blog on Swift</a>) to illustrate the difference between Reference types (Classes) and Value types (Structs).</p>
           <pre><code class="hljs swift"><span class="hljs-comment">// Value type example</span>
@@ -442,10 +450,12 @@ a.data = <span class="hljs-number">42</span>                     <span class="hl
 x.data = <span class="hljs-number">42</span>                     <span class="hljs-comment">// changes the instance referred to by x (and y)</span>
 <span class="hljs-built_in">print</span>(<span class="hljs-string">"\(x.data), \(y.data)"</span>)   <span class="hljs-comment">// prints "42, 42\n"</span>
 </code></pre>
-          <p>In the example above, when you assign a reference type variable to another (i.e. <code>x</code> and <code>y</code>) they both refer to the same memory space. Later when you modify one of the variables, the other one will refer to the new value too. This may not be the desired behavior in some cases. In those cases, value-type variables (e.g., <code>a</code> and <code>b</code>) can be used to avoid implicit data sharing.</p>
+          <p>In the example above, when you assign a reference type variable to another (i.e. <code>x</code> and <code>y</code>) they both refer to the same memory space. Later when you modify one of the variables, the other one will refer to the new value
+            too. This may not be the desired behavior in some cases. In those cases, value-type variables (e.g., <code>a</code> and <code>b</code>) can be used to avoid implicit data sharing.</p>
           <p>You can think of Structs as a way to create instances that have their own unique copies of data, which can help to make things a lot easier.</p>
-          <p>If you wish to find out more, here is an <a href="https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2">article</a> that explains the difference between the 2 types, as well as the benefits of value types and when to use them.</p>
-          <h4 id="enums">Enums</h4>
+          <p>If you wish to find out more, here is an <a href="https://medium.com/capital-one-developers/reference-and-value-types-in-swift-de792db330b2">article</a> that explains the difference between the 2 types, as well as the benefits of value types
+            and when to use them.</p>
+          <h4 id="enums">Enums<a class="fa fa-anchor" href="#enums"></a></h4>
           <p>An enum is a data type that represents of a set of values. For example, we can use <code>String</code> to represent the possible types of a barcode. However, this allows us to assign invalid values to it:</p>
           <pre><code class="hljs swift"><span class="hljs-keyword">var</span> barcode = <span class="hljs-string">"qzCode"</span> <span class="hljs-comment">// supposed to be "qrCode", but we accidentally assigned an invalid value</span>
 </code></pre>
@@ -458,7 +468,7 @@ x.data = <span class="hljs-number">42</span>                     <span class="hl
 <span class="hljs-keyword">var</span> barcode = <span class="hljs-type">Barcode</span>.qrCode 
 barcode = <span class="hljs-type">Barcode</span>.qzCode <span class="hljs-comment">// compilation error</span>
 </code></pre>
-          <p>Swift's enums can have associated values. This enables you to store additional custom information along with each case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum <code>Barcode</code> with case values <code>upc</code> and <code>qrCode</code>. We want to be able to distinguish within each value as each <code>upc</code> and <code>qrCode</code> can take on different values:</p>
+          <p>Swift's enums can have associated values. This enables you to store additional custom information along with each case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum <code>Barcode</code>            with case values <code>upc</code> and <code>qrCode</code>. We want to be able to distinguish within each value as each <code>upc</code> and <code>qrCode</code> can take on different values:</p>
           <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{
     <span class="hljs-keyword">case</span> upc(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)
     <span class="hljs-keyword">case</span> qrCode(<span class="hljs-type">String</span>)
@@ -478,9 +488,11 @@ barcode = <span class="hljs-type">Barcode</span>.qzCode <span class="hljs-commen
 barcode1.printCode() <span class="hljs-comment">// prints "QR code: foo."</span>
 barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
 </code></pre>
-          <p>Also, enums with associated values is not supported in languages such as <a href="https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum">Java</a>, and using a workaround to implement enums with associated values results in code verbosity. Take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html">Swift's documentation on Enums</a> for more information about enums.</p>
+          <p>Also, enums with associated values is not supported in languages such as <a href="https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum">Java</a>, and using a workaround to implement
+            enums with associated values results in code verbosity. Take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html">Swift's documentation on Enums</a> for
+            more information about enums.</p>
           <h3 id="protocol-oriented-programming">Protocol Oriented Programming<a class="fa fa-anchor" href="#protocol-oriented-programming"></a></h3>
-          <p>The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the <a href="http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html">bloat that is sometimes caused by Object Oriented Programming (OOP)</a> by using composition instead of inheritance for defining new classes based on existing classes.</p>
+          <p>The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the <a href="http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html">bloat that is sometimes caused by Object Oriented Programming (OOP)</a>            by using composition instead of inheritance for defining new classes based on existing classes.</p>
           <p>Here's some code to serve as a brief introduction to POP:</p>
           <p>First, we first define our protocols.</p>
           <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Bird</span> </span>{
@@ -510,7 +522,8 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
     <span class="hljs-comment">// some functionalities here</span>
 }
 </code></pre>
-          <p>As development progresses, you realize that you now want <code>Eagle</code> to conform to <code>Bird</code> and <code>Flyable</code> protocols. Instead of editing the code in <code>Eagle</code> struct directly, we can use extensions to implement each protocol separately. Do take note that you cannot add stored properties in extensions. As such, <code>canFly</code> and <code>airspeedVelocity</code> have to be computed properties (for more information, see <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html">here</a>):</p>
+          <p>As development progresses, you realize that you now want <code>Eagle</code> to conform to <code>Bird</code> and <code>Flyable</code> protocols. Instead of editing the code in <code>Eagle</code> struct directly, we can use extensions to implement
+            each protocol separately. Do take note that you cannot add stored properties in extensions. As such, <code>canFly</code> and <code>airspeedVelocity</code> have to be computed properties (for more information, see <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html">here</a>):</p>
           <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{
     <span class="hljs-comment">// we can leave the existing code here untouched</span>
 }
@@ -544,15 +557,19 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
           <p>To find out more about extensions, take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html">Swift's documentation on Extensions</a></p>
           <h3 id="automatic-reference-counting">Automatic Reference Counting<a class="fa fa-anchor" href="#automatic-reference-counting"></a></h3>
           <p>A few keywords unique to Swift are <code>strong</code>, <code>weak</code> and <code>unowned</code>, which have to do with Swift's way of memory management, <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html">Automatic Reference Counting (ARC)</a>.</p>
-          <p>Essentially, when an instance of a class is created, a chunk of memory is allocated to it until it is no longer strongly referenced by anything. References are strong by default. Thus, if we have an Object A (a <code>UIViewController</code>) that creates an Object B (a <code>UIAlertController</code>), B would be strongly referenced by A. However, B might also need access to a variable in A, such that A may be strongly referenced by B, resulting in a reference cycle.</p>
-          <p>Reference cycles are bad, because they cause memory leaks. Even though A and B are no longer needed eventually, A and B will still sit in memory since they are both strongly referenced by each other. This is why we need the <code>strong</code>, <code>weak</code> and <code>unowned</code> keywords, to resolve reference cycles.</p>
+          <p>Essentially, when an instance of a class is created, a chunk of memory is allocated to it until it is no longer strongly referenced by anything. References are strong by default. Thus, if we have an Object A (a <code>UIViewController</code>)
+            that creates an Object B (a <code>UIAlertController</code>), B would be strongly referenced by A. However, B might also need access to a variable in A, such that A may be strongly referenced by B, resulting in a reference cycle.</p>
+          <p>Reference cycles are bad, because they cause memory leaks. Even though A and B are no longer needed eventually, A and B will still sit in memory since they are both strongly referenced by each other. This is why we need the <code>strong</code>,
+            <code>weak</code> and <code>unowned</code> keywords, to resolve reference cycles.</p>
           <p>Here is an <a href="https://krakendev.io/blog/weak-and-unowned-references-in-swift">article</a> with greater in-depth explanation and examples.</p>
           <h3 id="cocoapods">CocoaPods<a class="fa fa-anchor" href="#cocoapods"></a></h3>
-          <p><a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a> is a dependency manager for Swift and Objective-C Cocoa projects which has over 58 thousand libraries and is used in over 3 million apps. Instead of reinventing the wheel, you can check this out to obtain code that helps resolve common issues. If you have done something new with Swift, you can also make your code into a library with CocoaPods for others to use!</p>
+          <p><a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a> is a dependency manager for Swift and Objective-C Cocoa projects which has over 58 thousand libraries and is used in over 3 million apps. Instead of reinventing
+            the wheel, you can check this out to obtain code that helps resolve common issues. If you have done something new with Swift, you can also make your code into a library with CocoaPods for others to use!</p>
           <h2 id="how-to-get-started">How to Get Started<a class="fa fa-anchor" href="#how-to-get-started"></a></h2>
           <p>A Macbook is required for Swift development, but an iPhone or iPad is not. The Swift IDE <code>X-Code</code> has built-in simulators for all mobile devices.</p>
           <p>If you have not learnt any other programming languages before, this <a href="https://www.apple.com/swift/playgrounds/">Game App</a> could be a good choice to learn swift as well as programming.</p>
-          <p>If you are familiar with some programming languages, reading the <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/">Language Guide in the official documentation</a> is recommended, since it explains everything quite clearly, albeit being quite verbose.</p>
+          <p>If you are familiar with some programming languages, reading the <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/">Language Guide in the official documentation</a> is recommended,
+            since it explains everything quite clearly, albeit being quite verbose.</p>
           <p>If you are really pressed for time, here are a couple of cheatsheets with code examples:</p>
           <ul>
             <li><a href="https://mhm5000.gitbooks.io/swift-cheat-sheet/content/index.html">Swift Cheat Sheet</a> (web-friendly)</li>
@@ -561,7 +578,7 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
+        <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#swift">Swift&#x200E;</a>
@@ -587,7 +604,7 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.3.0</a> on Wed, 24 Apr 2019 08:25:36 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.10.0</a> on Fri, 21 Feb 2020 04:31:19 GMT]</small></div>
     </footer>
   </div>
 </body>
@@ -601,6 +618,7 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
   const enableSearch = true
 </script>
 <script src="../../markbind/js/setup.js"></script>
+
 <script src="../../markbind/layouts/default/scripts.js"></script>
 
 </html>

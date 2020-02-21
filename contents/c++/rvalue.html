@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.3.0">
+  <meta name="generator" content="MarkBind 2.10.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Rvalue References and Move Semantics</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
 <body data-spy="scroll" data-target="#page-nav" data-offset="100">
   <div id="app">
     <header>
-      <navbar placement="top" type="light">
+      <navbar placement="top" type="light" class="temp-navbar">
         <a slot="brand" href="https://se-edu.github.io" title="More SE-EDU Resources" class="navbar-brand"><img src="https://se-edu.github.io/images/SeEduLogo.png" alt="SE-EDU" width="30"></a>
         <li><a href="https://se-edu.github.io/addressbook-level1/" class="nav-link"><span>AB-1</span></a></li>
         <li><a href="https://se-edu.github.io/addressbook-level2/" class="nav-link"><span>AB-2</span></a></li>
@@ -32,11 +32,12 @@
         <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><span>AB-4</span></a></li>
         <li><a href="https://se-edu.github.io/collate/" class="nav-link"><span>Collate</span></a></li>
         <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><span>Book</span></a></li>
-        <dropdown text="Resources" class="nav-link">
+        <div class="nav-link temp-dropdown-placeholder">Resources</div>
+        <dropdown text="Resources" class="nav-link temp-dropdown">
           <li><a href="/learningresources/index.html" class="dropdown-item"><span>Home</span></a></li>
           <li><a href="/learningresources/contributing.html" class="dropdown-item"><span>Contribute</span></a></li>
           <li><a href="/learningresources/about.html" class="dropdown-item"><span>About</span></a></li>
-          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span><span class="fab fa-github"></span> GitHub</span></a></li>
+          <li><a href="https://github.com/se-edu/learningresources" class="dropdown-item"><span> GitHub</span></a></li>
         </dropdown>
         <li slot="right" class="nav-link">
           <form class="navbar-form">
@@ -47,291 +48,308 @@
     </header>
     <div id="flex-body">
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top site-nav-spacer viewport-height-90 scrollable slim-scroll">
+        <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+<ul class="px-0 site-nav-list">
+<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
+          </button>
+          <div class="dropdown-container dropdown-container-open">
+            <ul class="pl-3 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">C++
+ <i class="dropdown-btn-icon rotate-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">C++
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a current">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/javascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a current">Rvalue References and Move Semantics</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">CSharp
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Java
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">NodeJS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">VueJS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">JavaScript
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn">Kotlin
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
                   </ul>
                 </div>
               </li>
+              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
             </ul>
-          </span></div>
+          </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><button class="dropdown-btn">Architecture
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Code Quality
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Performance
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Project Management
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Revision Control
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Static Analysis
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Testing
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">UI/UX
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <div class="dropdown-container">
+              <ul class="pl-3 site-nav-list">
+                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Databases
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Security
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mt-2"><button class="dropdown-btn">Shell
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                  <div class="dropdown-container">
+                    <ul class="pl-3 site-nav-list">
+                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          </ul>
+          </span>
+        </div>
       </nav>
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
           <h1 id="rvalue-references-and-move-semantics">Rvalue References and Move Semantics<a class="fa fa-anchor" href="#rvalue-references-and-move-semantics"></a></h1>
           <p>Authors: <a href="https://github.com/yamidark">Tan Jun An</a></p>
-          <ul>
-            <li><a href="#background">Background</a>
-              <ul>
-                <li><a href="#value-semantics">Value Semantics</a></li>
-                <li><a href="#reference-semantics">Reference Semantics</a></li>
-              </ul>
-            </li>
-            <li><a href="#move-semantics">Move Semantics</a>
-              <ul>
-                <li><a href="#rvalue-and-lvalue-references">Rvalue and Lvalue References</a></li>
-                <li><a href="#using-rvalue-references">Using Rvalue References</a></li>
-                <li><a href="#move-semantics">Move Semantics</a></li>
-              </ul>
-            </li>
-            <li><a href="#rvalue-anti-pattern">Rvalue Anti-Pattern</a></li>
-            <li><a href="#resources">Resources</a></li>
-          </ul>
+          <box id="article-toc">
+            <ul>
+              <li><a href="#rvalue-references-and-move-semantics">Rvalue References and Move Semantics‎</a>
+                <ul>
+                  <li><a href="#background">Background</a>
+                    <ul>
+                      <li><a href="#value-semantics">Value Semantics</a></li>
+                      <li><a href="#reference-semantics">Reference Semantics</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#move-semantics">Move Semantics</a>
+                    <ul>
+                      <li><a href="#rvalue-and-lvalue-references">Rvalue and Lvalue References</a></li>
+                      <li><a href="#using-rvalue-references">Using Rvalue References</a></li>
+                      <li><a href="#move-semantics">Move Semantics</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern</a></li>
+                  <li><a href="#resources">Resources</a></li>
+                </ul>
+              </li>
+            </ul>
+          </box>
+
+
+
           <h2 id="background">Background<a class="fa fa-anchor" href="#background"></a></h2>
-          <p><em>C++</em> is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released periodically. One such standard, the <code>C++11</code> standard, improved the performance of the language with features such as <strong><em>Rvalue References</em></strong> and <strong><em>Move Semantics</em></strong>.</p>
+          <p><em>C++</em> is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released
+            periodically. One such standard, the <code>C++11</code> standard, improved the performance of the language with features such as <strong><em>Rvalue References</em></strong> and <strong><em>Move Semantics</em></strong>.</p>
           <p>In order to better understand the benefits of using Move Semantics, it is important to first understand the two other modes already available in C++, <strong><em>Value Semantics</em></strong> and <strong><em>References Semantics</em></strong>.</p>
           <h3 id="value-semantics">Value Semantics<a class="fa fa-anchor" href="#value-semantics"></a></h3>
-          <p>Value (or copy) semantics is the programming style where users are only concerned about the values stored in the objects, rather than the object itself. As such, an extra copy of the object will always be created whenever it is passed to a function, (also known as <a href="http://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/">pass-by-value</a>) or when constructing or assigning a new object. This ensures that each object declared (or function) will have their own copied value to use, without having to concern themselves with their originator. By default, C++ uses this mode if variables are declared with only the data type.</p>
+          <p>Value (or copy) semantics is the programming style where users are only concerned about the values stored in the objects, rather than the object itself. As such, an extra copy of the object will always be created whenever it is passed to a function,
+            (also known as <a href="http://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/">pass-by-value</a>) or when constructing or assigning a new object. This ensures that each object declared (or function) will have their own copied
+            value to use, without having to concern themselves with their originator. By default, C++ uses this mode if variables are declared with only the data type.</p>
           <p>Some advantages of Value Semantics include:</p>
           <ul>
             <li>Lesser memory management issues, as there won't be any <a href="https://www.quora.com/What-is-dangling-reference">dangling references</a> to objects that may not exist, nor any <a href="https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/">memory leaks</a>.</li>
-            <li><a href="https://en.wikipedia.org/wiki/Referential_transparency">Referential transparency</a>. Having our own copy of the object ensures that changing the values inside the copied object will not affect the original object. This is especially useful in a <a href="https://stackoverflow.com/questions/1313062/what-is-a-multithreaded-application">multi-threaded</a> environment, as it removes the need to synchronise the object's values, allowing the program to run faster.</li>
-            <li>Better performance. If the function requires accessing of the object's value many times, having a local copy of the object may be faster than having a pointer to the object and dereferencing it each time. This is especially true in C++ which encourages Value Semantics, with optimization techniques such as <a href="http://en.cppreference.com/w/cpp/language/copy_elision">copy elision</a> in the compiler which speeds up the process of passing-by-value.</li>
+            <li><a href="https://en.wikipedia.org/wiki/Referential_transparency">Referential transparency</a>. Having our own copy of the object ensures that changing the values inside the copied object will not affect the original object. This is especially
+              useful in a <a href="https://stackoverflow.com/questions/1313062/what-is-a-multithreaded-application">multi-threaded</a> environment, as it removes the need to synchronise the object's values, allowing the program to run faster.</li>
+            <li>Better performance. If the function requires accessing of the object's value many times, having a local copy of the object may be faster than having a pointer to the object and dereferencing it each time. This is especially true in C++ which
+              encourages Value Semantics, with optimization techniques such as <a href="http://en.cppreference.com/w/cpp/language/copy_elision">copy elision</a> in the compiler which speeds up the process of passing-by-value.</li>
           </ul>
           <p>However, Value Semantics has <a href="https://www.quora.com/What-are-the-drawbacks-of-pass-by-value-result">one major flaw</a>:</p>
           <ul>
-            <li>Poor performance and scalability. If the function called is a read-only function, creating an additional copy will be an unnecessary consumption of memory and runtime. This is especially true when scaling up to pass around objects of larger size, as more memory and runtime is needed to create each copy.</li>
+            <li>Poor performance and scalability. If the function called is a read-only function, creating an additional copy will be an unnecessary consumption of memory and runtime. This is especially true when scaling up to pass around objects of larger
+              size, as more memory and runtime is needed to create each copy.</li>
           </ul>
           <h3 id="reference-semantics">Reference Semantics<a class="fa fa-anchor" href="#reference-semantics"></a></h3>
-          <p>Reference (or pointer) semantics is another choice available for use in C++, which allows users to declare <a href="http://www.cplusplus.com/doc/tutorial/pointers/">pointers</a> and <a href="https://www.geeksforgeeks.org/references-in-c/">references</a> that point to the address of the object. As such, we can pass these reference address to functions and declaration of other pointers, and all of them will refer to and use the same object and address.</p>
+          <p>Reference (or pointer) semantics is another choice available for use in C++, which allows users to declare <a href="http://www.cplusplus.com/doc/tutorial/pointers/">pointers</a> and <a href="https://www.geeksforgeeks.org/references-in-c/">references</a>            that point to the address of the object. As such, we can pass these reference address to functions and declaration of other pointers, and all of them will refer to and use the same object and address.</p>
           <p>Some advantages of Reference Semantics include:</p>
           <ul>
             <li>Improved performance and scalability. By passing around pointers and references to the same object, functions can just use the values in that object directly without having to create an extra copy, thus overcoming the major flaw of Value Semantics.</li>
@@ -339,16 +357,23 @@
           </ul>
           <p>However, Reference Semantics also comes with its own problems, such as:</p>
           <ul>
-            <li>Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary <a href="https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html">data races</a> and indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources <a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a> and <a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a>.</li>
-            <li>Harder to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may not know where and why the values are changing. A good example of this problem can be found in this <a href="http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151">article</a>.</li>
+            <li>Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary <a href="https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html">data races</a> and
+              indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources
+              <a
+                href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a> and <a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a>.</li>
+            <li>Harder to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may
+              not know where and why the values are changing. A good example of this problem can be found in this <a href="http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151">article</a>.</li>
           </ul>
           <h2 id="move-semantics">Move Semantics<a class="fa fa-anchor" href="#move-semantics"></a></h2>
-          <p>From the summary above, there are many benefits for using Value Semantics. However, its one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, <code>C++11</code> introduced a new mode to users, Move Semantics.</p>
+          <p>From the summary above, there are many benefits for using Value Semantics. However, its one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics
+            may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, <code>C++11</code> introduced a
+            new mode to users, Move Semantics.</p>
           <h3 id="rvalue-and-lvalue-references">Rvalue and Lvalue References<a class="fa fa-anchor" href="#rvalue-and-lvalue-references"></a></h3>
           <p>To understand how Move Semantics work in C++, it is important to distinguish between an rvalue and an lvalue.</p>
           <pre><code class="hljs">lvalue = rvalue
 </code></pre>
-          <p>From the line above, lvalue (left value) basically refers to values that are addressable, while rvalue (right value) are temporary objects or values which are used only on the right side of an assignment expression. More details and classification of these 2 values can be found <a href="http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">here</a>.</p>
+          <p>From the line above, lvalue (left value) basically refers to values that are addressable, while rvalue (right value) are temporary objects or values which are used only on the right side of an assignment expression. More details and classification
+            of these 2 values can be found <a href="http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">here</a>.</p>
           <h3 id="using-rvalue-references">Using Rvalue References<a class="fa fa-anchor" href="#using-rvalue-references"></a></h3>
           <p>Rvalue References allows us to distinguish an lvalue from an rvalue. In <code>C++11</code>, we can declare an Rvalue Reference using the <code>&amp;&amp;</code> operator:</p>
           <pre><code class="hljs cpp"><span class="hljs-keyword">int</span> &amp;&amp;rvalue = <span class="hljs-number">55</span>;
@@ -357,8 +382,7 @@
           <pre><code class="hljs cpp"><span class="hljs-keyword">int</span> lvalue = <span class="hljs-number">99</span>;
 <span class="hljs-keyword">int</span> &amp;&amp;rvalue2 = <span class="hljs-built_in">std</span>::move(lvalue);
 </code></pre>
-          <p>We can also do <a href="https://en.wikibooks.org/wiki/Computer_Programming/Function_overloading">function overloading</a>
-            in order to determine whether the parameters given are lvalues or rvalues:</p>
+          <p>We can also do <a href="https://en.wikibooks.org/wiki/Computer_Programming/Function_overloading">function overloading</a> in order to determine whether the parameters given are lvalues or rvalues:</p>
           <pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; lvalue)</span> </span>{ <span class="hljs-comment">// takes an lvalue</span>
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"lvalue method used"</span>;
 }
@@ -375,7 +399,8 @@
 </code></pre>
           <p>Usage of function overloading with Rvalue Reference parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!</p>
           <h3 id="move-semantics-2">Move Semantics<a class="fa fa-anchor" href="#move-semantics-2"></a></h3>
-          <p>The main usage of Rvalue References is that it allows us to create <em>move</em> constructor and <em>move</em> assignments, instead of <em>copy</em> constructor and <em>copy</em> assignments by default. Since rvalues are typically temporary objects, we can just <em>move</em> the value instead of <em>copying</em> it, thus reducing memory consumption and improving performance!</p>
+          <p>The main usage of Rvalue References is that it allows us to create <em>move</em> constructor and <em>move</em> assignments, instead of <em>copy</em> constructor and <em>copy</em> assignments by default. Since rvalues are typically temporary
+            objects, we can just <em>move</em> the value instead of <em>copying</em> it, thus reducing memory consumption and improving performance!</p>
           <p>One example implementation of a move constructor and move assignment is shown below:</p>
           <pre><code class="hljs cpp">Foo(Foo&amp;&amp; other) { <span class="hljs-comment">// move constructor</span>
     x = other.x;
@@ -390,8 +415,10 @@ Foo&amp; <span class="hljs-keyword">operator</span>=(Foo&amp;&amp; other) { <spa
     <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
 }
 </code></pre>
-          <p>In this move constructor and assignment, the contents of the <code>other</code> parameter is <em>moved</em> into the object, and the contents in <code>other</code> is destroyed afterwards. No additional memory allocation is required, and the <em>move</em> operation is done quickly by a few assignment of address operations, leading to a faster and more memory efficient program.</p>
-          <p>Along with Move Semantics in <code>C++11</code>, the <a href="https://www.geeksforgeeks.org/the-c-standard-template-library-stl/">STL library</a> provides the overloaded <em>move</em> functions for its container classes (e.g. <code>vector</code>, <code>list</code>, <code>set</code>), thus we can take advantage of these Move Semantics by simply supplying rvalues, without the need to redefine the classes ourselves.</p>
+          <p>In this move constructor and assignment, the contents of the <code>other</code> parameter is <em>moved</em> into the object, and the contents in <code>other</code> is destroyed afterwards. No additional memory allocation is required, and the
+            <em>move</em> operation is done quickly by a few assignment of address operations, leading to a faster and more memory efficient program.</p>
+          <p>Along with Move Semantics in <code>C++11</code>, the <a href="https://www.geeksforgeeks.org/the-c-standard-template-library-stl/">STL library</a> provides the overloaded <em>move</em> functions for its container classes (e.g. <code>vector</code>,
+            <code>list</code>, <code>set</code>), thus we can take advantage of these Move Semantics by simply supplying rvalues, without the need to redefine the classes ourselves.</p>
           <h2 id="rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern<a class="fa fa-anchor" href="#rvalue-reference-anti-pattern"></a></h2>
           <p>After learning about the new Rvalue References and Move Semantics in <code>C++11</code>, many programmers from the older C++ eras may fall into a trap of the Rvalue Reference <a href="https://en.wikipedia.org/wiki/Anti-pattern">Anti-Pattern</a>.</p>
           <p>Consider these 2 class constructors:</p>
@@ -405,7 +432,9 @@ Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</
     _y = y;
 }
 </code></pre>
-          <p>As shown above, the <em>move</em> constructor defines each of its parameter to be Rvalue References. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for <code>x</code> and rvalue for <code>y</code>, the copy constructor instead will be called! This is because the <em>copy</em> constructor is able to accept both lvalues and rvalues, while the <em>move</em> constructor is only able to accept rvalues. As such, we may think we have made use of Move Semantics to optimize our program, but that may not be the case!</p>
+          <p>As shown above, the <em>move</em> constructor defines each of its parameter to be Rvalue References. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for <code>x</code> and rvalue for <code>y</code>,
+            the copy constructor instead will be called! This is because the <em>copy</em> constructor is able to accept both lvalues and rvalues, while the <em>move</em> constructor is only able to accept rvalues. As such, we may think we have made use
+            of Move Semantics to optimize our program, but that may not be the case!</p>
           <p>One solution to this problem would be to overload the constructor for each combination of Rvalue Reference parameters possible, like this:</p>
           <pre><code class="hljs cpp">Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span>
     _x = x;
@@ -427,14 +456,16 @@ Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</
     _y = y;
 }
 </code></pre>
-          <p>However, this is not feasible as we would require <code>2^n</code> overload functions, where <code>n</code> is the number of parameters. This results increased <a href="https://www.quora.com/What-is-boilerplate-code">boilerplate code</a>, which in turn reduces code quality, increases memory consumption and compilation time.</p>
+          <p>However, this is not feasible as we would require <code>2^n</code> overload functions, where <code>n</code> is the number of parameters. This results increased <a href="https://www.quora.com/What-is-boilerplate-code">boilerplate code</a>, which
+            in turn reduces code quality, increases memory consumption and compilation time.</p>
           <p>Rather, what should be provided here is:</p>
           <pre><code class="hljs cpp">Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> y) { <span class="hljs-comment">// move constructor</span>
     _x = <span class="hljs-built_in">std</span>::move(x);
     _y = <span class="hljs-built_in">std</span>::move(y);
 }
 </code></pre>
-          <p>Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with <code>Foo(x,y)</code>, or to prevent the additional copy by calling <code>Foo(std::move(x), std::move(y))</code>, depending on which value is no longer needed.</p>
+          <p>Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with <code>Foo(x,y)</code>, or to prevent
+            the additional copy by calling <code>Foo(std::move(x), std::move(y))</code>, depending on which value is no longer needed.</p>
           <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
           <p>The following resources gives more readings on what was discussed, and a more in-depth tutorial on Rvalue References and Move Semantics:</p>
           <ul>
@@ -450,7 +481,7 @@ Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="position-sticky position-top spacer-top viewport-height-90 scrollable slim-scroll">
+        <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#rvalue-references-and-move-semantics">Rvalue References and Move Semantics&#x200E;</a>
@@ -476,7 +507,7 @@ Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.3.0</a> on Wed, 24 Apr 2019 08:25:36 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.10.0</a> on Fri, 21 Feb 2020 04:31:19 GMT]</small></div>
     </footer>
   </div>
 </body>
@@ -490,6 +521,7 @@ Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</
   const enableSearch = true
 </script>
 <script src="../../markbind/js/setup.js"></script>
+
 <script src="../../markbind/layouts/default/scripts.js"></script>
 
 </html>

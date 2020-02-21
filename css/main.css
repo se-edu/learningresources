@@ -27,3 +27,14 @@ mark {
 .indented-level3 {
     padding-left: 60px;
 }
+
+/* Responsive table of contents (toc) */
+
+/* Hides toc on screen widths smaller than 1300px */
+/* page-nav appears on screens 1300px wide and above */
+@media screen and (min-width: 1299.98px) {
+    #article-toc {
+        display: none;
+        border: none;
+    }
+}

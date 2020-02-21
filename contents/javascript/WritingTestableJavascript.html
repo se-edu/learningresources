@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.10.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Web Performance</title>
+  <title>SE-EDU/LearningResources - Writing Testable Javascript</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -51,11 +51,11 @@
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
 <ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon">
+<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
           </button>
-          <div class="dropdown-container">
+          <div class="dropdown-container dropdown-container-open">
             <ul class="pl-3 site-nav-list">
               <li class="mt-2"><button class="dropdown-btn">C++
  <i class="dropdown-btn-icon">
@@ -90,12 +90,12 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">JavaScript
- <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">JavaScript
+ <i class="dropdown-btn-icon rotate-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a current">Writing Testable JavaScript Code</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
                     <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
@@ -120,10 +120,10 @@
             </ul>
           </div>
           </li>
-          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+ <i class="dropdown-btn-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container dropdown-container-open">
+            <div class="dropdown-container">
               <ul class="pl-3 site-nav-list">
                 <li class="mt-2"><button class="dropdown-btn">Architecture
  <i class="dropdown-btn-icon">
@@ -145,14 +145,14 @@
                 </li>
                 <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
                 <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Performance
- <i class="dropdown-btn-icon rotate-icon">
+                <li class="mt-2"><button class="dropdown-btn">Performance
+ <i class="dropdown-btn-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container dropdown-container-open">
+                  <div class="dropdown-container">
                     <ul class="pl-3 site-nav-list">
                       <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
                       <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a current">Web Performance</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
                     </ul>
                   </div>
                 </li>
@@ -299,89 +299,225 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="web-performance">Web Performance<a class="fa fa-anchor" href="#web-performance"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/marvinchin">Marvin Chin</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/luyangkenneth">Lu Yang Kenneth</a>, <a href="https://www.github.com/monmanuela">Monika Manuela Hengki</a></p>
-          <h2 id="what-is-web-performance">What is Web Performance<a class="fa fa-anchor" href="#what-is-web-performance"></a></h2>
-          <p>Web Performance is a broad term that refers to how performant a web application <em>feels</em> to its users. This includes many aspects such as how long the site takes to load, how quickly the site becomes interactive, and how responsive it
-            feels when the user interacts with the site.</p>
-          <p>As web applications grow more complex, it becomes increasingly important for web developers to be aware of the factors that affect performance, and consider how performance can impact the user experience.</p>
-          <h2 id="why-web-performance-matters">Why Web Performance Matters<a class="fa fa-anchor" href="#why-web-performance-matters"></a></h2>
-          <p>The performance of your web application has a direct impact on its ability to attract and retain users:</p>
-          <ul>
-            <li>Sites which take more than 3 seconds to load are more likely to be abandoned by users [<a href="https://developer.akamai.com/blog/2016/09/14/mobile-load-time-user-abandonment">source</a>].</li>
-            <li>Conversely, reducing page load times have been shown to have significant impact on improving user engagement [<a href="https://medium.com/carousell-insider/how-we-made-carousells-mobile-web-experience-3x-faster-bbb3be93e006">source</a>].</li>
-            <li>In addition, search engines have begun to use page load times as a factor in determining search rankings [<a href="https://webmasters.googleblog.com/2018/01/using-page-speed-in-mobile-search.html">source</a>].</li>
-            <li>Improving web performance is also essential in making your web application accessible to users from emerging markets, where low-end devices and limited bandwidth are the norm [<a href="https://building.calibreapp.com/beyond-the-bubble-real-world-performance-9c991dcd5342">source</a>].</li>
-          </ul>
-          <p>In order to deliver a positive user experience, web developers must ensure that their applications meet acceptable performance standards.</p>
-          <h2 id="key-ideas-in-improving-web-performance">Key Ideas in Improving Web Performance<a class="fa fa-anchor" href="#key-ideas-in-improving-web-performance"></a></h2>
-          <p>There are many factors which affect web performance. Here, we give an overview of some of the key ideas that can be used to improve the performance of your web application.</p>
-          <p><strong>Idea 1: Reduce Javascript Payloads</strong></p>
-          <p>Loading and executing Javascript is often the slowest part of the page load process [<a href="https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4">source</a>]. Reducing the amount of Javascript that needs to be loaded
-            thus significantly reduces the time taken for your site to load.</p>
-          <p>Here are some steps that web developers can take to reduce the amount of Javascript that clients need to load:</p>
-          <ul>
-            <li>Use code splitting to load only the Javascript required for the page being accessed [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/">source</a>].</li>
-            <li>Remove unused code (often parts of libraries that are not used in the application) with tree shaking [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/">source</a>].</li>
-            <li>Ensure that the delivered Javascript is minified [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/javascript-startup-optimization/">source</a>].</li>
-            <li>Create performance budgets that specify the maximum size of Javascript payloads, and enforce them to ensure that the size of your Javascript payloads remain under control [<a href="https://web.dev/fast/incorporate-performance-budgets-into-your-build-tools">source</a>].</li>
-          </ul>
-          <p><strong>Idea 2: Optimize Images</strong></p>
-          <p>Images form a significant portion of the resources loaded on web applications [<a href="https://httparchive.org/reports/page-weight">source</a>]. To improve performance and speed up the site for users, web developers should thus try to reduce
-            the amount of bandwidth used to load images.</p>
-          <p>Images can be optimized for the web in the following ways:</p>
-          <ul>
-            <li>Use the correct file format that provides the appropriate balance between quality, detail, and file size. For example, you should use JPEG for photographs that contain lots of colors, PNG for logos and icons which have less colors but contain
-              sharper details, and GIF for animated images [<a href="https://medium.com/beginners-guide-to-mobile-web-development/web-image-formats-googles-webp-17e2fe5fc53e">source</a>].</li>
-            <li>Compress your images to reduce the amount of data that needs to be loaded [<a href="https://www.html5rocks.com/en/tutorials/speed/img-compression/">source</a>]. Be careful to strike a balance between image size and quality for optimal user
-              experience.</li>
-            <li>Deliver appropriately sized images based on the resolution of the client device [<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">source</a>]. This prevents smaller (often mobile or lower-end)
-              devices from wasting bandwidth loading large images that cannot be displayed at their full resolution on the device.</li>
-          </ul>
-          <p><strong>Idea 3: Use Progressive Rendering</strong></p>
-          <p>The sooner the user sees content being displayed on the page, the faster they perceives the site to be. Progressive rendering achieves this by avoiding rendering the entire page all at once, but instead ordering the loading of content in a manner
-            that allows <em>some</em> parts of the page to be rendered as quickly as possible.</p>
-          <p>Here are several ways how progressive loading can be effectively applied:</p>
-          <ul>
-            <li>Load only the most critical content as part of the initial render, and fetch remaining resources asynchronously after the render [<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/">source</a>]. Code
-              splitting can also be helpful here to reduce the amount of Javascript that needs to be loaded for the initial render [<a href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/">source</a>].</li>
-            <li>Use lazy loading to defer requesting non-critical resources until they are needed [<a href="https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/">source</a>].</li>
-            <li>Show content placeholders while fetching resources to indicate loading progress to the user [<a href="https://medium.com/@praveencnaik/content-placeholder-the-new-design-trend-for-audience-involvement-e2ab533d7304">source</a>].</li>
-          </ul>
-          <h2 id="measuring-web-performance">Measuring Web Performance<a class="fa fa-anchor" href="#measuring-web-performance"></a></h2>
-          <p>Improving web performance is a continuous, ongoing process. The ability to measure and track performance is necessary for developers to monitor the impact of their changes over time.</p>
-          <p>Here are some ways that you can measure the performance of your web applications:</p>
-          <ul>
-            <li>Test your site under various network conditions with <a href="https://developers.google.com/web/tools/chrome-devtools/network/network-conditions">Chrome DevTools</a>. This is helpful to get a feel for how the site feels for users on slower
-              devices during the development process.</li>
-            <li>Audit web performance using <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>. This provides many useful metrics for understanding the performance of your site and identifying performance bottlenecks under controlled
-              conditions.</li>
-            <li>Use <a href="https://www.webpagetest.org/">WebPageTest</a> to test the performance of your website from multiple locations around the world at real consumer connection speeds. This provides real-world performance indicators that is especially
-              useful if the target audience of your site resides in a different region.</li>
-            <li>Collect user-centric performance metrics to help you to monitor how your application actually performs in a real-world scenario, and how your site performance relates to other user engagement metrics [<a href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics">source</a>].</li>
-          </ul>
-          <h2 id="additional-resources">Additional Resources<a class="fa fa-anchor" href="#additional-resources"></a></h2>
-          <ul>
-            <li><a href="https://developers.google.com/web/fundamentals/performance/why-performance-matters/">Google's Web Performance Fundamentals</a> is a comprehensive resource that explains many factors that affect web performance.</li>
-            <li><a href="https://kinsta.com/learn/page-speed/">Kinsta's Beginner Guide to Website Speed Optimization</a> is a guided resource for improving website speeds.</li>
-            <li><a href="https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3">Twitter Lite Case Studey</a> is a real-world study that highlights how web performance principles can be applied
-              to great effect.
-            </li>
-          </ul>
+          <h1 id="writing-testable-javascript">Writing Testable Javascript<a class="fa fa-anchor" href="#writing-testable-javascript"></a></h1>
+          <p>Authors: Li Kai</p>
+          <p>JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the
+            same thing.
+          </p>
+          <p>That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.</p>
+          <p>Good JavaScript code should be testable and reusable.</p>
+          <h2 id="writing-testable-javascript-2">Writing testable JavaScript<a class="fa fa-anchor" href="#writing-testable-javascript-2"></a></h2>
+          <h3 id="avoid-coupling-with-selectors">Avoid coupling with selectors<a class="fa fa-anchor" href="#avoid-coupling-with-selectors"></a></h3>
+          <p>When writing front end code we would encounter code that manipulates the document object model (DOM). Let's look at one such example.</p>
+          <pre><code class="hljs js"><span class="hljs-keyword">var</span> DIV_STATUS_MESSAGE = <span class="hljs-string">'#statusMessagesToUser'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">populateStatusMessageDiv</span>(<span class="hljs-params">message, status</span>) </span>{
+    <span class="hljs-keyword">var</span> $statusMessageDivToUser = $(DIV_STATUS_MESSAGE);
+    ...
+}
+</code></pre>
+          <p>In this piece of code, we see that the selector is intrinsically tied to the function. This means that the function is tightly tied with the selector and is not easily testable as the test code has to generate the same markup in the test suite
+            for the function to hook up to. In order to prevent such tight coupling, it is advised to leave the selector as a parameter, or sometimes, simply pass in the element itself.</p>
+          <pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">populateStatusMessage</span>(<span class="hljs-params">selector, message, status</span>) </span>{
+    <span class="hljs-keyword">var</span> $statusMessageDivToUser = $(selector);
+    ...
+}
+</code></pre>
+          <h3 id="split-business-logic-and-presentation-code">Split business logic and presentation code<a class="fa fa-anchor" href="#split-business-logic-and-presentation-code"></a></h3>
+          <p>When we have to write code that generates markup, it requires business logic. However, mixing the two up is not a good idea. Let's look at the following example:</p>
+          <pre><code class="hljs js">$.ajax({
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'POST'</span>,
+    <span class="hljs-attr">url</span>: <span class="hljs-string">'/admin/adminStudentGoogleIdReset?'</span> + params,
+    <span class="hljs-attr">beforeSend</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        $(button).html(<span class="hljs-string">"&lt;img src='/images/ajax-loader.gif'/&gt;"</span>);
+    },
+    <span class="hljs-attr">error</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        $(button).html(<span class="hljs-string">'An Error Occurred, Please Retry'</span>);
+    },
+    <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+        ...
+    }
+});
+</code></pre>
+          <p>It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse
+            code that generates the markup in multiple places.</p>
+          <pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setLoadingImage</span>(<span class="hljs-params">selector</span>) </span>{
+    $(selector).html(<span class="hljs-string">"&lt;img src='/images/ajax-loader.gif'/&gt;"</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setErrorText</span>(<span class="hljs-params">selector</span>) </span>{
+    $(selector).html(<span class="hljs-string">'An Error Occurred, Please Retry'</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayResults</span>(<span class="hljs-params">data</span>) </span>{
+    ...
+}
+
+$.ajax({
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'POST'</span>,
+    <span class="hljs-attr">url</span>: <span class="hljs-string">'/admin/adminStudentGoogleIdReset?'</span> + params,
+    <span class="hljs-attr">beforeSend</span>: setLoadingImage,
+    <span class="hljs-attr">error</span>: setErrorText,
+    <span class="hljs-attr">success</span>: displayResults
+});
+</code></pre>
+          <p>Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.</p>
+          <h3 id="avoid-big-anonymous-functions">Avoid big anonymous functions<a class="fa fa-anchor" href="#avoid-big-anonymous-functions"></a></h3>
+          <p>Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off
+            in a <code>document.ready()</code> or <code>$.ajax()</code>.</p>
+          <p>The testable way of writing such function is to simply give the function a name, which allows it to be tested.</p>
+          <pre><code class="hljs js">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    bindStudentPhotoLink(<span class="hljs-string">'.profile-pic-icon-view-link'</span>);
+    ...
+});
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bindStudentPhotoLink</span>(<span class="hljs-params">selector</span>) </span>{
+    ...
+}
+</code></pre>
+          <p>Of course, this may be a problem if two Javascript functions have the same name, as they are all in the global scope. This is where the module pattern (see: <a href>Namespacing in Javascript</a>) can be used.</p>
+          <pre><code class="hljs js"><span class="hljs-keyword">var</span> myApp = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-keyword">var</span> id= <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">next</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> id++;
+        },
+
+        <span class="hljs-attr">reset</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            id = <span class="hljs-number">0</span>;
+        }
+    };
+})();
+</code></pre>
+          <p>As demonstrated above, only <code>myApp</code> is declared in the global scope, and we can access its methods through the object notation, e.g. <code>myApp.next()</code>. This is also especially useful to declare private variables that be used
+            among functions. <code>id</code> is not accessible outside of scope in this example.</p>
+          <h3 id="purity-is-worth-pursuing">Purity is worth pursuing<a class="fa fa-anchor" href="#purity-is-worth-pursuing"></a></h3>
+          <p>There are tonnes of literature about functional programming. I will heavily recommend reading the <a href="https://github.com/MostlyAdequate/mostly-adequate-guide">Mostly adequate guide to Functional Programming</a>. It explains functional concepts
+            extremely well.</p>
+          <p>The benefit of pure functions is simple, there is no need to keep track of state. Given an input, the output is guaranteed to be the same every time. This allows us to write extremely simple unit tests, instead of having to maintain the state
+            while testing.
+          </p>
+          <pre><code class="hljs js"><span class="hljs-keyword">var</span> counter = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">var</span> todos = [];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTodo</span>(<span class="hljs-params"></span>) </span>{
+    counter++;
+    <span class="hljs-keyword">if</span> (counter &lt; todos.length) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'NIL'</span>;
+    }
+    <span class="hljs-keyword">return</span> todos[counter];
+}
+...
+getTodo();
+</code></pre>
+          <p>The above function <code>getTodo</code> is not stateless as it depends on counter's value. In order to write the tests, we would need to ensure counter is reset to the same value at the end of each test. A better way would be to do this:</p>
+          <pre><code class="hljs js"><span class="hljs-keyword">var</span> counter = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">var</span> todos = [];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTodo</span>(<span class="hljs-params">counter, todos</span>) </span>{
+    <span class="hljs-keyword">if</span> (counter &lt; todos.length) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'NIL'</span>;
+    }
+    <span class="hljs-keyword">return</span> todos[counter + <span class="hljs-number">1</span>];
+}
+...
+getTodo(counter, todos);
+</code></pre>
+          <p>Now, not only that the person who writes the unit test can write in fewer lines of code, you can also use the function for some other state other than the global values.</p>
+          <h2 id="writing-reusable-javascript">Writing reusable javascript<a class="fa fa-anchor" href="#writing-reusable-javascript"></a></h2>
+          <h3 id="optional-parameters">Optional parameters<a class="fa fa-anchor" href="#optional-parameters"></a></h3>
+          <p>When writing certain functions, there would be certain situations where we want to have optional parameters. The easiest way would be to put optional parameters at the end of the parameter calls, like such:</p>
+          <pre><code class="hljs js"><span class="hljs-comment">// es5 syntax</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, headerColor, bodyColor</span>) </span>{
+    <span class="hljs-keyword">var</span> headerColor = headerColor || <span class="hljs-string">'default'</span>;
+    <span class="hljs-keyword">var</span> bodyColor = bodyColor || <span class="hljs-string">'default'</span>;
+    ...
+}
+
+<span class="hljs-comment">// es6 syntax default parameters</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, headerColor = <span class="hljs-string">'default'</span>, bodyColor = <span class="hljs-string">'default'</span></span>) </span>{
+    ...
+}
+</code></pre>
+          <p>This is relatively simple and easy to understand. However, in order to specify body color, the user would have to know and fill in the default header color.</p>
+          <pre><code class="hljs js"><span class="hljs-comment">// es5 syntax</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, optionals</span>) </span>{
+    <span class="hljs-keyword">var</span> headerColor = optionals.headerColor || <span class="hljs-string">'default'</span>;
+    <span class="hljs-keyword">var</span> bodyColor = optionals.bodyColor || <span class="hljs-string">'default'</span>;
+    ...
+}
+<span class="hljs-comment">// es6 syntax with destructuring and default parameters</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, optionals</span>) </span>{
+    <span class="hljs-keyword">const</span> { headerColor = <span class="hljs-string">'default'</span>, bodyColor = <span class="hljs-string">'default'</span> } = optionals;
+    ...
+}
+</code></pre>
+          <p>By using an object, the user would just need to fill in what parameter they want to be changed. In large functions, this would result in better readability as well.</p>
+          <pre><code class="hljs js">createPopUp(<span class="hljs-string">'Warning'</span>, <span class="hljs-string">'This will delete everything!'</span>, dangerStatus, { <span class="hljs-attr">bodyColor</span>: <span class="hljs-string">'red'</span> });
+</code></pre>
+          <h3 id="understand-method-chaining">Understand method chaining<a class="fa fa-anchor" href="#understand-method-chaining"></a></h3>
+          <p>Method chaining is syntax such as <code>array.concat([1, 2]).push(1).filter(isEven)</code>. It is also sometimes referred to as the fluent interface. (see: <a href>Method Chaining in JavaScript</a>)</p>
+          <p>It is achieved by returning the object itself in the call.</p>
+          <pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = {
+    <span class="hljs-attr">save</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">// some procedures</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+};
+</code></pre>
+          <p>Method chaining can be found in other languages but it is very common in Javascript. It can be found in libraries such as JQuery and lodash. Compare the two snippets below:</p>
+          <pre><code class="hljs js"><span class="hljs-keyword">var</span> bob = <span class="hljs-keyword">new</span> Person();
+
+bob.setName(<span class="hljs-string">'Bob'</span>);
+bob.setAge(<span class="hljs-number">16</span>);
+bob.setGender(<span class="hljs-string">'male'</span>);
+
+bob.save();
+</code></pre>
+          <pre><code class="hljs js"><span class="hljs-keyword">new</span> Person()
+  .setName(<span class="hljs-string">'Bob'</span>)
+  .setAge(<span class="hljs-number">16</span>)
+  .setGender(<span class="hljs-string">'male'</span>)
+  .save();
+</code></pre>
+          <p>Not only is the method chaining much shorter, it also makes the code more maintainable by keeping properties organised nicely and easily traceable in version control.</p>
+          <p>However, like any design pattern, this is not to be abused. Only use method chaining when methods are related to the object at hand.</p>
+          <h3 id="addendum">Addendum<a class="fa fa-anchor" href="#addendum"></a></h3>
+          <p>As with all guides, this list of good practices and advices are not exhausive. Good code takes practice and finese, and if you discover ways to make code better, feel free to contribute and add them to this document!</p>
+          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
+          <p><a href="https://github.com/ryanmcdermott/clean-code-javascript">Clean Code Javascript</a> Apparently most of what I wrote appears in this huge guide in some form. It's an amazing resource and also explains SOLID clearly near the bottom.</p>
+          <p><a href="https://github.com/airbnb/javascript">Airbnb Javascript Style</a> It is one thing to follow the style guide, and another to understand why it is that way. Understanding why Airbnb chose certain constructs and syntax reveals ways to
+            write code that is clean, understandable and maintainable.</p>
+          <p><a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/">JavaScript Design Patterns</a> The title says it all. From the most common to obscure patterns, this book covers design patterns and explains trade offs. Although it
+            specifically caters to Javascript, it's recommended reading for all prospective software engineers.</p>
+          <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
+          <p><a href="https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/">Namespacing in Javascript</a></p>
+          <p><a href="https://schier.co/blog/2013/11/14/method-chaining-in-javascript.html">Method Chaining in JavaScript</a></p>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#web-performance">Web Performance&#x200E;</a>
+            <a class="nav-link py-1" href="#writing-testable-javascript">Writing Testable Javascript&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-web-performance">What is Web Performance&#x200E;</a>
-              <a class="nav-link py-1" href="#why-web-performance-matters">Why Web Performance Matters&#x200E;</a>
-              <a class="nav-link py-1" href="#key-ideas-in-improving-web-performance">Key Ideas in Improving Web Performance&#x200E;</a>
-              <a class="nav-link py-1" href="#measuring-web-performance">Measuring Web Performance&#x200E;</a>
-              <a class="nav-link py-1" href="#additional-resources">Additional Resources&#x200E;</a>
+              <a class="nav-link py-1" href="#writing-testable-javascript-2">Writing testable JavaScript&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#avoid-coupling-with-selectors">Avoid coupling with selectors&#x200E;</a>
+                <a class="nav-link py-1" href="#split-business-logic-and-presentation-code">Split business logic and presentation code&#x200E;</a>
+                <a class="nav-link py-1" href="#avoid-big-anonymous-functions">Avoid big anonymous functions&#x200E;</a>
+                <a class="nav-link py-1" href="#purity-is-worth-pursuing">Purity is worth pursuing&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#writing-reusable-javascript">Writing reusable javascript&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#optional-parameters">Optional parameters&#x200E;</a>
+                <a class="nav-link py-1" href="#understand-method-chaining">Understand method chaining&#x200E;</a>
+                <a class="nav-link py-1" href="#addendum">Addendum&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
+              <a class="nav-link py-1" href="#references">References&#x200E;</a>
             </nav>
 
           </nav>
