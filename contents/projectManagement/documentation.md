@@ -17,15 +17,14 @@ Authors: [Chua Ka Yi Ong](https://github.com/kychua)
 
 <box id="article-toc">
 
-* [Documentation‎](#documentation)
-  * [Introduction‎](#introduction)
-  * [Why Write Documentation‎](#why-write-documentation)
-  * [Writing Good Documentation‎](#writing-good-documentation)
-    * [Written Documentation‎](#written-documentation)
-    * [Code Documentation‎](#code-documentation)
-    * [Version Control‎](#version-control)
-  * [Resources‎](#resources)
-  * [Acknowledgements‎](#acknowledgements)
+* [Introduction‎](#introduction)
+* [Why Write Documentation‎](#why-write-documentation)
+* [Writing Good Documentation‎](#writing-good-documentation)
+  * [Written Documentation‎](#written-documentation)
+  * [Code Documentation‎](#code-documentation)
+  * [Version Control‎](#version-control)
+* [Resources‎](#resources)
+* [Acknowledgements‎](#acknowledgements)
 </box>
 
 ## Introduction

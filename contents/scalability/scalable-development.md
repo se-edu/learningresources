@@ -17,15 +17,14 @@ Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan
 
 <box id="article-toc">
 
-* [Scalable Development - An Introduction‎](#scalable-development-an-introduction)
-  * [Scalable Development‎](#scalable-development)
-  * [Scalability‎](#scalability)
-  * [Ways to scale‎](#ways-to-scale)
-    * [Horizontal vs Vertical Scaling‎](#horizontal-vs-vertical-scaling)
-    * [Faster Algorithms‎](#faster-algorithms)
-    * [Avoid Bottlenecks‎](#avoid-bottlenecks)
-  * [But wait!‎](#but-wait)
-  * [Conclusion‎](#conclusion)
+* [Scalable Development‎](#scalable-development)
+* [Scalability‎](#scalability)
+* [Ways to scale‎](#ways-to-scale)
+  * [Horizontal vs Vertical Scaling‎](#horizontal-vs-vertical-scaling)
+  * [Faster Algorithms‎](#faster-algorithms)
+  * [Avoid Bottlenecks‎](#avoid-bottlenecks)
+* [But wait!‎](#but-wait)
+* [Conclusion‎](#conclusion)
 </box>
 
 ## Scalable Development

@@ -19,12 +19,11 @@ Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Monika Manuela 
 
 <box id="article-toc">
 
-* [Web Performance‎](#web-performance)
-  * [What is Web Performance‎](#what-is-web-performance)
-  * [Why Web Performance Matters‎](#why-web-performance-matters)
-  * [Key Ideas in Improving Web Performance‎](#key-ideas-in-improving-web-performance)
-  * [Measuring Web Performance‎](#measuring-web-performance)
-  * [Additional Resources‎](#additional-resources)
+* [What is Web Performance‎](#what-is-web-performance)
+* [Why Web Performance Matters‎](#why-web-performance-matters)
+* [Key Ideas in Improving Web Performance‎](#key-ideas-in-improving-web-performance)
+* [Measuring Web Performance‎](#measuring-web-performance)
+* [Additional Resources‎](#additional-resources)
 </box>
 
 ## What is Web Performance

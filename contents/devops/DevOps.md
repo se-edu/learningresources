@@ -17,17 +17,16 @@ Authors: [John Yong](https://github.com/whipermr5)
 
 <box id="article-toc">
 
-* [DevOps‎](#devops)
-  * [What is DevOps?‎](#what-is-devops)
-  * [Aspects of DevOps‎](#aspects-of-devops)
-    * [Code Development & Review‎](#code-development-and-amp-review)
-    * [Build & Test Automation‎](#build-and-amp-test-automation)
-    * [Deployment & Infrastructure‎](#deployment-and-amp-infrastructure)
-    * [Monitoring‎](#monitoring)
-  * [Getting Started‎](#getting-started)
-  * [Useful Links‎](#useful-links)
-    * [Quick References‎](#quick-references)
-    * [Further Reading‎](#further-reading)
+* [What is DevOps?‎](#what-is-devops)
+* [Aspects of DevOps‎](#aspects-of-devops)
+  * [Code Development & Review‎](#code-development-and-amp-review)
+  * [Build & Test Automation‎](#build-and-amp-test-automation)
+  * [Deployment & Infrastructure‎](#deployment-and-amp-infrastructure)
+  * [Monitoring‎](#monitoring)
+* [Getting Started‎](#getting-started)
+* [Useful Links‎](#useful-links)
+  * [Quick References‎](#quick-references)
+  * [Further Reading‎](#further-reading)
 </box>
 
 ## What is DevOps?

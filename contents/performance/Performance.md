@@ -17,12 +17,11 @@ Author: [Ian Teo](https://github.com/IanTeo), [Phang Chun Rong](https://www.gith
 
 <box id="article-toc">
 
-* [Introduction to Performance Optimization‎](#introduction-to-performance-optimization)
-    * [Overview‎](#overview)
-    * [Using Appropriate Data Structures and Algorithms‎](#using-appropriate-data-structures-and-algorithms)
-    * [Memory Management Usage‎](#memory-management-usage)
-    * [Using Cache Friendly Code‎](#using-cache-friendly-code)
-    * [Other Resources‎](#other-resources)
+* [Overview‎](#overview)
+* [Using Appropriate Data Structures and Algorithms‎](#using-appropriate-data-structures-and-algorithms)
+* [Memory Management Usage‎](#memory-management-usage)
+* [Using Cache Friendly Code‎](#using-cache-friendly-code)
+* [Other Resources‎](#other-resources)
 </box>
 
 ## Overview

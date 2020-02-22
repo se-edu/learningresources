@@ -17,7 +17,6 @@ Author(s): [Darren Wee](https://github.com/darrenwee)
 
 <box id="article-toc">
 
-* [Best Practices with git‎](#best-practices-with-git)
 * [Introduction‎](#introduction)
 * [Best Practices‎](#best-practices)
     * [Write Good Commit Messages‎](#write-good-commit-messages)
