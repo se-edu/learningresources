@@ -13,6 +13,29 @@
 
 Author: [Yash Chowdhary](https://github.com/yash-chowdhary)
 
+Reviewers: [Ang Ze Yu](https://github.com/ang-zeyu), [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg)
+
+<box id="article-toc">
+
+* [Test-Driven Development](#test-driven-development)
+  * [What is Test-driven Development](#what-is-test-driven-development)
+    * [Development Cycle](#development-cycle)
+  * [Why adopt Test-Driven Development?](#why-adopt-test-driven-development)
+    * [Benefit 1: Improves Code Quality](#benefit-1-improves-code-quality)
+    * [Benefit 2: Ensures that Product Requirements are Understood](#benefit-2-ensures-that-product-requirements-are-understood)
+    * [Benefit 3: Increases Productivity](#benefit-3-increases-productivity)
+  * [Caveats and Limitations](#caveats-and-limitations)
+  * [Advanced Test-Driven Development](#advanced-test-driven-development)
+  * [Getting Started with TDD](#getting-started-with-tdd)
+    * [Basic](#basic)  
+    * [Intermediate](#intermediate)
+    * [Advanced](#advanced)
+  * [References](#references)
+
+{.px-3}
+
+</box>
+
 ## What is Test-driven Development? 
 
 Typically, when you write unit tests, you test out the functionality of code you've already written. Test-driven development (a.k.a TDD) is a software development process that emphasizes the opposite - writing tests before production code. It is a design technique aimed at understanding requirements before writing functional code.
@@ -35,7 +58,7 @@ _Figure 1. General TDD cycle._[^2]
 </pic>
 </center>
 
-Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the general development cycle is as follows[^1]:
+Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the general development cycle of TDD is as follows[^1]:
 
 1. **Add a test**
 
