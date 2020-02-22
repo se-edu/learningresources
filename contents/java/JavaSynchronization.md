@@ -17,7 +17,6 @@ Authors: [Boxin](https://github.com/boxin-yang)
 
 <box id="article-toc">
 
-* [Java Synchronization‎](#java-synchronization)
 * [Introduction‎](#introduction)
 * [Basic Syntax‎](#basic-syntax)
 	* [synchronized statement‎](#synchronized-statement)

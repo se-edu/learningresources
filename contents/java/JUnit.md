@@ -19,14 +19,13 @@ Reviewers: [Aadyaa Maddi](https://github.com/amad-person), [Marvin Chin](https:/
 
 <box id="article-toc">
 
-* [JUnit‎](#junit)
-  * [What is JUnit?‎](#what-is-junit)
-  * [Why JUnit?‎](#why-junit)
-  * [JUnit Features‎](#junit-features)
-    * [Assertions API‎](#assertions-api)
-    * [Before/After hooks‎](#before-after-hooks)
-    * [Extension Model‎](#extension-model)
-  * [Getting Started‎](#getting-started)
+* [What is JUnit?‎](#what-is-junit)
+* [Why JUnit?‎](#why-junit)
+* [JUnit Features‎](#junit-features)
+  * [Assertions API‎](#assertions-api)
+  * [Before/After hooks‎](#before-after-hooks)
+  * [Extension Model‎](#extension-model)
+* [Getting Started‎](#getting-started)
 </box>
 
 ## What is JUnit?

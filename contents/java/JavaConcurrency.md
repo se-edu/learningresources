@@ -17,17 +17,16 @@ Authors: Vivek Lakshmanan
 
 <box id="article-toc">
 
-* [Java Concurrency‎](#java-concurrency)
-    * [What is Java Concurrency](#what-is-java-concurrency)
-    * [Getting started](#getting-started)
-        * [Understanding Threads](#understanding-threads)
-        * [Creating and Starting Threads](#creating-and-starting-threads)
-        * [Operations on Threads](#operations-on-threads)
-        * [Thread Interference](#thread-interference)
-        * [Executors](#executors)
-    * [Disadvantages of Java Concurrency](#disadvantages-of-java-concurrency)
-    * [Resources](#resources)
-        * [Further Reading](#further-reading)
+* [What is Java Concurrency](#what-is-java-concurrency)
+* [Getting started](#getting-started)
+    * [Understanding Threads](#understanding-threads)
+    * [Creating and Starting Threads](#creating-and-starting-threads)
+    * [Operations on Threads](#operations-on-threads)
+    * [Thread Interference](#thread-interference)
+    * [Executors](#executors)
+* [Disadvantages of Java Concurrency](#disadvantages-of-java-concurrency)
+* [Resources](#resources)
+    * [Further Reading](#further-reading)
 </box>
 
 ## What is Java Concurrency

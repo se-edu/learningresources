@@ -17,14 +17,13 @@ Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https:
 
 <box id="article-toc">
 
-* [Advanced Java: Reflections‎](#advanced-java-reflections)
-  * [Reflection‎](#reflection)
-    * [What is Java reflections‎](#what-is-java-reflections)
-    * [The Basics of Reflections‎](#the-basics-of-reflections)
-    * [Getting Started‎](#getting-started)
-    * [Applications‎](#applications)
-    * [Disadvantages of reflections‎](#disadvantages-of-reflections)
-    * [Further Resources for reflections‎](#further-resources-for-reflections)
+* [Reflection‎](#reflection)
+  * [What is Java reflections‎](#what-is-java-reflections)
+  * [The Basics of Reflections‎](#the-basics-of-reflections)
+  * [Getting Started‎](#getting-started)
+  * [Applications‎](#applications)
+  * [Disadvantages of reflections‎](#disadvantages-of-reflections)
+  * [Further Resources for reflections‎](#further-resources-for-reflections)
 </box>
 
 ## Reflection
