@@ -15,8 +15,6 @@
 
 Author: [Shradheya Thakre](https://github.com/tshradheya)
 
-**Chapter contents**
-
 <box id="article-toc">
 
 * [Introduction to Kotlin‎](#introduction-to-kotlin)
