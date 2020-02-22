@@ -19,17 +19,16 @@ Reviewer(s): [Marvin Chin](https://github.com/marvinchin)
 
 <box id="article-toc">
 
-* [Static Typing in JavaScript‎](#static-typing-in-javascript)
-    * [What is Static Typing?‎](#what-is-static-typing)
-    * [Adding Static Typing to JavaScript‎](#adding-static-typing-to-javascript)
-    * [TypeScript Basics‎](#typescript-basics)
-        * [Compilation to JavaScript‎](#compilation-to-javascript)
-        * [Type Annotations and Type Inference‎](#type-annotations-and-type-inference)
-        * [Custom Types‎](#custom-types)
-        * [Optionals‎](#optionals)
-    * [Getting Started with TypeScript‎](#getting-started-with-typescript)
-        * [Installation‎](#installation)
-        * [Additional Resources‎](#additional-resources)
+* [What is Static Typing?‎](#what-is-static-typing)
+* [Adding Static Typing to JavaScript‎](#adding-static-typing-to-javascript)
+* [TypeScript Basics‎](#typescript-basics)
+    * [Compilation to JavaScript‎](#compilation-to-javascript)
+    * [Type Annotations and Type Inference‎](#type-annotations-and-type-inference)
+    * [Custom Types‎](#custom-types)
+    * [Optionals‎](#optionals)
+* [Getting Started with TypeScript‎](#getting-started-with-typescript)
+    * [Installation‎](#installation)
+    * [Additional Resources‎](#additional-resources)
 </box>
 
 ## What is Static Typing?

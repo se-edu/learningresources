@@ -17,7 +17,6 @@ Author: [Pan Haozhe](https://github.com/Haozhe321)
 
 <box id="article-toc">
 
-* [Null Safety in Kotlin‎](#null-safety-in-kotlin)
 * [What is Null Safety?‎](#what-is-null-safety)
     * [NullPointerException‎](#nullpointerexception)
 * [How does Kotlin handle Null Safety?‎](#how-does-kotlin-handle-null-safety)
