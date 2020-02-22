@@ -13,7 +13,7 @@
 
 Author: [Yash Chowdhary](https://github.com/yash-chowdhary)
 
-Reviewers: [Ang Ze Yu](https://github.com/ang-zeyu), [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg)
+Reviewers: [Ang Ze Yu](https://github.com/ang-zeyu), [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg), [Tejas Bhuwania](https://github.com/Tejas2805)
 
 <box id="article-toc">
 
