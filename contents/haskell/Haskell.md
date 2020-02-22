@@ -40,7 +40,7 @@ Author: Thenaesh Elango
         * [Programming with Other Inductive Data Types‎](#programming-with-other-inductive-data-types)
         * [Further Reading‎](#further-reading-2)
     * [Typeclasses](#typeclasses)
-        * [Defining and Instantiating Typeclasses‎](#defining-and-amp-instantiating-typeclasses)
+        * [Defining and Instantiating Typeclasses‎](#defining-and-instantiating-typeclasses)
         * [Adding Typeclass Constraints to Functions‎](#adding-typeclass-constraints-to-functions)
         * [Instantiating Typeclasses with Parameterized Type Constructors‎](#instantiating-typeclasses-with-parameterized-type-constructors)
         * [Further Reading‎](#further-reading-3)
