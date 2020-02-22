@@ -18,17 +18,16 @@ Reviewers: [Darren Wee](https://github.com/darrenwee), [Tran Tien Dat](https://g
 
 <box id="article-toc">
 
-* [Introduction to Go‎](#introduction-to-go)
-    * [What Is Go?‎](#what-is-go)
-    * [Why Learn Go?](#why-learn-go)
-        * [Benefit: Better Variable Declarations](#benefit-better-variable-declarations)
-        * [Benefit: Better Support for Concurrency‎](#benefit-better-support-for-concurrency)
-        * [Benefit: Better Error Handling](#benefit-better-error-handling)‎
-        * [Benefit: `defer` Execution‎](#benefit-defer-execution)
-        * [Benefit: Good Support for Interfaces](#benefit-good-support-for-interfaces)
-        * [Benefit: Canonical Coding Style‎](#benefit-canonical-coding-style)
-    * [How to Get Started with Go?‎](#how-to-get-started-with-go)
-        * [Where to Go from Here?‎](#where-to-go-from-here)
+* [What Is Go?‎](#what-is-go)
+* [Why Learn Go?](#why-learn-go)
+    * [Benefit: Better Variable Declarations](#benefit-better-variable-declarations)
+    * [Benefit: Better Support for Concurrency‎](#benefit-better-support-for-concurrency)
+    * [Benefit: Better Error Handling](#benefit-better-error-handling)‎
+    * [Benefit: `defer` Execution‎](#benefit-defer-execution)
+    * [Benefit: Good Support for Interfaces](#benefit-good-support-for-interfaces)
+    * [Benefit: Canonical Coding Style‎](#benefit-canonical-coding-style)
+* [How to Get Started with Go?‎](#how-to-get-started-with-go)
+    * [Where to Go from Here?‎](#where-to-go-from-here)
 </box>
 
 ## What Is Go?

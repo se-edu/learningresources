@@ -17,7 +17,6 @@ Author: Thenaesh Elango
 
 <box id="article-toc">
 
-* [Introduction to Haskell‎](#introduction-to-haskell)
 * [Overview](#overview)
 * [Getting Started](#getting-started)
     * [Installation](#installation)
