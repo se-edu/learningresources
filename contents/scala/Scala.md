@@ -19,15 +19,14 @@ Reviewers: [Jiang Chunhui](https://github.com/Adoby7), [Wang Junming](https://gi
 
 <box id="article-toc">
 
-* [Introduction to Scala‎](#introduction-to-scala)
-  * [Overview‎](#overview)
-  * [Noteworthy Scala Features‎](#noteworthy-scala-features)
-    * [Type Inference‎](#type-inference)
-    * [Operator Overloading‎](#operator-overloading)
-    * [Mixins, Traits‎](#mixins-traits)
-    * [Type Enrichment‎](#type-enrichment)
-    * [Pattern Matching‎](#pattern-matching)
-  * [Getting Started‎](#getting-started)
+* [Overview‎](#overview)
+* [Noteworthy Scala Features‎](#noteworthy-scala-features)
+  * [Type Inference‎](#type-inference)
+  * [Operator Overloading‎](#operator-overloading)
+  * [Mixins, Traits‎](#mixins-traits)
+  * [Type Enrichment‎](#type-enrichment)
+  * [Pattern Matching‎](#pattern-matching)
+* [Getting Started‎](#getting-started)
 </box>
 
 ## Overview

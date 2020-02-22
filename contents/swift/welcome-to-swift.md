@@ -19,18 +19,17 @@ Reviewers: [Aaron Chong](https://github.com/acjh), [Bryan Lew](https://github.co
 
 <box id="article-toc">
 
-* [Swift‎](#swift)
-    * [Swift Overview‎](#swift-overview)
-    * [Noteworthy Swift Features‎](#noteworthy-swift-features)
-        * [Type Inference‎](#type-inference)
-        * [Optionals‎](#optionals)
-        * [Defer Statements‎](#defer-statements)
-        * [Data Types‎](#data-types)
-        * [Protocol Oriented Programming‎](#protocol-oriented-programming)
-        * [Extensions‎](#extensions)
-        * [Automatic Reference Counting‎](#automatic-reference-counting)
-        * [CocoaPods‎](#cocoapods)
-    * [How to Get Started‎](#how-to-get-started)
+* [Swift Overview‎](#swift-overview)
+* [Noteworthy Swift Features‎](#noteworthy-swift-features)
+    * [Type Inference‎](#type-inference)
+    * [Optionals‎](#optionals)
+    * [Defer Statements‎](#defer-statements)
+    * [Data Types‎](#data-types)
+    * [Protocol Oriented Programming‎](#protocol-oriented-programming)
+    * [Extensions‎](#extensions)
+    * [Automatic Reference Counting‎](#automatic-reference-counting)
+    * [CocoaPods‎](#cocoapods)
+* [How to Get Started‎](#how-to-get-started)
 </box>
 
 ## Swift Overview

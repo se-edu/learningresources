@@ -17,14 +17,13 @@ Author(s): [Tan Li Hao](https://github.com/LiHaoTan)
 
 <box id="article-toc">
 
-* [Rust‎](#rust)
-    * [Why Rust‎](#why-rust)
-        * [Safety‎](#safety)
-        * [Better support for concurrency‎](#better-support-for-concurrency)
-        * [Practicality‎](#practicality)
-    * [How to learn Rust‎](#how-to-learn-rust)
-        * [Resources to learn Rust‎](#resources-to-learn-rust)
-    * [Why not Rust‎](#why-not-rust)
+* [Why Rust‎](#why-rust)
+    * [Safety‎](#safety)
+    * [Better support for concurrency‎](#better-support-for-concurrency)
+    * [Practicality‎](#practicality)
+* [How to learn Rust‎](#how-to-learn-rust)
+    * [Resources to learn Rust‎](#resources-to-learn-rust)
+* [Why not Rust‎](#why-not-rust)
 </box>
 
 ## Why Rust
