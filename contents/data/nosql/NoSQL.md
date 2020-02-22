@@ -15,7 +15,7 @@
 
 **Author(s): [Ang Ze Yu](https://github.com/ang-zeyu)**
 
-**Reviewer(s): [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg), [Daryl Tan](https://github.com/openorclose)**
+**Reviewer(s): [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg), [Daryl Tan](https://github.com/openorclose), [Yash Chowdhary](https://github.com/yash-chowdhary)**
 
 <box id="article-toc">
 
@@ -157,8 +157,14 @@ Here, the code simply provides a query JSON object matching the structure of an 
 
 Specifically, items with a price of less than 30 are filtered with the `$lt: 30` key-value pair,
 and items with a popularity of more than 8 are filtered with the `$gt: 8`.<br>
-Subsequently, a "cursor" is returned, which undergoes a `sort` operation by the respective fields of `price`
-and `title`.
+Subsequently, a
+<popover header="Cursor :fas-gamepad:">
+<template slot="content">
+Think of it as a controller with a button which you can repeatedly press to retrieve the next document,
+with several smaller buttons to change the next document retrieved!
+</template>"cursor"</popover>
+pointing to the retrieved subset of documents is returned, which undergoes a `sort`
+operation by the respective fields of `price` and `title`.
 
 CRUD operations with NoSQL databases are just as powerful as traditional SQL databases, and in some
 cases even more succinct.
