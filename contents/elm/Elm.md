@@ -14,6 +14,7 @@
 # Introduction to Elm
 
 **Author(s): [Daryl Tan](https://github.com/openorclose)** <br>
+**Reviewer(s): [Alfred Yip](https://github.com/alyip98)** <br>
 
 ## What is Elm?
 
@@ -176,60 +177,56 @@ You may have noticed that Elm really likes the "only one way to do it" philosoph
 
 In fact, when other languages have gone on and added more features in newer versions, Elm has gone the other direction and removed many language features for the sake of simplicity.
 
-## Basic Syntax
+## The Elm Architecture
 
-Before showing how to build a simple app in Elm, let's learn some basic syntax.
+![](images/TEA.png)
 
-### Names
+Elm doesn't allow side effects, so to build web apps, you use The Elm Architecture. It's similar to the model-view-controller design pattern.
 
-All Elm module names start with an uppercase letter (e.g. `Html`, `Array`), while all Elm variables/functions start with a lowercase letter (e.g. `filter`, `min`).
+You provide Elm with three items:
 
-### Function Definitions
+- an initial state your app is in
+- a view function that takes in a state, and returns a HTML representation of that state
+- an update function that takes in a state and a message. The function then can use information provided in the message to returns a new state.
 
-Let's define a function `sum` that takes two arguments and adds them:
-
-```elm
-sum left right = left + right
-```
-
-All values in Elm are immutable, so no need for a special keyword to initialise them.
-
-To declare a function, put the function name and its parameters on the left of `=` and the expression you wish to evaluate on the right.
-
-### Function Application
-
-Since Elm is a functional programming lanugage, function application is the core of the language and therefore has the cleanest syntax. Separate your function and its arguments with spaces and that's it:
+Here's a minimal example (anything after `--` is a comment) :
 
 ```elm
-sum 3 4
+module Main exposing (main)
+
+import Browser
+import Html exposing (Html, button, text)
+import Html.Events exposing (onClick)
+
+-- our initial state is a single number 1
+initialModel = 1
+
+-- if we get the message string "increment", we return a new number, model+1
+-- else we don't update it, and return the same model
+update msg model =
+    case msg of
+        "increment" -> model + 1
+        _ -> model
+
+-- we take in a model, and display the number it represents on a button element.
+-- when the button is clicked, it sends the message string "increment" to Elm.
+-- which will get passed to our `update` function.
+view model = button [ onClick "increment" ] [ text (String.fromInt model) ]
+
+-- now we glue it all together!
+main =
+    Browser.sandbox
+        { init = initialModel
+        , view = view
+        , update = update
+        }
 ```
 
-The above expression sums the values `3` amd `4` using the `sum` function.
+View it on the elm playground [here](https://ellie-app.com/88GSdxWWVFza1).
 
-### Lists
+Most Elm apps are written this way, you just keep adding stuff into your model, view, and update as you grow your app.
 
-Using the `[]` syntax, we can create `List`s, which are like Linked Lists in other languages:
-
-```elm
-numbers = [1, 2, 3]
-```
-
-### Records
-
-A `Record` is a data structure that helps you organize your data. For example, you could store a point with x and y coordinates using a list:
-
-```elm
-point = [0, 0]
-```
-
-But you might come back to your code weeks later and wonder what the above meant. Using records allows you to label your data to be more explicit:
-
-```elm
-point =
-    { x = 0
-    , y = 0
-    }
-```
+The main benefit of this is that your app becomes more maintainable. There is only ever one single source of truth.
 
 ## How to Get Started with Elm?
 Play with Elm without installation, using the Elm playground [Ellie](https://ellie-app.com/).
