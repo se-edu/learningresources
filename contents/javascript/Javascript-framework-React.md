@@ -59,28 +59,22 @@ For example, the application above is divided into two components:
     The `App` component (defined in `index.js`) contains the main view of the application. It stores the application data (i.e. `name`) in an object called *`state`* and has a method to update the it every time the value in the textbox changes. It passes the application data and the method to the `PersonComponent`.
     
     ```jsx
-    class App extends Component {
-      state = {
-        name: "John Doe"
+    function App() {
+      const [name, setName] = useState("John Doe");
+
+      const handleChange = event => {
+        setName(event.target.value);
       };
-    
-      handleChange = event => {
-        this.setState({
-          name: event.target.value
-        });
-      };
-    
-      render() {
-        return (
-          <div className="App">
-            <h1>Person Data</h1>
-            <PersonComponent
-              name={this.state.name}
-              changeHandler={this.handleChange}
-            />
-          </div>
-        );
-      }
+
+      return (
+        <div className="App">
+          <h1>Person Data</h1>
+          <PersonComponent
+            name={name}
+            changeHandler={handleChange}
+          />
+        </div>
+      );
     }
     ```
 
