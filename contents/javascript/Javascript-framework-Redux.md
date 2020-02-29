@@ -16,14 +16,40 @@
 **Author: [Labayna Neil Brian Narido](https://github.com/nbriannl)** <br>
 Reviewers: 
 
-<!-- put table of contents here -->
+<!-- update table of contents here -->
+<box id="article-toc">
+
+* [Introduction to Go‎](#introduction-to-go)
+    * [What Is Go?‎](#what-is-go)
+    * [Why Learn Go?](#why-learn-go)
+        * [Benefit: Better Variable Declarations](#benefit-better-variable-declarations)
+        * [Benefit: Better Support for Concurrency‎](#benefit-better-support-for-concurrency)
+        * [Benefit: Better Error Handling](#benefit-better-error-handling)‎
+        * [Benefit: `defer` Execution‎](#benefit-defer-execution)
+        * [Benefit: Good Support for Interfaces](#benefit-good-support-for-interfaces)
+        * [Benefit: Canonical Coding Style‎](#benefit-canonical-coding-style)
+    * [How to Get Started with Go?‎](#how-to-get-started-with-go)
+        * [Where to Go from Here?‎](#where-to-go-from-here)
+</box>
 
 ## What is Redux?
 
 <!-- understand what problem it solves -->
 <!-- anedoctal example of a complex sitation that would then require react -->
+To understand what Redux is, we have to understand what applications state is.
 
-Simply put, Redux is a library that manages application state for Javascript applications. You can use it together with view libraries such as React and Vue.
+You can think of application state like a global object holding information that you will use for various purposes in your application. 
+
+For example:
+- For a general application you would need to keep store of whether a user is logged in and his/her user information
+- For a to-do list you would need to know what items are currently in the list
+- For a social media application you'd need to store serveral objects and arrays representing the stories to render in the News Feed
+
+All of the above can be considered as application state.
+
+However, modern web applications have large amount of state. And for complex apps, state is likely to be shared between components and updated from various parts of the code, making state less predictable. We need a solution to manage a state that has become larger, and less predictable. Which is where Redux comes into the picture. 
+
+**Redux** is a library that manages application state for Javascript applications. You can use it together with view libraries such as React and Vue.
 
 More formally, the [official website](https://redux.js.org/introduction/getting-started) describes Redux as follows:
 
@@ -33,32 +59,27 @@ More formally, the [official website](https://redux.js.org/introduction/getting-
 >
 > You can use Redux together with React, or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.
 
-### What is application state? 
-
 <!-- No need for this heading here, the explanation flows better. -->
 <!-- or just footnotes -->
 
-([Adapted from this Medium article](https://medium.com/javascript-in-plain-english/the-only-introduction-to-redux-and-react-redux-youll-ever-need-8ce5da9e53c6))
-
-Think of it like a global object holding information that you will use for various purposes in your application. 
-
-For example:
-- For a general application you would need to keep store of whether a user is logged in and his/her user information
-- For a to-do list you would need to know what items are currently in the list
-- For a social media application you'd need to store serveral objects and arrays representing the stories to render in the News Feed
-
-All of the above can be considered as state.
-
-Modern web applications have large amount of state. And for complex apps, state is likely to be shared between components and updated from various parts of the code, making state less predictable. Which is why we need libraries like Redux to manage state. 
+<!-- ([Adapted from this Medium article](https://medium.com/javascript-in-plain-english/the-only-introduction-to-redux-and-react-redux-youll-ever-need-8ce5da9e53c6)) -->
 
 ## How does Redux work?
+
+Now then, what is it about Redux that solves this?
 
 <!-- shorten a simplify section as much as possible. no sub-headings. no code as much as possible -->
 <!-- use diagram -->
 
-### Store
+The structure of Redux is relatively simple.
 
-The whole application state is stored in a **single** store, a plain object. For example, the state of a todo app might look like this:
+<box type='info'>
+  Put diagram here
+</box>
+
+For this section, let's think of a simple to-do list application.
+
+The whole application state is stored in a **single** store, a plain object.
 
 ```js
 {
@@ -73,19 +94,15 @@ The whole application state is stored in a **single** store, a plain object. For
 }
 ```
 
-There are no direct setters to the store. The store is read-only; the only way to change the store is by emitting an action, which we will learn about next. 
+There are no direct setters to the store. The store is read-only.
 
-### Action
-
-Something in the state can be changed by dispatching an **action**, a plain object.
+The only way to change something in the state is by dispatching an **action**, a plain object.
 
 ```js
 { type: 'ADD_TODO', text: 'Go to swimming pool' }
 { type: 'TOGGLE_TODO', index: 1 }
 { type: 'SET_VISIBILITY_FILTER', filter: 'SHOW_ALL' }
 ```
-
-### Reducer
 
 The current state, and an action is passed into a **reducer**, a pure function which returns the next state of the application
 
@@ -135,67 +152,29 @@ function todoApp(state = {}, action) {
 }
 ```
 
+<!-- put a tooltip on pure -->
 The reducers are **pure** functions. They take the previous state and an action, and return the next state, as new state objects, instead of mutating the previous state.
 
-A careful eye would notice that the above code block examples on reducers are not pure functions. In fact, with some Redux API, a more proper example would then be the code block below. Don't worry if you don't fully understand the specific Javascript syntax and methods used (such as `.map` and the spread operator), but just understand that new state objects are returned when state is updated.
-
-```js
-function visibilityFilter(state = 'SHOW_ALL', action) {
-  switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
-      return action.filter
-    default:
-      return state
-  }
-}
-function todos(state = [], action) {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
-      ]
-    case 'COMPLETE_TODO':
-      return state.map((todo, index) => {
-        if (index === action.index) {
-          return Object.assign({}, todo, {
-            completed: true
-          })
-        }
-        return todo
-      })
-    default:
-      return state
-  }
-}
-import { combineReducers, createStore } from 'redux'
-const reducer = combineReducers({ visibilityFilter, todos })
-const store = createStore(reducer)
-```
-
-# Redux Middlewares
-
-# Redux Devtools
+A careful eye would notice that the above code block examples on reducers are not pure functions. If you're interested, you may see what the reducer should actually be written. It includes some Redux API, and Javascript methods such as `.map` and the spread operator to make the functions pure.
 
 ## Why use Redux?
 
 <!-- Some points from this section were adapted from these article  box-->
 
-([Adapted from this artcle](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/))
-([And this article](https://www.smashingmagazine.com/2016/06/an-introduction-to-redux/))
+<box type='definition' header="Some points given in this section were adapted from these articles">
 
-Now that we know what Redux is, let us take a look at some of the benefits that were made possible with these concepts.
+* [Why use Redux? Reasons with clear examples by Neo Ighodaro](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
+* [Redux · An Introduction by Alex Bachuk](https://www.smashingmagazine.com/2016/06/an-introduction-to-redux/)
+</box>
 
+Now that we know what Redux is, let us take a look at how the structure of Redux and its concepts make possible some benefits.
 
 <!-- confusing point, make simpler and tie to my article -->
 1. **State is made predictable**<br/>
-The features of Redux make state predictable: There is always one source of truth in the store. This store is immutable. Reducers are pure functions, always producing the same result for the same state and action. And with these features, it is possible to implement functionality that is otherwise difficult, such as Undo and Redo. <br/><br/> Because neither the view, nor the network callbacks directly write to state. And changes to state via actions are centralized and happen in strict order, there is no need to worry for race conditions in our applications
+In Redux, the single immutable store is the one source of truth for application state. Neither the view of the application, nor network callbacks directly write to it. Changes to the state are via actions, which Redux centralizes and keep in strict order. Also, reducers are pure functions, always producing the same result for the same state and action. Because of all of this, there is a structured and predictable cycle of which applicable state is updated. State is made predictable. Having such a a predictable state, makes it possible to implement functionality that is otherwise difficult, such as Undo and Redo.
 
 2. **Easier to debug and inspect**<br/>
-Since actions and state are plain objects, it is possible to serialize them and log them. By logging them, it's easy to understand errors in code. You can also print the store within the code itself (for example using `console.log(store.getState())`{.js}). <br/><br/> The Redux DevTools is an amazing tool as well. Used in the browser, it provides features such as a tree visualization of the application state, as well a time travel ability to replay state changes. 
+Since actions and state are plain objects, it is possible to serialize them and log them. In Redux, especially with the Redux DevTools, you can view a log of actions that took place, making it easy to understand errors in code. You can also print the store within the code itself (for example using `console.log(store.getState())`{.js}). The Redux DevTools, used in the browser, also provides features such as a tree visualization of the application state, as well a time travel ability to replay state changes.
 
 ![Redux Devtool](https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png)
 
@@ -206,10 +185,10 @@ _Redux DevTools_ <sup>[image source](https://user-images.githubusercontent.com/7
 </center>
 
 3. **Easier testing**<br/>
-It is easy make tests since the reducers used to change the state are pure functions. When writing code with Redux means writing small, pure and isolated reducer functions, we simply write small and isolated tests. Using Redux makes for testable code.
+Using Redux makes for testable code. Since the reducers used to change the state are pure functions, it is easy make tests. Writing small, pure and isolated reducer functions in Redux, means we write small and isolated tests. 
 
 4. **Allows for server-side rendering**<br/>
-Redux can be used for server-side rendering, by sending the store created on the server side in response to the client's server request. Information from the store then can be used for the initial render of the application. 
+Redux is one way to fulfill server-side rendering. This can be acheived by sending the store created on the server side in response to the client's server request. Information from the store then can be used for the initial render of the application.
 
 ## Why not to use Redux?
 
