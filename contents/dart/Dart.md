@@ -32,8 +32,7 @@ Flutter is open-source, fast-growing and easy-to-learn.
 </ul>
 </modal>
 
-
-### Tooling support
+### Strong tooling support
 Dart has out-of-the-box dependency management ([pub.dev](https://pub.dev/)), linting solution ([dartfmt](https://dart.dev/tools/dartfmt)), documentation generator ([dartdoc](https://dart.dev/tools/dartdoc)) and [official testing framework](https://pub.dev/packages/test). After installing Dart SDK, you're ready to go 99% of the time.
 
 ### Easy to learn
@@ -41,7 +40,7 @@ Like many devs who tried Dart says, you might already know Dart. If you already 
 * Dart is using a C-style syntax: it won't be a surprise if a function written in Java can be compiled and run in Dart with minor (or no) changes.
 * Dart is a **strongly-typed** language with type-inference support: static typing makes IDE much more helpful and if your program compiles, it most likely works just fine.
 * You may find your favorite syntax (sugar) in Dart, for example
-  * Similar to JavaScript: arrow functions, named parameters (more on that later)
+  * Similar to JavaScript: arrow functions
   * Similar to Kotlin: `get` and `set` keywords for OOP, null safety syntax
 
 ### Limitations
