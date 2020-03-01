@@ -52,7 +52,7 @@ Of course, like any other language, Dart is [not perfect](https://news.ycombinat
 
 ## What makes Dart appealing?
 
-### Benifit: Versatility
+### Benifit: Cross-platform support and multiple execution modes
 Dart is versatile w.r.t. its running platforms and execution modes:
 Dart can run on all major desktop and mobile platforms and can be transpiled to JavaScript for browser execution. It even has three execution modes (again, supporting all major platforms) for the best of all words:
 * for fast development, <tooltip content="Just-in-time">JIT</tooltip> + Dart VM; 
