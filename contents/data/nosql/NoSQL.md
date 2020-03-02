@@ -32,8 +32,8 @@ Basic knowledge of SQL databases is assumed. If not, give the <a href="../sql/SQ
   * [Schema-less data](#2-schema-less-data)
   * [Straightforward expression of relations in data](#3-straightforward-expression-of-relations-in-data)
 * [Why NoSQL](#why-nosql)
-  * [1. Highly suited for agile development](#1-highly-suited-for-agile-development)
-  * [2. Horizontal scalability](#2-horizontal-scaling)
+  * [1. Highly suited for iterated development](#1-highly-suited-for-iterated-development)
+  * [2. Easy horizontal scaling](#2-easy-horizontal-scaling)
   * [3. Widespread adoption](#3-widespread-adoption)
 * [Caveats of NoSQL‎](#caveats-of-nosql)
   * [Lack of standardisation](#1-lack-of-standardisation)
@@ -64,25 +64,30 @@ format.
 
 To start, let's jump into the most common implementation of such databases, _document databases_.
 
----
-
-## How does NoSQL work - basic structure of document based databases
+<box type="info" light>
+<li>Other types of NoSQL databases, such as <trigger for="key-value-db">key-value databases</trigger>,
+<trigger for="graph-db">graph databases</trigger>, can be viewed as extensions or reductions of document based databases.
+</li>
+<li>Some of these types can even be used together!</li>
+</box>
 
 One such commonly used database is MongoDB, which is a document based database.
 
 
 ![](documentDatabaseStructure.png)
 
-In contrast to tables and table entries in SQL databases, we typically have collections and documents.
+In contrast to tables and table entries in SQL databases, document dtabases comprise of collections and documents.
 A database comprises of multiple collections, which in turn consists of multiple documents.
 
 In a simplified e-commerce website for example, you may have the following collections: { id="main-example" }
 - _customers_ - storing the account details of customers, their purchase histories, etc.
-- _items_ - a collection of all items available for purchase ( which are documents ) 
+- _items_ - a collection of all items available for purchase (which are documents)
 - _admin_ - a collection storing admin account details
 - **...**
 
 In this case, the _items_ collection which contains the catalogue of purchase items may be structured like so:
+
+<div id="schemaless-example">
 
 ```js
 [
@@ -103,11 +108,13 @@ In this case, the _items_ collection which contains the catalogue of purchase it
 ]
 ```
 
+</div>
+
 <br>
 <box type="info" light>
 Note that while many NoSQL databases provide a JSON interface to interact with the data,
 the underlying storage implementation may be different for performance reasons.<br>
-For example, MongoDB stores documents in BSON ( json encoded in binary ). 
+For example, MongoDB stores documents in BSON (json encoded in binary). 
 </box>
 
 <br>
@@ -159,21 +166,21 @@ In document databases for example, this means that each individual document has 
 the number of keys, the type of values and so on.
 
 <box type="info" light>
+Note the missing fields for the second item in the <em>items</em> collection
+<popover header="Example items collection of an e-commerce website">earlier,<template slot="content"><include src="NoSQL.md#schemaless-example" /></template></popover>
+which are intentionally omitted.
 
-Note the missing fields for the second item in the <em>items</em> collection <a href="#main-example">earlier</a>, which are intentionally omitted.
-
-<div>
+<div class="mt-2">
 All purchase items, regardless of their types and their fields, can still be contained in a <em>singular</em> collection.
 This is an example of how a schema-less architecture can greatly simplify the organisation of data.</div>
 </box>
 
 Documents can even contain other documents, arrays, and depending on the implementation, likely anything the database can serialize and deserialize.
 
-#### Validation
 
 At the same time, NoSQL databases usually also provide some form of optional
 <popover header="Schema Validation" content="A way to enforce some structure on data, and the corresponding operations on that data.">
-schema validation.
+<strong>schema validation</strong>.
 </popover>
 
 For example, in the _customers_ collection, where the fields of a customer are unlikely to
@@ -196,7 +203,7 @@ $jsonSchema: {
 
 ### 3. Straightforward expression of relations in data
 
-The world is full of relations. For example, a patient _is related to_ his / her disease record,
+The world is full of relations. For example, a patient _is related to_ her disease record,
 just as a customer _is related to_ their shopping cart.
 
 Sometimes, the objects on both sides of the relation can contain substantial amounts of
@@ -260,7 +267,7 @@ cart: {
 
 
 
-<box type="info">
+<box type="info" light>
 For this reason, many NoSQL database solutions (e.g. MongoDB) implement a unique <code>id</code> field
 for each document by default.
 </box>
@@ -271,18 +278,18 @@ for each document by default.
 
 <br>
 
-### 1. Highly suited for agile development :dash:
+### 1. Highly suited for iterated development
 Although less mature than SQL databases, NoSQL databases were designed to solve many of the emerging challenges in databases today.
 
-One of the most consequential impacts NoSQL has had was enabling faster agile development.
+One of the most consequential impacts NoSQL has had was enabling faster iterated development.
 Given the highly flexible relational structure of NoSQL databases, and the schemaless format of documents 
 in NoSQL, this means that developers can adapt the database quicker to changing customer and business requirements.
 
 
-### 2. Horizontal scaling :fas-server:
+### 2. Easy horizontal scaling
 
-Another key benefit of NoSQL databases is the ability to scale horizontally ( distributing workload across
-multiple servers ), without discarding much of its key features.
+Another key benefit of NoSQL databases is the ability to scale horizontally (distributing workload across
+multiple servers), without discarding much of its key features.
 
 This is largely due to the schema-less architecture of such databases, allowing data to split across
 multiple servers easily and efficiently.
@@ -312,13 +319,13 @@ we can split the collection like so:
 As a result, the database access workload can be distributed evenly and efficiently across
 multiple servers easily.
 
-<box type="success" light icon-size="2x">
+<box type="success" light>
 
 As businesses grow and see increasing amounts of web traffic, it is <em>crucial</em> that its databases can scale to meet
 consumer and business demands.
 
 <div>
-Vertical scaling ( increasing the processing power of the machine ) can only go so far until the single machine hits its limit.</div>
+Vertical scaling (increasing the processing power of the machine) can only go so far until the single machine hits its limit.</div>
 </box>
 
 ### 3. Widespread adoption
@@ -333,7 +340,7 @@ Vertical scaling ( increasing the processing power of the machine ) can only go 
 <br>
 
 While certainly trending behind SQL databases, NoSQL databases have been booming over the past couple of years,
-due to the increasing applicability of its benefits to requirements today. ( Amazon uses a proprietary NoSQL database! )
+due to the increasing applicability of its benefits to requirements today. (Amazon uses a proprietary NoSQL database!)
 
 This bodes well for the maturity and development of this evolving technology, and your potential use cases for it.
 
@@ -351,7 +358,7 @@ to the project.
 This is in stark contrast to SQL, which's syntax is mostly standardised across its different flavours.
 
 #### 2. Not suited for complex relational queries
-While NoSQL databases certainly allow for more flexibility in structuring out relations, most complex queries ( eg. joins for many-many relations ) _usually_ involve structured data that can be easily represented in tabular formats. 
+While NoSQL databases certainly allow for more flexibility in structuring out relations, most complex queries (eg. joins for many-many relations) _usually_ involve structured data that can be easily represented in tabular formats. 
 
 In such instances, queries are often more performant in SQL equivalents.
 
@@ -360,71 +367,72 @@ In such instances, queries are often more performant in SQL equivalents.
 
 ## How to get started with NoSQL?
 
-There are many NoSQL variants out there as mentioned earlier.<br>
+There are many NoSQL variants out there as mentioned earlier.
 For starters, it may be wise to go with the most common solution, _mongoDB_.
 
-You should first follow [the mongoDB documentation](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials)
-and learn to set up a local instance of mongoDB, which will be necessary for interacting with mongoDB through any application drivers.
+**Setup**
 
-Thereafter, you should use a **local** _mongo shell_ to get familiar with mongoDB syntax.
-To do so, you can follow the instructions [here](https://docs.mongodb.com/manual/mongo/) to connect to your 
-mongoDB instance from the shell as you had configured.
+You could follow the mongoDB documentation [here](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials)
+and learn to set up a local instance of mongoDB.
 
-<box type="info" icon-size="2x">
+Thereafter, you should use a <trigger for="local-shell-advise">**local** _mongo shell_</trigger> to get familiar with mongoDB syntax.<br>
+You can follow the instructions [here](https://docs.mongodb.com/manual/mongo/) to connect to your 
+mongoDB instance from the shell as you had configured earlier.
+
+<popover header="Online playgrounds" id="local-shell-advise">
+<template slot="content">
 
 There are also many online playgrounds that allow you to experiment with mongoDB queries without setting up a
 local database instance and shell, such as [this](https://mongoplayground.net/).
 
 <div>
-However, to put what you've learnt into practice ( bulding an application ) later, I highly recommend getting your feet wet with the shell and local mongoDB instance first, since it will be necessary to set up your application drivers later on!
+However, to put what you've learnt into practice (bulding an application) later, I highly recommend getting your feet wet with the shell and local mongoDB instance first, since it will be necessary to set up your application drivers later on!
 </div>
-</box>
+</template>
+</popover>
 
+**Basics**
 
-Since you can now interact with your local mongoDB instance through the shell, you could learn some of the
-basic syntax and how to administrate your local mongoDB instance.
-
-Before you start, though, it may be a good idea to reinforce some of the key terminology in mongoDB.<br>
-Look under the ["Key Components of MongoDB Architecture"](https://www.guru99.com/what-is-mongodb.html) heading here if you need a refresher.
-
-Firstly, here are some great resources on mongoDB:
-- [Data-flair](https://data-flair.training/blogs/mongodb-create-database/) is a great starting point on administration of
-your local mongoDB instance ( creating databases, collections, etc. ). Thereafter, it also goes briefly into
-each topic of mongoDB.
+Here are some great resources on mongoDB:
+- [Key Components of MongoDB Architecture](https://www.guru99.com/what-is-mongodb.html) heading here for a quick refresher of key terminology in mongoDB.
+- [Data-flair](https://data-flair.training/blogs/mongodb-create-database/) is a great starting point on <tooltip content="creating databases, collections, etc.">administration</tooltip> of
+your local mongoDB instance. It also provides a higher level overview of each topic than the MongoDB documentation.
 - [MongoDB documentation](https://docs.mongodb.com/manual/crud/) can be overwhelming, but it is also
 a great starting point to learn and test features of mongoDB, and is the defacto reference for it.
 
-To guide you through your journey, here are the topics that you should peruse on the above sites _in order_.
-You should first use the data-flair site to get a good hang of the topic, thereafter, going into the mongoDB documentation to further test and explore different options / queries.
+To guide you through your journey, here are the essentials that you should go through on the above sites _in order_.
 
-1. Basic database administration ( I recommend the topics on the data-flair site for this, as the mongoDB documentation can be overwhelming here )
+1. Basic database administration
 2. CRUD operations
 3. Data aggregation
+
+**Practice**
 
 After learning these core features and getting familiar with the syntax, you could try your hands at building
 a simple project to get a good feel for NoSQL in an actual backend.
 
-Depending on the backend language you are using, you should browse through the documentation [here](https://docs.mongodb.com/ecosystem/drivers/) for the appropriate language and learn how to connect to your
+Depending on the backend language you are using, you should browse through the documentation [here](https://docs.mongodb.com/ecosystem/drivers/) for the <trigger for="which-driver">appropriate language</trigger> and learn how to connect to your
 mongoDB instance from your application and utilize the features you learnt above.
 
-<box type="success" light add-class="pb-0" icon-size="2x">
+<popover header="Which driver should I try first?" id="which-driver">
+<template slot="content">
 
 - Syntax for the different drivers will inevitably vary slightly from language to language. However, the core concepts stay the same.
 - If you want something familiar, and you have knowledge of nodeJS, I highly recommend getting started with the
 nodeJS driver which is very close to the shell syntax.
-</box>
+</template>
+</popover>
+
+**Advanced**
 
 Congratulations! You should have a good handle on mongoDB by now, and learnt how you would generally interact with NoSQL databases.
 
-If you're interested in learning more about mongoDB, I recommend going through the following topics in order:
-1. Indexes 
-2. Schema validation
-3. Sharding (horizontal scaling)
-4. Replica sets (redundancy)
+If you're interested in learning more about mongoDB, I recommend going through some of the following topics in order -
+_Indexes, Schema validation, Sharding (horizontal scaling), Replica sets (redundancy)._
 
 Otherwise, you could check out some other popular NoSQL databases, which can even be complementary to mongoDB.
-- [Redis](https://redis.io/) - An in-memory NoSQL <popover header="Key-Value databases" content="A simpler variant of NoSQL databases where data is accessed through _keys_ and stored in corresponding _values_, which can be of many formats.">key-value</popover> database used for caching purposes.
-- [Neo4j](https://neo4j.com/) - A NoSQL <popover placement="top" header="Graph databases" content="Data is represented by a graph in such databases. Values are stored in the graph's nodes, while relations between these nodes are represented by the edges of the graph.">graph database</popover>.
+- [Redis](https://redis.io/) - An in-memory NoSQL <popover id="key-value-db" header="Key-Value databases" content="A simpler variant of NoSQL databases where data is accessed through _keys_ and stored in corresponding _values_, which can be of many formats.">key-value</popover> database used for caching purposes.
+- [Neo4j](https://neo4j.com/) - A NoSQL <popover id="graph-db" placement="top" header="Graph databases" content="Data is represented by a graph in such databases. Values are stored in the graph's nodes, while relations between these nodes are represented by the edges of the graph.">graph database</popover>.
 
 ---
 
