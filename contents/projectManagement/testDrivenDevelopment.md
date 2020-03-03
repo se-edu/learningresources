@@ -80,9 +80,7 @@ Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the ge
 
     As and when you write more production code and test to make sure it meets all your business, product, and/or feature requirements, it's important that the code itself meets a certain standard. Improving code style and readability, employing design patterns, and reducing duplication of code are some of the [many things](https://refactoring.com/catalog/) you can work on.
 
-
 Steps 1-5 outline one **iteration** of the TDD cycle. In practice, several such iterations are required - sometimes even to get the same test or portion of the test to pass.
-
 
 ## Benefits of Test-Driven Development
 
@@ -116,7 +114,6 @@ Hakan Erdogmus, Professor of Software Engineering at Carnegie Mellon University,
 Employing TDD also lays out the design of a program. It forces programmers to think about coming up with failing tests and working their way up to writing code that passes the test.
 
 Furthermore, since tests are written first, there is close to 100% coverage. This ensures that production code is covered by at least one test. This can boost individual and team morale, confidence in the code, and productivity as a consequence.
-
 
 ## Caveats and Limitations
 
