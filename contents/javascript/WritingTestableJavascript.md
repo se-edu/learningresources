@@ -15,6 +15,21 @@
 
 Authors: Li Kai
 
+<box id="article-toc">
+
+* [Writing testable JavaScript‎](#writing-testable-javascript-2)
+    * [Avoid coupling with selectors‎](#avoid-coupling-with-selectors)
+    * [Split business logic and presentation code‎](#split-business-logic-and-presentation-code)
+    * [Avoid big anonymous functions‎](#avoid-big-anonymous-functions)
+    * [Purity is worth pursuing‎](#purity-is-worth-pursuing)
+* [Writing reusable javascript‎](#writing-reusable-javascript)
+    * [Optional parameters‎](#optional-parameters)
+    * [Understand method chaining‎](#understand-method-chaining)
+    * [Addendum‎](#addendum)
+* [Resources‎](#resources)
+* [References‎](#references)
+</box>
+
 JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing.
 
 That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.

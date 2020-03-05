@@ -15,18 +15,19 @@
 
 Author: [Shradheya Thakre](https://github.com/tshradheya)
 
-**Chapter contents**
+<box id="article-toc">
 
-* [Overview](#overview)
-* [Why Kotlin?](#why-kotlin)
-    * [Concise](#concise)
-    * [Safe](#safe)
-    * [Interoperable](#interoperable)
-    * [Tool Friendly](#tool-friendly)
-* [Kotlin for Android Apps](#kotlin-for-android-apps)
-    * [Advantages of Shifting to Kotlin](#advantages-of-shifting-to-kotlin)
-    * [Drawbacks of Shifting to Kotlin](#drawbacks-of-shifting-to-kotlin)
-* [Resources to learn Kotlin](#resources-to-learn-kotlin)
+* [Overview‎](#overview)
+* [Why Kotlin?‎](#why-kotlin)
+    * [Concise‎](#concise)
+    * [Safe‎](#safe)
+    * [Interoperable‎](#interoperable)
+    * [Tool Friendly‎](#tool-friendly)
+* [Kotlin for Android Apps‎](#kotlin-for-android-apps)
+    * [Advantages of Shifting to Kotlin‎](#advantages-of-shifting-to-kotlin)
+    * [Drawbacks of Shifting to Kotlin‎](#drawbacks-of-shifting-to-kotlin)
+* [Resources to learn Kotlin‎](#resources-to-learn-kotlin)
+</box>
 
 # Overview
 
