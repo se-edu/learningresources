@@ -16,7 +16,7 @@
     * [Java Reflection]({{baseUrl}}/contents/java/JavaReflections.html)
     * [JUnit]({{baseUrl}}/contents/java/JUnit.html)
   * JavaScript
-    * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/javascript.html)
+    * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/WritingTestableJavascript.html)
     * [Javascript Promises]({{baseUrl}}/contents/javascript/Javascript-promises.html)
     * [Javascript Modules]({{baseUrl}}/contents/javascript/Javascript-modules.html)
     * [Static Typing in JavaScript]({{baseUrl}}/contents/javascript/staticTypingInJavascript.html)

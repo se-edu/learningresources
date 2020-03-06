@@ -15,6 +15,20 @@
 
 Author: [Pan Haozhe](https://github.com/Haozhe321)
 
+<box id="article-toc">
+
+* [What is Null Safety?‎](#what-is-null-safety)
+    * [NullPointerException‎](#nullpointerexception)
+* [How does Kotlin handle Null Safety?‎](#how-does-kotlin-handle-null-safety)
+    * [Nullable and Non-nullable type‎](#nullable-and-non-nullable-type)
+    * [Safety Operators in Kotlin‎](#safety-operators-in-kotlin)
+        * [Safe call operator‎](#safe-call-operator)
+        * [Elvis Operators‎](#elvis-operators)
+        * [Not-null assertion operator‎](#not-null-assertion-operator)
+* [Summary‎](#summary)
+* [Learning resources‎](#learning-resources)
+</box>
+
 >“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with **checking performed automatically by the compiler**. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”  
 -Tony Hoare
 
