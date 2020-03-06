@@ -15,6 +15,17 @@
 
 Author(s): [Tan Li Hao](https://github.com/LiHaoTan)
 
+<box id="article-toc">
+
+* [Why Rust‎](#why-rust)
+    * [Safety‎](#safety)
+    * [Better support for concurrency‎](#better-support-for-concurrency)
+    * [Practicality‎](#practicality)
+* [How to learn Rust‎](#how-to-learn-rust)
+    * [Resources to learn Rust‎](#resources-to-learn-rust)
+* [Why not Rust‎](#why-not-rust)
+</box>
+
 ## Why Rust
 Rust is a multi-paradigm (e.g. functional and imperative) systems language, but as it is relatively new the benefits of learning or using the language is not very clear. In any case, it is important to know the merits of a language so we know when to use them.
 
