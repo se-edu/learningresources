@@ -34,14 +34,14 @@ Authors: [Alex Fong](https://github.com/alexfjw)
 - [Supplementary Resources](#supplementary-resources)
 - [Footnotes](#footnotes)
 
-## What is ML
+## What is Machine Learning
 Machine learning is a subfield in artificial intelligence whereby computers learn from data to perform a task. Machine learning is powerful because it can discern complex patterns within data, and utilize them to produce desired outputs. 
 
 An example of a task is machine translation, where text is converted from one language to another by a computer. It is difficult to perform machine translation with regular programming, where we have to write clear instructions for the computer. ML alogirthms can be used instead to approximate the ideal instructions with data. In fact, ML algorithms have achieved state of the art performance for machine translation, as seen from the following blogpost on [Google's machine translation algorithm](https://blog.statsbot.co/machine-learning-translation-96f0ed8f19e4). 
 
 The ML algorithms are fed with data to approximate the ideal instructions for performing tasks. These approximations are never 100% correct and there are various parameters to tweak for maximizing performance. Statistical analysis is used to evaluate the performance of different ML algorithm configurations. 
 
-### Types of ML tasks
+### Types of Machine Learning Tasks
 Machine learning algorithms perform well for a large variety of tasks, from computer vision to natural language processing. Here is a non-exhaustive list:
 
 - Sentiment analysis ([NLTK example on Kaggle](https://www.kaggle.com/ngyptr/python-nltk-sentiment-analysis?scriptVersionId=904608))
@@ -57,7 +57,7 @@ Machine learning algorithms perform well for a large variety of tasks, from comp
 
 Different algorithms and ML pipelines exist for performing the above tasks.
 
-### Types of ML Algorithms
+### Types of Machine Learning Algorithms
 There are two broad categories of ML algorithms, *supervised learning* and *unsupervised learning*. 
 
 #### Supervised Learning
@@ -103,7 +103,7 @@ Data is broadly split into 2 categories, *structured* and *unstructured*.
 
 The distinction between the types of data is important as ML algorithms are not always compatible with both data types. For example, [Decision trees](https://en.wikipedia.org/wiki/Decision_tree) cannot be used for unstructured data. Data must be modified to a structured form for use with decision tree related algorithms.
 
-## How ML is Applied
+## How Machine Learning is Applied
 Bringing a machine learning algorithm to production requires a workflow which differs greatly from that of software engineering. This is due to a focus on prototyping.  
 
 Prototyping is required as ML algorithms vary in efficacy when used in different domains, each domain containing data of a different nature.
@@ -142,7 +142,7 @@ The FastAI ML MOOC<sup>[1](#fast-ai-ml)</sup> is a great source of information o
 <img src="https://dziganto.github.io/assets/images/train-validate-test.png?raw=true" width="300"/><br/>
 <sub>(Data partitioning visualization by [David Zigano](https://dziganto.github.io/cross-validation/data%20science/machine%20learning/model%20tuning/python/Model-Tuning-with-Validation-and-Cross-Validation/))
 
-#### Test Set
+#### Test set
 ML algorithms are never 100% accurate. Testing ML algorithms on real world data is essential for estimating their efficacy. 
 
 Furthermore, ML models run the risk of overfitting the data they were trained on.  Overfitting is a modelling error which occurs when models learn patterns unique to a subset of data. 
@@ -153,7 +153,7 @@ A test set solves the overfitting problem. A test set which resembles real world
 
 Different schemes for partitioning must be used for data with different characteristics. More information on splitting test and validation sets (discussed next) can be found in [this article (from FastAI)](http://www.fast.ai/2017/11/13/validation-sets/).
 
-#### Validation Set
+#### Validation set
 A validation set is created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting a model's parameters. Adjusting model parameters and verifying performance is conducted on the validation set to prevent overfitting the test set.
 
 Guidelines on picking a size for the validation set can be found in Lesson 7 of FastAI's ML MOOC<sup>[1](#fast-ai-ml)</sup>. 

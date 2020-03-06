@@ -26,7 +26,7 @@ Rather, RDBMSs %%like MySQL, Oracle, SQL Server and PostgreSQL%% come with an _i
 
 ---
 
-### How does SQL work?
+### How Does SQL Work?
 
 SQL uses **queries** to retrieve data. Here is an example of how an SQL query is used.
 
@@ -115,7 +115,7 @@ _Figure 3. Logging in to the MySQL RDBMS and viewing tables from the command lin
 
 ---
 
-## Why learn SQL?
+## Why Learn SQL?
 
 The main reason why you should learn SQL is because of its widespread adoption. As SQL is not limited to any particular operating system or programming language, RDBMSs (which use SQL)  are **widely used** by a lot of software applications %%(web, mobile etc.)%%. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.
 
@@ -129,7 +129,7 @@ These factors can make SQL confusing and frustrating to use when switching acros
 
 ---
 
-## How to get started with SQL?
+## How to get Started With SQL?
 
 As you saw in the example in the earlier section, SQL is really not that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.
 

@@ -36,9 +36,9 @@ That is why there is a need to follow a standard way of writing JavaScript - it 
 
 Good JavaScript code should be testable and reusable.
 
-## Writing testable JavaScript
+## Writing Testable JavaScript
 
-### Avoid coupling with selectors
+### Avoid Coupling With Selectors
 When writing front end code we would encounter code that manipulates the document object model (DOM). Let's look at one such example.
 
 ```js
@@ -59,7 +59,7 @@ function populateStatusMessage(selector, message, status) {
 }
 ```
 
-### Split business logic and presentation code
+### Split Business Logic and Presentation Code
 When we have to write code that generates markup, it requires business logic. However, mixing the two up is not a good idea. Let's look at the following example:
 
 ```js
@@ -104,7 +104,7 @@ $.ajax({
 
 Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.
 
-### Avoid big anonymous functions
+### Avoid big Anonymous Functions
 
 Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off in a `document.ready()` or `$.ajax()`.
 
@@ -142,7 +142,7 @@ var myApp = (function() {
 
 As demonstrated above, only `myApp` is declared in the global scope, and we can access its methods through the object notation, e.g. `myApp.next()`. This is also especially useful to declare private variables that be used among functions. `id` is not accessible outside of scope in this example.
 
-### Purity is worth pursuing
+### Purity is Worth Pursuing
 
 There are tonnes of literature about functional programming. I will heavily recommend reading the [Mostly adequate guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide). It explains functional concepts extremely well.
 
@@ -181,9 +181,9 @@ getTodo(counter, todos);
 
 Now, not only that the person who writes the unit test can write in fewer lines of code, you can also use the function for some other state other than the global values.
 
-## Writing reusable javascript
+## Writing Reusable Javascript
 
-### Optional parameters
+### Optional Parameters
 
 When writing certain functions, there would be certain situations where we want to have optional parameters. The easiest way would be to put optional parameters at the end of the parameter calls, like such:
 
@@ -223,7 +223,7 @@ By using an object, the user would just need to fill in what parameter they want
 createPopUp('Warning', 'This will delete everything!', dangerStatus, { bodyColor: 'red' });
 ```
 
-### Understand method chaining
+### Understand Method Chaining
 
 Method chaining is syntax such as `array.concat([1, 2]).push(1).filter(isEven)`. It is also sometimes referred to as the fluent interface. (see: [Method Chaining in JavaScript]())
 

@@ -840,7 +840,7 @@ We can now try out the `isAscending` function:
     isAscending [] -- True
 ```
 
-### Instantiating Typeclasses with Parameterized Type Constructors
+### Instantiating Typeclasses With Parameterized Type Constructors
 
 Up to this point, we have been instantiating typeclasses with concrete types,
 such as `TrafficSignal` and `Tree t`. It is also possible to instantiate
