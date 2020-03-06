@@ -120,9 +120,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-<<<<<<< HEAD
-3. **Passing Data From Outer to Inner Components**<br>
-=======
+
 3. **Conditionals and Loops**<br>
     `v-if` allows you to conditionally insert/remove elements based on the truthfulness of the binding value.
     
@@ -139,7 +137,6 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 <br>
 
 4. **Passing Data From Outer to Inner Components**<br>
->>>>>>> 9d417ba30c58bd2e89a4eb8402d1622b855eebab
     When you have components that are nested within each other, data is passed from the outer component to the inner component via `props`, where `props` are just custom data shared between the components.
 
     This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
@@ -174,11 +171,8 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-<<<<<<< HEAD
-4. **Emitting Events**<br>
-=======
 5. **Emitting Events**<br>
->>>>>>> 9d417ba30c58bd2e89a4eb8402d1622b855eebab
+
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
 
     How do we do that if we have to follow the 1-way data flow rule?
@@ -204,11 +198,8 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-<<<<<<< HEAD
-5. **Computed Properties**<br>
-=======
 6. **Computed Properties**<br>
->>>>>>> 9d417ba30c58bd2e89a4eb8402d1622b855eebab
+
     This is useful when you want to compose new data based on the data that has changed.
     Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.
 
@@ -229,11 +220,8 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-<<<<<<< HEAD
-6. **Watched Properties**<br>
-=======
 7. **Watched Properties**<br>
->>>>>>> 9d417ba30c58bd2e89a4eb8402d1622b855eebab
+
     Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
     For example, when a new `item` is added, we want to send a notification to our friend to alert him or her about the change.
@@ -260,40 +248,6 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-<<<<<<< HEAD
-## Why use Vue?
-
-Now that we know what Vue is, let us look at some benefits it has to offer.
-
-### Benefit 1: Approachable
-
-Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
-Iteration in React:<br/><br/>
-The JavaScript file in ReactJs
-    ```js
-    var Iteration = React.createClass({
-       getInitialState() {
-         return {
-           array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-         }
-       },
-       render() {
-         this.state.array.map(function(date) {
-           return (
-             <span>{date}</span>
-           )
-         });
-       }
-    });
-    ReactDOM.render(<Iteration />, document.getElementById('array'));
-    ```
-    The HTML file in ReactJs
-    ```html
-    <div id="array"></div>
-    ```
-    Iteration in Vue:<br/><br/>
-    The JavaScript file in Vue
-=======
 8. **Lifecycle Hooks**<br>
     Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions in the background called lifecycle hooks, allowing users to add code at each stage that could improve its rendering speed.<br/><br/>
     The following diagram shows all lifecycle hooks and their specific execution stages:<br/>
@@ -302,24 +256,14 @@ The JavaScript file in ReactJs
    
     To run code at a specific stage, you can just define the corresponding hook function and add your code within the function.
     For example, the `created` hook can be used to run code right after the Vue instance is created:
->>>>>>> 9d417ba30c58bd2e89a4eb8402d1622b855eebab
+
     ```js
     Vue.component('todo-list', {
       ...
       created: function() {
         console.log("to-do list is created.");
       }
-<<<<<<< HEAD
-    });
-    ```
-    The HTML file in Vue
-    ```html
-    <div id="array">
-      <span v-for="date in array">{date}</span>
-    </div>
-=======
     })
->>>>>>> 9d417ba30c58bd2e89a4eb8402d1622b855eebab
     ```
    For more detailed information about Vue lifecycle hooks, visit [here](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks).<br/>
      
