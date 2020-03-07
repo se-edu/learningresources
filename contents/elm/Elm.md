@@ -11,10 +11,24 @@
 
 {{ booktitle | safe }}
 
+<box id="article-toc">
+
+* [Introduction to Elm‎](#introduction-to-elm)
+    * [What Is Elm?‎](#what-is-elm)
+    * [Why Learn Elm?](#why-learn-elm)
+        * [Benefit: Handling All Cases](#benefit-handling-all-cases)
+        * [Benefit: Friendly Compiler](#benefit-friendly-compiler)
+        * [Benefit: Canonical Coding Style‎](#benefit-canonical-coding-style)
+        * [Benefit: Package Ecosystem](#benefit-package-ecosystem)
+        * [Benefit: Fast Compiles and Small Bundles](#benefit-fast-compiles-and-small-bundles)
+        * [Benefit: The Elm Way](#benefit-the-elm-way)
+    * [How to Get Started with Elm?‎](#how-to-get-started-with-elm)
+</box>
+
 # Introduction to Elm
 
 **Author(s): [Daryl Tan](https://github.com/openorclose)** <br>
-**Reviewer(s): [Alfred Yip](https://github.com/alyip98)** <br>
+**Reviewer(s): [Alfred Yip](https://github.com/alyip98), [James Pang](https://github.com/jamessspanggg)** <br>
 
 ## What is Elm?
 
@@ -57,7 +71,7 @@ If you don't handle them, your code won't compile!
 
 ### Benefit: Friendly Compiler
 
-Elm's compiler strives to be as friendly as possible, and offers as many hints as she can to help you fix errors. If nothing else, you should try Elm just to see how great error messages can be.
+Elm's compiler strives to be as friendly as possible, and offers as many hints as it can to help you fix errors. If nothing else, you should try Elm just to see how great error messages can be.
 
 Here's a quick look at some of them:
 
@@ -189,7 +203,7 @@ You provide Elm with three items:
 - a view function that takes in a state, and returns a HTML representation of that state
 - an update function that takes in a state and a message. The function then can use information provided in the message to returns a new state.
 
-Here's a minimal example (anything after `--` is a comment) :
+Here's a minimal example:
 
 ```elm
 module Main exposing (main)
@@ -222,7 +236,7 @@ main =
         }
 ```
 
-View it on the elm playground [here](https://ellie-app.com/88GSdxWWVFza1).
+View it on the Elm playground [here](https://ellie-app.com/88GSdxWWVFza1).
 
 Most Elm apps are written this way, you just keep adding stuff into your model, view, and update as you grow your app.
 
