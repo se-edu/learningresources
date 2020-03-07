@@ -24,7 +24,7 @@ HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sni
 - [How to set up HTTPS](#how-to-set-up-https)
 - [Misuse of HTTPS](#misuse-of-https)
 
-### Why do we need HTTPS
+### Why do We Need HTTPS
 
 The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such as the password or [session tokens][2]. Here are some examples on how a plain text could be sniffed.
 
@@ -37,7 +37,7 @@ could redirect your traffic for monitoring.
 
 All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application. Therefore, we need to use HTTPS as an end to end encryption to secure our network packets.
 
-### Why HTTPS is secure
+### Why HTTPS is Secure
 
 As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of [SSL][10] to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.
 
@@ -47,7 +47,7 @@ Thus, by using https, we can be sure that even though our network packets are tr
 
 Besides providing secure network traffic, HTTPS also provides server validation through Certificate Authority (CA) architecture. A detailed explanation on CA is [here][13] . In short, CA works by issuing the server a digital certificate that can only be produced by CA. When the server sends its digital certificate to the client, client browsers verify the digital certificate with CA to check whether the server is indeed the intended server. To obtain such digital certificate, the server needs to apply to CA and CA will verify the server before issuing the digital certificate.
 
-### How to set up HTTPS
+### How to Set up HTTPS
 In order set up HTTPS on your server, you would need to have:
 
 1. A dedicated IP address for your server.
@@ -67,7 +67,7 @@ As aforementioned, Certificate Authority (CA) signs a digital certificate provid
 #### Weak Diffie-Hellman Attack
 During the [cipher suite negotiation][20] process of HTTPS, client and server send each other in plain text the HTTPS standard they support and the most secure standard is chosen to be used. However, this can be exploited for HTTPS downgrade by a [man in the middle attack][21]. The man in the middle could send forged cipher suite negotiation to both server and client to indicate the maximum security supported is only 512 bits Diffie Hellman and trick server and client to encrypt with 512 bits Diffie Hellman. At the moment, without knowing the keys, 512 bits Diffie Hellman algorithm could be decrypted with sufficient resources. A more detailed description could be found [here][22]
 
-#### Session Hijacking on partially protected websites
+#### Session Hijacking on Partially Protected Websites
 Some websites use HTTPS only on the login page to encrypt the login credentials of users. However, this is vulnerable to [session hijacking][23] attack. Most websites use cookies and session tokens to maintain a stateful connection with its users, and the session token is embedded into each packet to authenticate the identity of users. Without using HTTPS in all the websites in the domain, the packets containing session token is transmitted in plaintext and sniffers can easily obtain the session token to impersonate the victim. A demonstration of this attack on Qoo10.com user can be found [here][24]
 
 ## Conclusion

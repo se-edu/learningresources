@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Best Practices with `git`
+# Best Practices With `git`
 
 Author(s): [Darren Wee](https://github.com/darrenwee)
 
@@ -135,7 +135,7 @@ scope as where it is created.
 
 More examples can be found here: [Formats and Conventions: Commit Messages](https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message)
 
-### Set Up Your Editor for Commit Messages
+### Set up Your Editor for Commit Messages
 1. To use your editor of choice for `git`-related functionality, e.g. `vim`, do one of either in your terminal:
 ```bash
 git config --global core.editor "vim" # or you can do the following
@@ -275,8 +275,8 @@ Read more:
 
 ---
 
-## Keep Up To Date
-### Working with Remotes
+## Keep up to Date
+### Working With Remotes
 _Remotes_ refer to versions of the project you are working on that are hosted elsewhere, usually on the Internet. Remotes are very handy for managing collaboration, e.g. if you have to keep your code in sync with the `upstream` branch of the project, or if you need to pull code from someone else which may not be merged yet.
 
 You can have as many remotes as you want, each possibly being read-only or with read/write privileges.
@@ -303,7 +303,7 @@ git remote remove upstream
 Read more:
 - [Git Basics - Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
 
-### Rebase versus Merging
+### Rebase Versus Merging
 | You should... | When ... |
 |---------------|----------|
 | merge | you created a branch to develop a feature, and now you want these changes to be inside `master` |

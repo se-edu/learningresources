@@ -368,7 +368,7 @@ Here is an [article](https://krakendev.io/blog/weak-and-unowned-references-in-sw
 
 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) is a dependency manager for Swift and Objective-C Cocoa projects which has over 58 thousand libraries and is used in over 3 million apps. Instead of reinventing the wheel, you can check this out to obtain code that helps resolve common issues. If you have done something new with Swift, you can also make your code into a library with CocoaPods for others to use!
 
-## How to Get Started
+## How to Get Started?
 
 A Macbook is required for Swift development, but an iPhone or iPad is not. The Swift IDE `X-Code` has built-in simulators for all mobile devices.
 

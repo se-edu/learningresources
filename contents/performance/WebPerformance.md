@@ -17,13 +17,13 @@
 
 Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Monika Manuela Hengki](https://www.github.com/monmanuela)
 
-## What is Web Performance
+## What is Web Performance?
 
 Web Performance is a broad term that refers to how performant a web application *feels* to its users. This includes many aspects such as how long the site takes to load, how quickly the site becomes interactive, and how responsive it feels when the user interacts with the site.
 
 As web applications grow more complex, it becomes increasingly important for web developers to be aware of the factors that affect performance, and consider how performance can impact the user experience.
 
-## Why Web Performance Matters
+## Why Web Performance Matters?
 
 The performance of your web application has a direct impact on its ability to attract and retain users:
 - Sites which take more than 3 seconds to load are more likely to be abandoned by users [[source](https://developer.akamai.com/blog/2016/09/14/mobile-load-time-user-abandonment)].
