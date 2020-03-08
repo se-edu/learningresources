@@ -129,7 +129,7 @@ These factors can make SQL confusing and frustrating to use when switching acros
 
 ---
 
-## How to get Started With SQL?
+## How to Get Started With SQL?
 
 As you saw in the example in the earlier section, SQL is really not that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.
 
