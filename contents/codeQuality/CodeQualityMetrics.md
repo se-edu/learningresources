@@ -90,7 +90,7 @@ You would have noticed that these metrics are self-formulated rather than being 
 
 You might then ask: can I define my own code quality metric? Yes, you can. [This page](http://www.developer.com/tech/article.php/3644656/Software-Quality-Metrics.htm) has a good guide on how to formulate your own metric.
 
-## Making Sense of it
+## Making Sense of It
 
 Any code quality metric is as good as how it is used; without context, it is merely a number. **Do not** use any metric just for the sake of it.
 - It makes little sense to say: "This method has a CC value of 42. It is bad."
