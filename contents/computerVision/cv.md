@@ -43,7 +43,7 @@ Many systems and applications rely on computer vision, as they work extensively 
 - Automatic Inspection, e.g. measuring structures, modelling environment.<sup>[[4]](#footnote4)</sup>
 - Searching, e.g. image search engines.<sup>[[5]](#footnote5)</sup>
 
-### Typical Computer Vision tasks
+### Typical Computer Vision Tasks
 For a typical computer vision system, the tasks it aims to perform may include, but are not limited to, the following:<sup>[[6]](#footnote6)</sup>
 
 - Geometric Image Transformation
@@ -282,7 +282,7 @@ Underneath, all computer vision algorithms deal with images as matrices, thus em
 
 Most prominent computer vision libraries such as OpenCV, dlib, or VisionWorks support the use of GPUs in the computing process. For example, OpenCV has APIs that allow a kernel process running on the CPU to transfer image matrices to one or more GPUs to perform heavy functions such as Gaussian filtering or image stitching.<sup>[[12]](#footnote12)</sup> Hardware manufacturers have even tried to ease the image transferring process between CPU and GPU, by introducing system memory regions accessible to both CPU and GPU.<sup>[[13]](#footnote13)</sup>
 
-## What's Next
+## What's Next?
 
 There is an abundance of resources to learn and apply computer vision; however, not all of them are free or beginner-friendly. This section mentions some great courses and tutorials that are freely accessible at the time of writing. If you are a starter, it is recommended that you follow these steps for your learning journey:
 
