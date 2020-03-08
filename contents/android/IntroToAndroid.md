@@ -70,7 +70,7 @@ The official programming language for Android development is Java, however, Andr
 - For more experienced programmers, popular Android development courses include those by Stanford at [their Android App Development module page](http://web.stanford.edu/class/cs193a/) and [Udemy's paid courses](https://www.udemy.com/courses/search/?q=android&src=ukw). A good book for Android would be the [Android Programming: The Big Nerd Ranch Guide](https://www.bignerdranch.com/books/android-programming/).
 - To learn Android development at your own pace, check out the comprehensive [Vogella Android tutorials](http://www.vogella.com/tutorials/android.html), which cover almost everything you would need to know. There are also open-source crowdsourced [guides by CodePath](https://guides.codepath.com/android).
 
-## 2. Android is not Magic
+## 2. Android is Not Magic
 
 Here is a quick preview of some basic Android concepts to whet your appetite and to demystify Android app development!
 
