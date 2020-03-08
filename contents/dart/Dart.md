@@ -14,12 +14,12 @@
 # Introduction to Dart
 **Author(s): [Tan Yuanhong](https://github.com/le0tan)**<br>
 
-## What Is Dart?
+## What is Dart?
 Dart (previously also known as `dartlang`) is an object-oriented, <tooltip content="a style of Object-oriented programming (OOP) in which inheritance occurs via defining classes of objects, instead of inheritance occurring via the objects alone (compare prototype-based programming)">class defined</tooltip>, garbage-collected language using a C-style syntax that <tooltip content="also known as source-to-source compilation">transcompiles</tooltip> optionally into JavaScript. It's rumored that Dart was invented out of Google engineers' frustration with JavaScript (they even built [a version of Chromium browser](http://dartdoc.takyam.com/tools/dartium/) with Dart VM so that Dart code can be run on the web without transcompiling to JavaScript). However, as most developers still stick to JavaScript and it turned out that TypeScript is a much more widely-accepted solution for statically typed JavaScript transcompilation, Dart is then, with the emergence of <tooltip content="a cross-platform mobile UI framework developed by Google">Flutter</tooltip>, re-purposed as a **client-optimized** language that's optimized for **UI creation** and **cross-platform execution**.
 
 ## Why Learn Dart?
 
-### Optimized for declarative UI
+### Optimized for Declarative UI
 
 <panel header="If you don't know what **declarative UI** is..." minimized>
 
@@ -45,7 +45,7 @@ Flutter is open-source, fast-growing and easy-to-learn.
 </ul>
 </modal>
 
-### Fast development and native performance
+### Fast Development and Native Performance
 
 A programming language usually needs to balance between development speed and performance. Dart is ambitious: it wants to **run fast** on all platforms (which requires compilation to native machine code) while allowing the developers to **live reload code changes** without re-compiling the entire file (which requires a VM of some kind). Thus, Dart has three execution modes for the best of all words:
 * for fast development, <tooltip content="Just-in-time">JIT</tooltip> + Dart VM; 
@@ -54,9 +54,9 @@ A programming language usually needs to balance between development speed and pe
 
 The flexibility provided by the three execution modes of Dart makes Dart unique in the world of programming languages - there are few languages that maintains three components (i.e. VM, compiler and transpiler). It's a lot of work for the Dart maintainers, but saves a lot of work for Dart developers.
 
-## Notable characteristics
+## Notable Characteristics
 
-### Built-in asynchrony support
+### Built-in Asynchrony Support
 
 Asynchronous programming is important for UI development because you don't want your UI to freeze when some time-consuming operation (e.g. network request, computationally heavy subroutines) is happening. 
 
@@ -142,7 +142,7 @@ main() {
 <panel header="DartPad example" minimized><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=077d288e4a705324c4aa268810904305&split=50"></iframe></panel>
 </panel>
 
-### Extension methods
+### Extension Methods
 Extension methods aim to solve one problem: when using an external library, you may want to extend or even change some of the methods for your own needs. For example, instead of using `int.parse(42)`, you want to extend the `String` class so that it has a method `parseInt()` to parse a string to int. You can easily do so by extending `String` class in Dart:
 
 ```dart
@@ -161,7 +161,7 @@ main(List<String> args) {
 
 Extending classes, especially core classes like `String`, could be quite tricky if not impossible without extension methods. However, in Dart, you can easily customize the behavior of built-in classes like so. Extension methods in Dart have even more interesting stuff like [generic support](https://dart.dev/guides/language/extension-methods#implementing-generic-extensions).
 
-### Named parameters
+### Named Parameters
 This is what makes declarative UI code written in Dart look surprisingly similar to JSON. In a language where the order of a function's parameters is specified by the function's definition, if you only look at the function call, it might be difficult for you to figure out what those parameters mean. One classic example is the `put(key, value)` of a Map data structure - if you only see `m.put(1, 2)`, can you tell which one is key without prior knowledge?
 
 That's when named parameters become handy:
@@ -214,7 +214,7 @@ Actually, **named** parameters are a type of [**optional** parameters](https://d
 
 </panel>
 
-## Current state
+## Current State
 
 **Tooling support**: Dart has out-of-the-box dependency management ([pub.dev](https://pub.dev/)), linting solution ([dartfmt](https://dart.dev/tools/dartfmt)), documentation generator ([dartdoc](https://dart.dev/tools/dartdoc)) and [official testing framework](https://pub.dev/packages/test). After installing Dart SDK, you're ready to go 99% of the time.
 
@@ -227,7 +227,7 @@ Of course, like any other language, Dart is [not perfect](https://news.ycombinat
 * Even if Dart appears to be open-sourced, it has been pretty <tooltip content="meaning the community contribution is more limited to bug fixes instead of adding new features">internally focused</tooltip>.
 * And unlike Java, C++ or Python, although technically you can write most types of application using Dart, it may not be your safest choice a lot of the times (i.e. you may find yourself writing Dart in a Flutter project most of the time).
 
-## How to Get Started with Dart?
+## How to Get Started With Dart?
 
 Dart is well-documented and you should find solutions to most of your Dart problems on [their website](https://dart.dev/guides). 
 
@@ -238,7 +238,7 @@ Like many devs who tried Dart says, you might already know Dart. If you already 
   * Similar to JavaScript: arrow functions
   * Similar to Kotlin: `get` and `set` keywords for OOP, null safety syntax
 
-### Getting started
+### Getting Started
 
 * Installation: You may get the Dart SDK [here](https://dart.dev/get-dart). Actually you don't even need to install the Dart SDK to play around with Dart (remember the interactive Dartpad example above?). You can have a guided tour within your browser to explore Dart [here](https://dart.dev/codelabs/dart-cheatsheet).
 * Get familiar with Dart with short examples [here](https://dart.dev/samples).
