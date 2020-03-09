@@ -46,7 +46,7 @@ Elm tries to be the best of both worlds. Its functional core provides maintainab
 ### Benefit: Handling All Cases
 Like many functional programming languages, you get the "if it compiles it works" feeling in Elm.
 
-If your code can produce more than one result (e.g. converting a string in to an integer can either fail or succeed), Elm's compiler forces you to account for all cases in order to compile.
+If your code can produce more than one result (e.g. converting a string to an integer can either fail or succeed), Elm's compiler forces you to account for all cases in order to compile.
 
 ---
 
@@ -173,13 +173,13 @@ Further reading:
 
 You can share your package, or use any of the packages available at https://package.elm-lang.org/.
 
-All packages there are written in Elm and therefore are safe (since Elm code cannot produce any side effects).
+All packages there are written in Elm only and therefore cannot perform any side effects. This is unlike the package system in JavaScript, where packages can reassign global functions like `parseInt` and cause bugs whenever `parseInt` is used elsewhere!
 
 Furthermore, Elm has automatic enforced semantic versioning. Whenever you push an update to your package, Elm analyses your code, and depending on whether you have any breaking changes, updates the patch, minor, or major version accordingly. This makes both package maintainers and users happy: maintainers don't have to worry about choosing new versions, and users can know that as long as the major version doesn't change, there won't be any breaking changes.
 
 ### Benefit: Fast Compiles and Small Bundles
 
-Elm's compiler is really fast. Its creator focused on compile times in its last two releases (0.19 and 0.19.1) which brought compile times for 100k LOC projects down to only 10s. If your project has less than 10k LOC, compilation should take no more than 1s.
+Elm's compiler is really fast. Its creator focused on compile times in versions 0.19 and 0.19.1, which brought compile times for 100k LOC projects down to only 10s. If your project has less than 10k LOC, compilation should take no more than 1s.
 
 Examples of LOC vs compile times [here](https://discourse.elm-lang.org/t/how-are-0-19-compile-times-for-50k-loc-projects/3680).
 
