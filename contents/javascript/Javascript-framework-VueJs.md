@@ -120,7 +120,6 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-
 3. **Conditionals and Loops**<br>
     `v-if` allows you to conditionally insert/remove elements based on the truthfulness of the binding value.
     
@@ -172,7 +171,6 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 <br>
 
 5. **Emitting Events**<br>
-
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
 
     How do we do that if we have to follow the 1-way data flow rule?
@@ -199,7 +197,6 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 <br>
 
 6. **Computed Properties**<br>
-
     This is useful when you want to compose new data based on the data that has changed.
     Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.
 
@@ -221,7 +218,6 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 <br>
 
 7. **Watched Properties**<br>
-
     Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
     For example, when a new `item` is added, we want to send a notification to our friend to alert him or her about the change.
@@ -272,7 +268,6 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 Now that we know what Vue is, let us look at some benefits it has to offer.
 
 ### Benefit 1: Approachable
-
 Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
 Iteration in React:<br/><br/>
 The JavaScript file in ReactJs
@@ -317,7 +312,6 @@ The HTML file in Vue
 ```
 
 ### Benefit 2: Progressive
-
 Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follows:
     > Vue is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
     >
