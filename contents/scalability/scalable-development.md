@@ -49,7 +49,7 @@ This is arguably the easiest way to speed up your server, as it is a general sol
 
 However, due to Amdahl's law, each additional processor will give a less-than-proportionate speed up. Coupled with the exponential increase in price as the computing power of the CPU increases, this is typically not scalable in the long run.
 
-#### Should you Choose one or the Other?
+#### Should You Choose One or the Other?
 
 With vertical scaling, you get to take advantage of processing power and concurrency. But as mentioned above, this isn't sustainable over the long run because it: 
 1. Results in a single point of failure. 
