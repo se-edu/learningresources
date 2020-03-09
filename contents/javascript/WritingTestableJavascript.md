@@ -104,7 +104,7 @@ $.ajax({
 
 Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.
 
-### Avoid big Anonymous Functions
+### Avoid Big Anonymous Functions
 
 Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off in a `document.ready()` or `$.ajax()`.
 
