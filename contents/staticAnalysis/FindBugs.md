@@ -94,7 +94,7 @@ FindBugs looks for cases where a code path will or could cause a null pointer ex
 
 In the above example, the `aMap` may or may not contain "bob", so FindBugs will report *possible* `NullPointerException` at `line 5`
 
-## How to Use It
+## How to Use It?
 
 ### Configuration
 
