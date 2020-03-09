@@ -57,7 +57,7 @@ public void foo() {
 }
 ```
 
-# More features of Java Synchronization
+# More Features of Java Synchronization
 
 Besides synchronized keyword to guard a critical section, another important feature of Java Synchronization is **wait()** and **notify()**.
 
