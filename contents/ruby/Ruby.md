@@ -124,7 +124,7 @@ For those familiar with [higher-order functions](http://www.cse.unsw.edu.au/~en1
 
 Joel McCracken makes an [excellent short presentation](http://joelmccracken.github.io/functional-programming-in-ruby/#/) on how functions are treated in Ruby.
 
-### Object-Oriented Programming is Possible, too
+### Object-Oriented Programming is Possible, Too
 
 ```rb
 class Circle
