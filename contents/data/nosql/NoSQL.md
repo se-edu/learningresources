@@ -119,9 +119,9 @@ For example, MongoDB stores documents in BSON (json encoded in binary).
 
 <br>
 
-## Key characteristics of NoSQL databases
+## Key Characteristics of NoSQL Databases
 
-### 1. Powerful and simple CRUD operations
+### 1. Powerful and Simple CRUD Operations
 
 Interaction with most document databases is achieved in a simple and intuitive _object oriented manner_,
 and JSON-like queries.
@@ -159,7 +159,7 @@ db.items.find({
 
 <br>
 
-### 2. Schema-less data
+### 2. Schema-less Data
 
 Another key characteristic of most NoSQL databases is that they are **schema-less**.
 In document databases for example, this means that each individual document has no restriction on what keys it must have,
@@ -201,7 +201,7 @@ $jsonSchema: {
 
 <br>
 
-### 3. Straightforward expression of relations in data
+### 3. Straightforward Expression of Relations in Data
 
 The world is full of relations. For example, a patient _is related to_ her disease record,
 just as a customer _is related to_ their shopping cart.
@@ -278,7 +278,7 @@ for each document by default.
 
 <br>
 
-### 1. Highly suited for iterated development
+### 1. Highly Suited for Iterated Development
 Although less mature than SQL databases, NoSQL databases were designed to solve many of the emerging challenges in databases today.
 
 One of the most consequential impacts NoSQL has had was enabling faster iterated development.
@@ -286,7 +286,7 @@ Given the highly flexible relational structure of NoSQL databases, and the schem
 in NoSQL, this means that developers can adapt the database quicker to changing customer and business requirements.
 
 
-### 2. Easy horizontal scaling
+### 2. Easy Horizontal Scaling
 
 Another key benefit of NoSQL databases is the ability to scale horizontally (distributing workload across
 multiple servers), without discarding much of its key features.
@@ -328,7 +328,7 @@ consumer and business demands.
 Vertical scaling (increasing the processing power of the machine) can only go so far until the single machine hits its limit.</div>
 </box>
 
-### 3. Widespread adoption
+### 3. Widespread Adoption
 
 <br>
 <figure>
@@ -350,14 +350,14 @@ This bodes well for the maturity and development of this evolving technology, an
 
 <br>
 
-#### 1. Lack of standardisation
+#### 1. Lack of Standardisation
 From both a user and implementation standpoint, NoSQL databases vary from one solution to another greatly, which can incur
 extra development costs in projects when there is a need to migrate to another solution, or when new developers are introduced
 to the project.
 
 This is in stark contrast to SQL, which's syntax is mostly standardised across its different flavours.
 
-#### 2. Not suited for complex relational queries
+#### 2. Not Suited for Complex Relational Queries
 While NoSQL databases certainly allow for more flexibility in structuring out relations, most complex queries (eg. joins for many-many relations) _usually_ involve structured data that can be easily represented in tabular formats. 
 
 In such instances, queries are often more performant in SQL equivalents.
@@ -365,7 +365,7 @@ In such instances, queries are often more performant in SQL equivalents.
 
 ---
 
-## How to get started with NoSQL?
+## How to get Started With NoSQL?
 
 There are many NoSQL variants out there as mentioned earlier.
 For starters, it may be wise to go with the most common solution, _mongoDB_.
