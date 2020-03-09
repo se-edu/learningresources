@@ -16,22 +16,29 @@
 Author: [Jeremy Tan](https://github.com/Parcly-Taxel)
 
 <box id="article-toc">
-* [What NumPy can and cannot do for you](#what-numpy-can-and-cannot-do-for-you)
-* [The array type](#the-array-type)
-* [Library functions‎](#library-functions)
-* [Getting started‎](#getting-started)
-* [Resources‎](#resources)
+
+* [Benefits and Drawbacks](#benefits-and-drawbacks)
+* [The Array Type](#the-array-type)
+* [Library Functions](#library-functions)
+* [Tutorials and Resources](#tutorials-and-resources)
+</box>
+
+<box type="info">
+
+Before reading this article, you should have basic knowledge of Python and its iterable types.
+If not, do read [the introduction to Python](introduction-to-python.html) included among these learning resources. 
 </box>
 
 Data scientists often work with highly structured data, like time series or plots of pixel values. On these data sets,
-which can reach into the gigabyte range and beyond, they routinely need to perform operations uniformly and efficiently.
+they routinely need to perform operations uniformly and efficiently. Without external packages, Python can express
+and handle some of these operations reliably. For huge sets, however – like the training and test data provided to
+machine learning algorithms – Python becomes complicated and sluggish.
 
-Through list comprehension, Python somewhat satisfies these requirements, but not satisfactorily.
 [NumPy](https://numpy.org) fills in the gaps, simplifying (and speeding up) the code required to process and
 visualise data sets large and small. So many other science-oriented Python libraries depend on NumPy (pandas,
 matplotlib, etc.) that NumPy describes itself as "the fundamental package for scientific computing in Python".
 
-## What NumPy can and cannot do for you
+## Benefits and Drawbacks
 
 NumPy's main benefit is its abstraction of arrays. In a traditional imperative style, handling multi-dimensional
 arrays requires multiple for loops or list comprehensions; both approaches lead to tedious, error-prone code, and
@@ -76,7 +83,7 @@ array(['1.5', 'a'], dtype='<U32') # not a numeric type!
 array([100000000000000000000, 1], dtype=object)
 ```
 
-## The array type
+## The Array Type
 
 NumPy is built around its `array` type (an alias for `ndarray`, hinting at its multidimensional nature). Unlike Python
 lists, elements of `array` instances are stored in memory contiguously, reducing interpreter overhead
@@ -108,7 +115,7 @@ Otherwise, indexing is mostly as in standard Python, with the convenience that e
 omitted for multi-_axis_ (array coordinate) indexing, so `a[0][1:][2]` becomes `a[0,1:,2]`.
 See [this page](https://numpy.org/devdocs/reference/arrays.indexing.html) for a more detailed explanation.
 
-## Library functions
+## Library Functions
 
 In addition to its array type, NumPy provides a large [library](https://numpy.org/devdocs/reference/routines.html)
 for manipulating arrays. These include:
@@ -135,7 +142,7 @@ above. In some cases, the function is accelerated further through
 Properly written NumPy code will spend most of its time in the compiled binaries, only returning to the Python layer
 for input and output. In this way, you get the speed advantages of C/Fortran and the convenience of Python together.  
 
-## Getting started
+## Tutorials and Resources
 
 The [NumPy User Guide](https://numpy.org/devdocs/user/index.html) contains several tutorials for programmers of all
 abilities, including the following:
@@ -153,8 +160,6 @@ another array-based (but proprietary) programming language.
 In practice, NumPy is not often used alone, but rather as part of what NumPy's documentation calls a _scientific
 Python distribution_, which includes all the NumPy dependents mentioned below in [Resources](#resources) and more.
 The most widely used such distribution is [Anaconda](https://www.anaconda.com/distribution).
-
-## Resources
 
 Beyond the tutorials above and the [reference of functions](https://numpy.org/devdocs/reference/index.html), most major
 projects that depend on NumPy have their own tutorials that themselves use NumPy to drive the methods under discussion.
