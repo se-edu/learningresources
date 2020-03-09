@@ -192,7 +192,7 @@ anExampleModule.sumOfVariable(); // 3
 
 A more in-depth explanation of module pattern can be found in the [this course blog on mastering module pattern](https://ultimatecourses.com/blog/mastering-the-module-pattern).
 
-## Which to use?
+## Which to Use?
 
 Although ES6 modules is the official way to implement modules, there are situations where you might have to use one of the other options. Here are some examples:
 - If your application does not allow you to use transpiler and bundler (e.g. because of the additional overhead they add), you can use the module pattern.
