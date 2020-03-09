@@ -26,19 +26,18 @@ Basic knowledge of SQL databases is assumed. If not, give the <a href="../sql/SQ
 ##### Table of contents { .no-index .border-bottom .pb-1 }
 
 * [What is NoSQL‎](#what-is-nosql)
-* [How does NoSQL work?‎](#how-does-nosql-work-basic-structure-of-document-based-databases)
-* [Key Characteristics of NoSQL databases](#key-characteristics-of-nosql-databases)
-  * [Powerful and simple CRUD operations](#1-powerful-and-simple-crud-operations)
-  * [Schema-less data](#2-schema-less-data)
-  * [Straightforward expression of relations in data](#3-straightforward-expression-of-relations-in-data)
+* [Key Characteristics of NoSQL Databases](#key-characteristics-of-nosql-databases)
+  * [Powerful and Simple CRUD Operations](#1-powerful-and-simple-crud-operations)
+  * [Schema-Less Data](#2-schema-less-data)
+  * [Straightforward Expression of Relations in Data](#3-straightforward-expression-of-relations-in-data)
 * [Why NoSQL](#why-nosql)
-  * [1. Highly suited for iterated development](#1-highly-suited-for-iterated-development)
-  * [2. Easy horizontal scaling](#2-easy-horizontal-scaling)
-  * [3. Widespread adoption](#3-widespread-adoption)
+  * [1. Highly Suited for Iterated Development](#1-highly-suited-for-iterated-development)
+  * [2. Easy Horizontal Scaling](#2-easy-horizontal-scaling)
+  * [3. Widespread Adoption](#3-widespread-adoption)
 * [Caveats of NoSQL‎](#caveats-of-nosql)
-  * [Lack of standardisation](#1-lack-of-standardisation)
-  * [Not suited for complex relational queries‎](#2-not-suited-for-complex-relational-queries)  
-* [How to get started with NoSQL?‎](#how-to-get-started-with-nosql)
+  * [Lack of Standardisation](#1-lack-of-standardisation)
+  * [Not Suited for Complex Relational Queries‎](#2-not-suited-for-complex-relational-queries)  
+* [How to get Started With NoSQL?‎](#how-to-get-started-with-nosql)
 
 {.px-3}
 
@@ -159,7 +158,7 @@ db.items.find({
 
 <br>
 
-### 2. Schema-less Data
+### 2. Schema-Less Data
 
 Another key characteristic of most NoSQL databases is that they are **schema-less**.
 In document databases for example, this means that each individual document has no restriction on what keys it must have,
