@@ -24,7 +24,7 @@ HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sni
 - [How to set up HTTPS](#how-to-set-up-https)
 - [Misuse of HTTPS](#misuse-of-https)
 
-### Why do We Need HTTPS
+### Why do We Need HTTPS?
 
 The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such as the password or [session tokens][2]. Here are some examples on how a plain text could be sniffed.
 
@@ -37,7 +37,7 @@ could redirect your traffic for monitoring.
 
 All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application. Therefore, we need to use HTTPS as an end to end encryption to secure our network packets.
 
-### Why HTTPS is Secure
+### Why HTTPS is Secure?
 
 As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of [SSL][10] to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.
 
@@ -47,7 +47,7 @@ Thus, by using https, we can be sure that even though our network packets are tr
 
 Besides providing secure network traffic, HTTPS also provides server validation through Certificate Authority (CA) architecture. A detailed explanation on CA is [here][13] . In short, CA works by issuing the server a digital certificate that can only be produced by CA. When the server sends its digital certificate to the client, client browsers verify the digital certificate with CA to check whether the server is indeed the intended server. To obtain such digital certificate, the server needs to apply to CA and CA will verify the server before issuing the digital certificate.
 
-### How to Set up HTTPS
+### How to Set up HTTPS?
 In order set up HTTPS on your server, you would need to have:
 
 1. A dedicated IP address for your server.
