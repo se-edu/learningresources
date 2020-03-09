@@ -215,7 +215,7 @@ There are many sites and articles speaking of why you shouldn't or when you shou
 
 ## Getting Started With Redux
 
-<!-- see ze yu's ocmment>
+<!-- see ze yu's ocmment-->
 
 Given below are a few places that will help you ease into using Redux:
 
