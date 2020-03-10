@@ -195,26 +195,23 @@ Redux is one way to fulfill server-side rendering. This can be acheived by sendi
 
 ## Why not to use Redux?
 
-While Redux has its benefits, you shouldn't jump to Redux for every application you make.
+While Redux has its benefits, you should not add Redux for every application you make. The general idea is to use Redux when you are in actual need of a more robust application state manager.
 
-<!-- make framework agnostic -->
-As Dan Abramov, one of the creators of Redux, says:
+It would be very apt to use Redux is when:
+
+1. You have reasonable amount of data changing over time
+1. You need a single source of truth
+1. You find keeping everything in a top-level parent component is not enough
+
+A good rule of thumb is to figure out if you have any problems managing state in your application without Redux.  
+
+As Dan Abramov, one of the creators of Redux, says with regards to [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html), a view library very commonly used with Redux:
 
 <box light>
 I would like to amend this: don't use Redux until you have problems with vanilla React.
 </box>
 
- But the general idea on when to use Redux is when:
-
-1. Reasonable amount of data changing over time
-1. You need a single source of truth
-1. Keeping everything in a top-level parent component is not enough
-
-There are many sites and articles speaking of why you shouldn't or when you shouldn't use Redux. If you are interested, the following resources provide more information and thoughts on when Redux is meant to be used:
-
-<!-- shift to getting start section -->
-- [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
-- [When should I use Redux?](https://redux.js.org/faq/general#when-should-i-use-redux)
+There are many sites and articles speaking of why you shouldn't or when you shouldn't use Redux. If you are interested, the following resources in the section XXXX provide more information and thoughts on when Redux is meant to be used:
 
 ## Getting Started With Redux
 
@@ -227,5 +224,9 @@ Given below are a few places that will help you ease into using Redux:
 1. If you're using React alongside Redux, read up on [React Redux](https://react-redux.js.org/), which are official React bindings for Redux
 1. You can also checkout the [course](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) by Redux's creator.
 1. The official website has a well curated page on [Learning Resources](https://redux.js.org/introduction/learning-resources/)
+
+<!-- shift to getting start section -->
+- [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+- [When should I use Redux?](https://redux.js.org/faq/general#when-should-i-use-redux)
 
 </div>
