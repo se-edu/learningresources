@@ -55,6 +55,7 @@
   * Testing
     * [Integration Testing]({{baseUrl}}/contents/testing/integration-testing.html)
     * [Writing Testable Code]({{baseUrl}}/contents/testing/writing-testable-code.html)
+    * [Security Testing]({{baseUrl}}/contents/testing/security-testing.html)
   * UI/UX
     * [Accessibility]({{baseUrl}}/contents/uix/accessibility.html)
     * [Design Systems]({{baseUrl}}/contents/uix/design-systems.html)
