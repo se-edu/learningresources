@@ -203,7 +203,7 @@ It would be very apt to use Redux is when:
 1. You need a single source of truth
 1. You find keeping everything in a top-level parent component is not enough
 
-A good rule of thumb is to figure out if you have any problems managing state in your application without Redux.  
+A good rule of thumb is to figure out if you have any problems managing state in your application without Redux. If you don't have any, then you don't really need Redux.  
 
 As Dan Abramov, one of the creators of Redux, says with regards to [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html), a view library very commonly used with Redux:
 
@@ -215,17 +215,27 @@ There are many sites and articles speaking of why you shouldn't or when you shou
 
 ## Getting Started With Redux
 
-<!-- see ze yu's ocmment-->
+The [official Redux website]((https://redux.js.org/)) is a great place to get started. It includes:
 
-Given below are a few places that will help you ease into using Redux:
+- [Installation instructions](https://redux.js.org/introduction/getting-started/)
+- A suggested list of resources encompassing [Basic](https://redux.js.org/introduction/getting-started/#just-the-basics) and [Intermediate](https://redux.js.org/introduction/getting-started/#intermediate-concepts) concepts.
+- A [basic](https://redux.js.org/basics/basic-tutorial) and [advanced](https://redux.js.org/advanced/advanced-tutorial) tutorial.
 
-1. You can start with [The Redux official website](https://redux.js.org/). This article is based on the sections [Core Concepts](https://redux.js.org/introduction/core-concepts) and [Three Principles](https://redux.js.org/introduction/three-principles), so you may skim through those. The site has installation instructions and a tutorial.
-1. Install the [Redux DevTools](https://github.com/reduxjs/redux-devtools)
-1. If you're using React alongside Redux, read up on [React Redux](https://react-redux.js.org/), which are official React bindings for Redux
-1. You can also checkout the [course](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) by Redux's creator.
-1. The official website has a well curated page on [Learning Resources](https://redux.js.org/introduction/learning-resources/)
+This article is based on the the sections [Core Concepts](https://redux.js.org/introduction/core-concepts) and [Three Principles](https://redux.js.org/introduction/three-principles) of the introduction, so you may find the sections familiar and be able skim through those.
 
-<!-- shift to getting start section -->
+Installing the [Redux DevTools](https://github.com/reduxjs/redux-devtools) would greatly help in terms of seeing Redux in action with whichever project or tutorial you are working on.
+
+### Frontend Framework Specific State Management Libraries
+
+Redux especially works well with React, read up on [React Redux](https://react-redux.js.org/), which are official React bindings for Redux
+
+For the other popular frontend frameworks, they may have their own state management libraries more suited for them. State management libraries are generally inspired from one another and follow the same general concepts as Redux. What is more important that each of these libraries are usually tailored to a specific front end library. The other frontend libraries and their corresponding state management libraries are:
+
+- Vue: [Vuex](https://vuex.vuejs.org/)
+- Angular: [NGRX](https://ngrx.io/)
+
+### More Resources on When To Use Redux 
+
 - [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 - [When should I use Redux?](https://redux.js.org/faq/general#when-should-i-use-redux)
 
