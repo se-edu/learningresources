@@ -37,7 +37,7 @@ The goal of security testing is to:
 
 ### Types of Security Testing
 - **Vulnerability Scanning**: This is done through automated software to scan a system against known vulnerability signatures.
-- **Security Scanning**: It involves identifying network and system weaknesses, and later provides solutions for reducing these risks. This scanning can be performed for both Manual and Automated scanning.
+- **Security Scanning**: It involves identifying network and system weaknesses, and later provides solutions for reducing these risks. This scanning can be performed both manually and automatically.
 - **Penetration Testing**: This kind of testing simulates an attack from a malicious hacker. This testing involves analysis of a particular system to check for potential vulnerabilities to an external hacking attempt.
 - **Risk Assessment**: This testing involves analysis of security risks observed in the organization. Risks are classified as  Low, Medium and High. This testing recommends controls and measures to reduce the risk.
 - **Security Auditing**: This is an internal inspection of Applications and Operating systems for security flaws. An audit can also be done via line by line inspection of code.
@@ -58,9 +58,9 @@ Security Testing helps to ensure:
 
 As a subset of software testing, security testing operates in tandem with your SDLC. It is a conscious decision that needs to be made for a more secure application.
 
-<box id="info">:fas-info-circle: Knowledge of Software Development Life-Cycles (SDLCs) would be useful but not necessary. If you would like to find out more about SDLC Processes please click [here](https://nus-cs2103-ay1920s1.github.io/website/se-book-adapted/chapters/processModels.html).</box>
-
 ![Generic SDLC Model](security-testing/Sec-Test-Fig-1.png "Generic SDLC Model")
+
+<box id="info">:fas-info-circle: Knowledge of Software Development Life-Cycles (SDLCs) would be useful but not necessary. If you would like to find out more about SDLC Processes please click [here](https://nus-cs2103-ay1920s1.github.io/website/se-book-adapted/chapters/processModels.html).</box>
 
 ### Phase 1: Before Development Begins
 
