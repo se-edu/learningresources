@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 2
 </frontmatter>
 
 <div class="website-content">
@@ -19,17 +19,13 @@ Reviewers: [Ang Ze Yu](https://www.github.com/ang-zeyu), [Yash Chowdhary](https:
 <!-- update table of contents here -->
 <box id="article-toc">
 
-* [Introduction to Go‎](#introduction-to-go)
-    * [What Is Go?‎](#what-is-go)
-    * [Why Learn Go?](#why-learn-go)
-        * [Benefit: Better Variable Declarations](#benefit-better-variable-declarations)
-        * [Benefit: Better Support for Concurrency‎](#benefit-better-support-for-concurrency)
-        * [Benefit: Better Error Handling](#benefit-better-error-handling)‎
-        * [Benefit: `defer` Execution‎](#benefit-defer-execution)
-        * [Benefit: Good Support for Interfaces](#benefit-good-support-for-interfaces)
-        * [Benefit: Canonical Coding Style‎](#benefit-canonical-coding-style)
-    * [How to Get Started with Go?‎](#how-to-get-started-with-go)
-        * [Where to Go from Here?‎](#where-to-go-from-here)
+* [Introduction to Redux‎](#introduction-to-go)
+  * [What Is Redux?](#what-is-redux)
+  * [How Does Redux Work?](#how-does-redux-work)
+  * [Why Use Redux?](#why-use-redux)
+  * [Why Not to Use Redux?](#why-not-to-use-redux)
+  * [Getting Started with Redux](#getting-started-with-redux)
+  * [Other Frontend Framework Specific State Management Libraries‎](#other-frontend-framework-specific-state-management-libraries)
 </box>
 
 ## What is Redux?
@@ -56,8 +52,6 @@ More formally, the [official website](https://redux.js.org/introduction/getting-
 > It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as live code editing combined with a time traveling debugger.
 >
 > You can use Redux together with React, or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.
-
-<!-- or just footnotes -->
 
 <!-- ([Adapted from this Medium article](https://medium.com/javascript-in-plain-english/the-only-introduction-to-redux-and-react-redux-youll-ever-need-8ce5da9e53c6)) -->
 
@@ -188,23 +182,23 @@ Redux is one way to fulfill server-side rendering. This can be acheived by sendi
 
 ## Why Not to Use Redux?
 
-While Redux has its benefits, you should not add Redux for every application you make. The general idea is to use Redux when you are in actual need of a more robust application state manager.
+While Redux has its benefits, you should not add Redux for every application you make.
 
-It would be very apt to use Redux is when:
+In general, it would be only apt to use Redux is when:
 
 1. You have reasonable amount of data changing over time
 1. You need a single source of truth
 1. You find keeping everything in a top-level parent component is not enough
 
-A good rule of thumb is to figure out if you have any problems managing state in your application without Redux. If you don't have any, then you don't really need Redux.  
+Another good rule of thumb is to figure out if you have any problems managing state in your application without Redux. If you don't have any, then you don't really need Redux.  
 
 As Dan Abramov, one of the creators of Redux, says with regards to [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html), a view library very commonly used with Redux:
 
-<box light>
+<box seamless>
 I would like to amend this: don't use Redux until you have problems with vanilla React.
 </box>
 
-There are many sites and articles speaking of why you shouldn't or when you shouldn't use Redux. If you are interested, the following resources in the section XXXX provide more information and thoughts on when Redux is meant to be used:
+There are many other sites and articles speaking of why you shouldn't or when you shouldn't use Redux. If you are interested, the following resources in this [section](({{baseUrl}}/contents/javascript/javascript-framework-redux#more-articles-on-when-to-use-redux)) provide more information and thoughts on when Redux is meant to be used.
 
 ## Getting Started with Redux
 
@@ -218,18 +212,20 @@ This article is based on the the sections [Core Concepts](https://redux.js.org/i
 
 Installing the [Redux DevTools](https://github.com/reduxjs/redux-devtools) would greatly help in terms of seeing Redux in action with whichever project or tutorial you are working on.
 
-### Frontend Framework Specific State Management Libraries
-
 Redux especially works well with React, read up on [React Redux](https://react-redux.js.org/), which are official React bindings for Redux
 
-For the other popular frontend frameworks, they may have their own state management libraries more suited for them. State management libraries are generally inspired from one another and follow the same general concepts as Redux. What is more important that each of these libraries are usually tailored to a specific front end library. The other frontend libraries and their corresponding state management libraries are:
+### More Articles on When to Use Redux 
+
+- [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+- [When should I use Redux?](https://redux.js.org/faq/general#when-should-i-use-redux)
+
+## Other Frontend Framework Specific State Management Libraries
+
+For the other popular frontend frameworks, they may have their own state management libraries more suited for them. State management libraries are generally inspired from one another, and you may find them follow similar general concepts as Redux. What is more important that each of these libraries are usually tailored to a specific front end library. The other frontend libraries and their corresponding state management libraries are:
 
 - Vue: [Vuex](https://vuex.vuejs.org/)
 - Angular: [NGRX](https://ngrx.io/)
 
-### More Resources on When to Use Redux 
 
-- [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
-- [When should I use Redux?](https://redux.js.org/faq/general#when-should-i-use-redux)
 
 </div>
