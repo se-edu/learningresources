@@ -36,7 +36,7 @@ Reviewers:
 
 <!-- understand what problem it solves -->
 <!-- anedoctal example of a complex sitation that would then require react -->
-To understand what Redux is, we have to understand what applications state is.
+To understand what Redux is, we have to understand what application state is.
 
 You can think of application state like a global object holding information that you will use for various purposes in your application. 
 
@@ -73,9 +73,12 @@ Now then, what is it about Redux that solves this?
 
 The structure of Redux is relatively simple.
 
-<box type='info'>
-  Put diagram here
-</box>
+![Structure of Redux](javascript-framework-redux-images/3basiccomponents.png "Structure of Redux")
+
+<center>
+
+_The three building blocks of Redux — Actions, Reducer and Store_
+</center>
 
 For this section, let's think of a simple to-do list application.
 
@@ -94,7 +97,7 @@ The whole application state is stored in a **single** store, a plain object.
 }
 ```
 
-There are no direct setters to the store. The store is read-only.
+There are no direct setters to the store. The store is read-only. Information in the store is used for various application functionality, such as the App UI. For example, based on the array under `todos`, we can render a to-do list of tasks. Based on the `visibilityFilter`, the application knows whether to render incompleted items. 
 
 The only way to change something in the state is by dispatching an **action**, a plain object.
 
@@ -104,7 +107,9 @@ The only way to change something in the state is by dispatching an **action**, a
 { type: 'SET_VISIBILITY_FILTER', filter: 'SHOW_ALL' }
 ```
 
-The current state, and an action is passed into a **reducer**, a pure function which returns the next state of the application
+User interactions in the application, such as button click events, can correspond to actions. For example, in our to-do list application, filling up 'Go to swimming pool' and clicking a 'Add To-do' button would correspond to a `ADD_TODO` action. 
+
+The current state, and an action is passed into a **reducer**, a function which returns the next state of the application
 
 In a real-world application, instead of a single reducer which can get complex, we can have multiple, simpler reducers, and combine them into one reducer.
 
@@ -141,7 +146,7 @@ function todos(state = [], action) {
 }
 ```
 
-These two reducers are called by a main reducer, and with that the complete app state is managed.
+These two reducers are called by a main reducer, and with that the complete application state is managed.
 
 ```js
 function todoApp(state = {}, action) {
@@ -152,14 +157,13 @@ function todoApp(state = {}, action) {
 }
 ```
 
-<!-- put a tooltip on pure -->
-The reducers are **pure** functions. They take the previous state and an action, and return the next state, as new state objects, instead of mutating the previous state.
+With the updated application state, the application will reflect the new information in the store accordingly, for example, it may render new items, or render incomplete items instead of complete items. 
 
-A careful eye would notice that the above code block examples on reducers are not pure functions. If you're interested, you may see what the reducer should actually be written. It includes some Redux API, and Javascript methods such as `.map` and the spread operator to make the functions pure.
+The reducers are <tooltip content="A pure function is a function which: Given the same input, will always return the same output. And produces no side effects.">**pure functions**</tooltip>. They take the previous state and an action, and return the next state as new state objects, instead of mutating the previous state.
+
+A careful eye would notice that the above code block examples on reducers are not pure functions. If you're interested, you may see how the reducer should actually be written in the [official Redux site](https://redux.js.org/basics/reducers/#source-code). The code in the link includes some Redux API, and Javascript methods such as [`.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to make the functions pure.
 
 ## Why use Redux?
-
-<!-- Some points from this section were adapted from these article  box-->
 
 <box type='definition' header="Some points given in this section were adapted from these articles">
 
@@ -171,13 +175,12 @@ Now that we know what Redux is, let us take a look at how the structure of Redux
 
 <!-- confusing point, make simpler and tie to my article -->
 1. **State is made predictable**<br/>
-In Redux, the single immutable store is the one source of truth for application state. Neither the view of the application, nor network callbacks directly write to it. Changes to the state are via actions, which Redux centralizes and keep in strict order. Also, reducers are pure functions, always producing the same result for the same state and action. Because of all of this, there is a structured and predictable cycle of which applicable state is updated. State is made predictable. Having such a a predictable state, makes it possible to implement functionality that is otherwise difficult, such as Undo and Redo.
+In Redux, the single immutable store is the single source of truth for application state. Neither the view of the application, nor network callbacks directly write to it. Changes to the state are via actions, which Redux centralizes and keep in strict order. Also, reducers are pure functions, always producing the same result for the same state and action. Because of all of this, there is a structured and predictable cycle of which applicable state is updated. State is made predictable. Having such a a predictable state, makes it possible to implement functionality that is otherwise difficult, such as Undo and Redo.
 
 2. **Easier to debug and inspect**<br/>
-Since actions and state are plain objects, it is possible to serialize them and log them. In Redux, especially with the Redux DevTools, you can view a log of actions that took place, making it easy to understand errors in code. You can also print the store within the code itself (for example using `console.log(store.getState())`{.js}). The Redux DevTools, used in the browser, also provides features such as a tree visualization of the application state, as well a time travel ability to replay state changes.
+Since actions and state are plain objects, it is possible to serialize them and log them. In Redux, especially with the Redux DevTools, you can view a log of actions that took place, making it easy to understand errors in code. You can also print the store within the code itself <tooltip content="for example using `console.log(store.getState())`">within the code itself</tooltip>. The Redux DevTools, used in the browser, also provides features such as a tree visualization of the application state, as well a time travel ability to replay state changes.
 
 ![Redux Devtool](https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png)
-
 
 <center>
 
