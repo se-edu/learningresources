@@ -72,7 +72,7 @@ One such commonly used database is MongoDB, which is a document based database.
 </box>
 
 
-<img src="documentDatabaseStructure.png" width="78%" class="mx-auto mb-2 d-block"/>
+<img src="documentDatabaseStructure.png" width="75%" class="mx-auto mb-2 d-block"/>
 
 In contrast to tables and table entries in SQL databases, document databases comprise of multiple collections, which in turn consists of multiple documents.
 
@@ -301,22 +301,21 @@ For example, take the following collection of items with a `title`:
 ```js
 [
   {
-    title: "let's assume item titles are lexicographically distributed uniformly over the long run"
-    type: "book",
-    price: 20,
-    popularity: 9.7,
+    title: "Apple",
+    ...
   },
-  // item 2
-  // item 3
-  // ....
-  // item N
+  {
+    title: "Orange",
+    ...
+  },
+  ...
 ]
 ```
 
 Assuming we don't have relations from items to themselves inside these documents,
 we can split the collection like so:
 
-<img src="horizontalScalability.png" width="500" />
+<img src="horizontalScalability.png" width="70%" class="d-block mx-auto my-1" />
 
 As a result, the database access workload can be distributed evenly and efficiently across
 multiple servers easily.
