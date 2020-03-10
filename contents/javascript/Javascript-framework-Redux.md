@@ -14,7 +14,7 @@
 # Introduction to Redux
 
 **Author: [Labayna Neil Brian Narido](https://github.com/nbriannl)** <br>
-Reviewers: 
+Reviewers: [Ang Ze Yu](https://www.github.com/ang-zeyu), [Yash Chowdhary](https://www.github.com/yash-chowdhary), [James Pang Mun Wai](https://www.github.com/jamessspanggg)
 
 <!-- update table of contents here -->
 <box id="article-toc">
@@ -34,8 +34,6 @@ Reviewers:
 
 ## What is Redux?
 
-<!-- understand what problem it solves -->
-<!-- anedoctal example of a complex sitation that would then require react -->
 To understand what Redux is, we have to understand what application state is.
 
 You can think of application state like a global object holding information that you will use for various purposes in your application. 
@@ -59,17 +57,13 @@ More formally, the [official website](https://redux.js.org/introduction/getting-
 >
 > You can use Redux together with React, or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.
 
-<!-- No need for this heading here, the explanation flows better. -->
 <!-- or just footnotes -->
 
 <!-- ([Adapted from this Medium article](https://medium.com/javascript-in-plain-english/the-only-introduction-to-redux-and-react-redux-youll-ever-need-8ce5da9e53c6)) -->
 
-## How does Redux work?
+## How Does Redux Work?
 
 Now then, what is it about Redux that solves this?
-
-<!-- shorten a simplify section as much as possible. no sub-headings. no code as much as possible -->
-<!-- use diagram -->
 
 The structure of Redux is relatively simple. Consisting of three components, Store, Actions and Reducer.
 
@@ -163,7 +157,7 @@ The reducers are <tooltip content="A pure function is a function which: Given th
 
 A careful eye would notice that the above code block examples on reducers are not pure functions. If you're interested, you may see how the reducer should actually be written in the [official Redux site](https://redux.js.org/basics/reducers/#source-code). The code in the link includes some Redux API, and Javascript methods such as [`.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to make the functions pure. But knowing the actual syntax for Redux is not the main focus of this introductory article.
 
-## Why use Redux?
+## Why Use Redux?
 
 <box type='definition' header="Some points given in this section were adapted from these articles">
 
@@ -173,7 +167,6 @@ A careful eye would notice that the above code block examples on reducers are no
 
 Now that we know what Redux is, let us take a look at how the structure of Redux and its concepts make possible some benefits.
 
-<!-- confusing point, make simpler and tie to my article -->
 1. **State is made predictable**<br/>
 In Redux, the single immutable store is the single source of truth for application state. Neither the view of the application, nor network callbacks directly write to it. Changes to the state are via actions, which Redux centralizes and keep in strict order. Also, reducers are pure functions, always producing the same result for the same state and action. Because of all of this, there is a structured and predictable cycle of which applicable state is updated, making state is predictable. Having a predictable state, makes it possible to implement functionality that would be otherwise difficult, such as Undo and Redo.
 
@@ -193,7 +186,7 @@ Using Redux makes for testable code. Since the reducers used to change the state
 4. **Allows for server-side rendering**<br/>
 Redux is one way to fulfill server-side rendering. This can be acheived by sending the store created on the server side in response to the client's server request. Information from the store then can be used for the initial render of the application.
 
-## Why not to use Redux?
+## Why Not to Use Redux?
 
 While Redux has its benefits, you should not add Redux for every application you make. The general idea is to use Redux when you are in actual need of a more robust application state manager.
 
@@ -213,7 +206,7 @@ I would like to amend this: don't use Redux until you have problems with vanilla
 
 There are many sites and articles speaking of why you shouldn't or when you shouldn't use Redux. If you are interested, the following resources in the section XXXX provide more information and thoughts on when Redux is meant to be used:
 
-## Getting Started With Redux
+## Getting Started with Redux
 
 The [official Redux website]((https://redux.js.org/)) is a great place to get started. It includes:
 
@@ -234,7 +227,7 @@ For the other popular frontend frameworks, they may have their own state managem
 - Vue: [Vuex](https://vuex.vuejs.org/)
 - Angular: [NGRX](https://ngrx.io/)
 
-### More Resources on When To Use Redux 
+### More Resources on When to Use Redux 
 
 - [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 - [When should I use Redux?](https://redux.js.org/faq/general#when-should-i-use-redux)
