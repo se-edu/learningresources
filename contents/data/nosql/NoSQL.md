@@ -18,7 +18,7 @@
 **Reviewer(s): [Neil Brian](https://github.com/nbriannl), [James Pang](https://github.com/jamessspanggg), [Daryl Tan](https://github.com/openorclose), [Yash Chowdhary](https://github.com/yash-chowdhary)**
 
 <box type="info">
-Basic knowledge of SQL databases is assumed. If not, give the <a href="../sql/SQL.html">SQL article</a> a read first!
+Basic knowledge of relational databases is assumed. If not, give the <a href="../sql/SQL.html">SQL article</a> a read first!
 </box>
 
 <box id="article-toc" style="background-color: #dee2e62b">
@@ -74,7 +74,7 @@ One such commonly used database is MongoDB, which is a document based database.
 
 <img src="documentDatabaseStructure.png" width="75%" class="mx-auto mb-2 d-block"/>
 
-In contrast to tables and table entries in SQL databases, document databases comprise of multiple collections, which in turn consists of multiple documents.
+In contrast to tables and table entries in relational databases, document databases comprise of multiple collections, which in turn consists of multiple documents.
 
 In a simplified e-commerce website for example, you may have the following collections: { id="main-example" }
 - _customers_ - storing the account details of customers, their purchase histories, etc.
@@ -134,7 +134,7 @@ db.customers.insertOne({
 })
 ```
 
-Like SQL databases, queries in NoSQL databases often also support more specific and powerful variants, and can
+Like relational databases, queries in NoSQL databases often also support more specific and powerful variants, and can
 be even more succinct in some cases.
 
 For example, to filter through items with a price of less than 30, and a popularity of more than 8,
@@ -269,7 +269,7 @@ cart: {
 
 
 <box type="info" light>
-For this reason, many NoSQL database solutions (e.g. MongoDB) implement a unique <code>id</code> field
+For this reason, many NoSQL database solutions (eg. MongoDB) implement a unique <code>id</code> field
 for each document by default.
 </box>
 
@@ -280,13 +280,13 @@ for each document by default.
 <br>
 
 ### 1. Highly Suited for Iterated Development
-Although less mature than SQL databases, NoSQL databases were designed to solve many of the emerging challenges in databases today.
+Although less mature than relational databases, NoSQL databases were designed to solve many of the emerging challenges in databases today.
 
 One of the most consequential impacts NoSQL has had was enabling faster iterated development.
 Given the highly flexible relational structure of NoSQL databases, and the schemaless format of documents 
 in NoSQL, this means that developers can adapt the database quicker to changing customer and business requirements.
 
-In contrast, tables in SQL databases necessitate predefined schema, which can be rather difficult to change later on while ensuring there are no side effects.
+In contrast, tables in relational databases necessitate predefined schema, which can be rather difficult to change later on while ensuring there are no side effects.
 
 ### 2. Easy Horizontal Scaling
 
@@ -339,7 +339,7 @@ As businesses grow, it is crucial that its databases can scale to meet greater c
 </figure>
 <br>
 
-While certainly trending behind SQL databases, NoSQL databases have been <tooltip content="Amazon uses a proprietary NoSQL database!">booming</tooltip> over the past couple of years,
+While certainly trending behind relational databases, NoSQL databases have been <tooltip content="Amazon uses a proprietary NoSQL database!">booming</tooltip> over the past couple of years,
 due to the increasing applicability of its benefits to requirements today. 
 
 This bodes well for the maturity and development of this evolving technology, and your potential use cases for it.
@@ -355,7 +355,7 @@ From both a user and implementation standpoint, NoSQL databases vary from one so
 extra development costs in projects when there is a need to migrate to another solution, or when new developers are introduced
 to the project.
 
-This is in stark contrast to SQL, which's syntax is mostly standardised across its different <tooltip content="eg. PostgreSQL, MySQL, etc.">implementations.</tooltip>
+This is in stark contrast to relational databases which mainly use <tooltip content="Structured Query Language">SQL</tooltip>, having a syntax that is mostly standardised across its different <tooltip content="eg. PostgreSQL, MySQL, etc.">implementations.</tooltip>
 
 #### 2. Not Suited for Complex Relational Queries
 While NoSQL databases certainly allow for more flexibility in structuring out relations, most complex queries (eg. joins for many-to-many relations) _usually_ involve structured data that can be easily represented in tabular formats. 
@@ -431,7 +431,7 @@ If you're interested in learning more about mongoDB, I recommend going through s
 _Indexes, Schema validation, Sharding_ (horizontal scaling), _Replica sets_ (redundancy).
 
 Otherwise, you could check out some other popular NoSQL databases, which can even be complementary to mongoDB.
-- [Redis](https://redis.io/) - An in-memory NoSQL <popover id="key-value-db" header="Key-Value databases" content="A simpler variant of NoSQL databases where data is accessed through _keys_ and stored in corresponding _values_, which can be of many formats.">key-value</popover> database used for caching purposes.
+- [Redis](https://redis.io/) - An in-memory NoSQL <popover id="key-value-db" header="Key-Value databases" content="A simpler variant of document databases where data is accessed through _keys_ and stored in corresponding _values_, which can be of many formats.">key-value</popover> database used for caching purposes.
 - [Neo4j](https://neo4j.com/) - A NoSQL <popover id="graph-db" placement="top" header="Graph databases" content="Data is represented by a graph in such databases. Values are stored in the graph's nodes, while relations between these nodes are represented by the edges of the graph.">graph database</popover>.
 
 ---
