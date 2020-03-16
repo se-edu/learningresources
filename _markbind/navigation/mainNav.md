@@ -23,7 +23,9 @@
   * Kotlin
     * [Introduction to Kotlin]({{baseUrl}}/contents/kotlin/kotlin.html)
     * [Null Safety In Kotlin]({{baseUrl}}/contents/kotlin/NullSafety.html)
-  * [Python]({{baseUrl}}/contents/python/introduction-to-python.html)
+  * Python
+    * [Introduction to Python]({{baseUrl}}/contents/python/introduction-to-python.html)
+    * [NumPy]({{baseUrl}}/contents/python/numpy.html)
   * [Ruby]({{baseUrl}}/contents/ruby/Ruby.html)
   * [Rust]({{baseUrl}}/contents/rust/Rust.html)
   * [Scala]({{baseUrl}}/contents/scala/Scala.html)
