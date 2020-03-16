@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Null Safety in Kotlin</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -339,57 +348,27 @@
           <h2 id="nullpointerexception">NullPointerException<a class="fa fa-anchor" href="#nullpointerexception"></a></h2>
           <p>When developing Android applications in Java, <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/NullPointerException.html">NullPointerException (NPE)</a> was a big problem. In fact, About <a href="https://image.slidesharecdn.com/droidcon-bugsense-130408170720-phpapp01/95/droid-con-bugsense-16-638.jpg?cb=1365440918">one third of app crashes can be attributed to NPE</a>.
             To see how it happens, let's take a look at the piece of Java code below:</p>
-          <pre><code class="hljs java">String a = <span class="hljs-keyword">null</span>;
-<span class="hljs-keyword">if</span>(a.length &gt; <span class="hljs-number">5</span>) {
-    <span class="hljs-comment">//do something</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span>String a = <span class="hljs-keyword">null</span>;</span><span><span class="hljs-keyword">if</span>(a.length &gt; <span class="hljs-number">5</span>) {</span><span>    <span class="hljs-comment">//do something</span></span><span>}</span></code></pre>
           <p>When the above code is run, an NPE will be thrown on line 2 because a <code>null</code> object has no methods. To prevent an object from taking on a <code>null</code> value, programmers typically resort to doing additional checks like this:</p>
-          <pre><code class="hljs java">String a = <span class="hljs-keyword">null</span>;
-<span class="hljs-keyword">if</span>(a != <span class="hljs-keyword">null</span> &amp;&amp; a.length &gt; <span class="hljs-number">5</span>) {
-        <span class="hljs-comment">//do something</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span>String a = <span class="hljs-keyword">null</span>;</span><span><span class="hljs-keyword">if</span>(a != <span class="hljs-keyword">null</span> &amp;&amp; a.length &gt; <span class="hljs-number">5</span>) {</span><span>        <span class="hljs-comment">//do something</span></span><span>}</span></code></pre>
           <p>And of course, that's all fine, until we want to do something more complex. Say Bob belongs to a department, and we want to get the name of the department manager. That will look like this:</p>
-          <pre><code class="hljs java">String managerName = bob.department.manager.name;
-</code></pre>
+          <pre><code class="hljs java"><span>String managerName = bob.department.manager.name;</span></code></pre>
           <p>Because each variable can be <code>null</code>, to prevent the NPE we put the code in the following code block:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span>(bob != <span class="hljs-keyword">null</span>) {
-    Department department = bob.department;
-    <span class="hljs-keyword">if</span>(department != <span class="hljs-keyword">null</span>) {
-        Employee manager = department.manager;
-        <span class="hljs-keyword">if</span>(manager != <span class="hljs-keyword">null</span>) {
-            String name = manager.name;
-            <span class="hljs-keyword">if</span>(name != <span class="hljs-keyword">null</span>) {
-                <span class="hljs-comment">//do something</span>
-            }
-        }
-    }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">if</span>(bob != <span class="hljs-keyword">null</span>) {</span><span>    Department department = bob.department;</span><span>    <span class="hljs-keyword">if</span>(department != <span class="hljs-keyword">null</span>) {</span><span>        Employee manager = department.manager;</span><span>        <span class="hljs-keyword">if</span>(manager != <span class="hljs-keyword">null</span>) {</span><span>            String name = manager.name;</span><span>            <span class="hljs-keyword">if</span>(name != <span class="hljs-keyword">null</span>) {</span><span>                <span class="hljs-comment">//do something</span></span><span>            }</span><span>        }</span><span>    }</span><span>}</span></code></pre>
           <p>The deep-nested <code>if</code> statement reduces readability of our code.</p>
           <p>The other way is to use <a href="http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html">Java Optionals</a>. For the first example above, we can do</p>
-          <pre><code class="hljs java">a.ifPresent(<span class="hljs-keyword">this</span>::doSomething);
-</code></pre>
+          <pre><code class="hljs"><span>a.ifPresent(this::doSomething);</span></code></pre>
           <p>And for the deeply-nested <code>if</code> statements, the verbosity can be reduced with</p>
-          <pre><code class="hljs java">bob.map(Person::getDepartment)
-    .map(Person::getManager)
-    .map(Person::getName)
-    .ifPresent(Person::doSomething);
-</code></pre>
+          <pre><code class="hljs"><span>bob.map(Person::getDepartment)</span><span>    .map(Person::getManager)</span><span>    .map(Person::getName)</span><span>    .ifPresent(Person::doSomething);</span></code></pre>
           <p><code>map()</code> is a method in Java Optionals class that applies the function inside the parentheses to the object that is calling it. If the object is not present, it will return an empty Optional.</p>
           <p>Let's see how Kotlin deals with this issue while maintaining a simple and readable syntax.</p>
           <h1 id="how-does-kotlin-handle-null-safety">How does Kotlin handle Null Safety?<a class="fa fa-anchor" href="#how-does-kotlin-handle-null-safety"></a></h1>
           <h2 id="nullable-and-non-nullable-type">Nullable and Non-nullable type<a class="fa fa-anchor" href="#nullable-and-non-nullable-type"></a></h2>
           <p>In Kotlin, a type can be <em>nullable</em> or <em>non-nullable</em>, determined by the presence of a <code>?</code>. For example, an object of type <code>String</code> is non-nullable, while an object of type <code>String?</code> is nullable.</p>
           <p>As the compiler catches <code>null</code> assignments to non-nullable objects, the following would result in compilation error.</p>
-          <pre><code class="hljs Kotlin"><span class="hljs-keyword">var</span> firstString: String = <span class="hljs-string">"hello world"</span>
-firstString = <span class="hljs-literal">null</span> <span class="hljs-comment">//compilation error</span>
-</code></pre>
+          <pre><code class="hljs Kotlin"><span><span class="hljs-keyword">var</span> firstString: String = <span class="hljs-string">"hello world"</span></span><span>firstString = <span class="hljs-literal">null</span> <span class="hljs-comment">//compilation error</span></span></code></pre>
           <p>In comparison, the following assignment to a nullable type is allowed</p>
-          <pre><code class="hljs Kotlin"><span class="hljs-keyword">var</span> secondString: String? = <span class="hljs-string">"hello world"</span>
-secondString = <span class="hljs-literal">null</span> <span class="hljs-comment">//okay</span>
-</code></pre>
+          <pre><code class="hljs Kotlin"><span><span class="hljs-keyword">var</span> secondString: String? = <span class="hljs-string">"hello world"</span></span><span>secondString = <span class="hljs-literal">null</span> <span class="hljs-comment">//okay</span></span></code></pre>
           <p>In the first case, we can safely call <code>firstString.length</code> without having to worry about a NPE because <code>firstString</code> can never be <code>null</code>.<br> In the second case, <code>secondString</code> can potentially be <code>null</code>,
             so <code>secondString.length</code> will result in a compilation error as the compiler see the danger of such statement and blocks it early.</p>
           <h2 id="safety-operators-in-kotlin">Safety Operators in Kotlin<a class="fa fa-anchor" href="#safety-operators-in-kotlin"></a></h2>
@@ -397,32 +376,23 @@ secondString = <span class="hljs-literal">null</span> <span class="hljs-comment"
             we seem to have hit an obstacle as the compiler blocks the call to <code>secondString.length</code>. In this section we look at some ways of overcoming this problem.</p>
           <h3 id="safe-call-operator">Safe call operator<a class="fa fa-anchor" href="#safe-call-operator"></a></h3>
           <p>Represented by <code>?.</code>, the safe call operator is used in this way</p>
-          <pre><code class="hljs kotlin">secondString?.length
-</code></pre>
+          <pre><code class="hljs kotlin"><span>secondString?.length</span></code></pre>
           <p>This returns the length of <code>secondString</code> if <code>secondString</code> is not <code>null</code>, and <code>null</code> otherwise.</p>
           <p>Now we can chain like this</p>
-          <pre><code class="hljs Kotlin">bob?.department?.manager?.name
-</code></pre>
+          <pre><code class="hljs Kotlin"><span>bob?.department?.manager?.name</span></code></pre>
           <p>This chain will return <code>null</code> if any of the variables inside the chain is <code>null</code>.</p>
           <h3 id="elvis-operators">Elvis Operators<a class="fa fa-anchor" href="#elvis-operators"></a></h3>
           <p>Represented by <code>?:</code>, the Elvis operator is used in this way</p>
-          <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> length = secondString?.length ?: -<span class="hljs-number">1</span>
-</code></pre>
+          <pre><code class="hljs kotlin"><span><span class="hljs-keyword">val</span> length = secondString?.length ?: -<span class="hljs-number">1</span></span></code></pre>
           <p>If the expression to the left of <code>?:</code> is not null, the Elvis operator (<code>?.</code>) will return it as it is; else it will return a default value supplied (-1 in this case).</p>
           <p>We also notice the use of safe call operator together with Elvis operator in the same statement.</p>
           <p>But the Elvis operator is more powerful than this. <code>return</code> and <code>throw</code> statements are legitimate default values on the right side of the Elvis operator. So you can define your own error message to aid debugging. For example:</p>
-          <pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">myFunc</span><span class="hljs-params">(node: <span class="hljs-type">Node</span>)</span></span>: String? {
-    <span class="hljs-keyword">val</span> parent = node.getParent() ?: <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>
-    <span class="hljs-keyword">val</span> name = node.getName() ?: <span class="hljs-keyword">throw</span> IllegalArgumentException(<span class="hljs-string">"Name expected"</span>)
-    <span class="hljs-comment">// ...</span>
-}
-</code></pre>
+          <pre><code class="hljs kotlin"><span><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">myFunc</span><span class="hljs-params">(node: <span class="hljs-type">Node</span>)</span></span>: String? {</span><span>    <span class="hljs-keyword">val</span> parent = node.getParent() ?: <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span></span><span>    <span class="hljs-keyword">val</span> name = node.getName() ?: <span class="hljs-keyword">throw</span> IllegalArgumentException(<span class="hljs-string">"Name expected"</span>)</span><span>    <span class="hljs-comment">// ...</span></span><span>}</span></code></pre>
           <p>Doing so like this can help programmers to check for function arguments before carrying on with the required computation.</p>
           <p>At this point you may ask, &quot;What if I still want my NPE?&quot;</p>
           <h3 id="not-null-assertion-operator">Not-null assertion operator<a class="fa fa-anchor" href="#not-null-assertion-operator"></a></h3>
           <p>Represented by <code>!!</code>, the not-null assertion operator is used in this way</p>
-          <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> stringLength = secondString!!.length
-</code></pre>
+          <pre><code class="hljs kotlin"><span><span class="hljs-keyword">val</span> stringLength = secondString!!.length</span></code></pre>
           <p>The operator converts any value to a non-nullable type and throws an exception if the value is null. In the above example, <code>stringLength</code> will be assigned the length of <code>secondString</code> if <code>secondString</code> is not
             <code>null</code>; if secondString is <code>null</code>, a NPE is thrown. Kotlin tries to reduce the number of NPEs thrown as it is a run-time exception that is difficult to debug, in addition to creating so many app crashes. Hence NPEs in
             Kotlin are explicitly asked for.
@@ -472,7 +442,7 @@ secondString = <span class="hljs-literal">null</span> <span class="hljs-comment"
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

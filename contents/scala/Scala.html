@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Scala</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a current">Scala</a></li>
@@ -343,13 +352,7 @@
             in Scala.
           </p>
           <p>Type Inference Example:</p>
-          <pre><code class="hljs scala"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"foo"</span>
-<span class="hljs-keyword">var</span> y = <span class="hljs-number">1.5</span>
-<span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
-
-x = <span class="hljs-number">3</span> <span class="hljs-comment">// Error: type mismatch</span>
-x = <span class="hljs-string">"bar"</span> <span class="hljs-comment">// OK</span>
-</code></pre>
+          <pre><code class="hljs scala"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"foo"</span></span><span><span class="hljs-keyword">var</span> y = <span class="hljs-number">1.5</span></span><span><span class="hljs-keyword">val</span> z = <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)</span><span>&#x200B;</span><span>x = <span class="hljs-number">3</span> <span class="hljs-comment">// Error: type mismatch</span></span><span>x = <span class="hljs-string">"bar"</span> <span class="hljs-comment">// OK</span></span></code></pre>
           <h3 id="operator-overloading">Operator Overloading<a class="fa fa-anchor" href="#operator-overloading"></a></h3>
           <p>All operators in Scala such as <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> are actually methods.</p>
           <p>Normally, we write addition in following way:</p>
@@ -358,73 +361,20 @@ x = <span class="hljs-string">"bar"</span> <span class="hljs-comment">// OK</spa
           <p><code class="hljs inline scala"><span class="hljs-keyword">val</span> a = <span class="hljs-number">1.</span>+(<span class="hljs-number">2</span>)</code></p>
           <p>Knowing that, we are able to overload operators just like method overloading. It allows us to redefine the behavior of arithmetic operators and give them meaning for our own custom classes.</p>
           <p>Following is a <em>ComplexInt</em> class which uses operator overloading.</p>
-          <pre><code class="hljs scala"><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ComplexInt</span>(<span class="hljs-params">real: <span class="hljs-type">Int</span>, im: <span class="hljs-type">Int</span></span>) </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-type">ComplexInt</span>(real + other.real, im + other.im)
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-type">ComplexInt</span>(
-    real * other.real - im * other.im,
-    real * other.im + im * other.real
-  )
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unary_-</span> </span>= <span class="hljs-type">ComplexInt</span>(-real, -im)
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">-</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-keyword">this</span> + -other
-
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> </span>= real + <span class="hljs-string">" + "</span> + im + <span class="hljs-string">"i"</span>
-}
-</code></pre>
+          <pre><code class="hljs scala"><span><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ComplexInt</span>(<span class="hljs-params">real: <span class="hljs-type">Int</span>, im: <span class="hljs-type">Int</span></span>) </span>{</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-type">ComplexInt</span>(real + other.real, im + other.im)</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-type">ComplexInt</span>(</span><span>    real * other.real - im * other.im,</span><span>    real * other.im + im * other.real</span><span>  )</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unary_-</span> </span>= <span class="hljs-type">ComplexInt</span>(-real, -im)</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">-</span> </span>(other: <span class="hljs-type">ComplexInt</span>) = <span class="hljs-keyword">this</span> + -other</span><span>&#x200B;</span><span>  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> </span>= real + <span class="hljs-string">" + "</span> + im + <span class="hljs-string">"i"</span></span><span>}</span></code></pre>
           <p>We are able to use the class like below:</p>
-          <pre><code class="hljs scala"><span class="hljs-keyword">val</span> a = <span class="hljs-type">ComplexInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
-<span class="hljs-keyword">val</span> b = <span class="hljs-type">ComplexInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>)
-<span class="hljs-keyword">val</span> c = a * b
-<span class="hljs-keyword">val</span> d = -c + a
-</code></pre>
+          <pre><code class="hljs scala"><span><span class="hljs-keyword">val</span> a = <span class="hljs-type">ComplexInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)</span><span><span class="hljs-keyword">val</span> b = <span class="hljs-type">ComplexInt</span>(<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>)</span><span><span class="hljs-keyword">val</span> c = a * b</span><span><span class="hljs-keyword">val</span> d = -c + a</span></code></pre>
           <p>In contrast, this is how the same operations would look like if written in Java:</p>
-          <pre><code class="hljs java">ComplexInt a = <span class="hljs-keyword">new</span> ComplexInt(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
-ComplexInt b = <span class="hljs-keyword">new</span> ComplexInt(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>);
-ComplexInt c = a.times(b);
-ComplexInt d = (c.negative()).add(a);
-</code></pre>
+          <pre><code class="hljs java"><span>ComplexInt a = <span class="hljs-keyword">new</span> ComplexInt(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);</span><span>ComplexInt b = <span class="hljs-keyword">new</span> ComplexInt(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>);</span><span>ComplexInt c = a.times(b);</span><span>ComplexInt d = (c.negative()).add(a);</span></code></pre>
           <h3 id="mixins-traits">Mixins, Traits<a class="fa fa-anchor" href="#mixins-traits"></a></h3>
           <p>In scala, types and behavior of objects are described by <em>classes</em> and <em>traits</em>.</p>
           <p><a href="https://docs.scala-lang.org/tour/traits.html"><em>Traits</em></a> are used to share interfaces and fields between classes, which are similar to Java's interfaces.</p>
           <p>Classes are extended by <em>subclassing</em> and a flexible <em>mixin-based</em> mechanism to avoid the problems of multiple inheritance.</p>
           <p>Classes cannot have <em>static members</em>. A singleton object with same name of the class can be used to achieve the same effect. A singleton object is basically a class that can have only one instance.</p>
           <p>The following Scala code illustrates some of the concepts mentioned above:</p>
-          <pre><code class="hljs scala"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentTrait</span> </span>{
-  <span class="hljs-comment">// abstract</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>()
-}
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {
-    println(<span class="hljs-string">"print in Sample"</span>)
-  }
-}
-
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{
-  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {
-    println(<span class="hljs-string">"print in TraitA"</span>)
-    <span class="hljs-keyword">super</span>.print()
-  }
-}
-
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{
-  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {
-    println(<span class="hljs-string">"print in TraitB"</span>)
-    <span class="hljs-keyword">super</span>.print()
-  }
-}
-
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Sample</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
-    <span class="hljs-keyword">val</span> example = <span class="hljs-keyword">new</span> <span class="hljs-type">Sample</span> <span class="hljs-keyword">with</span> <span class="hljs-type">TraitA</span> <span class="hljs-keyword">with</span> <span class="hljs-type">TraitB</span>
-   example.print()
-  }
-}
-</code></pre>
+          <pre><code class="hljs scala"><span><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentTrait</span> </span>{</span><span>  <span class="hljs-comment">// abstract</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>()</span><span>}</span><span>&#x200B;</span><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{</span><span>  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {</span><span>    println(<span class="hljs-string">"print in Sample"</span>)</span><span>  }</span><span>}</span><span>&#x200B;</span><span><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{</span><span>  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {</span><span>    println(<span class="hljs-string">"print in TraitA"</span>)</span><span>    <span class="hljs-keyword">super</span>.print()</span><span>  }</span><span>}</span><span>&#x200B;</span><span><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentTrait</span> </span>{</span><span>  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>() {</span><span>    println(<span class="hljs-string">"print in TraitB"</span>)</span><span>    <span class="hljs-keyword">super</span>.print()</span><span>  }</span><span>}</span><span>&#x200B;</span><span><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Sample</span> </span>{</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {</span><span>    <span class="hljs-keyword">val</span> example = <span class="hljs-keyword">new</span> <span class="hljs-type">Sample</span> <span class="hljs-keyword">with</span> <span class="hljs-type">TraitA</span> <span class="hljs-keyword">with</span> <span class="hljs-type">TraitB</span></span><span>   example.print()</span><span>  }</span><span>}</span></code></pre>
           <p>The output from running the above code:</p>
-          <pre><code class="hljs">print in TraitB
-print in TraitA
-print in Sample
-</code></pre>
+          <pre><code class="hljs"><span>print in TraitB</span><span>print in TraitA</span><span>print in Sample</span></code></pre>
           <p>The explanation is that the call to <code>print()</code> executes the code in <code>TraitB</code>, which is the last trait mixed in. Then, through the <code>super()</code> calls, it threads back through the other mixin traits. And eventually
             to the code in <code>Sample</code>. Note thath none of the traits inherited from others.</p>
           <p>This is similar to the <a href="https://en.wikipedia.org/wiki/Decorator_pattern"><em>decorator pattern</em></a> but is more concise and less error-prone. In other languages, a similar effect could be achieved with a long linear chain of inheritance.
@@ -432,17 +382,7 @@ print in Sample
           <h3 id="type-enrichment">Type Enrichment<a class="fa fa-anchor" href="#type-enrichment"></a></h3>
           <p>Have you ever needed to add new function to an existing library? An implicit class in Scala can help you to do so. This technique allows new methods to be added to an existing class using an add-on library such that only code that imports the
             add-on library gets the new functionality, and all other code is unaffected. See the code below:</p>
-          <pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MyExtensions</span> </span>{
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntParity</span>(<span class="hljs-params">i: <span class="hljs-type">Int</span></span>) </span>{
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isEven</span> </span>= i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isOdd</span>  </span>= !isEven
-  }
-}
-
-<span class="hljs-keyword">import</span> <span class="hljs-type">MyExtensions</span>._  <span class="hljs-comment">// bring implicit enrichment into scope</span>
-<span class="hljs-number">4.</span>isEven  <span class="hljs-comment">// -&gt; true</span>
-<span class="hljs-number">4.</span>isOdd   <span class="hljs-comment">// -&gt; false</span>
-</code></pre>
+          <pre><code class="hljs scala"><span><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MyExtensions</span> </span>{</span><span>  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntParity</span>(<span class="hljs-params">i: <span class="hljs-type">Int</span></span>) </span>{</span><span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isEven</span> </span>= i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span></span><span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isOdd</span>  </span>= !isEven</span><span>  }</span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">import</span> <span class="hljs-type">MyExtensions</span>._  <span class="hljs-comment">// bring implicit enrichment into scope</span></span><span><span class="hljs-number">4.</span>isEven  <span class="hljs-comment">// -&gt; true</span></span><span><span class="hljs-number">4.</span>isOdd   <span class="hljs-comment">// -&gt; false</span></span></code></pre>
           <p>This is the implicit class that extend the library of class <code>Int</code>. The name of the class does not matter. After importing this class, we can use <code>isEven()</code> and <code>isOdd()</code> method just as if it has been declared
             in the original <code>Int</code> class.</p>
           <h3 id="pattern-matching">Pattern Matching<a class="fa fa-anchor" href="#pattern-matching"></a></h3>
@@ -450,28 +390,12 @@ print in Sample
             matching.
           </p>
           <p>There are many kinds of pattern matching in Scala, let's start with a simplest pattern matching function:</p>
-          <pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">matchTest</span></span>(x: <span class="hljs-type">Int</span>): <span class="hljs-type">String</span> = x <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-number">0</span> =&gt; <span class="hljs-string">"zero"</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">"one"</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">"two"</span>
-  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">"many"</span>
-}
-
-matchTest(<span class="hljs-number">0</span>)  <span class="hljs-comment">// zero</span>
-matchTest(<span class="hljs-number">3</span>)  <span class="hljs-comment">// many</span>
-matchTest(<span class="hljs-number">1</span>)  <span class="hljs-comment">// one</span>
-</code></pre>
+          <pre><code class="hljs scala"><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">matchTest</span></span>(x: <span class="hljs-type">Int</span>): <span class="hljs-type">String</span> = x <span class="hljs-keyword">match</span> {</span><span>  <span class="hljs-keyword">case</span> <span class="hljs-number">0</span> =&gt; <span class="hljs-string">"zero"</span></span><span>  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">"one"</span></span><span>  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">"two"</span></span><span>  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">"many"</span></span><span>}</span><span>&#x200B;</span><span>matchTest(<span class="hljs-number">0</span>)  <span class="hljs-comment">// zero</span></span><span>matchTest(<span class="hljs-number">3</span>)  <span class="hljs-comment">// many</span></span><span>matchTest(<span class="hljs-number">1</span>)  <span class="hljs-comment">// one</span></span></code></pre>
           <p>The parameter <code>x</code> is the left operand of the <code>match</code> operator and on the right is an expression with four cases. Each case expression is tried to see if it will match, and the first match will be returned. The last case
             <code>_</code> is a &quot;catch all&quot; case which can match all inputs.</p>
           <p>The pattern matching in Scala also includes <em>Case Class Matching</em>, <em>List Matching</em>, <em>Type Matching</em>, <em>Tuple Matching</em> etc. See <a href="https://docs.scala-lang.org/tour/pattern-matching.html">here</a> for more details.</p>
           <p>Following is an example of <a href="https://en.wikipedia.org/wiki/Quicksort">QuickSort</a> algorithm to show how strong is Scala's pattern matching:</p>
-          <pre><code class="hljs scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qsort</span></span>(list: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]): <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>] = list <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> =&gt; <span class="hljs-type">Nil</span>
-  <span class="hljs-keyword">case</span> pivot :: tail =&gt;
-    <span class="hljs-keyword">val</span> (smaller, rest) = tail.partition(_ &lt; pivot)
-    qsort(smaller) ::: pivot :: qsort(rest)
-}
-</code></pre>
+          <pre><code class="hljs scala"><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qsort</span></span>(list: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]): <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>] = list <span class="hljs-keyword">match</span> {</span><span>  <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> =&gt; <span class="hljs-type">Nil</span></span><span>  <span class="hljs-keyword">case</span> pivot :: tail =&gt;</span><span>    <span class="hljs-keyword">val</span> (smaller, rest) = tail.partition(_ &lt; pivot)</span><span>    qsort(smaller) ::: pivot :: qsort(rest)</span><span>}</span></code></pre>
           <p>Explanation of the code:</p>
           <ul>
             <li>The idea here is that we <em>partition</em> a list recursively, sort each part and combine the results together.</li>
@@ -528,7 +452,7 @@ matchTest(<span class="hljs-number">1</span>)  <span class="hljs-comment">// one
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

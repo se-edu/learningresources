@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - SQL Injection</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -346,8 +355,7 @@
           </ul>
           <p>In addition, a query could use parameters to filter, reorder, and group the returned results. For example, the following query will only returns the records in table &quot;users&quot; whose user name is &quot;Admin&quot;. Here the parameter
             <code>Username = Admin</code> in the <code>WHERE clause</code> works as a filter.</p>
-          <pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'Admin'</span>
-</code></pre>
+          <pre><code class="hljs SQL"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'Admin'</span></span></code></pre>
           <p>More information about SQL can be found <a href="https://www.w3schools.com/sql/">here</a>.</p>
           <h2 id="how-does-sql-injection-work">How does SQL Injection Work?<a class="fa fa-anchor" href="#how-does-sql-injection-work"></a></h2>
           <blockquote>
@@ -383,18 +391,12 @@
             </table>
           </div>
           <p>Then the website prompts a login form to require the user to enter <code>username</code> and <code>password</code>. After receiving the data, it generates the following SQL query:</p>
-          <pre><code class="hljs sql">String query = "<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘<span class="hljs-string">" + input_username +"</span>’ 
-                <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘<span class="hljs-string">" + input_password + "</span>’<span class="hljs-string">";
-</span></code></pre>
+          <pre><code class="hljs sql"><span>String query = "<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘<span class="hljs-string">" + input_username +"</span>’ </span><span>                <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘<span class="hljs-string">" + input_password + "</span>’<span class="hljs-string">";</span></span></code></pre>
           <p>Next, the website checks whether the query returns any record to verify whether the user enters the correct password.</p>
           <p>As an example, if a user entered their username, <code>Alice</code>, and password, <code>pw1234</code> into the website to try to gain access:</p>
-          <pre><code class="hljs">Username: Alice
-Password: pw1234
-</code></pre>
+          <pre><code class="hljs"><span>Username: Alice</span><span>Password: pw1234</span></code></pre>
           <p>The constructed query would look like this:</p>
-          <pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘Alice’ 
-<span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘pw1234’
-</code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘Alice’ </span><span><span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘pw1234’</span></code></pre>
           <p>This query would find all entries in the <code>Users</code> table in the database, and return any entries where the <code>Username</code> is <code>Alice</code> and the <code>Password</code> is <code>pw1234</code>. If the previous table was searched,
             it would return the details of the second row as the result. Since there was a result returned, the website would be able to tell that a legitimate username and password combination was entered since the query requires that both are matched
             to retrieve the data. Thus, the website would know that the user is legitimate, and the user would be allowed to log into the site. On the other hand, if no result was returned by the database, the website would know that the username and
@@ -403,31 +405,21 @@ Password: pw1234
           <p>In the example above, the website directly substitutes the information given by the user without any validation. In this case, an attacker can supply some malicious SQL code in the user input such that it changes the nature of the SQL statement
             executed.</p>
           <p>For example, the attacker can add more parameters to the query:</p>
-          <pre><code class="hljs sql">Username: Admin
-Password: foo’ OR ‘1’=‘1
-</code></pre>
+          <pre><code class="hljs sql"><span>Username: Admin</span><span>Password: foo’ OR ‘1’=‘1</span></code></pre>
           <p>The SQL command string built from this input would be as follows:</p>
-          <pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘<span class="hljs-keyword">Admin</span>’ 
-<span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘foo’ <span class="hljs-keyword">OR</span> ‘<span class="hljs-number">1</span>’=‘<span class="hljs-number">1</span>’
-</code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘<span class="hljs-keyword">Admin</span>’ </span><span><span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘foo’ <span class="hljs-keyword">OR</span> ‘<span class="hljs-number">1</span>’=‘<span class="hljs-number">1</span>’</span></code></pre>
           <p>In SQL, <code>AND</code> operations are checked before <code>OR</code> operations. This query will check the database for entries where:</p>
-          <pre><code class="hljs">(Username = Admin AND Password = foo) OR (‘1’=‘1’)
-</code></pre>
+          <pre><code class="hljs"><span>(Username = Admin AND Password = foo) OR (‘1’=‘1’)</span></code></pre>
           <p>This <code>where</code> clause will always return true, as <code>‘1’=‘1’</code> is always true. As such, the query can be simplified to this:</p>
-          <pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span>
-</code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span></span></code></pre>
           <p>This will return all the rows from the <code>Users</code> table in the database, regardless of username or password entered.</p>
           <p>The above technique of injecting malicious SQL code via user input is called SQL injection. If used in user authentication, the attacker is able to gain access to anyone's account. Moreover, this attacker can also modify sensitive information
             if the account owner has the privilege (e.g. a lecturer who can modify students' marks).</p>
           <p><strong>In addition to adding extra parameters to compromise the authentication, a malicious user may even add custom queries to view, modify the records in database, or even delete the whole database.</strong></p>
           <p>An SQL query ends with a semicolon &quot;;&quot;. In the previous section the malicious user terminates one parameter by single quote &quot;'&quot;, and add more parameters behind it. Now, he can also terminate the query by semicolon, and adds
             another query at the back:</p>
-          <pre><code class="hljs sql">Username: foo
-Password: bar’; <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">Users</span>;
-</code></pre>
-          <pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘foo’ <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘bar’; 
-<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">Users</span>;
-</code></pre>
+          <pre><code class="hljs sql"><span>Username: foo</span><span>Password: bar’; <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">Users</span>;</span></code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘foo’ <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘bar’; </span><span><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">Users</span>;</span></code></pre>
           <p>When the database executes these two queries, it will delete all user information. Then other users cannot access this website. In addition to the <code>DROP</code> query, the attacker may also inject <code>SELECT</code> and <code>INSERT</code>            queries, which can either read sensitive data from database or add data to it.</p>
           <h2 id="why-is-it-important-to-prevent-sql-injection">Why is it Important to Prevent SQL Injection?<a class="fa fa-anchor" href="#why-is-it-important-to-prevent-sql-injection"></a></h2>
           <ol>
@@ -450,28 +442,14 @@ Password: bar’; <span class="hljs-keyword">DROP</span> <span class="hljs-keywo
           <p>By defining all the SQL code first and passing in the parameters afterwards, you can make the database distinguish the difference between code and data. It would treat the values entered by the user as a parameter, and would not allow it to
             alter the query being executed. The way to achieve this varies by language, but it is easy to implement and effective.</p>
           <p>For example, instead of writing this in Java:</p>
-          <pre><code class="hljs java">String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = "</span> + input_username +<span class="hljs-string">"’ 
-                AND Password = ‘"</span> + input_password + <span class="hljs-string">"’"</span>;
-Statement statement = connection.createStatement();
-ResultSet results = statement.executeQuery( query );
-</code></pre>
+          <pre><code class="hljs java"><span>String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = "</span> + input_username +<span class="hljs-string">"’ </span></span><span><span class="hljs-string">                AND Password = ‘"</span> + input_password + <span class="hljs-string">"’"</span>;</span><span>Statement statement = connection.createStatement();</span><span>ResultSet results = statement.executeQuery( query );</span></code></pre>
           <p>You can prepare the statement like this:</p>
-          <pre><code class="hljs java"> String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = ? 
-                AND Password = ? "</span>;
- PreparedStatement pstmt = connection.prepareStatement( query );
- pstmt.setString( <span class="hljs-number">1</span>, input_username ); 
- pstmt.setString( <span class="hljs-number">2</span>, input_password );
- ResultSet results = pstmt.executeQuery( );
-</code></pre>
+          <pre><code class="hljs java"><span> String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = ? </span></span><span><span class="hljs-string">                AND Password = ? "</span>;</span><span> PreparedStatement pstmt = connection.prepareStatement( query );</span><span> pstmt.setString( <span class="hljs-number">1</span>, input_username ); </span><span> pstmt.setString( <span class="hljs-number">2</span>, input_password );</span><span> ResultSet results = pstmt.executeQuery( );</span></code></pre>
           <p>The <code>?</code> in the query string is a placeholder for a string value. In the example, the first <code>?</code> is substituted with the value of <code>input_username</code> using the call <code>pstmt.setString(1, input_username)</code>.
             If the earlier attack was attempted, The query being submitted to the database will look like this:</p>
-          <pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'foo'</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = <span class="hljs-string">'bar'</span> <span class="hljs-keyword">OR</span> ‘’=’’
-</code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'foo'</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = <span class="hljs-string">'bar'</span> <span class="hljs-keyword">OR</span> ‘’=’’</span></code></pre>
           <p>However, since it is treated as a value to be used, the database will not allow it to modify the query, and it would not be able to affect the structure of the SQL statement. As such, the query will check the database for entries where:</p>
-          <pre><code class="hljs">Username = foo
-AND 
-Password = bar OR ‘’=’’
-</code></pre>
+          <pre><code class="hljs"><span>Username = foo</span><span>AND </span><span>Password = bar OR ‘’=’’</span></code></pre>
           <p>As such, the query is safe from SQL code being injected by users.</p>
           <h3 id="solution-2-whitelist-input-validation">Solution 2: Whitelist Input Validation<a class="fa fa-anchor" href="#solution-2-whitelist-input-validation"></a></h3>
           <p>By applying a whitelist to the values a user is allowed to use, you can remove undesired symbols in the query being passed to the database (e.g. whitelisting only alphanumeric characters for a username). This ensures that attackers won't be
@@ -524,7 +502,7 @@ Password = bar OR ‘’=’’
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

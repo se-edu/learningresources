@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Regular Expressions</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -345,10 +354,7 @@
           <p>Secondly, a phone number must have 8 digits. This is specified by <code>[\d]{8}</code>. <code>[\d]</code> matches a single digit from 0-9, and <code>{8}</code> means that <code>[\d]</code> is repeated 8 times. Putting them together, <code>[\d]{8}</code>            matches a string of 8 digits.</p>
           <p>As we can see, the pattern <code>(65)?[\d]{8}</code> when translated to simple English, means 'Look for a string of 8 numerical digits, that may have an extra <code>65</code> in front of it'. This satisfies our criteria for matching a phone
             number, so we can use it to search our text. Here are some examples of matching strings:</p>
-          <pre><code class="hljs">6591234567
-87775555
-67777188
-</code></pre>
+          <pre><code class="hljs"><span>6591234567</span><span>87775555</span><span>67777188</span></code></pre>
           <h2 id="search-and-replace">Search and Replace<a class="fa fa-anchor" href="#search-and-replace"></a></h2>
           <p>Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.</p>
           <p>Regex can also be used to search and replace strings.</p>
@@ -502,60 +508,33 @@
             <li>Return when a match is found, or if no match is found.</li>
           </ol>
           <p>For example, for the regex <code>light</code> against the sentence <code>He likes light lightbulbs.</code>:</p>
-          <pre><code class="hljs">He likes light lightbulbs.
-^
-light
-</code></pre>
+          <pre><code class="hljs"><span>He likes light lightbulbs.</span><span>^</span><span>light</span></code></pre>
           <p>First, the engine checks against the start of the string, <code>H</code> against <code>l</code>. This doesn't match, so the engine moves on to <code>e</code>, then <code></code>, and so on.</p>
-          <pre><code class="hljs">He likes light lightbulbs.
-   ^
-   light
-</code></pre>
+          <pre><code class="hljs"><span>He likes light lightbulbs.</span><span>   ^</span><span>   light</span></code></pre>
           <p>Once it reaches the first <code>l</code>, it sees a match, consumes the <code>l</code> and starts comparing the rest of the string.</p>
-          <pre><code class="hljs">He likes light lightbulbs.
-     ^
-   light
-</code></pre>
+          <pre><code class="hljs"><span>He likes light lightbulbs.</span><span>     ^</span><span>   light</span></code></pre>
           <p>However, when it reaches <code>k</code>, it finds a different character so it knows it's not a match. It then starts again from <code>i</code> (the letter after <code>l</code>).</p>
-          <pre><code class="hljs">He likes light lightbulbs.
-         ^
-         light
-</code></pre>
+          <pre><code class="hljs"><span>He likes light lightbulbs.</span><span>         ^</span><span>         light</span></code></pre>
           <p>Finally, when it finds a match, it returns the match and terminates. Note that the second <code>light</code> in <code>lightbulbs</code> is ignored.</p>
           <p>Of course, more complex Regex functions will require more steps, but this will give you a rough understanding of the engine for now.</p>
           <h2 id="greedy-operators">Greedy Operators<a class="fa fa-anchor" href="#greedy-operators"></a></h2>
           <p>The operators <code>{}</code>, <code>*</code> and <code>+</code> are called greedy operators because they try to match as many characters as possible. For example, for the regex <code>b.*</code> against the string <code>baaaaaa</code>:</p>
-          <pre><code class="hljs">baaaaaaaaa
- ^
-ba
-</code></pre>
+          <pre><code class="hljs"><span>baaaaaaaaa</span><span> ^</span><span>ba</span></code></pre>
           <p>Although a suitable match (<code>ba</code>) has already been found, the engine sees that it can match against a longer string of <code>a</code>s. It will instead return the match <code>baaaaaaaaa</code>, matching the entire string.</p>
           <p>But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is
             called 'backtracking'. For example, consider the regex <code>c.*ed</code> against the string <code>contested</code> (Let <code>.....</code> represent <code>.+</code>).</p>
-          <pre><code class="hljs">contested
-        ^
-c........ed
-</code></pre>
+          <pre><code class="hljs"><span>contested</span><span>        ^</span><span>c........ed</span></code></pre>
           <p>Remember that <code>.*</code> matches any number of characters, and this includes the <code>ed</code> at the back! The entire string is matched by <code>c.*</code>, leaving no characters left for <code>ed</code>. This obviously doesn't match,
             so the engine backtracks one step:</p>
-          <pre><code class="hljs">contested
-        ^
-c.......ed
-</code></pre>
+          <pre><code class="hljs"><span>contested</span><span>        ^</span><span>c.......ed</span></code></pre>
           <p>As we can see, <code>e</code> still doesn't match <code>d</code>, so we take another step back:</p>
-          <pre><code class="hljs">contested
-       ^
-c......ed
-</code></pre>
+          <pre><code class="hljs"><span>contested</span><span>       ^</span><span>c......ed</span></code></pre>
           <p>Finally, we get a match and see that both strings match.</p>
           <h3 id="effect-on-performance">Effect on performance<a class="fa fa-anchor" href="#effect-on-performance"></a></h3>
           <p>Bad use of greedy operators (<code>.*</code>, <code>.+</code>) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:</p>
           <p>Match a person's full name: <code>(Anderson.*Cooper)</code> <br> Text: <code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</code></p>
           <p>This looks like a simple matching at first glance, but look at what happens:</p>
-          <pre><code class="hljs">Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)
-               ^
-               Anderson..............................................
-</code></pre>
+          <pre><code class="hljs"><span>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</span><span>               ^</span><span>               Anderson..............................................</span></code></pre>
           <p>Every character after <code>Anderson</code> matches <code>.*</code>, resulting in scanning the entire string! And not only that, the Regex also has to backtrack one character at a time, until it reaches <code>Anderson Pearson</code> and <code>Cooper</code>            can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.</p>
           <h3 id="catastrophic-backtracking">Catastrophic Backtracking<a class="fa fa-anchor" href="#catastrophic-backtracking"></a></h3>
           <p>This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when multiple greedy operators are chained. If a match can't be found, each operator will be backtracked
@@ -565,36 +544,18 @@ c......ed
           <p>Match 10 comma separated values in an array: <code>\[(.+,){9}(.+)\]</code><br> E.g.: <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></p>
           <p>This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?</p>
           <p>The problem occurs because <code>.</code> matches any character. This also includes the comma separating the group. This is what happens when the first set of <code>(.+,)</code> is parsed:</p>
-          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-^
-[.........................,
-[.+                       ,
-</code></pre>
+          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><span>^</span><span>[.........................,</span><span>[.+                       ,</span></code></pre>
           <p>The first group keeps everything as its data group. Now, it tries to find the second <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks:</p>
-          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-^
-[......................,..,
-[.+                    ,.+,
-</code></pre>
+          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><span>^</span><span>[......................,..,</span><span>[.+                    ,.+,</span></code></pre>
           <p>This time the first and second groups are matched. Now, it tries to find the <strong>third</strong> <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks yet again. So we move the first <code>(.+,)</code> back:</p>
-          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-^
-[...................,
-[.+                 ,
-</code></pre>
+          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><span>^</span><span>[...................,</span><span>[.+                 ,</span></code></pre>
           <p>Now, what happens? Well, the second <code>(.+,)</code> is greedy, so it actually matches the last comma instead!</p>
-          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-^
-[...................,.....,
-[.+                 ,.+   ,
-</code></pre>
+          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><span>^</span><span>[...................,.....,</span><span>[.+                 ,.+   ,</span></code></pre>
           <p>As we can see, by chaining repeated groups, it actually causes cascading levels of backtracking, which leads to very poor performance, even with short strings. For this case, we can observe that each comma is either included in the regex or
             not included in the match, and every possible combination of included and not included combinations will appear at least once. That means the complexity is equal to the number of possible ways n commas can be either included or not included,
             or O(2<sup>n</sup>). This is a Very Bad Thing™!</p>
           <p>This problem can be exacerbated by the one mentioned previously. Imagine if your text looked like this:</p>
-          <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)
-[...................................................,
-</code></pre>
+          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)</span><span>[...................................................,</span></code></pre>
           <p>The extra parts of the string will be matched each time, and we can only imagine how long that will take.</p>
           <p>So, how do we prevent this?</p>
           <ul>
@@ -627,10 +588,7 @@ c......ed
           <p>A greedy quantifier <code>+</code> or <code>*</code> can be turned into a lazy quantifier by adding an extra <code>?</code> behind it, i.e. (<code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code>). A lazy quantifier
             works similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our <code>contested</code> example, if we replaced <code>c.+d</code> with <code>c.+?d</code>, the engine
             would stop matching the <code>.+</code> here:</p>
-          <pre><code class="hljs">contested
-  ^
-c.ed
-</code></pre>
+          <pre><code class="hljs"><span>contested</span><span>  ^</span><span>c.ed</span></code></pre>
           <p>Since <code>o</code> is a suitable match for <code>.+</code>, the engine accepts it and tries to match the <code>ed</code>. If no match is found, the engine would bactrack and match <code>c..ed</code>, and so on. We can see a clear advantage
             here for matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.</p>
           <h2 id="related-links">Related links<a class="fa fa-anchor" href="#related-links"></a></h2>
@@ -708,7 +666,7 @@ c.ed
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

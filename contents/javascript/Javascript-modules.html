@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Javascript: Modules</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -339,21 +348,8 @@
           <p>In the example below, <code>index.js</code> needs the function <code>sumOfVariable</code> from <code>anExampleModule.js</code>. So, <code>anExampleModule.js</code> module will need to <em>export</em> the function using <code>export</code> syntax
             and
             <code>index.js</code> module will need to <em>import</em> that function using <code>import</code> syntax.</p>
-          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
-
-<span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
-
-<span class="hljs-keyword">export</span> sumOfVariable() {
-    <span class="hljs-keyword">return</span> variableOne + variableTwo;
-}
-</code></pre>
-          <pre><code class="hljs js"><span class="hljs-comment">// index.js</span>
-
-<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> anExampleModule <span class="hljs-keyword">from</span> <span class="hljs-string">'./anExampleModule.js'</span>;
-
-anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
-</code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-comment">// anExampleModule.js</span></span><span>&#x200B;</span><span><span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;</span><span><span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;</span><span>&#x200B;</span><span><span class="hljs-keyword">export</span> sumOfVariable() {</span><span>    <span class="hljs-keyword">return</span> variableOne + variableTwo;</span><span>}</span></code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-comment">// index.js</span></span><span>&#x200B;</span><span><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> anExampleModule <span class="hljs-keyword">from</span> <span class="hljs-string">'./anExampleModule.js'</span>;</span><span>&#x200B;</span><span>anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span></span></code></pre>
           <p>ES6 modules supports advanced features such as <em><a href="http://exploringjs.com/es6/ch_modules.html#sec_modules-in-browsers">asynchronous loading</a>, <a href="https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd">tree shaking</a>, <a href="http://exploringjs.com/es6/ch_modules.html#static-module-structure">static code analysis</a></em>,
             etc. These features will not be covered in this article.</p>
           <p>Due to the very recent adoption of ES6 modules by browsers and there is still some browsers that do not support it, you might not be able to use ES6 modules right away in those unsupported browsers.</p>
@@ -364,25 +360,8 @@ anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
           <p>The example below will replicate the same example in previous chapter using CommonJS. <code>index.js</code> needs the function <code>sumOfVariable</code> from <code>anExampleModule.js</code>. So, <code>anExampleModule.js</code> module will need
             to
             <em>export</em> the function using <code>module.exports</code> syntax and <code>index.js</code> module will need to <em>import</em> that function using <code>require</code> syntax.</p>
-          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
-
-<span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
-
-sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> variableOne + variableTwo;
-}
-
-<span class="hljs-built_in">module</span>.exports = {
-  <span class="hljs-attr">sumOfVariable</span>: sumOfVariable,
-};
-</code></pre>
-          <pre><code class="hljs js"><span class="hljs-comment">// index.js</span>
-
-<span class="hljs-keyword">var</span> anExampleModule = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./anExampleModule.js'</span>);
-
-anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
-</code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-comment">// anExampleModule.js</span></span><span>&#x200B;</span><span><span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;</span><span><span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;</span><span>&#x200B;</span><span>sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">return</span> variableOne + variableTwo;</span><span>}</span><span>&#x200B;</span><span><span class="hljs-built_in">module</span>.exports = {</span><span>  sumOfVariable: sumOfVariable,</span><span>};</span></code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-comment">// index.js</span></span><span>&#x200B;</span><span><span class="hljs-keyword">var</span> anExampleModule = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./anExampleModule.js'</span>);</span><span>&#x200B;</span><span>anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span></span></code></pre>
           <p>If your project does not use NodeJS and does not allow the use of <em><a href="https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da">bundler</a></em> such as <em><a href="https://webpack.js.org/">Webpack</a></em>, you can consider
             the approach given in the next section as it does not need any external tool.</p>
           <p>A more in-depth explanation of CommonJS can be found in the <a href="https://nodejs.org/docs/latest/api/modules.html">Modules chapter of NodeJS API documentation</a>.</p>
@@ -394,54 +373,11 @@ anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
             <p><em>Source: <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">MDN Glossary - IIFE</a></em></p>
           </box>
           <p>The example below will replicate the same example in previous chapters using module pattern. <code>index.js</code> needs the function <code>sumOfVariable</code> from <code>anExampleModule.js</code>. To achieve this, we use the <code>&lt;script&gt;</code>            tag in HTML to <em>import</em> <code>anExampleModule.js</code> for <code>index.js</code> to use.</p>
-          <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- index.html --&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./anExampleModule.js"</span> /&gt;</span><span class="handlebars"><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./index.js"</span> /&gt;</span>
-</span></span></code></pre>
-          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
-
-<span class="hljs-keyword">var</span> anExampleModule = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
-
-    <span class="hljs-keyword">var</span> sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">return</span> variableOne + variableTwo;
-    }
-
-    <span class="hljs-comment">// We return an object with functions or variables</span>
-    <span class="hljs-comment">// that we want to be exposed</span>
-    <span class="hljs-keyword">return</span> {
-        <span class="hljs-attr">sumOfVariable</span>: sumOfVariable
-    }
-})()
-</code></pre>
-          <pre><code class="hljs js"><span class="hljs-comment">// index.js</span>
-
-anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
-</code></pre>
+          <pre><code class="hljs html"><span><span class="hljs-comment">&lt;!-- index.html --&gt;</span></span><span>&#x200B;</span><span><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./anExampleModule.js"</span> /&gt;</span></span><span><span class="handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./index.js"</span> /&gt;</span></span></span></span></code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-comment">// anExampleModule.js</span></span><span>&#x200B;</span><span><span class="hljs-keyword">var</span> anExampleModule = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;</span><span>    <span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;</span><span>&#x200B;</span><span>    <span class="hljs-keyword">var</span> sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>        <span class="hljs-keyword">return</span> variableOne + variableTwo;</span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-comment">// We return an object with functions or variables</span></span><span>    <span class="hljs-comment">// that we want to be exposed</span></span><span>    <span class="hljs-keyword">return</span> {</span><span>        sumOfVariable: sumOfVariable</span><span>    }</span><span>})()</span></code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-comment">// index.js</span></span><span>&#x200B;</span><span>anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span></span></code></pre>
           <p>The result of importing the modules in the HTML will be as follow:</p>
-          <pre><code class="hljs js"><span class="hljs-comment">// anExampleModule.js</span>
-
-<span class="hljs-keyword">var</span> anExampleModule = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;
-
-    <span class="hljs-keyword">var</span> sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">return</span> variableOne + variableTwo;
-    }
-
-    <span class="hljs-comment">// We return an object with functions or variables</span>
-    <span class="hljs-comment">// that we want to be exposed</span>
-    <span class="hljs-keyword">return</span> {
-        <span class="hljs-attr">sumOfVariable</span>: sumOfVariable
-    }
-})()
-
-<span class="hljs-comment">// index.js</span>
-
-anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
-</code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-comment">// anExampleModule.js</span></span><span>&#x200B;</span><span><span class="hljs-keyword">var</span> anExampleModule = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">var</span> variableOne = <span class="hljs-number">1</span>;</span><span>    <span class="hljs-keyword">var</span> variableTwo = <span class="hljs-number">2</span>;</span><span>&#x200B;</span><span>    <span class="hljs-keyword">var</span> sumOfVariable = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>        <span class="hljs-keyword">return</span> variableOne + variableTwo;</span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-comment">// We return an object with functions or variables</span></span><span>    <span class="hljs-comment">// that we want to be exposed</span></span><span>    <span class="hljs-keyword">return</span> {</span><span>        sumOfVariable: sumOfVariable</span><span>    }</span><span>})()</span><span>&#x200B;</span><span><span class="hljs-comment">// index.js</span></span><span>&#x200B;</span><span>anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span></span></code></pre>
           <p>A more in-depth explanation of module pattern can be found in the <a href="https://ultimatecourses.com/blog/mastering-the-module-pattern">this course blog on mastering module pattern</a>.</p>
           <h2 id="which-to-use">Which to use?<a class="fa fa-anchor" href="#which-to-use"></a></h2>
           <p>Although ES6 modules is the official way to implement modules, there are situations where you might have to use one of the other options. Here are some examples:</p>
@@ -489,7 +425,7 @@ anExampleModule.sumOfVariable(); <span class="hljs-comment">// 3</span>
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

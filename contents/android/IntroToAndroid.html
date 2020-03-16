@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Android App Development</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -387,11 +396,7 @@
           <p><a href="https://i.imgur.com/vbIL5HA.gif" target="_self"><img src="https://i.imgur.com/vbIL5HA.gif" alt class="img-fluid"></a></p>
           <p>(<a href="https://i.imgur.com/vbIL5HA.gif">Image</a> from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>)</p>
           <p>It can also be used to create apps that will benefit from a Grid or Staggered Grid. For example, to have a Staggered Grid, you just need a few lines of Java code as seen below:</p>
-          <pre><code class="hljs Java"><span class="hljs-comment">// First parameter is number of columns and second param is orientation i.e Vertical or Horizontal</span>
-StaggeredGridLayoutManager gridLayoutManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">2</span>, StaggeredGridLayoutManager.VERTICAL);
-<span class="hljs-comment">// Attach the layout manager to the recycler view</span>
-recyclerView.setLayoutManager(gridLayoutManager);
-</code></pre>
+          <pre><code class="hljs Java"><span><span class="hljs-comment">// First parameter is number of columns and second param is orientation i.e Vertical or Horizontal</span></span><span>StaggeredGridLayoutManager gridLayoutManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">2</span>, StaggeredGridLayoutManager.VERTICAL);</span><span><span class="hljs-comment">// Attach the layout manager to the recycler view</span></span><span>recyclerView.setLayoutManager(gridLayoutManager);</span></code></pre>
           <p>Sample code is from <a href="https://guides.codepath.com/android/using-the-recyclerview">Codepath</a>.</p>
           <p>The app with a Staggered Grid will then look like this:</p>
           <p><a href="https://i.imgur.com/AlANFgj.png" target="_self"><img src="https://i.imgur.com/AlANFgj.png" alt class="img-fluid"></a></p>
@@ -435,16 +440,7 @@ recyclerView.setLayoutManager(gridLayoutManager);
           <p>(<a href="https://developer.android.com/studio/images/run/avd-manager_2x.png">Image</a> from Google)</p>
           <h4 id="android-debug-bridge-adb">Android Debug Bridge (adb)<a class="fa fa-anchor" href="#android-debug-bridge-adb"></a></h4>
           <p>Android Debug Bridge (adb) is a useful advanced command-line tool included with the Android Software Development Kit (SDK). It allows you to communicate with an Android device by issuing commands such as:</p>
-          <pre><code class="hljs">adb install C:\package.apk – Installs the package located at C:\package.apk on your computer on your device.
-
-adb uninstall package.name – Uninstalls the package with package.name from your device. For example, you’d use the name com.rovio.angrybirds to uninstall the Angry Birds app.
-
-adb push C:\file /sdcard/file – Pushes a file from your computer to your device. For example, the command here pushes the file located at C:\file on your computer to /sdcard/file on your device
-
-adb pull /sdcard/file C:\file – Pulls a file from your device to your computer – works like adb push, but in reverse.
-
-adb logcat – View your Android device’s log. Can be useful for debugging apps.
-</code></pre>
+          <pre><code class="hljs"><span>adb install C:\package.apk – Installs the package located at C:\package.apk on your computer on your device.</span><span>&#x200B;</span><span>adb uninstall package.name – Uninstalls the package with package.name from your device. For example, you’d use the name com.rovio.angrybirds to uninstall the Angry Birds app.</span><span>&#x200B;</span><span>adb push C:\file /sdcard/file – Pushes a file from your computer to your device. For example, the command here pushes the file located at C:\file on your computer to /sdcard/file on your device</span><span>&#x200B;</span><span>adb pull /sdcard/file C:\file – Pulls a file from your device to your computer – works like adb push, but in reverse.</span><span>&#x200B;</span><span>adb logcat – View your Android device’s log. Can be useful for debugging apps.</span></code></pre>
           <p>Command examples from <a href="https://www.howtogeek.com/125769/how-to-install-and-use-abd-the-android-debug-bridge-utility/">How-To Geek</a>.</p>
           <h2 id="4-further-readings">4. Further Readings<a class="fa fa-anchor" href="#4-further-readings"></a></h2>
           <p>Going further, it will be useful to know more about:</p>
@@ -500,7 +496,7 @@ adb logcat – View your Android device’s log. Can be useful for debugging app
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

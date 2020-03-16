@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Advanced Java: Reflections</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -315,25 +324,11 @@
           <p>Before getting started with reflections in Java, it is important to realize that a class is also an object. From the <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Class.html">Java Class API</a>, we see that <code>Class</code>            is a subclass of <code>Object</code>. Every unique <code>Object</code> is assigned an immutable <code>Class</code> object by the JVM. This immutable <code>Class</code> object is fundamentally different from <em>instances</em> of a class. The
             class object itself holds information such as its name and the package it resides in while an instance of a class holds the instanced values and methods as defined in the class.</p>
           <p>Take for example the following class:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
-
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String gender;
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">(String name, String gender)</span> </span>{
-    <span class="hljs-keyword">this</span>.name = name;
-    <span class="hljs-keyword">this</span>.gender = gender;
-  }
-
-  <span class="hljs-comment">// Other methods here...</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{</span><span>&#x200B;</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String gender;</span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">(String name, String gender)</span> </span>{</span><span>    <span class="hljs-keyword">this</span>.name = name;</span><span>    <span class="hljs-keyword">this</span>.gender = gender;</span><span>  }</span><span>&#x200B;</span><span>  <span class="hljs-comment">// Other methods here...</span></span><span>}</span></code></pre>
           <p>An instance of <code>Student</code> class can be created as usual using the <code>new</code> keyword:</p>
-          <pre><code class="hljs java">Student john = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">"John Doe"</span>, <span class="hljs-string">"Male"</span>);
-</code></pre>
+          <pre><code class="hljs java"><span>Student john = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">"John Doe"</span>, <span class="hljs-string">"Male"</span>);</span></code></pre>
           <p>However, it is also possible to get information about the <code>Student</code> class itself because the class itself is an <code>Object</code>:</p>
-          <pre><code class="hljs java">Class&lt;Student&gt; studentClass = Student<span class="hljs-class">.<span class="hljs-keyword">class</span></span>;
-</code></pre>
+          <pre><code class="hljs java"><span>Class&lt;Student&gt; studentClass = Student<span class="hljs-class">.<span class="hljs-keyword">class</span></span>;</span></code></pre>
           <p>This means that you can store any <code>Class</code> object in any data structure for future retrieval. This is the main entry point for Java's reflections. You can now get the name of the class, create new instances of the class, observe its
             public/private fields - the possibilities are endless!</p>
           <h3 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h3>
@@ -344,44 +339,11 @@
           <p>A good example of reflections is to get a private field of another class. While this should optimally be solved by modifying the field visibility to <code>protected</code> or <code>public</code>, sometimes it is not possible to do so because
             you might not have any access to the code (for example codes in libraries or frameworks).</p>
           <p>For the sake of simplicity, let us use a example of a simple <code>Animal</code> class. The class definition can look like this.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
-
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Animal</span><span class="hljs-params">()</span> </span>{
-    age = <span class="hljs-number">0</span>;
-  }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{</span><span>&#x200B;</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;</span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Animal</span><span class="hljs-params">()</span> </span>{</span><span>    age = <span class="hljs-number">0</span>;</span><span>  }</span><span>}</span></code></pre>
           <p>And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class <code>Sheep</code> that extends <code>Animal</code> and do something when his age reaches certain threshold. But the annoying
             thing is that somebody decided that it is a good idea to make the age value <code>private</code> (and without a getter method!) instead of <code>protected</code> in a top-level class such as this! So you cannot access the age of your <code>Sheep</code>            even though it is an <code>Animal</code>.</p>
           <p>This of course can be solved by Reflection as follows:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">super</span>();
-  }
-
-  <span class="hljs-comment">/**
-   * A sheep begins to produce wool after it's a year old!
-   */</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isProducingWool</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> getAge() &gt; <span class="hljs-number">1</span>;
-  }
-
-  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-comment">// Since class is a reserved keyword, we use clazz in variable names</span>
-    Class&lt;Animal&gt; animalClazz = Animal<span class="hljs-class">.<span class="hljs-keyword">class</span></span>;
-
-    <span class="hljs-keyword">try</span> {
-      Field f = animalClazz.getDeclaredField(<span class="hljs-string">"age"</span>);
-      f.setAccessible(<span class="hljs-keyword">true</span>);
-      <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>) f.get(<span class="hljs-keyword">this</span>);
-    } <span class="hljs-keyword">catch</span> (IllegalAccessException | NoSuchFieldException e) {
-      <span class="hljs-comment">// perform error handling</span>
-    }
-  }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">super</span>();</span><span>  }</span><span>&#x200B;</span><span>  <span class="hljs-comment">/**</span></span><span><span class="hljs-comment">   * A sheep begins to produce wool after it's a year old!</span></span><span><span class="hljs-comment">   */</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isProducingWool</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">return</span> getAge() &gt; <span class="hljs-number">1</span>;</span><span>  }</span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-comment">// Since class is a reserved keyword, we use clazz in variable names</span></span><span>    Class&lt;Animal&gt; animalClazz = Animal<span class="hljs-class">.<span class="hljs-keyword">class</span></span>;</span><span>&#x200B;</span><span>    <span class="hljs-keyword">try</span> {</span><span>      Field f = animalClazz.getDeclaredField(<span class="hljs-string">"age"</span>);</span><span>      f.setAccessible(<span class="hljs-keyword">true</span>);</span><span>      <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>) f.get(<span class="hljs-keyword">this</span>);</span><span>    } <span class="hljs-keyword">catch</span> (IllegalAccessException | NoSuchFieldException e) {</span><span>      <span class="hljs-comment">// perform error handling</span></span><span>    }</span><span>  }</span><span>}</span></code></pre>
           <p>And there you have it! What <code>Sheep</code> is really doing is to examine itself at runtime in order to obtain the <code>age</code> field inherited from <code>Animal</code>. This technique can be used in test cases to access private fields
             and methods in the class under test without modifying the visibility modifiers of the fields and methods in the class itself.</p>
           <p>You may notice that the <code>Sheep#getAge()</code> method sets the age <code>Field</code> object to be accessible and might wonder the implications. Fret not! The <code>Field#getDeclaredField()</code> actually returns a new <code>Field</code>            instance - so you're just setting that particular local <code>Field</code> instance to be accessible, not the actual <code>age</code> field itself. You can read more about it in this <a href="http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue">StackOverflow question</a>.</p>
@@ -393,35 +355,13 @@
           <h4 id="updating-private-fields">Updating private fields<a class="fa fa-anchor" href="#updating-private-fields"></a></h4>
           <p>Suppose that you need to write tests for <code>Sheep</code>. As part of setting up the test, you need to create a sheep with age = 20. Suppose that the age of the sheep is updated automatically as time passes, whereby the age increases by 1
             after every minute. A naive way of creating a sheep with age = 20 is to simply wait for 20 minutes before performing the test:</p>
-          <pre><code class="hljs java"><span class="hljs-meta">@Test</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
-  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();
-  TimeUnit.MINUTES.sleep(<span class="hljs-number">20</span>);
-  <span class="hljs-comment">// perform test</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{</span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();</span><span>  TimeUnit.MINUTES.sleep(<span class="hljs-number">20</span>);</span><span>  <span class="hljs-comment">// perform test</span></span><span>}</span></code></pre>
           <p>Alternatively, a much simpler and efficient way to perform this test is to set a value to the private field using Reflection:</p>
-          <pre><code class="hljs java"><span class="hljs-meta">@Test</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
-  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();
-  Field field = Animal<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getDeclaredField</span>("<span class="hljs-title">age</span>")</span>;
-  field.setAccessible(<span class="hljs-keyword">true</span>);
-  field.set(sheep, <span class="hljs-number">20</span>);
-  <span class="hljs-comment">// perform test</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{</span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();</span><span>  Field field = Animal<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getDeclaredField</span>("<span class="hljs-title">age</span>")</span>;</span><span>  field.setAccessible(<span class="hljs-keyword">true</span>);</span><span>  field.set(sheep, <span class="hljs-number">20</span>);</span><span>  <span class="hljs-comment">// perform test</span></span><span>}</span></code></pre>
           <h4 id="testing-private-methods">Testing private methods<a class="fa fa-anchor" href="#testing-private-methods"></a></h4>
           <p>Suppose you want to perform a unit test for the method <code>getAge()</code>. However, you are only able to indirectly do so by testing <code>isProducingWool()</code>. This is not good as we are not able to directly verify the age of a sheep.
             However, with the help of Reflection, we can now test private methods.</p>
-          <pre><code class="hljs java"><span class="hljs-meta">@Test</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
-  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();
-  Method method = Sheep<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getDeclaredMethod</span>("<span class="hljs-title">getAge</span>")</span>;
-  method.setAccessible(<span class="hljs-keyword">true</span>);
-  <span class="hljs-keyword">int</span> age = (<span class="hljs-keyword">int</span>) method.invoke(sheep);
-  <span class="hljs-comment">// verify age</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{</span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();</span><span>  Method method = Sheep<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getDeclaredMethod</span>("<span class="hljs-title">getAge</span>")</span>;</span><span>  method.setAccessible(<span class="hljs-keyword">true</span>);</span><span>  <span class="hljs-keyword">int</span> age = (<span class="hljs-keyword">int</span>) method.invoke(sheep);</span><span>  <span class="hljs-comment">// verify age</span></span><span>}</span></code></pre>
           <h4 id="a-more-advanced-application">A more advanced application<a class="fa fa-anchor" href="#a-more-advanced-application"></a></h4>
           <p>You might have learnt from your Software Engineering module that the Observer pattern can be used for objects that are interested to get notified if the state of another object is changed. The Observer pattern is useful because you can avoid
             creating bidirectional dependencies between two unrelated objects that have no business talking to each other while allowing the objects to be notified of any changes in another object.</p>
@@ -429,51 +369,14 @@
             via
             <code>register</code> method for methods annotated with the <code>Subscribe</code> annotation.</p>
           <p>An example implementation (not the actual) of the <code>Subscribe</code> annotation might be:</p>
-          <pre><code class="hljs java"><span class="hljs-meta">@Retention</span>(RetentionPolicy.RUNTIME) <span class="hljs-comment">// Retain this annotation at runtime!</span>
-<span class="hljs-meta">@Target</span>(ElementType.METHOD) <span class="hljs-comment">// Only can be applied to methods!</span>
-<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Subscribe { }
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-meta">@Retention</span>(RetentionPolicy.RUNTIME) <span class="hljs-comment">// Retain this annotation at runtime!</span></span><span><span class="hljs-meta">@Target</span>(ElementType.METHOD) <span class="hljs-comment">// Only can be applied to methods!</span></span><span><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Subscribe { }</span></code></pre>
           <p>And that is it! Important parts of the code to note are the first two lines before the declaration. The first line tells Java that this annotation must not be discarded during compile time so it will be available during runtime. The retention
             policy is there because some annotation do not mean anything after compilation (such as <code>Override</code> and <code>SuppressWarnings</code>), so it does not make sense to keep the annotation after compiling.</p>
           <p>The second line just means that this annotation can be applied to methods only.</p>
           <p>And the more important part is how the subscriber registry finds all its subscribing methods. The first step is to register a class as an event handler and an example of the code is like so:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{
-
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> EventsCenter EVENTS_BUS = EventsCenter.getInstance();
-  
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">super</span>();
-    EVENTS_BUS.register(<span class="hljs-keyword">this</span>.getClass());
-  }
-
-  <span class="hljs-meta">@Subscribe</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleWeatherChangeEvent</span><span class="hljs-params">(WeatherChangeEvent event)</span> </span>{
-    <span class="hljs-keyword">if</span> (event.weather == Weather.RAIN) {
-      hide();
-    }
-  }
-  ...
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{</span><span>&#x200B;</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> EventsCenter EVENTS_BUS = EventsCenter.getInstance();</span><span>  </span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">super</span>();</span><span>    EVENTS_BUS.register(<span class="hljs-keyword">this</span>.getClass());</span><span>  }</span><span>&#x200B;</span><span>  <span class="hljs-meta">@Subscribe</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleWeatherChangeEvent</span><span class="hljs-params">(WeatherChangeEvent event)</span> </span>{</span><span>    <span class="hljs-keyword">if</span> (event.weather == Weather.RAIN) {</span><span>      hide();</span><span>    }</span><span>  }</span><span>  ...</span><span>}</span></code></pre>
           <p>An example implementation of the <code>EventsCenter</code> (with a lot of details left out for simplicity) is like so:</p>
-          <pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">register</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{
-  findAllEventHandlersInClass(clazz);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">findAllEventHandlersInClass</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{
-  <span class="hljs-comment">// TypeToken class is provided by Google Guava reflection library</span>
-  Set&lt;? extends Class&lt;?&gt;&gt; supertypes = TypeToken.of(clazz).getTypes().rawTypes();
-
-  <span class="hljs-keyword">for</span> (Class&lt;?&gt; supertype : supertypes) {
-    <span class="hljs-keyword">for</span> (Method method : supertype.getDeclaredMethods()) {
-      <span class="hljs-keyword">if</span> (method.isAnnotationPresent(Subscribe<span class="hljs-class">.<span class="hljs-keyword">class</span>) </span>{
-        registerSubscriber(method);
-      }
-    }
-  }
-}
-
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">register</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{</span><span>  findAllEventHandlersInClass(clazz);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">findAllEventHandlersInClass</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{</span><span>  <span class="hljs-comment">// TypeToken class is provided by Google Guava reflection library</span></span><span>  Set&lt;? extends Class&lt;?&gt;&gt; supertypes = TypeToken.of(clazz).getTypes().rawTypes();</span><span>&#x200B;</span><span>  <span class="hljs-keyword">for</span> (Class&lt;?&gt; supertype : supertypes) {</span><span>    <span class="hljs-keyword">for</span> (Method method : supertype.getDeclaredMethods()) {</span><span>      <span class="hljs-keyword">if</span> (method.isAnnotationPresent(Subscribe<span class="hljs-class">.<span class="hljs-keyword">class</span>) </span>{</span><span>        registerSubscriber(method);</span><span>      }</span><span>    }</span><span>  }</span><span>}</span><span>&#x200B;</span></code></pre>
           <p>The first line of the <code>findAllEventHandlersInClass</code> method finds all classes and its parent classes of the registered class and converts it to a set. That is if you registered <code>Sheep extends Animal</code> as an event handler
             to the method, both <code>Sheep</code> and <code>Animal</code> will be captured by the first line. The following lines will then examine all their methods (during runtime!) for the <code>Subscribe</code> annotation and register the method
             so that it will receive the specified event when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how Java reflections works.</p>
@@ -552,7 +455,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

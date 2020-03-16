@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Swift</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -333,53 +342,18 @@
           <p>Here are some noteworthy Swift features for you to get a feel of Swift.</p>
           <h3 id="type-inference">Type Inference<a class="fa fa-anchor" href="#type-inference"></a></h3>
           <p>Swift supports type inference whereby the compiler automatically deduces the type of a variable during compilation by examining the values assigned to it.</p>
-          <pre><code class="hljs swift"><span class="hljs-keyword">var</span> str1: <span class="hljs-type">String</span> = <span class="hljs-string">"foo"</span>
-<span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-keyword">var</span> str1: <span class="hljs-type">String</span> = <span class="hljs-string">"foo"</span></span><span><span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span></span></code></pre>
           <p>Unlike <strong>Python</strong> or <strong>JavaScript</strong> which are dynamically typed, variables in Swift are statically typed. Statically-typed languages have will have the code checked at compile-time instead of run-time, which eliminates
             many (often) trivial bugs early, which in turn makes debugging the program easier.</p>
-          <pre><code class="hljs swift"><span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span>
-str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilation error</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"foo"</span> <span class="hljs-comment">// compiler infers that str2 is of type String</span></span><span>str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilation error</span></span></code></pre>
           <h3 id="optionals">Optionals<a class="fa fa-anchor" href="#optionals"></a></h3>
           <p>Swift allows the use of <code>Optionals</code>, so that you can choose to either return nil or a data value, instead of returning a special value to indicate the absence of a value.</p>
-          <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int</span> {
-    <span class="hljs-keyword">switch</span> name {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Taylor Swift"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2006</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Fearless"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2008</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Speak Now"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2010</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Red"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2012</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"1989"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2014</span>
-    <span class="hljs-keyword">default</span>:
-        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span> <span class="hljs-comment">// Special value, but is not meaningful to other developers</span>
-    }
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int</span> {</span><span>    <span class="hljs-keyword">switch</span> name {</span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Taylor Swift"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2006</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Fearless"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2008</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Speak Now"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2010</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Red"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2012</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"1989"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2014</span></span><span>    <span class="hljs-keyword">default</span>:</span><span>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span> <span class="hljs-comment">// Special value, but is not meaningful to other developers</span></span><span>    }</span><span>}</span></code></pre>
           <p>Without Optionals, you might consider using -1 to indicate that there was no such album. However, if someone else uses this function, he may not know that -1 means &quot;no such album&quot;, and it would be better if we could return nil?</p>
-          <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int?</span> { <span class="hljs-comment">// "?" indicates the return value type is an optional.</span>
-    <span class="hljs-keyword">switch</span> name {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Taylor Swift"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2006</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Fearless"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2008</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Speak Now"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2010</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"Red"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2012</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"1989"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2014</span>
-    <span class="hljs-keyword">default</span>:
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
-    }
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">yearAlbumReleased</span><span class="hljs-params">(name: String)</span></span> -&gt; <span class="hljs-type">Int?</span> { <span class="hljs-comment">// "?" indicates the return value type is an optional.</span></span><span>    <span class="hljs-keyword">switch</span> name {</span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Taylor Swift"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2006</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Fearless"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2008</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Speak Now"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2010</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"Red"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2012</span></span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"1989"</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2014</span></span><span>    <span class="hljs-keyword">default</span>:</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span></span><span>    }</span><span>}</span></code></pre>
           <h4 id="optional-binding">Optional Binding<a class="fa fa-anchor" href="#optional-binding"></a></h4>
           <p>Then, you can unwrap the Optional safely using an <code>if-let</code> statement to distinguish whether it is <code>nil</code> or not, and handle them separately:</p>
-          <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
-    <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
-    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> past = year { 
-        <span class="hljs-comment">// year contains a non-nil value</span>
-        <span class="hljs-comment">// past is of type Int (not Int?) with the value stored in year</span>
-    } <span class="hljs-keyword">else</span> { 
-        <span class="hljs-comment">// year contains a nil value</span>
-    }
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {</span><span>    <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)</span><span>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> past = year { </span><span>        <span class="hljs-comment">// year contains a non-nil value</span></span><span>        <span class="hljs-comment">// past is of type Int (not Int?) with the value stored in year</span></span><span>    } <span class="hljs-keyword">else</span> { </span><span>        <span class="hljs-comment">// year contains a nil value</span></span><span>    }</span><span>}</span></code></pre>
           <p>If you would like to read up more about optionals, take a look at these articles:</p>
           <ul>
             <li><a href="https://hackernoon.com/swift-optionals-explained-simply-e109a4297298">Swift optionals explained simply</a></li>
@@ -387,31 +361,9 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
           </ul>
           <h4 id="guard-statements">Guard Statements<a class="fa fa-anchor" href="#guard-statements"></a></h4>
           <p>Notice that the <a href="http://xunitpatterns.com/happy%20path.html">happy path</a> in the code above is indented:</p>
-          <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
-    <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
-    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> past = year {
-        <span class="hljs-comment">// happy path is indented</span>
-        <span class="hljs-comment">// past contains the non-nil value of year; proceed to do something with past</span>
-    } <span class="hljs-keyword">else</span> { 
-        <span class="hljs-comment">// failure case</span>
-    }
-
-    <span class="hljs-comment">// past is no longer defined; unable to use past here</span>
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {</span><span>    <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)</span><span>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> past = year {</span><span>        <span class="hljs-comment">// happy path is indented</span></span><span>        <span class="hljs-comment">// past contains the non-nil value of year; proceed to do something with past</span></span><span>    } <span class="hljs-keyword">else</span> { </span><span>        <span class="hljs-comment">// failure case</span></span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-comment">// past is no longer defined; unable to use past here</span></span><span>}</span></code></pre>
           <p>With the guard statement, the happy path is not indented:</p>
-          <pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {
-    <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)
-    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> past = year <span class="hljs-keyword">else</span> {
-        <span class="hljs-comment">// failure case</span>
-        <span class="hljs-keyword">return</span>
-    }
-
-    <span class="hljs-comment">// happy path is not indented</span>
-    <span class="hljs-comment">// past contains the non-nil value of year; proceed to do something with past</span>
-    <span class="hljs-comment">// past remains defined till the function exits</span>
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">timeTravel</span><span class="hljs-params">(album: String)</span></span> {</span><span>    <span class="hljs-keyword">let</span> year = yearAlbumReleased(album)</span><span>    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> past = year <span class="hljs-keyword">else</span> {</span><span>        <span class="hljs-comment">// failure case</span></span><span>        <span class="hljs-keyword">return</span></span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-comment">// happy path is not indented</span></span><span>    <span class="hljs-comment">// past contains the non-nil value of year; proceed to do something with past</span></span><span>    <span class="hljs-comment">// past remains defined till the function exits</span></span><span>}</span></code></pre>
           <p>Let's understand how the code above works:</p>
           <ol>
             <li>The code within a <code>guard</code> block is only executed if <code>year</code> contains a nil value.</li>
@@ -426,50 +378,16 @@ str2 = <span class="hljs-number">5</span> <span class="hljs-comment">// compilat
           <h3 id="defer-statements">Defer Statements<a class="fa fa-anchor" href="#defer-statements"></a></h3>
           <p>The <code>defer</code> key word in Swift provides an easy and safe way to execute some code before leaving current scope. It is helpful when you need to do post-operations in a function which has many points of return.</p>
           <p>The following code is an example of using a file:</p>
-          <pre><code class="hljs swift"><span class="hljs-keyword">let</span> fileDescriptor = <span class="hljs-keyword">open</span>(url.path, <span class="hljs-type">O_EVTONLY</span>)
-<span class="hljs-keyword">if</span> fileDescriptor == -<span class="hljs-number">1</span> {
-	close(fileDescriptor)
-	<span class="hljs-keyword">return</span> <span class="hljs-string">"Failed"</span>
-}
-
-<span class="hljs-comment">// Use file descriptor</span>
-
-close(fileDescriptor)
-<span class="hljs-keyword">return</span> <span class="hljs-string">"Success"</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-keyword">let</span> fileDescriptor = <span class="hljs-keyword">open</span>(url.path, <span class="hljs-type">O_EVTONLY</span>)</span><span><span class="hljs-keyword">if</span> fileDescriptor == -<span class="hljs-number">1</span> {</span><span>	close(fileDescriptor)</span><span>	<span class="hljs-keyword">return</span> <span class="hljs-string">"Failed"</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">// Use file descriptor</span></span><span>&#x200B;</span><span>close(fileDescriptor)</span><span><span class="hljs-keyword">return</span> <span class="hljs-string">"Success"</span></span></code></pre>
           <p>As you can see from above, we have to close the <code>fileDescriptor</code> for every case we consider. This can be problematic when the number of cases increases. Instead, we can use the <code>defer</code> statement:</p>
-          <pre><code class="hljs swift"><span class="hljs-keyword">let</span> fileDescriptor = <span class="hljs-keyword">open</span>(url.path, <span class="hljs-type">O_EVTONLY</span>)
-
-<span class="hljs-keyword">defer</span> {
-    close(fileDescriptor)
-}
-
-<span class="hljs-keyword">if</span> fileDescriptor == -<span class="hljs-number">1</span> {
-	<span class="hljs-keyword">return</span> <span class="hljs-string">"Failed"</span>
-}
-<span class="hljs-comment">// Use file descriptor</span>
-<span class="hljs-keyword">return</span> <span class="hljs-string">"Success"</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-keyword">let</span> fileDescriptor = <span class="hljs-keyword">open</span>(url.path, <span class="hljs-type">O_EVTONLY</span>)</span><span>&#x200B;</span><span><span class="hljs-keyword">defer</span> {</span><span>    close(fileDescriptor)</span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">if</span> fileDescriptor == -<span class="hljs-number">1</span> {</span><span>	<span class="hljs-keyword">return</span> <span class="hljs-string">"Failed"</span></span><span>}</span><span><span class="hljs-comment">// Use file descriptor</span></span><span><span class="hljs-keyword">return</span> <span class="hljs-string">"Success"</span></span></code></pre>
           <p>Using <code>defer</code> statement, the file will be closed no matter which branch the program returns. It also has the added advantage of preventing the developer from forgetting to close the file in some cases.</p>
           <p>This <a href="https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_defer-statement">document</a> explains more about <code>defer</code> statement in Swift.</p>
           <h3 id="data-types">Data Types<a class="fa fa-anchor" href="#data-types"></a></h3>
           <h4 id="structs">Structs<a class="fa fa-anchor" href="#structs"></a></h4>
           <p>Apart from the classes (something you are familiar with if you have already learned languages like Java / Python) which you use for creating instances of Reference type, Swift also provides the use of Structs to create instances of Value type.</p>
           <p>Let's use a simple example (from <a href="https://developer.apple.com/swift/blog/?id=10">Apple's own blog on Swift</a>) to illustrate the difference between Reference types (Classes) and Value types (Structs).</p>
-          <pre><code class="hljs swift"><span class="hljs-comment">// Value type example</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">S</span> </span>{ <span class="hljs-keyword">var</span> data: <span class="hljs-type">Int</span> = -<span class="hljs-number">1</span> }
-<span class="hljs-keyword">var</span> a = <span class="hljs-type">S</span>()
-<span class="hljs-keyword">var</span> b = a                       <span class="hljs-comment">// a is copied to b</span>
-a.data = <span class="hljs-number">42</span>                     <span class="hljs-comment">// changes a, not b</span>
-<span class="hljs-built_in">print</span>(<span class="hljs-string">"\(a.data), \(b.data)"</span>)   <span class="hljs-comment">// prints "42, -1\n"</span>
-
-<span class="hljs-comment">// Reference type example</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> </span>{ <span class="hljs-keyword">var</span> data: <span class="hljs-type">Int</span> = -<span class="hljs-number">1</span> }
-<span class="hljs-keyword">var</span> x = <span class="hljs-type">C</span>()
-<span class="hljs-keyword">var</span> y = x                       <span class="hljs-comment">// x is copied to y</span>
-x.data = <span class="hljs-number">42</span>                     <span class="hljs-comment">// changes the instance referred to by x (and y)</span>
-<span class="hljs-built_in">print</span>(<span class="hljs-string">"\(x.data), \(y.data)"</span>)   <span class="hljs-comment">// prints "42, 42\n"</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-comment">// Value type example</span></span><span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">S</span> </span>{ <span class="hljs-keyword">var</span> data: <span class="hljs-type">Int</span> = -<span class="hljs-number">1</span> }</span><span><span class="hljs-keyword">var</span> a = <span class="hljs-type">S</span>()</span><span><span class="hljs-keyword">var</span> b = a                       <span class="hljs-comment">// a is copied to b</span></span><span>a.data = <span class="hljs-number">42</span>                     <span class="hljs-comment">// changes a, not b</span></span><span><span class="hljs-built_in">print</span>(<span class="hljs-string">"\(a.data), \(b.data)"</span>)   <span class="hljs-comment">// prints "42, -1\n"</span></span><span>&#x200B;</span><span><span class="hljs-comment">// Reference type example</span></span><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> </span>{ <span class="hljs-keyword">var</span> data: <span class="hljs-type">Int</span> = -<span class="hljs-number">1</span> }</span><span><span class="hljs-keyword">var</span> x = <span class="hljs-type">C</span>()</span><span><span class="hljs-keyword">var</span> y = x                       <span class="hljs-comment">// x is copied to y</span></span><span>x.data = <span class="hljs-number">42</span>                     <span class="hljs-comment">// changes the instance referred to by x (and y)</span></span><span><span class="hljs-built_in">print</span>(<span class="hljs-string">"\(x.data), \(y.data)"</span>)   <span class="hljs-comment">// prints "42, 42\n"</span></span></code></pre>
           <p>In the example above, when you assign a reference type variable to another (i.e. <code>x</code> and <code>y</code>) they both refer to the same memory space. Later when you modify one of the variables, the other one will refer to the new value
             too. This may not be the desired behavior in some cases. In those cases, value-type variables (e.g., <code>a</code> and <code>b</code>) can be used to avoid implicit data sharing.</p>
           <p>You can think of Structs as a way to create instances that have their own unique copies of data, which can help to make things a lot easier.</p>
@@ -477,37 +395,11 @@ x.data = <span class="hljs-number">42</span>                     <span class="hl
             and when to use them.</p>
           <h4 id="enums">Enums<a class="fa fa-anchor" href="#enums"></a></h4>
           <p>An enum is a data type that represents of a set of values. For example, we can use <code>String</code> to represent the possible types of a barcode. However, this allows us to assign invalid values to it:</p>
-          <pre><code class="hljs swift"><span class="hljs-keyword">var</span> barcode = <span class="hljs-string">"qzCode"</span> <span class="hljs-comment">// supposed to be "qrCode", but we accidentally assigned an invalid value</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-keyword">var</span> barcode = <span class="hljs-string">"qzCode"</span> <span class="hljs-comment">// supposed to be "qrCode", but we accidentally assigned an invalid value</span></span></code></pre>
           <p>As such, we create an enum to restrict the values that we can assign to a barcode.</p>
-          <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{
-    <span class="hljs-keyword">case</span> upc
-    <span class="hljs-keyword">case</span> qrCode
-}
-
-<span class="hljs-keyword">var</span> barcode = <span class="hljs-type">Barcode</span>.qrCode 
-barcode = <span class="hljs-type">Barcode</span>.qzCode <span class="hljs-comment">// compilation error</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{</span><span>    <span class="hljs-keyword">case</span> upc</span><span>    <span class="hljs-keyword">case</span> qrCode</span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">var</span> barcode = <span class="hljs-type">Barcode</span>.qrCode </span><span>barcode = <span class="hljs-type">Barcode</span>.qzCode <span class="hljs-comment">// compilation error</span></span></code></pre>
           <p>Swift's enums can have associated values. This enables you to store additional custom information along with each case value, and permits this information to vary each time you use that case in your code. For example, we can have an enum <code>Barcode</code>            with case values <code>upc</code> and <code>qrCode</code>. We want to be able to distinguish within each value as each <code>upc</code> and <code>qrCode</code> can take on different values:</p>
-          <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{
-    <span class="hljs-keyword">case</span> upc(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)
-    <span class="hljs-keyword">case</span> qrCode(<span class="hljs-type">String</span>)
-    
-    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">printCode</span><span class="hljs-params">()</span></span> {
-        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
-        <span class="hljs-keyword">case</span> <span class="hljs-keyword">let</span> .upc(numberSystem, manufacturer, product, check):
-            <span class="hljs-built_in">print</span>(<span class="hljs-string">"UPC : \(numberSystem), \(manufacturer), \(product), \(check)."</span>)
-        <span class="hljs-keyword">case</span> <span class="hljs-keyword">let</span> .qrCode(productCode):
-            <span class="hljs-built_in">print</span>(<span class="hljs-string">"QR code: \(productCode)."</span>)
-        }
-    }
-}
-
-<span class="hljs-keyword">let</span> barcode1 = <span class="hljs-type">Barcode</span>.qrCode(<span class="hljs-string">"foo"</span>)
-<span class="hljs-keyword">let</span> barcode2 = <span class="hljs-type">Barcode</span>.qrCode(<span class="hljs-string">"bar"</span>)
-barcode1.printCode() <span class="hljs-comment">// prints "QR code: foo."</span>
-barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Barcode</span> </span>{</span><span>    <span class="hljs-keyword">case</span> upc(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)</span><span>    <span class="hljs-keyword">case</span> qrCode(<span class="hljs-type">String</span>)</span><span>    </span><span>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">printCode</span><span class="hljs-params">()</span></span> {</span><span>        <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {</span><span>        <span class="hljs-keyword">case</span> <span class="hljs-keyword">let</span> .upc(numberSystem, manufacturer, product, check):</span><span>            <span class="hljs-built_in">print</span>(<span class="hljs-string">"UPC : \(numberSystem), \(manufacturer), \(product), \(check)."</span>)</span><span>        <span class="hljs-keyword">case</span> <span class="hljs-keyword">let</span> .qrCode(productCode):</span><span>            <span class="hljs-built_in">print</span>(<span class="hljs-string">"QR code: \(productCode)."</span>)</span><span>        }</span><span>    }</span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">let</span> barcode1 = <span class="hljs-type">Barcode</span>.qrCode(<span class="hljs-string">"foo"</span>)</span><span><span class="hljs-keyword">let</span> barcode2 = <span class="hljs-type">Barcode</span>.qrCode(<span class="hljs-string">"bar"</span>)</span><span>barcode1.printCode() <span class="hljs-comment">// prints "QR code: foo."</span></span><span>barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span></span></code></pre>
           <p>Also, enums with associated values is not supported in languages such as <a href="https://stackoverflow.com/questions/30044334/how-can-i-create-a-java-enum-with-associated-values-like-swift-enum">Java</a>, and using a workaround to implement
             enums with associated values results in code verbosity. Take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html">Swift's documentation on Enums</a> for
             more information about enums.</p>
@@ -515,65 +407,19 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
           <p>The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the <a href="http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html">bloat that is sometimes caused by Object Oriented Programming (OOP)</a>            by using composition instead of inheritance for defining new classes based on existing classes.</p>
           <p>Here's some code to serve as a brief introduction to POP:</p>
           <p>First, we first define our protocols.</p>
-          <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Bird</span> </span>{
-  <span class="hljs-keyword">var</span> canFly: <span class="hljs-type">Bool</span> { <span class="hljs-keyword">get</span> }
-}
- 
-<span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Flyable</span> </span>{
-  <span class="hljs-keyword">var</span> airspeedVelocity: <span class="hljs-type">Double</span> { <span class="hljs-keyword">get</span> }
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Bird</span> </span>{</span><span>  <span class="hljs-keyword">var</span> canFly: <span class="hljs-type">Bool</span> { <span class="hljs-keyword">get</span> }</span><span>}</span><span> </span><span><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Flyable</span> </span>{</span><span>  <span class="hljs-keyword">var</span> airspeedVelocity: <span class="hljs-type">Double</span> { <span class="hljs-keyword">get</span> }</span><span>}</span></code></pre>
           <p>Next, we define the structs that conform to the protocols above.</p>
-          <pre><code class="hljs swift"><span class="hljs-comment">// Penguins can't fly ):</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Penguin</span>: <span class="hljs-title">Bird</span> </span>{
-    <span class="hljs-keyword">let</span> canFly = <span class="hljs-literal">false</span>
-}
-
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span>: <span class="hljs-title">Bird</span>, <span class="hljs-title">Flyable</span> </span>{
-    <span class="hljs-keyword">let</span> canFly = <span class="hljs-literal">true</span>
-    <span class="hljs-keyword">let</span> airspeedVelocity = <span class="hljs-number">160.0</span>
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-comment">// Penguins can't fly ):</span></span><span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Penguin</span>: <span class="hljs-title">Bird</span> </span>{</span><span>    <span class="hljs-keyword">let</span> canFly = <span class="hljs-literal">false</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span>: <span class="hljs-title">Bird</span>, <span class="hljs-title">Flyable</span> </span>{</span><span>    <span class="hljs-keyword">let</span> canFly = <span class="hljs-literal">true</span></span><span>    <span class="hljs-keyword">let</span> airspeedVelocity = <span class="hljs-number">160.0</span></span><span>}</span></code></pre>
           <p>And if you haven't noticed, protocols are extremely similar to interfaces in Java.</p>
           <p>To understand more about POP, watching this <a href="https://www.youtube.com/watch?v=g2LwFZatfTI">WWDC 2015 talk</a> is highly recommended.</p>
           <h3 id="extensions">Extensions<a class="fa fa-anchor" href="#extensions"></a></h3>
           <p>Extensions allow us to add new functionalities to an existing class, structure, enumeration, or protocol type. Suppose we have an <code>Eagle</code> struct:</p>
-          <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{
-    <span class="hljs-comment">// some functionalities here</span>
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{</span><span>    <span class="hljs-comment">// some functionalities here</span></span><span>}</span></code></pre>
           <p>As development progresses, you realize that you now want <code>Eagle</code> to conform to <code>Bird</code> and <code>Flyable</code> protocols. Instead of editing the code in <code>Eagle</code> struct directly, we can use extensions to implement
             each protocol separately. Do take note that you cannot add stored properties in extensions. As such, <code>canFly</code> and <code>airspeedVelocity</code> have to be computed properties (for more information, see <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html">here</a>):</p>
-          <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{
-    <span class="hljs-comment">// we can leave the existing code here untouched</span>
-}
-
-<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Eagle</span>: <span class="hljs-title">Bird</span> </span>{
-    <span class="hljs-keyword">var</span> canFly: <span class="hljs-type">Bool</span> {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
-    }
-}
-
-<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Eagle</span>: <span class="hljs-title">Flyable</span> </span>{
-    <span class="hljs-keyword">var</span> airspeedVelocity: <span class="hljs-type">Double</span> {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">160.0</span>
-    }
-}
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Eagle</span> </span>{</span><span>    <span class="hljs-comment">// we can leave the existing code here untouched</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Eagle</span>: <span class="hljs-title">Bird</span> </span>{</span><span>    <span class="hljs-keyword">var</span> canFly: <span class="hljs-type">Bool</span> {</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span></span><span>    }</span><span>}</span><span>&#x200B;</span><span><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Eagle</span>: <span class="hljs-title">Flyable</span> </span>{</span><span>    <span class="hljs-keyword">var</span> airspeedVelocity: <span class="hljs-type">Double</span> {</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-number">160.0</span></span><span>    }</span><span>}</span></code></pre>
           <p>Extensions also allow us to define instance methods and type methods for types which you do not have access to the original source code. For example:</p>
-          <pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{ <span class="hljs-comment">// String belongs to Swift Standard Library which we have no access to</span>
-    <span class="hljs-comment">// This method is copied from: </span>
-    <span class="hljs-comment">// https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/SwiftStdlib/StringExtensions.swift</span>
-    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isAlphabetic</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Bool</span> {
-        <span class="hljs-keyword">let</span> hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: <span class="hljs-literal">nil</span>) != <span class="hljs-literal">nil</span>
-        <span class="hljs-keyword">let</span> hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: <span class="hljs-literal">nil</span>) != <span class="hljs-literal">nil</span>
-        <span class="hljs-keyword">return</span> hasLetters &amp;&amp; !hasNumbers
-    }
-}
-
-<span class="hljs-keyword">var</span> foo: <span class="hljs-type">String</span> = <span class="hljs-string">"a1"</span>
-<span class="hljs-built_in">print</span>(foo.isAlphabetic()) <span class="hljs-comment">// prints "false"</span>
-</code></pre>
+          <pre><code class="hljs swift"><span><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{ <span class="hljs-comment">// String belongs to Swift Standard Library which we have no access to</span></span><span>    <span class="hljs-comment">// This method is copied from: </span></span><span>    <span class="hljs-comment">// https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/SwiftStdlib/StringExtensions.swift</span></span><span>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isAlphabetic</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Bool</span> {</span><span>        <span class="hljs-keyword">let</span> hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: <span class="hljs-literal">nil</span>) != <span class="hljs-literal">nil</span></span><span>        <span class="hljs-keyword">let</span> hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: <span class="hljs-literal">nil</span>) != <span class="hljs-literal">nil</span></span><span>        <span class="hljs-keyword">return</span> hasLetters &amp;&amp; !hasNumbers</span><span>    }</span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">var</span> foo: <span class="hljs-type">String</span> = <span class="hljs-string">"a1"</span></span><span><span class="hljs-built_in">print</span>(foo.isAlphabetic()) <span class="hljs-comment">// prints "false"</span></span></code></pre>
           <p>To find out more about extensions, take a look at <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html">Swift's documentation on Extensions</a></p>
           <h3 id="automatic-reference-counting">Automatic Reference Counting<a class="fa fa-anchor" href="#automatic-reference-counting"></a></h3>
           <p>A few keywords unique to Swift are <code>strong</code>, <code>weak</code> and <code>unowned</code>, which have to do with Swift's way of memory management, <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html">Automatic Reference Counting (ARC)</a>.</p>
@@ -624,7 +470,7 @@ barcode2.printCode() <span class="hljs-comment">// prints "QR code: bar."</span>
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Java Concurrency</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -355,43 +364,21 @@
           <p>When deciding which method to use to create a <code>Thread</code>, it is always advisable to implement the <code>Runnable</code> interface as this results in composition which will allow your code to be more loosely coupled as compared to inheritance.
             Furthermore, you can extend another class if need be. Shown below are the two ways to create a <code>Thread</code>.</p>
           <p>Extending the <code>Thread</code> class:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnotherThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
-        System.out.println(<span class="hljs-string">"This class extends the Thread class"</span>);
-    }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnotherThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{</span><span>    <span class="hljs-meta">@Override</span></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{</span><span>        System.out.println(<span class="hljs-string">"This class extends the Thread class"</span>);</span><span>    }</span><span>}</span></code></pre>
           <p>Implemeting the <code>Runnable</code> interface:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
-        System.out.println(<span class="hljs-string">"This class implements the Runnable interface"</span>);
-    }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{</span><span>    <span class="hljs-meta">@Override</span></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{</span><span>        System.out.println(<span class="hljs-string">"This class implements the Runnable interface"</span>);</span><span>    }</span><span>}</span></code></pre>
           <p>Do note that this is only for illustration and can be simplified using lambdas.</p>
           <h3 id="operations-on-threads">Operations on Threads<a class="fa fa-anchor" href="#operations-on-threads"></a></h3>
           <p>After creating and starting threads, you can carry out operations on them. There are several such operations you can use to manipulate threads:</p>
           <ul>
             <li>Making a thread sleep for a given amount of time. This is useful for pausing the execution of a thread for a certain amount of time to free up resources for other threads or delaying the execution of the thread.</li>
           </ul>
-          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
-    Thread.sleep(<span class="hljs-number">1000</span>);
-} <span class="hljs-keyword">catch</span> (InterruptedException e){
-    <span class="hljs-comment">// handle interruption</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">try</span> {</span><span>    Thread.sleep(<span class="hljs-number">1000</span>);</span><span>} <span class="hljs-keyword">catch</span> (InterruptedException e){</span><span>    <span class="hljs-comment">// handle interruption</span></span><span>}</span></code></pre>
           <ul>
             <li>Joining one thread to the current thread. This will pause the execution of the current thread and cause it to wait until the newly joined thread has finished it's execution. This is useful in cases where there is a need for the results of
               another thread before moving on.</li>
           </ul>
-          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
-    thread2.join();
-} <span class="hljs-keyword">catch</span> (InterruptedException e) {
-    <span class="hljs-comment">// handle interruption</span>
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">try</span> {</span><span>    thread2.join();</span><span>} <span class="hljs-keyword">catch</span> (InterruptedException e) {</span><span>    <span class="hljs-comment">// handle interruption</span></span><span>}</span></code></pre>
           <h3 id="thread-interference">Thread Interference<a class="fa fa-anchor" href="#thread-interference"></a></h3>
           <p>Since threads share the resources of the process they exist in, there will inevitably be conflicts when using shared resources due to the unpredictable nature of threads. When threads try to write to the same resource, thread interference occurs.
             To illustrate this problem, here's a sequence of execution for two threads, A and B, that increment and decrement a counter variable respectively:</p>
@@ -448,12 +435,7 @@
             <a href="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" target="_self"><img src="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" alt class="img-fluid"></a></p>
           <p>A simple example of using the <code>Executors</code> class is shown below where after passing in the task to be executed, it is automatically managed by the <code>ExecutorService</code>. For a more detailed look at the workflow of the <code>ExecutorService</code>,
             see this <a href="https://www.callicoder.com/java-executor-service-and-thread-pool-tutorial/">in-depth tutorial</a>.</p>
-          <pre><code class="hljs java">ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">10</span>); 
-executor.execute(() -&gt; {  
-    System.out.println(<span class="hljs-string">"Hello from: "</span> + Thread.currentThread().getName());
-});
-executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thread.</span>
-</code></pre>
+          <pre><code class="hljs java"><span>ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">10</span>); </span><span>executor.execute(() -&gt; {  </span><span>    System.out.println(<span class="hljs-string">"Hello from: "</span> + Thread.currentThread().getName());</span><span>});</span><span>executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thread.</span></span></code></pre>
           <p>And the corresponding output would be <code>Hello from: pool-1-thread-1</code>.</p>
           <h2 id="disadvantages-of-java-concurrency">Disadvantages of Java Concurrency<a class="fa fa-anchor" href="#disadvantages-of-java-concurrency"></a></h2>
           <p>As the saying goes, <em>there is no free lunch</em>. While concurrency provides great benefits as mentioned above, it does come with several issues such as:</p>
@@ -462,46 +444,9 @@ executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thre
               application runs. For instance, take a look at these two implementations of the <code>Singleton</code> design pattern:</li>
           </ul>
           <p>Concurrent implementation where you have to ensure that thread interference does not happen</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;
-    <span class="hljs-comment">// Create a lock so only one thread can access this object at a time.</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();  
-    
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">//...</span>
-    }
-     
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">// This thread has acquired this object, so lock to ensure other threads don't interfere.</span>
-        lock.lock();  
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) {
-                singleton = <span class="hljs-keyword">new</span> Singleton();
-            }
-        } <span class="hljs-keyword">finally</span> {
-            <span class="hljs-comment">// Release lock once you're done so others can access this object.</span>
-            lock.unlock();  
-        }
-        <span class="hljs-keyword">return</span> singleton;
-     }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>{</span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;</span><span>    <span class="hljs-comment">// Create a lock so only one thread can access this object at a time.</span></span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();  </span><span>    </span><span>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{</span><span>        <span class="hljs-comment">//...</span></span><span>    }</span><span>     </span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{</span><span>        <span class="hljs-comment">// This thread has acquired this object, so lock to ensure other threads don't interfere.</span></span><span>        lock.lock();  </span><span>        <span class="hljs-keyword">try</span> {</span><span>            <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) {</span><span>                singleton = <span class="hljs-keyword">new</span> Singleton();</span><span>            }</span><span>        } <span class="hljs-keyword">finally</span> {</span><span>            <span class="hljs-comment">// Release lock once you're done so others can access this object.</span></span><span>            lock.unlock();  </span><span>        }</span><span>        <span class="hljs-keyword">return</span> singleton;</span><span>     }</span><span>}</span></code></pre>
           <p>Vs the usual implementation</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;
-    
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">//...</span>
-    }
-     
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) { 
-            singleton = <span class="hljs-keyword">new</span> Singleton();
-        }
-        <span class="hljs-keyword">return</span> singleton;
-    }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>{</span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;</span><span>    </span><span>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{</span><span>        <span class="hljs-comment">//...</span></span><span>    }</span><span>     </span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{</span><span>        <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) { </span><span>            singleton = <span class="hljs-keyword">new</span> Singleton();</span><span>        }</span><span>        <span class="hljs-keyword">return</span> singleton;</span><span>    }</span><span>}</span></code></pre>
           <ul>
             <li>
               <p><strong>Harder debugging and testing process</strong><br> The unpredictable nature of threads result in errors that can be hard to detect, reproduce and fix as these errors don't crop up consistently like normal errors do.</p>
@@ -559,7 +504,7 @@ executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thre
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

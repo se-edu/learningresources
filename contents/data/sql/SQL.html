@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to SQL</title>
   <link rel="stylesheet" href="../../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -375,13 +384,7 @@
             </table>
           </div>
           <p>We can use this SQL query to retrieve information from this table:</p>
-          <pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> Course, <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">num</span>
-<span class="hljs-keyword">FROM</span> Students
-<span class="hljs-keyword">WHERE</span> Faculty = <span class="hljs-string">'CS'</span>
-<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> Course
-<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(*) &gt; <span class="hljs-number">1</span>
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">num</span>;
-</code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> Course, <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">num</span></span><span><span class="hljs-keyword">FROM</span> Students</span><span><span class="hljs-keyword">WHERE</span> Faculty = <span class="hljs-string">'CS'</span></span><span><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> Course</span><span><span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(*) &gt; <span class="hljs-number">1</span></span><span><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">num</span>;</span></code></pre>
           <p>This query first filters the entries in the <code>Students</code> table such that only entries that have <code>CS</code> as the faculty are considered. After that, it groups those entries into the 3 courses: <code>CS101</code>, <code>CS202</code>            and <code>CS404</code>. Then, it removes courses that do not have more than 1 student, i.e., <code>CS404</code> is removed from consideration. Finally, it returns a list of courses with a count of the number of students, ordered in increasing
             order. So, the output of the query is:</p>
           <div class="table-responsive">
@@ -408,13 +411,9 @@
             SQL can be used for creating, deleting and manipulating data with commands like <code>INSERT</code>, <code>DELETE</code> and <code>UPDATE</code> for entries, in addition to <code>CREATE</code>, <code>DROP</code> and <code>ALTER</code> for
             tables as a whole.</p>
           <p>For example, you can set up the structure of the table shown in Table 1 by executing the <code>CREATE TABLE</code> query shown here. It creates a new data table <code>Students</code>, with 4 fields (<code>ID</code>, <code>Name</code>, <code>Course</code>            and <code>Faculty</code>) and specifies their data types.</p>
-          <pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Students(<span class="hljs-keyword">ID</span> <span class="hljs-built_in">int</span>, <span class="hljs-keyword">Name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>), Course <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>), Faculty <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>));
-</code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Students(<span class="hljs-keyword">ID</span> <span class="hljs-built_in">int</span>, <span class="hljs-keyword">Name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>), Course <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>), Faculty <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>));</span></code></pre>
           <p>We can also remove rows containing the <code>MA</code> faculty from Table 1 with this <code>DELETE</code> query.</p>
-          <pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span>
-<span class="hljs-keyword">FROM</span> Students
-<span class="hljs-keyword">WHERE</span> Faculty=<span class="hljs-string">'MA'</span>;
-</code></pre>
+          <pre><code class="hljs sql"><span><span class="hljs-keyword">DELETE</span></span><span><span class="hljs-keyword">FROM</span> Students</span><span><span class="hljs-keyword">WHERE</span> Faculty=<span class="hljs-string">'MA'</span>;</span></code></pre>
           <box type="info">
             You can experiment with <a href="https://www.db-fiddle.com/f/kHqV2edUGxCc1dU6vE6CmS/1">this example on DB Fiddle</a> (shown in Figure 1 below) by entering SQL queries and then running them.
           </box>
@@ -424,8 +423,8 @@
           </center>
           <p><strong>Online editors</strong> like DB Fiddle can be used while learning SQL. However, to use SQL in application development, you need to consider other alternatives for running SQL queries:</p>
           <ul>
-            <li><strong>RDBMS software</strong>: RDBMS installations usually come with a
-              <tooltip><template slot="_content">Graphical User Interface</template>GUI</tooltip> (see Figure 2), but can also be accessed from the command line (see Figure 3).</li>
+            <li><strong>RDBMS software</strong>: RDBMS installations usually come with a <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Graphical User Interface</span>GUI</span>
+              (see Figure 2), but can also be accessed from the command line (see Figure 3).</li>
           </ul>
           <center>
             <img src="/learningresources/contents/data/sql/MySQL_Workbench.png" alt="MySQL Workbench GUI Software" width="100%">
@@ -447,12 +446,12 @@
           <p>The main reason why you should learn SQL is because of its widespread adoption. As SQL is not limited to any particular operating system or programming language, RDBMSs (which use SQL) are <strong>widely used</strong> by a lot of software applications
             <span class="dimmed">(web, mobile etc.)</span>. Hence, in order to utilize almost any relational database or RDBMS available today, you need to know the SQL language.</p>
           <h2 id="disadvantage">Disadvantage<a class="fa fa-anchor" href="#disadvantage"></a></h2>
-          <p>The biggest issue in SQL is with regards to the syntax and features. Although SQL databases use established
-            <tooltip><template slot="_content">American National Standard Institutes</template>ANSI</tooltip> &amp;
-            <tooltip><template slot="_content">International Organization for Standardization</template>ISO</tooltip> standards, some RDBMSs <span class="dimmed">(like PostgreSQL, for example)</span> add proprietary extensions to standard SQL. Due to this, the
-            available feature set can vary according to what you're using. Furthermore, there may be
-            <tooltip><template slot="_content">case-sensitivity, date and time format, functions available out-of-the-box, etc.</template>minor changes in the syntaxes</tooltip> across RDBMSs. These factors can make SQL confusing and frustrating to use when switching
-            across RDBMSs, since you would have to change your SQL queries.</p>
+          <p>The biggest issue in SQL is with regards to the syntax and features. Although SQL databases use established <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">American National Standard Institutes</span>ANSI</span>
+            &amp; <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">International Organization for Standardization</span>ISO</span> standards, some RDBMSs
+            <span
+              class="dimmed">(like PostgreSQL, for example)</span> add proprietary extensions to standard SQL. Due to this, the available feature set can vary according to what you're using. Furthermore, there may be <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+                class="trigger"><span data-mb-html-for="_content">case-sensitivity, date and time format, functions available out-of-the-box, etc.</span>minor changes in the syntaxes</span> across RDBMSs. These factors can make SQL confusing and frustrating
+              to use when switching across RDBMSs, since you would have to change your SQL queries.</p>
           <hr>
           <h2 id="how-to-get-started-with-sql">How to get started with SQL?<a class="fa fa-anchor" href="#how-to-get-started-with-sql"></a></h2>
           <p>As you saw in the example in the earlier section, SQL is really not that complex. It is easy to learn, even for beginners who do not have any prior experience with databases.</p>
@@ -463,10 +462,7 @@
           <p>Here are some recommended steps for learning SQL:</p>
           <ol>
             <li>
-              <p><strong>Understand RDBMS</strong>: Before jumping into the SQL language, refer to this book's
-                <a href="/learningresources/contents/data/databases/databases.html">
-                  <tooltip><template slot="_content">DataBase Management System</template><strong>DBMS</strong></tooltip>
-                </a> chapter to understand the basic database concepts. More specifically, understand the basic concepts of RDBMS by going through Tutorials Point's <a href="https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm"><strong>SQL- RDBMS Concepts</strong></a>                page. This is not <em>essential</em>, but will give you a better high-level understanding before diving into programming.</p>
+              <p><strong>Understand RDBMS</strong>: Before jumping into the SQL language, refer to this book's <a href="/learningresources/contents/data/databases/databases.html"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">DataBase Management System</span><strong>DBMS</strong></span></a>                chapter to understand the basic database concepts. More specifically, understand the basic concepts of RDBMS by going through Tutorials Point's <a href="https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm"><strong>SQL- RDBMS Concepts</strong></a>                page. This is not <em>essential</em>, but will give you a better high-level understanding before diving into programming.</p>
             </li>
             <li>
               <p><strong>Learn SQL Syntax</strong>: These are some recommended resources that you can use to learn the SQL language.</p>
@@ -514,7 +510,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

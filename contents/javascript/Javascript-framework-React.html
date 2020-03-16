@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to React</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -315,17 +324,10 @@
           </box>
           <h3 id="declarative-framework">Declarative Framework<a class="fa fa-anchor" href="#declarative-framework"></a></h3>
           <p>The UI of a React application is defined using a mix of HTML code and HTML-like syntax, called <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>. The main view of the application above (defined in the <code>App.render()</code>            method in <code>index.js</code>) is given as follows:</p>
-          <pre><code class="hljs jsx">&lt;div className=<span class="hljs-string">"App"</span>&gt;
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Person Data<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">PersonComponent</span>
-    <span class="hljs-attr">name</span>=<span class="hljs-string">{this.state.name}</span>
-    <span class="hljs-attr">changeHandler</span>=<span class="hljs-string">{this.handleChange}</span>
-  /&gt;</span></span>
-&lt;<span class="hljs-regexp">/div&gt;
-</span></code></pre>
-          <p>In the above example, we declare what we want to display (i.e. <code>name</code>) and React renders the appropriate view based on the updated application data. This is known as the
-            <tooltip><template slot="_content">Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.</template><em>declarative</em></tooltip> approach. With the declarative approach,
-            you just need to specify <em>what</em> you want to show in the UI when the application data changes, rather than giving instructions on <em>how</em> to update the UI.</p>
+          <pre><code class="hljs jsx"><span>&lt;div className=<span class="hljs-string">"App"</span>&gt;</span><span>  &lt;h1&gt;Person Data&lt;<span class="hljs-regexp">/h1&gt;</span></span><span><span class="hljs-regexp">  &lt;PersonComponent</span></span><span><span class="hljs-regexp">    name={this.state.name}</span></span><span><span class="hljs-regexp">    changeHandler={this.handleChange}</span></span><span><span class="hljs-regexp">  /</span>&gt;</span><span>&lt;<span class="hljs-regexp">/div&gt;</span></span></code></pre>
+          <p>In the above example, we declare what we want to display (i.e. <code>name</code>) and React renders the appropriate view based on the updated application data. This is known as the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+              class="trigger"><span data-mb-html-for="_content">Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.</span><em>declarative</em></span> approach. With the declarative
+            approach, you just need to specify <em>what</em> you want to show in the UI when the application data changes, rather than giving instructions on <em>how</em> to update the UI.</p>
           <h3 id="components">Components<a class="fa fa-anchor" href="#components"></a></h3>
           <p>React encapsulates application views and relevant data and logic for updating the views using <em>components</em>. A combination of components that exchange information with one another is used to build the UI of a React application.</p>
           <p>For example, the application above is divided into two components:</p>
@@ -334,45 +336,12 @@
               <p><strong>App</strong></p>
               <p>The <code>App</code> component (defined in <code>index.js</code>) contains the main view of the application. It stores the application data (i.e. <code>name</code>) in an object called <em><code>state</code></em> and has a method to update
                 the it every time the value in the textbox changes. It passes the application data and the method to the <code>PersonComponent</code>.</p>
-              <pre><code class="hljs jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  state = {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">"John Doe"</span>
-  };
-
-  handleChange = <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
-    <span class="hljs-keyword">this</span>.setState({
-      <span class="hljs-attr">name</span>: event.target.value
-    });
-  };
-
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Person Data<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">PersonComponent</span>
-          <span class="hljs-attr">name</span>=<span class="hljs-string">{this.state.name}</span>
-          <span class="hljs-attr">changeHandler</span>=<span class="hljs-string">{this.handleChange}</span>
-        /&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-    );
-  }
-}
-</code></pre>
+              <pre><code class="hljs jsx"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{</span><span>  state = {</span><span>    name: <span class="hljs-string">"John Doe"</span></span><span>  };</span><span>&#x200B;</span><span>  handleChange = <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {</span><span>    <span class="hljs-keyword">this</span>.setState({</span><span>      name: event.target.value</span><span>    });</span><span>  };</span><span>&#x200B;</span><span>  render() {</span><span>    <span class="hljs-keyword">return</span> (</span><span>      &lt;div className=<span class="hljs-string">"App"</span>&gt;</span><span>        &lt;h1&gt;Person Data&lt;<span class="hljs-regexp">/h1&gt;</span></span><span><span class="hljs-regexp">        &lt;PersonComponent</span></span><span><span class="hljs-regexp">          name={this.state.name}</span></span><span><span class="hljs-regexp">          changeHandler={this.handleChange}</span></span><span><span class="hljs-regexp">        /</span>&gt;</span><span>      &lt;<span class="hljs-regexp">/div&gt;</span></span><span><span class="hljs-regexp">    );</span></span><span><span class="hljs-regexp">  }</span></span><span><span class="hljs-regexp">}</span></span></code></pre>
             </li>
             <li>
               <p><strong>PersonComponent</strong></p>
               <p><code>PersonComponent</code> (defined in <code>personComponent.js</code>) renders the details of the person. It accepts input from the <code>App</code> component in the form of <em><code>props</code></em>.</p>
-              <pre><code class="hljs jsx"><span class="hljs-keyword">const</span> PersonComponent = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> {
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"Person"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>About Me<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>My name is {props.name}.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">htmlFor</span>=<span class="hljs-string">"name"</span>&gt;</span>Name: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{props.changeHandler}</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{props.name}</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-  );
-};
-</code></pre>
+              <pre><code class="hljs jsx"><span><span class="hljs-keyword">const</span> PersonComponent = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> {</span><span>  <span class="hljs-keyword">return</span> (</span><span>    &lt;div className=<span class="hljs-string">"Person"</span>&gt;</span><span>      &lt;h2&gt;About Me&lt;<span class="hljs-regexp">/h2&gt;</span></span><span><span class="hljs-regexp">      &lt;p&gt;My name is {props.name}.&lt;/</span>p&gt;</span><span>      &lt;label htmlFor=<span class="hljs-string">"name"</span>&gt;Name: &lt;<span class="hljs-regexp">/label&gt;</span></span><span><span class="hljs-regexp">      &lt;input id="name" onChange={props.changeHandler} value={props.name} /</span>&gt;</span><span>    &lt;<span class="hljs-regexp">/div&gt;</span></span><span><span class="hljs-regexp">  );</span></span><span><span class="hljs-regexp">};</span></span></code></pre>
             </li>
           </ol>
           <p>As you can see, React components are just JavaScript functions that accept arbitrary input and return a declarative view describing what should appear in the application's UI.</p>
@@ -384,10 +353,8 @@
           <h2 id="why-use-react">Why use React?<a class="fa fa-anchor" href="#why-use-react"></a></h2>
           <p>Now that we know what React is, let us look at some benefits it has to offer.</p>
           <h3 id="benefit-1-better-performance">Benefit 1: Better Performance<a class="fa fa-anchor" href="#benefit-1-better-performance"></a></h3>
-          <p>Web applications can have a lot of user interaction and data updates, which results in changes being made to the
-            <tooltip><template slot="_content">The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.</template>DOM</tooltip>.
-            Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to
-            <tooltip><template slot="_content">A reflow occurs when the structure of the DOM tree changes, and a repaint occurs on style changes. These operations can get quite expensive for large DOM trees.</template><em><a href="https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">reflow and repaint</a></em></tooltip>
+          <p>Web applications can have a lot of user interaction and data updates, which results in changes being made to the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.</span>DOM</span>.
+            Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A reflow occurs when the structure of the DOM tree changes, and a repaint occurs on style changes. These operations can get quite expensive for large DOM trees.</span><em><a href="https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">reflow and repaint</a></em></span>
             the UI every time the DOM is changed.</p>
           <p>React minimizes this update time by using a <em>virtual DOM</em>. The virtual DOM is a JavaScript object that is kept in the memory of your application.</p>
           <p><a href="/learningresources/contents/javascript/javascript-framework-react-images/ReactVirtualDOM.png" target="_self"><img src="/learningresources/contents/javascript/javascript-framework-react-images/ReactVirtualDOM.png" alt class="img-fluid" title="React's Virtual DOM"></a>
@@ -395,12 +362,14 @@
           <p>As shown in Figure 1 above, updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a <em><a href="https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm">diffing algorithm</a></em>.
             Finally, React updates the actual DOM only in places it differs with the virtual DOM. It batches multiple changes together and updates the actual DOM in one go, minimizing update time.</p>
           <h3 id="benefit-2-abstraction">Benefit 2: Abstraction<a class="fa fa-anchor" href="#benefit-2-abstraction"></a></h3>
-          <p>The traditional
-            <tooltip><template slot="_content">Imperative programming focuses on explicitly describing how a program operates.</template><em>imperative</em></tooltip> approach of building a web application requires you to describe how you want your UI to change
-            when your application data changes.</p>
-          <p>Most web applications usually have to interact with a lot of DOM elements and events. Also, different browsers have variations in their implementations of the
-            <tooltip><template slot="_content">The core DOM consists of the properties and methods of the DOM (nodeName, getElementById(), etc).</template><a href="https://quirksmode.org/dom/core/">core DOM</a></tooltip>,
-            <tooltip><template slot="_content">The events system consists of different kinds of events that the DOM supports (blur, change, etc).</template><a href="https://www.quirksmode.org/dom/events/index.html">events system</a></tooltip> and even <a href="https://www.quirksmode.org/dom/w3c_css.html">styles</a>            that can be applied to DOM elements! If you want your application to work across different browsers, you would need to manually take care of these variations with the imperative approach.</p>
+          <p>The traditional <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Imperative programming focuses on explicitly describing how a program operates.</span><em>imperative</em></span>
+            approach of building a web application requires you to describe how you want your UI to change when your application data changes.</p>
+          <p>Most web applications usually have to interact with a lot of DOM elements and events. Also, different browsers have variations in their implementations of the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+              class="trigger"><span data-mb-html-for="_content">The core DOM consists of the properties and methods of the DOM (nodeName, getElementById(), etc).</span><a href="https://quirksmode.org/dom/core/">core DOM</a></span>, <span data-mb-component-type="tooltip"
+              v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The events system consists of different kinds of events that the DOM supports (blur, change, etc).</span><a href="https://www.quirksmode.org/dom/events/index.html">events system</a></span>
+            and even <a href="https://www.quirksmode.org/dom/w3c_css.html">styles</a> that can be applied to DOM elements! If you want your application to work across different browsers, you would need to manually take care of these variations with the
+            imperative approach.
+          </p>
           <p>React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally,
             React provides its own <a href="https://reactjs.org/docs/events.html">events system</a> so that events can work in the same way across different browsers.</p>
           <h3 id="benefit-3-testability">Benefit 3: Testability<a class="fa fa-anchor" href="#benefit-3-testability"></a></h3>
@@ -409,16 +378,15 @@
           <h3 id="other-advantages-of-react">Other Advantages of React<a class="fa fa-anchor" href="#other-advantages-of-react"></a></h3>
           <p>Besides the three main benefits explained above, React has the following advantages:</p>
           <ul>
-            <li>React is not an
-              <tooltip><template slot="_content">An opiniated framework guides or locks you into their preferred way of doing things.</template><em>opinionated</em></tooltip> framework, which gives you the flexibility to choose your application stack.</li>
+            <li>React is not an <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">An opiniated framework guides or locks you into their preferred way of doing things.</span><em>opinionated</em></span>
+              framework, which gives you the flexibility to choose your application stack.</li>
             <li>React is constantly being updated with new features (e.g. <a href="https://reactjs.org/docs/hooks-intro.html">hooks</a> were released in v16.8) and performance optimizations.</li>
           </ul>
           <h2 id="disadvantages-of-react">Disadvantages of React<a class="fa fa-anchor" href="#disadvantages-of-react"></a></h2>
           <p>Like any other framework/library, React has its share of disadvantages.</p>
           <ol>
             <li><strong>Fast-Paced Development:</strong> <br> The high pace of development of React means that you would need to regularly relearn how to do things.</li>
-            <li><strong>React is Just a UI library:</strong><br> As React only allows one-way data binding, you can't use it in applications that follow the
-              <tooltip><template slot="_content">MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.</template><em>MVC</em></tooltip>
+            <li><strong>React is Just a UI library:</strong><br> As React only allows one-way data binding, you can't use it in applications that follow the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.</span><em>MVC</em></span>
               architecture. You would have to use <a href="https://github.com/facebook/flux">Flux</a>, an application architecture that favors one-way data binding instead.</li>
           </ol>
           <h2 id="react-and-other-competing-alternatives">React and Other Competing Alternatives<a class="fa fa-anchor" href="#react-and-other-competing-alternatives"></a></h2>
@@ -441,8 +409,8 @@
           </ul>
           <p>If you want to add React to an existing project, you can take a look at React's official <a href="https://reactjs.org/docs/add-react-to-a-website.html">guide</a> for doing so. Alternatively, if you are creating a new React application, you can
             use one of the <a href="https://reactjs.org/docs/create-a-new-react-app.html">recommended toolchains</a> to get the best user and developer experience.</p>
-          <p><a href="https://github.com/facebook/create-react-app">Create React App</a> is a convenient environment for learning React, and it is the recommended way to create
-            <tooltip><template slot="_content">A single-page application is an app that works inside a browser and does not require page reloading during use.</template><em>single-page applications</em></tooltip> with React.</p>
+          <p><a href="https://github.com/facebook/create-react-app">Create React App</a> is a convenient environment for learning React, and it is the recommended way to create <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+              class="trigger"><span data-mb-html-for="_content">A single-page application is an app that works inside a browser and does not require page reloading during use.</span><em>single-page applications</em></span> with React.</p>
           <p>The official website also has <a href="https://reactjs.org/docs/getting-started.html#advanced-concepts">advanced guides</a> if you want to understand how React works behind the scenes.</p>
           <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
           <p>As React is a fairly popular library, you can find a lot of comprehensive resources online. Here are some resources that can be useful:</p>
@@ -489,7 +457,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

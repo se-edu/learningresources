@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Static Typing in JavaScript</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -363,93 +372,44 @@
           <h3 id="compilation-to-javascript">Compilation to JavaScript<a class="fa fa-anchor" href="#compilation-to-javascript"></a></h3>
           <p>As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. TypeScript can be configured to target different flavors of JavaScript while offering support
             for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.</p>
-          <p>Because TypeScript is
-            <tooltip><template slot="_content">Transpilation is the process of translating source code into a different language or into a different flavor of the same language.</template>transpiled</tooltip> down to ES3 by default, it maintains compatibility
-            with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.</p>
+          <p>Because TypeScript is <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Transpilation is the process of translating source code into a different language or into a different flavor of the same language.</span>transpiled</span>
+            down to ES3 by default, it maintains compatibility with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.
+          </p>
           <h3 id="type-annotations-and-type-inference">Type Annotations and Type Inference<a class="fa fa-anchor" href="#type-annotations-and-type-inference"></a></h3>
           <p>TypeScript enables static type checking by giving you the ability to add <strong>type annotations</strong> to your JavaScript variables and functions. Here's an example of declaring a variable with the <code>string</code> type and assigning
             it a <code>string</code> value:</p>
-          <pre><code class="hljs typescript"><span class="hljs-keyword">let</span> myString: <span class="hljs-built_in">string</span> = <span class="hljs-string">"abc"</span>;
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-keyword">let</span> myString: <span class="hljs-built_in">string</span> = <span class="hljs-string">"abc"</span>;</span></code></pre>
           <p>If we try to assign it a <code>number</code> value later on, the TypeScript compiler will raise an error:</p>
-          <pre><code class="hljs typescript">myString = <span class="hljs-number">123</span>; <span class="hljs-comment">// error: 123 is not assignable to type 'string'</span>
-</code></pre>
+          <pre><code class="hljs typescript"><span>myString = <span class="hljs-number">123</span>; <span class="hljs-comment">// error: 123 is not assignable to type 'string'</span></span></code></pre>
           <p>The same type annotation syntax is used for function arguments and return types:</p>
-          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertNumberToString</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span> </span>{
-    <span class="hljs-keyword">return</span> value.toString();
-}
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertNumberToString</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span> </span>{</span><span>    <span class="hljs-keyword">return</span> value.toString();</span><span>}</span></code></pre>
           <p>It isn't always necessary to add type annotations because TypeScript performs <strong>type inference</strong>, where the compiler infers the types of your variables or functions automatically. This helps to cut down on excess verbosity in your
             code. In this next example, <code>myBoolean</code> is inferred as a <code>boolean</code> variable, so reassigning it to any <code>boolean</code> value is allowed:</p>
-          <pre><code class="hljs typescript"><span class="hljs-keyword">let</span> myBoolean = <span class="hljs-literal">true</span>;
-
-<span class="hljs-comment">// valid</span>
-myBoolean = <span class="hljs-literal">false</span>;
-
-<span class="hljs-comment">// error: "hello world" is not assignable to type 'boolean'</span>
-myBoolean = <span class="hljs-string">"hello world"</span>;
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-keyword">let</span> myBoolean = <span class="hljs-literal">true</span>;</span><span>&#x200B;</span><span><span class="hljs-comment">// valid</span></span><span>myBoolean = <span class="hljs-literal">false</span>;</span><span>&#x200B;</span><span><span class="hljs-comment">// error: "hello world" is not assignable to type 'boolean'</span></span><span>myBoolean = <span class="hljs-string">"hello world"</span>;</span></code></pre>
           <p>Sometimes, we don't know what the type of a variable might be. In those cases, we would use the <code>any</code> type to opt out of compile-time type checking. For example, <code>myList</code> is an array that contains elements with a mix of
             different types:
           </p>
-          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printItemsToConsole</span>(<span class="hljs-params">list: <span class="hljs-built_in">any</span>[]</span>): <span class="hljs-title">void</span> </span>{
-    list.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item));
-}
-
-<span class="hljs-keyword">const</span> myList = [<span class="hljs-number">1</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-literal">false</span>];
-printItemsToConsole(myList);
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printItemsToConsole</span>(<span class="hljs-params">list: <span class="hljs-built_in">any</span>[]</span>): <span class="hljs-title">void</span> </span>{</span><span>    list.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item));</span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">const</span> myList = [<span class="hljs-number">1</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-literal">false</span>];</span><span>printItemsToConsole(myList);</span></code></pre>
           <p>TypeScript also supports other variable types such as arrays and <code>void</code>, as seen in the example above. Check out <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">this article</a> from the official TypeScript
             website for more details on those other types.</p>
           <h3 id="custom-types">Custom Types<a class="fa fa-anchor" href="#custom-types"></a></h3>
-          <p>In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the
-            <tooltip><template slot="_content">The shape of an JavaScript object refers to its set of property keys.</template>shape</tooltip> of these objects. Let's use the <code>type</code> keyword to define our own <code>Person</code> type to describe an object
-            that has the <code>firstName</code> and <code>lastName</code> properties:</p>
-          <pre><code class="hljs typescript"><span class="hljs-keyword">type</span> Person = {
-    firstName: <span class="hljs-built_in">string</span>;
-    lastName: <span class="hljs-built_in">string</span>;
-}
-</code></pre>
+          <p>In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The shape of an JavaScript object refers to its set of property keys.</span>shape</span>
+            of these objects. Let's use the <code>type</code> keyword to define our own <code>Person</code> type to describe an object that has the <code>firstName</code> and <code>lastName</code> properties:</p>
+          <pre><code class="hljs typescript"><span><span class="hljs-keyword">type</span> Person = {</span><span>    firstName: <span class="hljs-built_in">string</span>;</span><span>    lastName: <span class="hljs-built_in">string</span>;</span><span>}</span></code></pre>
           <p>By using <code>Person</code> as a type annotation, TypeScript will now verify that any object we pass into the <code>greet</code> function has a compatible structure:</p>
-          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">person: Person</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Nice to meet you, <span class="hljs-subst">${person.firstName}</span> <span class="hljs-subst">${person.lastName}</span>!`</span>);
-}
-
-<span class="hljs-comment">// valid</span>
-greet({ firstName: <span class="hljs-string">"John"</span>, lastName: <span class="hljs-string">"Doe"</span> });
-
-<span class="hljs-comment">// error: property 'lastName' is required in type 'Person'</span>
-greet({ firstName: <span class="hljs-string">"John"</span> });
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">person: Person</span>) </span>{</span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Nice to meet you, <span class="hljs-subst">${person.firstName}</span> <span class="hljs-subst">${person.lastName}</span>!`</span>);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">// valid</span></span><span>greet({ firstName: <span class="hljs-string">"John"</span>, lastName: <span class="hljs-string">"Doe"</span> });</span><span>&#x200B;</span><span><span class="hljs-comment">// error: property 'lastName' is required in type 'Person'</span></span><span>greet({ firstName: <span class="hljs-string">"John"</span> });</span></code></pre>
           <p>This also helps to catch implementation mistakes such as:</p>
-          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">askAboutColor</span>(<span class="hljs-params">person: Person</span>) </span>{
-    <span class="hljs-comment">// error: property 'favoriteColor' does not exist on type 'Person'.</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hey <span class="hljs-subst">${person.firstName}</span>, is it true that you like <span class="hljs-subst">${person.favoriteColor}</span>?`</span>);
-}
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">askAboutColor</span>(<span class="hljs-params">person: Person</span>) </span>{</span><span>    <span class="hljs-comment">// error: property 'favoriteColor' does not exist on type 'Person'.</span></span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hey <span class="hljs-subst">${person.firstName}</span>, is it true that you like <span class="hljs-subst">${person.favoriteColor}</span>?`</span>);</span><span>}</span></code></pre>
           <h3 id="optionals">Optionals<a class="fa fa-anchor" href="#optionals"></a></h3>
           <p>You can specify optional object properties and function arguments, which are denoted by a <code>?</code> at the end of the property or argument name:</p>
-          <pre><code class="hljs typescript"><span class="hljs-keyword">type</span> Student = {
-    name: <span class="hljs-built_in">string</span>;
-    major?: <span class="hljs-built_in">string</span>;
-}
-</code></pre>
-          <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, favoriteColor?: <span class="hljs-built_in">string</span></span>) </span>{
-    <span class="hljs-keyword">if</span> (favoriteColor) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span> and my favorite color is <span class="hljs-subst">${favoriteColor}</span>!`</span>;
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span>!`</span>;
-    }
-}
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-keyword">type</span> Student = {</span><span>    name: <span class="hljs-built_in">string</span>;</span><span>    major?: <span class="hljs-built_in">string</span>;</span><span>}</span></code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, favoriteColor?: <span class="hljs-built_in">string</span></span>) </span>{</span><span>    <span class="hljs-keyword">if</span> (favoriteColor) {</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span> and my favorite color is <span class="hljs-subst">${favoriteColor}</span>!`</span>;</span><span>    } <span class="hljs-keyword">else</span> {</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span>!`</span>;</span><span>    }</span><span>}</span></code></pre>
           <h2 id="getting-started-with-typescript">Getting Started with TypeScript<a class="fa fa-anchor" href="#getting-started-with-typescript"></a></h2>
           <h3 id="installation">Installation<a class="fa fa-anchor" href="#installation"></a></h3>
           <p>The command-line TypeScript compiler can be installed as a Node.js package via <code>npm</code>:</p>
-          <pre><code class="hljs bash">npm install -g typescript
-</code></pre>
+          <pre><code class="hljs bash"><span>npm install -g typescript</span></code></pre>
           <p>After installing TypeScript, you will have access to the <code>tsc</code> command for compiling TypeScript files:</p>
-          <pre><code class="hljs bash">tsc my_file.ts
-</code></pre>
+          <pre><code class="hljs bash"><span>tsc my_file.ts</span></code></pre>
           <p>This gets compiled into a <code>my_file.js</code> file, which you can execute in a browser or on Node.js.</p>
           <h3 id="additional-resources">Additional Resources<a class="fa fa-anchor" href="#additional-resources"></a></h3>
           <ul>
@@ -500,7 +460,7 @@ greet({ firstName: <span class="hljs-string">"John"</span> });
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

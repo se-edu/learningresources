@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Docker</title>
+  <title>SE-EDU/LearningResources - NumPy</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -52,11 +52,11 @@
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
 <ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon">
+<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
           </button>
-          <div class="dropdown-container">
+          <div class="dropdown-container dropdown-container-open">
             <ul class="pl-3 site-nav-list">
               <li class="mt-2"><button class="dropdown-btn">C++
  <i class="dropdown-btn-icon">
@@ -113,13 +113,13 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Python
- <i class="dropdown-btn-icon">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Python
+ <i class="dropdown-btn-icon rotate-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
                     <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a current">NumPy</a></li>
                   </ul>
                 </div>
               </li>
@@ -239,13 +239,13 @@
               </ul>
             </div>
           </li>
-          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Tools Useful for Software Engineers</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+ <i class="dropdown-btn-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container dropdown-container-open">
+            <div class="dropdown-container">
               <ul class="pl-3 site-nav-list">
                 <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a current">Docker</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
               </ul>
             </div>
           </li>
@@ -309,123 +309,97 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="docker">Docker<a class="fa fa-anchor" href="#docker"></a></h1>
-          <p><strong>Authors: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/monmanuela">Monika Manuela Hengki</a>, <a href="https://github.com/junming403">Wang Junming</a></p>
-          <h3 id="what-is-docker">What is Docker?<a class="fa fa-anchor" href="#what-is-docker"></a></h3>
-          <pic src="/learningresources/contents/docker/Docker_Logo.png" alt="Docker Logo" width="45%">
-            <p><sub><em>Figure 1. Docker Logo</em> <a href="https://www.theverge.com/circuitbreaker/2018/5/25/17386716/docker-kubernetes-containers-explained">(source)</a></sub></p>
-          </pic>
-          <p>Docker is a platform that is used to develop, deploy and run applications inside “containers”.</p>
-          <blockquote>
-            <p>A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. <sub>--<a href="https://www.docker.com/resources/what-container">Docker Website</a></sub></p>
-          </blockquote>
-          <p>The idea of containers is not so different from <em>Virtual Machines</em> (VM). Before the rise of Docker, people used VMs. A VM is an emulation of a real computer that is used to isolate an application and its dependencies into a self-contained
-            unit that can run anywhere. For example, you could use a VM to run an application on a Linux system even though you are running Windows.</p>
-          <p>However, a container posses some advantages over a VM. As per the <a href="https://docs.docker.com/get-started/">Docker Documentation</a>, a container runs natively on Linux and shares the kernel of the host machine with other containers. It
-            runs a discrete process, taking no more memory than any other executable, making it lightweight.</p>
-          <pic src="/learningresources/contents/docker/Docker_Architecture.png" alt="Docker Architecture" width="100%">
-            <p><sub><em>Figure 2. Difference between a container and a VM</em> <a href="https://docs.docker.com/get-started">(source)</a></sub></p>
-          </pic>
-          <p>By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor. In general, VMs provide an environment with more resources than most applications need.</p>
-          <p>The idea behind Docker is to spin up a lightweight container that is able to execute services quickly without the overhead of a full-blown VM. With this in mind, let us move onto the the reasons to switch over to Docker. The subtleties between
-            a container and VM will become more clear as you read the next few sections.</p>
-          <h3 id="why-docker">Why Docker?<a class="fa fa-anchor" href="#why-docker"></a></h3>
-          <p>Docker is a powerful tool that is rapidly gaining popularity. These are some statistics for Docker:</p>
-          <pic src="/learningresources/contents/docker/Docker_Statistics.png" alt="Docker Statistics" width="60%">
-            <p><sub><em>Figure 3. Usage of Docker</em> <a href="https://www.docker.com/company">(source)</a></sub></p>
-          </pic>
-          <p>Many leading companies (e.g. Spotify, Nginx, ElasticSearch etc.) are using Docker for their deployment!</p>
-          <p>If the numbers aren't enough to convince you to get started on Docker, as compiled by <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.0_release_notes/sect-red_hat_enterprise_linux-7.0_release_notes-linux_containers_with_docker_format-advantages_of_using_docker">RedHat</a>            here are some of the notable advantages that Docker is able to provide:</p>
-          <ul>
-            <li><strong>Rapid application deployment</strong> – containers include the minimal runtime requirements of the application, reducing their size and allowing them to be deployed quickly.</li>
-            <li><strong>Portability across machines</strong> – an application and all its dependencies can be bundled into a single container that is independent from the host version of Linux kernel, platform distribution, or deployment model. This container
-              can be transferred to another machine that runs Docker, and executed there without compatibility issues.</li>
-            <li><strong>Version control and component reuse</strong> – you can track successive versions of a container, inspect differences, or roll-back to previous versions. Containers reuse components from the preceding layers, which makes them noticeably
-              lightweight.</li>
-            <li><strong>Sharing</strong> – you can use a remote repository to share your container with others.Red Hat provides a registry for this purpose, and it is also possible to configure your own private repository.</li>
-            <li><strong>Lightweight footprint and minimal overhead</strong> – Docker images are typically very small, which facilitates rapid delivery and reduces the time to deploy new application containers.</li>
-            <li><strong>Simplified maintenance</strong> – Docker reduces effort and risk of problems with application dependencies.</li>
-          </ul>
-          <box type="danger">
-            As you can read from above, Docker is undeniably a powerful tool that can alleviate your deployment troubles. However, be aware that Docker is not a one-size-fits-all solution to your problems. Docker also has its limitations e.g. refer to this
-            <a href="https://www.channelfutures.com/open-source/when-not-to-use-docker-understanding-the-limitations-of-containers/">article</a>. Carefully consider your use case before turning to Docker.
+          <h1 id="numpy">NumPy<a class="fa fa-anchor" href="#numpy"></a></h1>
+          <p>Author: <a href="https://github.com/Parcly-Taxel">Jeremy Tan</a></p>
+          <box id="article-toc">
+            <ul>
+              <li><a href="#numpys-purpose">NumPy's Purpose</a></li>
+              <li><a href="#numpys-benefits-and-drawbacks">NumPy's Benefits and Drawbacks</a></li>
+              <li><a href="#internals-of-numpy">Internals of NumPy</a>
+                <ul>
+                  <li><a href="#the-array-type">The Array Type</a></li>
+                  <li><a href="#library-functions">Library Functions</a></li>
+                </ul>
+              </li>
+              <li><a href="#tutorials-and-resources">Tutorials and Resources</a></li>
+            </ul>
           </box>
-          <p>Now that we have a good idea of how Docker works and a summary of the notable advantages it is able to provide, let us take a closer look at some of the unique features that Docker is able to provide.</p>
-          <h4 id="feature-docker-is-lightweight">Feature: Docker is lightweight<a class="fa fa-anchor" href="#feature-docker-is-lightweight"></a></h4>
-          <p>We have discussed above that Docker makes use of a container instead of a full-fledged VM to run your application. We have briefly covered the differences between a VM and a container above.</p>
-          <p>The table below lists some of the differences between a VM and a container:</p>
-          <pic src="/learningresources/contents/docker/VMvsContainer.png" alt="VM vs Container" width="100%">
-            <p><sub><em>Figure 4. VM vs Container</em> <a href="https://www.backblaze.com/blog/vm-vs-containers/">(source)</a></sub></p>
-          </pic>
-          <p>The image listed previously in the “What is Docker” section helps to give a pictorial representation of the points listed above in the table. To summarise, a Docker container shares the host OS and runs a discrete process on your operating system
-            (much like any other application). As a result, Docker has a minimal footprint and is much more lightweight. This also makes it faster to run.</p>
-          <h4 id="feature-docker-allows-for-sharing-and-reuse">Feature: Docker allows for sharing and reuse<a class="fa fa-anchor" href="#feature-docker-allows-for-sharing-and-reuse"></a></h4>
-          <p>Docker containers require a base image to run. An image corresponds to the service you want e.g. python image / ubuntu image etc. An image helps to define what you want your packaged application and its dependencies to look like.</p>
-          <p>One of the reasons why Docker is so great is that it provides a shared resource known as the <a href="https://hub.docker.com/">Docker Hub</a> to download prebuilt images. The docker hub has over a hundred thousand images created by the community
-            that are readily available for use.</p>
-          <pic src="/learningresources/contents/docker/DockerHub.png" alt="Docker Hub" width="100%">
-            <p><sub><em>Figure 5. Docker Hub</em> <a href="https://hub.docker.com/">(source)</a></sub></p>
-          </pic>
-          <p>Hence, no matter what your use case is, there is a good chance that someone else has already built an image for it on the Docker Hub. With Docker, you do not have to spend hours thinking about how to configure your images. On top of that, you
-            are free to augment existing images to fit you exact needs. You can then, share your new image back to the Docker Hub for others to use!</p>
-          <h4 id="feature-docker-is-accessible">Feature: Docker is accessible<a class="fa fa-anchor" href="#feature-docker-is-accessible"></a></h4>
-          <p>On top of the abovementioned advantages, Docker has made it much easier for anyone from developers to system admins to take advantage of containers to quickly build and run applications. Docker allows anyone to package an application on their
-            laptop which in turn can run unmodified on any public cloud or private cloud. Hence the mantra, “build once, run anywhere”.</p>
-          <p>Docker is able to do this through what is known as a DockerFile. A DockerFile is where you write the instructions to build a Docker image. Once a DockerFile is set-up, run <code>docker build</code> to build the container.</p>
-          <p>An example of a simple DockerFile is as follows:</p>
-          <pre><code class="hljs bash"><span><span class="hljs-comment">#FROM - Image to start building on.</span></span><span>FROM ubuntu:14.04</span><span>&#x200B;</span><span><span class="hljs-comment">#RUN - Runs a command in the container</span></span><span>RUN <span class="hljs-built_in">echo</span> <span class="hljs-string">"Hello Docker!"</span> &gt; /tmp/hello_docker.txt</span><span>&#x200B;</span><span><span class="hljs-comment">#CMD - Identifies the command that should be used by default when running the image as a container.</span></span><span>CMD [<span class="hljs-string">"cat"</span>, <span class="hljs-string">"/tmp/hello_docker.txt"</span>]</span></code></pre>
-          <p>As you can see from above, a DockerFile is a series of instructions that is used to build the container. You start with a base image (ubuntu for the example above) and then add more “layers” to the image, with layers representing a portion of
-            the images file system that either adds to or replaces the layer above it.</p>
-          <p>For the example used, the layers are simple bash commands that help print “Hello Docker”. A DockerFile is also able to do much more than this! It can install specific dependencies, it can run a couple of servers, set up configuration files etc.
-            There are plenty of guides available out there that covers the fundamentals behind getting started with this (refer to next section for some links).</p>
-          <p>As a result, Docker is easy to get started with. Once you have configured a DockerFile, you can reuse it everywhere else to run your container! The process for creating a DockerFile is also made easier due to the plethora of resources available
-            and the Docker Hub.</p>
-          <h4 id="feature-docker-is-modular-and-scalable">Feature: Docker is modular and scalable<a class="fa fa-anchor" href="#feature-docker-is-modular-and-scalable"></a></h4>
-          <p>As mentioned earlier, Docker makes it much easier to deploy an application that is using a microservices based architecture. For example, you may have Postgres database running in one container, Redis server in another and a Python Flask application
-            in another. Docker makes it much easier to group these containers together and scale/update individual components easily in the future.</p>
-          <p>In order to provide a little more clarity to this, let us consider a simple blog application that is running using Nginx, WordPress and MariaDB. We can organise this as follows:</p>
-          <pic src="/learningresources/contents/docker/Docker_Microservices.jpg" alt="Docker Microservice Architecture" width="100%">
-            <p><sub><em>Figure 6. Docker Architecture</em> <a href="https://rubygarage.org/blog/advantages-of-using-docker-for-microservices">(source)</a></sub></p>
-          </pic>
-          <p>Each of the above services is encapsulated in a container using Docker. Docker provides an added functionality called <code>docker-compose</code> that allows you to run all the containers at once. <code>docker-compose</code> also has added advantages:</p>
+
+          <box type="info">
+            <p>Before reading this article, you should have basic knowledge of Python and its iterable types. If not, do read <a href="/learningresources/contents/python/introduction-to-python.html">the introduction to Python</a> included among these learning
+              resources.
+            </p>
+          </box>
+          <h2 id="numpy-s-purpose">NumPy's Purpose<a class="fa fa-anchor" href="#numpy-s-purpose"></a></h2>
+          <p>Data scientists often work with highly structured data, like time series or plots of pixel values. On these data sets, they routinely need to perform operations uniformly and efficiently. Without external packages, Python can express and handle
+            some of these operations reliably. For huge sets, however – like the training and test data provided to machine learning algorithms – Python becomes complicated and sluggish.</p>
+          <p><a href="https://numpy.org">NumPy</a> fills in the gaps, simplifying (and speeding up) the code required to process and visualise data sets large and small. So many other science-oriented Python libraries depend on NumPy (pandas, matplotlib,
+            etc.) that NumPy describes itself as &quot;the fundamental package for scientific computing in Python&quot;.</p>
+          <h2 id="numpy-s-benefits-and-drawbacks">NumPy's Benefits and Drawbacks<a class="fa fa-anchor" href="#numpy-s-benefits-and-drawbacks"></a></h2>
+          <p>NumPy's main benefit is its abstraction of arrays. In a traditional imperative style, handling multi-dimensional arrays requires multiple for loops or list comprehensions; both approaches lead to tedious, error-prone code, and do not take advantage
+            of vector instructions in modern processors.</p>
+          <p>For example, to find the average of each column in a two-dimensional array (list of lists):</p>
+          <pre><code class="hljs python"><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_averages</span><span class="hljs-params">(arr)</span>:</span></span><span>    l = len(arr[<span class="hljs-number">0</span>])</span><span>    m = len(arr)</span><span>    <span class="hljs-keyword">return</span> max(sum(arr[j][i] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(m)) / m <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(l))</span></code></pre>
+          <p>This is quite a lot of work for a simple task. The equivalent code in NumPy is a single call:</p>
+          <pre><code class="hljs python"><span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><span>np.mean(arr, <span class="hljs-number">0</span>)</span></code></pre>
+          <p>If you frequently deal with data sets more complicated than one-dimensional lists, NumPy is suited for you.</p>
+          <p>Transcribing array-based mathematics into NumPy is also made simpler by the many array functions and operators in its library. Not only is the code clearer – a Python virtue – but it can reduce development and debugging time.</p>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># A and B are 2-by-2 matrices, c is a scalar</span></span><span>A = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">3</span>]])</span><span>B = np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">-3</span>]])</span><span>c = <span class="hljs-number">2</span></span><span>&#x200B;</span><span>c * A <span class="hljs-comment"># scalar multiplication</span></span><span>A @ B <span class="hljs-comment"># matrix multiplication</span></span><span>A &gt; B <span class="hljs-comment"># compare A and B elementwise</span></span><span>B.T <span class="hljs-comment"># matrix transpose</span></span></code></pre>
+          <p>The downside to these benefits is a large memory footprint: NumPy's performance depends on compiled C and Fortran code, so it may not be suitable for embedded systems. All elements of a NumPy array must also be of <em>the same</em> type, a primitive
+            C type or something similar to one, for the rest of NumPy to work well; in particular Python integers are treated as generic Python objects if they are too large, negating speed improvements, while strings have to be interpreted as character
+            arrays.</p>
+          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array([<span class="hljs-number">1.5</span>, <span class="hljs-string">"a"</span>])</span><span>array([<span class="hljs-string">'1.5'</span>, <span class="hljs-string">'a'</span>], dtype=<span class="hljs-string">'&lt;U32'</span>) <span class="hljs-comment"># not a numeric type!</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array([<span class="hljs-number">10</span> ** <span class="hljs-number">20</span>, <span class="hljs-number">1</span>])</span><span>array([<span class="hljs-number">100000000000000000000</span>, <span class="hljs-number">1</span>], dtype=object)</span></code></pre>
+          <p>Another limitation occurs when resizing arrays. In most cases, enlarging an array creates a new copy, like in C, rather than simply making space for the new cells like in Python. Memory has to be managed manually for code that works with data
+            at scale.</p>
+          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>A = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">-3</span>]])</span><span><span class="hljs-meta">&gt;&gt;&gt; </span>B = np.append(A, [[<span class="hljs-number">-3</span>], [<span class="hljs-number">1</span>]], axis=<span class="hljs-number">1</span>) <span class="hljs-comment"># creates a new object</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>B[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>] += <span class="hljs-number">1</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>A</span><span>array([[ <span class="hljs-number">5</span>,  <span class="hljs-number">0</span>],</span><span>       [<span class="hljs-number">-1</span>, <span class="hljs-number">-3</span>]]) <span class="hljs-comment"># not modified</span></span></code></pre>
+          <h2 id="internals-of-numpy">Internals of NumPy<a class="fa fa-anchor" href="#internals-of-numpy"></a></h2>
+          <p>Although NumPy overall is an intricate language, you should be able to easily grasp its two main features: C-like arrays and the functions that work on them.</p>
+          <h3 id="the-array-type">The Array Type<a class="fa fa-anchor" href="#the-array-type"></a></h3>
+          <p>NumPy is built around its <code>array</code> type (an alias for <code>ndarray</code>, hinting at its multidimensional nature). Unlike Python lists, elements of <code>array</code> instances are stored in memory contiguously, reducing interpreter
+            overhead and enabling parallel operations.</p>
+          <p>An <code>array</code> object can be initialised from iterables or nested lists through <code>np.array</code> (assuming NumPy has been imported as <code>np</code>, as is usually done in production code, and which will be assumed in the rest of
+            this article):
+          </p>
+          <pre><code class="hljs python"><span>a = np.array([<span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>]) <span class="hljs-comment"># 1D array</span></span><span>b = np.array([[<span class="hljs-number">8</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>]]) <span class="hljs-comment"># 2D array</span></span></code></pre>
+          <p>By default, these arrays are indexed in C order (last index changes fastest), as can be illustrated by invoking the <code>reshape</code> array method:</p>
+          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array(range(<span class="hljs-number">27</span>)).reshape((<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>))</span><span>array([[[ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>],</span><span>        [ <span class="hljs-number">3</span>,  <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>],</span><span>        [ <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>,  <span class="hljs-number">8</span>]],</span><span>&#x200B;</span><span>       [[ <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>],</span><span>        [<span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>],</span><span>        [<span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">17</span>]],</span><span>&#x200B;</span><span>       [[<span class="hljs-number">18</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>],</span><span>        [<span class="hljs-number">21</span>, <span class="hljs-number">22</span>, <span class="hljs-number">23</span>],</span><span>        [<span class="hljs-number">24</span>, <span class="hljs-number">25</span>, <span class="hljs-number">26</span>]]])</span></code></pre>
+          <p>Otherwise, indexing is mostly as in standard Python, with the convenience that extra square brackets can be omitted for multi-<em>axis</em> (array coordinate) indexing, so <code>a[0][1:][2]</code> becomes <code>a[0,1:,2]</code>. See <a href="https://numpy.org/devdocs/reference/arrays.indexing.html">this page</a>            for a more detailed explanation.</p>
+          <h3 id="library-functions">Library Functions<a class="fa fa-anchor" href="#library-functions"></a></h3>
+          <p>In addition to its array type, NumPy provides a large <a href="https://numpy.org/devdocs/reference/routines.html">library</a> for manipulating arrays. These include:</p>
           <ul>
-            <li>Preserve volume data when containers are created</li>
-            <li>Only recreate containers that have changed</li>
-            <li>Variables and moving a composition between environments</li>
+            <li><a href="https://numpy.org/devdocs/reference/routines.array-creation.html">creating special types of arrays</a></li>
+            <li><a href="https://numpy.org/devdocs/reference/routines.sort.html">sorting and searching</a></li>
+            <li><a href="https://numpy.org/devdocs/reference/random/index.html">random number generation</a></li>
+            <li><a href="https://numpy.org/devdocs/reference/routines.linalg.html">linear algebra</a></li>
+            <li><a href="https://numpy.org/devdocs/reference/routines.math.html">other mathematical functions</a></li>
           </ul>
-          <p>The set-up to use <code>docker-compose</code> involves the creation of a YAML file. Detailed information on this is available <a href="https://docs.docker.com/compose/overview/">here</a>.</p>
-          <h3 id="how-to-use-docker">How to use Docker?<a class="fa fa-anchor" href="#how-to-use-docker"></a></h3>
-          <p>At this point, you would have realised the advantages that Docker is able to give you and might be considering to switch over to Docker for your own projects.</p>
-          <p>Here is a learning path that you can follow to pick up Docker:</p>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># Example: solve a system of linear equations with NumPy</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>A = np.array([[<span class="hljs-number">9</span>, <span class="hljs-number">-9</span>, <span class="hljs-number">-10</span>], [<span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">-4</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">-9</span>]])</span><span><span class="hljs-meta">&gt;&gt;&gt; </span>b = np.array([<span class="hljs-number">-3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">-7</span>])</span><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.linalg.solve(A, b)</span><span>array([<span class="hljs-number">0.95958854</span>, <span class="hljs-number">0.22997796</span>, <span class="hljs-number">0.95664952</span>])</span></code></pre>
+          <p>Many of these functions work equally well on one-dimensional arrays as they do on 11-dimensional ones due to the compiled binaries. Many can take in standard Python nested lists, automatically converting them to NumPy's array type before proceeding.
+            Some functions also accept extra arguments that refine the parts of arrays they work on or the values they return, allowing finer control beyond indexing and slicing. The <code>axis</code> argument in <code>np.mean</code>
+            <a href="#numpys-benefits-and-drawbacks">above</a> is an example.</p>
+          <p>For even faster programs, it is possible to interact with external C libraries through NumPy's
+            <a href="https://numpy.org/devdocs/reference/c-api/index.html">application programming interface</a>, but this is not needed for general use. The primary reason for exposing such a functionality is the continuing widespread use of C libraries
+            in mathematics and physics.</p>
+          <h2 id="tutorials-and-resources">Tutorials and Resources<a class="fa fa-anchor" href="#tutorials-and-resources"></a></h2>
+          <p>Where can you get started with learning NumPy, then? The <a href="https://numpy.org/devdocs/user/index.html">NumPy User Guide</a> contains several tutorials for programmers of all abilities, including the following:</p>
           <ul>
-            <li>
-              <p><a href="https://docs.docker.com/get-started/">Docker's getting started guide</a> : Docker's offical documentation is a good place to start out. It is a good overview of the fundamentals behind Docker. They will take you through setting
-                up your own docker environment, building an image, scaling and deploying.</p>
-            </li>
-            <li>
-              <p><a href="https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b">Article covering important concepts behind Docker</a> : After reading the official documentation, this is another excellent
-                article to look through. It covers how Docker works in detail with good examples.</p>
-            </li>
-            <li>
-              <p><a href="https://github.com/eduleboss/the-best-docker-books">Books covering specific use cases with Docker</a> : Once you have a clearer picture on the fundamentals behind Docker, this resource will provide you with a collection of books
-                that show you how to use Docker in a practical setting.</p>
-            </li>
+            <li><a href="https://numpy.org/devdocs/user/absolute_beginners.html">NumPy: the absolute basics for beginners</a> introduces the array type.</li>
+            <li><a href="https://numpy.org/devdocs/user/basics.html">NumPy basics</a> goes into slightly more advanced topics, such as broadcasting (the mechanism for interpreting operations between differently sized arrays, or between arrays and scalars).</li>
+            <li>The <a href="https://numpy.org/devdocs/user/quickstart.html">quickstart</a> encompasses both the above tutorials, fits on one page and also has handy links to commonly used functions.</li>
+            <li>A tutorial on doing <a href="https://numpy.org/devdocs/user/tutorial-svd.html">some linear algebra with NumPy</a>.</li>
+            <li><a href="https://numpy.org/devdocs/user/numpy-for-matlab-users.html">A cheat sheet</a> for programmers coming from MATLAB, another array-based programming language.</li>
           </ul>
-          <h3 id="additional-tools-docker-swarm-and-kubernetes">Additional tools - Docker Swarm and Kubernetes<a class="fa fa-anchor" href="#additional-tools-docker-swarm-and-kubernetes"></a></h3>
-          <p>If you have managed to familiarise yourself with the functionality that Docker is able to provide and have used Docker for your own projects, here are some additional tools that you might want to look into that make use of Docker.</p>
-          <p>Kubernetes is open-source platform created by Google for container deployment operations, scaling up and down, and automation across the clusters of hosts. It is a tool that can help you manage many docker containers. You can read up more about
-            it in their official documentation <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">here</a></p>
-          <p>Docker Swarm is another alternate tool that is Docker’s own native clustering solution for Docker containers. It monitors the number of containers spread across clusters of servers and is a way to create clustered docker application without
-            additional hardware. The <a href="https://docs.docker.com/get-started/part4/">docker official documentation</a> gives more information on this.</p>
-          <h3 id="conclusion-further-readings">Conclusion / Further Readings<a class="fa fa-anchor" href="#conclusion-further-readings"></a></h3>
-          <p>In a nutshell, Docker is a lightweight solution to run you application in an isolated environment. Docker provides a convenient out-of-the-box setup to deploy your applications and has added functionality to deploy complex microservices based
-            applications.</p>
-          <p>Apart from those listed in the article, here are some further readings/references to get moving with Docker:</p>
+          <hr>
+          <p>In practice, NumPy is not often used alone, but rather as part of what NumPy's documentation calls a <em>scientific
+Python distribution</em>, which also includes several NumPy dependents. The most widely used such distribution is
+            <a href="https://www.anaconda.com/distribution">Anaconda</a>.</p>
+          <p>Some of these dependents are listed below, with links to tutorials that themselves use NumPy to drive their high-level routines. Reading them may illuminate your journey in understanding and the underlying array language.</p>
           <ul>
-            <li><a href="https://docker-curriculum.com/">Full Guide on multiple aspects of docker</a></li>
-            <li><a href="https://medium.freecodecamp.org/docker-quick-start-video-tutorials-1dfc575522a0">Video Series on Docker</a></li>
-            <li><a href="http://docker-saigon.github.io/post/Docker-Internals/">Internals of Docker</a></li>
+            <li><a href="https://matplotlib.org/tutorials/index.html">matplotlib</a>: produces plots of all kinds. Input to the plotting functions is typically in the form of NumPy arrays.</li>
+            <li><a href="https://docs.scipy.org/doc/scipy/reference/tutorial/general.html">SciPy</a>: essentially a more elaborated NumPy with computationally intensive routines for tasks such as optimisation and image processing.</li>
+            <li><a href="https://scikit-learn.org/stable/tutorial/basic/tutorial.html">scikit-learn</a>: like SciPy, but for machine learning.</li>
+            <li><a href="https://pandas.pydata.org/docs/getting_started/10min.html">pandas</a>: uses NumPy in its <code>DataFrame</code> object.</li>
+            <li><a href="https://numba.pydata.org/numba-doc/latest/user/5minguide.html">Numba</a>: heavily relies on the contingency offered by NumPy objects to enable massively parallel computation.</li>
           </ul>
         </div>
       </div>
@@ -433,13 +407,16 @@
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#docker">Docker&#x200E;</a>
+            <a class="nav-link py-1" href="#numpy">NumPy&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-docker">What is Docker?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-docker">Why Docker?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-to-use-docker">How to use Docker?&#x200E;</a>
-              <a class="nav-link py-1" href="#additional-tools-docker-swarm-and-kubernetes">Additional tools - Docker Swarm and Kubernetes&#x200E;</a>
-              <a class="nav-link py-1" href="#conclusion-further-readings">Conclusion / Further Readings&#x200E;</a>
+              <a class="nav-link py-1" href="#numpy-s-purpose">NumPy's Purpose&#x200E;</a>
+              <a class="nav-link py-1" href="#numpy-s-benefits-and-drawbacks">NumPy's Benefits and Drawbacks&#x200E;</a>
+              <a class="nav-link py-1" href="#internals-of-numpy">Internals of NumPy&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#the-array-type">The Array Type&#x200E;</a>
+                <a class="nav-link py-1" href="#library-functions">Library Functions&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#tutorials-and-resources">Tutorials and Resources&#x200E;</a>
             </nav>
 
           </nav>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to computer vision (CV)</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -366,34 +375,7 @@
           <p>First of all, we need to have the coordinates of the 4 corners of the screen. This can be entered by hand, as OpenCV has helper functions for capturing mouse input; for example, user can use the mouse to click on the 4 corners of the game screen
             one by one and the application captures the coordinates of the clicked points. See more <a href="https://docs.opencv.org/3.3.0/db/d5b/tutorial_py_mouse_handling.html">here</a>. Then, we map the skewed image to a another rectangle frame pixel
             by pixel.</p>
-          <pre><code class="hljs python"><span class="hljs-comment"># We use numpy - a library for scientific computing with Python.</span>
-<span class="hljs-comment"># OpenCV is referred to as 'cv2'.</span>
-
-<span class="hljs-comment"># Declare a rectangle with the 4 corners - top-left, top-right,</span>
-<span class="hljs-comment"># bottom-right, bottom-left, to represent the portion of the</span>
-<span class="hljs-comment"># screen in the original image.</span>
-(tl, tr, br, bl) = rect
-
-<span class="hljs-comment"># Arbitrarily choose dimensions for the output image.</span>
-width = <span class="hljs-number">100</span>
-height = <span class="hljs-number">100</span>
-
-<span class="hljs-comment"># Construct an array to store the desired coordinates of the 4</span>
-<span class="hljs-comment"># corners of the screen after being transformed.</span>
-dst = numpy.array([
-	[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
-	[width - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
-	[width - <span class="hljs-number">1</span>, height - <span class="hljs-number">1</span>],
-	[<span class="hljs-number">0</span>, height - <span class="hljs-number">1</span>]], dtype = <span class="hljs-string">"float32"</span>)
-
-<span class="hljs-comment"># Calculate the perspective transform matrix and warp the</span>
-<span class="hljs-comment"># portion of the original image to grab the up-right screen.</span>
-M = cv2.getPerspectiveTransform(rect, dst)
-warp = cv2.warpPerspective(orig, M, (width, height))
-<span class="hljs-comment"># 'orig' here refers to the original image.</span>
-<span class="hljs-comment"># 'warp' now stores the screen projected straight and up-right</span>
-<span class="hljs-comment"># as seen in the picture above.</span>
-</code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># We use numpy - a library for scientific computing with Python.</span></span><span><span class="hljs-comment"># OpenCV is referred to as 'cv2'.</span></span><span>&#x200B;</span><span><span class="hljs-comment"># Declare a rectangle with the 4 corners - top-left, top-right,</span></span><span><span class="hljs-comment"># bottom-right, bottom-left, to represent the portion of the</span></span><span><span class="hljs-comment"># screen in the original image.</span></span><span>(tl, tr, br, bl) = rect</span><span>&#x200B;</span><span><span class="hljs-comment"># Arbitrarily choose dimensions for the output image.</span></span><span>width = <span class="hljs-number">100</span></span><span>height = <span class="hljs-number">100</span></span><span>&#x200B;</span><span><span class="hljs-comment"># Construct an array to store the desired coordinates of the 4</span></span><span><span class="hljs-comment"># corners of the screen after being transformed.</span></span><span>dst = numpy.array([</span><span>	[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],</span><span>	[width - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],</span><span>	[width - <span class="hljs-number">1</span>, height - <span class="hljs-number">1</span>],</span><span>	[<span class="hljs-number">0</span>, height - <span class="hljs-number">1</span>]], dtype = <span class="hljs-string">"float32"</span>)</span><span>&#x200B;</span><span><span class="hljs-comment"># Calculate the perspective transform matrix and warp the</span></span><span><span class="hljs-comment"># portion of the original image to grab the up-right screen.</span></span><span>M = cv2.getPerspectiveTransform(rect, dst)</span><span>warp = cv2.warpPerspective(orig, M, (width, height))</span><span><span class="hljs-comment"># 'orig' here refers to the original image.</span></span><span><span class="hljs-comment"># 'warp' now stores the screen projected straight and up-right</span></span><span><span class="hljs-comment"># as seen in the picture above.</span></span></code></pre>
           <h3 id="image-classification">Image Classification<a class="fa fa-anchor" href="#image-classification"></a></h3>
           <p>Image classification refers to the task of identifying the object present in an image. Typically, a predetermined set of possible objects is given and the classification of the image is the object that is most likely to exist in it.<sup><a href="#footnote6">[6]</a></sup></p>
           <p><a href="/learningresources/contents/computerVision/image-classification-1.png" target="_self"><img src="/learningresources/contents/computerVision/image-classification-1.png" alt class="img-fluid" title="Cat Classified"></a></p>
@@ -410,33 +392,7 @@ warp = cv2.warpPerspective(orig, M, (width, height))
           <p><em>This example is extracted from &quot;Deep Learning with OpenCV&quot; tutorial originally published on PyImageSearch on August 21, 2017. Refer to original tutorial <a href="https://www.pyimagesearch.com/2017/08/21/deep-learning-with-opencv/">here</a>. All pictures and code snippets in this example belong to its original author, Adrian Rosebrock.</em></p>
           <p>In this example, we use OpenCV and a pre-trained image classification model called the GoogLeNet.<sup><a href="#footnote15">[15]</a></sup> The goal of this example is to use the model to classify the object present in a given image. First, we
             load the image in question and the model, then we feed the image to the model and take the most confident prediction.</p>
-          <pre><code class="hljs python"><span class="hljs-comment"># Load the class labels from disk. Class labels is the actual</span>
-<span class="hljs-comment"># name of a class of objects written in English, e.g. dogs,</span>
-<span class="hljs-comment"># cats, helicopters. After taking the output from the model,</span>
-<span class="hljs-comment"># we match that output with a label.</span>
-rows = open(<span class="hljs-string">'./labels.txt'</span>).read().strip().split(<span class="hljs-string">"\n"</span>)
-
-<span class="hljs-comment"># Load the model files from disk.</span>
-net = cv2.dnn.readNetFromCaffe(<span class="hljs-string">'./googlenet.prototxt'</span>, <span class="hljs-string">'./googlenet.caffemodel'</span>)
-
-<span class="hljs-comment"># Load the image and resize it to 224x224 to fit into the model.</span>
-image = cv2.imread(<span class="hljs-string">'./image.jpg'</span>)
-blob = cv2.dnn.blobFromImage(image, <span class="hljs-number">1</span>, (<span class="hljs-number">224</span>, <span class="hljs-number">224</span>))
-
-<span class="hljs-comment"># Feed the image to the model.</span>
-net.setInput(blob)
-preds = net.forward()
-<span class="hljs-comment"># 'preds' now stores the classes and their respective confident</span>
-<span class="hljs-comment"># levels. We use numpy to grab the class with highest</span>
-<span class="hljs-comment"># probability and store the index of that class in 'idx'.</span>
-idx = numpy.argmax(preds[<span class="hljs-number">0</span>])[::<span class="hljs-number">-1</span>]
-
-<span class="hljs-comment"># We get the name, or label, of the class, along with the</span>
-<span class="hljs-comment"># probability, and put them on the image.</span>
-text = <span class="hljs-string">"Label: {}, {:.2f}%"</span>.format(classes[idx], preds[<span class="hljs-number">0</span>][idx] * <span class="hljs-number">100</span>)
-cv2.putText(image, text, (<span class="hljs-number">5</span>, <span class="hljs-number">25</span>),  cv2.FONT_HERSHEY_SIMPLEX,
-			<span class="hljs-number">0.7</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)
-</code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># Load the class labels from disk. Class labels is the actual</span></span><span><span class="hljs-comment"># name of a class of objects written in English, e.g. dogs,</span></span><span><span class="hljs-comment"># cats, helicopters. After taking the output from the model,</span></span><span><span class="hljs-comment"># we match that output with a label.</span></span><span>rows = open(<span class="hljs-string">'./labels.txt'</span>).read().strip().split(<span class="hljs-string">"\n"</span>)</span><span>&#x200B;</span><span><span class="hljs-comment"># Load the model files from disk.</span></span><span>net = cv2.dnn.readNetFromCaffe(<span class="hljs-string">'./googlenet.prototxt'</span>, <span class="hljs-string">'./googlenet.caffemodel'</span>)</span><span>&#x200B;</span><span><span class="hljs-comment"># Load the image and resize it to 224x224 to fit into the model.</span></span><span>image = cv2.imread(<span class="hljs-string">'./image.jpg'</span>)</span><span>blob = cv2.dnn.blobFromImage(image, <span class="hljs-number">1</span>, (<span class="hljs-number">224</span>, <span class="hljs-number">224</span>))</span><span>&#x200B;</span><span><span class="hljs-comment"># Feed the image to the model.</span></span><span>net.setInput(blob)</span><span>preds = net.forward()</span><span><span class="hljs-comment"># 'preds' now stores the classes and their respective confident</span></span><span><span class="hljs-comment"># levels. We use numpy to grab the class with highest</span></span><span><span class="hljs-comment"># probability and store the index of that class in 'idx'.</span></span><span>idx = numpy.argmax(preds[<span class="hljs-number">0</span>])[::<span class="hljs-number">-1</span>]</span><span>&#x200B;</span><span><span class="hljs-comment"># We get the name, or label, of the class, along with the</span></span><span><span class="hljs-comment"># probability, and put them on the image.</span></span><span>text = <span class="hljs-string">"Label: {}, {:.2f}%"</span>.format(classes[idx], preds[<span class="hljs-number">0</span>][idx] * <span class="hljs-number">100</span>)</span><span>cv2.putText(image, text, (<span class="hljs-number">5</span>, <span class="hljs-number">25</span>),  cv2.FONT_HERSHEY_SIMPLEX,</span><span>			<span class="hljs-number">0.7</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)</span></code></pre>
           <p>Some results:</p>
           <p><a href="/learningresources/contents/computerVision/image-classification-example-1.jpg" target="_self"><img src="/learningresources/contents/computerVision/image-classification-example-1.jpg" alt class="img-fluid" title="Beagle Classification"></a></p>
           <p><a href="/learningresources/contents/computerVision/image-classification-example-2.jpg" target="_self"><img src="/learningresources/contents/computerVision/image-classification-example-2.jpg" alt class="img-fluid" title="Traffic Light Classification"></a></p>
@@ -454,25 +410,7 @@ cv2.putText(image, text, (<span class="hljs-number">5</span>, <span class="hljs-
             <em>Paul Viola and Michael Jones</em>.<sup><a href="#footnote16">[16]</a></sup> The classifier used below is pre-trained and shared by OpenCV; there are other classifiers for detecting various objects stored in <a href="https://github.com/Itseez/opencv/tree/master/data/haarcascades">OpenCV repository</a>.
             In this example, for simplicity, we limit to detecting only 1 class of object, cats. In practice, one can combine many classifiers to detect multiple classes.</p>
           <p>Since Haar cascade method relies on geometrical features of pixels, we convert the image to grayscale before processing it since color information is not relevant.</p>
-          <pre><code class="hljs python"><span class="hljs-comment"># Load the input image and convert it to grayscale.</span>
-image = cv2.imread(<span class="hljs-string">'./image.jpg'</span>)
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-<span class="hljs-comment"># Load from disk the Haar cascade detector for cat faces, then</span>
-<span class="hljs-comment"># detect cats in the input image.</span>
-detector = cv2.CascadeClassifier(<span class="hljs-string">'./haarcascade_frontalcatface.xml'</span>)
-rects = detector.detectMultiScale(gray, scaleFactor=<span class="hljs-number">1.3</span>,
-	minNeighbors=<span class="hljs-number">10</span>, minSize=(<span class="hljs-number">75</span>, <span class="hljs-number">75</span>))
-<span class="hljs-comment"># 'rects' now contains all the rectangles that each corresponds</span>
-<span class="hljs-comment"># to a cat's face detected in the image.</span>
-
-<span class="hljs-comment"># For each rectangle in 'rects', we draw it into the original</span>
-<span class="hljs-comment"># image and label the cat's number.</span>
-<span class="hljs-keyword">for</span> (i, (x, y, w, h)) <span class="hljs-keyword">in</span> enumerate(rects):
-	cv2.rectangle(image, (x, y), (x + w, y + h), (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)
-	cv2.putText(image, <span class="hljs-string">"Cat #{}"</span>.format(i + <span class="hljs-number">1</span>), (x, y - <span class="hljs-number">10</span>),
-		cv2.FONT_HERSHEY_SIMPLEX, <span class="hljs-number">0.55</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)
-</code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># Load the input image and convert it to grayscale.</span></span><span>image = cv2.imread(<span class="hljs-string">'./image.jpg'</span>)</span><span>gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)</span><span>&#x200B;</span><span><span class="hljs-comment"># Load from disk the Haar cascade detector for cat faces, then</span></span><span><span class="hljs-comment"># detect cats in the input image.</span></span><span>detector = cv2.CascadeClassifier(<span class="hljs-string">'./haarcascade_frontalcatface.xml'</span>)</span><span>rects = detector.detectMultiScale(gray, scaleFactor=<span class="hljs-number">1.3</span>,</span><span>	minNeighbors=<span class="hljs-number">10</span>, minSize=(<span class="hljs-number">75</span>, <span class="hljs-number">75</span>))</span><span><span class="hljs-comment"># 'rects' now contains all the rectangles that each corresponds</span></span><span><span class="hljs-comment"># to a cat's face detected in the image.</span></span><span>&#x200B;</span><span><span class="hljs-comment"># For each rectangle in 'rects', we draw it into the original</span></span><span><span class="hljs-comment"># image and label the cat's number.</span></span><span><span class="hljs-keyword">for</span> (i, (x, y, w, h)) <span class="hljs-keyword">in</span> enumerate(rects):</span><span>	cv2.rectangle(image, (x, y), (x + w, y + h), (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)</span><span>	cv2.putText(image, <span class="hljs-string">"Cat #{}"</span>.format(i + <span class="hljs-number">1</span>), (x, y - <span class="hljs-number">10</span>),</span><span>		cv2.FONT_HERSHEY_SIMPLEX, <span class="hljs-number">0.55</span>, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>), <span class="hljs-number">2</span>)</span></code></pre>
           <p>Some results:</p>
           <p><a href="/learningresources/contents/computerVision/object-detection-example-1.jpg" target="_self"><img src="/learningresources/contents/computerVision/object-detection-example-1.jpg" alt class="img-fluid" title="Cat Detection"></a></p>
           <p><a href="/learningresources/contents/computerVision/object-detection-example-2.jpg" target="_self"><img src="/learningresources/contents/computerVision/object-detection-example-2.jpg" alt class="img-fluid" title="Cat Detection"></a></p>
@@ -491,28 +429,7 @@ rects = detector.detectMultiScale(gray, scaleFactor=<span class="hljs-number">1.
             by <em>P. KadewTraKuPong and R. Bowden</em><sup><a href="#footnote17">[17]</a></sup> and <em>Z.Zivkovic</em><sup><a href="#footnote18">[18]</a></sup><sup><a href="#footnote19">[19]</a></sup>, and a per-pixel Bayesian segmentation algorithm
             by <em>Andrew B. Godbehere, Akihiro Matsukawa, and Ken Goldberg</em><sup><a href="#footnote20">[20]</a></sup>.</p>
           <p>The process is simple, the video is captured frame by frame and for each image frame, a subtraction mask is applied.</p>
-          <pre><code class="hljs python">cap = cv2.VideoCapture(<span class="hljs-string">'./test.avi'</span>)
-
-<span class="hljs-comment"># We use the algorithm by P. KadewTraKuPong and R. Bowden.</span>
-fgbg = cv2.createBackgroundSubtractorMOG()
-
-<span class="hljs-comment"># Use the below instead for Z.Zivkovic's algorithm.</span>
-<span class="hljs-comment"># fgbg = cv2.createBackgroundSubtractorMOG2()</span>
-<span class="hljs-comment"># Use the below instead for the algorithm by Godbehere et al.</span>
-<span class="hljs-comment"># fgbg = cv2.createBackgroundSubtractorGMG()</span>
-
-<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>):
-    ret, frame = cap.read()
-
-    <span class="hljs-keyword">if</span> ret:
-      fgmask = fgbg.apply(frame)
-      cv2.imshow(<span class="hljs-string">'frame'</span>,fgmask)
-      k = cv2.waitKey(<span class="hljs-number">30</span>) &amp; <span class="hljs-number">0xff</span>
-      <span class="hljs-keyword">if</span> k == <span class="hljs-number">27</span>:
-          <span class="hljs-keyword">break</span>
-    <span class="hljs-keyword">else</span>:
-      <span class="hljs-keyword">break</span>
-</code></pre>
+          <pre><code class="hljs python"><span>cap = cv2.VideoCapture(<span class="hljs-string">'./test.avi'</span>)</span><span>&#x200B;</span><span><span class="hljs-comment"># We use the algorithm by P. KadewTraKuPong and R. Bowden.</span></span><span>fgbg = cv2.createBackgroundSubtractorMOG()</span><span>&#x200B;</span><span><span class="hljs-comment"># Use the below instead for Z.Zivkovic's algorithm.</span></span><span><span class="hljs-comment"># fgbg = cv2.createBackgroundSubtractorMOG2()</span></span><span><span class="hljs-comment"># Use the below instead for the algorithm by Godbehere et al.</span></span><span><span class="hljs-comment"># fgbg = cv2.createBackgroundSubtractorGMG()</span></span><span>&#x200B;</span><span><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>):</span><span>    ret, frame = cap.read()</span><span>&#x200B;</span><span>    <span class="hljs-keyword">if</span> ret:</span><span>      fgmask = fgbg.apply(frame)</span><span>      cv2.imshow(<span class="hljs-string">'frame'</span>,fgmask)</span><span>      k = cv2.waitKey(<span class="hljs-number">30</span>) &amp; <span class="hljs-number">0xff</span></span><span>      <span class="hljs-keyword">if</span> k == <span class="hljs-number">27</span>:</span><span>          <span class="hljs-keyword">break</span></span><span>    <span class="hljs-keyword">else</span>:</span><span>      <span class="hljs-keyword">break</span></span></code></pre>
           <p>Some results:</p>
           <p>Original frame:</p>
           <p><a href="/learningresources/contents/computerVision/object-tracking-example-1.jpg" target="_self"><img src="/learningresources/contents/computerVision/object-tracking-example-1.jpg" alt class="img-fluid" title="Original Frame"></a></p>
@@ -617,7 +534,7 @@ fgbg = cv2.createBackgroundSubtractorMOG()
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

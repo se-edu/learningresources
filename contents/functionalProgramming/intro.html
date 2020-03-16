@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - An Introduction to Functional Programming</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -325,18 +334,9 @@
             <li>No side effects - The function should not cause side effects like mutating global state.</li>
           </ol>
           <p>To illustrate an example of a pure function. Consider this simple example in Python:</p>
-          <pre><code class="hljs python"><span class="hljs-comment"># Pure Function</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span>
-    <span class="hljs-keyword">return</span> x + y
-</code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># Pure Function</span></span><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span></span><span>    <span class="hljs-keyword">return</span> x + y</span></code></pre>
           <p>Contrast this with an impure function:</p>
-          <pre><code class="hljs python"><span class="hljs-comment"># Mutate state</span>
-y=<span class="hljs-number">0</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_to_y</span><span class="hljs-params">(x)</span>:</span>
-    <span class="hljs-keyword">global</span> y
-    y = y + x
-    <span class="hljs-keyword">return</span> y
-</code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># Mutate state</span></span><span>y=<span class="hljs-number">0</span></span><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_to_y</span><span class="hljs-params">(x)</span>:</span></span><span>    <span class="hljs-keyword">global</span> y</span><span>    y = y + x</span><span>    <span class="hljs-keyword">return</span> y</span></code></pre>
           <p>We see that the impure function violates both conditions. Running <code>add_to_y</code> multiple times with the same input X would give different value.</p>
           <h4 id="immutability">Immutability<a class="fa fa-anchor" href="#immutability"></a></h4>
           <p>Another concept in functional programming is immutability. Immutability prevents an object's state to be change after it is created.</p>
@@ -351,19 +351,8 @@ y=<span class="hljs-number">0</span>
           <h4 id="recursion">Recursion<a class="fa fa-anchor" href="#recursion"></a></h4>
           <p>Pure functional languages do not have loop constructs like imperative languages. This is because <code>Iteration</code> usually involves state mutation per iteration. Because functional programming avoids state changes, <code>Recursion</code>            is a commonly used <a href="https://www.quora.com/Why-dont-pure-functional-programming-languages-provide-a-loop-construct">technique</a> to replace <code>Iteration</code>. An example of replacing state-mutating iterative code to a pure functional
             recusive code is shown below:</p>
-          <pre><code class="hljs Python"><span class="hljs-comment"># Iterative</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getSumOfList</span><span class="hljs-params">(listOfNumbers)</span>:</span>
-    sum = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> listOfNumbers:
-        sum += number
-    <span class="hljs-keyword">return</span> sum
-</code></pre>
-          <pre><code class="hljs Python"><span class="hljs-comment"># Recursive</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getSumOfList</span><span class="hljs-params">(listOfNumbers)</span>:</span>
-    <span class="hljs-keyword">if</span> len(listOfNumbers) == <span class="hljs-number">0</span>:
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
-    <span class="hljs-keyword">return</span> listOfNumbers[<span class="hljs-number">0</span>] + getSumOfList(listOfNumbers[<span class="hljs-number">1</span>:])
-</code></pre>
+          <pre><code class="hljs Python"><span><span class="hljs-comment"># Iterative</span></span><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getSumOfList</span><span class="hljs-params">(listOfNumbers)</span>:</span></span><span>    sum = <span class="hljs-number">0</span></span><span>    <span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> listOfNumbers:</span><span>        sum += number</span><span>    <span class="hljs-keyword">return</span> sum</span></code></pre>
+          <pre><code class="hljs Python"><span><span class="hljs-comment"># Recursive</span></span><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getSumOfList</span><span class="hljs-params">(listOfNumbers)</span>:</span></span><span>    <span class="hljs-keyword">if</span> len(listOfNumbers) == <span class="hljs-number">0</span>:</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span></span><span>    <span class="hljs-keyword">return</span> listOfNumbers[<span class="hljs-number">0</span>] + getSumOfList(listOfNumbers[<span class="hljs-number">1</span>:])</span></code></pre>
           <p>Hence, to be able to write functional languages effectively, it means being able to replace Iteration with Recursion. Here are some guides to help you on that:</p>
           <ul>
             <li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/an-introduction-to-recursion-part-1/">Introduction to Recursion</a></li>
@@ -372,9 +361,7 @@ y=<span class="hljs-number">0</span>
           <h4 id="higher-order-functions">Higher Order Functions<a class="fa fa-anchor" href="#higher-order-functions"></a></h4>
           <p>Higher Order Functions are functions that either take functions as parameters, return a function, or both. As functions are first class citizens in functional programming languages, this allows <a href="https://en.wikipedia.org/wiki/Functional_programming#First-class_and_higher-order_functions">functions to be passed around like objects and values</a>.</p>
           <p>One example of Higher Order Functions is <code>map</code>, which takes in a function and a collection of objects.</p>
-          <pre><code class="hljs python">length_of_names = map(len, [<span class="hljs-string">'Alex'</span>, <span class="hljs-string">'Thomas'</span>, <span class="hljs-string">'John'</span>])
-print(length_of_names) <span class="hljs-comment"># [4,6,4]</span>
-</code></pre>
+          <pre><code class="hljs python"><span>length_of_names = map(len, [<span class="hljs-string">'Alex'</span>, <span class="hljs-string">'Thomas'</span>, <span class="hljs-string">'John'</span>])</span><span>print(length_of_names) <span class="hljs-comment"># [4,6,4]</span></span></code></pre>
           <p><code>map</code> takes in 2 parameters, a function and a collection. <code>map</code> returns a new collection whose elements are the result of applying the given function on the elements of the given collection. In the given example, <code>map</code>            returns <code>[len('Alex'), len('Thomas'), len('John')]</code></p>
           <p>There are useful functions and techniques that are based off Higher Order Functions in Functional programming.</p>
           <ul>
@@ -431,7 +418,7 @@ print(length_of_names) <span class="hljs-comment"># [4,6,4]</span>
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

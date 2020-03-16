@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Java 8 Streams - An Introduction</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -359,23 +368,9 @@
             lambda expressions and stream operations.</p>
           <p>However, oftentimes, it's hard not to admire the conciseness of the codes utilising these features. For example, you might want to calculate the mean height of male students given a list of students. Using traditional for-loops, you may write
             something like this:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">double</span> totalMaleHeight = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">int</span> noOfMales = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">for</span> (Student student: students) {
-  <span class="hljs-keyword">if</span> (student.isMale()) {
-    totalMaleHeight += student.getHeight();
-    noOfMales++;
-  }
-}
-<span class="hljs-keyword">double</span> meanMaleHeight = totalMaleHeight / noOfMales;
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">double</span> totalMaleHeight = <span class="hljs-number">0</span>;</span><span><span class="hljs-keyword">int</span> noOfMales = <span class="hljs-number">0</span>;</span><span><span class="hljs-keyword">for</span> (Student student: students) {</span><span>  <span class="hljs-keyword">if</span> (student.isMale()) {</span><span>    totalMaleHeight += student.getHeight();</span><span>    noOfMales++;</span><span>  }</span><span>}</span><span><span class="hljs-keyword">double</span> meanMaleHeight = totalMaleHeight / noOfMales;</span></code></pre>
           <p>However, with the power of the Stream API, you can write this instead!</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">double</span> meanMaleHeight = students.stream()
-                                .filter(student -&gt; student.isMale())
-                                .mapToDouble(student -&gt; student.getHeight())
-                                .average()
-                                .orElse(Double.NaN);
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">double</span> meanMaleHeight = students.stream()</span><span>                                .filter(student -&gt; student.isMale())</span><span>                                .mapToDouble(student -&gt; student.getHeight())</span><span>                                .average()</span><span>                                .orElse(Double.NaN);</span></code></pre>
           <p>Not only is the numbers of lines reduced by almost half, the code utilising streams is also rather intuitive. First, we filter the students who are male, using a lambda expression (<code>student -&gt; student.isMale()</code>). Then, we get the
             heights of these students and followed by the average value of these heights. If the average value does not exist (which can happen when there are no male students), we store NaN in <code>meanMaleHeight</code> instead. The code is declarative
             and self-documenting, it's easy to understand what the original author was trying to achieve. This reduces the need for code comments, which we often see in loops since they can be harder to understand at a glance.</p>
@@ -414,19 +409,16 @@
           <p>Moving on to lambda expressions! Lambda expressions are simply a clear and concise way to instantiate an object that implements a functional interface. The expression itself, however, does not contain information about which functional interface
             it implements, this is deduced by the compiler through the context where it is used.</p>
           <p>The structure of a lambda expression is as such : <code>(parameters) -&gt; &lt;body&gt;</code>, where the <code>&lt;body&gt;</code> can be a block of statement(s),</p>
-          <pre><code class="hljs java">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y) -&gt; { <span class="hljs-keyword">return</span> x + y; }
-</code></pre>
+          <pre><code class="hljs java"><span>(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y) -&gt; { <span class="hljs-keyword">return</span> x + y; }</span></code></pre>
           <p>or an expression,</p>
-          <pre><code class="hljs java">(x, y) -&gt; x + y
-</code></pre>
+          <pre><code class="hljs java"><span>(x, y) -&gt; x + y</span></code></pre>
           <p>If used in the same context, these two lambda expressions are actually equivalent!</p>
           <p>The parameters types of lambda expressions can be inferred by the compiler and are optional. It is actually recommended that parameters types are omitted when writing lambda expressions so as to keep the code concise.</p>
           <p>When an expression is used for the body, the result of the expression is returned. The expression can also result in nothing (eg. <code>(String s) -&gt; System.out.println(s)</code>), which means that the method expressed by the lambda returns
             <code>void</code>.</p>
           <p>When a block is used for the body, the same rules for using or omitting the <code>return</code> statement for a normal method applies.</p>
           <p>When the lambda has a single parameter, the parentheses surrounding the parameter can also be removed,</p>
-          <pre><code class="hljs java">x -&gt; x + <span class="hljs-number">10</span>
-</code></pre>
+          <pre><code class="hljs java"><span>x -&gt; x + <span class="hljs-number">10</span></span></code></pre>
           <p>For a lambda expression to be compatible with the required functional interface, the lambda expression must have <strong>the same parameters types</strong> and <strong>a compatible return type</strong> as the required functional interface.</p>
           <p>Although lambda expressions can be expressed in a block, it does not introduce a new level of scoping. Names in the body of the lambda are interpreted in the same way as its enclosing scope, with the addition of the names of its parameters.
             <code>this</code> and <code>super</code> can also be used in the lambda body to refer to the enclosing object and the parent class of the enclosing object.</p>
@@ -437,31 +429,18 @@
           <p>Now that we have some understanding on functional interface, method references and lambda expressions, let's consolidate our understanding with an example.</p>
           <p><code>Comparator&lt;T&gt;</code> may be a familiar interface to you. In previous Java editions, to create an object extending this interface, you could either instantiate the object from a named class or an anonymous class, both of which need
             to override the abstract methods in <code>Comparator&lt;T&gt;</code>. So the code may look something like this:</p>
-          <pre><code class="hljs java"><span class="hljs-comment">// trying to sort students by height</span>
-students.sort(<span class="hljs-keyword">new</span> Comparator&lt;Student&gt;() {
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student s1, Student s2)</span> </span>{
-      <span class="hljs-keyword">return</span> Double.compare(s1.getHeight(), s2.getHeight());
-    }
-  });
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-comment">// trying to sort students by height</span></span><span>students.sort(<span class="hljs-keyword">new</span> Comparator&lt;Student&gt;() {</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student s1, Student s2)</span> </span>{</span><span>      <span class="hljs-keyword">return</span> Double.compare(s1.getHeight(), s2.getHeight());</span><span>    }</span><span>  });</span></code></pre>
           <p>Let's face it. Declaring classes (anonymous or not) is quite a pain. Declaring a named class adds to the number of classes you need to maintain while the syntax of a anonymous class is quite an eyesore.</p>
           <p>In Java 8, this interface has become a functional interface (surprise, surprise), so you can write a comparator with a lambda expression.</p>
-          <pre><code class="hljs java"><span class="hljs-comment">// trying to sort students by height</span>
-students.sort((s1, s2) -&gt; Double.compare(s1.getHeight(), s2.getHeight()));
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-comment">// trying to sort students by height</span></span><span>students.sort((s1, s2) -&gt; Double.compare(s1.getHeight(), s2.getHeight()));</span></code></pre>
           <p>The compiler is able to infer that an object of type <code>Comparator&lt;Student&gt;</code> is expected and that the lambda expression fits into the definition for <code>compare</code> (the single abstract method), thus creating an instance
             of type
             <code>Comparator&lt;Student&gt;</code> with the <code>Double.compare(s1.getHeight(), s2.getHeight())</code> returned in the implemented <code>compare</code> method.</p>
           <p>By using an lambda expression, the code is much more simplified, and can be now written on a single line. However, the expression in the body is slightly complicated and it may not be easily understood by everyone.</p>
           <p>Suppose this comparison is used over and over again in the code. To improve cohesion in the code, you may want to add instance method <code>compareToByHeight(Student other)</code> in the <code>Student</code> class.</p>
-          <pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareToByHeight</span><span class="hljs-params">(Student other)</span></span>{
-    <span class="hljs-keyword">return</span> Double.compare(height, other.height);
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareToByHeight</span><span class="hljs-params">(Student other)</span></span>{</span><span>    <span class="hljs-keyword">return</span> Double.compare(height, other.height);</span><span>}</span></code></pre>
           <p>And you can use a method reference as the functional interface instead.</p>
-          <pre><code class="hljs java"><span class="hljs-comment">// trying to sort students by height</span>
-students.sort(Student::compareToByHeight);
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-comment">// trying to sort students by height</span></span><span>students.sort(Student::compareToByHeight);</span></code></pre>
           <p>Notice that the code is very easy to understand at a high level and what the intentions of the author can be understood from the code, reducing the need for further documentation. This also makes code more maintainable.</p>
           <h3 id="what-is-a-stream">What is a stream?<a class="fa fa-anchor" href="#what-is-a-stream"></a></h3>
           <p>Now that we have the basics nailed, let's get started on Streams. Streams are basically sequences of elements. However, when dealing with streams, we are not so interested in where the data of elements is stored, what is currently stored in
@@ -494,32 +473,12 @@ students.sort(Student::compareToByHeight);
           <p>In this section, we will look at the details of implementing a stream pipeline and the common pitfalls when implementing one.</p>
           <h3 id="constructing-streams">Constructing Streams<a class="fa fa-anchor" href="#constructing-streams"></a></h3>
           <p>One way to construct a stream is simply supplying a sequence of elements to the <code>Stream.of</code> method.</p>
-          <pre><code class="hljs java"> <span class="hljs-comment">// construct stream with Stream.of</span>
-Stream&lt;String&gt; nameStream = Stream.of(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Eve"</span>, <span class="hljs-string">"Mallory"</span>);
-</code></pre>
+          <pre><code class="hljs java"><span> <span class="hljs-comment">// construct stream with Stream.of</span></span><span>Stream&lt;String&gt; nameStream = Stream.of(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Eve"</span>, <span class="hljs-string">"Mallory"</span>);</span></code></pre>
           <p>When you want to use an array as the data source of the stream, you can use <code>Stream.of</code> or <code>Arrays.stream</code>. <code>Arrays.stream</code> is also able to take a primitive-typed array and return a stream of a specialised Stream
             class that has primitive elements, instead of boxed elements. (You can read more about these specialised streams IntStream, LongStream, DoubleStream in the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">Java Documentation</a>)</p>
-          <pre><code class="hljs java">String[] array = {<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Eve"</span>, <span class="hljs-string">"Mallory"</span>};
-
-<span class="hljs-comment">// construct stream from array with Stream.of</span>
-Stream&lt;String&gt; nameStream = Stream.of(array);
-
- <span class="hljs-comment">// construct stream from array with Arrays.stream</span>
-Stream&lt;String&gt; anotherNameStream = Arrays.stream(array);
-</code></pre>
+          <pre><code class="hljs java"><span>String[] array = {<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Eve"</span>, <span class="hljs-string">"Mallory"</span>};</span><span>&#x200B;</span><span><span class="hljs-comment">// construct stream from array with Stream.of</span></span><span>Stream&lt;String&gt; nameStream = Stream.of(array);</span><span>&#x200B;</span><span> <span class="hljs-comment">// construct stream from array with Arrays.stream</span></span><span>Stream&lt;String&gt; anotherNameStream = Arrays.stream(array);</span></code></pre>
           <p>If you want to use a existing collection, you can simply call <code>stream</code> method of the collection.</p>
-          <pre><code class="hljs java">Collection&lt;String&gt; names  = <span class="hljs-keyword">new</span> ArrayList();
-
-<span class="hljs-comment">// filling up the collection</span>
-names.add(<span class="hljs-string">"Alice"</span>);
-names.add(<span class="hljs-string">"Bob"</span>);
-names.add(<span class="hljs-string">"Eve"</span>);
-names.add(<span class="hljs-string">"Mallory"</span>);
-
-<span class="hljs-comment">// construct stream from collection</span>
-Stream&lt;String&gt; nameStream = names.stream();
-
-</code></pre>
+          <pre><code class="hljs java"><span>Collection&lt;String&gt; names  = <span class="hljs-keyword">new</span> ArrayList();</span><span>&#x200B;</span><span><span class="hljs-comment">// filling up the collection</span></span><span>names.add(<span class="hljs-string">"Alice"</span>);</span><span>names.add(<span class="hljs-string">"Bob"</span>);</span><span>names.add(<span class="hljs-string">"Eve"</span>);</span><span>names.add(<span class="hljs-string">"Mallory"</span>);</span><span>&#x200B;</span><span><span class="hljs-comment">// construct stream from collection</span></span><span>Stream&lt;String&gt; nameStream = names.stream();</span><span>&#x200B;</span></code></pre>
           <p>There are many other ways of constructing a stream, such as using the <code>Stream.iterate</code> method or <code>BufferedReader.lines()</code>. A nice summary of these different ways are provided in the <a href="https://www.ibm.com/developerworks/library/j-java-streams-1-brian-goetz/index.html">tutorial by Brian Goetz</a></p>
           <h3 id="intermediate-operations">Intermediate Operations<a class="fa fa-anchor" href="#intermediate-operations"></a></h3>
           <p>There are many intermediate operations one can apply to their streams, but this guide will just focus on two of the most commonly used intermediate operations, <code>filter</code> and <code>map</code>.</p>
@@ -528,24 +487,16 @@ Stream&lt;String&gt; nameStream = names.stream();
             stream. The functional method of this interface is <code>test</code>, which takes in a parameter of type <code>T</code> and returns a <code>boolean</code> value. Only elements which returns <code>true</code> when tested with the <code>Predicate&lt;T&gt;</code>            parameter are kept in the returned stream. The elements which returns <code>false</code> are filtered out.</p>
           <p>As mentioned in <a href="#functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions</a>, you can provide the <code>Predicate&lt;T&gt;</code> object using lambda expressions or method references.</p>
           <p>Suppose you want a stream of male students. You can filter the male students from a stream of all students by using an lambda that operates on objects of type <code>T</code> and returns a <code>boolean</code> value</p>
-          <pre><code class="hljs java">Stream&lt;Student&gt; maleStudents = students.stream()
-                                       .filter(x -&gt; x.isMale());
-</code></pre>
+          <pre><code class="hljs java"><span>Stream&lt;Student&gt; maleStudents = students.stream()</span><span>                                       .filter(x -&gt; x.isMale());</span></code></pre>
           <p>or by using a method reference.</p>
-          <pre><code class="hljs java">Stream&lt;Student&gt; maleStudents = students.stream()
-                                       .filter(Student::isMale);
-</code></pre>
+          <pre><code class="hljs java"><span>Stream&lt;Student&gt; maleStudents = students.stream()</span><span>                                       .filter(Student::isMale);</span></code></pre>
           <h4 id="map">Map<a class="fa fa-anchor" href="#map"></a></h4>
           <p>The <code>map</code> method takes in a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html"><code>Function&lt;T, R&gt;</code></a> parameter. The functional method <code>apply</code> takes in a type <code>T</code>            object and returns a type <code>R</code> object, where <code>R</code> is the desired return type. These <code>T</code> and <code>R</code> are usually inferred by the compiler and you do not have to specify them in your lambda or method reference.</p>
           <p>The <code>map</code> method performs the <code>apply</code> of the <code>Function&lt;T, R&gt;</code> object you provide on the elements and the returned objects from the <code>apply</code> operations are put into the returned stream. Each <code>T</code>            element is mapped to its corresponding <code>R</code> object according to the provided <code>Function&lt;T, R&gt;</code> object and a <code>Stream&lt;R&gt;</code> object is returned.</p>
           <p>Suppose you want a stream of names of all students. Similarly, you can use a lambda expression</p>
-          <pre><code class="hljs java">Stream&lt;String&gt; names = students.stream() <span class="hljs-comment">// Stream&lt;Student&gt; here</span>
-                               .map(x -&gt; x.getName()); <span class="hljs-comment">// Stream&lt;String&gt; here</span>
-</code></pre>
+          <pre><code class="hljs java"><span>Stream&lt;String&gt; names = students.stream() <span class="hljs-comment">// Stream&lt;Student&gt; here</span></span><span>                               .map(x -&gt; x.getName()); <span class="hljs-comment">// Stream&lt;String&gt; here</span></span></code></pre>
           <p>or a method reference.</p>
-          <pre><code class="hljs java">Stream&lt;String&gt; names = students.stream() <span class="hljs-comment">// Stream&lt;Student&gt; here</span>
-                               .map(Student::getName); <span class="hljs-comment">// Stream&lt;String&gt; here</span>
-</code></pre>
+          <pre><code class="hljs java"><span>Stream&lt;String&gt; names = students.stream() <span class="hljs-comment">// Stream&lt;Student&gt; here</span></span><span>                               .map(Student::getName); <span class="hljs-comment">// Stream&lt;String&gt; here</span></span></code></pre>
           <h3 id="terminal-operations">Terminal Operations<a class="fa fa-anchor" href="#terminal-operations"></a></h3>
           <p>Two commonly used terminal operations are <code>reduce</code> and <code>collect</code>. <code>reduce</code> typically takes in a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html"><code>BinaryOperator&lt;T&gt;</code></a>,
             which is used to operate on all elements in the stream, resulting in a single final result. To find out how <code>reduce</code> works and how you can use it, you can look at <a href="https://www.ibm.com/developerworks/library/j-java-streams-2-brian-goetz/index.html">second part of Brian Goetz's tutorial</a>.</p>
@@ -566,54 +517,23 @@ Stream&lt;String&gt; nameStream = names.stream();
           <p>One can easily do a <code>collect</code> operation by making use of the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html"><code>Collectors</code></a> class, which contains many methods which help to generate
             a <code>Collector&lt;T, A, R&gt;</code>.</p>
           <p>Suppose you want a list of names of all students. You can use the <code>Collectors.toList()</code> as the collector.</p>
-          <pre><code class="hljs java">List&lt;String&gt; names = students.stream()
-                             .map(Student::getName)
-                             .collect(Collectors.toList());
-</code></pre>
+          <pre><code class="hljs java"><span>List&lt;String&gt; names = students.stream()</span><span>                             .map(Student::getName)</span><span>                             .collect(Collectors.toList());</span></code></pre>
           <p>Suppose you want the average CAP score of all students. You can use <code>Collectors.averagingDouble(ToDoubleFunction&lt;? super T&gt; mapper)</code> and provide the mapper to transform the current student elements into their CAP scores.</p>
-          <pre><code class="hljs java">List&lt;String&gt; averageCap = students.stream()
-                                  .collect(Collectors.averagingDouble(Student::getCap));
-</code></pre>
+          <pre><code class="hljs java"><span>List&lt;String&gt; averageCap = students.stream()</span><span>                                  .collect(Collectors.averagingDouble(Student::getCap));</span></code></pre>
           <p>Suppose you want lists of students according to their current year of study. You can use <code>Collectors.groupingBy(Function&lt;? super T,? extends K&gt; classifier)</code> and provide the classifier which returns the year of study of a student.
             This returns a <code>Map&lt;Integer, List&lt;Student&gt;&gt;</code> object where the result of the classifier for an element would be one of the key values of the <code>Map</code>.</p>
-          <pre><code class="hljs java">Map&lt;Integer, List&lt;Student&gt;&gt; studentsByYear = students.stream()
-                                            .collect(Collectors.groupingBy(Student::getYear));
-List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1</span>);
-</code></pre>
+          <pre><code class="hljs java"><span>Map&lt;Integer, List&lt;Student&gt;&gt; studentsByYear = students.stream()</span><span>                                            .collect(Collectors.groupingBy(Student::getYear));</span><span>List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1</span>);</span></code></pre>
           <h3 id="drawbacks-and-pitfalls">Drawbacks and Pitfalls<a class="fa fa-anchor" href="#drawbacks-and-pitfalls"></a></h3>
           <p>In order to effectively utilise streams, one would also need to know the common drawbacks and pitfalls associated with streams. In this section, we will talk about two common pitfalls and how you can avoid them.</p>
           <h4 id="long-complicated-lambda-expressions">Long, complicated lambda expressions<a class="fa fa-anchor" href="#long-complicated-lambda-expressions"></a></h4>
           <p>Lambda expressions allow us, as developers, to define a function quickly and easily. However, this power can be easily abused, and one might write a long, complicated lambda expression when trying to provide the required functional interface
             for the stream operation, resulting in code like this:</p>
-          <pre><code class="hljs java">result = futures.stream()
-                .map(HttpService::getFutureValue)
-                .map(failureOrResponse -&gt; {
-                    <span class="hljs-keyword">return</span> failureOrResponse
-                          .right().flatMap(<span class="hljs-keyword">this</span>::parseResponse);
-                })
-                .map(failureOrResult -&gt; {
-                    <span class="hljs-keyword">return</span> failureOrResult.either(
-                            failure -&gt; {
-                                log.warn(failure.getMessage());
-                                <span class="hljs-keyword">return</span> EMPTY_RESULT;
-                            },
-                            result -&gt; {
-                                <span class="hljs-keyword">return</span> result;
-                            });
-                })
-                .reduce(EMPTY_RESULT, Result::union);
-</code></pre>
+          <pre><code class="hljs java"><span>result = futures.stream()</span><span>                .map(HttpService::getFutureValue)</span><span>                .map(failureOrResponse -&gt; {</span><span>                    <span class="hljs-keyword">return</span> failureOrResponse</span><span>                          .right().flatMap(<span class="hljs-keyword">this</span>::parseResponse);</span><span>                })</span><span>                .map(failureOrResult -&gt; {</span><span>                    <span class="hljs-keyword">return</span> failureOrResult.either(</span><span>                            failure -&gt; {</span><span>                                log.warn(failure.getMessage());</span><span>                                <span class="hljs-keyword">return</span> EMPTY_RESULT;</span><span>                            },</span><span>                            result -&gt; {</span><span>                                <span class="hljs-keyword">return</span> result;</span><span>                            });</span><span>                })</span><span>                .reduce(EMPTY_RESULT, Result::union);</span></code></pre>
           <p>(adapted from <a href="https://www.reddit.com/r/java/comments/2x47wy/java_8_code_style/">https://www.reddit.com/r/java/comments/2x47wy/java_8_code_style/</a>)</p>
           <p>Such code is not only hard to read but also hard to maintain. The general guideline is that <strong>lambda expressions should only be one line long</strong>. If it cannot fit within a single line, the lambda expression is probably not easy to
             read for people who aren't the author. The code will be much more readable if such lambdas are extracted as methods and this extraction can be easily done with a few clicks in many IDEs such as Eclipse or IntelliJ.</p>
           <p>With the lambda expressions extracted as methods <code>getFailureOrResult</code> and <code>getEmptyResultIfFailure</code>, the earlier code example can be simplified to look like this:</p>
-          <pre><code class="hljs java">result = futures.stream()
-                .map(HttpService::getFutureValue)
-                .map(<span class="hljs-keyword">this</span>::getFailureOrResult)
-                .map(<span class="hljs-keyword">this</span>::getEmptyResultIfFailure)
-                .reduce(EMPTY_RESULT, Result::union);
-
-</code></pre>
+          <pre><code class="hljs java"><span>result = futures.stream()</span><span>                .map(HttpService::getFutureValue)</span><span>                .map(<span class="hljs-keyword">this</span>::getFailureOrResult)</span><span>                .map(<span class="hljs-keyword">this</span>::getEmptyResultIfFailure)</span><span>                .reduce(EMPTY_RESULT, Result::union);</span><span>&#x200B;</span></code></pre>
           <p>With good method names given to the extracted lambda expressions, the code for the stream operation becomes self-documenting again.</p>
           <h4 id="difficulty-in-optimising-stream-performance">Difficulty in optimising stream performance<a class="fa fa-anchor" href="#difficulty-in-optimising-stream-performance"></a></h4>
           <p>Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to <a href="http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/">this blog post</a>,
@@ -722,7 +642,7 @@ List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1<
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

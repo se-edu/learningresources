@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Performance Optimization</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -346,9 +355,7 @@
             </li>
             <li>
               <p>Sometimes memory usage of your program remains high because the unnecessary variables are yet to be freed from memory. If you are using a garbage collected language like Java, consider <a href="https://www.javacodegeeks.com/2017/11/minimize-java-memory-usage-right-garbage-collector.html">tuning</a>                your garbage collector to suit your needs. If such options is not good enough, you can explicitly free memory even in garbage collected language. An example from Python is shown below:</p>
-              <pre><code class="hljs python"><span class="hljs-keyword">import</span> gc
-gc.collect()
-</code></pre>
+              <pre><code class="hljs python"><span><span class="hljs-keyword">import</span> gc</span><span>gc.collect()</span></code></pre>
             </li>
             <li>
               <p>Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive <code>int</code> over <code>Integer</code> to reduce the overhead introduce by the <code>Integer</code> Object wrapper.
@@ -384,28 +391,7 @@ gc.collect()
           <p>This rule is about how multidimensional arrays are stored in memory. Different programming languages have different methods of storing multidimensional arrays. <a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">More Information</a>.</p>
           <p>Using the incorrect method of access can cause many cache misses, resulting in a much slower execution time. Thus, it is important to be aware of which major order the programming language is using.</p>
           <p>For example, Java uses Row Major Order. We can create a test to see how big an impact using the wrong Major Order can be on the execution time.</p>
-          <pre><code class="hljs python">int size = <span class="hljs-number">10000</span>;
-int[][] arr = new int[size][size];
-int x = <span class="hljs-number">0</span>;
- 
-//Row Major order accessing
-long time = System.currentTimeMillis();
-<span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; size; i++) {
-    <span class="hljs-keyword">for</span> (int j = <span class="hljs-number">0</span>; j &lt; size; j++) {
-        x += arr[i][j];
-    }
-}
-System.out.println(<span class="hljs-string">"Row major: "</span> + (System.currentTimeMillis() - time));
- 
-//Column Major order accessing
-time = System.currentTimeMillis();
-<span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; size; i++) {
-    <span class="hljs-keyword">for</span> (int j = <span class="hljs-number">0</span>; j &lt; size; j++) {
-        x += arr[j][i];
-    }
-}
-System.out.println(<span class="hljs-string">"Column major: "</span> +(System.currentTimeMillis() - time));
-</code></pre>
+          <pre><code class="hljs python"><span>int size = <span class="hljs-number">10000</span>;</span><span>int[][] arr = new int[size][size];</span><span>int x = <span class="hljs-number">0</span>;</span><span> </span><span>//Row Major order accessing</span><span>long time = System.currentTimeMillis();</span><span><span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; size; i++) {</span><span>    <span class="hljs-keyword">for</span> (int j = <span class="hljs-number">0</span>; j &lt; size; j++) {</span><span>        x += arr[i][j];</span><span>    }</span><span>}</span><span>System.out.println(<span class="hljs-string">"Row major: "</span> + (System.currentTimeMillis() - time));</span><span> </span><span>//Column Major order accessing</span><span>time = System.currentTimeMillis();</span><span><span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; size; i++) {</span><span>    <span class="hljs-keyword">for</span> (int j = <span class="hljs-number">0</span>; j &lt; size; j++) {</span><span>        x += arr[j][i];</span><span>    }</span><span>}</span><span>System.out.println(<span class="hljs-string">"Column major: "</span> +(System.currentTimeMillis() - time));</span></code></pre>
           <p>In the example above, Row major takes around 100ms, while column major takes around 2000ms. You can use the codes above and try it on your own too.</p>
           <blockquote>
             <p>This test was done on a typical notebook. Your results may vary based on the hardware of your computer</p>
@@ -438,7 +424,7 @@ System.out.println(<span class="hljs-string">"Column major: "</span> +(System.cu
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

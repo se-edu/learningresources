@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Kotlin</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -331,45 +340,25 @@
           <ul>
             <li>A Java object with getters, setters, equals(), hashCode(), toString() and copy() can be created in a single line in Kotlin</li>
           </ul>
-          <pre><code class="hljs kotlin"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span></span>(<span class="hljs-keyword">val</span> name: String, <span class="hljs-keyword">val</span> email: String, <span class="hljs-keyword">val</span> company: String)
-</code></pre>
+          <pre><code class="hljs"><span>data class Customer(val name: String, val email: String, val company: String)</span></code></pre>
           <ul>
             <li>Assigning values based on ranges is much simpler than Java. Below are extracts of code with similar logic in Java and Kotlin:</li>
           </ul>
           <p><strong>Kotlin</strong></p>
-          <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> quartile: <span class="hljs-built_in">Int</span>
-quartile = <span class="hljs-keyword">when</span> (playPercentage) {
-    <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">24</span> -&gt; <span class="hljs-number">0</span>
-    <span class="hljs-keyword">in</span> <span class="hljs-number">25</span>..<span class="hljs-number">49</span> -&gt; <span class="hljs-number">1</span>
-    ...
-}
-</code></pre>
+          <pre><code class="hljs"><span>val quartile: Int</span><span>quartile = when (playPercentage) {</span><span>    in 0..24 -&gt; 0</span><span>    in 25..49 -&gt; 1</span><span>    ...</span><span>}</span></code></pre>
           <p><strong>Java</strong></p>
-          <pre><code class="hljs java"><span class="hljs-keyword">int</span> quartile;
-<span class="hljs-keyword">if</span>(playPercentage &gt;= <span class="hljs-number">0</span> &amp;&amp; playPercentage &lt;= <span class="hljs-number">24</span>) {
-    quartile = <span class="hljs-number">0</span>;
-} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(playPercentage &gt;= <span class="hljs-number">25</span> &amp;&amp; playPercentage &lt;= <span class="hljs-number">49</span>) {
-    quartile = <span class="hljs-number">1</span>;
-}
-...
-</code></pre>
+          <pre><code class="hljs"><span>int quartile;</span><span>if(playPercentage &gt;= 0 &amp;&amp; playPercentage &lt;= 24) {</span><span>    quartile = 0;</span><span>} else if(playPercentage &gt;= 25 &amp;&amp; playPercentage &lt;= 49) {</span><span>    quartile = 1;</span><span>}</span><span>...</span></code></pre>
           <h3 id="safe">Safe<a class="fa fa-anchor" href="#safe"></a></h3>
           <p>Kotlin protects you from mistakenly operating on <a href="https://kotlinlang.org/docs/reference/null-safety.html">nullable</a> types</p>
           <ul>
             <li>Get compilation error when you mistakenly try operating on nullable types</li>
           </ul>
-          <pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> name: String? = <span class="hljs-literal">null</span>    <span class="hljs-comment">// Nullable type</span>
-println(name.length())      <span class="hljs-comment">// Compilation error</span>
-</code></pre>
+          <pre><code class="hljs"><span>val name: String? = null    // Nullable type</span><span>println(name.length())      // Compilation error</span></code></pre>
           <h3 id="interoperable">Interoperable<a class="fa fa-anchor" href="#interoperable"></a></h3>
           <ul>
             <li>Target either the JVM or JavaScript. Write code in Kotlin and decide where you want to deploy</li>
           </ul>
-          <pre><code class="hljs kotlin"><span class="hljs-keyword">import</span> kotlin.browser.window
-<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onLoad</span><span class="hljs-params">()</span></span> {
-    window.document.body!!.innerHTML += <span class="hljs-string">"&lt;br/&gt;Hello, Kotlin!"</span>
-}
-</code></pre>
+          <pre><code class="hljs"><span>import kotlin.browser.window</span><span>fun onLoad() {</span><span>    window.document.body!!.innerHTML += &quot;&lt;br/&gt;Hello, Kotlin!&quot;</span><span>}</span></code></pre>
           <ul>
             <li>You can literally continue work on your old Java projects using Kotlin. All your favorite Java frameworks are still available, and whatever framework you’ll write in Kotlin can be easily adopted by other Java developers</li>
           </ul>
@@ -428,7 +417,7 @@ println(name.length())      <span class="hljs-comment">// Compilation error</spa
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

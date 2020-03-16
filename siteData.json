@@ -985,6 +985,26 @@
       "headingKeywords": {}
     },
     {
+      "title": "NumPy",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/python/numpy.md",
+      "layout": "default",
+      "headings": {
+        "numpy": "NumPy",
+        "numpy-s-purpose": "NumPy's Purpose",
+        "numpy-s-benefits-and-drawbacks": "NumPy's Benefits and Drawbacks",
+        "internals-of-numpy": "Internals of NumPy",
+        "the-array-type": "The Array Type",
+        "library-functions": "Library Functions",
+        "tutorials-and-resources": "Tutorials and Resources"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Introduction to Regular Expressions",
       "header": "pagetop.md",
       "footer": "footer.md",
@@ -1612,6 +1632,7 @@
       "headings": {
         "contributing-to-this-project": "Contributing to this Project",
         "how-to-contribute": "How to Contribute",
+        "contact": "Contact",
         "guidelines-for-writing-content": "Guidelines for Writing Content"
       },
       "headingKeywords": {}

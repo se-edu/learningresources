@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Best Practices with `git`</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -358,17 +367,7 @@
           <p>They also assist you in the development process if you forget what has been done, or if you need to cherry-pick commits for elsewhere.</p>
           <h3 id="what-constitutes-a-good-commit-message">What Constitutes a Good Commit Message<a class="fa fa-anchor" href="#what-constitutes-a-good-commit-message"></a></h3>
           <p>The easiest way to attain commit message discipline is to stop putting in one-liner descriptions using <code>git commit -m &quot;Add some things to that.&quot;</code>. Instead, write a proper commit message in an editor:</p>
-          <pre><code class="hljs bash"><span class="hljs-comment"># opens your editor to write a commit message properly</span>
-git add files-to-stage
-git commit
-
-<span class="hljs-comment"># like above, but shows the diff of the currently staged files</span>
-git add files-to-stage
-git commit --verbose
-
-<span class="hljs-comment"># amend the most recent commit message</span>
-git commit --amend HEAD^
-</code></pre>
+          <pre><code class="hljs bash"><span><span class="hljs-comment"># opens your editor to write a commit message properly</span></span><span>git add files-to-stage</span><span>git commit</span><span>&#x200B;</span><span><span class="hljs-comment"># like above, but shows the diff of the currently staged files</span></span><span>git add files-to-stage</span><span>git commit --verbose</span><span>&#x200B;</span><span><span class="hljs-comment"># amend the most recent commit message</span></span><span>git commit --amend HEAD^</span></code></pre>
           <p>Every commit must have a well written commit message <em>subject line</em>.</p>
           <ol>
             <li>
@@ -427,42 +426,19 @@ git commit --amend HEAD^
           <h4 id="examples-of-good-commit-messages">Examples of Good Commit Messages<a class="fa fa-anchor" href="#examples-of-good-commit-messages"></a></h4>
           <p>Adapted from <a href="https://github.com/se-edu/addressbook-level4/commits/master">se-edu/addressbook-level4</a> (<a href="https://github.com/se-edu/addressbook-level4/commit/2f4405c75cd21111952565a9706a9793b475c41e.patch">patch</a>). This commit
             message follows the guidelines above and also includes the context of the change (how it worked before this patch) as it is necessary to understand <em>why</em> it needed to change.</p>
-          <pre><code class="hljs">UniquePersonList#remove(Person): update return type
-
-UniquePersonList#remove(Person) returns true if the person passed into
-this method can be found in the internal list, and false otherwise. It
-also throws PersonNotFoundException if a person is not found.
-
-Returning a boolean is not required as the exception is thrown before
-the value is returned.
-
-Let's update the return type for UniquePersonList#remove(Person) to
-void.
-</code></pre>
+          <pre><code class="hljs"><span>UniquePersonList#remove(Person): update return type</span><span>&#x200B;</span><span>UniquePersonList#remove(Person) returns true if the person passed into</span><span>this method can be found in the internal list, and false otherwise. It</span><span>also throws PersonNotFoundException if a person is not found.</span><span>&#x200B;</span><span>Returning a boolean is not required as the exception is thrown before</span><span>the value is returned.</span><span>&#x200B;</span><span>Let's update the return type for UniquePersonList#remove(Person) to</span><span>void.</span></code></pre>
           <p>Adapted from <a href="https://github.com/torvalds/linux/commits/master">torvalds/linux</a> (<a href="https://github.com/torvalds/linux/commit/9fe8f03bc0227fb573cc3e5b99eb34e19e405ab6.patch">patch</a>).</p>
-          <pre><code class="hljs">drm/amd/display: Fix memleaks when atomic check fails
-
-While checking plane states for updates during atomic check, we create
-dc_plane_states in preparation. These dc states should be freed if
-something errors.
-
-Although the input transfer function is also freed by
-dc_plane_state_release(), we should free it (on error) under the same
-scope as where it is created.
-</code></pre>
+          <pre><code class="hljs"><span>drm/amd/display: Fix memleaks when atomic check fails</span><span>&#x200B;</span><span>While checking plane states for updates during atomic check, we create</span><span>dc_plane_states in preparation. These dc states should be freed if</span><span>something errors.</span><span>&#x200B;</span><span>Although the input transfer function is also freed by</span><span>dc_plane_state_release(), we should free it (on error) under the same</span><span>scope as where it is created.</span></code></pre>
           <p>More examples can be found here: <a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p>
           <h3 id="set-up-your-editor-for-commit-messages">Set Up Your Editor for Commit Messages<a class="fa fa-anchor" href="#set-up-your-editor-for-commit-messages"></a></h3>
           <ol>
             <li>To use your editor of choice for <code>git</code>-related functionality, e.g. <code>vim</code>, do one of either in your terminal:</li>
           </ol>
-          <pre><code class="hljs bash">git config --global core.editor <span class="hljs-string">"vim"</span> <span class="hljs-comment"># or you can do the following</span>
-<span class="hljs-built_in">export</span> GIT_EDITOR=vim <span class="hljs-comment"># add to your .bashrc or equivalent</span>
-</code></pre>
+          <pre><code class="hljs bash"><span>git config --global core.editor <span class="hljs-string">"vim"</span> <span class="hljs-comment"># or you can do the following</span></span><span><span class="hljs-built_in">export</span> GIT_EDITOR=vim <span class="hljs-comment"># add to your .bashrc or equivalent</span></span></code></pre>
           <ol start="2">
             <li>Set your editor to wrap after 72 characters. In <code>vim</code>, you can do this by adding this to your <code>.vimrc</code>:</li>
           </ol>
-          <pre><code class="hljs bash">autocmd Filetype gitcommit spell textwidth=72
-</code></pre>
+          <pre><code class="hljs bash"><span>autocmd Filetype gitcommit spell textwidth=72</span></code></pre>
           <hr>
           <h2 id="always-commit-functional-code">Always Commit Functional Code<a class="fa fa-anchor" href="#always-commit-functional-code"></a></h2>
           <p>Merges to the following must always leave the project in a working state, i.e. it can be built and run on:</p>
@@ -477,19 +453,7 @@ scope as where it is created.
           <h3 id="stashing">Stashing<a class="fa fa-anchor" href="#stashing"></a></h3>
           <p>If you need to switch between branches while in the middle of developing a commit, you can use the <code>git stash</code> command. Stashing saves the uncommitted changes made in your current working directly. This allows you to save your progress
             without having to commit non-functioning code.</p>
-          <pre><code class="hljs bash"><span class="hljs-comment"># stash your work not committed to HEAD yet by pushing it onto the stash stack</span>
-git stash
-git stash push <span class="hljs-comment"># equivalent to git stash</span>
-
-<span class="hljs-comment"># restore your most recently stashed work to your current working copy</span>
-git stash pop
-
-<span class="hljs-comment"># acts like git stash pop, but keeps a copy of the stash in the current stash stack</span>
-git stash apply
-
-<span class="hljs-comment"># list all stashes in the stack</span>
-git stash list
-</code></pre>
+          <pre><code class="hljs bash"><span><span class="hljs-comment"># stash your work not committed to HEAD yet by pushing it onto the stash stack</span></span><span>git stash</span><span>git stash push <span class="hljs-comment"># equivalent to git stash</span></span><span>&#x200B;</span><span><span class="hljs-comment"># restore your most recently stashed work to your current working copy</span></span><span>git stash pop</span><span>&#x200B;</span><span><span class="hljs-comment"># acts like git stash pop, but keeps a copy of the stash in the current stash stack</span></span><span>git stash apply</span><span>&#x200B;</span><span><span class="hljs-comment"># list all stashes in the stack</span></span><span>git stash list</span></code></pre>
           <p>Stashes are a purely local construct and cannot be pushed to a remote repository.</p>
           <p>Read more:</p>
           <ul>
@@ -568,20 +532,9 @@ git stash list
             </li>
           </ul>
           <p>A failed <code>git push</code> usually means that your local branch is behind its remote counterpart, indicating that the local and remote branches have diverged.</p>
-          <pre><code class="hljs bash">$ git push origin my-branch
-To git@github.com:foo/foo.git
- ! [rejected]        my-branch -&gt; my-branch (non-fast-forward)
-error: failed to push some refs to <span class="hljs-string">'git@github.com:foo/foo.git'</span>
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes (e.g.
-hint: <span class="hljs-string">'git pull ...'</span>) before pushing again.
-hint: See the <span class="hljs-string">'Note about fast-forwards'</span> <span class="hljs-keyword">in</span> <span class="hljs-string">'git push --help'</span> <span class="hljs-keyword">for</span> details.
-</code></pre>
+          <pre><code class="hljs bash"><span>$ git push origin my-branch</span><span>To git@github.com:foo/foo.git</span><span> ! [rejected]        my-branch -&gt; my-branch (non-fast-forward)</span><span>error: failed to push some refs to <span class="hljs-string">'git@github.com:foo/foo.git'</span></span><span>hint: Updates were rejected because the tip of your current branch is behind</span><span>hint: its remote counterpart. Integrate the remote changes (e.g.</span><span>hint: <span class="hljs-string">'git pull ...'</span>) before pushing again.</span><span>hint: See the <span class="hljs-string">'Note about fast-forwards'</span> <span class="hljs-keyword">in</span> <span class="hljs-string">'git push --help'</span> <span class="hljs-keyword">for</span> details.</span></code></pre>
           <p>Alternatively, you may also see this when a branch diversion has occurred when you run <code>git status</code>.</p>
-          <pre><code class="hljs bash">$ git status
-Your branch and <span class="hljs-string">'origin/my-branch'</span> have diverged,
-and have 3 and 5 different commit(s) each, respectively.
-</code></pre>
+          <pre><code class="hljs bash"><span>$ git status</span><span>Your branch and <span class="hljs-string">'origin/my-branch'</span> have diverged,</span><span>and have 3 and 5 different commit(s) each, respectively.</span></code></pre>
           <p>You can override this by <a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">making a force push</a>, i.e. <code>git push --force</code> but that would result in rewriting the published history or
             overwrite changes in the divergent remote commits. Observe the guidelines and ensure that the force push can be made in good faith with respect to your collaborators.</p>
           <p>Read more:</p>
@@ -596,22 +549,7 @@ and have 3 and 5 different commit(s) each, respectively.
           <p><em>Remotes</em> refer to versions of the project you are working on that are hosted elsewhere, usually on the Internet. Remotes are very handy for managing collaboration, e.g. if you have to keep your code in sync with the <code>upstream</code>            branch of the project, or if you need to pull code from someone else which may not be merged yet.</p>
           <p>You can have as many remotes as you want, each possibly being read-only or with read/write privileges.</p>
           <p>Remotes are managed using the <code>git remote</code> command.</p>
-          <pre><code class="hljs bash"><span class="hljs-comment"># view all remotes</span>
-git remote -v
-
-<span class="hljs-comment"># add a remote called "upstream" that points to https://github.com/TEAMMATES/teammates</span>
-git remote add upstream https://github.com/TEAMMATES/teammates
-
-<span class="hljs-comment"># branch off from the master branch of the upstream repository</span>
-git fetch upstream <span class="hljs-comment"># get data from upstream repo</span>
-git checkout -b your-fancy-branch upstream/master <span class="hljs-comment"># makes a new branch off the head of upstream/master</span>
-
-<span class="hljs-comment"># change the URL for the upstream remote from HTTPS to SSH</span>
-git remote <span class="hljs-built_in">set</span>-url upstream git@github.com:TEAMMATES/teammates.git
-
-<span class="hljs-comment"># remove a remote named "upstream"</span>
-git remote remove upstream
-</code></pre>
+          <pre><code class="hljs bash"><span><span class="hljs-comment"># view all remotes</span></span><span>git remote -v</span><span>&#x200B;</span><span><span class="hljs-comment"># add a remote called "upstream" that points to https://github.com/TEAMMATES/teammates</span></span><span>git remote add upstream https://github.com/TEAMMATES/teammates</span><span>&#x200B;</span><span><span class="hljs-comment"># branch off from the master branch of the upstream repository</span></span><span>git fetch upstream <span class="hljs-comment"># get data from upstream repo</span></span><span>git checkout -b your-fancy-branch upstream/master <span class="hljs-comment"># makes a new branch off the head of upstream/master</span></span><span>&#x200B;</span><span><span class="hljs-comment"># change the URL for the upstream remote from HTTPS to SSH</span></span><span>git remote <span class="hljs-built_in">set</span>-url upstream git@github.com:TEAMMATES/teammates.git</span><span>&#x200B;</span><span><span class="hljs-comment"># remove a remote named "upstream"</span></span><span>git remote remove upstream</span></code></pre>
           <p>Read more:</p>
           <ul>
             <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Git Basics - Working with Remotes</a></li>
@@ -755,7 +693,7 @@ git remote remove upstream
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - FindBugs</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -331,16 +340,7 @@
           <h2 id="examples-of-bugs-that-can-be-found-using-findbugs">Examples of Bugs that can be found using FindBugs<a class="fa fa-anchor" href="#examples-of-bugs-that-can-be-found-using-findbugs"></a></h2>
           <h3 id="incorrectly-overriding-methods">Incorrectly overriding methods<a class="fa fa-anchor" href="#incorrectly-overriding-methods"></a></h3>
           <p>Consider the following code:</p>
-          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>{
-    <span class="hljs-comment">//... data members ...</span>
-    <span class="hljs-comment">//... methods ...</span>
-
-    <span class="hljs-comment">//Overriding equals method - the wrong way</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">equals</span><span class="hljs-params">(Foo foo)</span> </span>{
-        <span class="hljs-comment">//... logic ...</span>
-    }
-}
-</code></pre>
+          <pre><code class="hljs"><span>class Foo {</span><span>    //... data members ...</span><span>    //... methods ...</span><span>&#x200B;</span><span>    //Overriding equals method - the wrong way</span><span>    public boolean equals(Foo foo) {</span><span>        //... logic ...</span><span>    }</span><span>}</span></code></pre>
           <p>In the above code, if <code>foo.equals()</code> method is called, the <code>equals()</code> method of <code>Object</code> class rather than <code>Foo</code> class will be called. This is due to the way the Java code resolves overloaded methods
             at compile-time. FindBugs warns the developer of possible cases when a class defines a co-variant version of the <code>equals()</code> or <code>compareTo()</code> method.</p>
           <h3 id="find-hash-equals-mismatch">Find hash-equals mismatch<a class="fa fa-anchor" href="#find-hash-equals-mismatch"></a></h3>
@@ -348,20 +348,12 @@
             Overriding only one of the <code>equals()</code> or <code>hashCode()</code> method can cause methods of Collection based classes to fail and hence FindBugs helps in reporting these errors at an early stage</p>
           <h3 id="return-value-of-method-ignored">Return value of method ignored<a class="fa fa-anchor" href="#return-value-of-method-ignored"></a></h3>
           <p>FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been.</p>
-          <pre><code class="hljs java"><span class="hljs-number">1</span> String s = <span class="hljs-string">"bob"</span>;
-<span class="hljs-number">2</span> s.replace(<span class="hljs-string">'b'</span>, <span class="hljs-string">'p'</span>);
-<span class="hljs-number">3</span> <span class="hljs-keyword">boolean</span> isCorrect = s.equals(<span class="hljs-string">"pop"</span>); <span class="hljs-comment">//isCorrect is `false`</span>
-</code></pre>
+          <pre><code class="hljs"><span>1 String s = &quot;bob&quot;;</span><span>2 s.replace('b', 'p');</span><span>3 boolean isCorrect = s.equals(&quot;pop&quot;); //isCorrect is `false`</span></code></pre>
           <p>In the above examples, one would assume that the variable <code>isCorrect</code> is assigned <code>true</code> because the <code>line 2</code> replaces <code>b</code> with <code>p</code>. However since strings are immutable, the <code>replace()</code>            function actually returns a new string with updated value rather than updating the string the method is called on.</p>
           <p>Hence, <code>line 2</code> should be <code>String newString = s.replace('b', 'p'); //newString =&quot;pop&quot;</code></p>
           <h3 id="null-pointer-dereference">Null pointer dereference<a class="fa fa-anchor" href="#null-pointer-dereference"></a></h3>
           <p>FindBugs looks for cases where a code path will or could cause a null pointer exception.</p>
-          <pre><code class="hljs java"><span class="hljs-number">1</span>  Person person = aMap.get(<span class="hljs-string">"bob"</span>);
-<span class="hljs-number">2</span>  <span class="hljs-keyword">if</span> (person != <span class="hljs-keyword">null</span>) {
-<span class="hljs-number">3</span>      person.updateAccessTime();
-<span class="hljs-number">4</span>  }
-<span class="hljs-number">5</span>  String name = person.getName();
-</code></pre>
+          <pre><code class="hljs"><span>1  Person person = aMap.get(&quot;bob&quot;);</span><span>2  if (person != null) {</span><span>3      person.updateAccessTime();</span><span>4  }</span><span>5  String name = person.getName();</span></code></pre>
           <p>In the above example, the <code>aMap</code> may or may not contain &quot;bob&quot;, so FindBugs will report <em>possible</em> <code>NullPointerException</code> at <code>line 5</code></p>
           <h2 id="how-to-use-it">How to use it<a class="fa fa-anchor" href="#how-to-use-it"></a></h2>
           <h3 id="configuration">Configuration<a class="fa fa-anchor" href="#configuration"></a></h3>
@@ -442,7 +434,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

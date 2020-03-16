@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Java Synchronization</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -312,10 +321,7 @@
             is used.</p>
           <h2 id="synchronized-statement">synchronized statement<a class="fa fa-anchor" href="#synchronized-statement"></a></h2>
           <p>Let us look at the following code snippet to understand synchronized statement:</p>
-          <pre><code class="hljs">synchronized(object) {
-	// critical section
-}
-</code></pre>
+          <pre><code class="hljs"><span>synchronized(object) {</span><span>	// critical section</span><span>}</span></code></pre>
           <p>The <strong>synchronized</strong> keyword takes in an <strong>object</strong> as an argument and uses brackets to enclose the <strong>critical section</strong> that accesses object data. In the code above, the <strong>object</strong> argument
             is the object to be used as the Monitor. When <strong>critical section</strong> is executed, the <strong>object Monitor</strong> locks all data of the object and only the <strong>critical section</strong>in the synchronized block can access
             data of the
@@ -323,37 +329,17 @@
             as long as <strong>critical section</strong> is included in a synchronized block of a <strong>object Monitor</strong>, data of the object is guaranteed to be thread safe.</p>
           <h2 id="synchronized-method">synchronized method<a class="fa fa-anchor" href="#synchronized-method"></a></h2>
           <p>Another common way to use <strong>synchronized</strong> functionality is called <strong>synchronized method</strong>. The following code snippet is an example.</p>
-          <pre><code class="hljs">public synchronized void foo() {
-	// method code
-}
-</code></pre>
+          <pre><code class="hljs"><span>public synchronized void foo() {</span><span>	// method code</span><span>}</span></code></pre>
           <p>In this example, <strong>synchronized</strong> is used as a method modifier to indicate that the method is synchronized. In the case of a synchronized method, all the content in the method is considered as <strong>critical section</strong> and
             the Monitor object used is dependent on the method. If the method is an instance method, then the Monitor object used is <strong>this</strong> instance. If the method is a class method, then the Monitor object used is a special class object
             initialized during run time for each class. The equivalence of the above code is:</p>
-          <pre><code class="hljs">public void foo() {
-	synchronized(this) {
-		// method code
-	}
-}
-</code></pre>
+          <pre><code class="hljs"><span>public void foo() {</span><span>	synchronized(this) {</span><span>		// method code</span><span>	}</span><span>}</span></code></pre>
           <h1 id="more-features-of-java-synchronization">More features of Java synchronization<a class="fa fa-anchor" href="#more-features-of-java-synchronization"></a></h1>
           <p>Besides synchronized keyword to guard a critical section, another important feature of Java Synchronization is <strong>wait()</strong> and <strong>notify()</strong>.</p>
           <h2 id="wait-and-notifyall">wait() and notifyAll()<a class="fa fa-anchor" href="#wait-and-notifyall"></a></h2>
           <p>In a synchronized block, sometimes some conditions are required for execution. If such conditions are not met, wait() method can be used to give up the Monitor object lock and put the current thread into a * callback queue** once the conditions
             are met. Let us use the following code as an example.</p>
-          <pre><code class="hljs">public synchronized void eatChicken() {
-	while (!hasChicken) {
-		wait();
-	}
-	eat();
-	hasChicken = false;
-}
-
-public synchronized void cookChicken() {
-	hasChicken = true;
-	notifyAll();
-}
-</code></pre>
+          <pre><code class="hljs"><span>public synchronized void eatChicken() {</span><span>	while (!hasChicken) {</span><span>		wait();</span><span>	}</span><span>	eat();</span><span>	hasChicken = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void cookChicken() {</span><span>	hasChicken = true;</span><span>	notifyAll();</span><span>}</span></code></pre>
           <p>In method eatChicken, the condition of hasChicken must be true before eat() can take place. However, instead of terminating the method, the program can call wait() and then this thread is put into a * callback queue**. When some other threads
             change the conditions, in this case, if cookChicken() method produces chicken and the condition for eatChicken() might be changed, cookChicken() can call notifyAll(). notifyALl() wakes up one by one all the threads in the * callback queue**
             associated with the Monitor object used to by coooChicken(). In this case, eatChicken() is woken up and eatChicken() gains Monitor object lock and starts execution from wait() onwards. This is basically how wait() and notifyAll() work in Java.
@@ -367,44 +353,14 @@ public synchronized void cookChicken() {
           <h3 id="check-condition-for-wait-with-while-loop">Check condition for wait() with while loop<a class="fa fa-anchor" href="#check-condition-for-wait-with-while-loop"></a></h3>
           <p>wait() is usually used to check condition(e.g. hasChicken in the method eatChicken()). It is a good practice to always use wait() inside a while loop to check for the condition. This is to avoid the situation in which thread is woken for an
             unintended purpose. The example below illustrates this situation:</p>
-          <pre><code class="hljs">public synchronized void eatChicken() {
-	if (!hasChicken) {
-		wait();
-	}
-	eat();
-	hasChicken = false;
-}
-
-public synchronized void drink() {
-	if (!hasDrink) {
-		wait();
-	}
-	drink();
-	hasDrink = false;
-}
-
-public synchronized void cookChicken() {
-	hasChicken = true;
-	notifyAll();
-}
-
-public synchronized void prepareDrink() {
-	hasDrink = true;
-	notifyAll();
-}
-</code></pre>
+          <pre><code class="hljs"><span>public synchronized void eatChicken() {</span><span>	if (!hasChicken) {</span><span>		wait();</span><span>	}</span><span>	eat();</span><span>	hasChicken = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void drink() {</span><span>	if (!hasDrink) {</span><span>		wait();</span><span>	}</span><span>	drink();</span><span>	hasDrink = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void cookChicken() {</span><span>	hasChicken = true;</span><span>	notifyAll();</span><span>}</span><span>&#x200B;</span><span>public synchronized void prepareDrink() {</span><span>	hasDrink = true;</span><span>	notifyAll();</span><span>}</span></code></pre>
           <p>In this example, all four synchronized methods are associated with the same Monitor object. When both eatChicken() and drink() are called and are both put into the callback queue because current hasChicken is false and hasDrink is false, calling
             notifyAll() from cookChicken() will wake up both drink() and eatChicken() one after another. If while loop is not used to check for the condition, both drink() and eatChicken() will execute and the execution of drink() is not intended. However,
             instead if while loop is used to check for the condition, when drink() is woken, hasDrink will be checked again and drink() will call wait() again. One alternative solution is to make sure all wait() and notifyAll() associated with the same
             Monitor object are checking the same conditions. However, this is hard to maintain and verify.</p>
           <h3 id="breakpoint-of-notifyall">Breakpoint of notifyAll()<a class="fa fa-anchor" href="#breakpoint-of-notifyall"></a></h3>
           <p>One important point to take note when using notifyAll() is to understand what happens when notify all is called and how code gives up its Monitor object lock. Taking the following code snippet as an example:</p>
-          <pre><code class="hljs">public synchronized void foo() {
-	before();
-	notifyAll();
-	after();
-}
-</code></pre>
+          <pre><code class="hljs"><span>public synchronized void foo() {</span><span>	before();</span><span>	notifyAll();</span><span>	after();</span><span>}</span></code></pre>
           <p>When synchronized method foo() is called, it calls notifyAll() before after(). However, after notifyAll() is called, the method foo() does not give up Monitor object lock immediately. Instead, all codes in the synchronized block(in this case
             the method body) will be executed before the thread gives up the Monitor object lock and notifies all the threads in the callback queue.</p>
           <h2 id="notify">notify()<a class="fa fa-anchor" href="#notify"></a></h2>
@@ -447,7 +403,7 @@ public synchronized void prepareDrink() {
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

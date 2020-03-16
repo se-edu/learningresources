@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Angular</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -317,36 +326,17 @@
           </box>
           <p>The UI of an Angular app is defined in <em>templates</em> which contain a mix of HTML code and HTML-like <a href="https://angular.io/guide/elements">custom tags</a>. The template for the above example (defined in <code>person.component.html</code>)
             is given below:</p>
-          <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>About Me!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Hello World! My name is {person.name}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>NAME: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">"person.name"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs"><span>&lt;h1&gt;About Me!&lt;/h1&gt;</span><span>&lt;h2&gt;Hello World! My name is {person.name}&lt;/h2&gt;</span><span>&lt;div&gt;</span><span>&lt;label&gt;NAME: &lt;input [(ngModel)]=&quot;person.name&quot;/&gt;&lt;/label&gt;</span><span>&lt;/div&gt;</span></code></pre>
           <p>The templates used in Angular are <em>declarative</em> because they describe <em>what</em> the view should look like rather than give instructions on <em>how</em> to construct the view. In the above example, we declare what we want to display
             (i.e., name) and Angular renders the view. A noteworthy feature about the UI rendered by Angular is its <em>dynamic behavior</em>. You will notice that as you change the name in the text box, the name rendered on the app is also updated. This
             is because the UI and the application data are automatically synchronized by Angular as explained <a href="https://angular.io/guide/template-syntax#binding-syntax-an-overview">here</a>.</p>
           <p>Angular organizes the instructions (written in <em>TypeScript</em>) that describe <em>how</em> the view must rendered, into <em>Components</em>. Given below is the component file <code>person.component.ts</code> of the <code>PersonComponent</code>            :</p>
-          <pre><code class="hljs typescript"><span class="hljs-meta">@Component</span>({
-  selector: <span class="hljs-string">'app-person'</span>,
-  templateUrl: <span class="hljs-string">'./person.component.html'</span>,
-  styleUrls: [<span class="hljs-string">'./person.component.css'</span>]
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> PersonComponent {
-  person: Person = {
-    name: <span class="hljs-string">'John Doe'</span>
-  };
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) { }
-}
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-meta">@Component</span>({</span><span>  selector: <span class="hljs-string">'app-person'</span>,</span><span>  templateUrl: <span class="hljs-string">'./person.component.html'</span>,</span><span>  styleUrls: [<span class="hljs-string">'./person.component.css'</span>]</span><span>})</span><span><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> PersonComponent {</span><span>  person: Person = {</span><span>    name: <span class="hljs-string">'John Doe'</span></span><span>  };</span><span>  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) { }</span><span>}</span></code></pre>
           <p>The <code>@Component</code> tag is used to mark a component. It provides the metadata that determines how the component is processed during runtime.</p>
           <ul>
             <li>
               <p>The use of <code>selector: app-person</code> is how Angular identifies this component in a template. This is an example of a custom tag used in Angular templates. The following code constitutes the template of <code>app.component.html</code>.</p>
-              <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Person Data<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">app-person</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-person</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
-</code></pre>
+              <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Person Data<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">app-person</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-person</span>&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span></span></code></pre>
               <p>Angular identifies the <code>&lt;app-person&gt;</code> tag, instantiates the <code>PersonComponent</code> and renders the view defined by the template <code>./person.component.html</code>.</p>
             </li>
             <li>
@@ -360,20 +350,9 @@
             <p><em>Figure 1. What is a dependency?</em> (source: <a href="https://medium.freecodecamp.org/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f">freecodecamp</a>)</p>
           </center>
           <p>Dependency injection is a way of providing a class with the required services. Given below is an injectable service class.</p>
-          <pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { Injectable } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
-<span class="hljs-keyword">import</span> { PERSONS } <span class="hljs-keyword">from</span> <span class="hljs-string">'./mock-persons'</span>;
-<span class="hljs-meta">@Injectable</span>({
-  providedIn: <span class="hljs-string">'root'</span>,
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> PersonService {
-  getPersons() { <span class="hljs-keyword">return</span> PERSONS; }
-}
-</code></pre>
+          <pre><code class="hljs typescript"><span><span class="hljs-keyword">import</span> { Injectable } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;</span><span><span class="hljs-keyword">import</span> { PERSONS } <span class="hljs-keyword">from</span> <span class="hljs-string">'./mock-persons'</span>;</span><span><span class="hljs-meta">@Injectable</span>({</span><span>  providedIn: <span class="hljs-string">'root'</span>,</span><span>})</span><span><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> PersonService {</span><span>  getPersons() { <span class="hljs-keyword">return</span> PERSONS; }</span><span>}</span></code></pre>
           <p>The <code>PersonComponent</code> declared previously, can make use of this <code>PersonService</code> by injecting the dependency in its constructor as a parameter.</p>
-          <pre><code class="hljs">constructor(personService: PersonService) {
- this.persons = personService.getPersons();
-}
-</code></pre>
+          <pre><code class="hljs"><span>constructor(personService: PersonService) {</span><span> this.persons = personService.getPersons();</span><span>}</span></code></pre>
           <p>In the above example, we write the <code>getPersons</code> method only once in the service class and we can access this method from any component by injecting the service in the constructor. This way of using DI increases the efficiency and
             modularity (as per the <a href="https://angular.io/guide/dependency-injection">Angular official website</a>).</p>
           <p>Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive <a href="https://angular.io/features">list</a> is available on the official website.</p>
@@ -383,20 +362,13 @@
           <p>Angular provides developers with tools that enforce &quot;best practices&quot;. Let us look at some of these tools.</p>
           <ul>
             <li>
-              <p><strong>TypeScript</strong> - Angular applications are built using the TypeScript language, a superset of JavaScript. TypeScript provides
-                <tooltip><template slot="_content">Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.</template>static typing</tooltip>. This helps the compiler show warnings about any
-                potential errors in the code, before the app runs. Consider the following example:</p>
-              <pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x : <span class="hljs-built_in">number</span>, y : <span class="hljs-built_in">number</span></span>) : <span class="hljs-title">number</span> </span>{
-    <span class="hljs-keyword">return</span> x + y;
-}
-add(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>); <span class="hljs-comment">// compiler flags an error</span>
-</code></pre>
+              <p><strong>TypeScript</strong> - Angular applications are built using the TypeScript language, a superset of JavaScript. TypeScript provides <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Static typing involves type checking during compile-time as opposed to run-time. Types are associated with variables not values.</span>static
+                typing
+                </span>. This helps the compiler show warnings about any potential errors in the code, before the app runs. Consider the following example:</p>
+              <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x : <span class="hljs-built_in">number</span>, y : <span class="hljs-built_in">number</span></span>) : <span class="hljs-title">number</span> </span>{</span><span>    <span class="hljs-keyword">return</span> x + y;</span><span>}</span><span>add(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>); <span class="hljs-comment">// compiler flags an error</span></span></code></pre>
               <p>In the code above, parameters <code>x</code> and <code>y</code> are declared to have the type <code>number</code>. Thus, the compiler shows an error when the function is called with strings as inputs to the function.</p>
               <p>Another advantage of TypeScript is <em>Type Inference</em> - TypeScript makes typing a bit easier and less explicit by the usage of type inference. Let us see how.</p>
-              <pre><code class="hljs typescript"><span class="hljs-keyword">let</span> a = <span class="hljs-string">"some text"</span>;
-<span class="hljs-keyword">let</span> b = <span class="hljs-number">123</span>;
-a = b; <span class="hljs-comment">// Compiler Error: Type 'number' is not assignable to type 'string'</span>
-</code></pre>
+              <pre><code class="hljs typescript"><span><span class="hljs-keyword">let</span> a = <span class="hljs-string">"some text"</span>;</span><span><span class="hljs-keyword">let</span> b = <span class="hljs-number">123</span>;</span><span>a = b; <span class="hljs-comment">// Compiler Error: Type 'number' is not assignable to type 'string'</span></span></code></pre>
               <p>In the above code snippet, we are not explicitly defining <code>a: string</code> with a type annotation. TypeScript infers the type of the variable based on the value assigned to the variable. The value of <code>a</code> is a string and
                 hence the type of <code>a</code> is inferred as <code>string</code>. Similarly, the type of <code>b</code> is inferred as <code>number</code>. Therefore, while inferring types, the compiler flags an error saying a <code>number</code> type
                 cannot be assigned to a <code>string</code> type.</p>
@@ -410,9 +382,10 @@ a = b; <span class="hljs-comment">// Compiler Error: Type 'number' is not assign
                 <li>Build your application for deployment - <code>ng build</code></li>
               </ul>
               <p>You can refer to the <a href="https://cli.angular.io/">official documentation</a> for a complete list of the CLI commands.</p>
-              <p>The Angular CLI also helps developers follow good development practices. For example, The Angular CLI has out-of-the-box integration with
-                <tooltip><template slot="_content">Codelyzer is an open source tool that checks whether the pre-defined coding guidelines have been followed</template><strong>Codelyzer</strong></tooltip>. Codelyzer lints your code against the <a href="https://angular.io/guide/styleguide">official Angular style guide</a>.
-                With Angular CLI, you can simply run the command <code>ng lint</code> to get an analysis of whether your code follows the &quot;best practices&quot;.</p>
+              <p>The Angular CLI also helps developers follow good development practices. For example, The Angular CLI has out-of-the-box integration with <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Codelyzer is an open source tool that checks whether the pre-defined coding guidelines have been followed</span><strong>Codelyzer</strong></span>.
+                Codelyzer lints your code against the <a href="https://angular.io/guide/styleguide">official Angular style guide</a>. With Angular CLI, you can simply run the command <code>ng lint</code> to get an analysis of whether your code follows
+                the &quot;best practices&quot;.
+              </p>
             </li>
           </ul>
           <p>This <a href="https://medium.freecodecamp.org/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f">article</a> provides a comprehensive list of best tooling services offered by Angular.</p>
@@ -425,16 +398,15 @@ a = b; <span class="hljs-comment">// Compiler Error: Type 'number' is not assign
                 good place to learn the basics of building PWAs using Angular.</p>
             </li>
             <li>
-              <p><strong>Native Apps</strong> - Angular can be used to build
-                <tooltip><template slot="_content">a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems</template>native mobile applications</tooltip>. There are many frameworks
-                such as
-                <a href="https://www.nativescript.org/">NativeScript</a> and <a href="https://ionicframework.com/">Ionic</a> that can be integrated with Angular for mobile application development. As per the <a href="https://ionicframework.com/docs/intro">official Ionic website</a>,
-                it is easy to integrate Ionic with the Angular.</p>
+              <p><strong>Native Apps</strong> - Angular can be used to build <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">a smartphone application that is coded in a specific programming language, such as Swift for iOS or Java for Android operating systems</span>native
+                mobile applications</span>. There are many frameworks such as <a href="https://www.nativescript.org/">NativeScript</a> and <a href="https://ionicframework.com/">Ionic</a> that can be integrated with Angular for mobile application development.
+                As per the <a href="https://ionicframework.com/docs/intro">official Ionic website</a>, it is easy to integrate Ionic with the Angular.</p>
             </li>
             <li>
-              <p><strong>Desktop Apps</strong> - With Angular you can create desktop applications across Mac, Windows and Linux systems. In order for your application to be compatible with the different Operating Systems, you can use the
-                <tooltip><template slot="_content">Electron is a framework that provides a set of APIs to interact with the Windows, OS X, and Linux operating systems. It makes cross-platform development easier.</template><a href="https://electronjs.org/">Electron</a></tooltip>
-                framework. You can integrate the Electron framework in your project using the Angular CLI and start building your application. This <a href="https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2">article</a>                is a good introduction to building desktop apps with Angular and Electron.</p>
+              <p><strong>Desktop Apps</strong> - With Angular you can create desktop applications across Mac, Windows and Linux systems. In order for your application to be compatible with the different Operating Systems, you can use the <span data-mb-component-type="tooltip"
+                  v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Electron is a framework that provides a set of APIs to interact with the Windows, OS X, and Linux operating systems. It makes cross-platform development easier.</span>
+                <a href="https://electronjs.org/">Electron</a>
+                </span> framework. You can integrate the Electron framework in your project using the Angular CLI and start building your application. This <a href="https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2">article</a>                is a good introduction to building desktop apps with Angular and Electron.</p>
             </li>
           </ul>
           <h3 id="benefit-3-two-way-data-binding">Benefit 3: Two-way Data Binding<a class="fa fa-anchor" href="#benefit-3-two-way-data-binding"></a></h3>
@@ -523,7 +495,7 @@ a = b; <span class="hljs-comment">// Compiler Error: Type 'number' is not assign
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

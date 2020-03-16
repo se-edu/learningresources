@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Integration Testing</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -304,13 +313,8 @@
           <p><strong>Author(s): <a href="https://github.com/jacoblipech">Jacob Li PengCheng</a></strong></p>
           <p>Reviewers: <a href="https://github.com/amrut-prabhu">Amrut Prabhu</a>, <a href="https://github.com/marvinchin">Marvin Chin Kun Song</a>, <a href="https://github.com/sijie123">Lin Si Jie</a></p>
           <h2 id="what-is-integration-testing">What is integration testing?<a class="fa fa-anchor" href="#what-is-integration-testing"></a></h2>
-          <p>Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the
-            <a href="https://www.guru99.com/unit-testing-guide.html">
-              <tooltip><template slot="_content">Testing of individual module units within a system</template>unit testing stage</tooltip>
-            </a> and before the
-            <a href="https://www.guru99.com/system-testing.html">
-              <tooltip><template slot="_content">Evaluation of the software against requirements gathered from users and system specifications</template>system testing stage</tooltip>
-            </a>. Integration testing combines individually tested modules as a group and aims to discover faults related to the interactions between these modules.</p>
+          <p>Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the <a href="https://www.guru99.com/unit-testing-guide.html"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Testing of individual module units within a system</span>unit testing stage</span></a>            and before the <a href="https://www.guru99.com/system-testing.html"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Evaluation of the software against requirements gathered from users and system specifications</span>system testing stage</span></a>.
+            Integration testing combines individually tested modules as a group and aims to discover faults related to the interactions between these modules.</p>
           <p>Let's look at an example to better understand what these means. Suppose that you have built an online food ordering system and the architecture diagram of your application is shown as follows:</p>
           <center>
             <p><a href="/learningresources/contents/testing/integration-test/sample-architecture.png" target="_self"><img src="/learningresources/contents/testing/integration-test/sample-architecture.png" alt class="img-fluid" title="Sample architecture diagram"></a></p>
@@ -327,10 +331,9 @@
             Integration tests find these discrepancies before any serious damage is done.</p>
           <p>Although system testing also help to uncover faults between modules, integration testing is still preferable as it is able to <strong>better isolate</strong> the scope of the features during testing, making it <strong>easier</strong> and <strong>faster</strong>            to test. In fact, many integration problems can be detected and resolved in the early stage of development, which makes debugging easier when problems arise in the future.</p>
           <p>Hence, integration testing can be useful in the development of any non-trivial software product. Concepts shared in this article can be adopted by different software applications.</p>
-          <p>On top of that, in the current era of
-            <tooltip><template slot="_content">Practice of merging developers' work continuously into a shared repository</template>Continuous Integration</tooltip> (CI), integration testing is useful to help with early detecion of defects while maintaining the
-            quality of the product throughout further developments. The concept of <a href="https://crossbrowsertesting.com/blog/continuous-integration/continuous-integration-testing-delivery/">Continuous Integration Testing</a> is also formed to combine
-            integration testing with continuous integration.</p>
+          <p>On top of that, in the current era of <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Practice of merging developers' work continuously into a shared repository</span>Continuous
+            Integration
+            </span> (CI), integration testing is useful to help with early detecion of defects while maintaining the quality of the product throughout further developments. The concept of <a href="https://crossbrowsertesting.com/blog/continuous-integration/continuous-integration-testing-delivery/">Continuous Integration Testing</a>            is also formed to combine integration testing with continuous integration.</p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="https://bitwaretechnologies.com/integration-testing-important-software-testing-life-cycle/">This article</a> showcases more advantages of doing integration testing before system
             testing.
           </p>
@@ -394,14 +397,8 @@
                 </tr>
                 <tr>
                   <td></td>
-                  <td>A
-                    <a href="https://stackoverflow.com/questions/463278/what-is-a-stub">
-                      <tooltip><template slot="_content">A program that simulates the behaviours of software modules</template>stub</tooltip>
-                    </a> is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module.</td>
-                  <td>A
-                    <a href="http://www.professionalqa.com/test-driver">
-                      <tooltip><template slot="_content">Module with dummy code to temporarily replace a module</template>driver</tooltip>
-                    </a> test is even harder to write than stub.</td>
+                  <td>A <a href="https://stackoverflow.com/questions/463278/what-is-a-stub"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A program that simulates the behaviours of software modules</span>stub</span></a>                    is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module.</td>
+                  <td>A <a href="http://www.professionalqa.com/test-driver"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Module with dummy code to temporarily replace a module</span>driver</span></a>                    test is even harder to write than stub.</td>
                   <td>Higher cost from using both driver and stub. You can better understand the difference <a href="https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing">here</a>.</td>
                 </tr>
               </tbody>
@@ -415,15 +412,11 @@
           <p>Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>,
             <span
               style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example shown above, below shows a sample integration test used for the <code>login</code> and <code>ordering</code> modules:</p>
-          <pre><code class="hljs">Test case ID: 1
-Objective: Check the link between login and ordering modules
-Description: Enter login credentials and click on login button
-Expected result: To be directed to order food page based on the login user
-</code></pre>
+          <pre><code class="hljs"><span>Test case ID: 1</span><span>Objective: Check the link between login and ordering modules</span><span>Description: Enter login credentials and click on login button</span><span>Expected result: To be directed to order food page based on the login user</span></code></pre>
           <p>
-            <box type="warning">As integration test cases are
-              <tooltip><template slot="_content">It generally takes longer time due to additional overheads such as waiting for dependent modules to respond</template>expensive operations</tooltip> compared to unit testing, it should focus mainly on the integration
-              of modules together and not on specific actions within the same module.</box>
+            <box type="warning">As integration test cases are <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">It generally takes longer time due to additional overheads such as waiting for dependent modules to respond</span>expensive
+              operations
+              </span> compared to unit testing, it should focus mainly on the integration of modules together and not on specific actions within the same module.</box>
           </p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/">This article</a> explains more about the ways to structure incremental testing.</p>
           <h3 id="3-execute-the-test-scripts-and-report-defects-if-any">3. Execute the test scripts and report defects if any<a class="fa fa-anchor" href="#3-execute-the-test-scripts-and-report-defects-if-any"></a></h3>
@@ -440,10 +433,7 @@ Expected result: To be directed to order food page based on the login user
             bugs are fixed before moving on.</p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="https://www.guru99.com/test-environment-software-testing.html">This article</a> shows more details on how to set up a test environment for better integration testing.</p>
           <h3 id="4-track-defects-and-re-test-application">4. Track defects and re-test application<a class="fa fa-anchor" href="#4-track-defects-and-re-test-application"></a></h3>
-          <p>In the event of failing your integration test case, it is important to learn how to track down the
-            <a href="https://qacomplete.com/resources/articles/what-is-a-software-defect/">
-              <tooltip><template slot="_content">Incorrect behavior observed from the system</template>defects</tooltip>
-            </a> occured. Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.</p>
+          <p>In the event of failing your integration test case, it is important to learn how to track down the <a href="https://qacomplete.com/resources/articles/what-is-a-software-defect/"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Incorrect behavior observed from the system</span>defects</span></a>            occured. Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.</p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="http://www.professionalqa.com/defect-tracking-process">This article</a> covers more details on how to effectively track down defects in a system and fix them.</p>
           <h2 id="tips-for-better-integration-tests">Tips for better integration tests<a class="fa fa-anchor" href="#tips-for-better-integration-tests"></a></h2>
           <ul>
@@ -514,7 +504,7 @@ Expected result: To be directed to order food page based on the login user
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Cross Site Request Forgery (CSRF)</title>
   <link rel="stylesheet" href="../../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -318,41 +327,19 @@
             A <em>cookie</em> is a small piece of information that is sent along with all HTTP requests to a particular website. In our case, after receiving Alice's credentials for logging in, the bank instructs Alice's browser to store a <em>cookie</em>            <code>auth=1abcd2ek3292fsa390sdf</code> and <strong>send this cookie together with every subsequent request</strong> to <code>www.example-bank.com</code>. Thus, once the web server sees this cookie in the request, it knows that this is an
             authenticated request from Alice. Many websites use this cookie mechanism so that users only have to log in once.</p>
           <p>At <code>www.example-bank.com/transfer</code>, Alice fills out the following HTML form to transfer money to Bob:</p>
-          <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bob"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"123456"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs HTML"><span><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bob"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"123456"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></code></pre>
           <p>As Alice clicks the submit button, the browser will send the following request to <code>www.example-bank.com</code>:</p>
-          <pre><code class="hljs">POST http://www.example-bank.com/transfer HTTP/1.1
-Cookie: auth=1abcd2ek3292fsa390sdf
-
-receiver-name=Bob&amp;receiver-account-no=123456&amp;amount=100
-</code></pre>
+          <pre><code class="hljs"><span>POST http://www.example-bank.com/transfer HTTP/1.1</span><span>Cookie: auth=1abcd2ek3292fsa390sdf</span><span>&#x200B;</span><span>receiver-name=Bob&amp;receiver-account-no=123456&amp;amount=100</span></code></pre>
           <p>The bank's server verifies that the cookie <code>auth=1abcd2ek3292fsa390sdf</code> is valid and is associated with Alice. It then proceeds to transfer $100 from Alice's account to account number 123456, which belongs to Bob.</p>
           <h3 id="step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker">Step 2: The victim visits an untrusted website controlled by the attacker<a class="fa fa-anchor" href="#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker"></a></h3>
           <p>Alice then receives a chat message from her not-so-trustworthy friend, Eve:</p>
-          <pre><code class="hljs">Eve: OMG Alice! This site is selling the shoes you have always
-     wanted for half the price: www.i-am-not-evil.com/shoes
-</code></pre>
+          <pre><code class="hljs"><span>Eve: OMG Alice! This site is selling the shoes you have always</span><span>     wanted for half the price: www.i-am-not-evil.com/shoes</span></code></pre>
           <p>Excited by this piece of news, Alice clicks on the hyperlink to check out <code>www.i-am-not-evil.com</code>.</p>
           <h3 id="step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf">Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf<a class="fa fa-anchor" href="#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf"></a></h3>
           <p>While browsing <code>www.i-am-not-evil.com</code>, Alice clicks on the <code>View more pictures</code> button on the website to see more pictures of her favorite pair of shoes. Unbeknownst to her, that button has the following HTML code:</p>
-          <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"http://www.example-bank.com/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Eve"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"987654"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100000"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"View more pictures"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs HTML"><span><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"http://www.example-bank.com/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Eve"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"987654"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100000"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"View more pictures"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></code></pre>
           <p>So, when she clicks that button, the browser actually sends the following request to <code>http://www.example-bank.com</code>:</p>
-          <pre><code class="hljs">POST http://www.example-bank.com/transfer HTTP/1.1
-Cookie: auth=1abcd2ek3292fsa390sdf
-
-receiver-name=Eve&amp;receiver-account-no=987654&amp;amount=100000
-</code></pre>
+          <pre><code class="hljs"><span>POST http://www.example-bank.com/transfer HTTP/1.1</span><span>Cookie: auth=1abcd2ek3292fsa390sdf</span><span>&#x200B;</span><span>receiver-name=Eve&amp;receiver-account-no=987654&amp;amount=100000</span></code></pre>
           <p>Since Alice is still logged in to <code>www.example-bank.com</code>, the browser automatically attaches the cookie <code>auth=1abcd2ek3292fsa390sdf</code> to any requests made to <code>www.example-bank.com</code>. Hence, the bank's server considers
             this as an authenticated request from Alice and proceeds to transfer $100,000 from Alice's account to account number 987654, which belongs to the attacker!</p>
           <h2 id="conditions-for-a-successful-csrf-attack">Conditions for a successful CSRF attack<a class="fa fa-anchor" href="#conditions-for-a-successful-csrf-attack"></a></h2>
@@ -371,14 +358,7 @@ receiver-name=Eve&amp;receiver-account-no=987654&amp;amount=100000
             on social media. Hence, this threat of social engineering could never be fully eliminated.</p>
           <p>As for the web server, it can eliminate condition number 1 by adding a secret token as a hidden field to all forms that it serves. This token should be random and cannot be guessed by the attacker. Back to our example, the bank website should
             use a form like the following:</p>
-          <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"csrf-token"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"abcd23ksk3l2faad2kdkl"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bob"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"123456"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs HTML"><span><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"csrf-token"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"abcd23ksk3l2faad2kdkl"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bob"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"123456"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></code></pre>
           <p>So a valid request by Alice made from the bank's own website will also carry this secret token <code>csrf-token=abcd23ksk3l2faad2kdkl</code>. Since the token is added by the bank's website on its webpages, forged requests from other websites
             will not know the token. Thus, when the bank's server receives a request, it can distinguish between a legitimate and a forged request by checking that the CSRF token is present and valid.</p>
           <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
@@ -414,7 +394,7 @@ receiver-name=Eve&amp;receiver-account-no=987654&amp;amount=100000
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

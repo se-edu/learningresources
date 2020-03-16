@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Vue</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -310,51 +319,25 @@
             <p><em>Vue</em> is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainability.</p>
           </blockquote>
           <p>This is a simple example to show how easy it is to integrate VueJs into your web project:<br><br> The main HTML file:</p>
-          <pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{ message }\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs HTML"><span><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{ message }\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span></code></pre>
           <p>This is inside the JavaScript file:</p>
-          <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue ({
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
-
-  <span class="hljs-attr">data</span>: {
-    <span class="hljs-attr">message</span>: <span class="hljs-string">"Hello World"</span>
-  }
-});
-</code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-keyword">new</span> Vue ({</span><span>  el: <span class="hljs-string">'#root'</span>,</span><span>&#x200B;</span><span>  data: {</span><span>    message: <span class="hljs-string">"Hello World"</span></span><span>  }</span><span>});</span></code></pre>
           <box type="warning">
             <p>Note that <code>{\{</code> and <code>}\}</code> should be <code>{<span>{</span></code> and <code>}<span>}</span></code> respectively, due to the limitations of <a href="https://markbind.org">MarkBind</a>.
             </p>
           </box>
           <p>Step-by-step explanation of the code:</p>
-          <p><b>Step 1:</b> Import Vue
-            <tooltip placement="top"><template slot="_content">Content Delivery Network</template>CDN</tooltip> and the JavaScript file in the main HTML file.</p>
-          <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-</code></pre>
+          <p><b>Step 1:</b> Import Vue <span placement="top" data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Content Delivery Network</span>CDN</span> and the JavaScript
+            file in the main HTML file.</p>
+          <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
           <p><b>Step 2:</b> Create an instance of Vue (Vue is an object) in the JavaScript file; bind the instance to one of the component in our html file (e.g. create a component with id <code>root</code> and bind it with the instance of Vue).<br> In this
             case, only the <code>root</code> component can be accessed in Vue while the rest are unaffected. This is how we progressively plug in Vue into our projects.</p>
-          <pre><code class="hljs js">  <span class="hljs-keyword">new</span> Vue ({
-    <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
-  });
-</code></pre>
-          <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs js"><span>  <span class="hljs-keyword">new</span> Vue ({</span><span>    el: <span class="hljs-string">'#root'</span>,</span><span>  });</span></code></pre>
+          <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre>
           <p><b>Step 3:</b> Specify our data (message: &quot;Hello World&quot;) in the instance of Vue Class.</p>
-          <pre><code class="hljs js">  data: {
-    <span class="hljs-attr">message</span>: <span class="hljs-string">"Hello World"</span>
-  }
-</code></pre>
+          <pre><code class="hljs js"><span>  data: {</span><span>    message: <span class="hljs-string">"Hello World"</span></span><span>  }</span></code></pre>
           <p><b>Step 4:</b> Pass the message to the HTML file using double curly brackets.</p>
-          <pre><code class="hljs HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre>
           <p><b>Step 5:</b> Open the browser and we will see &quot;Hello World&quot; being displayed:</p>
           <blockquote>
             <h2 id="hello-world">Hello World<a class="fa fa-anchor" href="#hello-world"></a></h2>
@@ -365,8 +348,7 @@
             <li>
               <p><strong>Mutating of Data in the DOM</strong><br> In Vue, the state of the data can be directly modified.</p>
               <p>Let's say, there is a variable called <code>message</code> in your app. To modify <code>message</code>, you can do the following:</p>
-              <pre><code class="hljs js"><span class="hljs-keyword">this</span>.message = <span class="hljs-string">'Hello Space'</span>;
-</code></pre>
+              <pre><code class="hljs js"><span><span class="hljs-keyword">this</span>.message = <span class="hljs-string">'Hello Space'</span>;</span></code></pre>
               <p>When <code>message</code> is changed, the view will be re-rendered to show the new message. So you can say, the DOM is &quot;reacting&quot; to the changes in <code>message</code>.</p>
             </li>
           </ol>
@@ -376,10 +358,7 @@
               <p><strong>Two-way binding</strong><br>
                 <code>v-model</code> is a <a href="https://vuejs.org/v2/api/#v-model">Vue directive</a> used to bind the DOM input field to its data variable.</p>
               <p>This allows the DOM variables and data to be &quot;in sync&quot;, regardless of which one is being updated first. In other words, if you change the input value, the bound data will change, and vice versa.</p>
-              <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>, <span class="hljs-attr">v-model</span>=<span class="hljs-string">"isChecked"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"checked"</span>&gt;</span>Select<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span>
-</code></pre>
+              <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>, <span class="hljs-attr">v-model</span>=<span class="hljs-string">"isChecked"</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"checked"</span>&gt;</span>Select<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span></span></code></pre>
               <p>When the checkbox is selected, <code>isChecked</code> is set to <code>true</code>. If the program sets <code>isChecked</code> to <code>false</code>, then checkbox will be unselected. This reduces any extra step required to manually update
                 the data.
               </p>
@@ -393,12 +372,7 @@
                 <code>v-if</code> allows you to conditionally insert/remove elements based on the truthfulness of the binding value.</p>
               <p><code>v-for</code> allows you to loop through and render a list of items.</p>
               <p>Following the previous checkbox example, if you want to display a list of messages when the checkbox is checked, you can do the following:</p>
-              <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"isChecked"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"message in messages"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+              <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"isChecked"</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"message in messages"</span>&gt;</span></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre>
             </li>
           </ol>
           <br>
@@ -408,23 +382,7 @@
               <p>This follows the <a href="https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow">1-way data flow</a> encouraged by Vue, which ensures that data can only be changed by the component itself and also allows bugs to be easily traced
                 in the code.</p>
               <p>To pass props to a Vue component, <code>v-bind:&lt;prop-name&gt;</code> is used. A demonstration of passing props is shown in the code segment below:</p>
-              <pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-list'</span>, {
-  <span class="hljs-attr">props</span>: [<span class="hljs-string">'item'</span>],
-  <span class="hljs-attr">data</span>: [<span class="hljs-string">'totalCount'</span>],
-  <span class="hljs-attr">template</span>:<span class="hljs-string">`
-    &lt;div class="todo-list"&gt;
-      &lt;p&gt;Total:{\{this.totalCount}\}&lt;/p&gt;
-      &lt;p&gt;{\{item.name}\}: {\{item.count}\}&lt;/p&gt;
-    &lt;/div&gt;
-  `</span>
-})
-
-&lt;todo-list
-  v-<span class="hljs-keyword">for</span>=<span class="hljs-string">'item in items'</span>
-  v-bind:key=<span class="hljs-string">'item.id'</span>
-  v-bind:item=<span class="hljs-string">'item'</span>
-&gt;&lt;<span class="hljs-regexp">/todo-list&gt;
-</span></code></pre>
+              <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'todo-list'</span>, {</span><span>  props: [<span class="hljs-string">'item'</span>],</span><span>  data: [<span class="hljs-string">'totalCount'</span>],</span><span>  template:<span class="hljs-string">`</span></span><span><span class="hljs-string">    &lt;div class="todo-list"&gt;</span></span><span><span class="hljs-string">      &lt;p&gt;Total:{\{this.totalCount}\}&lt;/p&gt;</span></span><span><span class="hljs-string">      &lt;p&gt;{\{item.name}\}: {\{item.count}\}&lt;/p&gt;</span></span><span><span class="hljs-string">    &lt;/div&gt;</span></span><span><span class="hljs-string">  `</span></span><span>})</span><span>&#x200B;</span><span>&lt;todo-list</span><span>  v-<span class="hljs-keyword">for</span>=<span class="hljs-string">'item in items'</span></span><span>  v-bind:key=<span class="hljs-string">'item.id'</span></span><span>  v-bind:item=<span class="hljs-string">'item'</span></span><span>&gt;&lt;<span class="hljs-regexp">/todo-list&gt;</span></span></code></pre>
               <p><code>to-do list</code> contains <code>item</code>, i.e. <code>to-do list</code> is the outer component and <code>item</code> is the inner component.</p>
               <box type="tip">
                 <p>Note that <code>props</code> is passed from the outer component to the inner component while <code>data</code> is kept private within a component.
@@ -440,14 +398,7 @@
               <p>In situations where the inner component has to pass data back to the outer component, the inner component has to <a href="https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event">emit custom events</a> and the outer component
                 will update after listening to these events.</p>
               <p>You can think of emitting events like putting out a flyer about an event. If someone is interested in this event, he or she can gather more information through reading the flyer.</p>
-              <pre><code class="hljs js">Vue.component(<span class="hljs-string">'item'</span>, {
-  <span class="hljs-attr">data</span>: [<span class="hljs-string">'count'</span>, <span class="hljs-string">'name'</span>],
-  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;button v-on:click="$emit('increased-count', count+1)"&gt;Increment item count&lt;/button&gt;`</span>
-})
-
-<span class="hljs-comment">/* Inside todo-list component */</span>
-<span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;item v-on:increased-count="updateCount" v-for="item in items"&gt;&lt;/item&gt;`</span>
-</code></pre>
+              <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'item'</span>, {</span><span>  data: [<span class="hljs-string">'count'</span>, <span class="hljs-string">'name'</span>],</span><span>  template: <span class="hljs-string">`&lt;button v-on:click="$emit('increased-count', count+1)"&gt;Increment item count&lt;/button&gt;`</span></span><span>})</span><span>&#x200B;</span><span><span class="hljs-comment">/* Inside todo-list component */</span></span><span>template: <span class="hljs-string">`&lt;item v-on:increased-count="updateCount" v-for="item in items"&gt;&lt;/item&gt;`</span></span></code></pre>
               <box type="tip">
                 <p>When the button is clicked, the <code>item</code> component will emit a custom event named <code>increased-count</code> while the <code>todo-list</code> component listens for this event and executes its own <code>updateCount</code> method.
                 </p>
@@ -458,10 +409,7 @@
           <ol start="6">
             <li>
               <p><strong>Computed Properties</strong><br> This is useful when you want to compose new data based on the data that has changed. Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.</p>
-              <pre><code class="hljs js">computed: totalCount() {
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);
-}
-</code></pre>
+              <pre><code class="hljs js"><span>computed: totalCount() {</span><span>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);</span><span>}</span></code></pre>
               <p>Unlike the use of methods, this updating of <code>totalCount</code> will only be triggered when the number of <code>items</code> in the list or any <code>item</code>'s <code>count</code> changed.</p>
               <p>Since computed properties are cached and will not be processed every time the page refreshes, this can greatly improve the efficiency of your application.</p>
               <box type="warning">
@@ -472,17 +420,11 @@
           <br>
           <ol start="7">
             <li>
-              <p><strong>Watched Properties</strong><br> Watched properties are used to call other functions when a particular data has been updated, such as
-                <tooltip><template slot="_content">independent operations</template>asynchronous operations</tooltip>.</p>
+              <p><strong>Watched Properties</strong><br> Watched properties are used to call other functions when a particular data has been updated, such as <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">independent operations</span>asynchronous
+                operations
+                </span>.</p>
               <p>For example, when a new <code>item</code> is added, we want to send a notification to our friend to alert him or her about the change. A watched property on <code>items</code> can be added so that a notification can be sent whenever <code>items</code>                has changed.</p>
-              <pre><code class="hljs js">watch: {
-  <span class="hljs-attr">totalCount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">this</span>.totalCount = <span class="hljs-keyword">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);
-
-    <span class="hljs-comment">// notify friend about the change</span>
-  }
-}
-</code></pre>
+              <pre><code class="hljs js"><span>watch: {</span><span>  totalCount: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">this</span>.totalCount = <span class="hljs-keyword">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);</span><span>&#x200B;</span><span>    <span class="hljs-comment">// notify friend about the change</span></span><span>  }</span><span>}</span></code></pre>
               <p>This may look quite similar to <code>Computed properties</code>.</p>
               <p>To decide which is more suitable for your feature, here is a brief comparison:</p>
               <div class="table-responsive">
@@ -520,13 +462,7 @@
                 <a href="/learningresources/contents/javascript/javascript-framework-vue-images/vue-lifecycle-diagram.png" target="_self"><img src="/learningresources/contents/javascript/javascript-framework-vue-images/vue-lifecycle-diagram.png" alt class="img-fluid" title="Vue's Lifecycle Diagram"></a>
                 <em>Figure 1. Vue's Lifecycle Diagram</em></p>
               <p>To run code at a specific stage, you can just define the corresponding hook function and add your code within the function. For example, the <code>created</code> hook can be used to run code right after the Vue instance is created:</p>
-              <pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-list'</span>, {
-  ...
-  created: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"to-do list is created."</span>);
-  }
-})
-</code></pre>
+              <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'todo-list'</span>, {</span><span>  ...</span><span>  created: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"to-do list is created."</span>);</span><span>  }</span><span>})</span></code></pre>
               <p>For more detailed information about Vue lifecycle hooks, visit <a href="https://vuejs.org/v2/api/#Options-Lifecycle-Hooks">here</a>.<br></p>
             </li>
           </ol>
@@ -534,38 +470,13 @@
           <p>Now that we know what Vue is, let us look at some benefits it has to offer.</p>
           <h3 id="benefit-1-approachable">Benefit 1: Approachable<a class="fa fa-anchor" href="#benefit-1-approachable"></a></h3>
           <p>Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br><br>            Iteration in React:<br><br> The JavaScript file in ReactJs</p>
-          <pre><code class="hljs js"><span class="hljs-keyword">var</span> Iteration = React.createClass({
-  getInitialState() {
-    <span class="hljs-keyword">return</span> {
-      <span class="hljs-attr">array</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]
-    }
-  },
-  render() {
-    <span class="hljs-keyword">this</span>.state.array.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date</span>) </span>{
-      <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{date}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
-      )
-    });
-  }
-});
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Iteration</span> /&gt;</span></span>, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'array'</span>));
-</code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> Iteration = React.createClass({</span><span>  getInitialState() {</span><span>    <span class="hljs-keyword">return</span> {</span><span>      array: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]</span><span>    }</span><span>  },</span><span>  render() {</span><span>    <span class="hljs-keyword">this</span>.state.array.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date</span>) </span>{</span><span>      <span class="hljs-keyword">return</span> (</span><span>        &lt;span&gt;{date}&lt;<span class="hljs-regexp">/span&gt;</span></span><span><span class="hljs-regexp">      )</span></span><span><span class="hljs-regexp">    });</span></span><span><span class="hljs-regexp">  }</span></span><span><span class="hljs-regexp">});</span></span><span><span class="hljs-regexp">ReactDOM.render(&lt;Iteration /</span>&gt;, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'array'</span>));</span></code></pre>
           <p>The HTML file in ReactJs</p>
-          <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre>
           <p>Iteration in Vue:<br><br> The JavaScript file in Vue</p>
-          <pre><code class="hljs js"><span class="hljs-keyword">var</span> Iteration = <span class="hljs-keyword">new</span> Vue({
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#array'</span>,
-  <span class="hljs-attr">data</span>: {
-    <span class="hljs-attr">array</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]
-  }
-});
-</code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> Iteration = <span class="hljs-keyword">new</span> Vue({</span><span>  el: <span class="hljs-string">'#array'</span>,</span><span>  data: {</span><span>    array: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]</span><span>  }</span><span>});</span></code></pre>
           <p>The HTML file in Vue</p>
-          <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"date in array"</span>&gt;</span>{\{date}\}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"date in array"</span>&gt;</span>{\{date}\}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre>
           <h3 id="benefit-2-progressive">Benefit 2: Progressive<a class="fa fa-anchor" href="#benefit-2-progressive"></a></h3>
           <p>Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application,
             you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follows: &gt; Vue is a more flexible, less opinionated solution (than Angular). That allows you
@@ -628,7 +539,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Javascript: Promises</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -325,41 +334,13 @@
             callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. <code>setTimeout()</code> is asynchronous as the code below it will execute while the timer is counting down, as
             you will see in the following code snippet.</p>
           <p>You would probably expect <code>console.log(x)</code> to print <code>I have been updated</code> after 1 second has passed. Instead, it prints <code>I have not been updated.</code> Give it a try in Google Chrome's developer console.</p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
-
-setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
-    x = <span class="hljs-string">"I have been updated"</span>;
-}, <span class="hljs-number">1000</span>);
-
-<span class="hljs-built_in">console</span>.log(x);
-</code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;</span><span>&#x200B;</span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{</span><span>    x = <span class="hljs-string">"I have been updated"</span>;</span><span>}, <span class="hljs-number">1000</span>);</span><span>&#x200B;</span><span><span class="hljs-built_in">console</span>.log(x);</span></code></pre>
           <p>To fix this problem, we can simply shift the <code>console.log(x)</code> into the callback to get the expected result. It will now print the correct value.</p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
-
-setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
-    x = <span class="hljs-string">"I have been updated"</span>;
-    <span class="hljs-built_in">console</span>.log(x);
-}, <span class="hljs-number">1000</span>);
-</code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;</span><span>&#x200B;</span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{</span><span>    x = <span class="hljs-string">"I have been updated"</span>;</span><span>    <span class="hljs-built_in">console</span>.log(x);</span><span>}, <span class="hljs-number">1000</span>);</span></code></pre>
           <p>However, this fix will only go so far. If we had another <code>setTimeout()</code> that depended on the result of the earlier <code>setTimeout()</code>, we would have to nest the functions within each other which would make for hard-to-read
             code as follows.
           </p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;
-
-setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
-    x = <span class="hljs-string">"I have been updated"</span>;
-    <span class="hljs-built_in">console</span>.log(x);
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        x = <span class="hljs-string">"I have been updated 2 times."</span>;
-        <span class="hljs-built_in">console</span>.log(x);
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-            x = <span class="hljs-string">"I have been updated 3 times."</span>;
-            <span class="hljs-built_in">console</span>.log(x);
-            <span class="hljs-comment">// and so on...</span>
-        }, <span class="hljs-number">1000</span>);
-    }, <span class="hljs-number">1000</span>);
-}, <span class="hljs-number">1000</span>);
-</code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;</span><span>&#x200B;</span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{</span><span>    x = <span class="hljs-string">"I have been updated"</span>;</span><span>    <span class="hljs-built_in">console</span>.log(x);</span><span>    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><span>        x = <span class="hljs-string">"I have been updated 2 times."</span>;</span><span>        <span class="hljs-built_in">console</span>.log(x);</span><span>        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><span>            x = <span class="hljs-string">"I have been updated 3 times."</span>;</span><span>            <span class="hljs-built_in">console</span>.log(x);</span><span>            <span class="hljs-comment">// and so on...</span></span><span>        }, <span class="hljs-number">1000</span>);</span><span>    }, <span class="hljs-number">1000</span>);</span><span>}, <span class="hljs-number">1000</span>);</span></code></pre>
           <p>This is what's infamously known as <em>callback hell</em>. It's a natural result of using too many callbacks, as this would result in the code becoming deeply nested. It would be difficult for anyone to read your code and to understand what
             exactly is going on.</p>
           <p>We can instead use Promises for cleaner code that would be easier to read, write and debug.</p>
@@ -400,80 +381,17 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
           <p>How would such functions be implemented using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively &quot;passing&quot; any
             form of data out, without explicitly returning any value.</p>
           <p>We will implement the above use case in the callback-style (mimicking the long return time of the functions using <code>setTimeout</code>):</p>
-          <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val, callback</span>) </span>{
-    <span class="hljs-comment">// return val after a short wait</span>
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        callback(val);
-    }, <span class="hljs-number">1000</span>);
-}
-
-<span class="hljs-comment">/** Delayed function calls **/</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">callback</span>) </span>{
-    executeWithDelay(<span class="hljs-string">'some random data'</span>, callback);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterData</span>(<span class="hljs-params">data, callback</span>) </span>{
-    executeWithDelay(data.split(<span class="hljs-string">' '</span>), callback);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    getData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
-        filterData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filtered</span>)</span>{
-            <span class="hljs-comment">// will print array of splitted text</span>
-            <span class="hljs-built_in">console</span>.log(filtered);
-        })
-    });
-}
-
-main();
-</code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val, callback</span>) </span>{</span><span>    <span class="hljs-comment">// return val after a short wait</span></span><span>    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><span>        callback(val);</span><span>    }, <span class="hljs-number">1000</span>);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">/** Delayed function calls **/</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">callback</span>) </span>{</span><span>    executeWithDelay(<span class="hljs-string">'some random data'</span>, callback);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterData</span>(<span class="hljs-params">data, callback</span>) </span>{</span><span>    executeWithDelay(data.split(<span class="hljs-string">' '</span>), callback);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    getData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{</span><span>        filterData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filtered</span>)</span>{</span><span>            <span class="hljs-comment">// will print array of splitted text</span></span><span>            <span class="hljs-built_in">console</span>.log(filtered);</span><span>        })</span><span>    });</span><span>}</span><span>&#x200B;</span><span>main();</span></code></pre>
           <p>Now we will rewrite all these using promises. We will be using the same function and variable names, to show how exactly promise compare to callbacks.</p>
-          <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val</span>) </span>{
-    <span class="hljs-comment">// return val after a short wait</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            resolve(val);
-        }, <span class="hljs-number">1000</span>);
-    });
-}
-
-<span class="hljs-comment">/** note these functions now return a promise **/</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getdata</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> executeWithDelay(<span class="hljs-string">'some random data'</span>);
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterdata</span>(<span class="hljs-params">data, callback</span>) </span>{
-    <span class="hljs-keyword">return</span> executeWithDelay(data.split(<span class="hljs-string">' '</span>));
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> getData()
-        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))
-        .then(<span class="hljs-function"><span class="hljs-params">filtered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));
-}
-
-main();
-</code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val</span>) </span>{</span><span>    <span class="hljs-comment">// return val after a short wait</span></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {</span><span>        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><span>            resolve(val);</span><span>        }, <span class="hljs-number">1000</span>);</span><span>    });</span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">/** note these functions now return a promise **/</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getdata</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">return</span> executeWithDelay(<span class="hljs-string">'some random data'</span>);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterdata</span>(<span class="hljs-params">data, callback</span>) </span>{</span><span>    <span class="hljs-keyword">return</span> executeWithDelay(data.split(<span class="hljs-string">' '</span>));</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">return</span> getData()</span><span>        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))</span><span>        .then(<span class="hljs-function"><span class="hljs-params">filtered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));</span><span>}</span><span>&#x200B;</span><span>main();</span></code></pre>
           <h2 id="imperative-style-promises-async-await">Imperative Style Promises: <code>async-await</code><a class="fa fa-anchor" href="#imperative-style-promises-async-await"></a></h2>
           <p>The example above uses <code>.then()</code> to pass data from one function to the next is often seen in <em>functional programming</em>. The original promise is passed from one <code>.then()</code> to the other, and with each <code>.then()</code>,
             a new promise is returned for the next <code>.then()</code> to work on.</p>
           <p>That is somewhat different from the imperative programming style most programmers are more familiar with. The <code>async</code> and <code>await</code> keywords facilitate a imperative way of using promises.</p>
           <p>Consider the <code>main</code> function from the previous example:</p>
-          <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> getData()
-        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))
-        .then(<span class="hljs-function"><span class="hljs-params">fltered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));
-}
-</code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">return</span> getData()</span><span>        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))</span><span>        .then(<span class="hljs-function"><span class="hljs-params">fltered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));</span><span>}</span></code></pre>
           <p>It can be rewritten in the async-await-style as follows:</p>
-          <pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> getData();
-    <span class="hljs-keyword">const</span> filtered = <span class="hljs-keyword">await</span> filterData(data);
-
-    <span class="hljs-built_in">console</span>.log(filtered);
-    <span class="hljs-keyword">return</span> filtered;
-}
-</code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> getData();</span><span>    <span class="hljs-keyword">const</span> filtered = <span class="hljs-keyword">await</span> filterData(data);</span><span>&#x200B;</span><span>    <span class="hljs-built_in">console</span>.log(filtered);</span><span>    <span class="hljs-keyword">return</span> filtered;</span><span>}</span></code></pre>
           <p>The <code>async</code> keyword ensures that the <code>main()</code> function returns a promise. In our case, this will cause <code>main()</code> to return a promise with <code>filtered</code> as its data. The information can then be used like
             so <code>main().then(filtered =&gt; alert(filtered));</code>.</p>
           <p>Another interesting thing to note: <code>await</code> will wait for the promise to return before executing anything below. In this case, <code>console.log</code> will be executed after the two <code>await</code> calls, even when it doesn't depend
@@ -488,44 +406,13 @@ main();
                 of time for the response to be returned.</p>
               <p>The following code sends a GET request to a URL and logs the body of the response using Promises. By using Promises instead of callbacks, we have clean code and improved performance as the code is able to run in the background.</p>
               <p>Code adapted from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise MDN docs</a></p>
-              <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchPage</span>(<span class="hljs-params">url</span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-    <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-    xhr.open(<span class="hljs-string">"GET"</span>, url);
-    xhr.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(xhr.responseText);
-    xhr.onerror = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(xhr.statusText);
-    xhr.send();
-  });
-}
-
-fetchPage(<span class="hljs-string">'path/to/resource'</span>)
-    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(response))
-    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
-</code></pre>
+              <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchPage</span>(<span class="hljs-params">url</span>) </span>{</span><span>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {</span><span>    <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><span>    xhr.open(<span class="hljs-string">"GET"</span>, url);</span><span>    xhr.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(xhr.responseText);</span><span>    xhr.onerror = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(xhr.statusText);</span><span>    xhr.send();</span><span>  });</span><span>}</span><span>&#x200B;</span><span>fetchPage(<span class="hljs-string">'path/to/resource'</span>)</span><span>    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(response))</span><span>    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));</span></code></pre>
             </li>
             <li>
               <p><strong>Disk I/O</strong></p>
               <p>Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead,
                 we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.</p>
-              <pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);   <span class="hljs-comment">// this is the in-built filesystem module from Node.js</span>
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFileWithPromise</span>(<span class="hljs-params">filePath</span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{
-        fs.readFile(filePath, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, data</span>) </span>{
-            <span class="hljs-keyword">if</span> (err) {
-                reject(err);
-            } <span class="hljs-keyword">else</span> {
-                resolve(data);
-            }
-        });
-    })
-
-};
-
-readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)
-    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(data))
-    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
-</code></pre>
+              <pre><code class="hljs javascript"><span><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);   <span class="hljs-comment">// this is the in-built filesystem module from Node.js</span></span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFileWithPromise</span>(<span class="hljs-params">filePath</span>) </span>{</span><span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{</span><span>        fs.readFile(filePath, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, data</span>) </span>{</span><span>            <span class="hljs-keyword">if</span> (err) {</span><span>                reject(err);</span><span>            } <span class="hljs-keyword">else</span> {</span><span>                resolve(data);</span><span>            }</span><span>        });</span><span>    })</span><span>&#x200B;</span><span>};</span><span>&#x200B;</span><span>readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)</span><span>    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(data))</span><span>    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));</span></code></pre>
             </li>
           </ul>
           <h2 id="doing-more-with-promises">Doing more with Promises<a class="fa fa-anchor" href="#doing-more-with-promises"></a></h2>
@@ -565,7 +452,7 @@ readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

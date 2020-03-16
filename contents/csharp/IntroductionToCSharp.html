@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to C#</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -349,24 +358,7 @@
             </li>
           </ul>
           <p>Below is an example of of a simple C# program:</p>
-          <pre><code class="hljs csharp"><span class="hljs-comment">//Comments can be marked with // or /**/</span>
-<span class="hljs-comment">//Namespaces are similar to packages, except the file does not need to be physically in the directory</span>
-<span class="hljs-keyword">using</span> ProjectName.Utils;
-
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ProjectName.Model</span>
-{
-    <span class="hljs-comment">//Subclassing BaseClass</span>
-    <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> : <span class="hljs-title">BaseClass</span> {
-        ...
-        <span class="hljs-comment">//Method declaration</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params">String[] args</span>)</span> {
-            <span class="hljs-comment">//Variable definition</span>
-            <span class="hljs-keyword">string</span> message = <span class="hljs-string">"Hello World!"</span>;
-            Console.WriteLine(message);
-        }
-    }
-}
-</code></pre>
+          <pre><code class="hljs csharp"><span><span class="hljs-comment">//Comments can be marked with // or /**/</span></span><span><span class="hljs-comment">//Namespaces are similar to packages, except the file does not need to be physically in the directory</span></span><span><span class="hljs-keyword">using</span> ProjectName.Utils;</span><span>&#x200B;</span><span><span class="hljs-keyword">namespace</span> <span class="hljs-title">ProjectName.Model</span></span><span>{</span><span>    <span class="hljs-comment">//Subclassing BaseClass</span></span><span>    <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> : <span class="hljs-title">BaseClass</span> {</span><span>        ...</span><span>        <span class="hljs-comment">//Method declaration</span></span><span>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params">String[] args</span>)</span> {</span><span>            <span class="hljs-comment">//Variable definition</span></span><span>            <span class="hljs-keyword">string</span> message = <span class="hljs-string">"Hello World!"</span>;</span><span>            Console.WriteLine(message);</span><span>        }</span><span>    }</span><span>}</span></code></pre>
           <p>Developers that work with C# commonly use Visual Studio as their IDE and also as a build tool for compilation into common application/library formats, such as <code>.exe</code> or <code>.dll</code>. Using Visual Studio for C# development offers
             great convenience as it has an integrated testing framework, <a href="https://en.wikipedia.org/wiki/Visual_Studio_Unit_Testing_Framework">MSTest</a>.</p>
           <h2 id="c-syntax-features">C# Syntax Features<a class="fa fa-anchor" href="#c-syntax-features"></a></h2>
@@ -375,92 +367,22 @@
           <p>In C#, you can construct an <a href="https://en.wikipedia.org/wiki/Object_(computer_science)" title="In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier.">Object</a>,
             <a href="https://www.webopedia.com/TERM/A/array.html" title="In programming, a series of objects all of which are the same size and type. Each object in an array is called an array element. For example, you could have an array of integers or an array of characters or an array of anything that has a defined data type.">Array</a>            or <a href="https://computersciencewiki.org/index.php/Collections" title="A collection — sometimes called a container — is simply an object that groups multiple elements into a single unit.">Collection</a> in a single statement as shown. This
             can be useful when writing tests, as test data will be better organised, as compared to calling the actual constructor.</p>
-          <pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BookShelf</span>(<span class="hljs-params">Book[] books, param2, param3, param4</span>)</span>
-{
-    <span class="hljs-keyword">this</span>.books = books
-    <span class="hljs-comment">// Do something with param 2, 3, 4</span>
-}
-
-<span class="hljs-comment">// Without use of Object Initializer</span>
-BookShelf shelf1 = <span class="hljs-keyword">new</span> BookShelf(books, param2, param3, param4)
-
-<span class="hljs-comment">// With use of Object Initializer</span>
-BookShelf shelf2 = <span class="hljs-keyword">new</span> BookShelf() {
-    books = { book1, book2 };
-};
-</code></pre>
+          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BookShelf</span>(<span class="hljs-params">Book[] books, param2, param3, param4</span>)</span></span><span><span class="hljs-function"></span>{</span><span>    <span class="hljs-keyword">this</span>.books = books</span><span>    <span class="hljs-comment">// Do something with param 2, 3, 4</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">// Without use of Object Initializer</span></span><span>BookShelf shelf1 = <span class="hljs-keyword">new</span> BookShelf(books, param2, param3, param4)</span><span>&#x200B;</span><span><span class="hljs-comment">// With use of Object Initializer</span></span><span>BookShelf shelf2 = <span class="hljs-keyword">new</span> BookShelf() {</span><span>    books = { book1, book2 };</span><span>};</span></code></pre>
           <p>In the above example, we want to test a <code>BookShelf</code>'s behaviors only related to the <code>Book[] array</code>. Instead of having to unnecessarily use param2, 3, 4 in construction, we can initialize a <code>BookShelf</code> only with
             the
             <code>Book[]</code> that we wanted to use.</p>
           <h3 id="closures">Closures<a class="fa fa-anchor" href="#closures"></a></h3>
           <p>Sometimes, it may be useful to <a href="http://www.informit.com/articles/article.aspx?p=2171751" title="Code that is executed only when results need to be evaluated. There are many reasons for executing code later">defer execution</a> or capture
             a local context for later execution. Context capturing is reflected below:</p>
-          <pre><code class="hljs csharp"><span class="hljs-comment">//Capturing local context</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Context</span>
-{
-    <span class="hljs-comment">//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Func&lt;Int&gt; <span class="hljs-title">GetCounter</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-comment">//Inside the context of this function, there is an integer variable count.</span>
-        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-        <span class="hljs-comment">//GetCounter is returning a function.</span>
-        <span class="hljs-keyword">return</span> () =&gt;
-        {
-            <span class="hljs-comment">//The function increments the count variable inside this context, which is initialized to 0.</span>
-            count++;
-            <span class="hljs-comment">//It then returns the current count value.</span>
-            <span class="hljs-keyword">return</span> count;
-        }
-    }
-}
-
-Func&lt;Int&gt; counter = Context.GetCounter();
-<span class="hljs-comment">//Every time the function is called, the variable count in the captured context would increment by 1, and its new value will be returned.</span>
-counter(); <span class="hljs-comment">//Returns 1</span>
-counter(); <span class="hljs-comment">//Returns 2</span>
-</code></pre>
+          <pre><code class="hljs csharp"><span><span class="hljs-comment">//Capturing local context</span></span><span><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Context</span></span><span>{</span><span>    <span class="hljs-comment">//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.</span></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Func&lt;Int&gt; <span class="hljs-title">GetCounter</span>(<span class="hljs-params"></span>)</span></span><span><span class="hljs-function"></span>    {</span><span>        <span class="hljs-comment">//Inside the context of this function, there is an integer variable count.</span></span><span>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;</span><span>        <span class="hljs-comment">//GetCounter is returning a function.</span></span><span>        <span class="hljs-keyword">return</span> () =&gt;</span><span>        {</span><span>            <span class="hljs-comment">//The function increments the count variable inside this context, which is initialized to 0.</span></span><span>            count++;</span><span>            <span class="hljs-comment">//It then returns the current count value.</span></span><span>            <span class="hljs-keyword">return</span> count;</span><span>        }</span><span>    }</span><span>}</span><span>&#x200B;</span><span>Func&lt;Int&gt; counter = Context.GetCounter();</span><span><span class="hljs-comment">//Every time the function is called, the variable count in the captured context would increment by 1, and its new value will be returned.</span></span><span>counter(); <span class="hljs-comment">//Returns 1</span></span><span>counter(); <span class="hljs-comment">//Returns 2</span></span></code></pre>
           <p>The ability to capture the value <code>count</code> outside of the defined function scope that returns <code>count</code>, is called a closure. If you wish to read more about closures, you may consult <a href="https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure">this article by dixin</a></p>
           <h3 id="nullable-type">Nullable type<a class="fa fa-anchor" href="#nullable-type"></a></h3>
           <p>Normally to guard against null pointers, an <code>if</code> branch or a guard clause that checks against <code>null</code> is used. Below is a code example of conventional null pointer handling.</p>
-          <pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {
-    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);
-}
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {
-    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);
-}
-
-Car car = Car.ManufactureCar();
-Double fuelLeft = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">if</span> (car != <span class="hljs-literal">null</span>)
-{
-    car.AddFuelTank();
-	fuelTank = car.GetFuelTank()
-	<span class="hljs-keyword">if</span> (fuelTank != <span class="hljs-literal">null</span>) {
-        fuelLeft = fuelTank.GetFuel();
-    }
-}
-
-DoSomethingTo(fuelLeft);
-</code></pre>
+          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {</span><span>    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);</span><span>}</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {</span><span>    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);</span><span>}</span><span>&#x200B;</span><span>Car car = Car.ManufactureCar();</span><span>Double fuelLeft = <span class="hljs-number">0</span>;</span><span><span class="hljs-keyword">if</span> (car != <span class="hljs-literal">null</span>)</span><span>{</span><span>    car.AddFuelTank();</span><span>	fuelTank = car.GetFuelTank()</span><span>	<span class="hljs-keyword">if</span> (fuelTank != <span class="hljs-literal">null</span>) {</span><span>        fuelLeft = fuelTank.GetFuel();</span><span>    }</span><span>}</span><span>&#x200B;</span><span>DoSomethingTo(fuelLeft);</span></code></pre>
           <p>In C#, <code>null</code> handling does not need to be done the conventional way. C# has <code>Nullable</code> features, such as collaescing operators <code>??</code> and null conditional operators <code>.?</code>. Some may find this similar
             to <code>optionals</code> in Swift. Applying these features appropriately not only results in shorter and more concise code in general. It makes it easier to reduce the use of indentation as well. Nullables may appear less intuitive to new
             users, so its value may differ between communities.</p>
-          <pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {
-    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);
-}
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {
-    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);
-}
-
-Car car = Car.ManufactureCar();
-<span class="hljs-comment">//Call Drive method of car if not null</span>
-car?.AddFuelTank();
-
-<span class="hljs-comment">//Get amount of fuel left with default value 0</span>
-Double fuelLeft = car?.GetFuelTank()?.GetFuel() ?? <span class="hljs-number">0</span>;
-
-DoSomethingTo(fuelLeft);
-</code></pre>
+          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {</span><span>    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);</span><span>}</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {</span><span>    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);</span><span>}</span><span>&#x200B;</span><span>Car car = Car.ManufactureCar();</span><span><span class="hljs-comment">//Call Drive method of car if not null</span></span><span>car?.AddFuelTank();</span><span>&#x200B;</span><span><span class="hljs-comment">//Get amount of fuel left with default value 0</span></span><span>Double fuelLeft = car?.GetFuelTank()?.GetFuel() ?? <span class="hljs-number">0</span>;</span><span>&#x200B;</span><span>DoSomethingTo(fuelLeft);</span></code></pre>
           <p>Some explanation of what <code>Double fuelLeft = car?.GetFuel() ?? 0</code> does:</p>
           <ul>
             <li>If car is not null, one can expect the statement to evaluate to <code>car.GetFuel()</code>.</li>
@@ -517,7 +439,7 @@ DoSomethingTo(fuelLeft);
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

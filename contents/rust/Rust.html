@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Rust</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a current">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -336,75 +345,18 @@
           <p>The underlying concept for the safety provided in Rust is called <a href="https://doc.rust-lang.org/book/second-edition/ch04-00-understanding-ownership.html">ownership</a>. Intuitively, the concept just means that each value only has a single
             owner (i.e. a variable) and if the value needs to be shared, it can be borrowed. This is a powerful concept that ensures safety in Rust compile-time and <a href="https://codewithoutrules.com/2017/01/26/object-ownership/">can be applied to other languages</a>.</p>
           <p>Take a simplified example in Java of a class called <code>VisibleIndexes</code> maintaining the list of visible indexes of UI elements:</p>
-          <pre><code class="hljs Java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VisibleIndexes</span> </span>{
-    <span class="hljs-keyword">private</span> List&lt;Integer&gt; indexes;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">VisibleIndexes</span><span class="hljs-params">()</span> </span>{
-        indexes = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>{
-        indexes.add(index);
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">getVisibleIndexes</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Collections.unmodifiableList(indexes);
-        
-        <span class="hljs-comment">// Should not do this because indexes can then be modified outside class</span>
-        <span class="hljs-comment">//return indexes; </span>
-    }
-}
-</code></pre>
+          <pre><code class="hljs Java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VisibleIndexes</span> </span>{</span><span>    <span class="hljs-keyword">private</span> List&lt;Integer&gt; indexes;</span><span>&#x200B;</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">VisibleIndexes</span><span class="hljs-params">()</span> </span>{</span><span>        indexes = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>{</span><span>        indexes.add(index);</span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">getVisibleIndexes</span><span class="hljs-params">()</span> </span>{</span><span>        <span class="hljs-keyword">return</span> Collections.unmodifiableList(indexes);</span><span>        </span><span>        <span class="hljs-comment">// Should not do this because indexes can then be modified outside class</span></span><span>        <span class="hljs-comment">//return indexes; </span></span><span>    }</span><span>}</span></code></pre>
           <p>One would need the discipline to make sure to return only a view of the list, otherwise the following would be legal, but unexpected:</p>
-          <pre><code class="hljs Java">VisibleIndexes visibleIndexes = <span class="hljs-keyword">new</span> VisibleIndexes();
-visibleIndexes.addIndex(<span class="hljs-number">1</span>);
-List&lt;Integer&gt; indexes= visibleIndexes.getVisibleIndexes();
-System.out.println(indexes); <span class="hljs-comment">// Output: [1]</span>
-
-listCounts.add(<span class="hljs-number">9999</span>); <span class="hljs-comment">// Unexpected mutation of the internal list in VisibleIndexes</span>
-System.out.println(visibleIndexes.getVisibleIndexes()); <span class="hljs-comment">// Output: [1, 9999]</span>
-</code></pre>
+          <pre><code class="hljs Java"><span>VisibleIndexes visibleIndexes = <span class="hljs-keyword">new</span> VisibleIndexes();</span><span>visibleIndexes.addIndex(<span class="hljs-number">1</span>);</span><span>List&lt;Integer&gt; indexes= visibleIndexes.getVisibleIndexes();</span><span>System.out.println(indexes); <span class="hljs-comment">// Output: [1]</span></span><span>&#x200B;</span><span>listCounts.add(<span class="hljs-number">9999</span>); <span class="hljs-comment">// Unexpected mutation of the internal list in VisibleIndexes</span></span><span>System.out.println(visibleIndexes.getVisibleIndexes()); <span class="hljs-comment">// Output: [1, 9999]</span></span></code></pre>
           <p>In Rust, we can implement it like this:</p>
-          <pre><code class="hljs Rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">VisibleIndexes</span></span> {
-    indexes: <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-built_in">i32</span>&gt;
-}
-
-<span class="hljs-keyword">impl</span> VisibleIndexes {
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>() -&gt; VisibleIndexes {
-        VisibleIndexes {
-            indexes: <span class="hljs-built_in">Vec</span>::new(),
-        }
-    }
-
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">add_index</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, value: <span class="hljs-built_in">i32</span>) {
-        <span class="hljs-keyword">self</span>.indexes.push(value);
-    }
-
-    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">get_visible_indexes</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; &amp;<span class="hljs-keyword">mut</span> <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-built_in">i32</span>&gt; {
-        &amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.indexes
-    }
-}
-</code></pre>
+          <pre><code class="hljs Rust"><span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">VisibleIndexes</span></span> {</span><span>    indexes: <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-built_in">i32</span>&gt;</span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">impl</span> VisibleIndexes {</span><span>    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>() -&gt; VisibleIndexes {</span><span>        VisibleIndexes {</span><span>            indexes: <span class="hljs-built_in">Vec</span>::new(),</span><span>        }</span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">add_index</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>, value: <span class="hljs-built_in">i32</span>) {</span><span>        <span class="hljs-keyword">self</span>.indexes.push(value);</span><span>    }</span><span>&#x200B;</span><span>    <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">get_visible_indexes</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; &amp;<span class="hljs-keyword">mut</span> <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-built_in">i32</span>&gt; {</span><span>        &amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>.indexes</span><span>    }</span><span>}</span></code></pre>
           <p>In particular, we should pay attention to <code>&amp;mut Vec&lt;i32&gt;</code> which means to return a mutable reference to a Vector (List in Java).</p>
           <p>Due to Rust's defaults, variables are by default immutable, and <code>self.indexes</code> can only have a single owner which will be the instance of <code>VisibleIndexes</code> instantiated.</p>
           <p>One way to allow for mutation outside the instance would be to borrow the value (by using a reference) and it would have to be a mutable one for us to be able to modify the internal list <code>indexes</code> outside an instance of <code>VisibleIndexes</code>.</p>
           <p>So we have to go through some hoops just to be able to modify the internal list but it doesn't end here. Suppose the following is then executed:</p>
-          <pre><code class="hljs Rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> visible_indexes = VisibleIndexes::new();
-visible_indexes.add_index(<span class="hljs-number">1</span>);
-
-<span class="hljs-keyword">let</span> indexes = visible_indexes.get_visible_indexes();
-<span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, indexes); <span class="hljs-comment">// Output: [1]</span>
-
-indexes.push(<span class="hljs-number">9999</span>);
-<span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, visible_indexes.get_visible_indexes()); <span class="hljs-comment">// Cannot compile!</span>
-</code></pre>
+          <pre><code class="hljs Rust"><span><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> visible_indexes = VisibleIndexes::new();</span><span>visible_indexes.add_index(<span class="hljs-number">1</span>);</span><span>&#x200B;</span><span><span class="hljs-keyword">let</span> indexes = visible_indexes.get_visible_indexes();</span><span><span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, indexes); <span class="hljs-comment">// Output: [1]</span></span><span>&#x200B;</span><span>indexes.push(<span class="hljs-number">9999</span>);</span><span><span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, visible_indexes.get_visible_indexes()); <span class="hljs-comment">// Cannot compile!</span></span></code></pre>
           <p>Everything would have executed like in Java except it does not compile because of the last line in Rust. This is shown in the error message below:</p>
-          <pre><code class="hljs shell">let indexes = visible_indexes.get_visible_indexes()
-              --------------- first mutable borrow occurs here
-...
-println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
-                 ^^^^^^^^^^^^^^^ second mutable borrow occurs here
-</code></pre>
+          <pre><code class="hljs shell"><span>let indexes = visible_indexes.get_visible_indexes()</span><span>              --------------- first mutable borrow occurs here</span><span>...</span><span>println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!</span><span>                 ^^^^^^^^^^^^^^^ second mutable borrow occurs here</span></code></pre>
           <p>In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by <code>indexes</code> does not end until the end of a block (i.e. a closing brace). Attempting to borrow the same value again in the same scope
             which will not compile in Rust.</p>
           <h3 id="better-support-for-concurrency">Better support for concurrency<a class="fa fa-anchor" href="#better-support-for-concurrency"></a></h3>
@@ -412,25 +364,9 @@ println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
             <a href="https://golang.org/doc/faq#csp">[2]</a>, <a href="http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/">[3]</a>).</p>
           <p>Rust provides concurrency which is built upon the safety concepts. The implication is that the safety concepts allows us to be <a href="https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">fearless when writing concurrent code</a>            by helping point out mistakes compile time.</p>
           <p>Take an <a href="https://doc.rust-lang.org/book/second-edition/ch16-02-message-passing.html">example</a> of the increasingly popular approach to concurrency called message passing:</p>
-          <pre><code class="hljs Rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
-    <span class="hljs-keyword">let</span> (tx, rx) = mpsc::channel();
-
-    thread::spawn(<span class="hljs-keyword">move</span> || {
-        <span class="hljs-keyword">let</span> val = <span class="hljs-built_in">String</span>::from(<span class="hljs-string">"hi"</span>);
-        tx.send(val).unwrap();
-        <span class="hljs-built_in">println!</span>(<span class="hljs-string">"val is {}"</span>, val); <span class="hljs-comment">// this line does not compile!</span>
-    });
-
-    <span class="hljs-keyword">let</span> received = rx.recv().unwrap();
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Got: {}"</span>, received);
-}
-</code></pre>
+          <pre><code class="hljs Rust"><span><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {</span><span>    <span class="hljs-keyword">let</span> (tx, rx) = mpsc::channel();</span><span>&#x200B;</span><span>    thread::spawn(<span class="hljs-keyword">move</span> || {</span><span>        <span class="hljs-keyword">let</span> val = <span class="hljs-built_in">String</span>::from(<span class="hljs-string">"hi"</span>);</span><span>        tx.send(val).unwrap();</span><span>        <span class="hljs-built_in">println!</span>(<span class="hljs-string">"val is {}"</span>, val); <span class="hljs-comment">// this line does not compile!</span></span><span>    });</span><span>&#x200B;</span><span>    <span class="hljs-keyword">let</span> received = rx.recv().unwrap();</span><span>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Got: {}"</span>, received);</span><span>}</span></code></pre>
           <p>In the example, the message <code>&quot;hi&quot;</code> from the new thread is passed to the main thread. However, it does not compile and produce the following error message:</p>
-          <pre><code class="hljs Shell">tx.send(val).unwrap();
-        --- value moved here
-println!("val is {}", val);
-                      ^^^ value used here after move
-</code></pre>
+          <pre><code class="hljs Shell"><span>tx.send(val).unwrap();</span><span>        --- value moved here</span><span>println!("val is {}", val);</span><span>                      ^^^ value used here after move</span></code></pre>
           <p>When sending a message in Rust, the ownership is transferred (moved). Hence, using the value after the ownership is transferred would not compile. This is important because the string <code>&quot;hi&quot;</code> can be mutated by the receiving
             thread before <code>println!</code> executes, yielding unexpected behavior.</p>
           <h3 id="practicality">Practicality<a class="fa fa-anchor" href="#practicality"></a></h3>
@@ -508,7 +444,7 @@ println!("val is {}", val);
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

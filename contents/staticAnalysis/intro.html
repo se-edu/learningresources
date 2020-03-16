@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Static Analysis</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -311,58 +320,29 @@
             you find bugs). In static analysis, all the related files/codes will be analysed.</p>
           <h3 id="find-potential-bugs-early">Find Potential Bugs Early<a class="fa fa-anchor" href="#find-potential-bugs-early"></a></h3>
           <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">switch</span>(colour) {
-<span class="hljs-keyword">case</span> <span class="hljs-string">'blue'</span>:
-	value = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">case</span> <span class="hljs-string">'green'</span>:
-	value = <span class="hljs-number">2</span>;
-}
-</code></pre>
+          <pre><code class="hljs"><span>switch(colour) {</span><span>case 'blue':</span><span>	value = 1;</span><span>case 'green':</span><span>	value = 2;</span><span>}</span></code></pre>
           <p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
           <h3 id="enforce-a-standard-in-project">Enforce a Standard in Project<a class="fa fa-anchor" href="#enforce-a-standard-in-project"></a></h3>
           <p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
-	<span class="hljs-comment">// true</span>
-} <span class="hljs-keyword">else</span> {
-	<span class="hljs-comment">// false</span>
-}
-</code></pre>
+          <pre><code class="hljs"><span>if (condition) {</span><span>	// true</span><span>} else {</span><span>	// false</span><span>}</span></code></pre>
           <p>While others enforce the following standard:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (condition) {
-	<span class="hljs-comment">// true</span>
-}
-<span class="hljs-keyword">else</span> {
-	<span class="hljs-comment">// false</span>
-}
-</code></pre>
+          <pre><code class="hljs"><span>if (condition) {</span><span>	// true</span><span>}</span><span>else {</span><span>	// false</span><span>}</span></code></pre>
           <p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
           <h3 id="improve-code-quality">Improve Code Quality<a class="fa fa-anchor" href="#improve-code-quality"></a></h3>
           <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">if</span> (isConditionTrue()) {
-	<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-} <span class="hljs-keyword">else</span> {
-	<span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-}
-</code></pre>
+          <pre><code class="hljs"><span>if (isConditionTrue()) {</span><span>	return true;</span><span>} else {</span><span>	return false;</span><span>}</span></code></pre>
           <p>Majority of static analysis tools will point out that this can be simplified to:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">return</span> isConditionTrue();
-</code></pre>
+          <pre><code class="hljs"><span>return isConditionTrue();</span></code></pre>
           <h2 id="limitation-of-static-analysis">Limitation of Static Analysis<a class="fa fa-anchor" href="#limitation-of-static-analysis"></a></h2>
           <h3 id="false-positives">False positives<a class="fa fa-anchor" href="#false-positives"></a></h3>
           <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
-	<span class="hljs-comment">// logic part</span>
-} <span class="hljs-keyword">catch</span> (Throwable t) {
-	<span class="hljs-comment">// alert user</span>
-}
-</code></pre>
+          <pre><code class="hljs"><span>try {</span><span>	// logic part</span><span>} catch (Throwable t) {</span><span>	// alert user</span><span>}</span></code></pre>
           <p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the
             tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected
             by static analysis tools is a false positive.</p>
           <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation
             can be used. In this case,</p>
-          <pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"PMD.AvoidCatchingThrowable"</span>) <span class="hljs-comment">// used as fallback</span>
-</code></pre>
+          <pre><code class="hljs"><span>@SuppressWarnings(&quot;PMD.AvoidCatchingThrowable&quot;) // used as fallback</span></code></pre>
           <p>is the correct way to suppress warnings.</p>
           <h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment<a class="fa fa-anchor" href="#cannot-catch-error-introduced-in-runtime-environment"></a></h3>
           <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive
@@ -427,7 +407,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

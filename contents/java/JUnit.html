@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - JUnit</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -306,26 +315,9 @@
           <h2 id="what-is-junit">What is JUnit?<a class="fa fa-anchor" href="#what-is-junit"></a></h2>
           <p><strong>JUnit is an <em>automated testing framework</em> for Java</strong> i.e., it can be used to programmatically verify the actual behavior of Java code against the expected behavior.</p>
           <p>Let's use a simple example to see how JUnit is used. Suppose we want to test the method <code>calculateArraySum(int[] values, int n)</code> which returns the sum of the first <code>n</code> elements of <code>values</code>.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span> </span>{
-  <span class="hljs-comment">// Sum up first n elements in values, and return the result</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">calculateArraySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] values, <span class="hljs-keyword">int</span> n)</span> </span>{
-    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) {
-      sum += values[i];
-    }
-    <span class="hljs-keyword">return</span> sum;
-  }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span> </span>{</span><span>  <span class="hljs-comment">// Sum up first n elements in values, and return the result</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">calculateArraySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] values, <span class="hljs-keyword">int</span> n)</span> </span>{</span><span>    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;</span><span>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) {</span><span>      sum += values[i];</span><span>    }</span><span>    <span class="hljs-keyword">return</span> sum;</span><span>  }</span><span>}</span></code></pre>
           <p>Let's write a test to check the correctness of our code. This test will use a sample array of size 5 that sums to 15, and check that our <code>calculateArraySum</code> returns the correct result.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UtilsTest</span> </span>{
-  <span class="hljs-meta">@Test</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">calculateArraySum_fiveNumbers_correctAnswer</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">int</span>[] testArray = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
-    assertEquals(<span class="hljs-number">15</span>, calculateArraySum(testArray, <span class="hljs-number">5</span>));
-  }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UtilsTest</span> </span>{</span><span>  <span class="hljs-meta">@Test</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">calculateArraySum_fiveNumbers_correctAnswer</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">int</span>[] testArray = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};</span><span>    assertEquals(<span class="hljs-number">15</span>, calculateArraySum(testArray, <span class="hljs-number">5</span>));</span><span>  }</span><span>}</span></code></pre>
           <p>
             <tip-box>💡 By convention, we append <code>Test</code> to the name of the tested class. It is also good practice to write a descriptive name for the test, so other developers will know the intention and scope of each test.</tip-box>
           </p>
@@ -337,33 +329,10 @@
             manually.
           </p>
           <p>Now, let's fix the code.</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span> </span>{
-  <span class="hljs-comment">// Sum up first n elements in values, and return the result</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">calculateArraySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] values, <span class="hljs-keyword">int</span> n)</span> </span>{
-    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
-      sum += values[i];
-    }
-    <span class="hljs-keyword">return</span> sum;
-  }
-}
-</code></pre>
-          <img src="/learningresources/contents/java/assertPass.PNG">
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span> </span>{</span><span>  <span class="hljs-comment">// Sum up first n elements in values, and return the result</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">calculateArraySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] values, <span class="hljs-keyword">int</span> n)</span> </span>{</span><span>    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;</span><span>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {</span><span>      sum += values[i];</span><span>    }</span><span>    <span class="hljs-keyword">return</span> sum;</span><span>  }</span><span>}</span></code></pre><img src="/learningresources/contents/java/assertPass.PNG">
           <p>Running the same unit test again, we now have a passing test. Our <code>calculateArraySum</code> function works as intended.</p>
           <p>To assure ourselves that <code>calculateArraySum</code> works for more scenarios (what if <code>n</code> = 0?), we can write more tests covering these cases.</p>
-          <pre><code class="hljs">public class UtilsTest {
-  @Test
-  public void calculateArraySum_fiveNumbers_correctAnswer() {
-    int[] testArray = {1, 2, 3, 4, 5};
-    assertEquals(15, calculateArraySum(testArray, 5));
-  }
-  @Test
-  public void calculateArraySum_noNumbers_zero() {
-    int[] testArray = {};
-    assertEquals(0, calculateArraySum(testArray, 0));
-  }
-}
-</code></pre>
+          <pre><code class="hljs"><span>public class UtilsTest {</span><span>  @Test</span><span>  public void calculateArraySum_fiveNumbers_correctAnswer() {</span><span>    int[] testArray = {1, 2, 3, 4, 5};</span><span>    assertEquals(15, calculateArraySum(testArray, 5));</span><span>  }</span><span>  @Test</span><span>  public void calculateArraySum_noNumbers_zero() {</span><span>    int[] testArray = {};</span><span>    assertEquals(0, calculateArraySum(testArray, 0));</span><span>  }</span><span>}</span></code></pre>
           <p>Unit tests like these help to prevent against regression. If <code>calculateArraySum</code> is ever changed, these tests can quickly verify that its functionality remains correct.</p>
           <p></p>
           <h2 id="why-junit">Why JUnit?<a class="fa fa-anchor" href="#why-junit"></a></h2>
@@ -389,63 +358,20 @@
             <li><code>assertTimeout</code>: ensures that a piece of code runs within time constraints - we don't want to keep the user waiting!</li>
           </ul>
           <p>These powerful expressions means that we can write more expressive tests. Without JUnit, developers can test by writing:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">try</span> {
-  <span class="hljs-keyword">int</span> result = divide(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// Divides 100 by 0</span>
-} <span class="hljs-keyword">catch</span> (ArithmeticException ae) {
-  <span class="hljs-comment">// This is the expected behaviour.</span>
-  <span class="hljs-keyword">return</span>;
-}
-<span class="hljs-comment">// If code is here, then the ArithmeticException wasn't thrown.</span>
-<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AssertionError(<span class="hljs-string">"Dividing 100 by 0 should throw an exception!"</span>);
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">try</span> {</span><span>  <span class="hljs-keyword">int</span> result = divide(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// Divides 100 by 0</span></span><span>} <span class="hljs-keyword">catch</span> (ArithmeticException ae) {</span><span>  <span class="hljs-comment">// This is the expected behaviour.</span></span><span>  <span class="hljs-keyword">return</span>;</span><span>}</span><span><span class="hljs-comment">// If code is here, then the ArithmeticException wasn't thrown.</span></span><span><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AssertionError(<span class="hljs-string">"Dividing 100 by 0 should throw an exception!"</span>);</span></code></pre>
           <p>With JUnit, we can replace the above code with just this line:</p>
-          <pre><code class="hljs java">assertThrows(ArithmeticException<span class="hljs-class">.<span class="hljs-keyword">class</span>, () -&gt; <span class="hljs-title">divide</span>(100, 0))</span>;
-</code></pre>
+          <pre><code class="hljs java"><span>assertThrows(ArithmeticException<span class="hljs-class">.<span class="hljs-keyword">class</span>, () -&gt; <span class="hljs-title">divide</span>(100, 0))</span>;</span></code></pre>
           <p>This expression is a lot easier to understand, and as an added bonus, the code is also much shorter to write!</p>
           <h3 id="before-after-hooks">Before/After hooks<a class="fa fa-anchor" href="#before-after-hooks"></a></h3>
           <p>Not every system can be tested so easily. Sometimes, testing is not as straightforward as running a function. For example, we might want to store information in a database. We would have to first connect to the database before we can run any
             test.</p>
           <p>JUnit exposes an API that allows developers to do this process easily and clearly. The <code>@BeforeAll</code> tag allows us to run code once before all tests. Using <code>@BeforeAll</code>, we can easily initialize our testing environment:</p>
-          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{
-  Database db;
-  <span class="hljs-meta">@BeforeAll</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initializeDatabaseConnection</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-comment">// Initialize database connections</span>
-    db = connectToDatabase();
-  }
-  <span class="hljs-meta">@Test</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addUserTest</span><span class="hljs-params">()</span> </span>{
-    db.addUser(<span class="hljs-string">'NewUser'</span>);
-    ...
-  }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{</span><span>  Database db;</span><span>  <span class="hljs-meta">@BeforeAll</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initializeDatabaseConnection</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-comment">// Initialize database connections</span></span><span>    db = connectToDatabase();</span><span>  }</span><span>  <span class="hljs-meta">@Test</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addUserTest</span><span class="hljs-params">()</span> </span>{</span><span>    db.addUser(<span class="hljs-string">'NewUser'</span>);</span><span>    ...</span><span>  }</span><span>}</span></code></pre>
           <p>JUnit also offers a <code>@BeforeEach</code> tag to run code before every test. One use case is to ensure that we standardise the testing environment before each test. For example, we can clear our database before each test to ensure that tests
-            do not
-            <trigger for="modal:affectEachOther" trigger="click">affect each other</trigger>.</p>
-          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabase</span> </span>{
-  Database db;
-  <span class="hljs-meta">@BeforeEach</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">resetDatabaseTable</span><span class="hljs-params">()</span> </span>{
-    db.truncate(<span class="hljs-string">"testTable"</span>);
-  }
-}
-</code></pre>
+            do not <span for="modal:affectEachOther" trigger="click" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:affectEachOther'].show()" class="trigger">affect each other</span>.</p>
+          <pre><code class="hljs java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabase</span> </span>{</span><span>  Database db;</span><span>  <span class="hljs-meta">@BeforeEach</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">resetDatabaseTable</span><span class="hljs-params">()</span> </span>{</span><span>    db.truncate(<span class="hljs-string">"testTable"</span>);</span><span>  }</span><span>}</span></code></pre>
           <p>Similarly, we can use the <code>@AfterAll</code> and <code>@AfterEach</code> tags to run code after all tests, and after each test respectively:</p>
-          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{
-  Database db;
-  DatabaseSnapshot snapshot;
-  <span class="hljs-meta">@AfterEach</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">restoreDatabaseTable</span><span class="hljs-params">()</span> </span>{
-    db.restore(snapshot); <span class="hljs-comment">// Restore previous state of database</span>
-  }
-  <span class="hljs-meta">@AfterAll</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">closeDatabaseConnection</span><span class="hljs-params">()</span> </span>{
-    db.close(); <span class="hljs-comment">// Explicitly close DB connection instead of timing out.</span>
-  }
-  
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{</span><span>  Database db;</span><span>  DatabaseSnapshot snapshot;</span><span>  <span class="hljs-meta">@AfterEach</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">restoreDatabaseTable</span><span class="hljs-params">()</span> </span>{</span><span>    db.restore(snapshot); <span class="hljs-comment">// Restore previous state of database</span></span><span>  }</span><span>  <span class="hljs-meta">@AfterAll</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">closeDatabaseConnection</span><span class="hljs-params">()</span> </span>{</span><span>    db.close(); <span class="hljs-comment">// Explicitly close DB connection instead of timing out.</span></span><span>  }</span><span>  </span><span>}</span></code></pre>
           <h3 id="extension-model">Extension Model<a class="fa fa-anchor" href="#extension-model"></a></h3>
           <p>Consider a project where tests need to:</p>
           <ul>
@@ -456,31 +382,9 @@
             errors - if we do not explicitly call these methods, the database is not initialised or reset.</p>
           <p>In JUnit, the extension model allows us to augment the test class. Instead of needing to invoke helper methods when we need them, we can introduce a <code>ManagedDatabase</code> extension that can automatically connect to a remote database and
             reset itself before each test. This abstracts away the need to manage the database, allowing us to focus on testing our logic.</p>
-          <pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ManagedDatabase</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BeforeAllCallback</span>, <span class="hljs-title">BeforeEachCallback</span> </span>{
-  Database db;
-  String url;
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ManagedDatabase</span><span class="hljs-params">(String url)</span> </span>{
-      <span class="hljs-keyword">this</span>.url = url;
-  }
-
-  <span class="hljs-meta">@Override</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAll</span><span class="hljs-params">(ExtensionContext context)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-      db = connectToDB(url);
-  }
-  
-  <span class="hljs-meta">@Override</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeEach</span><span class="hljs-params">(ExtensionContext context)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-      db.truncate(<span class="hljs-string">"testTable"</span>);
-  }
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ManagedDatabase</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BeforeAllCallback</span>, <span class="hljs-title">BeforeEachCallback</span> </span>{</span><span>  Database db;</span><span>  String url;</span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ManagedDatabase</span><span class="hljs-params">(String url)</span> </span>{</span><span>      <span class="hljs-keyword">this</span>.url = url;</span><span>  }</span><span>&#x200B;</span><span>  <span class="hljs-meta">@Override</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAll</span><span class="hljs-params">(ExtensionContext context)</span> <span class="hljs-keyword">throws</span> Exception </span>{</span><span>      db = connectToDB(url);</span><span>  }</span><span>  </span><span>  <span class="hljs-meta">@Override</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeEach</span><span class="hljs-params">(ExtensionContext context)</span> <span class="hljs-keyword">throws</span> Exception </span>{</span><span>      db.truncate(<span class="hljs-string">"testTable"</span>);</span><span>  }</span><span>}</span></code></pre>
           <p>Now, any code requiring a database can simply do the following to initialize a database connection that resets itself before every test:</p>
-          <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogicTest</span> </span>{
-  <span class="hljs-meta">@RegisterExtension</span>
-  <span class="hljs-keyword">public</span> ManagedDatabase db = <span class="hljs-keyword">new</span> ManagedDatabase(<span class="hljs-string">"localhost"</span>);
-}
-</code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogicTest</span> </span>{</span><span>  <span class="hljs-meta">@RegisterExtension</span></span><span>  <span class="hljs-keyword">public</span> ManagedDatabase db = <span class="hljs-keyword">new</span> ManagedDatabase(<span class="hljs-string">"localhost"</span>);</span><span>}</span></code></pre>
           <p></p>
           <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h2>
           <p>If this introduction has got you interested in using JUnit, do check out the following resources for an introduction to using JUnit:</p>
@@ -491,13 +395,13 @@
             <li>Official User Guide: <a href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5 User Guide</a></li>
           </ul>
         </div>
-        <modal id="modal:affectEachOther">
-          <div slot="header" class="modal-title text-center">
+        <b-modal id="modal:affectEachOther" ok-only size modal-class="mb-zoom" ref="modal:affectEachOther">
+          <div slot="modal-header" class="modal-title text-center">
             <h4 id="how-will-tests-affect-each-other">How will tests affect each other?<a class="fa fa-anchor" href="#how-will-tests-affect-each-other"></a></h4>
           </div>
           <p>If we do not reset a shared resource (e.g. databse / file), a test that uses the resource permanently changes the resource. As a result, other tests cannot assume anything about the initial state of this resource.</p>
           <p>For example, test A checks for a correctly set-up, empty database. Test B writes to an initially empty database. Without resetting the database, test A can fail if test B manages to runs first.</p>
-        </modal>
+        </b-modal>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
@@ -522,7 +426,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

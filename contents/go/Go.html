@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Go</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -357,21 +366,14 @@
             However, Go also diverges explicitly from these other languages. Listed below are some features that make Go unique!</p>
           <h3 id="benefit-better-variable-declarations">Benefit: Better Variable Declarations<a class="fa fa-anchor" href="#benefit-better-variable-declarations"></a></h3>
           <p>One immediately obvious difference between Go and other languages is that Go declares its variables in the format <code>var variableName (variableType)</code>, with the variable's type declared to the right of the variable name, as follows:</p>
-          <pre><code class="hljs go"><span class="hljs-keyword">var</span> name <span class="hljs-keyword">string</span>
-name = <span class="hljs-string">"John Smith"</span>
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-keyword">var</span> name <span class="hljs-keyword">string</span></span><span>name = <span class="hljs-string">"John Smith"</span></span></code></pre>
           <p>This differs from many other languages, which put the variable type to the left of the variable name.</p>
           <p>In addition, the verbosity of a declaration statement in Go can vary. You do not need to declare the <code>variableType</code> of a new variable if you use an initializer, as the type of the variable will be inferred from its initialization.
             For instance, in the following example, the <code>string</code> type is optional:</p>
-          <pre><code class="hljs go"><span class="hljs-keyword">var</span> name <span class="hljs-keyword">string</span> = <span class="hljs-string">"John Smith"</span>
-
-<span class="hljs-comment">// alternatively</span>
-<span class="hljs-keyword">var</span> name = <span class="hljs-string">"John Smith"</span>
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-keyword">var</span> name <span class="hljs-keyword">string</span> = <span class="hljs-string">"John Smith"</span></span><span>&#x200B;</span><span><span class="hljs-comment">// alternatively</span></span><span><span class="hljs-keyword">var</span> name = <span class="hljs-string">"John Smith"</span></span></code></pre>
           <p>In addition to omitting the type when it can be inferred, you can also eliminate the keyword <code>var</code> when performing variable declaration by using the <code>:=</code> short assignment statement. <code>:=</code> acts as a shortcut to
             declare and immediately initialize a variable inside of a function.</p>
-          <pre><code class="hljs go">name := <span class="hljs-string">"John Smith"</span>
-</code></pre>
+          <pre><code class="hljs go"><span>name := <span class="hljs-string">"John Smith"</span></span></code></pre>
           <p>Thus, we see that there are several potential ways to declare a variable in Go. Choosing which style of variable declaration to use depends on how verbose a programmer wants to be in declaring the variable. However, the upshot of having many
             different degrees of verbosity is that common problems of both dynamically- and statically-typed languages can be avoided. Unlikely dynamically-typed languages, in which the type of a variable is sometimes unclear, a type in Go can always
             be explicitly declared to increase code clarity. On the other hand, when a variable's type can be clearly inferred, programmers can choose not to be unnecessarily verbose in their code.</p>
@@ -380,82 +382,34 @@ name = <span class="hljs-string">"John Smith"</span>
           <p>One of Go's special features is its focus on implementing concurrency simply and well. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.</p>
           <h4 id="goroutines">Goroutines<a class="fa fa-anchor" href="#goroutines"></a></h4>
           <p>A goroutine is a lightweight thread that executes a function concurrently with its caller. A goroutine is launched by a <code>go</code> statement:</p>
-          <pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> {
-    <span class="hljs-comment">// does something</span>
-}
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-    <span class="hljs-keyword">go</span> run()
-    executeOtherCommands()
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> {</span><span>    <span class="hljs-comment">// does something</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {</span><span>    <span class="hljs-keyword">go</span> run()</span><span>    executeOtherCommands()</span><span>}</span></code></pre>
           <p>In the above example, using the <code>go</code> keyword launches a goroutine, which executes <code>run()</code> concurrently with <code>executeOtherCommands()</code>.</p>
           <p>Goroutines can also be started for anonymous functions:</p>
-          <pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> {
-    <span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(msg <span class="hljs-keyword">string</span>)</span></span> {
-        fmt.Println(msg)
-    }(<span class="hljs-string">"a message"</span>) <span class="hljs-comment">// starts a goroutine that prints "a message"</span>
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> {</span><span>    <span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(msg <span class="hljs-keyword">string</span>)</span></span> {</span><span>        fmt.Println(msg)</span><span>    }(<span class="hljs-string">"a message"</span>) <span class="hljs-comment">// starts a goroutine that prints "a message"</span></span><span>}</span></code></pre>
           <p>A goroutine is not its own thread; instead, goroutines are dynamically multiplexed onto threads as required to keep them running. In addition, goroutines start with <a href="https://stackoverflow.com/questions/41906357/why-are-goroutines-much-cheaper-than-threads-in-other-languages">very small stacks</a>            which makes them lightweight, so having a large number of goroutines is feasible. In practice, goroutines behave similarly to very cheap threads.</p>
           <h4 id="channels">Channels<a class="fa fa-anchor" href="#channels"></a></h4>
           <p>Channels are used to fulfill Go's philosophy on concurrent software: &quot;don't communicate by sharing memory; share memory by communicating&quot;. In other words, Go relies on message passing between concurrently running goroutines to share
             information.</p>
           <p>Specifically, Go relies on channels to implement message passing. Channels are typed conduits that allows goroutines to communicate with each other by sending and receiving messages. Before using a channel of a specific type, we must declare
             and <code>make</code> it:</p>
-          <pre><code class="hljs go"><span class="hljs-keyword">var</span> c <span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>
-c = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
-
-<span class="hljs-comment">//alternatively</span>
-c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-keyword">var</span> c <span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span></span><span>c = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)</span><span>&#x200B;</span><span><span class="hljs-comment">//alternatively</span></span><span>c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)</span></code></pre>
           <p>Channels can transmit data of any type; thus, creating a channel that transmits channels (i.e. a <code>chan chan</code>) is theoretically possible and may even be <a href="http://tleyden.github.io/blog/2013/11/23/understanding-chan-chans-in-go/">useful</a>.</p>
           <p>Goroutines send and receive messages through a channel using the <code>&lt;-</code> operator.</p>
-          <pre><code class="hljs go">ch &lt;- v   <span class="hljs-comment">// Send v to channel ch.</span>
-v := &lt;-ch <span class="hljs-comment">// Receive from ch, and</span>
-      <span class="hljs-comment">// assign value to v.</span>
-</code></pre>
+          <pre><code class="hljs go"><span>ch &lt;- v   <span class="hljs-comment">// Send v to channel ch.</span></span><span>v := &lt;-ch <span class="hljs-comment">// Receive from ch, and</span></span><span>      <span class="hljs-comment">// assign value to v.</span></span></code></pre>
           <p>One useful way to think about sending and receiving data with the <code>&lt;-</code> operator is that the data moves in the direction of the arrow.</p>
           <p>Channels can be used to synchronize execution across goroutines, since receivers block until they receive data, while senders block <a href="https://golang.org/doc/effective_go.html#channels">until the receiver or buffer receives data</a>. In
             the code example below, the <code>main</code> goroutine waits until it receives a message from the <code>worker</code> goroutine that it is done before terminating.</p>
-          <pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">worker</span><span class="hljs-params">(done <span class="hljs-keyword">chan</span> <span class="hljs-keyword">bool</span>)</span></span> {
-    fmt.Print(<span class="hljs-string">"Working..."</span>)
-    time.Sleep(time.Second)
-    fmt.Println(<span class="hljs-string">"Done working"</span>)
-
-    done &lt;- <span class="hljs-literal">true</span>
-}
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-    done := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">bool</span>)
-    <span class="hljs-keyword">go</span> worker(done)
-
-    &lt;-done
-    fmt.Println(<span class="hljs-string">"Returned from work"</span>)
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">worker</span><span class="hljs-params">(done <span class="hljs-keyword">chan</span> <span class="hljs-keyword">bool</span>)</span></span> {</span><span>    fmt.Print(<span class="hljs-string">"Working..."</span>)</span><span>    time.Sleep(time.Second)</span><span>    fmt.Println(<span class="hljs-string">"Done working"</span>)</span><span>&#x200B;</span><span>    done &lt;- <span class="hljs-literal">true</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {</span><span>    done := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">bool</span>)</span><span>    <span class="hljs-keyword">go</span> worker(done)</span><span>&#x200B;</span><span>    &lt;-done</span><span>    fmt.Println(<span class="hljs-string">"Returned from work"</span>)</span><span>}</span></code></pre>
           <p>If you are interested in delving deeper into using Go's concurrency features extensively, Google developers have put out video presentations on Go's <a href="https://www.youtube.com/watch?v=f6kdp27TYZs">basic</a> and <a href="https://www.youtube.com/watch?v=QDDwwePbDtw">advanced concurrency patterns</a>.
             This <a href="https://golang.org/doc/codewalk/sharemem/">code walkthrough</a> provides an annotated example of how Go's memory-sharing principles can be applied in practice.</p>
           <h3 id="benefit-better-error-handling">Benefit: Better Error Handling<a class="fa fa-anchor" href="#benefit-better-error-handling"></a></h3>
           <p>Error handling in Go is performed using multiple returns. On any function that can fail, the function's last return type should always be of the type <code>error</code>. For example, the <code>os.Open</code> function returns a non-nil error
             value when it fails to open a file.</p>
-          <pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Open</span><span class="hljs-params">(name <span class="hljs-keyword">string</span>)</span> <span class="hljs-params">(file *File, err error)</span></span>
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Open</span><span class="hljs-params">(name <span class="hljs-keyword">string</span>)</span> <span class="hljs-params">(file *File, err error)</span></span></span></code></pre>
           <p>An <code>error</code> variable represents any value that can describe itself as a string, by implementing the following interface:</p>
-          <pre><code class="hljs go"><span class="hljs-keyword">type</span> error <span class="hljs-keyword">interface</span> {
-    Error() <span class="hljs-keyword">string</span>
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-keyword">type</span> error <span class="hljs-keyword">interface</span> {</span><span>    Error() <span class="hljs-keyword">string</span></span><span>}</span></code></pre>
           <p>When calling a method that may return an error, we check if the returns <code>err != nil</code> and handle the resulting error.</p>
-          <pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">useFile</span><span class="hljs-params">()</span></span> {
-    f, err := os.Open(<span class="hljs-string">"filename.ext"</span>)
-    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
-        log.Fatal(err)
-        <span class="hljs-keyword">return</span>
-    }
-    <span class="hljs-comment">// do something with the open *File f</span>
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">useFile</span><span class="hljs-params">()</span></span> {</span><span>    f, err := os.Open(<span class="hljs-string">"filename.ext"</span>)</span><span>    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {</span><span>        log.Fatal(err)</span><span>        <span class="hljs-keyword">return</span></span><span>    }</span><span>    <span class="hljs-comment">// do something with the open *File f</span></span><span>}</span></code></pre>
           <p>Go's use of multiple returns for errors can be <a href="https://davidnix.io/post/error-handling-in-go/">contrasted with the use of exceptions in a language like Java</a>. Unlike exceptions, which can crash a program, errors are seen as regular
             values that are to be expected by programmers and handled accordingly.</p>
           <p>To deal with unexpected errors, Go also provides two mechanisms: <code>panic</code> and <code>recover</code>.</p>
@@ -471,12 +425,7 @@ v := &lt;-ch <span class="hljs-comment">// Receive from ch, and</span>
             functions on the list after the surrounding function returns. In the following example, <code>defer</code> adds two print functions to the stack of deferred functions. After <code>foo</code> finishes executing, the deferred functions are executed
             in last-in-first-out order.
           </p>
-          <pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> {
-    <span class="hljs-keyword">defer</span> fmt.Println(<span class="hljs-string">"This gets printed third"</span>)
-    <span class="hljs-keyword">defer</span> fmt.Println(<span class="hljs-string">"This gets printed second"</span>)
-    fmt.Println(<span class="hljs-string">"This gets printed first"</span>)
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> {</span><span>    <span class="hljs-keyword">defer</span> fmt.Println(<span class="hljs-string">"This gets printed third"</span>)</span><span>    <span class="hljs-keyword">defer</span> fmt.Println(<span class="hljs-string">"This gets printed second"</span>)</span><span>    fmt.Println(<span class="hljs-string">"This gets printed first"</span>)</span><span>}</span></code></pre>
           <p><code>defer</code> is frequently used for clean-up actions, such as to <a href="https://gobyexample.com/defer">close files</a>. Deferred functions run on <a href="#error-handling">panicking goroutines</a> as well, which makes them useful for
             recovering from <code>panic</code>.</p>
           <h3 id="benefit-good-support-for-interfaces">Benefit: Good Support for Interfaces<a class="fa fa-anchor" href="#benefit-good-support-for-interfaces"></a></h3>
@@ -485,45 +434,10 @@ v := &lt;-ch <span class="hljs-comment">// Receive from ch, and</span>
           <p>In the example below, the <code>Rectangle</code> type implements the interface <code>TwoDimensional</code> by implementing the methods <code>area()</code> and <code>perim()</code> that are specified in the interface. Thus, instances of <code>Rectangle</code>            can be used as arguments to <code>price</code>.</p>
           <p>Meanwhile, although <code>Circle</code> implements <code>perim()</code>, it does not implement <code>area()</code>. Since it does not implement all the methods in the <code>TwoDimensional</code> interface, <code>Circle</code> does not implement
             <code>TwoDimensional</code>. Thus, instances of <code>Circle</code> cannot be used as arguments to <code>price</code>.</p>
-          <pre><code class="hljs go"><span class="hljs-keyword">type</span> TwoDimensional <span class="hljs-keyword">interface</span> {
-    area() <span class="hljs-keyword">float64</span>
-    perim() <span class="hljs-keyword">float64</span>
-}
-
-<span class="hljs-keyword">type</span> Rectangle <span class="hljs-keyword">struct</span> {
-    width, height <span class="hljs-keyword">float64</span>
-}
-
-<span class="hljs-keyword">type</span> Circle <span class="hljs-keyword">struct</span> {
-    radius <span class="hljs-keyword">float64</span>
-}
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span> <span class="hljs-title">area</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {
-    <span class="hljs-keyword">return</span> r.width * r.height
-}
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span> <span class="hljs-title">perim</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {
-    <span class="hljs-keyword">return</span> r.width*<span class="hljs-number">2</span> + r.height*<span class="hljs-number">2</span>
-}
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c Circle)</span> <span class="hljs-title">perim</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * math.Pi * c.radius
-}
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">price</span><span class="hljs-params">(t TwoDimensional)</span> <span class="hljs-title">float64</span></span> {
-    <span class="hljs-keyword">return</span> t.area() * <span class="hljs-number">3.5</span>
-}
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    c := Cirlce{<span class="hljs-number">5</span>}
-    fmt.Println(price(c))
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-keyword">type</span> TwoDimensional <span class="hljs-keyword">interface</span> {</span><span>    area() <span class="hljs-keyword">float64</span></span><span>    perim() <span class="hljs-keyword">float64</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">type</span> Rectangle <span class="hljs-keyword">struct</span> {</span><span>    width, height <span class="hljs-keyword">float64</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-keyword">type</span> Circle <span class="hljs-keyword">struct</span> {</span><span>    radius <span class="hljs-keyword">float64</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span> <span class="hljs-title">area</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {</span><span>    <span class="hljs-keyword">return</span> r.width * r.height</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span> <span class="hljs-title">perim</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {</span><span>    <span class="hljs-keyword">return</span> r.width*<span class="hljs-number">2</span> + r.height*<span class="hljs-number">2</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c Circle)</span> <span class="hljs-title">perim</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {</span><span>    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * math.Pi * c.radius</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">price</span><span class="hljs-params">(t TwoDimensional)</span> <span class="hljs-title">float64</span></span> {</span><span>    <span class="hljs-keyword">return</span> t.area() * <span class="hljs-number">3.5</span></span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{</span><span>    c := Cirlce{<span class="hljs-number">5</span>}</span><span>    fmt.Println(price(c))</span><span>}</span></code></pre>
           <p>Go checks that types satisfy the required interfaces at compile time. For example, the above <code>main</code> function specifies that <code>Circle</code> satisfies the <code>TwoDimensional</code> interface, when in actuality it does not. Thus,
             when you try to compile your program, you will get a compile-time error drawing your attention to the problem.</p>
-          <pre><code class="hljs">cannot use c (type Circle) as type TwoDimensional in argument to price:
-    Circle does not implement TwoDimensional (missing area method)
-</code></pre>
+          <pre><code class="hljs"><span>cannot use c (type Circle) as type TwoDimensional in argument to price:</span><span>    Circle does not implement TwoDimensional (missing area method)</span></code></pre>
           <p>One benefit of using a system where interface implementations need not be stated in the source code is that methods can be attached to types that you didn't write. In other words, you can extend a type to implement an interface without access
             to its source code by simply implementing the interface's method in your own code.</p>
           <p>Some resources to get started with Go interfaces include <a href="https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c">this blog post</a> introducing Go interfaces and code examples on
@@ -531,17 +445,9 @@ v := &lt;-ch <span class="hljs-comment">// Receive from ch, and</span>
             <a href="https://golang.org/doc/faq#Is_Go_an_object-oriented_language">Go's official FAQ on OOP</a>, or this <a href="https://code.tutsplus.com/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540">tutorial on OOP in Go</a>.</p>
           <h3 id="benefit-canonical-coding-style">Benefit: Canonical Coding Style<a class="fa fa-anchor" href="#benefit-canonical-coding-style"></a></h3>
           <p>Formatting in Go is enforced by running <code>go fmt</code>, which will align your source code with the language-wide standard style of indentation and vertical alignment. Thus, given the following code:</p>
-          <pre><code class="hljs go"><span class="hljs-keyword">type</span> T <span class="hljs-keyword">struct</span> {
-    name <span class="hljs-keyword">string</span> <span class="hljs-comment">// name of the object</span>
-    value <span class="hljs-keyword">int</span> <span class="hljs-comment">// its value</span>
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-keyword">type</span> T <span class="hljs-keyword">struct</span> {</span><span>    name <span class="hljs-keyword">string</span> <span class="hljs-comment">// name of the object</span></span><span>    value <span class="hljs-keyword">int</span> <span class="hljs-comment">// its value</span></span><span>}</span></code></pre>
           <p>Running <code>$ go fmt</code> in the same directory as the source file will line up comments and correct the source code's indentation:</p>
-          <pre><code class="hljs go"><span class="hljs-keyword">type</span> T <span class="hljs-keyword">struct</span> {
-    name  <span class="hljs-keyword">string</span> <span class="hljs-comment">// name of the object</span>
-    value <span class="hljs-keyword">int</span>    <span class="hljs-comment">// its value</span>
-}
-</code></pre>
+          <pre><code class="hljs go"><span><span class="hljs-keyword">type</span> T <span class="hljs-keyword">struct</span> {</span><span>    name  <span class="hljs-keyword">string</span> <span class="hljs-comment">// name of the object</span></span><span>    value <span class="hljs-keyword">int</span>    <span class="hljs-comment">// its value</span></span><span>}</span></code></pre>
           <p>Variations on <code>go fmt</code> may be of use, and can be found in the <a href="https://golang.org/cmd/gofmt/">Go documentation</a>.</p>
           <p>Go also enforces good coding practices, for instance, by refusing to build projects that declare of unused variables or imports. Such enforcement, along with a clear, unified and extensive <a href="https://golang.org/doc/effective_go.html">treatise on coding conventions in Go</a>,
             have manifested in a reasonably stable Go coding style.</p>
@@ -586,7 +492,7 @@ v := &lt;-ch <span class="hljs-comment">// Receive from ch, and</span>
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

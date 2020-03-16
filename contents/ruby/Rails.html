@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Ruby on Rails</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -318,36 +327,21 @@
           <p>Let us follow the diagram, and trace the control flow as a Rails app responds to a request by the client. In this example, the client is making a query for all users in the database.</p>
           <h4 id="router">Router<a class="fa fa-anchor" href="#router"></a></h4>
           <p>When Rails receives the URL, it first looks up the
-            <tooltip effect="scale"><template slot="_content">A URI (Uniform Resource Identifier) is a string of characters that are used to identify a resource. URLs are a subset of URIs.</template>
-              <a href>URI</a></tooltip> in the <code>routes.rb</code> file, which defines, by default, all the routes in the application. Each valid URI is mapped to a function located inside a Controller, that is then invoked to provide a response to
-            the request.</p>
+            <span effect="scale" data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A URI (Uniform Resource Identifier) is a string of characters that are used to identify a resource. URLs are a subset of URIs.</span>
+            <a href>URI</a></span> in the <code>routes.rb</code> file, which defines, by default, all the routes in the application. Each valid URI is mapped to a function located inside a Controller, that is then invoked to provide a response to the
+            request.</p>
           <p>In order to achieve this, Rails exposes a convenient abstraction called a &quot;Resource&quot;. A resource can refer to an object upon which you can perform CRUD (create, read, update, and delete) operations. These operations are often invoked
             via a HTTP request of the appropriate request verb (POST, GET, PUT, and DELETE respectively). In order to declare a resource called <code>user</code>, you would mention it inside your <code>routes.rb</code> in the following manner:</p>
-          <pre><code class="hljs ruby">resources <span class="hljs-symbol">:users</span>
-</code></pre>
+          <pre><code class="hljs ruby"><span>resources <span class="hljs-symbol">:users</span></span></code></pre>
           <p>Now, you can check all the routes that you have in your application by running <code>rails routes</code> in the command line. This should include:</p>
-          <pre><code class="hljs">    Prefix Verb   URI Pattern                          Controller#Action
-     users GET    /users(.:format)                     users#index
-           POST   /users(.:format)                     users#create
-  new_user GET    /users/new(.:format)                 users#new
- edit_user GET    /users/:id/edit(.:format)            users#edit
-      user GET    /users/:id(.:format)                 users#show
-           PATCH  /users/:id(.:format)                 users#update
-           PUT    /users/:id(.:format)                 users#update
-           DELETE /users/:id(.:format)                 users#destroy
-</code></pre>
+          <pre><code class="hljs"><span>    Prefix Verb   URI Pattern                          Controller#Action</span><span>     users GET    /users(.:format)                     users#index</span><span>           POST   /users(.:format)                     users#create</span><span>  new_user GET    /users/new(.:format)                 users#new</span><span> edit_user GET    /users/:id/edit(.:format)            users#edit</span><span>      user GET    /users/:id(.:format)                 users#show</span><span>           PATCH  /users/:id(.:format)                 users#update</span><span>           PUT    /users/:id(.:format)                 users#update</span><span>           DELETE /users/:id(.:format)                 users#destroy</span></code></pre>
           <p>As can be seen, the common routes that you would need for the resources have already been mapped to their respective URI's. This is equivalent to manually declaring the 7 resourceful routes for the <code>user</code> resource. By convention,
             Rails will then look for a controller called <code>users_controller.rb</code> and invoke the name of the function mapped to the particular URI and Verb. More information about Rails routes and how they work can be found <a href="https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default">here</a>.</p>
           <h4 id="controller">Controller<a class="fa fa-anchor" href="#controller"></a></h4>
           <p>In the standard Rails convention, once inside the application directory, if you navigate to <code>app/controllers/</code>, you should be able to see all the controllers in your project. Rails will look for the controller with the <code>&lt;name&gt;_controller.rb</code>,
             where <code>&lt;name&gt;</code> would be replaced by the result under the <code>Controller</code> heading in the list of routes above, in this case, <code>users</code>. It will then look for the function name under the <code>Action</code>            heading mapped to the URI function inside the Controller, and then call it. For example, if someone makes a GET request to <code>/users</code>, Rails will then respond by calling the <code>users#index</code> controller action (refer to the
             code below).</p>
-          <pre><code class="hljs ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UsersController</span> &lt; ApplicationController</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span></span>
-    <span class="hljs-comment"># implementation goes here</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
+          <pre><code class="hljs ruby"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UsersController</span> &lt; ApplicationController</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span></span></span><span>    <span class="hljs-comment"># implementation goes here</span></span><span>  <span class="hljs-keyword">end</span></span><span><span class="hljs-keyword">end</span></span></code></pre>
           <center>
             <p><code>users_controller.rb</code> <i>with an </i><code>index</code> <i>method</i></p>
           </center>
@@ -375,18 +369,13 @@
           <p>One of the primary tenets of Ruby was to make it the &quot;Least Surprising Language&quot;, where the language was designed to feel intuitive and perform exactly as a developer would expect. In Rails, even more syntactic sugar is added on top
             of its Ruby foundations, in an effort to optimize for programmer happiness. As a result, Rails code tends to look very &quot;neat&quot; and feels inherently &quot;nice&quot; to write (as subjective as that sounds).</p>
           <p>For example, in order to fetch yesterday's date in Python, one may have to write</p>
-          <pre><code class="hljs python"><span class="hljs-keyword">import</span> datetime
-datetime.datetime.now() - datetime.timedelta(days = <span class="hljs-number">1</span>)
-</code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-keyword">import</span> datetime</span><span>datetime.datetime.now() - datetime.timedelta(days = <span class="hljs-number">1</span>)</span></code></pre>
           <p>The same action in Rails is done using</p>
-          <pre><code class="hljs ruby"><span class="hljs-number">1</span>.day.ago
-</code></pre>
+          <pre><code class="hljs ruby"><span><span class="hljs-number">1</span>.day.ago</span></code></pre>
           <p>Similarly, Rails also added a new method to access an array element. Instead of following the C convention of using square-brackets to access the second element in the array &quot;elements&quot; like</p>
-          <pre><code class="hljs c">elements[<span class="hljs-number">1</span>]
-</code></pre>
+          <pre><code class="hljs c"><span>elements[<span class="hljs-number">1</span>]</span></code></pre>
           <p>Rails developers can use ordinal representation to access the same element with the command</p>
-          <pre><code class="hljs ruby">elements.second
-</code></pre>
+          <pre><code class="hljs ruby"><span>elements.second</span></code></pre>
           <p>And while this may not reduce the amount one has to type, most Rails enthusiasts agree that it makes the code much more readable, easy to work with, and therefore happiness-inducing.</p>
           <h3 id="large-and-active-community-of-developers">Large and Active Community of Developers<a class="fa fa-anchor" href="#large-and-active-community-of-developers"></a></h3>
           <p>The Ruby language has a very passionate and extensive community of developers, and there is a vast array of libraries (called &quot;Gems&quot;), that can be used with your Rails projects. These libraries provide a lot of functionalities, and
@@ -409,8 +398,7 @@ datetime.datetime.now() - datetime.timedelta(days = <span class="hljs-number">1<
             are in JavaScript and its variants, and you will have to juggle multiple languages while you develop your application.</p>
           <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h2>
           <p>To install Rails on your computer, you will first need to install <a href="https://www.ruby-lang.org/en/">Ruby</a>. After this, you simply need to run:</p>
-          <pre><code class="hljs rb">gem install rails
-</code></pre>
+          <pre><code class="hljs rb"><span>gem install rails</span></code></pre>
           <p><code>gem</code> is a package manager for Ruby that allows you to install Rails (as well as all the other Gems in Ruby). Once you're done with the setup, you can start developing applications right away. Here are some resources you might find
             helpful:</p>
           <ol>
@@ -452,7 +440,7 @@ datetime.datetime.now() - datetime.timedelta(days = <span class="hljs-number">1<
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>

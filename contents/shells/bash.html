@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.11.0">
+  <meta name="generator" content="MarkBind 2.12.0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to bash shell</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -113,7 +113,16 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Python</a></li>
+              <li class="mt-2"><button class="dropdown-btn">Python
+ <i class="dropdown-btn-icon">
+<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                  </ul>
+                </div>
+              </li>
               <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
               <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
               <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
@@ -322,44 +331,13 @@
           <p>Bash supports a powerful language for writing scripts, usually referred to as <strong>bash scripts</strong>.</p>
           <p>Bash scripts are able to carry out a range of operations by executing different commands. Let us consider an example: suppose you want to check if a given file exists. The following script will be able to do that; you input the filename and
             it will tell you the answer.</p>
-          <pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash
- </span>
-<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Please input a filename, I will check if the file exists.\n"</span>
-
-<span class="hljs-comment"># waiting for user input.</span>
-<span class="hljs-built_in">read</span> -p <span class="hljs-string">"Input a filename : "</span> filename
-
-<span class="hljs-comment"># check if file exists.</span>
-<span class="hljs-built_in">test</span> ! -e <span class="hljs-variable">$filename</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file '<span class="hljs-variable">$filename</span>' DO NOT EXIST"</span> &amp;&amp; <span class="hljs-built_in">exit</span> 0
-<span class="hljs-built_in">test</span> -f <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"regular file"</span>
-<span class="hljs-built_in">test</span> -d <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"directory"</span>
-
-<span class="hljs-comment"># output result.</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"The file: <span class="hljs-variable">$filename</span> is a <span class="hljs-variable">$filetype</span>"</span>
-</code></pre>
+          <pre><code class="hljs bash"><span><span class="hljs-meta">#!/bin/bash</span></span><span> </span><span><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Please input a filename, I will check if the file exists.\n"</span></span><span>&#x200B;</span><span><span class="hljs-comment"># waiting for user input.</span></span><span><span class="hljs-built_in">read</span> -p <span class="hljs-string">"Input a filename : "</span> filename</span><span>&#x200B;</span><span><span class="hljs-comment"># check if file exists.</span></span><span><span class="hljs-built_in">test</span> ! -e <span class="hljs-variable">$filename</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file '<span class="hljs-variable">$filename</span>' DO NOT EXIST"</span> &amp;&amp; <span class="hljs-built_in">exit</span> 0</span><span><span class="hljs-built_in">test</span> -f <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"regular file"</span></span><span><span class="hljs-built_in">test</span> -d <span class="hljs-variable">$filename</span> &amp;&amp; filetype=<span class="hljs-string">"directory"</span></span><span>&#x200B;</span><span><span class="hljs-comment"># output result.</span></span><span><span class="hljs-built_in">echo</span> <span class="hljs-string">"The file: <span class="hljs-variable">$filename</span> is a <span class="hljs-variable">$filetype</span>"</span></span></code></pre>
           <p>Here is an video demonstration of running the script.</p>
           <p><a href="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF" target="_blank"><img src="https://asciinema.org/a/gGqI8rPSGTRM7Ndot7B6aLNEF.svg" alt="check-file" style="width:500px;height:320px;"></a></p>
           <p>The above bash script is still just a collection of bash commands; this means you can get the same result by typing those commands one at a time. However, the true advantage of using a bash script is due to its support for <code>conditionals</code>,
             <code>loops</code> and <code>functions</code>.</p>
           <p>The following is an example of a bash script that make use of conditionals and loops. Suppose you want to let the user input a directory name, check if it exists, and then output the write permission for all files inside that directory.</p>
-          <pre><code class="hljs bash"><span class="hljs-meta">#!bin/bash
-</span>
-<span class="hljs-comment"># read user input and check if directory exists.</span>
-<span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please enter a directory name: "</span> dir
-<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> == <span class="hljs-string">""</span> -o ! -d <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> ]; <span class="hljs-keyword">then</span>
-  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The <span class="hljs-variable">$dir</span> is NOT exist in your system"</span>
-  <span class="hljs-built_in">exit</span> 1
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-comment"># output permissions for each of the file under the directory.</span>
-filelist=$(ls <span class="hljs-variable">$dir</span>)
-<span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> <span class="hljs-variable">$filelist</span>
-<span class="hljs-keyword">do</span> 
-  perm=<span class="hljs-string">"readable"</span>
-  <span class="hljs-built_in">test</span> -w <span class="hljs-string">"<span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span>"</span> &amp;&amp; perm=<span class="hljs-string">"<span class="hljs-variable">$perm</span> writable"</span>
-  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file <span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span> 's permission is <span class="hljs-variable">$perm</span>"</span> 
-<span class="hljs-keyword">done</span>
-</code></pre>
+          <pre><code class="hljs bash"><span><span class="hljs-meta">#!bin/bash</span></span><span>&#x200B;</span><span><span class="hljs-comment"># read user input and check if directory exists.</span></span><span><span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please enter a directory name: "</span> dir</span><span><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> == <span class="hljs-string">""</span> -o ! -d <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span> ]; <span class="hljs-keyword">then</span></span><span>  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The <span class="hljs-variable">$dir</span> is NOT exist in your system"</span></span><span>  <span class="hljs-built_in">exit</span> 1</span><span><span class="hljs-keyword">fi</span></span><span>&#x200B;</span><span><span class="hljs-comment"># output permissions for each of the file under the directory.</span></span><span>filelist=$(ls <span class="hljs-variable">$dir</span>)</span><span><span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> <span class="hljs-variable">$filelist</span></span><span><span class="hljs-keyword">do</span> </span><span>  perm=<span class="hljs-string">"readable"</span></span><span>  <span class="hljs-built_in">test</span> -w <span class="hljs-string">"<span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span>"</span> &amp;&amp; perm=<span class="hljs-string">"<span class="hljs-variable">$perm</span> writable"</span></span><span>  <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file <span class="hljs-variable">$dir</span>/<span class="hljs-variable">$filename</span> 's permission is <span class="hljs-variable">$perm</span>"</span> </span><span><span class="hljs-keyword">done</span></span></code></pre>
           <p>Here is an video demonstration of the script in action.</p>
           <p><a href="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM" target="_blank"><img src="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM.svg" alt="check-permission" style="width:500px;height:320px;"></a></p>
           <p><strong>Functions</strong> in bash scripts are just like functions in normal programming languages. More information about bash scripts can be found <a href="https://www.gnu.org/software/bash/manual/html_node/">here</a>.</p>
@@ -367,26 +345,15 @@ filelist=$(ls <span class="hljs-variable">$dir</span>)
           <p>In Linux, you can <em>redirect</em> the output of one application to the input of another, combining the two applications together as if there is a <em>pipe</em> between them. In fact, Linux can <em>pipe</em> data between programs, files, and
             input/output devices seamlessly. You can take advantage of these abilities in your shell commands/scripts to perform complex tasks with just a few commands.</p>
           <p>For example, suppose you wrote an executable <code>calculate</code> that takes in a user input, does a calculation, and gives the output. To run it, you simply type:</p>
-          <pre><code class="hljs bash">./calculate
-</code></pre>
+          <pre><code class="hljs bash"><span>./calculate</span></code></pre>
           <p>However, you do not want to manually test this program. Instead, you want to test with a larger data set known as <code>DataBundle</code>. You verify the output with another executable <code>verify</code>, which takes in the result as input,
             verifies its correctness and outputs <strong>PASS</strong> or <strong>FAIL</strong>. Here's how we can do it.</p>
-          <pre><code class="hljs bash">./calculate &lt; DataBundle &gt; result
-./verify &lt; result
-</code></pre>
+          <pre><code class="hljs bash"><span>./calculate &lt; DataBundle &gt; result</span><span>./verify &lt; result</span></code></pre>
           <p>Notice in this case, <code>calculate</code> uses the data in <code>DataBundle</code> as input, and output the results to the file <code>result</code>. Then, <code>result</code> is taken as input to <code>verify</code>, and the final verification
             result is printed on screen.</p>
           <p>Furthermore, if the code of <code>calculate</code> is buggy, it throws an exception and the error message will be redirected to the error output. As a result, our result file will be empty! In order to handle this properly, we can also redirect
             our error output to a file <code>errors</code>, and verify that it is empty (so that no errors have occurred during execution) before we execute <code>verify</code>.</p>
-          <pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
-./calculate &lt; DataBundle &gt; result 2&gt; errors
-<span class="hljs-keyword">if</span> [ -s errors ]
-<span class="hljs-keyword">then</span>
-     ./verify &lt; result
-<span class="hljs-keyword">else</span>
-     <span class="hljs-built_in">echo</span> <span class="hljs-string">"error occured during execution."</span>
-<span class="hljs-keyword">fi</span>
-</code></pre>
+          <pre><code class="hljs bash"><span><span class="hljs-meta">#!/bin/bash</span></span><span>./calculate &lt; DataBundle &gt; result 2&gt; errors</span><span><span class="hljs-keyword">if</span> [ -s errors ]</span><span><span class="hljs-keyword">then</span></span><span>     ./verify &lt; result</span><span><span class="hljs-keyword">else</span></span><span>     <span class="hljs-built_in">echo</span> <span class="hljs-string">"error occured during execution."</span></span><span><span class="hljs-keyword">fi</span></span></code></pre>
           <p>Furthermore, you can use the <code>|</code> symbol to chain various Linux commands together such that the output of the previous commands is passed as input to the next command.</p>
           <p>The following example make use of shell commands <a href="http://man7.org/linux/man-pages/man1/ps.1.html">ps</a> and <a href="http://man7.org/linux/man-pages/man1/grep.1.html">grep</a>. ps displays information about a selection of the active
             processes and grep searches for the pattern in the given input.</p>
@@ -415,26 +382,7 @@ filelist=$(ls <span class="hljs-variable">$dir</span>)
           <p>In addition, you can always use the <a href="https://en.wikipedia.org/wiki/Man_page"><code>man</code></a> command to find more information about a bash command. For example, the command <code>man grep</code> will give you the built-in help page
             about the <code>grep</code> command. These help pages are written in a programmer-friendly format and are very comprehensive.</p>
           <p>Below is an example showing the man page for <code>grep</code> command.</p>
-          <pre><code class="hljs">GREP(1)                   BSD General Commands Manual                  GREP(1)
-
-NAME
-     grep, egrep, fgrep, zgrep, zegrep, zfgrep -- file pattern searcher
-
-SYNOPSIS
-     grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
-          [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
-          [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
-          [--null] [pattern] [file ...]
-
-DESCRIPTION
-     The grep utility searches any given input files, selecting lines that
-     match one or more patterns.  By default, a pattern matches an input line
-     if the regular expression (RE) in the pattern matches the input line
-     without its trailing newline.  An empty expression matches every line.
-     Each input line that matches at least one of the patterns is written to
-     the standard output ......
-
-</code></pre>
+          <pre><code class="hljs"><span>GREP(1)                   BSD General Commands Manual                  GREP(1)</span><span>&#x200B;</span><span>NAME</span><span>     grep, egrep, fgrep, zgrep, zegrep, zfgrep -- file pattern searcher</span><span>&#x200B;</span><span>SYNOPSIS</span><span>     grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]</span><span>          [-e pattern] [-f file] [--binary-files=value] [--color[=when]]</span><span>          [--colour[=when]] [--context[=num]] [--label] [--line-buffered]</span><span>          [--null] [pattern] [file ...]</span><span>&#x200B;</span><span>DESCRIPTION</span><span>     The grep utility searches any given input files, selecting lines that</span><span>     match one or more patterns.  By default, a pattern matches an input line</span><span>     if the regular expression (RE) in the pattern matches the input line</span><span>     without its trailing newline.  An empty expression matches every line.</span><span>     Each input line that matches at least one of the patterns is written to</span><span>     the standard output ......</span><span>&#x200B;</span></code></pre>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
@@ -458,7 +406,7 @@ DESCRIPTION
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.11.0</a> on Fri, 06 Mar 2020 10:32:33 GMT]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Mon, Mar 16, 2020, 12:11:08 PM UTC]</small></div>
     </footer>
   </div>
 </body>
