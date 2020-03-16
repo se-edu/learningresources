@@ -17,19 +17,18 @@
 
 <box id="article-toc">
 
-* [Introduction to Xamarin](#introduction-to-xamarin)
-    * [What is Xamarin‎](#what-is-xamarin)
-    * [How Xamarin works](#how-xamarin-works)
-        * [Xamarin.Android and Xamarin.iOS](#xamarin.android-and-xamarin.ios)
-        * [Xamarin.Forms](#xamarin.forms)
-        * [Xamarin.Essentials](#xamarin.essentials)
-    * [Why Xamarin‎](#why-xamarin)
-        * [Complete binding for underlying SDKs](#complete-binding-for-underlying-sdks)
-        * [Objective-C, Java, C, and C++ Interop](#objective-c-java-c-and-c-interop)
-        * [Modern language constructs and robust Base Class Library](#modern-language-constructs-and-robust-base-class-library)
-        * [Mobile cross-platform support](#mobile-cross-platform-support)
-        * [Modern Integrated Development Environment (IDE)](#modern-integrated-development-environment-ide)
-    * [How to get started‎](#how-to-get-started)
+* [What is Xamarin‎](#what-is-xamarin)
+* [How Xamarin works](#how-xamarin-works)
+    * [Xamarin.Android and Xamarin.iOS](#xamarin.android-and-xamarin.ios)
+    * [Xamarin.Forms](#xamarin.forms)
+    * [Xamarin.Essentials](#xamarin.essentials)
+* [Why Xamarin‎](#why-xamarin)
+    * [Complete binding for underlying SDKs](#complete-binding-for-underlying-sdks)
+    * [Objective-C, Java, C, and C++ Interop](#objective-c-java-c-and-c-interop)
+    * [Modern language constructs and robust Base Class Library](#modern-language-constructs-and-robust-base-class-library)
+    * [Mobile cross-platform support](#mobile-cross-platform-support)
+    * [Modern Integrated Development Environment (IDE)](#modern-integrated-development-environment-ide)
+* [How to get started‎](#how-to-get-started)
 </box>
 
 ## What is Xamarin
@@ -41,6 +40,7 @@
 Here is an overview of the architecture of a cross-platform Xamarin application.
 
 ![Architecture of Xamarin](xamarin-forms-architecture.png)
+*Figure 1. Overview of the architecture of a cross-platform Xamarin Application*
 
 Xamarin allows developers to create native UI on each platform and write business logic in C# that is shared across platforms. In most cases, 80% of application code is sharable using Xamarin. A typical cross-platform Xamarin project consists of three sub-projects: **Shared Code, Xamarin.Android, and Xamarin.iOS**.
 
@@ -95,6 +95,7 @@ namespace AppName {
 The page is rendered differently into native controls:
 
 ![Screenshot of MainPage](xamarin-forms-screenshot.png)
+*Figure 2. Screenshots of the rendered sample page on Android and iOS respectively*
 
 ### Xamarin.Essentials
 
