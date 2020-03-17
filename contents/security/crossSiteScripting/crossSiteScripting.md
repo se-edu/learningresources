@@ -21,7 +21,7 @@ Cross Site Scripting (XSS) is the most exploited web application vulnerability i
 
 XSS is a type of injection, in which malicious code are injected into trusted websites. XSS flaws that allow these attacks to happen are widespread and can occur anywhere a web application uses input from a user to generate an output on the website without validating it or encoding it. 
 
-## Why do You Need to Know About XSS?
+## Why Do You Need to Know About XSS?
 As software engineers, or aspiring software engineers, it is highly likely that we will build web applications. It is important to know how we can protect our web applications against XSS, so that it will not become a tool for attackers.
 
 ## How Does XSS Work?
