@@ -137,7 +137,7 @@ Let us say you want to check the status of process `p` running on your system. T
 
 A more detailed introduction to I/O stream redirection can be found [here](https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection).
 
-## Why use the Shell?
+## Why Use the Shell?
 
 A common question many people ask is: Why type commands in a shell when we can do the same things using GUI applications? Here are some reasons:
 
