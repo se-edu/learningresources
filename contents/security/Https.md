@@ -37,7 +37,7 @@ could redirect your traffic for monitoring.
 
 All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application. Therefore, we need to use HTTPS as an end to end encryption to secure our network packets.
 
-### Why HTTPS is Secure?
+### Why Is HTTPS Secure?
 
 As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of [SSL][10] to encrypt the plain text message. The purpose of this encryption is to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.
 
