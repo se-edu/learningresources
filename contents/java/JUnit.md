@@ -254,7 +254,7 @@ If this introduction has got you interested in using JUnit, do check out the fol
 </div>
 
 <modal id="modal:affectEachOther">
-  <div slot="modal-header" class="modal-title text-center">
+  <div slot="header" class="modal-title text-center">
     <h4>How will tests affect each other?</h4>
   </div>
   <p>If we do not reset a shared resource (e.g. databse / file), a test that uses the resource permanently changes the resource. As a result, other tests cannot assume anything about the initial state of this resource.</p>
