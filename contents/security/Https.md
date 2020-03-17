@@ -24,7 +24,7 @@ HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sni
 - [How to set up HTTPS](#how-to-set-up-https)
 - [Misuse of HTTPS](#misuse-of-https)
 
-### Why do We Need HTTPS?
+### Why Do We Need HTTPS?
 
 The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such as the password or [session tokens][2]. Here are some examples on how a plain text could be sniffed.
 
