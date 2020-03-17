@@ -164,7 +164,7 @@ You can also consider using XSS scanning tools to check whether your web applica
 1. http://w3af.org/ (Web Application Attack and Audit Framework)
 1. https://www.arachni-scanner.com/ (Web Application Security Scanner Framework)
 
-## Where to go From Here?
+## Where to Go From Here?
 
 Although XSS is the most common web application vulnerability, there are also many other types of vulnerabilities. It is important to be aware of them to properly secure your web application. Given below is a summary of web application vulnerabilities (for the full report see <a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">here</a>):
 
