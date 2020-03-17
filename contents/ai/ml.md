@@ -20,7 +20,7 @@ Authors: [Alex Fong](https://github.com/alexfjw)
     - [Supervised Learning](#supervised-learning)
     - [Unsupervised Learning](#unsupervised-learning)
   - [Types of Data](#types-of-data)
-- [How ML is Applied](#how-ml-is-applied)
+- [How is ML Applied](#how-ml-is-applied)
   - [Prototyping Platforms and Tools](#prototyping-platforms-and-tools)
   - [Prototyping Workflow](#prototyping-workflow)
   - [Basic Data Preprocessing](#basic-data-preprocessing)
@@ -103,7 +103,7 @@ Data is broadly split into 2 categories, *structured* and *unstructured*.
 
 The distinction between the types of data is important as ML algorithms are not always compatible with both data types. For example, [Decision trees](https://en.wikipedia.org/wiki/Decision_tree) cannot be used for unstructured data. Data must be modified to a structured form for use with decision tree related algorithms.
 
-## How Machine Learning is Applied?
+## How is Machine Learning Applied?
 Bringing a machine learning algorithm to production requires a workflow which differs greatly from that of software engineering. This is due to a focus on prototyping.  
 
 Prototyping is required as ML algorithms vary in efficacy when used in different domains, each domain containing data of a different nature.
