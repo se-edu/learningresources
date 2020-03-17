@@ -97,7 +97,7 @@ Some examples of cryptographic <trigger for="pop:hashing-algo">hashing algorithm
 
 For example, a simple hashing algorithm that acts on numbers could add up all the digits in that number. This would mean hashing the number `1013` would result in 1+0+1+3 = `5`. Hashing the number `761` would result in `14`. Note that after hashing the number, there is no way to regain back the original number - data about the original number (such as number and position of digits) have been irrevocably lost in the process. Additionally, many different numbers could result in the same hash. For example, the numbers `101` and `20` both result in the hash of `2`. This is called a _hash collision_. A good hashing algorithm attempts to minimize the amount of hash collisions such that the probability of it happening is close to 0. In the case of the MD5 algorithm, the probability of a hash collision given any two inputs is 1 in 2<sup>128</sup> which is 1 in 340,282,366,920,938,463,463,374,607,431,768,211,456.
 
-### Why isn't Hashing Enough?
+### Why Isn't Hashing Enough?
 
 A _[rainbow table](https://en.wikipedia.org/wiki/Rainbow_table)_ is a precomputed table of hashes for some set of passwords. Basically, people build huge tables of hashes wherein the plaintext is already known, so that attempting to crack hashes becomes a simple problem of looking up the hash in the table and its corresponding value, instead of attempting to reverse the hash. Through this method, it is very easy to crack simple hashes by simply doing a lookup.
 
