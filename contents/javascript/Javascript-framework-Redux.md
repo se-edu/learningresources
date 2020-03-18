@@ -181,8 +181,8 @@ _Redux DevTools_ <sup>[image source](https://user-images.githubusercontent.com/7
 Using Redux makes for testable code. Since the reducers used to change the state are pure functions, it is easy make tests. Writing small, pure and isolated reducer functions in Redux, means we write small and isolated tests. For example, to test for the behavior of reducers, we simply write a reducer function, defining its arguments: current state and the action. Then we write our expected output, and compare whether the reducer returns what is expected. You may learn more about testing in this [page](https://redux.js.org/recipes/writing-tests/).
 
 <!-- TODO: either consider replacing this with a simpler and more key point or explain SSR more -->
-4. **Allows for server-side rendering**<br/>
-Redux is one way to fulfill server-side rendering. This can be acheived by sending the store created on the server side in response to the client's server request. Information from the store then can be used for the initial render of the application. 
+4. **Redux is extensible**<br/>
+Redux, while being a small library, has an [ecosystem of tools, extensions and open source libraries](https://redux.js.org/introduction/ecosystem). These are not compulsary to use, but can make it easier to solve problems that modern web applications face. Through the use of Redux, and some libraries within its ecosystem, we can fulfill <tooltip content="**Server-side rendering (SSR)** is a popular technique where you render the application on the server and then send a fully rendered page to the client.">[server-side rendering](https://redux.js.org/recipes/server-rendering)</tooltip>, and handle <tooltip content="**Asynchronous action**, are actions that run in parallel; they do not block. It is very common in web applications, because most applications fetch some kind of resource from an API.">[asynchronous actions](https://redux.js.org/advanced/async-actions)</tooltip>.
 
 ## When Not to Use Redux?
 
