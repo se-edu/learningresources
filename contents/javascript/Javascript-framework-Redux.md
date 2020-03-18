@@ -152,8 +152,8 @@ function todoApp(state = {}, action) {
 A careful eye would notice that the above code block examples on reducers are not pure functions. If you're interested, you may see how the reducer should actually be written in the [official Redux site](https://redux.js.org/basics/reducers/#source-code). The code in the link includes some Redux API, and Javascript methods such as [`.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to make the functions pure. But knowing the actual syntax for Redux is not the main focus of this introductory article.
 
 Finally, take note that there are no direct setters to the store, and the store is read-only. The only way the **store** is updated is through a strict unidirection data flow where: 
-1. **Actions** are dispatched
-1. Together with the current state read from the **Store**, is passed into **Reducers**, which returns the new state.  
+1. An **Action** is dispatched and,
+1. Together with the current state read from the **Store**, is passed into a **Reducer**, which returns the new state.  
 
 ## Why Use Redux? 
 
