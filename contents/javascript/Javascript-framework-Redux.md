@@ -84,7 +84,7 @@ The whole application state is stored in a single **store**, a plain object.
 ```
 
 <!-- TODO: no direct setters could be explained after introducing actions and reducers so that the reader has something to compare to, perhaps in a tip box -->
-There are no direct setters to the store. The store is read-only. Information in the store is used for various application functionality, such as the App UI. For example, based on the array under `todos`, we can render a to-do list of tasks. Based on the `visibilityFilter`, the application decides whether to render incompleted tasks. 
+Information in the store is used for various application functionality, such as the App UI. For example, based on the array under `todos`, we can render a to-do list of tasks. Based on the `visibilityFilter`, the application decides whether to render incompleted tasks. 
 
 The only way to change data in the state is by dispatching an **action**, which is a plain object as well. Actions must have a `type` property indicating the type of action being performed.
 
@@ -151,6 +151,10 @@ function todoApp(state = {}, action) {
 
 A careful eye would notice that the above code block examples on reducers are not pure functions. If you're interested, you may see how the reducer should actually be written in the [official Redux site](https://redux.js.org/basics/reducers/#source-code). The code in the link includes some Redux API, and Javascript methods such as [`.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to make the functions pure. But knowing the actual syntax for Redux is not the main focus of this introductory article.
 
+Finally, take note that there are no direct setters to the store, and the store is read-only. The only way the **store** is updated is through a strict unidirection data flow where: 
+1. **Actions** are dispatched
+1. Together with the current state read from the **Store**, is passed into **Reducers**, which returns the new state.  
+
 ## Why Use Redux? 
 
 <sup>[[1]](#footnote1)</sup> <sup>[[2]](#footnote2)</sup> 
@@ -158,7 +162,7 @@ A careful eye would notice that the above code block examples on reducers are no
 Now that we know what Redux is, let us take a look at how the structure of Redux and its concepts make possible some benefits.
 
 1. **State is made predictable**<br/>
-In Redux, the single immutable store is the single source of truth for application state. Neither the view of the application, nor network callbacks directly write to it. Changes to the state are via actions, which Redux centralizes and keep in strict order. Also, reducers are pure functions, always producing the same result for the same state and action. 
+In Redux, the single immutable store is the single source of truth for application state. Neither the view of the application, nor network callbacks directly write to it. Changes to the state are via actions, which Redux centralizes and keep in strict order via the unidirection data flow. Also, reducers are pure functions, always producing the same result for the same state and action. 
 <br/><br/>Hence application state is updated in a predictable and structured manner. Having a predictable state, makes it easier to implement functionality that would be otherwise difficult, such as <tooltip content="The general idea is to store the history of the state in the state! To read more, click the link.">[Undo and Redo](https://redux.js.org/recipes/implementing-undo-history/)</tooltip>.
 
 2. **Easier to debug and inspect**<br/>
@@ -171,17 +175,16 @@ Since actions and state are plain objects, it is possible to serialize them and 
 _Redux DevTools_ <sup>[image source](https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png)</sup>
 </center>
 
-<!-- TODO: Research how to make easy tests for Redux -->
 3. **Easier testing**<br/>
-Using Redux makes for testable code. Since the reducers used to change the state are pure functions, it is easy make tests. Writing small, pure and isolated reducer functions in Redux, means we write small and isolated tests. 
+Using Redux makes for testable code. Since the reducers used to change the state are pure functions, it is easy make tests. Writing small, pure and isolated reducer functions in Redux, means we write small and isolated tests. For example, to test for the behavior of reducers, we simply write a reducer function, defining its arguments: current state and the action. Then we write our expected output, and compare whether the reducer returns what is expected. You may learn more about testing in this [page](https://redux.js.org/recipes/writing-tests/).
 
 <!-- TODO: either consider replacing this with a simpler and more key point or explain SSR more -->
 4. **Allows for server-side rendering**<br/>
-Redux is one way to fulfill server-side rendering. This can be acheived by sending the store created on the server side in response to the client's server request. Information from the store then can be used for the initial render of the application.
+Redux is one way to fulfill server-side rendering. This can be acheived by sending the store created on the server side in response to the client's server request. Information from the store then can be used for the initial render of the application. 
 
 ## When Not to Use Redux?
 
-While Redux has its benefits, you should not add Redux for every application you make.
+While Redux has its benefits, you should not add Redux for every application you make. You might be still getting experienced with your frontend framework for a project of yours, and adding Redux adds complexity because there is another set of concepts and practices to take note.
 
 In general, it would be apt to use Redux is when:
 
@@ -189,9 +192,9 @@ In general, it would be apt to use Redux is when:
 1. You need a single source of truth
 1. You find keeping everything in a top-level parent component is not enough
 
-Another good rule of thumb is to figure out if you have any problems managing state in your application without Redux. If you don't have any, then you don't really need Redux <popover effect="scale" header="As said by Dan Abramov (one of the creators of Redux)" content="_I would like to amend this: don't use Redux until you have problems with vanilla React._">If you don't have any, then you don't really need Redux.</popover>
+Another good rule of thumb is to figure out if you have any problems managing state in your application without Redux. <popover effect="scale" header="As said by Dan Abramov (one of the creators of Redux)" content="_I would like to amend this: don't use Redux until you have problems with vanilla React._">If you don't have any, then you don't really need Redux.</popover>
 
-There are many other sites and articles speaking of why you shouldn't or when you shouldn't use Redux. If you are interested, there are articles <sup>[[3]](#footnote3)</sup> <sup>[[4]](#footnote4)</sup> that provide more information and thoughts on when Redux is meant to be used.
+There are many other articles on why you shouldn't or when you shouldn't use Redux. If you are interested, some articles <sup>[[3]](#footnote3)</sup> <sup>[[4]](#footnote4)</sup> are available at the end of this page for further reading.
 
 ## Getting Started with Redux
 
