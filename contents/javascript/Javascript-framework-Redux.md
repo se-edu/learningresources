@@ -16,6 +16,10 @@
 **Author: [Labayna Neil Brian Narido](https://github.com/nbriannl)** <br>
 Reviewers: [Ang Ze Yu](https://www.github.com/ang-zeyu), [Yash Chowdhary](https://www.github.com/yash-chowdhary), [James Pang Mun Wai](https://www.github.com/jamessspanggg)
 
+<box type="info" light>
+  This chapter does <b>not</b> assume the reader has knowledge of frontend frameworks. However, knowing a frontend framework, such as <a href="{{baseUrl}}/contents/javascript/Javascript-framework-React.html">React</a> can lead to a better understanding of this chapter.
+</box>
+
 <!-- update table of contents here -->
 <box id="article-toc">
 
