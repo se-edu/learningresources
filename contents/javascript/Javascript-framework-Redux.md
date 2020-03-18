@@ -83,7 +83,6 @@ The whole application state is stored in a single **store**, a plain object.
 }
 ```
 
-<!-- TODO: no direct setters could be explained after introducing actions and reducers so that the reader has something to compare to, perhaps in a tip box -->
 Information in the store is used for various application functionality, such as the App UI. For example, based on the array under `todos`, we can render a to-do list of tasks. Based on the `visibilityFilter`, the application decides whether to render incompleted tasks. 
 
 The only way to change data in the state is by dispatching an **action**, which is a plain object as well. Actions must have a `type` property indicating the type of action being performed.
@@ -94,8 +93,7 @@ The only way to change data in the state is by dispatching an **action**, which 
 { type: 'SET_VISIBILITY_FILTER', filter: 'SHOW_ALL' }
 ```
 
-<!-- TODO: What else other than UI fire off actions? -->
-User interactions in the application, such as button click events, can correspond to actions. For example, in our to-do list application, filling up 'Go to swimming pool' and clicking a 'Add To-do' button would correspond to a `ADD_TODO` action. 
+Actions can be dispatched from user interactions in the application, such as button click events. For example, in our to-do list application, an `ADD_TODO` action could be dispatched when our the user fills up a task 'Go to swimming pool' and clicks an 'Add To-do' button.
 
 The current state, and an action is passed into a **reducer**, a function which returns the next state of the application
 
