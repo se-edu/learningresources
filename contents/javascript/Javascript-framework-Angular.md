@@ -16,6 +16,20 @@
 **Author: [Ronak Lakhotia](https://github.com/RonakLakhotia)**                                                              
 Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng](https://github.com/jacoblipech)
 
+<box id="article-toc"> 
+
+* [What is Angular?‎](#what-is-angular)
+  * [Declarative Templates and Components‎](#declarative-templates-and-components)
+  * [Dependency Injection‎](#dependency-injection)
+* [Why use Angular?‎](#why-use-angular)
+  * [Benefit 1: Good Tooling Services‎](#benefit-1-good-tooling-services)
+  * [Benefit 2: Cross-Platform Development‎](#benefit-2-cross-platform-development)
+  * [Benefit 3: Two-way Data Binding‎](#benefit-3-two-way-data-binding)
+* [Disadvantages of Angular‎](#disadvantages-of-angular)
+* [Comparison with Other Popular Frontend Frameworks‎](#comparison-with-other-popular-frontend-frameworks)
+* [Getting Started With Angular‎](#getting-started-with-angular)
+</box>
+
 ## What is Angular?
 
 The [official website](https://angular.io/docs) describes Angular as follows:
