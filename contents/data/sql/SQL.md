@@ -17,6 +17,15 @@
 
 Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Rahul Rajesh](https://github.com/rrtheonlyone)
 
+<box id="article-toc">
+
+* [What is SQL?‎](#what-is-sql)
+  * [How does SQL work?‎](#how-does-sql-work)
+* [Why learn SQL?‎](#why-learn-sql)
+* [Disadvantage‎](#disadvantage)
+* [How to get started with SQL?‎](#how-to-get-started-with-sql)
+</box>
+
 ## What is SQL?
 
 A Relational Database Management System (RDBMS) is a popular database solution used by software applications to manage their data.
