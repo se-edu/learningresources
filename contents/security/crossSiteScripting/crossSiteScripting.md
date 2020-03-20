@@ -16,6 +16,18 @@
 
 Reviewers: [Bryan Lew](https://github.com/blewjy), [Jeremy Choo](https://github.com/ChooJeremy), [Heng Le](https://github.com/initialshl)
 
+<box id="article-toc">
+
+* [What is XSS?‎](#what-is-xss)
+* [Why do you need to know about XSS?‎](#why-do-you-need-to-know-about-xss)
+* [How does XSS work?‎](#how-does-xss-work)
+* [Types of XSS‎](#types-of-xss)
+* [Well-Known XSS Incidents‎](#well-known-xss-incidents)
+* [How to prevent XSS?‎](#how-to-prevent-xss)
+* [Where to go from here?‎](#where-to-go-from-here)
+* [Resources‎](#resources)
+</box>
+
 ## What is XSS?
 Cross Site Scripting (XSS) is the most exploited web application vulnerability in 2017 (based on a <a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">report</a> in 2018). XSS vulnerabilities have been reported and exploited since the 1990s. Prominent sites affected in the past include social-networking sites <a href="https://www.symantec.com/connect/blogs/persistent-xss-vulnerability-facebook" target="_blank">Facebook</a> and <a href="https://www.acunetix.com/blog/articles/dangerous-xss-vulnerability-found-on-youtube-the-vulnerability-explained/" target="_blank">Youtube</a>.
 
