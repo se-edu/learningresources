@@ -16,6 +16,24 @@
 **Author: [Aadyaa Maddi](https://github.com/amad-person)** <br>
 Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin)
 
+<box id="article-toc">
+
+* [What is React?‎](#what-is-react)
+* [React Features‎](#react-features)
+  * [Declarative Framework‎](#declarative-framework)
+  * [Components‎](#components)
+  * [One-Way Data Binding‎](#one-way-data-binding)
+* [Why use React?‎](#why-use-react)
+  * [Benefit 1: Better Performance‎](#benefit-1-better-performance)
+  * [Benefit 2: Abstraction‎](#benefit-2-abstraction)
+  * [Benefit 3: Testability‎](#benefit-3-testability)
+  * [Other Advantages of React‎](#other-advantages-of-react)
+* [Disadvantages of React‎](#disadvantages-of-react)
+* [React and Other Competing Alternatives‎](#react-and-other-competing-alternatives)
+* [Getting Started With React‎](#getting-started-with-react)
+* [Resources‎](#resources)
+</box>
+
 ## What is React?
 
 The [official website](https://reactjs.org/tutorial/tutorial.html#what-is-react) describes React as follows:
