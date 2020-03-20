@@ -14,18 +14,20 @@
 # Introduction to computer vision (CV)
 Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
-* [What is CV](#what-is-cv)
-   * [Applications of CV](#applications-of-cv)
-   * [Typical CV tasks](#typical-cv-tasks)
-* [Core problems in CV](#core-problems-in-cv)
-   * [Image Transformations](#image-transformations)
-   * [Image Classification](#image-classification)
-   * [Object Detection](#object-detection)
-   * [Object Tracking](#object-tracking)
-* [GPU-accelerated CV](#gpu-accelerated-cv)
-* [What's next](#whats-next)
-* [References](#references)
+<box id="article-toc">
 
+* [What is CV‎](#what-is-cv)
+  * [Applications of CV‎](#applications-of-cv)
+  * [Typical CV tasks‎](#typical-cv-tasks)
+* [Core problems in CV‎](#core-problems-in-cv)
+  * [Image Transformations‎](#image-transformations)
+  * [Image Classification‎](#image-classification)
+  * [Object Detection‎](#object-detection)
+  * [Object Tracking‎](#object-tracking)
+* [GPU-accelerated CV‎](#gpu-accelerated-cv)
+* [What's next‎](#what-s-next)
+* [References‎](#references)
+</box>
 
 ## What is CV
 Computer vision (CV) is a field of study of computer science concerning with the theories and technologies in building computer systems that can derive useful information from visual data. CV is a prominent field of study nowadays as it allows computers to autonomously solve problems that otherwise require human sight.<sup>[[1]](#footnote1)</sup> One notable example of such problems can be seen in smart traffic cameras that can extract car plates information from video feeds, a task that without computer vision would require a human to view the feeds and manually enter the cars' license numbers.<sup>[[14]](#footnote14)</sup>
