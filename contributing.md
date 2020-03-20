@@ -31,6 +31,7 @@ You can also add new topics or update existing content:
 
 ## Guidelines for Writing Content
 
+* **Do include a table of contents.** A table of contents tells the reader what to expect, such as how long the article is or what content is covered. It breaks up writing into managable, easily digestable chunks and serves as a reference that makes it easier to jump around from section to section. In our case, we only show the table of contents for mobile users and for printing as Markbind already provides a navigation panel on the right side of every article. If you have programming experience, feel free to refer to the markdown file for [_Introduction to Go_](https://raw.githubusercontent.com/se-edu/learningresources/master/contents/go/Go.md) on how to implement this behavior. Otherwise, do include a table of contents in the document you send us.
 * **It is not a normal textbook. It’s a collection of articles**, each containing a **_curated_** list of **_tried-and-tested_** learning resources, **_organized_** in a meaningful sequence, with **_commentary_**.
   * The article can be on any technical topic useful for SE students.
   * Don’t try to follow the structure of normal textbooks.
