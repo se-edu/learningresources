@@ -16,6 +16,18 @@
 **Author: [Jeremy Choo](https://github.com/ChooJeremy)** <br>
 Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https://github.com/marvinchin), [Tan Zhen Yong](https://github.com/Xenonym), [Wang Junming](https://github.com/junming403)
 
+<box id="article-toc">
+
+* [Overview‎](#overview)
+* [Encryption‎](#encryption)
+* [Hashing‎](#hashing)
+  * [Why isn't hashing enough?‎](#why-isn-t-hashing-enough)
+* [Salting‎](#salting)
+  * [What if there is a server breach?‎](#what-if-there-is-a-server-breach)
+* [Getting started‎](#getting-started)
+* [Other resources‎](#other-resources)
+</box>
+
 ## Overview
 
 Many software applications use a username and password combination as user account credentials for authentication. Obviously, it is not a good idea for the software to store these credentials as <trigger for="pop:plaintext">plain text</trigger> because if someone else were to gain access to them either lawfully (e.g., an employee who has access to the data) or unlawfully (e.g., someone hacking into the data storage), that person can use those credentials directly to impersonate the account owner. This article explains some techniques that can be used to store user credentials more securely:
