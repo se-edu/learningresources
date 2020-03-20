@@ -15,6 +15,23 @@
 
 Author: Rachael Sim
 
+<box id="article-toc">
+
+* [What is Node?‎](#what-is-node)
+* [Why use Node?‎](#why-use-node)
+  * [Benefit 1: Easy to get Started‎](#benefit-1-easy-to-get-started)
+  * [Benefit 2: Avoid Synchronization Problems and Overheads‎](#benefit-2-avoid-synchronization-problems-and-overheads)
+  * [Benefit 3: Fast for I/O Intensive Tasks‎](#benefit-3-fast-for-i-o-intensive-tasks)
+  * [Benefit 4: Use JavaScript for Both Front and Back-end Development‎](#benefit-4-use-javascript-for-both-front-and-back-end-development)
+  * [Benefit 5: Easy Dependency Management With npm‎](#benefit-5-easy-dependency-management-with-npm)
+  * [Benefit 6: Versatile npm scripts‎](#benefit-6-versatile-npm-scripts)
+  * [Benefit 7: Easy to Reuse Code From Others‎](#benefit-7-easy-to-reuse-code-from-others)
+  * [Benefit 8: Relatively Large Developer Community‎](#benefit-8-relatively-large-developer-community)
+  * [Benefit 9: Support for Better Code Organization‎](#benefit-9-support-for-better-code-organization)
+* [Use cases‎](#use-cases)
+* [Resources‎](#resources)
+</box>
+
 <box type="info">
 This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance) as asynchronous programming is key in Node.
 </box>
