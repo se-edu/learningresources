@@ -17,21 +17,20 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
 
 <box id="article-toc">
 
-* [FindBugs](#findbugs)
-  * [Overview](#overview)
-  * [Features](#features)
-  * [Examples of Bugs that can be found using FindBugs](#examples-of-bugs-that-can-be-found-using-findbugs)
-    * [Incorrectly overriding methods](#incorrectly-overriding-methods)
-    * [Find hash-equals mismatch](#find-hash-equals-mismatch)
-    * [Return value of method ignored](#return-value-of-method-ignored)
-    * [Null pointer dereference](#null-pointer-dereference)
-  * [How to use it](#how-to-use-it)
-    * [Configuration](#configuration)
-    * [Suppress Warnings](#suppress-warnings)
-    * [Running](#running)
-  * [SpotBugs - The successor of Findbugs](#spotbugs-the-successor-of-findbugs)
-  * [Advanced Topics](#advanced-topics)
-  * [Resources](#resources)
+* [Overview](#overview)
+* [Features](#features)
+* [Examples of Bugs that can be found using FindBugs](#examples-of-bugs-that-can-be-found-using-findbugs)
+  * [Incorrectly overriding methods](#incorrectly-overriding-methods)
+  * [Find hash-equals mismatch](#find-hash-equals-mismatch)
+  * [Return value of method ignored](#return-value-of-method-ignored)
+  * [Null pointer dereference](#null-pointer-dereference)
+* [How to use it](#how-to-use-it)
+  * [Configuration](#configuration)
+  * [Suppress Warnings](#suppress-warnings)
+  * [Running](#running)
+* [SpotBugs - The successor of Findbugs](#spotbugs-the-successor-of-findbugs)
+* [Advanced Topics](#advanced-topics)
+* [Resources](#resources)
 </box>
 
 ## Overview

@@ -17,13 +17,12 @@ Author: [Tan Jun Kiat](https://github.com/junkiattan)
 
 <box id="article-toc">
 
-* [Refining UX Design Skills](#refining-ux-design-skills)
-  * [Overview](#overview)
-  * [Building a relationship with a UX mentor](#building-a-relationship-with-a-ux-mentor)
-  * [Becoming a UX apprentice](#becoming-a-ux-apprentice)
-  * [Engaging in individual UX projects](#engaging-in-individual-ux-projects)
-  * [Summary](#summary)
-  * [Additional Resource(s)](#additional-resource-s)
+* [Overview](#overview)
+* [Building a relationship with a UX mentor](#building-a-relationship-with-a-ux-mentor)
+* [Becoming a UX apprentice](#becoming-a-ux-apprentice)
+* [Engaging in individual UX projects](#engaging-in-individual-ux-projects)
+* [Summary](#summary)
+* [Additional Resource(s)](#additional-resource-s)
 </box>
 
 ## Overview

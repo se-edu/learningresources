@@ -17,16 +17,15 @@
 
 <box id="article-toc">
 
-* [Integration Testing](#integration-testing)
-  * [What is integration testing?](#what-is-integration-testing)
-  * [Why is integration testing important?](#why-is-integration-testing-important)
-  * [How does integration testing work?](#how-does-integration-testing-work)
-    * [1. Prepare the integration test plan](#1-prepare-the-integration-test-plan)
-    * [2. Design the test scenarios, cases and scripts](#2-design-the-test-scenarios-cases-and-scripts)
-    * [3. Execute the test scripts and report defects if any](#3-execute-the-test-scripts-and-report-defects-if-any)
-    * [4. Track defects and re-test application](#4-track-defects-and-re-test-application)
-  * [Tips for better integration tests](#tips-for-better-integration-tests)
-  * [Tools used for Integration Testing](#tools-used-for-integration-testing)
+* [What is integration testing?](#what-is-integration-testing)
+* [Why is integration testing important?](#why-is-integration-testing-important)
+* [How does integration testing work?](#how-does-integration-testing-work)
+  * [1. Prepare the integration test plan](#1-prepare-the-integration-test-plan)
+  * [2. Design the test scenarios, cases and scripts](#2-design-the-test-scenarios-cases-and-scripts)
+  * [3. Execute the test scripts and report defects if any](#3-execute-the-test-scripts-and-report-defects-if-any)
+  * [4. Track defects and re-test application](#4-track-defects-and-re-test-application)
+* [Tips for better integration tests](#tips-for-better-integration-tests)
+* [Tools used for Integration Testing](#tools-used-for-integration-testing)
 </box>
 
 Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin Kun Song](https://github.com/marvinchin), [Lin Si Jie](https://github.com/sijie123)

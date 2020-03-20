@@ -17,18 +17,17 @@ Authors: [Ang Shi Ya](https://github.com/AngShiYa), [Tan Jun Kiat](https://githu
 
 <box id="article-toc">
 
-* [Introduction to UI/UX](#introduction-to-ui-ux)
-  * [Overview](#overview)
-  * [User Interface vs User Experience](#user-interface-vs-user-experience)
-  * [UI Design](#ui-design)
-  * [UX Design](#ux-design)
-  * [Which is more important?](#which-is-more-important)
-  * [The Process of UX Design](#the-process-of-ux-design)
-    * [Preliminary Research](#preliminary-research)
-    * [Prototyping](#prototyping)
-    * [User Testing](#user-testing)
-    * [Maintenance](#maintenance)
-    * [Ending Notes](#ending-notes)
+* [Overview](#overview)
+* [User Interface vs User Experience](#user-interface-vs-user-experience)
+* [UI Design](#ui-design)
+* [UX Design](#ux-design)
+* [Which is more important?](#which-is-more-important)
+* [The Process of UX Design](#the-process-of-ux-design)
+  * [Preliminary Research](#preliminary-research)
+  * [Prototyping](#prototyping)
+  * [User Testing](#user-testing)
+  * [Maintenance](#maintenance)
+  * [Ending Notes](#ending-notes)
 </box>
 
 ## Overview

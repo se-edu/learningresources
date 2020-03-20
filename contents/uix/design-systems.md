@@ -19,14 +19,13 @@ Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Metta Ong](https
 
 <box id="article-toc">
 
-* [Design Systems](#design-systems)
-  * [What is a Design System](#what-is-a-design-system)
-  * [Why should we use a Design System?](#why-should-we-use-a-design-system)
-  * [Why not front-end frameworks or style guides?](#why-not-front-end-frameworks-or-style-guides)
-  * [Benefits of a Design System](#benefits-of-a-design-system)
-  * [How to build a Design System](#how-to-build-a-design-system)
-  * [Examples of existing Design Systems](#examples-of-existing-design-systems)
-  * [Summary](#summary)
+* [What is a Design System](#what-is-a-design-system)
+* [Why should we use a Design System?](#why-should-we-use-a-design-system)
+* [Why not front-end frameworks or style guides?](#why-not-front-end-frameworks-or-style-guides)
+* [Benefits of a Design System](#benefits-of-a-design-system)
+* [How to build a Design System](#how-to-build-a-design-system)
+* [Examples of existing Design Systems](#examples-of-existing-design-systems)
+* [Summary](#summary)
 </box>
 
 ## What is a Design System

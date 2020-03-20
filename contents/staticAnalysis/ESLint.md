@@ -17,13 +17,12 @@ Author: [Nicholas Chua](https://github.com/nus-cs3281/2018/blob/master/students/
 
 <box id="article-toc">
 
-* [ESLint](#eslint)
-  * [Overview](#overview)
-  * [Rules](#rules)
-  * [Setting Up](#setting-up)
-  * [Usage](#usage)
-  * [Plugins](#plugins)
-  * [Resources](#resources)
+* [Overview](#overview)
+* [Rules](#rules)
+* [Setting Up](#setting-up)
+* [Usage](#usage)
+* [Plugins](#plugins)
+* [Resources](#resources)
 </box>
 
 ## Overview
