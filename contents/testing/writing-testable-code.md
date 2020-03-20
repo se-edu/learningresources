@@ -21,7 +21,7 @@
   * [Rule #3: Don't mix Service Objects with Value Objects](#rule-3-don-t-mix-service-objects-with-value-objects)
   * [Rule #4: Avoid Static Methods](#rule-4-avoid-static-methods)
   * [Rule #5: Favor composition over inheritance](#rule-5-favor-composition-over-inheritance)
-* [Flaw #2: Brittle Global State & Singleton](#flaw-2-brittle-global-state-and-singleton)
+* [Flaw #2: Brittle Global State & Singleton](#flaw-2-brittle-global-state-and-amp-singleton)
   * [Rule #1: Avoid Global States](#rule-1-avoid-global-states)
   * [Rule #2: Avoid Singleton Pattern](#rule-2-avoid-singleton-pattern)
 * [Flaw #3: Dig Into Collaborators](#flaw-3-dig-into-collaborators)
