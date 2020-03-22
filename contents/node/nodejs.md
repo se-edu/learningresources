@@ -31,9 +31,9 @@ Now that we know what Node is, let us look at some benefits it has to offer.
 
 ### Benefit 1: Easy to get Started
 
-To install Node, simply download the installer from the [official Node website](https://nodejs.org/en/download/) based on your OS and run it. This should install both Node and npm. Npm is a tool which will help you to search, install and manage node packages. The use of npm will be explained [later](#benefit-5-easy-dependency-management-with-npm).
+To install Node, simply download the installer from the [official Node website](https://nodejs.org/en/download/) based on your OS and run it. This installs both Node and npm. Npm is a tool which will help you to search, install and manage node packages, which will be further explored [later](#benefit-5-easy-dependency-management-with-npm).
 
-The following simple example demonstrates how a Node application imports required modules, creates a server to listen to client's request, and then reads the request and returns a response.
+The following example demonstrates how a Node application imports required modules, creates a server to listen for a client's request, and then sends back a 'Hello World' response.
 
 <box type="info" header="A Simple Hello World Server <small>from [codeburst](https://codeburst.io/node-js-by-example-part-1-668376cd4f96)</small>" light>
 
@@ -76,9 +76,9 @@ Illustration of node's event loop from [these slides](https://www.slideshare.net
 </figcaption>
 </figure>
 
-Node is designed to be **event-driven**. When an <tooltip content="e.g. when a I/O operation is complete, or a timer fires">event</tooltip> occurs, the event handler previously registered with the event is queued to be run by the [event loop](https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c). The main event loop (where Javascript code is executed) is single-threaded.
+Node is designed to be **event-driven**. When an <tooltip content="e.g. when a I/O operation is complete, or a timer fires">event</tooltip> occurs (_Operation Complete_ above), the event handler previously registered with the event is enqueued to be run by the [<tooltip content="where JavaScript code is executed">event loop</tooltip>](https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c) (_Trigger Callback_), which is single-threaded.
 
-This means that we can avoid thread overheads and synchronization problems including deadlocks and race conditions.
+This means that we can avoid thread overheads and synchronization problems such as <tooltip content="a situation where some threads are blocked due to needing access to the same locks">deadlocks</tooltip> and <tooltip content="a situation where multiple operations by different threads are performed on one resource in indeterministic order, potentially causing unexpected changes to the resource">race conditions</tooltip>.
 
 ### Benefit 3: Fast for I/O Intensive Programs
 
@@ -86,11 +86,11 @@ I/O requests made in other languages such as Python or Java are typically blocki
 
 In contrast, node allows for a **non-blocking** I/O model with its event-driven structure.
 
-I/O requests are delegated to other systems (e.g. file system and databases). While an I/O operation is incomplete, the event loop can still process subsequent requests. When the I/O request is complete, the handler registered with the request is scheduled to be executed on the event loop again.
+I/O requests are delegated to other systems (e.g. file system and databases). While an I/O operation is incomplete, the event loop can still process subsequent requests. When the I/O request is complete, the handler registered with the request is then scheduled to be executed on the event loop.
 
 ### Benefit 4: Use JavaScript for Both Front and Back-end Development
 
-Using Node for back-end development makes it possible to share common code functionality between the front-end and back-end, which leads to less code maintainence. It also decreases the potential communication overhead between front and back-end developers, since they share the same code base, and may hence also lead to a more multidisciplinary team.
+Using Node for back-end development makes it possible to share common code functionality between the front-end and back-end, which leads to less code maintainence. Since the same code base is shared, it may hence also lead to a more multidisciplinary team that is familiar with both front and back-end development, reducing the potential communication overhead involved.
 
 ### Benefit 5: Easy Dependency Management With npm
 
@@ -120,7 +120,7 @@ A basic `package.json` has the following structure.
   "license": "ISC"
 }
 ```
-The **name** and a **version** forms a unique identifier for the package. When a package is updated, the version number must be updated. A good **description** string and **keywords** helps others in discovering your package.
+The **name** and a **version** forms a unique identifier for the package. When a package is updated, the version number must be updated. A good **description** string and **keywords** helps others discover your package.
 
 The `dependencies` property specifies dependencies needed in production while the `devDependencies` property specifies dependencies needed in development.
 
@@ -178,14 +178,14 @@ Apart from acting as <tooltip content="See here for some common use cases of npm
 
 ### Benefit 7: Easy to Reuse Code From Others
 
-Node module system allows you to include other Javascript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.
+Node's module system allows you to include other JavaScript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.
 
 Node comes bundled with useful [core modules](https://nodejs.org/api/) such as the `fs` (file system) module which includes classes, methods and events to deal with file I/O operations and the `http` module which helps Node to transfer data over HTTP.
-There are also many useful and well-tested modules maintained by the community and external developers such as <tooltip content="A library providing various useful wrapper functions over javascript's promises">*Bluebird*</tooltip> on <tooltip content="the largest ecosystem of open source libraries in the world!">npm</tooltip>.
+There are also many useful and well-tested modules maintained by the community and external developers such as <tooltip content="A library providing various useful wrapper functions over JavaScript's promises">*Bluebird*</tooltip> on <tooltip content="the largest ecosystem of open source libraries in the world!">npm</tooltip>.
 
 This makes development a breeze -- if a specific functionality has a large development overhead, you could look to such modules to speed things up.
 
-Importing modules is simple - simply use the `require()` function and provide the module identifier or the file path.
+Importing modules is easy - simply use the `require()` function and provide the module identifier or the file path.
 ```js
 const http = require('http'); // import a core module
 const Promise = require('bluebird'); // import a non-core module
@@ -195,9 +195,9 @@ Node will first check if the module identifier passed to `require` is a core mod
 
 ### Benefit 8: Support for Better Code Organization
 
-With Node's module system, you can create separate modules in our codebase such that each is focused on a single functionality. This makes your code more maintainable and testable.
+With Node's module system, you can create separate modules in your codebase such that each is focused on a single functionality. This makes your code more maintainable and testable.
 
-For example, we could have a module for a parser. To export the `Parser` constructor in `parser.js`,
+For example, in a parser module, you could export the `Parser` constructor in `parser.js` like so.
 ```js
 function Parser(options) {
   this._options = options || {};
@@ -221,15 +221,13 @@ newParser.parse(content);
 ## Use Cases
 
 Node is **good** for
-* **Processing high volumes of I/O-bound requests**. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than most other servers (such as those written in Ruby on Rails). This makes the Node server faster and more scalable.
+* **Processing high volumes of I/O-bound requests**. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than most other servers, due to its event driven architecture. This makes the Node server faster and more scalable.
 * **Real time applications** where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as Trello and Google Docs. Node is a good choice as it can handle multiple client requests even while waiting for responses.
-* **Single-page applications** where a lot of processing and rendering is done on the client's side and the backend server only needs to provide a simple API. Node can process many requests with low response times. In addition, you can reuse and share code, such as those for validation, between the client and server.
+* **Single-page applications** where a lot of processing and rendering is done on the client's side and the backend server only needs to provide a simple API. Node can process many requests with low response times. In addition, you can reuse and share <tooltip content="e.g. validation logic for user inputs">JavaScript code</tooltip> between the client and server.
 
 However, Node is **not suitable** for
-* **CPU-intensive jobs**. Recall that Node is single-threaded. If the thread is busy doing CPU-heavy operations, it will not be able to process incoming requests timely. This removes the biggest advantage of Node. In such cases, you could consider alternatives such as Go which supports concurrency.
+* **CPU-intensive jobs**. Recall that event loop is single-threaded. If the thread is busy doing CPU-heavy operations, it will not be able to process incoming requests timely. While it does have some amount of [multi-threading](https://blog.logrocket.com/node-js-multithreading-what-are-worker-threads-and-why-do-they-matter-48ab102f8b10/) support, being a JavaScript runtime, its performance in such cases still trails behind alternatives such as Python which supports threads natively.
 
-
-To find out more about when you should or should not use Node, checkout these articles by [netguru](https://www.netguru.co/blog/use-node-js-backend) and [Node.js foundation](https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e).
 
 ## Resources
 
@@ -243,5 +241,6 @@ To find out more about when you should or should not use Node, checkout these ar
 *  A summary and curation of the top-ranked content on Node best practices - [Node.js Best Practices](https://github.com/i0natan/nodebestpractices)
 * Understanding node's architecture - [Node.js event loop architecture](https://medium.com/preezma/node-js-event-loop-architecture-go-deeper-node-core-c96b4cec7aa4)
 * More about `package.json` - [npm official documentation on package.json](https://docs.npmjs.com/files/package.json).
+* When or when not to use Node? - [netguru](https://www.netguru.co/blog/use-node-js-backend), [Node.js foundation](https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e)
 
 </div>
