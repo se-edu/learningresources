@@ -21,7 +21,7 @@ This chapter assumes that the reader is familiar with JavaScript and asynchronou
 
 ## What is Node?
 
->*Node* is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--https://nodejs.org</sub>
+>*Node* is a JavaScript runtime built on Chrome’s V8 JavaScript engine. It uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <sub>--https://nodejs.org</sub>
 
 Node is mostly used in back-end and server side scenarios. For example, LinkedIn mobile app backend is built on Node and Uber built its massive matching system between customers and drivers on Node. However, Node can also be used in the front-end to automate tasks such as building, testing, pre and post processing code.
 
@@ -72,7 +72,7 @@ Read on to find out about how to incorporate external dependencies, manage them 
 <img src="eventloop.png" width="74%" class="mx-auto mt-3 mb-2 d-block rounded" />
 <figcaption class="text-center"><small>
 
-Illustration of nodeJS's event loop from [these slides](https://www.slideshare.net/DevCentralAMD/introduction-to-nodejs-41469620)</small>
+Illustration of node's event loop from [these slides](https://www.slideshare.net/DevCentralAMD/introduction-to-nodejs-41469620)</small>
 </figcaption>
 </figure>
 
@@ -84,7 +84,7 @@ This means that we can avoid thread overheads and synchronization problems inclu
 
 I/O requests made in other languages such as Python or Java are typically blocking, which means the program remains idle (in the same thread) until the I/O operation completes.
 
-In contrast, nodeJS's allows for a **non-blocking** I/O model with its event-driven structure.
+In contrast, node allows for a **non-blocking** I/O model with its event-driven structure.
 
 I/O requests are delegated to other systems (e.g. file system and databases). While an I/O operation is incomplete, the event loop can still process subsequent requests. When the I/O request is complete, the handler registered with the request is scheduled to be executed on the event loop again.
 
@@ -95,8 +95,8 @@ Using Node for back-end development makes it possible to share common code funct
 ### Benefit 5: Easy Dependency Management With npm
 
 Node Package Manager (npm) is used to
-* Search for node.js packages online
-* Install node.js packages from the command line, manage versions and dependencies effectively and easily
+* Search for node packages online
+* Install node packages from the command line, manage versions and dependencies effectively and easily
 
 Anyone who wants to use your project would only need to run the following command in the command shell to load the project dependencies.
 ```
@@ -195,7 +195,7 @@ Node will first check if the module identifier passed to `require` is a core mod
 
 ### Benefit 8: Support for Better Code Organization
 
-With NodeJS's module system, you can create separate modules in our codebase such that each is focused on a single functionality. This makes your code more maintainable and testable.
+With Node's module system, you can create separate modules in our codebase such that each is focused on a single functionality. This makes your code more maintainable and testable.
 
 For example, we could have a module for a parser. To export the `Parser` constructor in `parser.js`,
 ```js
