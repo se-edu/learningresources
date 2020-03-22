@@ -16,7 +16,7 @@
 Author: Rachael Sim
 
 <box type="info" light><md>
-This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance) as asynchronous programming is key in Node.</md>
+This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/sync-async) as asynchronous programming is key in Node.</md>
 </box>
 
 ## What is Node?
@@ -35,7 +35,7 @@ To install Node, simply download the installer from the [official Node website](
 
 The following simple example demonstrates how a Node application imports required modules, creates a server to listen to client's request, and then reads the request and returns a response.
 
-<box type="info" header="A Simple Hello World Server <small>from [codeburst](https://codeburst.io/getting-started-with-node-js-a-beginners-guide-b03e25bca71b)</small>" light>
+<box type="info" header="A Simple Hello World Server <small>from [codeburst](https://codeburst.io/node-js-by-example-part-1-668376cd4f96)</small>" light>
 
 Create a file `server.js` with following content:
 
@@ -234,14 +234,14 @@ To find out more about when you should or should not use Node, checkout these ar
 ## Resources
 
 * Try out Node online - [Node prototyping with Runkit](https://runkit.com/home)
-* A guide on asynchronous programming in JS - [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
+* A guide on asynchronous programming in JS - [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/sync-async)
 * A comprehensive introduction to Node -  [The art of node](https://github.com/maxogden/art-of-node/)
 * Making better use of npm scripts - [freeCodeCamp's Introduction to NPM Scripts](https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633), [How to Use npm as a Build Tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 * Using `module.exports` - [Tendai Mutunhire's article](http://stackabuse.com/how-to-use-module-exports-in-node-js/).
 * Advice on how to write clean code that makes it easy to add new features - [Fundamental rules of a Node.js project structure](https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/)
 * A compilation of useful node modules - [Awesome Nodejs](https://github.com/sindresorhus/awesome-nodejs)
 *  A summary and curation of the top-ranked content on Node best practices - [Node.js Best Practices](https://github.com/i0natan/nodebestpractices)
-* Node architecture and features - [All About Node.Js You Wanted To Know](https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7)
+* Understanding node's architecture - [Node.js event loop architecture](https://medium.com/preezma/node-js-event-loop-architecture-go-deeper-node-core-c96b4cec7aa4)
 * More about `package.json` - [npm official documentation on package.json](https://docs.npmjs.com/files/package.json).
 
 </div>
