@@ -14,7 +14,7 @@
 # Introduction to Security Testing
 
 **Author(s): [Ahmed Bahajjaj](https://github.com/madanalogy)**<br>
-Reviewers: [James Pang](https://github.com/jamessspanggg)
+Reviewers: [James Pang](https://github.com/jamessspanggg), [Jeffry Lum](https://github.com/j-lum)
 
 <box id="article-toc">
 
@@ -55,7 +55,7 @@ Due to the logical limitations of security testing however, passing security tes
 The consensus is that it is much more costly to include security testing after software implementation or deployment[^5]. It is necessary then to involve security testing in all phases of a Software Development Life Cycle [(SDLC)](https://se-education.org/se-book/processModels/). A conceptual example of such an involvement is as follows (taken from [Guru99.com](https://www.guru99.com/what-is-security-testing.html#3)):
 
 <center>
-<pic src="security-testing/Sec-Test-Fig-1.png" alt="Example">
+<pic src="security-testing/Sec-Test-Fig-1.png" width="800" alt="Example">
 Figure 1 - Example of Security Testing during a SDLC.
 </pic>
 </center>
@@ -67,7 +67,7 @@ To understand this in more detail, we can deconstruct the application of securit
 ### At A Glance
 
 <center>
-<pic src="security-testing/Sec-Test-Fig-2.png" alt="Workflow">
+<pic src="security-testing/Sec-Test-Fig-2.png" width="650" alt="Workflow">
 Figure 2 - Testing Framework Workflow from the OWASP Testing Guide.
 </pic>
 </center>
