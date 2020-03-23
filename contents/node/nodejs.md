@@ -220,9 +220,9 @@ newParser.parse(content);
 
 ## Use Cases
 
-Node is **good** for
-* **Processing high volumes of I/O-bound requests**. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than most other servers, due to its event driven architecture. This makes the Node server faster and more scalable.
-* **Real time applications** where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as Trello and Google Docs. Node is a good choice as it can handle multiple client requests even while waiting for responses.
+Node is **good** for:
+* **Processing high volumes of I/O-bound requests**. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than most other servers, due to its event driven architecture. This makes a node server faster and more scalable.
+* **Real time applications** where you have to process a large volume of requests with little delay. This includes instant messaging apps and collaborative editing apps where you can watch the document being modified live such as [Trello](https://trello.com/) and Google Docs. Node is a good choice as it can handle multiple client requests even while waiting for responses.
 * **Single-page applications** where a lot of processing and rendering is done on the client's side and the backend server only needs to provide a simple API. Node can process many requests with low response times. In addition, you can reuse and share <tooltip content="e.g. validation logic for user inputs">JavaScript code</tooltip> between the client and server.
 
 However, Node is **not suitable** for
