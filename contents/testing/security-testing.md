@@ -22,7 +22,7 @@ Reviewers: [James Pang](https://github.com/jamessspanggg), [Jeffry Lum](https://
     * [What Is Security Testing?‎](#what-is-security-testing)
     * [Why Have Security Testing?](#why-have-security-testing)
     * [Security Testing in Action](#security-testing-in-action)
-    * [Where to go from here?](#where-to-go-from-here)
+    * [Where to Go From Here?](#where-to-go-from-here)
 </box>
 
 ## What Is Security Testing?
