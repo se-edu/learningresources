@@ -48,7 +48,7 @@ For example, 'word-level' is tagged as an adjective (JJ) and 'sentences' as a pl
 
 ![Constituency Parse](constituencyParse.png "Constituency Parse") <br/>
 From the parts-of-speech tags, a tree-structured representation of grammar can be produced.
-This tree is the result of a _constituency parse_, an task of recognizing a sentence and assigning a syntactic structure to it.
+This tree is the result of a _constituency parse_, a task of recognizing a sentence and assigning a syntactic structure to it.
 From the tree we can see that the complex phrase 'word-level parts-of-speech' is simply a _noun phrase_.
 Incidentally, this is how Microsoft Word checks for grammatical errors<sup>[6](#footnote6)</sup>.
 Any tree that cannot be parsed may be grammatically incorrect or difficult to understand.
@@ -70,11 +70,11 @@ In order to understand the meaning of the sentence, a few questions need to be a
 An approach is to represent the meaning of a sentence as a relationship triple consisting of a *Subject*, *Object* and *Relation*.
 
 ![Relation tuple](openIE.png "Constituency Parse") <br/>
-From this representation of the sentence, it is possible for a system to answer novel questions like "Who has written articles?" or "What the articles that I have written".
+From this representation of the sentence, it is possible for a system to answer novel questions like "Who has written articles?" or "What the articles that 'I' have written".
 This technique, Open Information Extraction, is utilized by IBM's Watson to defeat human players in the American game show Jeopardy!<sup>[8](#footnote8)</sup>
 
 ### Relations 
-Relations is crucial to the understanding of natural languages.
+Relations are crucial to the understanding of natural languages.
 Consider the example:
 
    > Geoffrey bought Mary a ring. They have been dating for months.
@@ -104,7 +104,7 @@ Word2vec has been used to analyze behaviour on e-commerce sites as human do not 
 Modern input method editors(IMEs) do more than simply translating input to output in the respective language.
 By tackling the syntactic and relational elements of natural language, IMEs provide autocomplete functionality by suggesting words that are related or occur together frequently. 
 
-For example, typing in "*beijing*" in Moon IME, a Chinese IME, will bring up "*olympics*" as a possible suggestion<sup>[12](#footnote12)</sup>.
+For example, typing "*beijing*" in Moon IME, a Chinese IME, will bring up "*olympics*" as a possible suggestion<sup>[12](#footnote12)</sup>.
 
 #### Indexing and information retrieval, e.g. Google's page rank and normalization of search terms
 Search terms on Google are grouped together by semantic similarity in real time at volume to identify trends worldwide. 
@@ -120,20 +120,19 @@ This family of techniques uses special neural network architectures to model sen
 
 #### Automated customer support, e.g. ChatBot, Clare.AI, NanoRep
 Human-curated databases (e.g. **WordNet**) are used together with techniques like **word2vec** to extract actionable words or phrases<sup>[14](#footnote15)</sup>. 
-For example, the two possible input from users regarding a replacement of digital banking token: 
+For example, the two possible input from users regarding a replacement for a digital banking token: 
 
 > * I want to replace my token.
 > * My old token is broken. 
 
-![DBS chatbot](dbsChatbot.png "DBS chatbot") <br/>
-
 can be mapped back to the same intent to which a predefined response can be given. 
 
+![DBS chatbot](dbsChatbot.png "DBS chatbot") <br/>
 
 ## What's next
 1. Get an intuition for the English language
 
-    The Language Instinct by Steven Pinker provides accessible insight about how humans learn language and the basics of formal linguistics. 
+    [The Language Instinct](https://stevenpinker.com/publications/language-instinct) by Steven Pinker provides accessible insight about how humans learn language and the basics of formal linguistics. 
     This is invaluable especially for those who grew up with English as a first language.
 
 1. Visually explore the themes present in NLP

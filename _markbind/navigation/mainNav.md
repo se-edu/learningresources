@@ -83,6 +83,7 @@
   * Multi-Threading
     * [GPGPU]({{baseUrl}}/contents/gpgpu/gpgpu.html)
     * [CUDA]({{baseUrl}}/contents/gpgpu/cuda.html)
+  * [Natural Language Processing]({{baseUrl}}/contents/naturalLanguage/nl.html)
   * Security
     * [Cross Site Request Forgery]({{baseUrl}}/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html)
     * [Cross Site Scripting]({{baseUrl}}/contents/security/crossSiteScripting/crossSiteScripting.html)
