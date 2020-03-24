@@ -150,24 +150,47 @@ Dotfiles are also often used to enhance or add features to a shell, such as `bas
 The `PS1` environment variable provides information for configuring and styling the Shell prompt. 
 By default, `PS1` is configured to display only the username, hostname and current working directory in the prompt.
 
-<pic src="default-prompt.png" alt="Dotfiles Logo" width="45%">
-  <sub>_Figure 2. Default prompt_</sub>
+<pic src="default-prompt.png" alt="Default prompt" width="55%">
+
+  <sub> _Figure 2. Default prompt_ </sub>
+
 </pic>
 
 The `PS1` environment variable provides information for configuring and styling the Shell prompt. 
 By default, `PS1` is configured to display only the username, hostname and current working directory in the prompt.
 
-<pic src="default-prompt.png" alt="Dotfiles Logo" width="45%">
-  <sub>_Figure 2. Default prompt_</sub>
+<pic src="enhanced-prompt.png" alt="Enhanced prompt" width="55%">
+
+  <sub> _Figure 3. Enhanced prompt_ </sub>
+
 </pic>
 
 ##### Autocomplete
 
 Autocomplete is a useful feature
 
+<pic src="cd-autocomplete.gif" alt="Git flag autocomplete" width="60%">
+
+  <sub> _Figure 4. cd autocomplete_ </sub>
+
+</pic>
+
+
+<pic src="git-flag-autocomplete.gif" alt="Git flag autocomplete" width="60%">
+
+  <sub> _Figure 5. Flag autocomplete_ </sub>
+
+</pic>
+
 ##### Syntax Highlighting
 
 Dotfiles are also often used to style and colorise the terminal. This is not just for aesthetic reasons - the use of color enhances readability of programs and makes it easier to debug. One such example would be the use of syntax highlighting.
+
+<pic src="syntax-highlighting.gif" alt="Git flag autocomplete" width="60%">
+
+  <sub> _Figure 6 Syntax Highlighting_ </sub>
+
+</pic>
 
 ### How to get Started with Dotfiles?
 
@@ -179,7 +202,7 @@ There are several management stratgies for managing dotfiles, and most of them r
 
 1. Use a [git worktree](https://www.atlassian.com/git/tutorials/dotfiles).
 1. Use [symlinking](https://www.freecodecamp.org/news/dive-into-dotfiles-part-2-6321b4a73608/).
-1. Use an existing dotfiles management tool such as [`yadm`](https://yadm.io/).
+1. Use an existing dotfiles management tool such as [yadm](https://yadm.io/).
 
 <box type="danger">
 Before copying dotfiles over to a system, ensure that there is a backup of the local dotfiles.
