@@ -18,24 +18,24 @@
 <box id="article-toc">
 
 * [What is Xamarin‎](#what-is-xamarin)
-* [How Xamarin works](#how-xamarin-works)
+* [How Xamarin Works?](#how-xamarin-works)
     * [Xamarin.Android and Xamarin.iOS](#xamarin.android-and-xamarin.ios)
     * [Xamarin.Forms](#xamarin.forms)
     * [Xamarin.Essentials](#xamarin.essentials)
-* [Why Xamarin‎](#why-xamarin)
-    * [Complete binding for underlying SDKs](#complete-binding-for-underlying-sdks)
+* [Why Xamarin?‎](#why-xamarin)
+    * [Complete Binding for Underlying SDKs](#complete-binding-for-underlying-sdks)
     * [Objective-C, Java, C, and C++ Interop](#objective-c-java-c-and-c-interop)
-    * [Modern language constructs and robust Base Class Library](#modern-language-constructs-and-robust-base-class-library)
-    * [Mobile cross-platform support](#mobile-cross-platform-support)
+    * [Modern Language Constructs and Robust Base Class Library](#modern-language-constructs-and-robust-base-class-library)
+    * [Mobile Cross-Platform Support](#mobile-cross-platform-support)
     * [Modern Integrated Development Environment (IDE)](#modern-integrated-development-environment-ide)
-* [How to get started‎](#how-to-get-started)
+* [How to Get Started‎?](#how-to-get-started)
 </box>
 
-## What is Xamarin
+## What is Xamarin?
 
 **Xamarin** is an open source developer platform for building modern and performant applications on various platforms, especially Android and iOS. It is built on top of Mono, an open-source version of the .NET Framework based on the .NET ECMA standards. It is currently maintained by Microsoft and the .NET community. As one of the most established mobile app development frameworks, Xamarin offers developers the option of writing apps in C#, instead of Java and Objective-C/Swift. The architecture of Xamarin aims to achieve maximum code reuse across different platforms while maintaining near-native performance.
 
-## How Xamarin works
+## How Xamarin Works?
 
 Here is an overview of the architecture of a cross-platform Xamarin application.
 
@@ -108,11 +108,11 @@ Xamarin.Essentials is a library that provides cross-platform APIs for native dev
 - Text-to-speech
 - Screen lock
 
-## Why Xamarin
+## Why Xamarin?
 
 While combining the abilities of native platforms, Xamarin has a number of features that win over its competitors:
 
-### Complete binding for underlying SDKs
+### Complete Binding for Underlying SDKs
 
 Xamarin contains bindings for nearly the entire underlying platform SDKs in both iOS and Android. This allows developers to build UI and business logic all in a single language - C#. Additionally, these bindings are strongly-typed, which means that they’re easy to navigate and use, and provide robust compile-time type checking and during development. Strongly-typed bindings lead to fewer runtime errors and higher-quality applications. It is a great advantage over other platforms, such as React Native, which has limited access to platform SDKs and lacks type checking if using JavaScript.
 
@@ -120,7 +120,7 @@ Xamarin contains bindings for nearly the entire underlying platform SDKs in both
 
 Xamarin is equally flexible as other platforms. It provides facilities for directly invoking Objective-C, Java, C, and C++ libraries, giving you the power to use a wide array of third party code. This functionality lets you use existing iOS and Android libraries written in Objective-C, Java, or C/C++. Additionally, Xamarin offers binding projects that allow you to bind native Objective-C and Java libraries using a declarative syntax.
 
-### Modern language constructs and robust Base Class Library
+### Modern Language Constructs and Robust Base Class Library
 
 Xamarin allows developers to leverage on the advantages of both C# and .NET platform. 
 
@@ -128,7 +128,7 @@ Xamarin applications are written in **C#**, a modern language that includes sign
 
 Xamarin applications use the **.NET Base Class Library (BCL)**, a large collection of classes that have comprehensive and streamlined features such as powerful XML, Database, Serialization, IO, String, and Networking support, and more. Existing C# code can be compiled for use in an app, which provides access to thousands of libraries that add functionality beyond the BCL. Yes, it is possible to reuse the code you have written for a previous Windows application, in your next mobile app.
 
-### Mobile cross-platform support
+### Mobile Cross-Platform Support
 
 Xamarin offers sophisticated cross-platform support for the two major platforms of iOS and Android. Applications can be written to share up to 90% of their code, and Xamarin.Essentials offers a unified API to access common resources across all three platforms. Shared code can significantly reduce both development costs and time to market for mobile developers.
 
@@ -136,7 +136,7 @@ Xamarin offers sophisticated cross-platform support for the two major platforms 
 
 Xamarin uses Visual Studio, a modern IDE that includes features such as code auto completion, a sophisticated project and solution management system, a comprehensive project template library, integrated source control, and more.
 
-## How to get started
+## How to Get Started?
 
 If you are new to C#, you may follow this article to read more about C# [here]({{baseUrl}}/contents/csharp/IntroductionToCSharp.html).
 
