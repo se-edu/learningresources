@@ -64,7 +64,7 @@ Figure 1 - Example of Security Testing during a SDLC.
 
 To understand this in more detail, we can deconstruct the application of security testing into its manifestation in different stages of software development.
 
-### At A Glance
+### At a Glance
 
 <center>
 <pic src="security-testing/Sec-Test-Fig-2.png" width="650" alt="Workflow">
@@ -128,7 +128,7 @@ Having tested the requirements, analyzed the design, and performed code review, 
 
 <box type="tip">[ZAP](https://www.zaproxy.org) provides a beginner friendly introduction to penetration testing with a focus on web applications.</box>
 
-## Where to go from here?
+## Where to Go From Here?
 
 If you would like a more in-depth understanding of security testing, please read the OWASP Testing Guide[^1]. Now that you know conceptually what security testing is about and how it's generally applied, you can afford to focus on topics depending on your role and interests:
 
