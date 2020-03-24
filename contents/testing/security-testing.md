@@ -33,7 +33,7 @@ The OWASP Zed-Attack-Proxy (ZAP) Project defines software security testing as th
 
 ### Types of Security Testing
 
-Security testing is often broken out, somewhat arbitrarily, according to either the type of vulnerability being tested or the type of testing being done. A common breakout as defined by OWASP ZAP is as follows[^2]:
+Security testing is often broken out, somewhat arbitrarily, according to either the type of vulnerability being tested or the type of testing being done. A common categorisation as defined by OWASP ZAP is as follows[^2]:
 
 - __Vulnerability Assessment__: The system is scanned and analyzed for security vulnerabilities.
 - __Penetration Testing__: The system undergoes analysis and attack from simulated malicious attackers.
