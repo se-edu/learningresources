@@ -13,7 +13,7 @@
 
 # Introduction to Security Testing
 
-**Author(s): [Ahmed Bahajjaj](https://github.com/madanalogy)**<br>
+**Author: [Ahmed Bahajjaj](https://github.com/madanalogy)**<br>
 Reviewers: [James Pang](https://github.com/jamessspanggg), [Jeffry Lum](https://github.com/j-lum)
 
 <box id="article-toc">
