@@ -44,15 +44,19 @@ Security testing is often broken out, somewhat arbitrarily, according to either 
 
 ## Why Have Security Testing?
 
-Security testing ensures that a system is secure. Since security requirements differ depending on the goals of the project, it is often hard to define the concept of what it means to be secure. One definition is as follows[^3]: <box type="definition">Security means that authorized access is granted to protected data and unauthorized access is restricted.</box> This definition encompasses two major aspects; first is the protection of data and the second is access to that data. Whether the system is desktop or web-based, we will loosely define security as revolving around the two aforementioned aspects.
+Security testing ensures that a system is secure. Since security requirements differ depending on the goals of the project, it is often hard to define the concept of what it means to be secure. One definition is as follows[^3]: 
 
-Due to the logical limitations of security testing however, passing security testing is not an indication that no flaws exist or that the system adequately satisfies the security requirements[^4]. Why have security testing then? In brief, a system would be more secure with security testing than without.
+<box type="definition">Security means that authorized access is granted to protected data and unauthorized access is restricted.</box> 
+
+This definition encompasses two major aspects; first is the protection of data and the second is access to that data. Whether the system is desktop or web-based, we will loosely define security as revolving around the two aforementioned aspects.
+
+Due to the logical limitations of security testing however, passing security testing is not an indication that no flaws exist or that the system adequately satisfies the security requirements[^4]. Why have security testing then? In brief, unauthorised access to data is a very expensive problem[^5] and since a system would be more secure with security testing than without, an effort should be made to have security testing.
 
 <box type="warning">There is more to the concept of security than the working definition used here.</box>
 
 ## Security Testing in Action
 
-The consensus is that it is much more costly to include security testing after software implementation or deployment[^5]. It is necessary then to involve security testing in all phases of a Software Development Life Cycle [(SDLC)](https://se-education.org/se-book/processModels/). A conceptual example of such an involvement is as follows (taken from [Guru99.com](https://www.guru99.com/what-is-security-testing.html#3)):
+Security testing can be integrated into every stage of the Software Development Life Cycle [(SDLC)](https://se-education.org/se-book/processModels/). A conceptual example of such an integration is as follows[^6]:
 
 <center>
 <pic src="security-testing/Sec-Test-Fig-1.png" width="800" alt="Example">
@@ -66,6 +70,8 @@ To understand this in more detail, we can deconstruct the application of securit
 
 ### At a Glance
 
+The following series of steps adapted from the OWASP Testing Guide[^1] provide general applications of security testing in a generic SDLC process.
+
 <center>
 <pic src="security-testing/Sec-Test-Fig-2.png" width="650" alt="Workflow">
 Figure 2 - Testing Framework Workflow from the OWASP Testing Guide.
@@ -73,8 +79,6 @@ Figure 2 - Testing Framework Workflow from the OWASP Testing Guide.
 </center>
 
 <br>
-
-The following series of steps adapted from the OWASP Testing Guide[^1] provide general applications of security testing in a generic SDLC process.
 
 ### Step 1: Before Development
 
@@ -84,11 +88,11 @@ Before application development starts, an adequate SDLC must be defined where se
 
 #### 1.2 Review Policies and Standards
 
-Ensure that there are appropriate policies, standards, and documentation in place. Documentation is extremely important as it gives development teams guidelines and policies that they can follow. An example of one such documentation is the OWASP Secure Coding Practices Quick Refernce Guide[^6].
+Ensure that there are appropriate policies, standards, and documentation in place. Documentation is extremely important as it gives development teams guidelines and policies that they can follow. An example of one such documentation is the OWASP Secure Coding Practices Quick Refernce Guide[^7].
 
 <box type="important">People can only do the right thing if they know what the right thing is.</box>
 
-If the application is to be developed in Java, it is essential that there is a Java secure coding standard. If the application is to use cryptography, it is essential that there is a cryptography standard. No policies or standards can cover every situation that the development team will face. By documenting the common and predictable issues, there will be fewer decisions that need to be made during the development process.
+If the application is to be developed in Java, it is essential that there is a Java secure coding standard. If the application is to use cryptography, it is essential that there is a cryptography standard. No policies or standards can cover every situation that the development team will face. By documenting common and predictable issues, there will be fewer decisions that need to be made during the development process.
 
 ### Step 2: During Definition and Design
 
@@ -132,7 +136,7 @@ Having tested the requirements, analyzed the design, and performed code review, 
 
 If you would like a more in-depth understanding of security testing, please read the OWASP Testing Guide[^1]. Now that you know conceptually what security testing is about and how it's generally applied, you can afford to focus on topics depending on your role and interests:
 
-- __Developer__: Focus on how you can translate security requirements into actual code. Additionally, it would be worth your while as well to go through the OWASP Secure Coding Practices Quick Reference Guide[^6].
+- __Developer__: Focus on how you can translate security requirements into actual code. Additionally, it would be worth your while as well to go through the OWASP Secure Coding Practices Quick Reference Guide[^7].
 - __Project Manager__: Your role is crucial before deployment (in selecting an SDLC and setting out project policies) as well as during requirements definition. It is recommended to read entirely the OWASP Testing Guide[^1] to have a more thorough understanding of what is required.
 - __Security Specialist__: Your duties often come in the requirements definition stage and system deployment stage, maybe during code walk through as well depending on organisational decisions. Start with the Wikipedia Article on Security Testing[^4] to learn more about security concepts and OWASP ZAP[^2] to learn basic penetration testing.
 
@@ -140,7 +144,8 @@ If you would like a more in-depth understanding of security testing, please read
 [^2]: [OWASP Zed-Attack-Proxy](https://www.zaproxy.org/getting-started/): A tool for conducting vulnerability assessments and penetration testing.
 [^3]: [Breakdown by SoftwareTestingHelp.com](https://www.softwaretestinghelp.com/how-to-test-application-security-web-and-desktop-application-security-testing-techniques/): A breakdown of security testing into common attack vectors and recommended tools.
 [^4]: [Wikipedia Article on Security Testing](https://en.wikipedia.org/wiki/Security_testing): Coverage on the abstract concepts of security testing and the taxonomy involved.
-[^5]: [Overview by Guru99.com](https://www.guru99.com/what-is-security-testing.html): A brief summary of Security Testing and it's role in Software Testing.
-[^6]: [OWASP Secure Coding Practices](https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf): A quick reference guide for secure coding practices.
+[^5]: [2017 Cost of Data Breach Study](https://www.ibm.com/downloads/cas/ZYKLN2E3): IBM sponsored report for a study on the cost of data breaches in 2017.
+[^6]: [Overview by Guru99.com](https://www.guru99.com/what-is-security-testing.html): A brief summary of Security Testing and it's role in Software Testing.
+[^7]: [OWASP Secure Coding Practices](https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf): A quick reference guide for secure coding practices.
 
 </div>
