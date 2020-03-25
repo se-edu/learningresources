@@ -56,7 +56,7 @@ The Spring IoC container is at the core of the Spring Framework. The container w
 configure them, and manage their complete life cycle from creation till destruction. The Spring container uses
 <tooltip content="Dependency injection is a way of providing a class with the required services.">
 <i>dependency injection</i>
-</tooltip>to manage the components that make up an application.
+</tooltip> to manage the components that make up an application.
     
 In the Spring framework, the IoC container is represented by the interface `ApplicationContext`. The objects that
 form the backbone of your application and that are managed by the Spring IoC container are called beans.
@@ -65,8 +65,8 @@ These beans are created with the configuration metadata that you supply to the c
 which can be in the form of XML configuration or annotations.
 
 Below is one way to manually instantiate a container:
-```
-    ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+```java
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 ```
    
 We can then perform dependency injection by using the external XML file.
@@ -170,19 +170,21 @@ For example, we wish to log something into the console everytime before we call 
 We can then write aspect class annotated with @Aspect annotation and write point-cut expressions to match
 <tooltip content="Joinpoint is a point of execution of the program, such as the execution of a method or the handling of an exception..">
 <i>joint-point</i>
-</tooltip>methods.
+</tooltip> methods.
 ```java
 @Aspect
 public class EmployeeCRUDAspect {
       
     @Before("execution(* EmployeeManager.getEmployeeById(..))") // point-cut expressions
     public void logBefore(JoinPoint joinPoint) {
-        System.out.println("EmployeeCRUDAspect.logBefore() : " + joinPoint.getSignature().getName());
+        System.out.println("EmployeeCRUDAspect.logBefore() : "
+                + joinPoint.getSignature().getName());
     }
     
     @After("execution(* EmployeeManager.getEmployeeById(..))") // point-cut expressions
     public void logAfter(JoinPoint joinPoint) {
-        System.out.println("EmployeeCRUDAspect.logAfter() : " + joinPoint.getSignature().getName());
+        System.out.println("EmployeeCRUDAspect.logAfter() : "
+                + joinPoint.getSignature().getName());
     }
 }
 ```
@@ -199,6 +201,7 @@ public class EmployeeManager
 }
 ```
 In above example, `logBefore()` will be executed before `getEmployeeById()` method because it matches the join-point expression.
+Similarly, `logAfter()` will be executed after `getEmployeeById()`.
 The out put of the above code will be:
 ```
 EmployeeCRUDAspect.logBefore() : getEmployeeById
@@ -208,7 +211,7 @@ EmployeeCRUDAspect.logAfter() : getEmployeeById
 
 The declaration of aspects and advices can also go into XML files so we do not need to write the annotation in our
 source code. This allows easier maintainance of the code as we can add/remove concerns 
-by changing XML configuration file without recompiling source code.
+by changing XML configuration file without recompiling source code. The above configuration can be written in XML file as:
 ```xml
  <aop:config>
         <!-- Spring AOP Pointcut definitions -->
@@ -245,7 +248,8 @@ These modules are designed in such a way that no module is dependent on the othe
 Thus, we can optionally include one or more Spring projects depending on the need. This makes Spring lightweight
 and require less configuration.
 
--![Spring Framework Overview](spring-overview.png "Overview of the Spring Framework")
+![Spring Framework Overview](spring-overview.png "Overview of the Spring Framework")
+
 _Figure 1. Overview of the Spring Framework_
 
 ### Benefit 2: Easy Integration
