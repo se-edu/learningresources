@@ -15,15 +15,6 @@
 
 **Author(s): [Tiu Wee Han](https://github.com/tiuweehan)**<br>
 
-<box id="article-toc">
-
-* [Introduction to Dotfiles‎](#introduction-to-dotfiles)
-    * [What are Dotfiles?‎](#what-are-dotfiles)
-    * [Why Manage Dotfiles?](#why-manage-dotfiles)
-    * [How to Get Started with Dotfiles?‎](#how-to-get-started-with-dotfiles)
-        * [Where to Go from Here?‎](#where-to-go-from-here)
-</box>
-
 ### What are Dotfiles?
 Dotfiles are plain text configuration files on Unix like systems (e.g. MacOS, Linux, BSD). Dotfiles store settings of almost every application, service and tool running on your system. These files control the behavior of applications from boot to termination and everything in between.
 
@@ -46,11 +37,11 @@ Some common examples of dotfiles include:
 
 1. **Improve Linux skills.** Setting up dotfiles is an enriching experience that will enable developers to improve command of various skills such as shell scripting and linux tools. Configuring application related tools such as `git` and `ssh` is also a good opportunity to familiarise and become experts with using these tools.
 
-#### Feature: Save and Reuse Configurations
+#### Benefit: Save and Reuse Configurations
 
 Dotfiles provide users with an easy and centralised way to configure their environment and applications. Dotfiles are used to configure almost all popular command line tools. In this section, we will explore dotfiles related to `git` and `ssh` - tools frequently used by developers.
 
-##### Git Dotfiles
+##### Feature: Git Dotfiles
 
 `git` is an indispensible tool for many developers and projects, and it is undoubtably the most popular version control software. Hence, it is highly beneficial to learn how to configure `git` dotfiles.
 
@@ -73,7 +64,7 @@ node_modules/ # Project specific packages for node projects
 bin/          # Binary executables
 ```
 
-##### SSH Dotfiles
+##### Feature: SSH Dotfiles
 
 For developers and engineers working with remote servers, `ssh` is arguably the most essential tool for connecting and running commands on remote servers. However, for many beginners, working with `ssh` can be a daunting prospect. Configuring dotfiles is a good way to both simplify the usage of `ssh` and learn how to master it effectively
 
@@ -100,11 +91,11 @@ This evidently saves time and effort needed to connect to a server. Aside from j
 Please ensure that your RSA private keys such as `~/.ssh/id_rsa` are kept safe at all times.
 </box>
 
-#### Feature: Personalised Shortcuts and Commands
+#### Benefit: Personalised Shortcuts and Commands
 
 A common usage of dotfiles is to create personalised shortcuts and commands on the shell. These are achieved through the use of aliases and functions.
 
-##### Aliases
+##### Feature: Aliases
 
 An alias is a short cut command to a longer command. A new alias is defined by assigning a string with the command to a name in the format `alias <name>=<command>`. Aliases are often set in the `~/.bashrc` or `~/.zshrc` file. The examples below illustrate the use of aliasing.
 
@@ -119,9 +110,9 @@ alias vi='vim'
 
 In this case, a user is able to type `c` instead of typing out `clear` in order to clear the terminal screen, a very commonly used command. Aliases are especially useful for abstracting long commands that are used often.
 
-##### Functions
+##### Feature: Functions
 
-Much like aliases, functions allows a user to abstract longer commands into short commands. However, there is additional functionality such as being able to pass command line arguments and flags. This makes the commands more extensible and reuseable for a wide array of functionality.
+Much like aliases, functions allows a user to abstract longer commands into short commands. However, there is additional functionality such as being able to pass command line [arguments](https://tecadmin.net/tutorial/bash-scripting/bash-command-arguments/) and [flags](https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash). This makes the commands more extensible and reuseable for a wide array of functionality.
 
 The example function `say_hello` below takes in 2 arguments, represented by `$1` and `$2`.
 ```bash
@@ -141,14 +132,14 @@ hello John, good morning!
 The use of functions essentially allows a user to create custom command-line tools to suit their needs.
 Defining the function above in `~/.bashrc` or `./.zshrc` will load it whenever a new shell is created.
 
-#### Feature: Shell Utility and Styling
+#### Benefit: Shell Utility and Styling
 
 Dotfiles are also often used to enhance or add features to a shell, such as `bash` or `zsh`.
 
-##### Prompt
+##### Feature: Prompt
 
 The `PS1` environment variable provides information for configuring and styling the Shell prompt. 
-By default, `PS1` is configured to display only the username, hostname and current working directory in the prompt.
+By default, `PS1` is set to display only the username, host name and current working directory in the prompt.
 
 <pic src="default-prompt.png" alt="Default prompt" width="55%">
 
@@ -156,8 +147,7 @@ By default, `PS1` is configured to display only the username, hostname and curre
 
 </pic>
 
-The `PS1` environment variable provides information for configuring and styling the Shell prompt. 
-By default, `PS1` is configured to display only the username, hostname and current working directory in the prompt.
+`PS1` can be [configured](https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html) to add (or remove) features, such as status code of the previous command, git branch, git status, dates, etc. In Figure 3 below, the prompt is able to detect and show the git branch and status when it is inside a git repository, a useful and convenient feature for developers.
 
 <pic src="enhanced-prompt.png" alt="Enhanced prompt" width="55%">
 
@@ -165,16 +155,17 @@ By default, `PS1` is configured to display only the username, hostname and curre
 
 </pic>
 
-##### Autocomplete
+##### Feature: Tab completion
 
-Autocomplete is a useful feature
+Tab completion is a feature that allows the user to select options from a drop down menu. This is a default feature when using `zsh`, but can be configured using dotfiles when using other shells like `bash`.
 
 <pic src="cd-autocomplete.gif" alt="Git flag autocomplete" width="60%">
 
-  <sub> _Figure 4. cd autocomplete_ </sub>
+  <sub> _Figure 4. `cd` tab completion [(Tutorial)](https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/)_ </sub>
 
 </pic>
 
+Tab completion can also be used for other purposes, such as selecting flags from a drop down menu, complete with an accompanying description.
 
 <pic src="git-flag-autocomplete.gif" alt="Git flag autocomplete" width="60%">
 
@@ -182,13 +173,13 @@ Autocomplete is a useful feature
 
 </pic>
 
-##### Syntax Highlighting
+##### Feature: Syntax Highlighting
 
-Dotfiles are also often used to style and colorise the terminal. This is not just for aesthetic reasons - the use of color enhances readability of programs and makes it easier to debug. One such example would be the use of syntax highlighting.
+Dotfiles are also often used to style and colorise the terminal. This is not just for aesthetic reasons - the use of color enhances readability of programs and makes it easier to debug. One such example would be the use of **syntax highlighting** as seen in Figure 6 below. It is especially useful for long shell commands, escape sequences or string interpolation.
 
 <pic src="syntax-highlighting.gif" alt="Git flag autocomplete" width="60%">
 
-  <sub> _Figure 6 Syntax Highlighting_ </sub>
+  <sub> _Figure 6 Syntax Highlighting [(Tutorial)](https://github.com/zsh-users/zsh-syntax-highlighting)_ </sub>
 
 </pic>
 
@@ -198,15 +189,30 @@ While dotfiles are easy to setup and configure, they can become disorganised ove
 
 #### Management Strategies
 
-There are several management stratgies for managing dotfiles, and most of them revolve around `git` configurations.
+There are several management stratgies for managing dotfiles, and most of them revolve around `git` configurations. The benefit of managing dotfiles with `git` is that they can then be pushed to online repositories like `GitHub` or `GitLab`, which can .
 
-1. Use a [git worktree](https://www.atlassian.com/git/tutorials/dotfiles).
-1. Use [symlinking](https://www.freecodecamp.org/news/dive-into-dotfiles-part-2-6321b4a73608/).
-1. Use an existing dotfiles management tool such as [yadm](https://yadm.io/).
+1. **Use a [git worktree](https://www.atlassian.com/git/tutorials/dotfiles):**\
+The technique consists in storing a Git bare repository in a "side" folder (like `$HOME/.cfg` or `$HOME/.myconfig`) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
+2. **Use [symlinking](https://opensource.com/article/19/3/move-your-dotfiles-version-control):**\
+The `ln` command is used to create links in your (unix-based) system. Use the `--help` command to get more info on the myriad of options available to you. Just using the `ln` command creates something called a ‘hard link’, which is not what we want. We want a ‘symbolic’ link instead. The syntax is `ln -s <actual location of the file> <name and location you want to see that file under>`. For example:
+```bash
+ln -s ~/dotfiles/gitconfig ~/.gitconfig
+```
+will result in the gitconfig in the dotfiles directory to be accessible from the `~/.gitconfig` location, which is where Git is expecting to see all the Git preferences set.
+
+3. **Use an existing dotfiles management tool such as [yadm](https://yadm.io/):**
+`yadm` is a command-line tool for managing dotfiles. with additional features such as allowing developers to select alternate versions of files based on the operating system or host name. `yadm` also supplies the ability to manage a subset of secure files, which are encrypted before they are  included in the repository.
 
 <box type="danger">
-Before copying dotfiles over to a system, ensure that there is a backup of the local dotfiles.
+Before copying dotfiles over to a system, ensure that there is a backup of the local dotfiles so they are not overwritten.
 </box>
 
 ### Conclusion
-Dotfiles are highly useful tools
+
+In a nutshell, Dotfiles are highly useful tools that can provide virtually unlimited customisability, and can tremendously improve the productivity of a developer. For junior developers that are keen on improve their linux or shell scripting knowledge, dotfiles are a good way to get started.
+
+Apart from those listed in the article, here are some further readings/resources to get started with Dotfiles:
+
+- [Unofficial Guide to Dotfiles on GitHub](https://dotfiles.github.io/)
+- [Introduction to Dotfiles](https://thoughtbot.com/upcase/videos/intro-to-dotfiles)
+- [Awesome dotfiles: A curated list of dotfiles resources.](https://github.com/webpro/awesome-dotfiles)
