@@ -33,7 +33,7 @@
 
 ## What is Xamarin?
 
-**Xamarin** is an open source developer platform for building modern and performant applications on various platforms, especially Android and iOS. It is built on top of Mono, an open-source version of the .NET Framework based on the .NET ECMA standards. It is currently maintained by Microsoft and the .NET community. As one of the most established mobile app development frameworks, Xamarin offers developers the option of writing apps in C#, instead of Java and Objective-C/Swift. The architecture of Xamarin aims to achieve maximum code reuse across different platforms while maintaining near-native performance.
+**[Xamarin](https://dotnet.microsoft.com/apps/xamarin)** is an open source developer platform for building modern and performant applications on various platforms, especially Android and iOS. It is built on top of Mono, an open-source version of the .NET Framework based on the .NET ECMA standards. It is currently maintained by Microsoft and the .NET community. As one of the most established mobile app development frameworks, Xamarin offers developers the option of writing apps in C#, instead of Java and Objective-C/Swift. The architecture of Xamarin aims to achieve maximum code reuse across different platforms while maintaining near-native performance.
 
 ## How Xamarin Works?
 
@@ -44,9 +44,11 @@ Here is an overview of the architecture of a cross-platform Xamarin application.
 
 Xamarin allows developers to create native UI on each platform and write business logic in C# that is shared across platforms. In most cases, 80% of application code is sharable using Xamarin. A typical cross-platform Xamarin project consists of three sub-projects: **Shared Code, Xamarin.Android, and Xamarin.iOS**.
 
+While Shared Code consists of common business logic, cross-platform UI elements (**Xamarin.Forms**) and a collection of native device features (**Xamarin.Essentials**), **Xamarin.Android** and **Xamarin.iOS** provide access to remaining native features and handle the compilation of shared code into native assemblies.
+
 ### Xamarin.Android and Xamarin.iOS
 
-Xamarin.Android and Xamarin.iOS handles compilation of both shared code and platform dependent code into native assemblies. The difference between the two is that while Xamarin.Android compiles C# into Intermediate Language, which is then **Just-in-Time (JIT)** compiled to a native assembly within the Mono execution environment, Xamarin.iOS compiles C# into assembly code fully **Ahead-of-Time (AOT)**.
+Xamarin.Android and Xamarin.iOS handle the compilation of both shared code and platform dependent code into native assemblies. The difference between the two is that while Xamarin.Android compiles C# into Intermediate Language, which is then **Just-in-Time (JIT)** compiled to a native assembly within the Mono execution environment, Xamarin.iOS compiles C# into assembly code fully **Ahead-of-Time (AOT)**.
 
 Within the sub-projects, developers can access the complete Android or iOS SDK, wrapped with .NET APIs. This allows the entire application to be developed in C#, without writing any native code. Moreover, developers can leverage on the latest platform-specific features. For example, the `ARKit` Namespace, included in Xamarin iOS SDK 12, gives developers full access to ARKit of iOS SDK in C#.
 
