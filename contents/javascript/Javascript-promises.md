@@ -16,6 +16,17 @@
 **Authors: Daniel Berzin Chua, Ong Shu Peng**<br/>
 Reviewers: Chelsey Ong, Damith C, Gilbert Emerson, Tan Heng Yeow
 
+<box id="article-toc">
+
+* [Why Promises?‎](#why-promises)
+* [What is a Promise?‎](#what-is-a-promise)
+* [How Promises Work‎](#how-promises-work)
+* [Imperative Style Promises: async-await‎](#imperative-style-promises-async-await)
+* [Where Promises can be used‎](#where-promises-can-be-used)
+* [Doing more with Promises‎](#doing-more-with-promises)
+* [Further Reading‎](#further-reading)
+</box>
+
 ## Why Promises?
 
 Typically, code we write executes in _synchronous_ manner i.e., the current operation completes its work before proceeding with next operation. However, take an HTTP request for example. It is an operation that takes a while to process, depending on your internet speed and where you are in the world. If such an operation was to be executed in a synchronous manner, your application would be slow because it has to wait for this request to complete and it would not make for a particularly good user experience. Instead, we can make HTTP requests to operate *asynchronously* in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished before proceeding on with other operations; it allow those operations to continue processing in the background while other operations are executed. 

@@ -16,14 +16,16 @@
     * [Java Reflection]({{baseUrl}}/contents/java/JavaReflections.html)
     * [JUnit]({{baseUrl}}/contents/java/JUnit.html)
   * JavaScript
-    * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/javascript.html)
+    * [Writing Testable JavaScript Code]({{baseUrl}}/contents/javascript/WritingTestableJavascript.html)
     * [Javascript Promises]({{baseUrl}}/contents/javascript/Javascript-promises.html)
     * [Javascript Modules]({{baseUrl}}/contents/javascript/Javascript-modules.html)
     * [Static Typing in JavaScript]({{baseUrl}}/contents/javascript/staticTypingInJavascript.html)
   * Kotlin
     * [Introduction to Kotlin]({{baseUrl}}/contents/kotlin/kotlin.html)
     * [Null Safety In Kotlin]({{baseUrl}}/contents/kotlin/NullSafety.html)
-  * [Python]({{baseUrl}}/contents/python/introduction-to-python.html)
+  * Python
+    * [Introduction to Python]({{baseUrl}}/contents/python/introduction-to-python.html)
+    * [NumPy]({{baseUrl}}/contents/python/numpy.html)
   * [Ruby]({{baseUrl}}/contents/ruby/Ruby.html)
   * [Rust]({{baseUrl}}/contents/rust/Rust.html)
   * [Scala]({{baseUrl}}/contents/scala/Scala.html)
@@ -65,10 +67,10 @@
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
   * [Angular]({{baseUrl}}/contents/javascript/Javascript-framework-Angular.html)
   * [iOS]({{baseUrl}}/contents/ios/IntroToIos.html)
-  * [NodeJS]({{baseUrl}}/contents/node/nodejs.html)
+  * [Node]({{baseUrl}}/contents/node/nodejs.html)
   * [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html)
   * [Ruby on Rails]({{baseUrl}}/contents/ruby/Rails.html)
-  * [VueJS]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
+  * [Vue]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
 
 * ****Tools Useful for Software Engineers****
   * [Regular Expressions]({{baseUrl}}/contents/regex/Regex.html)
