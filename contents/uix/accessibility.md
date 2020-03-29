@@ -21,11 +21,11 @@ Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Jacob Li Pengcheng]
 Note that although the scope of this article covers the accessibility of websites, many of the points also apply to accessibility and UI/UX of other softwares too.
 </box>
 
-## What is accessibility?
+## What is Accessibility?
 
 > Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections. <sub>--[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility)</sub>
 
-## Why is accessibility important?
+## Why is Accessibility Important?
 
 Accessibility is important for users with disabilities to access the Web. There are many kinds of disabilities, including:
    * Visual %%e.g., partial blindness, full blindness, color blindness, cataract, glaucoma, etc.%%
@@ -49,14 +49,14 @@ Improving accessibility also brings some benefits to you as a developer:
 4. **Accessibility helps you increase your user base**. According to the [World Health Organization world report on disability](https://www.who.int/disabilities/world_report/2011/report/en/), about 15% of the world's population live with some form of disability. That makes up more than 1 billion people. It is a significant population of users, so improving accessibility can help you reach more people.
 5. **Accessibility is part of the law in some places**. In [some countries](https://www.w3.org/WAI/policies/), abiding by accessibility guidelines is mandatory. Be careful not to break the law!
 
-## How can I improve the accessibility of my website?
+## How can I Improve the Accessibility of My Website?
 
 There are many ways to improve the accessibility of your website. Below are some tips, based on the type of disabilities they address.
 
 ### Visual
 Users with visual impairments rely on assistive technologies such as a magnifier or a screen reader.
 
-##### :fas-thumbs-up: Best practice: Use more visual indicators to convey a message
+##### :fas-thumbs-up: Best Practice: Use More Visual Indicators to Convey a Message
   
 Let us look at the Facebook sign up page. Suppose I want to sign up for a new account, but I have not put in all the necessary information. So, it is supposed to tell me that my attempt to sign up has failed.
 
@@ -73,7 +73,7 @@ To someone with another type of color blindness, [deuteranopia](https://en.wikip
 It may be unclear to color-blind users that the sign up has failed. To avoid confusion, we should not rely on colours alone to convey a message. Instead, we should use more visual indicators such as icons or an explanation box.
 ![Sign up page with more visual indicators](accessibility/fb-more-indicators.png "Facebook sign up page with more visual indicators")
 
-##### :fas-thumbs-up: Best practice: Maintain good color contrast
+##### :fas-thumbs-up: Best Practice: Maintain Good Color Contrast
   
 Look at this page taken from Tech Crunch.
 ![Tech Crunch page](accessibility/tc-normal.png "Tech Crunch page")
@@ -83,7 +83,7 @@ To users with good vision, the design may look minimalist and clean. However, to
 ![Blurry Tech Crunch page](accessibility/tc-blurred.png "Tech Crunch page to someone with cataract")
 It gets difficult to read the news snippets because of the poor color contrast (grey on white). On the other hand, the black colored texts are still legible. Thus, we should maintain good color contrast ratio in our websites for ease of reading.
 
-##### :fas-thumbs-up: Best practice: Use `alt` attribute for images
+##### :fas-thumbs-up: Best Practice: Use `alt` Attribute for Images
   
 The `alt` attribute provides alternative information for an image that can be read out by a screen reader to describe an image.
 
@@ -109,7 +109,7 @@ Such disabilities might affect how the user uses a website. It could be due to d
 
 Unlike other web accessibility issues, there is no quick fix to issues arising from cognitive disabilities. The rule of thumb you can follow is to always design your websites to be as logical, consistent, and usable as possible. Here are some best practices mentioned by [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#People_with_cognitive_impairments) and [National Autistic Society](https://www.autism.org.uk/professionals/others/website-design.aspx):
 
-##### :fas-thumbs-up: Best practice: Avoid distractions <br>
+##### :fas-thumbs-up: Best Practice: Avoid Distractions <br>
 People with cognitive disabilities are more easily distracted, or they may have heightened sensory awareness where cluttered pages can be overwhelming.
   * Avoid unnecessary movements from animations or moving elements
   * Have a clean and uncluttered design
@@ -122,15 +122,15 @@ People with cognitive disabilities are more easily distracted, or they may have 
   Clean page:
   ![Clean landing page](accessibility/bg-new.png "Clean landing page")
 
-##### :fas-thumbs-up: Best practice: Be logical
+##### :fas-thumbs-up: Best Practice: Be Logical
   * Multi-stage processes should be broken down into logical steps, with regular reminders of how far through the process you are, and how long you've got left to complete the process, if appropriate.
   * Workflows are logical, simple, and require as little interaction as possible to complete.
 
-##### :fas-thumbs-up: Best practice: Be consistent
+##### :fas-thumbs-up: Best Practice: Be Consistent
   * Navigation, header, footer, and main content are always in the same places.
   * Navigation mechanisms are consistent in appearance and behaviour.
 
-##### :fas-thumbs-up: Best practice: Communicate well <br>
+##### :fas-thumbs-up: Best ractice: Communicate Well <br>
 People with cognitive disabilities are more likely to take things literally and can benefit from more visual cues.
   * Pages are not overly long or dense in terms of the amount of information presented at once.
   

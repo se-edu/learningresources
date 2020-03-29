@@ -29,7 +29,7 @@ Node is mostly used in back-end and server side scenarios. For example, LinkedIn
 
 Now that we know what Node is, let us look at some benefits it has to offer.
 
-### Benefit 1: Easy to get Started
+### Benefit 1: Easy to Get Started
 
 To install Node, simply download the installer from the [official Node website](https://nodejs.org/en/download/) based on your OS and run it. This should install both Node and npm. npm is a tool which will help you to search, install and manage node packages. The use of npm will be explained in the next section.
 
@@ -200,7 +200,7 @@ newParser.parse(content);
 
 To better understand how to use `module.exports`, checkout [Tendai Mutunhire's article](http://stackabuse.com/how-to-use-module-exports-in-node-js/).
 
-## Use cases
+## Use Cases
 
 Node is **good** for
 * **Processing high volumes of IO-bound requests**. A single instance of a Node server will be more efficient and can serve more requests with the same hardware than other usual servers (such as those written in Ruby on Rails). This makes the Node server faster and more scalable.

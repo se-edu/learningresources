@@ -17,7 +17,7 @@
 
 Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Marvin Chin](https://github.com/marvinchin)
 
-## Ruby on Rails overview
+## Ruby on Rails Overview
 
 **Ruby on Rails** is a web application framework written in the Ruby programming language. It was designed with the intention of making programming web applications easier and quicker by reducing the amount of code you write. Rails achieves this by being an "opinionated framework", which means that the developers believe that there is a certain approach - often called "The Rails Way" - that is ideal for building most types of web applications. By adhering to this approach, Rails allows you to focus primarily on the logic, and fills in much of the boilerplate code for you. 
 
@@ -94,7 +94,7 @@ After the Controller has fetched all the data necessary and applied whatever tra
 
 Many popular and very technically mature websites started off using, and continue to use Rails. These include: GitHub, Airbnb, Twitter, Hulu, Shopify, and Twitch, among others. Some of the key features that makes Rails the framework of choice for these users are:
 
-### Fast iteration speed for product developement 
+### Fast Iteration Speed for Product Developement 
 
 As an opinionated framework, Rails helps to automate trivial tasks by following certain conventions, which can make the development process faster. For example, in a Rails project that is connected to a database, each class is mapped to a table, as described in the Active Record Pattern, and the table name is just a pluralized version of the class's name - the `User` class becomes the `Users` table, the `Person` class becomes the `People` table, etc. This means that you don't need to spend any time deliberating on the name of the tables, nor do you have to juggle multiple concepts while mapping out the database and application, as Rails will automatically connect the two and spare you from deliberating about the exact name of the table. A similar approach is used to handle resources, which also automates much of the process.
 
