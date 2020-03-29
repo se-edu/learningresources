@@ -342,12 +342,12 @@
           <p>To install Ruby, go to the download page of the above website and follow the instructions. If you're a Mac user, you don't need to do anything; Macs come with Ruby pre-installed!</p>
           <p>For beginners and intermediate users, <a href="https://www.tutorialspoint.com/ruby/index.htm">tutorialspoint</a> has great introductory Ruby tutorials, and <a href="http://rubylearning.com/satishtalim/tutorial.html">rubylearning.com</a> is another
             great place. We will explore some of the more prominent language features of Ruby.</p>
-          <h3 id="everything-is-an-object">Everything is an object<a class="fa fa-anchor" href="#everything-is-an-object"></a></h3>
+          <h3 id="everything-is-an-object">Everything is an Object<a class="fa fa-anchor" href="#everything-is-an-object"></a></h3>
           <p>Ruby has no concept of &quot;primitives&quot;. Anything that can be assigned to a variable is an object. Even numbers and boolean values <code>true</code> and <code>false</code> are objects.</p>
           <pre><code class="hljs rb"><span><span class="hljs-number">5</span>.times <span class="hljs-keyword">do</span></span><span>  puts <span class="hljs-string">"Hello world!"</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span><span class="hljs-comment"># Hello world!</span></span><span><span class="hljs-comment"># Hello world!</span></span><span><span class="hljs-comment"># Hello world!</span></span><span><span class="hljs-comment"># Hello world!</span></span><span><span class="hljs-comment"># Hello world!</span></span></code></pre>
           <p>As such, it becomes very easy to introduce new functions to those &quot;primitives&quot;:</p>
           <pre><code class="hljs rb"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fixnum</span> <span class="hljs-comment"># integers in Ruby belong to this class</span></span></span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">next</span><span class="hljs-params">()</span></span></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span> + <span class="hljs-number">1</span></span><span>  <span class="hljs-keyword">end</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span><span class="hljs-number">7</span>.<span class="hljs-keyword">next</span>()</span><span><span class="hljs-comment">#  =&gt; 8</span></span></code></pre>
-          <h3 id="readability-is-king">Readability is king<a class="fa fa-anchor" href="#readability-is-king"></a></h3>
+          <h3 id="readability-is-king">Readability is King<a class="fa fa-anchor" href="#readability-is-king"></a></h3>
           <blockquote>
             <p>Ruby is simple in appearance, but is very complex inside, just like our human body.</p>
             <p><em>Yukihiro Matsumoto</em></p>
@@ -355,11 +355,11 @@
           <p>Some languages attempt to make their codes as close to pseudocode as possible, but Ruby takes it to another level: Ruby code flows almost as smoothly as an English literary text.</p>
           <pre><code class="hljs rb"><span><span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">5</span></span><span>  puts <span class="hljs-string">"I am counting <span class="hljs-subst">#{num}</span>!"</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span><span class="hljs-keyword">unless</span> number.even?</span><span>  puts <span class="hljs-string">"Number is odd!"</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>[<span class="hljs-string">"chocolate"</span>, <span class="hljs-string">"strawberry"</span>, <span class="hljs-string">"vanilla"</span>].each { <span class="hljs-params">|flavour|</span></span><span>  make_ice_cream(flavour)</span><span>}</span></code></pre>
           <p><em>No, you're not reading an English poem. You're reading Ruby!</em></p>
-          <h3 id="functional-programming-is-encouraged">Functional programming is encouraged<a class="fa fa-anchor" href="#functional-programming-is-encouraged"></a></h3>
+          <h3 id="functional-programming-is-encouraged">Functional Programming is Encouraged<a class="fa fa-anchor" href="#functional-programming-is-encouraged"></a></h3>
           <p>For those familiar with <a href="http://www.cse.unsw.edu.au/~en1000/haskell/hof.html">higher-order functions</a>, Ruby supports <em>map</em>, <em>fold-left</em>, and <em>filter</em>.</p>
           <pre><code class="hljs rb"><span><span class="hljs-comment"># Map</span></span><span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].map { <span class="hljs-params">|n|</span> n * n }</span><span><span class="hljs-comment">#  =&gt; [1, 4, 9, 16, 25]</span></span><span>&#x200B;</span><span><span class="hljs-comment"># Fold-left</span></span><span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].inject(<span class="hljs-number">0</span>) { <span class="hljs-params">|sum, n|</span> sum + n }</span><span><span class="hljs-comment">#  =&gt; 15</span></span><span>&#x200B;</span><span><span class="hljs-comment"># Filter</span></span><span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].select { <span class="hljs-params">|n|</span> n.even? }</span><span><span class="hljs-comment">#  =&gt; [2, 4]</span></span></code></pre>
           <p>Joel McCracken makes an <a href="http://joelmccracken.github.io/functional-programming-in-ruby/#/">excellent short presentation</a> on how functions are treated in Ruby.</p>
-          <h3 id="object-oriented-programming-is-possible-too">Object-oriented programming is possible, too<a class="fa fa-anchor" href="#object-oriented-programming-is-possible-too"></a></h3>
+          <h3 id="object-oriented-programming-is-possible-too">Object-Oriented Programming is Possible, Too<a class="fa fa-anchor" href="#object-oriented-programming-is-possible-too"></a></h3>
           <pre><code class="hljs rb"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span></span></span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialize</span><span class="hljs-params">(r)</span></span></span><span>    @radius = r</span><span>  <span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_radius</span></span></span><span>    <span class="hljs-keyword">return</span> @radius</span><span>  <span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_area</span></span></span><span>    <span class="hljs-keyword">return</span> Math::PI * @radius * @radius</span><span>  <span class="hljs-keyword">end</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>c = Circle.new(<span class="hljs-number">5</span>)</span><span>c.get_area</span><span><span class="hljs-comment">#  =&gt; 78.53981633974483</span></span></code></pre>
           <p>More on this in <a href="https://www.tutorialspoint.com/ruby/ruby_object_oriented.htm">Object-oriented Ruby tutorial</a>.</p>
           <h2 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h2>
@@ -396,10 +396,10 @@
               <a class="nav-link py-1" href="#ruby-overview">Ruby Overview&#x200E;</a>
               <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#everything-is-an-object">Everything is an object&#x200E;</a>
-                <a class="nav-link py-1" href="#readability-is-king">Readability is king&#x200E;</a>
-                <a class="nav-link py-1" href="#functional-programming-is-encouraged">Functional programming is encouraged&#x200E;</a>
-                <a class="nav-link py-1" href="#object-oriented-programming-is-possible-too">Object-oriented programming is possible, too&#x200E;</a>
+                <a class="nav-link py-1" href="#everything-is-an-object">Everything is an Object&#x200E;</a>
+                <a class="nav-link py-1" href="#readability-is-king">Readability is King&#x200E;</a>
+                <a class="nav-link py-1" href="#functional-programming-is-encouraged">Functional Programming is Encouraged&#x200E;</a>
+                <a class="nav-link py-1" href="#object-oriented-programming-is-possible-too">Object-Oriented Programming is Possible, Too&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#advanced-topics">Advanced Topics&#x200E;</a>
               <a class="nav-link py-1" href="#ruby-frameworks-and-devops">Ruby Frameworks and DevOps&#x200E;</a>
@@ -411,7 +411,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

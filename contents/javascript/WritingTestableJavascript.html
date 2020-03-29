@@ -338,21 +338,21 @@
           </p>
           <p>That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.</p>
           <p>Good JavaScript code should be testable and reusable.</p>
-          <h2 id="writing-testable-javascript-2">Writing testable JavaScript<a class="fa fa-anchor" href="#writing-testable-javascript-2"></a></h2>
-          <h3 id="avoid-coupling-with-selectors">Avoid coupling with selectors<a class="fa fa-anchor" href="#avoid-coupling-with-selectors"></a></h3>
+          <h2 id="writing-testable-javascript-2">Writing Testable JavaScript<a class="fa fa-anchor" href="#writing-testable-javascript-2"></a></h2>
+          <h3 id="avoid-coupling-with-selectors">Avoid Coupling With Selectors<a class="fa fa-anchor" href="#avoid-coupling-with-selectors"></a></h3>
           <p>When writing front end code we would encounter code that manipulates the document object model (DOM). Let's look at one such example.</p>
           <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> DIV_STATUS_MESSAGE = <span class="hljs-string">'#statusMessagesToUser'</span>;</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">populateStatusMessageDiv</span>(<span class="hljs-params">message, status</span>) </span>{</span><span>    <span class="hljs-keyword">var</span> $statusMessageDivToUser = $(DIV_STATUS_MESSAGE);</span><span>    ...</span><span>}</span></code></pre>
           <p>In this piece of code, we see that the selector is intrinsically tied to the function. This means that the function is tightly tied with the selector and is not easily testable as the test code has to generate the same markup in the test suite
             for the function to hook up to. In order to prevent such tight coupling, it is advised to leave the selector as a parameter, or sometimes, simply pass in the element itself.</p>
           <pre><code class="hljs js"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">populateStatusMessage</span>(<span class="hljs-params">selector, message, status</span>) </span>{</span><span>    <span class="hljs-keyword">var</span> $statusMessageDivToUser = $(selector);</span><span>    ...</span><span>}</span></code></pre>
-          <h3 id="split-business-logic-and-presentation-code">Split business logic and presentation code<a class="fa fa-anchor" href="#split-business-logic-and-presentation-code"></a></h3>
+          <h3 id="split-business-logic-and-presentation-code">Split Business Logic and Presentation Code<a class="fa fa-anchor" href="#split-business-logic-and-presentation-code"></a></h3>
           <p>When we have to write code that generates markup, it requires business logic. However, mixing the two up is not a good idea. Let's look at the following example:</p>
           <pre><code class="hljs js"><span>$.ajax({</span><span>    type: <span class="hljs-string">'POST'</span>,</span><span>    url: <span class="hljs-string">'/admin/adminStudentGoogleIdReset?'</span> + params,</span><span>    beforeSend: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>        $(button).html(<span class="hljs-string">"&lt;img src='/images/ajax-loader.gif'/&gt;"</span>);</span><span>    },</span><span>    error: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>        $(button).html(<span class="hljs-string">'An Error Occurred, Please Retry'</span>);</span><span>    },</span><span>    success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{</span><span>        ...</span><span>    }</span><span>});</span></code></pre>
           <p>It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse
             code that generates the markup in multiple places.</p>
           <pre><code class="hljs js"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setLoadingImage</span>(<span class="hljs-params">selector</span>) </span>{</span><span>    $(selector).html(<span class="hljs-string">"&lt;img src='/images/ajax-loader.gif'/&gt;"</span>);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setErrorText</span>(<span class="hljs-params">selector</span>) </span>{</span><span>    $(selector).html(<span class="hljs-string">'An Error Occurred, Please Retry'</span>);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayResults</span>(<span class="hljs-params">data</span>) </span>{</span><span>    ...</span><span>}</span><span>&#x200B;</span><span>$.ajax({</span><span>    type: <span class="hljs-string">'POST'</span>,</span><span>    url: <span class="hljs-string">'/admin/adminStudentGoogleIdReset?'</span> + params,</span><span>    beforeSend: setLoadingImage,</span><span>    error: setErrorText,</span><span>    success: displayResults</span><span>});</span></code></pre>
           <p>Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.</p>
-          <h3 id="avoid-big-anonymous-functions">Avoid big anonymous functions<a class="fa fa-anchor" href="#avoid-big-anonymous-functions"></a></h3>
+          <h3 id="avoid-big-anonymous-functions">Avoid Big Anonymous Functions<a class="fa fa-anchor" href="#avoid-big-anonymous-functions"></a></h3>
           <p>Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off
             in a <code>document.ready()</code> or <code>$.ajax()</code>.</p>
           <p>The testable way of writing such function is to simply give the function a name, which allows it to be tested.</p>
@@ -361,7 +361,7 @@
           <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> myApp = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>&#x200B;</span><span>    <span class="hljs-keyword">var</span> id= <span class="hljs-number">0</span>;</span><span>&#x200B;</span><span>    <span class="hljs-keyword">return</span> {</span><span>        next: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>            <span class="hljs-keyword">return</span> id++;</span><span>        },</span><span>&#x200B;</span><span>        reset: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>            id = <span class="hljs-number">0</span>;</span><span>        }</span><span>    };</span><span>})();</span></code></pre>
           <p>As demonstrated above, only <code>myApp</code> is declared in the global scope, and we can access its methods through the object notation, e.g. <code>myApp.next()</code>. This is also especially useful to declare private variables that be used
             among functions. <code>id</code> is not accessible outside of scope in this example.</p>
-          <h3 id="purity-is-worth-pursuing">Purity is worth pursuing<a class="fa fa-anchor" href="#purity-is-worth-pursuing"></a></h3>
+          <h3 id="purity-is-worth-pursuing">Purity is Worth Pursuing<a class="fa fa-anchor" href="#purity-is-worth-pursuing"></a></h3>
           <p>There are tonnes of literature about functional programming. I will heavily recommend reading the <a href="https://github.com/MostlyAdequate/mostly-adequate-guide">Mostly adequate guide to Functional Programming</a>. It explains functional concepts
             extremely well.</p>
           <p>The benefit of pure functions is simple, there is no need to keep track of state. Given an input, the output is guaranteed to be the same every time. This allows us to write extremely simple unit tests, instead of having to maintain the state
@@ -371,15 +371,15 @@
           <p>The above function <code>getTodo</code> is not stateless as it depends on counter's value. In order to write the tests, we would need to ensure counter is reset to the same value at the end of each test. A better way would be to do this:</p>
           <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> counter = <span class="hljs-number">0</span>;</span><span><span class="hljs-keyword">var</span> todos = [];</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTodo</span>(<span class="hljs-params">counter, todos</span>) </span>{</span><span>    <span class="hljs-keyword">if</span> (counter &lt; todos.length) {</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-string">'NIL'</span>;</span><span>    }</span><span>    <span class="hljs-keyword">return</span> todos[counter + <span class="hljs-number">1</span>];</span><span>}</span><span>...</span><span>getTodo(counter, todos);</span></code></pre>
           <p>Now, not only that the person who writes the unit test can write in fewer lines of code, you can also use the function for some other state other than the global values.</p>
-          <h2 id="writing-reusable-javascript">Writing reusable javascript<a class="fa fa-anchor" href="#writing-reusable-javascript"></a></h2>
-          <h3 id="optional-parameters">Optional parameters<a class="fa fa-anchor" href="#optional-parameters"></a></h3>
+          <h2 id="writing-reusable-javascript">Writing Reusable Javascript<a class="fa fa-anchor" href="#writing-reusable-javascript"></a></h2>
+          <h3 id="optional-parameters">Optional Parameters<a class="fa fa-anchor" href="#optional-parameters"></a></h3>
           <p>When writing certain functions, there would be certain situations where we want to have optional parameters. The easiest way would be to put optional parameters at the end of the parameter calls, like such:</p>
           <pre><code class="hljs js"><span><span class="hljs-comment">// es5 syntax</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, headerColor, bodyColor</span>) </span>{</span><span>    <span class="hljs-keyword">var</span> headerColor = headerColor || <span class="hljs-string">'default'</span>;</span><span>    <span class="hljs-keyword">var</span> bodyColor = bodyColor || <span class="hljs-string">'default'</span>;</span><span>    ...</span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">// es6 syntax default parameters</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, headerColor = <span class="hljs-string">'default'</span>, bodyColor = <span class="hljs-string">'default'</span></span>) </span>{</span><span>    ...</span><span>}</span></code></pre>
           <p>This is relatively simple and easy to understand. However, in order to specify body color, the user would have to know and fill in the default header color.</p>
           <pre><code class="hljs js"><span><span class="hljs-comment">// es5 syntax</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, optionals</span>) </span>{</span><span>    <span class="hljs-keyword">var</span> headerColor = optionals.headerColor || <span class="hljs-string">'default'</span>;</span><span>    <span class="hljs-keyword">var</span> bodyColor = optionals.bodyColor || <span class="hljs-string">'default'</span>;</span><span>    ...</span><span>}</span><span><span class="hljs-comment">// es6 syntax with destructuring and default parameters</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPopUp</span>(<span class="hljs-params">title, content, status, optionals</span>) </span>{</span><span>    <span class="hljs-keyword">const</span> { headerColor = <span class="hljs-string">'default'</span>, bodyColor = <span class="hljs-string">'default'</span> } = optionals;</span><span>    ...</span><span>}</span></code></pre>
           <p>By using an object, the user would just need to fill in what parameter they want to be changed. In large functions, this would result in better readability as well.</p>
           <pre><code class="hljs js"><span>createPopUp(<span class="hljs-string">'Warning'</span>, <span class="hljs-string">'This will delete everything!'</span>, dangerStatus, { <span class="hljs-attr">bodyColor</span>: <span class="hljs-string">'red'</span> });</span></code></pre>
-          <h3 id="understand-method-chaining">Understand method chaining<a class="fa fa-anchor" href="#understand-method-chaining"></a></h3>
+          <h3 id="understand-method-chaining">Understand Method Chaining<a class="fa fa-anchor" href="#understand-method-chaining"></a></h3>
           <p>Method chaining is syntax such as <code>array.concat([1, 2]).push(1).filter(isEven)</code>. It is also sometimes referred to as the fluent interface. (see: <a href>Method Chaining in JavaScript</a>)</p>
           <p>It is achieved by returning the object itself in the call.</p>
           <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> obj = {</span><span>    save: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><span>        <span class="hljs-comment">// some procedures</span></span><span>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;</span><span>    }</span><span>};</span></code></pre>
@@ -407,17 +407,17 @@
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#writing-testable-javascript">Writing Testable Javascript&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#writing-testable-javascript-2">Writing testable JavaScript&#x200E;</a>
+              <a class="nav-link py-1" href="#writing-testable-javascript-2">Writing Testable JavaScript&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#avoid-coupling-with-selectors">Avoid coupling with selectors&#x200E;</a>
-                <a class="nav-link py-1" href="#split-business-logic-and-presentation-code">Split business logic and presentation code&#x200E;</a>
-                <a class="nav-link py-1" href="#avoid-big-anonymous-functions">Avoid big anonymous functions&#x200E;</a>
-                <a class="nav-link py-1" href="#purity-is-worth-pursuing">Purity is worth pursuing&#x200E;</a>
+                <a class="nav-link py-1" href="#avoid-coupling-with-selectors">Avoid Coupling With Selectors&#x200E;</a>
+                <a class="nav-link py-1" href="#split-business-logic-and-presentation-code">Split Business Logic and Presentation Code&#x200E;</a>
+                <a class="nav-link py-1" href="#avoid-big-anonymous-functions">Avoid Big Anonymous Functions&#x200E;</a>
+                <a class="nav-link py-1" href="#purity-is-worth-pursuing">Purity is Worth Pursuing&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#writing-reusable-javascript">Writing reusable javascript&#x200E;</a>
+              <a class="nav-link py-1" href="#writing-reusable-javascript">Writing Reusable Javascript&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#optional-parameters">Optional parameters&#x200E;</a>
-                <a class="nav-link py-1" href="#understand-method-chaining">Understand method chaining&#x200E;</a>
+                <a class="nav-link py-1" href="#optional-parameters">Optional Parameters&#x200E;</a>
+                <a class="nav-link py-1" href="#understand-method-chaining">Understand Method Chaining&#x200E;</a>
                 <a class="nav-link py-1" href="#addendum">Addendum&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
@@ -430,7 +430,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

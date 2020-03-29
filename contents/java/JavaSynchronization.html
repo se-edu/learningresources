@@ -319,7 +319,7 @@
           <h1 id="basic-syntax">Basic Syntax<a class="fa fa-anchor" href="#basic-syntax"></a></h1>
           <p>Java Synchronization is done by using keyword <strong>synchronized</strong>. It is commonly used in two forms: <em>synchronized statement</em> and <em>synchronized method</em>. We will use example codes to illustrate how synchronized keyword
             is used.</p>
-          <h2 id="synchronized-statement">synchronized statement<a class="fa fa-anchor" href="#synchronized-statement"></a></h2>
+          <h2 id="synchronized-statement">Synchronized Statement<a class="fa fa-anchor" href="#synchronized-statement"></a></h2>
           <p>Let us look at the following code snippet to understand synchronized statement:</p>
           <pre><code class="hljs"><span>synchronized(object) {</span><span>	// critical section</span><span>}</span></code></pre>
           <p>The <strong>synchronized</strong> keyword takes in an <strong>object</strong> as an argument and uses brackets to enclose the <strong>critical section</strong> that accesses object data. In the code above, the <strong>object</strong> argument
@@ -327,14 +327,14 @@
             data of the
             <strong>object</strong>. When the execution of <strong>critical section</strong> finishes on a certain thread, the thread gives up the <strong>object Monitor</strong> lock and other threads can access the data of <strong>object</strong>. Therefore,
             as long as <strong>critical section</strong> is included in a synchronized block of a <strong>object Monitor</strong>, data of the object is guaranteed to be thread safe.</p>
-          <h2 id="synchronized-method">synchronized method<a class="fa fa-anchor" href="#synchronized-method"></a></h2>
+          <h2 id="synchronized-method">Synchronized Method<a class="fa fa-anchor" href="#synchronized-method"></a></h2>
           <p>Another common way to use <strong>synchronized</strong> functionality is called <strong>synchronized method</strong>. The following code snippet is an example.</p>
           <pre><code class="hljs"><span>public synchronized void foo() {</span><span>	// method code</span><span>}</span></code></pre>
           <p>In this example, <strong>synchronized</strong> is used as a method modifier to indicate that the method is synchronized. In the case of a synchronized method, all the content in the method is considered as <strong>critical section</strong> and
             the Monitor object used is dependent on the method. If the method is an instance method, then the Monitor object used is <strong>this</strong> instance. If the method is a class method, then the Monitor object used is a special class object
             initialized during run time for each class. The equivalence of the above code is:</p>
           <pre><code class="hljs"><span>public void foo() {</span><span>	synchronized(this) {</span><span>		// method code</span><span>	}</span><span>}</span></code></pre>
-          <h1 id="more-features-of-java-synchronization">More features of Java synchronization<a class="fa fa-anchor" href="#more-features-of-java-synchronization"></a></h1>
+          <h1 id="more-features-of-java-synchronization">More Features of Java Synchronization<a class="fa fa-anchor" href="#more-features-of-java-synchronization"></a></h1>
           <p>Besides synchronized keyword to guard a critical section, another important feature of Java Synchronization is <strong>wait()</strong> and <strong>notify()</strong>.</p>
           <h2 id="wait-and-notifyall">wait() and notifyAll()<a class="fa fa-anchor" href="#wait-and-notifyall"></a></h2>
           <p>In a synchronized block, sometimes some conditions are required for execution. If such conditions are not met, wait() method can be used to give up the Monitor object lock and put the current thread into a * callback queue** once the conditions
@@ -344,13 +344,13 @@
             change the conditions, in this case, if cookChicken() method produces chicken and the condition for eatChicken() might be changed, cookChicken() can call notifyAll(). notifyALl() wakes up one by one all the threads in the * callback queue**
             associated with the Monitor object used to by coooChicken(). In this case, eatChicken() is woken up and eatChicken() gains Monitor object lock and starts execution from wait() onwards. This is basically how wait() and notifyAll() work in Java.
             However, here are some points to take notes to use them correctly.</p>
-          <h3 id="understand-which-object-is-used-as-monitor">Understand which object is used as Monitor<a class="fa fa-anchor" href="#understand-which-object-is-used-as-monitor"></a></h3>
+          <h3 id="understand-which-object-is-used-as-monitor">Understand Which Object is Used as Monitor<a class="fa fa-anchor" href="#understand-which-object-is-used-as-monitor"></a></h3>
           <p>As described from the very beginning, all the synchronized feature is associated with a Monitor object as a lock. This is also true for wait() and notifyAll(). The Monitor object associated with wait() and notifyAll() is the Monitor object associated
             with the synchronized block that calls wait() and notifyAll(). When wait() is called, the current thread pull is put into the callback queue of the Monitor object of the synchronized block. When notifyAll() is called, only threads waiting
             in the Monitor object queue associated with notifyAll() will be notified. Therefore, in the above example of eatChicken() and cookChick(), the wait() and notifyAll() will only work if both eatChicken() and cookChicken() are associated with
             the same Monitor object.
           </p>
-          <h3 id="check-condition-for-wait-with-while-loop">Check condition for wait() with while loop<a class="fa fa-anchor" href="#check-condition-for-wait-with-while-loop"></a></h3>
+          <h3 id="check-condition-for-wait-with-while-loop">Check Condition for wait() With While Loop<a class="fa fa-anchor" href="#check-condition-for-wait-with-while-loop"></a></h3>
           <p>wait() is usually used to check condition(e.g. hasChicken in the method eatChicken()). It is a good practice to always use wait() inside a while loop to check for the condition. This is to avoid the situation in which thread is woken for an
             unintended purpose. The example below illustrates this situation:</p>
           <pre><code class="hljs"><span>public synchronized void eatChicken() {</span><span>	if (!hasChicken) {</span><span>		wait();</span><span>	}</span><span>	eat();</span><span>	hasChicken = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void drink() {</span><span>	if (!hasDrink) {</span><span>		wait();</span><span>	}</span><span>	drink();</span><span>	hasDrink = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void cookChicken() {</span><span>	hasChicken = true;</span><span>	notifyAll();</span><span>}</span><span>&#x200B;</span><span>public synchronized void prepareDrink() {</span><span>	hasDrink = true;</span><span>	notifyAll();</span><span>}</span></code></pre>
@@ -368,7 +368,7 @@
             that the thread woken up is the intended thread. However, there are special situations in which notify() is used and is preferred. When all threads that call wait() are checking for the same condition, it is no different to call anyone of
             the thread. notify() can be used in this situation and is better than nofityAll() because notifyAll() wake up all the threads and is, therefore, more costly. When one can be sure that all the threads in the callback queue are waiting for the
             same condition, one can use notify().</p>
-          <h1 id="related-areas">Related areas<a class="fa fa-anchor" href="#related-areas"></a></h1>
+          <h1 id="related-areas">Related Areas<a class="fa fa-anchor" href="#related-areas"></a></h1>
           <p>Java Synchronization as demonstrated in this tutorial is easy to learn, and you are ready to use it after this tutorial. However, Java Synchronization is just a part of a bigger picture: Parallel programs in Java. To fully exploits the parallelism
             brought by modern hardware, you may also want to learn [Java Thread][2] and [Thread Safety][5]</p>
           <p>[2]: to be updated when @ablyx finishes on java threads [3]: <a href="https://en.wikipedia.org/wiki/Mutual_exclusion">https://en.wikipedia.org/wiki/Mutual_exclusion</a> [4]: <a href="https://en.wikipedia.org/wiki/Critical_section">https://en.wikipedia.org/wiki/Critical_section</a>            [5]: <a href="https://en.wikipedia.org/wiki/Thread_safety">https://en.wikipedia.org/wiki/Thread_safety</a> [6]: <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html</a>            [7]: <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">https://en.wikipedia.org/wiki/Semaphore_(programming)</a></p>
@@ -382,20 +382,20 @@
             <a class="nav-link py-1" href="#introduction">Introduction&#x200E;</a>
             <a class="nav-link py-1" href="#basic-syntax">Basic Syntax&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#synchronized-statement">synchronized statement&#x200E;</a>
-              <a class="nav-link py-1" href="#synchronized-method">synchronized method&#x200E;</a>
+              <a class="nav-link py-1" href="#synchronized-statement">Synchronized Statement&#x200E;</a>
+              <a class="nav-link py-1" href="#synchronized-method">Synchronized Method&#x200E;</a>
             </nav>
-            <a class="nav-link py-1" href="#more-features-of-java-synchronization">More features of Java synchronization&#x200E;</a>
+            <a class="nav-link py-1" href="#more-features-of-java-synchronization">More Features of Java Synchronization&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
               <a class="nav-link py-1" href="#wait-and-notifyall">wait() and notifyAll()&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#understand-which-object-is-used-as-monitor">Understand which object is used as Monitor&#x200E;</a>
-                <a class="nav-link py-1" href="#check-condition-for-wait-with-while-loop">Check condition for wait() with while loop&#x200E;</a>
+                <a class="nav-link py-1" href="#understand-which-object-is-used-as-monitor">Understand Which Object is Used as Monitor&#x200E;</a>
+                <a class="nav-link py-1" href="#check-condition-for-wait-with-while-loop">Check Condition for wait() With While Loop&#x200E;</a>
                 <a class="nav-link py-1" href="#breakpoint-of-notifyall">Breakpoint of notifyAll()&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#notify">notify()&#x200E;</a>
             </nav>
-            <a class="nav-link py-1" href="#related-areas">Related areas&#x200E;</a>
+            <a class="nav-link py-1" href="#related-areas">Related Areas&#x200E;</a>
 
           </nav>
         </div>
@@ -403,7 +403,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

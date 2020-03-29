@@ -362,8 +362,8 @@
           <pre><code class="hljs"><span>bob.map(Person::getDepartment)</span><span>    .map(Person::getManager)</span><span>    .map(Person::getName)</span><span>    .ifPresent(Person::doSomething);</span></code></pre>
           <p><code>map()</code> is a method in Java Optionals class that applies the function inside the parentheses to the object that is calling it. If the object is not present, it will return an empty Optional.</p>
           <p>Let's see how Kotlin deals with this issue while maintaining a simple and readable syntax.</p>
-          <h1 id="how-does-kotlin-handle-null-safety">How does Kotlin handle Null Safety?<a class="fa fa-anchor" href="#how-does-kotlin-handle-null-safety"></a></h1>
-          <h2 id="nullable-and-non-nullable-type">Nullable and Non-nullable type<a class="fa fa-anchor" href="#nullable-and-non-nullable-type"></a></h2>
+          <h1 id="how-does-kotlin-handle-null-safety">How Does Kotlin Handle Null Safety?<a class="fa fa-anchor" href="#how-does-kotlin-handle-null-safety"></a></h1>
+          <h2 id="nullable-and-non-nullable-type">Nullable and Non-Nullable Type<a class="fa fa-anchor" href="#nullable-and-non-nullable-type"></a></h2>
           <p>In Kotlin, a type can be <em>nullable</em> or <em>non-nullable</em>, determined by the presence of a <code>?</code>. For example, an object of type <code>String</code> is non-nullable, while an object of type <code>String?</code> is nullable.</p>
           <p>As the compiler catches <code>null</code> assignments to non-nullable objects, the following would result in compilation error.</p>
           <pre><code class="hljs Kotlin"><span><span class="hljs-keyword">var</span> firstString: String = <span class="hljs-string">"hello world"</span></span><span>firstString = <span class="hljs-literal">null</span> <span class="hljs-comment">//compilation error</span></span></code></pre>
@@ -374,7 +374,7 @@
           <h2 id="safety-operators-in-kotlin">Safety Operators in Kotlin<a class="fa fa-anchor" href="#safety-operators-in-kotlin"></a></h2>
           <p>Although non-nullable type is a strong feature in Kotlin, the <a href="https://kotlinlang.org/docs/reference/java-interop.html">interoperability</a> with Java means that we have to use variables as nullable type sometimes. In the previous section,
             we seem to have hit an obstacle as the compiler blocks the call to <code>secondString.length</code>. In this section we look at some ways of overcoming this problem.</p>
-          <h3 id="safe-call-operator">Safe call operator<a class="fa fa-anchor" href="#safe-call-operator"></a></h3>
+          <h3 id="safe-call-operator">Safe Call Operator<a class="fa fa-anchor" href="#safe-call-operator"></a></h3>
           <p>Represented by <code>?.</code>, the safe call operator is used in this way</p>
           <pre><code class="hljs kotlin"><span>secondString?.length</span></code></pre>
           <p>This returns the length of <code>secondString</code> if <code>secondString</code> is not <code>null</code>, and <code>null</code> otherwise.</p>
@@ -390,7 +390,7 @@
           <pre><code class="hljs kotlin"><span><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">myFunc</span><span class="hljs-params">(node: <span class="hljs-type">Node</span>)</span></span>: String? {</span><span>    <span class="hljs-keyword">val</span> parent = node.getParent() ?: <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span></span><span>    <span class="hljs-keyword">val</span> name = node.getName() ?: <span class="hljs-keyword">throw</span> IllegalArgumentException(<span class="hljs-string">"Name expected"</span>)</span><span>    <span class="hljs-comment">// ...</span></span><span>}</span></code></pre>
           <p>Doing so like this can help programmers to check for function arguments before carrying on with the required computation.</p>
           <p>At this point you may ask, &quot;What if I still want my NPE?&quot;</p>
-          <h3 id="not-null-assertion-operator">Not-null assertion operator<a class="fa fa-anchor" href="#not-null-assertion-operator"></a></h3>
+          <h3 id="not-null-assertion-operator">Not-Null Assertion Operator<a class="fa fa-anchor" href="#not-null-assertion-operator"></a></h3>
           <p>Represented by <code>!!</code>, the not-null assertion operator is used in this way</p>
           <pre><code class="hljs kotlin"><span><span class="hljs-keyword">val</span> stringLength = secondString!!.length</span></code></pre>
           <p>The operator converts any value to a non-nullable type and throws an exception if the value is null. In the above example, <code>stringLength</code> will be assigned the length of <code>secondString</code> if <code>secondString</code> is not
@@ -406,7 +406,7 @@
               Elvis operator).
             </li>
           </ol>
-          <h1 id="learning-resources">Learning resources<a class="fa fa-anchor" href="#learning-resources"></a></h1>
+          <h1 id="learning-resources">Learning Resources<a class="fa fa-anchor" href="#learning-resources"></a></h1>
           <ul>
             <li><a href="https://kotlinlang.org/docs/reference/null-safety.html">Null Safety in Kotlin</a></li>
             <li><a href="http://www.baeldung.com/kotlin-null-safety">Comprehensive Guide to Null Safety in Kotlin</a></li>
@@ -423,18 +423,18 @@
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
               <a class="nav-link py-1" href="#nullpointerexception">NullPointerException&#x200E;</a>
             </nav>
-            <a class="nav-link py-1" href="#how-does-kotlin-handle-null-safety">How does Kotlin handle Null Safety?&#x200E;</a>
+            <a class="nav-link py-1" href="#how-does-kotlin-handle-null-safety">How Does Kotlin Handle Null Safety?&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#nullable-and-non-nullable-type">Nullable and Non-nullable type&#x200E;</a>
+              <a class="nav-link py-1" href="#nullable-and-non-nullable-type">Nullable and Non-Nullable Type&#x200E;</a>
               <a class="nav-link py-1" href="#safety-operators-in-kotlin">Safety Operators in Kotlin&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#safe-call-operator">Safe call operator&#x200E;</a>
+                <a class="nav-link py-1" href="#safe-call-operator">Safe Call Operator&#x200E;</a>
                 <a class="nav-link py-1" href="#elvis-operators">Elvis Operators&#x200E;</a>
-                <a class="nav-link py-1" href="#not-null-assertion-operator">Not-null assertion operator&#x200E;</a>
+                <a class="nav-link py-1" href="#not-null-assertion-operator">Not-Null Assertion Operator&#x200E;</a>
               </nav>
             </nav>
             <a class="nav-link py-1" href="#summary">Summary&#x200E;</a>
-            <a class="nav-link py-1" href="#learning-resources">Learning resources&#x200E;</a>
+            <a class="nav-link py-1" href="#learning-resources">Learning Resources&#x200E;</a>
 
           </nav>
         </div>
@@ -442,7 +442,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

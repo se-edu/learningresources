@@ -442,7 +442,7 @@
           <p>And you can use a method reference as the functional interface instead.</p>
           <pre><code class="hljs java"><span><span class="hljs-comment">// trying to sort students by height</span></span><span>students.sort(Student::compareToByHeight);</span></code></pre>
           <p>Notice that the code is very easy to understand at a high level and what the intentions of the author can be understood from the code, reducing the need for further documentation. This also makes code more maintainable.</p>
-          <h3 id="what-is-a-stream">What is a stream?<a class="fa fa-anchor" href="#what-is-a-stream"></a></h3>
+          <h3 id="what-is-a-stream">What is a Stream?<a class="fa fa-anchor" href="#what-is-a-stream"></a></h3>
           <p>Now that we have the basics nailed, let's get started on Streams. Streams are basically sequences of elements. However, when dealing with streams, we are not so interested in where the data of elements is stored, what is currently stored in
             each element, but rather <strong>what we can do with the elements</strong>.</p>
           <p>To use a stream, we need to first construct one. A stream can be obtained from an existing source of elements, such as a collection or an array. We will get into the details of how to do so in the next section.</p>
@@ -525,7 +525,7 @@
           <pre><code class="hljs java"><span>Map&lt;Integer, List&lt;Student&gt;&gt; studentsByYear = students.stream()</span><span>                                            .collect(Collectors.groupingBy(Student::getYear));</span><span>List&lt;Student&gt; firstYears = studentsByYear.get(<span class="hljs-number">1</span>);</span></code></pre>
           <h3 id="drawbacks-and-pitfalls">Drawbacks and Pitfalls<a class="fa fa-anchor" href="#drawbacks-and-pitfalls"></a></h3>
           <p>In order to effectively utilise streams, one would also need to know the common drawbacks and pitfalls associated with streams. In this section, we will talk about two common pitfalls and how you can avoid them.</p>
-          <h4 id="long-complicated-lambda-expressions">Long, complicated lambda expressions<a class="fa fa-anchor" href="#long-complicated-lambda-expressions"></a></h4>
+          <h4 id="long-complicated-lambda-expressions">Long, Complicated Lambda Expressions<a class="fa fa-anchor" href="#long-complicated-lambda-expressions"></a></h4>
           <p>Lambda expressions allow us, as developers, to define a function quickly and easily. However, this power can be easily abused, and one might write a long, complicated lambda expression when trying to provide the required functional interface
             for the stream operation, resulting in code like this:</p>
           <pre><code class="hljs java"><span>result = futures.stream()</span><span>                .map(HttpService::getFutureValue)</span><span>                .map(failureOrResponse -&gt; {</span><span>                    <span class="hljs-keyword">return</span> failureOrResponse</span><span>                          .right().flatMap(<span class="hljs-keyword">this</span>::parseResponse);</span><span>                })</span><span>                .map(failureOrResult -&gt; {</span><span>                    <span class="hljs-keyword">return</span> failureOrResult.either(</span><span>                            failure -&gt; {</span><span>                                log.warn(failure.getMessage());</span><span>                                <span class="hljs-keyword">return</span> EMPTY_RESULT;</span><span>                            },</span><span>                            result -&gt; {</span><span>                                <span class="hljs-keyword">return</span> result;</span><span>                            });</span><span>                })</span><span>                .reduce(EMPTY_RESULT, Result::union);</span></code></pre>
@@ -535,7 +535,7 @@
           <p>With the lambda expressions extracted as methods <code>getFailureOrResult</code> and <code>getEmptyResultIfFailure</code>, the earlier code example can be simplified to look like this:</p>
           <pre><code class="hljs java"><span>result = futures.stream()</span><span>                .map(HttpService::getFutureValue)</span><span>                .map(<span class="hljs-keyword">this</span>::getFailureOrResult)</span><span>                .map(<span class="hljs-keyword">this</span>::getEmptyResultIfFailure)</span><span>                .reduce(EMPTY_RESULT, Result::union);</span><span>&#x200B;</span></code></pre>
           <p>With good method names given to the extracted lambda expressions, the code for the stream operation becomes self-documenting again.</p>
-          <h4 id="difficulty-in-optimising-stream-performance">Difficulty in optimising stream performance<a class="fa fa-anchor" href="#difficulty-in-optimising-stream-performance"></a></h4>
+          <h4 id="difficulty-in-optimising-stream-performance">Difficulty in Optimising Stream Performance<a class="fa fa-anchor" href="#difficulty-in-optimising-stream-performance"></a></h4>
           <p>Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to <a href="http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/">this blog post</a>,
             an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance
             between loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.</p>
@@ -601,7 +601,7 @@
               </p>
             </li>
           </ul>
-          <h4 id="common-pitfalls">Common pitfalls<a class="fa fa-anchor" href="#common-pitfalls"></a></h4>
+          <h4 id="common-pitfalls">Common Pitfalls<a class="fa fa-anchor" href="#common-pitfalls"></a></h4>
           <ul>
             <li><a href="https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/">https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/</a><br> The article gives a list of other
               common mistakes one may make when using streams.</li>
@@ -618,7 +618,7 @@
               <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions&#x200E;</a>
-                <a class="nav-link py-1" href="#what-is-a-stream">What is a stream?&#x200E;</a>
+                <a class="nav-link py-1" href="#what-is-a-stream">What is a Stream?&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#building-a-stream-pipeline">Building a Stream Pipeline&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
@@ -642,7 +642,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

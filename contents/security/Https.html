@@ -319,7 +319,7 @@
             <li><a href="#how-to-set-up-https">How to set up HTTPS</a></li>
             <li><a href="#misuse-of-https">Misuse of HTTPS</a></li>
           </ul>
-          <h3 id="why-do-we-need-https">Why do we need HTTPS<a class="fa fa-anchor" href="#why-do-we-need-https"></a></h3>
+          <h3 id="why-do-we-need-https">Why Do We Need HTTPS?<a class="fa fa-anchor" href="#why-do-we-need-https"></a></h3>
           <p>The web application usually runs over IP network, which is vulnerable to network sniffing. The old HTTP transmits data packets in plain text and if the network is sniffed, the sniffer can see confidential information in the data packets such
             as the password or <a href="http://searchsoftwarequality.techtarget.com/definition/session-ID">session tokens</a>. Here are some examples on how a plain text could be sniffed.</p>
           <ul>
@@ -340,14 +340,14 @@
           </ul>
           <p>All in all, the Internet architecture that we rely on for network transmission is very vulnerable to network sniffing. If we were to use HTTP, which transmits packets in plain text, no confidentiality could be guaranteed for our web application.
             Therefore, we need to use HTTPS as an end to end encryption to secure our network packets.</p>
-          <h3 id="why-https-is-secure">Why HTTPS is secure<a class="fa fa-anchor" href="#why-https-is-secure"></a></h3>
+          <h3 id="why-is-https-secure">Why Is HTTPS Secure?<a class="fa fa-anchor" href="#why-is-https-secure"></a></h3>
           <p>As aforementioned, our network is not secure, so how could HTTPS help? HTTPS is built on top of HTTP with the addition of <a href="https://www.digicert.com/ssl.htm">SSL</a> to encrypt the plain text message. The purpose of this encryption is
             to make sure only client and the server could decrypt the message with required keys, and sniffer cannot decrypt packets even though they may sniff packets.</p>
           <p>There are mainly 3 encryption algorithms used in HTTPS, namely RSA, Diffie Hellman and Elliptic Curve Algorithm. They are more thoroughly explained in <a href="/learningresources/contents/security/cryptography.md">Introduction to Cryptography</a>            section. These algorithms prevent sniffers from decrypting packets without knowing the keys used because the best attack algorithms known at the moment run in <a href="https://en.wikipedia.org/wiki/Time_complexity#Sub-exponential_time">sub-exponential</a>            time. Therefore, the attack is believed to be computationally infeasible when the keysize is large enough (e.g. 2048 bits for RSA), though it is not mathematically proven.</p>
           <p>Thus, by using https, we can be sure that even though our network packets are transmitted over an insecure network, sniffers cannot understand the content of our encrypted packets.</p>
           <p>Besides providing secure network traffic, HTTPS also provides server validation through Certificate Authority (CA) architecture. A detailed explanation on CA is <a href="https://www.globalsign.com/en-sg/ssl-information-center/what-are-certification-authorities-trust-hierarchies/">here</a>            . In short, CA works by issuing the server a digital certificate that can only be produced by CA. When the server sends its digital certificate to the client, client browsers verify the digital certificate with CA to check whether the server
             is indeed the intended server. To obtain such digital certificate, the server needs to apply to CA and CA will verify the server before issuing the digital certificate.</p>
-          <h3 id="how-to-set-up-https">How to set up HTTPS<a class="fa fa-anchor" href="#how-to-set-up-https"></a></h3>
+          <h3 id="how-to-set-up-https">How to Set up HTTPS?<a class="fa fa-anchor" href="#how-to-set-up-https"></a></h3>
           <p>In order set up HTTPS on your server, you would need to have:</p>
           <ol>
             <li>A dedicated IP address for your server.</li>
@@ -369,7 +369,7 @@
             However, this can be exploited for HTTPS downgrade by a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man in the middle attack</a>. The man in the middle could send forged cipher suite negotiation to both server and client
             to indicate the maximum security supported is only 512 bits Diffie Hellman and trick server and client to encrypt with 512 bits Diffie Hellman. At the moment, without knowing the keys, 512 bits Diffie Hellman algorithm could be decrypted with
             sufficient resources. A more detailed description could be found <a href="https://weakdh.org/">here</a></p>
-          <h4 id="session-hijacking-on-partially-protected-websites">Session Hijacking on partially protected websites<a class="fa fa-anchor" href="#session-hijacking-on-partially-protected-websites"></a></h4>
+          <h4 id="session-hijacking-on-partially-protected-websites">Session Hijacking on Partially Protected Websites<a class="fa fa-anchor" href="#session-hijacking-on-partially-protected-websites"></a></h4>
           <p>Some websites use HTTPS only on the login page to encrypt the login credentials of users. However, this is vulnerable to <a href="https://en.wikipedia.org/wiki/Session_hijacking">session hijacking</a> attack. Most websites use cookies and session
             tokens to maintain a stateful connection with its users, and the session token is embedded into each packet to authenticate the identity of users. Without using HTTPS in all the websites in the domain, the packets containing session token
             is transmitted in plaintext and sniffers can easily obtain the session token to impersonate the victim. A demonstration of this attack on <a href="http://Qoo10.com">Qoo10.com</a> user can be found <a href="https://www.youtube.com/watch?v=BjTwNzoMUuk">here</a></p>
@@ -386,9 +386,9 @@
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
               <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#why-do-we-need-https">Why do we need HTTPS&#x200E;</a>
-                <a class="nav-link py-1" href="#why-https-is-secure">Why HTTPS is secure&#x200E;</a>
-                <a class="nav-link py-1" href="#how-to-set-up-https">How to set up HTTPS&#x200E;</a>
+                <a class="nav-link py-1" href="#why-do-we-need-https">Why Do We Need HTTPS?&#x200E;</a>
+                <a class="nav-link py-1" href="#why-is-https-secure">Why Is HTTPS Secure?&#x200E;</a>
+                <a class="nav-link py-1" href="#how-to-set-up-https">How to Set up HTTPS?&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#misuse-of-https">Misuse of HTTPS&#x200E;</a>
               <a class="nav-link py-1" href="#conclusion">Conclusion&#x200E;</a>
@@ -400,7 +400,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

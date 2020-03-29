@@ -370,7 +370,7 @@
             a local context for later execution. Context capturing is reflected below:</p>
           <pre><code class="hljs csharp"><span><span class="hljs-comment">//Capturing local context</span></span><span><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Context</span></span><span>{</span><span>    <span class="hljs-comment">//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.</span></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Func&lt;Int&gt; <span class="hljs-title">GetCounter</span>(<span class="hljs-params"></span>)</span></span><span><span class="hljs-function"></span>    {</span><span>        <span class="hljs-comment">//Inside the context of this function, there is an integer variable count.</span></span><span>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;</span><span>        <span class="hljs-comment">//GetCounter is returning a function.</span></span><span>        <span class="hljs-keyword">return</span> () =&gt;</span><span>        {</span><span>            <span class="hljs-comment">//The function increments the count variable inside this context, which is initialized to 0.</span></span><span>            count++;</span><span>            <span class="hljs-comment">//It then returns the current count value.</span></span><span>            <span class="hljs-keyword">return</span> count;</span><span>        }</span><span>    }</span><span>}</span><span>&#x200B;</span><span>Func&lt;Int&gt; counter = Context.GetCounter();</span><span><span class="hljs-comment">//Every time the function is called, the variable count in the captured context would increment by 1, and its new value will be returned.</span></span><span>counter(); <span class="hljs-comment">//Returns 1</span></span><span>counter(); <span class="hljs-comment">//Returns 2</span></span></code></pre>
           <p>The ability to capture the value <code>count</code> outside of the defined function scope that returns <code>count</code>, is called a closure. If you wish to read more about closures, you may consult <a href="https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure">this article by dixin</a></p>
-          <h3 id="nullable-type">Nullable type<a class="fa fa-anchor" href="#nullable-type"></a></h3>
+          <h3 id="nullable-type">Nullable Type<a class="fa fa-anchor" href="#nullable-type"></a></h3>
           <p>Normally to guard against null pointers, an <code>if</code> branch or a guard clause that checks against <code>null</code> is used. Below is a code example of conventional null pointer handling.</p>
           <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {</span><span>    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);</span><span>}</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {</span><span>    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);</span><span>}</span><span>&#x200B;</span><span>Car car = Car.ManufactureCar();</span><span>Double fuelLeft = <span class="hljs-number">0</span>;</span><span><span class="hljs-keyword">if</span> (car != <span class="hljs-literal">null</span>)</span><span>{</span><span>    car.AddFuelTank();</span><span>	fuelTank = car.GetFuelTank()</span><span>	<span class="hljs-keyword">if</span> (fuelTank != <span class="hljs-literal">null</span>) {</span><span>        fuelLeft = fuelTank.GetFuel();</span><span>    }</span><span>}</span><span>&#x200B;</span><span>DoSomethingTo(fuelLeft);</span></code></pre>
           <p>In C#, <code>null</code> handling does not need to be done the conventional way. C# has <code>Nullable</code> features, such as collaescing operators <code>??</code> and null conditional operators <code>.?</code>. Some may find this similar
@@ -385,7 +385,7 @@
             <li><code>??</code> operator sees null, so the entire expression defaults to 0. If <code>??</code> sees a non-null value, the default value is not used.</li>
           </ul>
           <p>More can be read about Nullables <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/">here</a></p>
-          <h3 id="other-features">Other features<a class="fa fa-anchor" href="#other-features"></a></h3>
+          <h3 id="other-features">Other Features<a class="fa fa-anchor" href="#other-features"></a></h3>
           <p>The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. Some features that were not listed are <a href="https://docs.microsoft.com/en-us/dotnet/csharp/async">Async/Await</a>            and <a href="https://www.infoq.com/articles/default-interface-methods-cs8">Default Interface Implementation</a>. If you wish to explore other features, you may consult this <a href="https://stackify.com/csharp-8-features/">article</a> and
             others online.
           </p>
@@ -420,8 +420,8 @@
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#object-array-collection-initializers">Object/Array/Collection Initializers&#x200E;</a>
                 <a class="nav-link py-1" href="#closures">Closures&#x200E;</a>
-                <a class="nav-link py-1" href="#nullable-type">Nullable type&#x200E;</a>
-                <a class="nav-link py-1" href="#other-features">Other features&#x200E;</a>
+                <a class="nav-link py-1" href="#nullable-type">Nullable Type&#x200E;</a>
+                <a class="nav-link py-1" href="#other-features">Other Features&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#why-learn-c">Why Learn C#&#x200E;</a>
               <a class="nav-link py-1" href="#how-to-get-started">How to Get Started&#x200E;</a>
@@ -433,7 +433,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

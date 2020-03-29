@@ -312,7 +312,7 @@
           <h1 id="integration-testing">Integration Testing<a class="fa fa-anchor" href="#integration-testing"></a></h1>
           <p><strong>Author(s): <a href="https://github.com/jacoblipech">Jacob Li PengCheng</a></strong></p>
           <p>Reviewers: <a href="https://github.com/amrut-prabhu">Amrut Prabhu</a>, <a href="https://github.com/marvinchin">Marvin Chin Kun Song</a>, <a href="https://github.com/sijie123">Lin Si Jie</a></p>
-          <h2 id="what-is-integration-testing">What is integration testing?<a class="fa fa-anchor" href="#what-is-integration-testing"></a></h2>
+          <h2 id="what-is-integration-testing">What is Integration Testing?<a class="fa fa-anchor" href="#what-is-integration-testing"></a></h2>
           <p>Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the <a href="https://www.guru99.com/unit-testing-guide.html"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Testing of individual module units within a system</span>unit testing stage</span></a>            and before the <a href="https://www.guru99.com/system-testing.html"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Evaluation of the software against requirements gathered from users and system specifications</span>system testing stage</span></a>.
             Integration testing combines individually tested modules as a group and aims to discover faults related to the interactions between these modules.</p>
           <p>Let's look at an example to better understand what these means. Suppose that you have built an online food ordering system and the architecture diagram of your application is shown as follows:</p>
@@ -324,7 +324,7 @@
           </p>
           <p>After completion of unit testing on individual modules, an <strong>integration test</strong> on <code>Order Food</code> and <code>Order Summary</code> checks that upon ordering food, the order summary reflects the correct food orders.</p>
           <p>After completion of integration testing, a system test on the entire application could mimic a customer's point of view and checks that the functionalities such as <code>Order Food</code>, <code>Payment</code> and <code>Generate Report</code>            work as intended.</p>
-          <h2 id="why-is-integration-testing-important">Why is integration testing important?<a class="fa fa-anchor" href="#why-is-integration-testing-important"></a></h2>
+          <h2 id="why-is-integration-testing-important">Why is Integration Testing Important?<a class="fa fa-anchor" href="#why-is-integration-testing-important"></a></h2>
           <p>In a software application, each software module is usually designed and unit tested by different programmers. Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is
             necessary to ensure that the software modules work in unity and expose any faults in the interaction between different units.</p>
           <p>Suppose the <code>Order Food</code> module mentioned earlier allows each user to submit up to 10 orders each time. If the <code>Order Summary</code> module can only record a maximum of 5 orders each time, when the orders from <code>Order Food</code>            are passed to the <code>Order Summary</code> module, 5 of the orders may not be taken into account. Hence, there is potential for problems such as such as <strong>data loss</strong>, <strong>inaccurate results</strong> and even <strong>system errors</strong>.
@@ -338,7 +338,7 @@
             testing.
           </p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="https://www.guru99.com/integration-testing.html">This article</a> provides more information on instances where integration testing is important.</p>
-          <h2 id="how-does-integration-testing-work">How does integration testing work?<a class="fa fa-anchor" href="#how-does-integration-testing-work"></a></h2>
+          <h2 id="how-does-integration-testing-work">How Does Integration Testing Work?<a class="fa fa-anchor" href="#how-does-integration-testing-work"></a></h2>
           <p>Using this specific system as an example, below is a list of things you should follow to execute effective integration testing:</p>
           <ol>
             <li>Prepare the integration test plan.</li>
@@ -346,9 +346,9 @@
             <li>Execute the test scripts and report defects if any.</li>
             <li>Track defects and re-test application.</li>
           </ol>
-          <h3 id="1-prepare-the-integration-test-plan">1. Prepare the integration test plan<a class="fa fa-anchor" href="#1-prepare-the-integration-test-plan"></a></h3>
+          <h3 id="1-prepare-the-integration-test-plan">1. Prepare the Integration Test Plan<a class="fa fa-anchor" href="#1-prepare-the-integration-test-plan"></a></h3>
           <p>Before the actual implementation of your integration tests, it is important to decide on the approach used. There are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.</p>
-          <h4 id="big-bang-approach">Big bang approach:<a class="fa fa-anchor" href="#big-bang-approach"></a></h4>
+          <h4 id="big-bang-approach">Big Bang Approach:<a class="fa fa-anchor" href="#big-bang-approach"></a></h4>
           <p>This approach involves integrating all the modules in your design diagram together and testing everything at once in a complete state. This is convenient but it is difficult to isolate defects and there is a high chance of missing critical underlying
             defects. Big bang integration testing is usually used for smaller applications with few modules.</p>
           <p>An example of how big bang integration testing can be applied to our given example is shown below:</p>
@@ -356,7 +356,7 @@
             <p><a href="/learningresources/contents/testing/integration-test/big-bang-integration.png" target="_self"><img src="/learningresources/contents/testing/integration-test/big-bang-integration.png" alt class="img-fluid" title="Big bang integration testing diagram]"></a></p>
           </center>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.htm">This article</a> provides more details on the big bang approach.</p>
-          <h4 id="incremental-testing-approach">Incremental testing approach:<a class="fa fa-anchor" href="#incremental-testing-approach"></a></h4>
+          <h4 id="incremental-testing-approach">Incremental Testing Approach:<a class="fa fa-anchor" href="#incremental-testing-approach"></a></h4>
           <p>This approach involves integrating two or more logically related modules. The other related modules are added and tested for proper functioning. This is repeated until all the modules are joined (or <em>integrated incrementally</em>) and tested
             successfully. It is usually preferred for applications with many modules.</p>
           <p>Incremental integration testing is further split into the 3 approaches shown below:</p>
@@ -408,7 +408,7 @@
             together.</p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> The <a href="https://se-education.org/se-book/integration/#integration">NUS Software Engineering textbook</a> also offers some concrete examples of different approaches of integration
             testing.</p>
-          <h3 id="2-design-the-test-scenarios-cases-and-scripts">2. Design the test scenarios, cases and scripts<a class="fa fa-anchor" href="#2-design-the-test-scenarios-cases-and-scripts"></a></h3>
+          <h3 id="2-design-the-test-scenarios-cases-and-scripts">2. Design the Test Scenarios, Cases and Scripts<a class="fa fa-anchor" href="#2-design-the-test-scenarios-cases-and-scripts"></a></h3>
           <p>Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>,
             <span
               style="color:red">description</span> and <span style="color:red">expected result</span>. Using the example shown above, below shows a sample integration test used for the <code>login</code> and <code>ordering</code> modules:</p>
@@ -419,7 +419,7 @@
               </span> compared to unit testing, it should focus mainly on the integration of modules together and not on specific actions within the same module.</box>
           </p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/">This article</a> explains more about the ways to structure incremental testing.</p>
-          <h3 id="3-execute-the-test-scripts-and-report-defects-if-any">3. Execute the test scripts and report defects if any<a class="fa fa-anchor" href="#3-execute-the-test-scripts-and-report-defects-if-any"></a></h3>
+          <h3 id="3-execute-the-test-scripts-and-report-defects-if-any">3. Execute the Test Scripts and Report Defects if Any<a class="fa fa-anchor" href="#3-execute-the-test-scripts-and-report-defects-if-any"></a></h3>
           <p>Depending on the approach you have chosen for your integration plan and the test cases, the way you execute your code for testing will differ.</p>
           <ul>
             <li>
@@ -432,10 +432,10 @@
           <p><span aria-hidden="true" class="fas fa-exclamation-circle"></span> Either way, such test scripts can help you in singling out specific integration errors to be resolved before it gets more serious. Hence, you should ensure that all high prioritized
             bugs are fixed before moving on.</p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="https://www.guru99.com/test-environment-software-testing.html">This article</a> shows more details on how to set up a test environment for better integration testing.</p>
-          <h3 id="4-track-defects-and-re-test-application">4. Track defects and re-test application<a class="fa fa-anchor" href="#4-track-defects-and-re-test-application"></a></h3>
+          <h3 id="4-track-defects-and-re-test-application">4. Track Defects and Re-Test Application<a class="fa fa-anchor" href="#4-track-defects-and-re-test-application"></a></h3>
           <p>In the event of failing your integration test case, it is important to learn how to track down the <a href="https://qacomplete.com/resources/articles/what-is-a-software-defect/"><span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Incorrect behavior observed from the system</span>defects</span></a>            occured. Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.</p>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> <a href="http://www.professionalqa.com/defect-tracking-process">This article</a> covers more details on how to effectively track down defects in a system and fix them.</p>
-          <h2 id="tips-for-better-integration-tests">Tips for better integration tests<a class="fa fa-anchor" href="#tips-for-better-integration-tests"></a></h2>
+          <h2 id="tips-for-better-integration-tests">Tips for Better Integration Tests<a class="fa fa-anchor" href="#tips-for-better-integration-tests"></a></h2>
           <ul>
             <li>
               <p><strong>Make sure that each module is unit tested before integration testing</strong><br> By ensuring that each unit test is completed properly, integration testing will be smoother as we can focus mainly on the flow of data between modules.</p>
@@ -458,7 +458,7 @@
           </ul>
           <p><span aria-hidden="true" class="fas fa-info-circle"></span> The article <a href="https://www.fogbugz.com/blog/9-integration-testing-dos-and-donts/">Dos and donts of integration testing</a> has further advices on specific details to take note
             when writing your own integration test.</p>
-          <h2 id="tools-used-for-integration-testing">Tools used for Integration Testing<a class="fa fa-anchor" href="#tools-used-for-integration-testing"></a></h2>
+          <h2 id="tools-used-for-integration-testing">Tools Used for Integration Testing<a class="fa fa-anchor" href="#tools-used-for-integration-testing"></a></h2>
           <p>Generally integration test can be implemented based on your existing unit testing tools. However, if you do not have an existing testing tool in place, here are some useful tools that you can consider for your integration testing:</p>
           <ul>
             <li>
@@ -485,17 +485,17 @@
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#integration-testing">Integration Testing&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-integration-testing">What is integration testing?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-is-integration-testing-important">Why is integration testing important?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-does-integration-testing-work">How does integration testing work?&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-integration-testing">What is Integration Testing?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-is-integration-testing-important">Why is Integration Testing Important?&#x200E;</a>
+              <a class="nav-link py-1" href="#how-does-integration-testing-work">How Does Integration Testing Work?&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#1-prepare-the-integration-test-plan">1. Prepare the integration test plan&#x200E;</a>
-                <a class="nav-link py-1" href="#2-design-the-test-scenarios-cases-and-scripts">2. Design the test scenarios, cases and scripts&#x200E;</a>
-                <a class="nav-link py-1" href="#3-execute-the-test-scripts-and-report-defects-if-any">3. Execute the test scripts and report defects if any&#x200E;</a>
-                <a class="nav-link py-1" href="#4-track-defects-and-re-test-application">4. Track defects and re-test application&#x200E;</a>
+                <a class="nav-link py-1" href="#1-prepare-the-integration-test-plan">1. Prepare the Integration Test Plan&#x200E;</a>
+                <a class="nav-link py-1" href="#2-design-the-test-scenarios-cases-and-scripts">2. Design the Test Scenarios, Cases and Scripts&#x200E;</a>
+                <a class="nav-link py-1" href="#3-execute-the-test-scripts-and-report-defects-if-any">3. Execute the Test Scripts and Report Defects if Any&#x200E;</a>
+                <a class="nav-link py-1" href="#4-track-defects-and-re-test-application">4. Track Defects and Re-Test Application&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#tips-for-better-integration-tests">Tips for better integration tests&#x200E;</a>
-              <a class="nav-link py-1" href="#tools-used-for-integration-testing">Tools used for Integration Testing&#x200E;</a>
+              <a class="nav-link py-1" href="#tips-for-better-integration-tests">Tips for Better Integration Tests&#x200E;</a>
+              <a class="nav-link py-1" href="#tools-used-for-integration-testing">Tools Used for Integration Testing&#x200E;</a>
             </nav>
 
           </nav>
@@ -504,7 +504,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

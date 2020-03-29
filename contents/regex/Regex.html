@@ -318,7 +318,7 @@
           <p>Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair
             and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with <code>C</code>, ends with a <code>S</code>, and only consists of letters: <code>C[A-z]+S</code>) and the section
             of text is searched, finding all the possible matches.</p>
-          <h2 id="why-should-i-learn-regex">Why should I learn Regex?<a class="fa fa-anchor" href="#why-should-i-learn-regex"></a></h2>
+          <h2 id="why-should-i-learn-regex">Why Should I Learn Regex?<a class="fa fa-anchor" href="#why-should-i-learn-regex"></a></h2>
           <ul>
             <li><strong>Regex is everywhere</strong> - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some
               fashion (A full list is available <a href="http://www.regular-expressions.info/tools.html">here</a>). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing
@@ -381,7 +381,7 @@
               <li>David - SXXXXXXXX</li>
             </ul>
           </blockquote>
-          <h2 id="capturing-groups">Capturing groups<a class="fa fa-anchor" href="#capturing-groups"></a></h2>
+          <h2 id="capturing-groups">Capturing Groups<a class="fa fa-anchor" href="#capturing-groups"></a></h2>
           <p>Now, imagine you have a section of text with many dates written in the US Date Format (MM-DD-YYYY).</p>
           <blockquote>
             <p>Calendar</p>
@@ -411,7 +411,7 @@
               <li>25-02-2017 Workshop</li>
             </ul>
           </blockquote>
-          <h2 id="further-exploration">Further exploration<a class="fa fa-anchor" href="#further-exploration"></a></h2>
+          <h2 id="further-exploration">Further Exploration<a class="fa fa-anchor" href="#further-exploration"></a></h2>
           <p>These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to
             language (for example, Python uses the <a href="https://docs.python.org/2/library/re.html"><code>re</code></a> library, Java uses <a href="http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html"><code>Pattern</code></a> and
             Javascript has regex built into the language using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions"><code>/</code> notation</a>), but the functionality is consistent so it's not difficult to port Regex
@@ -488,14 +488,14 @@
           </div>
           <p>For a full list of possible operators, refer to this cheat sheet:
             <a href="http://www.rexegg.com/regex-quickstart.html">Regex cheat sheet</a><br></p>
-          <h2 id="helpful-links">Helpful links<a class="fa fa-anchor" href="#helpful-links"></a></h2>
+          <h2 id="helpful-links">Helpful Links<a class="fa fa-anchor" href="#helpful-links"></a></h2>
           <ul>
             <li><a href="https://regex101.com/">Regex101</a> - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.</li>
             <li><a href="http://www.regular-expressions.info/examples.html">Regular-Expressions</a> - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.</li>
             <li><a href="https://regexone.com/">Regexone</a> - A free online course that teaches the many features of Regex interactively.</li>
             <li><a href="http://www.rexegg.com">Rexegg</a> - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.</li>
           </ul>
-          <h1 id="advanced-topics">Advanced topics<a class="fa fa-anchor" href="#advanced-topics"></a></h1>
+          <h1 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h1>
           <h2 id="the-regex-engine">The Regex Engine<a class="fa fa-anchor" href="#the-regex-engine"></a></h2>
           <p>So, how exactly does Regex work?</p>
           <p>Regex works similarly to most brute force searches. A simplified Regex engine would look something like this:</p>
@@ -530,7 +530,7 @@
           <p>As we can see, <code>e</code> still doesn't match <code>d</code>, so we take another step back:</p>
           <pre><code class="hljs"><span>contested</span><span>       ^</span><span>c......ed</span></code></pre>
           <p>Finally, we get a match and see that both strings match.</p>
-          <h3 id="effect-on-performance">Effect on performance<a class="fa fa-anchor" href="#effect-on-performance"></a></h3>
+          <h3 id="effect-on-performance">Effect on Performance<a class="fa fa-anchor" href="#effect-on-performance"></a></h3>
           <p>Bad use of greedy operators (<code>.*</code>, <code>.+</code>) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:</p>
           <p>Match a person's full name: <code>(Anderson.*Cooper)</code> <br> Text: <code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</code></p>
           <p>This looks like a simple matching at first glance, but look at what happens:</p>
@@ -591,12 +591,12 @@
           <pre><code class="hljs"><span>contested</span><span>  ^</span><span>c.ed</span></code></pre>
           <p>Since <code>o</code> is a suitable match for <code>.+</code>, the engine accepts it and tries to match the <code>ed</code>. If no match is found, the engine would bactrack and match <code>c..ed</code>, and so on. We can see a clear advantage
             here for matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.</p>
-          <h2 id="related-links">Related links<a class="fa fa-anchor" href="#related-links"></a></h2>
+          <h2 id="related-links">Related Links<a class="fa fa-anchor" href="#related-links"></a></h2>
           <ul>
             <li><a href="http://www.regular-expressions.info/engine.html">The Regex Engine</a></li>
             <li><a href="http://www.regular-expressions.info/catastrophic.html">Catastrophic Backtracking</a></li>
           </ul>
-          <h2 id="learning-resources">Learning resources<a class="fa fa-anchor" href="#learning-resources"></a></h2>
+          <h2 id="learning-resources">Learning Resources<a class="fa fa-anchor" href="#learning-resources"></a></h2>
           <ul>
             <li><a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/">Printable cheat sheet for quick reference</a></li>
             <li><a href="http://www.regular-expressions.info/">Comprehensive Regex Knowledge Base</a></li>
@@ -622,7 +622,7 @@
             <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
               <a class="nav-link py-1" href="#what-are-regular-expressions">What are Regular Expressions?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-should-i-learn-regex">Why should I learn Regex?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-should-i-learn-regex">Why Should I Learn Regex?&#x200E;</a>
             </nav>
             <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
@@ -635,25 +635,25 @@
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#result">Result&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#capturing-groups">Capturing groups&#x200E;</a>
+              <a class="nav-link py-1" href="#capturing-groups">Capturing Groups&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#result-2">Result&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#further-exploration">Further exploration&#x200E;</a>
+              <a class="nav-link py-1" href="#further-exploration">Further Exploration&#x200E;</a>
               <a class="nav-link py-1" href="#quick-reference">Quick Reference&#x200E;</a>
-              <a class="nav-link py-1" href="#helpful-links">Helpful links&#x200E;</a>
+              <a class="nav-link py-1" href="#helpful-links">Helpful Links&#x200E;</a>
             </nav>
-            <a class="nav-link py-1" href="#advanced-topics">Advanced topics&#x200E;</a>
+            <a class="nav-link py-1" href="#advanced-topics">Advanced Topics&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
               <a class="nav-link py-1" href="#the-regex-engine">The Regex Engine&#x200E;</a>
               <a class="nav-link py-1" href="#greedy-operators">Greedy Operators&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#effect-on-performance">Effect on performance&#x200E;</a>
+                <a class="nav-link py-1" href="#effect-on-performance">Effect on Performance&#x200E;</a>
                 <a class="nav-link py-1" href="#catastrophic-backtracking">Catastrophic Backtracking&#x200E;</a>
                 <a class="nav-link py-1" href="#matching-delimiters">Matching Delimiters&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#related-links">Related links&#x200E;</a>
-              <a class="nav-link py-1" href="#learning-resources">Learning resources&#x200E;</a>
+              <a class="nav-link py-1" href="#related-links">Related Links&#x200E;</a>
+              <a class="nav-link py-1" href="#learning-resources">Learning Resources&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#fun-stuff">Fun Stuff&#x200E;</a>
                 <a class="nav-link py-1" href="#further-reading">Further Reading&#x200E;</a>
@@ -666,7 +666,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

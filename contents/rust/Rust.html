@@ -359,7 +359,7 @@
           <pre><code class="hljs shell"><span>let indexes = visible_indexes.get_visible_indexes()</span><span>              --------------- first mutable borrow occurs here</span><span>...</span><span>println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!</span><span>                 ^^^^^^^^^^^^^^^ second mutable borrow occurs here</span></code></pre>
           <p>In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by <code>indexes</code> does not end until the end of a block (i.e. a closing brace). Attempting to borrow the same value again in the same scope
             which will not compile in Rust.</p>
-          <h3 id="better-support-for-concurrency">Better support for concurrency<a class="fa fa-anchor" href="#better-support-for-concurrency"></a></h3>
+          <h3 id="better-support-for-concurrency">Better Support for Concurrency<a class="fa fa-anchor" href="#better-support-for-concurrency"></a></h3>
           <p>Concurrency is getting <a href="https://softwareengineering.stackexchange.com/questions/115474/why-should-i-know-concurrent-programming">increasingly important</a> but it is challenging to write concurrent code (<a href="https://news.ycombinator.com/item?id=8138578">[1]</a>,
             <a href="https://golang.org/doc/faq#csp">[2]</a>, <a href="http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/">[3]</a>).</p>
           <p>Rust provides concurrency which is built upon the safety concepts. The implication is that the safety concepts allows us to be <a href="https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">fearless when writing concurrent code</a>            by helping point out mistakes compile time.</p>
@@ -380,18 +380,18 @@
           <h4 id="production-ready">Production Ready<a class="fa fa-anchor" href="#production-ready"></a></h4>
           <p>Also, in order for a language to be practical it must be usable in production. A well known large project that uses Rust is <a href="https://github.com/servo/servo">Servo</a>, the prototype browser engine Mozilla is working on. On top of that,
             there are many other <a href="https://www.rust-lang.org/en-US/friends.html">organizations running Rust in production</a>. As an example, Jamie Turner from Dropbox <a href="https://news.ycombinator.com/item?id=11283688">explains the reasons for using Rust</a>.</p>
-          <h4 id="developer-experience">Developer experience<a class="fa fa-anchor" href="#developer-experience"></a></h4>
+          <h4 id="developer-experience">Developer Experience<a class="fa fa-anchor" href="#developer-experience"></a></h4>
           <p>Practicality can also be measured with how much developers enjoy using the language and want to continue using it, because if the language is not very practical the developer experience would not be very good. For Rust, it is a language that
             developers want to continue using (<a href="https://www.reddit.com/r/rust/comments/842adc/rust_voted_most_loved_language_for_the_3rd_year/dvmftnk/">[1]</a>, <a href="https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563">[2]</a>).</p>
           <p>Although Rust does not use particularly cutting-edge technologies, Rust is still modern in that it is <a href="https://doc.rust-lang.org/book/second-edition/ch13-00-functional-features.html">significantly influenced by functional programming</a>,
             and has a type system that is <a href="https://www.rust-lang.org/en-US/faq.html#compare-go-and-rust">drawn from Haskell's typeclasses</a>. This allows Rust to also benefit from the advantages of functional programming.</p>
           <p>There are also a lot of other details that go into making a great developer experience, such as tooling and documentation. However, instead of going into more details, let's look at a resource that summarizes why others think Rust is great:</p>
           <p><a href="https://brson.github.io/fireflowers/">fireflowers - The Rust Programming Language, in the words of its practitioners</a></p>
-          <h2 id="how-to-learn-rust">How to learn Rust<a class="fa fa-anchor" href="#how-to-learn-rust"></a></h2>
+          <h2 id="how-to-learn-rust">How to Learn Rust<a class="fa fa-anchor" href="#how-to-learn-rust"></a></h2>
           <p>Knowing the merits of a language without knowing how to learn it however is not sufficient. As <a href="#developer-experience">mentioned</a>, part of making the developer experience great is good documentation. And there are many great avenues
             to learn Rust.</p>
           <p>One issue is that many have said Rust is difficult but we should not be so concerned because there has since been many <a href="https://blog.rust-lang.org/2017/12/21/rust-in-2017.html#rust-should-have-a-lower-learning-curve">improvements</a>            to reduce the learning curve.</p>
-          <h3 id="resources-to-learn-rust">Resources to learn Rust<a class="fa fa-anchor" href="#resources-to-learn-rust"></a></h3>
+          <h3 id="resources-to-learn-rust">Resources to Learn Rust<a class="fa fa-anchor" href="#resources-to-learn-rust"></a></h3>
           <p>There are already great official resources to learn Rust, for instance:</p>
           <ul>
             <li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language book</a></li>
@@ -428,12 +428,12 @@
               <a class="nav-link py-1" href="#why-rust">Why Rust&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#safety">Safety&#x200E;</a>
-                <a class="nav-link py-1" href="#better-support-for-concurrency">Better support for concurrency&#x200E;</a>
+                <a class="nav-link py-1" href="#better-support-for-concurrency">Better Support for Concurrency&#x200E;</a>
                 <a class="nav-link py-1" href="#practicality">Practicality&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#how-to-learn-rust">How to learn Rust&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-learn-rust">How to Learn Rust&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#resources-to-learn-rust">Resources to learn Rust&#x200E;</a>
+                <a class="nav-link py-1" href="#resources-to-learn-rust">Resources to Learn Rust&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#why-not-rust">Why not Rust&#x200E;</a>
             </nav>
@@ -444,7 +444,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

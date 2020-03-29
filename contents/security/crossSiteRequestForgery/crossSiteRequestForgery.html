@@ -312,7 +312,7 @@
           <h1 id="cross-site-request-forgery-csrf">Cross Site Request Forgery (CSRF)<a class="fa fa-anchor" href="#cross-site-request-forgery-csrf"></a></h1>
           <p>Author: <a href="https://github.com/tran-tien-dat">Tran Tien Dat</a></p>
           <p>Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like <a href="http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html">Gmail</a> and <a href="http://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html">Netflix</a>            in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.</p>
-          <h2 id="flow-of-a-csrf-attack">Flow of a CSRF attack<a class="fa fa-anchor" href="#flow-of-a-csrf-attack"></a></h2>
+          <h2 id="flow-of-a-csrf-attack">Flow of a CSRF Attack<a class="fa fa-anchor" href="#flow-of-a-csrf-attack"></a></h2>
           <p>A CSRF attack tricks the victim to perform actions that they do not intend to do on a web application in which they're currently authenticated. It generally consists of 3 steps:</p>
           <ol>
             <li>The victim logs in to a vulnerable web service</li>
@@ -321,7 +321,7 @@
           </ol>
           <p>These steps are best explained through an example. Suppose that Alice is a customer of the banking website <code>www.example-bank.com</code>. Alice wants to transfer money to her friend Bob (because she does not like the fact that he keeps paying
             for her meals when they go out together).</p>
-          <h3 id="step-1-the-victim-logs-in-to-a-vulnerable-web-service">Step 1: The victim logs in to a vulnerable web service<a class="fa fa-anchor" href="#step-1-the-victim-logs-in-to-a-vulnerable-web-service"></a></h3>
+          <h3 id="step-1-the-victim-logs-in-to-a-vulnerable-web-service">Step 1: The Victim Logs in to a Vulnerable Web Service<a class="fa fa-anchor" href="#step-1-the-victim-logs-in-to-a-vulnerable-web-service"></a></h3>
           <p>Alice first logs in to the website at <code>www.example-bank.com/login</code>, providing her username and password. She then clicks on a hyperlink on the site to go to the URL <code>www.example-bank.com/transfer</code> to perform her transaction.
             Note that Alice does not have to enter her username and password again, but the bank still knows that the request is made by her. This is done through a mechanism of the HTTP protocol called a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">HTTP Cookie</a>.
             A <em>cookie</em> is a small piece of information that is sent along with all HTTP requests to a particular website. In our case, after receiving Alice's credentials for logging in, the bank instructs Alice's browser to store a <em>cookie</em>            <code>auth=1abcd2ek3292fsa390sdf</code> and <strong>send this cookie together with every subsequent request</strong> to <code>www.example-bank.com</code>. Thus, once the web server sees this cookie in the request, it knows that this is an
@@ -331,18 +331,18 @@
           <p>As Alice clicks the submit button, the browser will send the following request to <code>www.example-bank.com</code>:</p>
           <pre><code class="hljs"><span>POST http://www.example-bank.com/transfer HTTP/1.1</span><span>Cookie: auth=1abcd2ek3292fsa390sdf</span><span>&#x200B;</span><span>receiver-name=Bob&amp;receiver-account-no=123456&amp;amount=100</span></code></pre>
           <p>The bank's server verifies that the cookie <code>auth=1abcd2ek3292fsa390sdf</code> is valid and is associated with Alice. It then proceeds to transfer $100 from Alice's account to account number 123456, which belongs to Bob.</p>
-          <h3 id="step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker">Step 2: The victim visits an untrusted website controlled by the attacker<a class="fa fa-anchor" href="#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker"></a></h3>
+          <h3 id="step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker">Step 2: The Victim Visits an Untrusted Website Controlled by the Attacker<a class="fa fa-anchor" href="#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker"></a></h3>
           <p>Alice then receives a chat message from her not-so-trustworthy friend, Eve:</p>
           <pre><code class="hljs"><span>Eve: OMG Alice! This site is selling the shoes you have always</span><span>     wanted for half the price: www.i-am-not-evil.com/shoes</span></code></pre>
           <p>Excited by this piece of news, Alice clicks on the hyperlink to check out <code>www.i-am-not-evil.com</code>.</p>
-          <h3 id="step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf">Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf<a class="fa fa-anchor" href="#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf"></a></h3>
+          <h3 id="step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf">Step 3: The Untrusted Website Makes Requests to the Vulnerable Web Service on the Victim's Behalf<a class="fa fa-anchor" href="#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf"></a></h3>
           <p>While browsing <code>www.i-am-not-evil.com</code>, Alice clicks on the <code>View more pictures</code> button on the website to see more pictures of her favorite pair of shoes. Unbeknownst to her, that button has the following HTML code:</p>
           <pre><code class="hljs HTML"><span><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"http://www.example-bank.com/transfer"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span>&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-name"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Eve"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"receiver-account-no"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"987654"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"amount"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"100000"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"View more pictures"</span>/&gt;</span></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></code></pre>
           <p>So, when she clicks that button, the browser actually sends the following request to <code>http://www.example-bank.com</code>:</p>
           <pre><code class="hljs"><span>POST http://www.example-bank.com/transfer HTTP/1.1</span><span>Cookie: auth=1abcd2ek3292fsa390sdf</span><span>&#x200B;</span><span>receiver-name=Eve&amp;receiver-account-no=987654&amp;amount=100000</span></code></pre>
           <p>Since Alice is still logged in to <code>www.example-bank.com</code>, the browser automatically attaches the cookie <code>auth=1abcd2ek3292fsa390sdf</code> to any requests made to <code>www.example-bank.com</code>. Hence, the bank's server considers
             this as an authenticated request from Alice and proceeds to transfer $100,000 from Alice's account to account number 987654, which belongs to the attacker!</p>
-          <h2 id="conditions-for-a-successful-csrf-attack">Conditions for a successful CSRF attack<a class="fa fa-anchor" href="#conditions-for-a-successful-csrf-attack"></a></h2>
+          <h2 id="conditions-for-a-successful-csrf-attack">Conditions for a Successful CSRF Attack<a class="fa fa-anchor" href="#conditions-for-a-successful-csrf-attack"></a></h2>
           <p>From the example, we can see that a CSRF attack works by forging a valid request which <strong>inherits the identity and privileges of the victim</strong> on the vulnerable web server. Such inheritance of privileges is possible because the browser
             attaches any credentials associated with a website to all requests made to the site. Therefore, if the user is currently authenticated to the site, the site will have no way to distinguish between the forged request sent by the victim and
             a legitimate request sent by the victim. In short, there are 3 conditions necessary for the attack:</p>
@@ -352,7 +352,7 @@
             <li>The victim is tricked to visit an untrusted website by social engineering.</li>
           </ol>
           <p><em>Note: <a href="https://en.wikipedia.org/wiki/Social_engineering_%28security%29">Social engineering</a> refers to psychological manipulation of people into performing actions. In our example, Eve shares a link with a description that matches Alice's interest, which increases the chance that Alice will follow the link. Thus, this action is a form of social engineering.</em></p>
-          <h2 id="defense-against-csrf-attacks">Defense against CSRF attacks<a class="fa fa-anchor" href="#defense-against-csrf-attacks"></a></h2>
+          <h2 id="defense-against-csrf-attacks">Defense Against CSRF Attacks<a class="fa fa-anchor" href="#defense-against-csrf-attacks"></a></h2>
           <p>Both users and websites can take actions to defend themselves against CSRF attacks. As the user, one can reduce the likelihood of being attacked by logging out of sensitive services like banking immediately after carrying out transactions. This
             will negate condition number 2. Condition number 3 can be mitigated if the user is extremely careful and never visits websites they do not know. However, users generally do not follow this and just click on interesting links they encounter
             on social media. Hence, this threat of social engineering could never be fully eliminated.</p>
@@ -377,14 +377,14 @@
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#cross-site-request-forgery-csrf">Cross Site Request Forgery (CSRF)&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#flow-of-a-csrf-attack">Flow of a CSRF attack&#x200E;</a>
+              <a class="nav-link py-1" href="#flow-of-a-csrf-attack">Flow of a CSRF Attack&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#step-1-the-victim-logs-in-to-a-vulnerable-web-service">Step 1: The victim logs in to a vulnerable web service&#x200E;</a>
-                <a class="nav-link py-1" href="#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker">Step 2: The victim visits an untrusted website controlled by the attacker&#x200E;</a>
-                <a class="nav-link py-1" href="#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf">Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf&#x200E;</a>
+                <a class="nav-link py-1" href="#step-1-the-victim-logs-in-to-a-vulnerable-web-service">Step 1: The Victim Logs in to a Vulnerable Web Service&#x200E;</a>
+                <a class="nav-link py-1" href="#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker">Step 2: The Victim Visits an Untrusted Website Controlled by the Attacker&#x200E;</a>
+                <a class="nav-link py-1" href="#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf">Step 3: The Untrusted Website Makes Requests to the Vulnerable Web Service on the Victim's Behalf&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#conditions-for-a-successful-csrf-attack">Conditions for a successful CSRF attack&#x200E;</a>
-              <a class="nav-link py-1" href="#defense-against-csrf-attacks">Defense against CSRF attacks&#x200E;</a>
+              <a class="nav-link py-1" href="#conditions-for-a-successful-csrf-attack">Conditions for a Successful CSRF Attack&#x200E;</a>
+              <a class="nav-link py-1" href="#defense-against-csrf-attacks">Defense Against CSRF Attacks&#x200E;</a>
               <a class="nav-link py-1" href="#references">References&#x200E;</a>
             </nav>
 
@@ -394,7 +394,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

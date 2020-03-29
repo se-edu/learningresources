@@ -309,11 +309,11 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-linux-bash-shell">Introduction to Linux bash shell<a class="fa fa-anchor" href="#introduction-to-linux-bash-shell"></a></h1>
+          <h1 id="introduction-to-linux-bash-shell">Introduction to Linux Bash Shell<a class="fa fa-anchor" href="#introduction-to-linux-bash-shell"></a></h1>
           <p>Author: <a href="https://github.com/junming403">Wang Junming</a></p>
           <p>Reviewers: <a href="https://github.com/rrtheonlyone">Rahul Rajesh</a>, <a href="https://github.com/ongspxm">Ong Shu Peng</a>, <a href="https://www.github.com/ChooJeremy">Jeremy Choo</a>, <a href="https://github.com/Xenonym">Tan Zhen Yong
 </a></p>
-          <h2 id="what-is-the-shell">What is the shell?<a class="fa fa-anchor" href="#what-is-the-shell"></a></h2>
+          <h2 id="what-is-the-shell">What is the Shell?<a class="fa fa-anchor" href="#what-is-the-shell"></a></h2>
           <p>In general, a computer can be divided into 3 abstraction layers: hardware, kernel and applications. As users, we cannot control the hardware directly. Instructions have to be given through the kernel as the kernel is the one that controls the
             hardware.</p>
           <img src="https://cdn-images-1.medium.com/max/1200/1*zEv6mAa2wzHnz4a5uWW4gw.png" alt="shell-kernel" style="width:400px;">
@@ -327,7 +327,7 @@
             to even networking! You can also combine different commands to carry out complex operations.</p>
           <p>One of the most widely used command is <code>ls</code>, which lists out all the files under the current directory. Here is a video demonstration of the <code>ls</code> command in action:</p>
           <p><a href="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP" target="_blank"><img src="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP.svg" alt="ls" style="width:500px;height:320px;"></a></p>
-          <h3 id="bash-scripts">Bash scripts<a class="fa fa-anchor" href="#bash-scripts"></a></h3>
+          <h3 id="bash-scripts">Bash Scripts<a class="fa fa-anchor" href="#bash-scripts"></a></h3>
           <p>Bash supports a powerful language for writing scripts, usually referred to as <strong>bash scripts</strong>.</p>
           <p>Bash scripts are able to carry out a range of operations by executing different commands. Let us consider an example: suppose you want to check if a given file exists. The following script will be able to do that; you input the filename and
             it will tell you the answer.</p>
@@ -341,7 +341,7 @@
           <p>Here is an video demonstration of the script in action.</p>
           <p><a href="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM" target="_blank"><img src="https://asciinema.org/a/pNnG9krPxUBmQpJ00nWr8pvxM.svg" alt="check-permission" style="width:500px;height:320px;"></a></p>
           <p><strong>Functions</strong> in bash scripts are just like functions in normal programming languages. More information about bash scripts can be found <a href="https://www.gnu.org/software/bash/manual/html_node/">here</a>.</p>
-          <h3 id="combining-of-scripts-via-stream-redirection">Combining of scripts via stream redirection<a class="fa fa-anchor" href="#combining-of-scripts-via-stream-redirection"></a></h3>
+          <h3 id="combining-of-scripts-via-stream-redirection">Combining of Scripts via Stream Redirection<a class="fa fa-anchor" href="#combining-of-scripts-via-stream-redirection"></a></h3>
           <p>In Linux, you can <em>redirect</em> the output of one application to the input of another, combining the two applications together as if there is a <em>pipe</em> between them. In fact, Linux can <em>pipe</em> data between programs, files, and
             input/output devices seamlessly. You can take advantage of these abilities in your shell commands/scripts to perform complex tasks with just a few commands.</p>
           <p>For example, suppose you wrote an executable <code>calculate</code> that takes in a user input, does a calculation, and gives the output. To run it, you simply type:</p>
@@ -360,7 +360,7 @@
           <p>Let us say you want to check the status of process <code>p</code> running on your system. The <code>ps aux</code> command by itself lists all the processes currently running. If there are too many processes listed and you cannot find <code>p</code>,
             you can pass the result of <code>ps aux</code> to <code>grep 'p'</code> to as <code>ps aux | grep 'p'</code> to capture process <code>p</code>'s status.</p>
           <p>A more detailed introduction to I/O stream redirection can be found <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection">here</a>.</p>
-          <h2 id="why-use-the-shell">Why use the shell?<a class="fa fa-anchor" href="#why-use-the-shell"></a></h2>
+          <h2 id="why-use-the-shell">Why Use the Shell?<a class="fa fa-anchor" href="#why-use-the-shell"></a></h2>
           <p>A common question many people ask is: Why type commands in a shell when we can do the same things using GUI applications? Here are some reasons:</p>
           <ul>
             <li><strong>Faster</strong>: Often, performing a task via the shell is faster than doing the same via a GUI application. This is because the shell does not get slowed down by other factors like GUI rendering. For example, when performing tasks
@@ -369,7 +369,7 @@
             <li><strong>More powerful</strong>: GUIs tends to simplify things, giving the user fewer options. With a shell, you will have complete control of every option. While the shell has a steep learning curve, once you are familiar with it, you can
               do more things efficiently as compared to a GUI application. For example, you can automate things with a shell, something not easy to do with a GUI application.</li>
           </ul>
-          <h2 id="how-to-get-started">How to get started?<a class="fa fa-anchor" href="#how-to-get-started"></a></h2>
+          <h2 id="how-to-get-started">How to Get Started?<a class="fa fa-anchor" href="#how-to-get-started"></a></h2>
           <p>In our opinion, there is no need to learn the shell in one go. Instead, whenever you use a GUI tool to accomplish a task, try to learn how to do the same using the shell. For example, when using git, use it via the shell instead of a GUI tool
             such as Source Tree. That way, you can learn the shell incrementally, over time.</p>
           <p>However, if you really wish to learn bash systematically, below are some resources you might find useful.</p>
@@ -389,15 +389,15 @@
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-linux-bash-shell">Introduction to Linux bash shell&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-linux-bash-shell">Introduction to Linux Bash Shell&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-the-shell">What is the shell?&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-the-shell">What is the Shell?&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#bash-scripts">Bash scripts&#x200E;</a>
-                <a class="nav-link py-1" href="#combining-of-scripts-via-stream-redirection">Combining of scripts via stream redirection&#x200E;</a>
+                <a class="nav-link py-1" href="#bash-scripts">Bash Scripts&#x200E;</a>
+                <a class="nav-link py-1" href="#combining-of-scripts-via-stream-redirection">Combining of Scripts via Stream Redirection&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#why-use-the-shell">Why use the shell?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-to-get-started">How to get started?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-use-the-shell">Why Use the Shell?&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-get-started">How to Get Started?&#x200E;</a>
             </nav>
 
           </nav>
@@ -406,7 +406,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

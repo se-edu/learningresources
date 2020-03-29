@@ -309,7 +309,7 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-computer-vision-cv">Introduction to computer vision (CV)<a class="fa fa-anchor" href="#introduction-to-computer-vision-cv"></a></h1>
+          <h1 id="introduction-to-computer-vision-cv">Introduction to Computer Vision (CV)<a class="fa fa-anchor" href="#introduction-to-computer-vision-cv"></a></h1>
           <p>Authors: <a href="https://github.com/bqnguyen94">Nguyen Quoc Bao</a></p>
           <ul>
             <li><a href="#what-is-cv">What is CV</a>
@@ -330,14 +330,14 @@
             <li><a href="#whats-next">What's next</a></li>
             <li><a href="#references">References</a></li>
           </ul>
-          <h2 id="what-is-cv">What is CV<a class="fa fa-anchor" href="#what-is-cv"></a></h2>
+          <h2 id="what-is-computer-vision">What is Computer Vision?<a class="fa fa-anchor" href="#what-is-computer-vision"></a></h2>
           <p>Computer vision (CV) is a field of study of computer science concerning with the theories and technologies in building computer systems that can derive useful information from visual data. CV is a prominent field of study nowadays as it allows
             computers to autonomously solve problems that otherwise require human sight.<sup><a href="#footnote1">[1]</a></sup> One notable example of such problems can be seen in smart traffic cameras that can extract car plates information from video
             feeds, a task that without computer vision would require a human to view the feeds and manually enter the cars' license numbers.<sup><a href="#footnote14">[14]</a></sup></p>
           <p>In computer vision, an image is represented by a number matrix, or a set of matrices, with each number in the matrix corresponds to the color value or intensity value of a pixel in the image.<sup><a href="#footnote2">[2]</a></sup> With this
             representation, linear algebra can be exploited for many CV operations from the most basic like transformation to very complex like feature extraction and motion tracking.</p>
           <p>Additionally, with deep learning, a lot of new applications of computer vision have been introduced, including facial recognition, and object detection that is widely used in self-driving cars.<sup><a href="#footnote3">[3]</a></sup></p>
-          <h3 id="applications-of-cv">Applications of CV<a class="fa fa-anchor" href="#applications-of-cv"></a></h3>
+          <h3 id="applications-of-computer-vision">Applications of Computer Vision<a class="fa fa-anchor" href="#applications-of-computer-vision"></a></h3>
           <p>Many systems and applications rely on computer vision, as they work extensively with image and video input for:</p>
           <ul>
             <li>Navigation, e.g. autonomous cars to keep track of the road, detect pedestrians, and avoid collision with other vehicles.<sup><a href="#footnote3">[3]</a></sup></li>
@@ -346,7 +346,7 @@
             <li>Automatic Inspection, e.g. measuring structures, modelling environment.<sup><a href="#footnote4">[4]</a></sup></li>
             <li>Searching, e.g. image search engines.<sup><a href="#footnote5">[5]</a></sup></li>
           </ul>
-          <h3 id="typical-cv-tasks">Typical CV tasks<a class="fa fa-anchor" href="#typical-cv-tasks"></a></h3>
+          <h3 id="typical-computer-vision-tasks">Typical Computer Vision Tasks<a class="fa fa-anchor" href="#typical-computer-vision-tasks"></a></h3>
           <p>For a typical computer vision system, the tasks it aims to perform may include, but are not limited to, the following:<sup><a href="#footnote6">[6]</a></sup></p>
           <ul>
             <li>Geometric Image Transformation</li>
@@ -358,7 +358,7 @@
             <li>Object Localization</li>
             <li>Object Tracking</li>
           </ul>
-          <h2 id="core-problems-in-cv">Core problems in CV<a class="fa fa-anchor" href="#core-problems-in-cv"></a></h2>
+          <h2 id="core-problems-in-computer-vision">Core Problems in Computer Vision<a class="fa fa-anchor" href="#core-problems-in-computer-vision"></a></h2>
           <p>Most problems requiring computer vision can be boiled down to one or a combination of the following core problems: image transformation, classification, localization, detection, and tracking.<sup><a href="#footnote6">[6]</a></sup></p>
           <p>This section introduces some of those core problems, and cites working examples for demonstration purposes. The examples use Open Source Computer Vision library (OpenCV) - containing implemented algorithm packages and utility functions for building
             computer vision applications. It is freely distributed and licensed for both academic and commercial use. The code examples cited in this section are written in Python, but OpenCV has API supports for C++ and Java as well.</p>
@@ -439,7 +439,7 @@
           <p><a href="/learningresources/contents/computerVision/object-tracking-example-3.jpg" target="_self"><img src="/learningresources/contents/computerVision/object-tracking-example-3.jpg" alt class="img-fluid" title="MOG2"></a></p>
           <p>With <code>BackgroundSubtractorGMG</code>:</p>
           <p><a href="/learningresources/contents/computerVision/object-tracking-example-4.jpg" target="_self"><img src="/learningresources/contents/computerVision/object-tracking-example-4.jpg" alt class="img-fluid" title="GMG"></a></p>
-          <h2 id="gpu-accelerated-cv">GPU-accelerated CV<a class="fa fa-anchor" href="#gpu-accelerated-cv"></a></h2>
+          <h2 id="gpu-accelerated-computer-vision">GPU-Accelerated Computer Vision<a class="fa fa-anchor" href="#gpu-accelerated-computer-vision"></a></h2>
           <p>For computer vision systems, digital images are often translated into matrices, whose nature depends on the chosen color presentation. For example, an image in the RGB (Red, Green, Blue) color space will be presented by 3 matrices, each contains
             the color intensity of the individual pixels with regards to red, green, or blue. There are other color representations, such as the CMYK or the HSV that annotates the pixels' Hue, Saturation, and Value.<sup><a href="#footnote1">[1]</a></sup></p>
           <p>Underneath, all computer vision algorithms deal with images as matrices, thus employ theories in Linear Algebra to process images. In computer hardware, there is a class of computing units that specializes in matrix operations called the Graphics
@@ -447,7 +447,7 @@
           <p>Most prominent computer vision libraries such as OpenCV, dlib, or VisionWorks support the use of GPUs in the computing process. For example, OpenCV has APIs that allow a kernel process running on the CPU to transfer image matrices to one or
             more GPUs to perform heavy functions such as Gaussian filtering or image stitching.<sup><a href="#footnote12">[12]</a></sup> Hardware manufacturers have even tried to ease the image transferring process between CPU and GPU, by introducing
             system memory regions accessible to both CPU and GPU.<sup><a href="#footnote13">[13]</a></sup></p>
-          <h2 id="what-s-next">What's next<a class="fa fa-anchor" href="#what-s-next"></a></h2>
+          <h2 id="what-s-next">What's Next?<a class="fa fa-anchor" href="#what-s-next"></a></h2>
           <p>There is an abundance of resources to learn and apply computer vision; however, not all of them are free or beginner-friendly. This section mentions some great courses and tutorials that are freely accessible at the time of writing. If you are
             a starter, it is recommended that you follow these steps for your learning journey:</p>
           <p>Firstly, you should acquire basic familiarity in Python, C++, or Java, as most tutorials and courses in CV use one of those languages:</p>
@@ -509,22 +509,22 @@
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-computer-vision-cv">Introduction to computer vision (CV)&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-computer-vision-cv">Introduction to Computer Vision (CV)&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-cv">What is CV&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-computer-vision">What is Computer Vision?&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#applications-of-cv">Applications of CV&#x200E;</a>
-                <a class="nav-link py-1" href="#typical-cv-tasks">Typical CV tasks&#x200E;</a>
+                <a class="nav-link py-1" href="#applications-of-computer-vision">Applications of Computer Vision&#x200E;</a>
+                <a class="nav-link py-1" href="#typical-computer-vision-tasks">Typical Computer Vision Tasks&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#core-problems-in-cv">Core problems in CV&#x200E;</a>
+              <a class="nav-link py-1" href="#core-problems-in-computer-vision">Core Problems in Computer Vision&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#image-transformations">Image Transformations&#x200E;</a>
                 <a class="nav-link py-1" href="#image-classification">Image Classification&#x200E;</a>
                 <a class="nav-link py-1" href="#object-detection">Object Detection&#x200E;</a>
                 <a class="nav-link py-1" href="#object-tracking">Object Tracking&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#gpu-accelerated-cv">GPU-accelerated CV&#x200E;</a>
-              <a class="nav-link py-1" href="#what-s-next">What's next&#x200E;</a>
+              <a class="nav-link py-1" href="#gpu-accelerated-computer-vision">GPU-Accelerated Computer Vision&#x200E;</a>
+              <a class="nav-link py-1" href="#what-s-next">What's Next?&#x200E;</a>
               <a class="nav-link py-1" href="#references">References&#x200E;</a>
             </nav>
 
@@ -534,7 +534,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

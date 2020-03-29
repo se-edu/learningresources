@@ -352,7 +352,7 @@
             <a href="https://www.channelfutures.com/open-source/when-not-to-use-docker-understanding-the-limitations-of-containers/">article</a>. Carefully consider your use case before turning to Docker.
           </box>
           <p>Now that we have a good idea of how Docker works and a summary of the notable advantages it is able to provide, let us take a closer look at some of the unique features that Docker is able to provide.</p>
-          <h4 id="feature-docker-is-lightweight">Feature: Docker is lightweight<a class="fa fa-anchor" href="#feature-docker-is-lightweight"></a></h4>
+          <h4 id="feature-docker-is-lightweight">Feature: Docker is Lightweight<a class="fa fa-anchor" href="#feature-docker-is-lightweight"></a></h4>
           <p>We have discussed above that Docker makes use of a container instead of a full-fledged VM to run your application. We have briefly covered the differences between a VM and a container above.</p>
           <p>The table below lists some of the differences between a VM and a container:</p>
           <pic src="/learningresources/contents/docker/VMvsContainer.png" alt="VM vs Container" width="100%">
@@ -360,7 +360,7 @@
           </pic>
           <p>The image listed previously in the “What is Docker” section helps to give a pictorial representation of the points listed above in the table. To summarise, a Docker container shares the host OS and runs a discrete process on your operating system
             (much like any other application). As a result, Docker has a minimal footprint and is much more lightweight. This also makes it faster to run.</p>
-          <h4 id="feature-docker-allows-for-sharing-and-reuse">Feature: Docker allows for sharing and reuse<a class="fa fa-anchor" href="#feature-docker-allows-for-sharing-and-reuse"></a></h4>
+          <h4 id="feature-docker-allows-for-sharing-and-reuse">Feature: Docker Allows for Sharing and Reuse<a class="fa fa-anchor" href="#feature-docker-allows-for-sharing-and-reuse"></a></h4>
           <p>Docker containers require a base image to run. An image corresponds to the service you want e.g. python image / ubuntu image etc. An image helps to define what you want your packaged application and its dependencies to look like.</p>
           <p>One of the reasons why Docker is so great is that it provides a shared resource known as the <a href="https://hub.docker.com/">Docker Hub</a> to download prebuilt images. The docker hub has over a hundred thousand images created by the community
             that are readily available for use.</p>
@@ -369,7 +369,7 @@
           </pic>
           <p>Hence, no matter what your use case is, there is a good chance that someone else has already built an image for it on the Docker Hub. With Docker, you do not have to spend hours thinking about how to configure your images. On top of that, you
             are free to augment existing images to fit you exact needs. You can then, share your new image back to the Docker Hub for others to use!</p>
-          <h4 id="feature-docker-is-accessible">Feature: Docker is accessible<a class="fa fa-anchor" href="#feature-docker-is-accessible"></a></h4>
+          <h4 id="feature-docker-is-accessible">Feature: Docker is Accessible<a class="fa fa-anchor" href="#feature-docker-is-accessible"></a></h4>
           <p>On top of the abovementioned advantages, Docker has made it much easier for anyone from developers to system admins to take advantage of containers to quickly build and run applications. Docker allows anyone to package an application on their
             laptop which in turn can run unmodified on any public cloud or private cloud. Hence the mantra, “build once, run anywhere”.</p>
           <p>Docker is able to do this through what is known as a DockerFile. A DockerFile is where you write the instructions to build a Docker image. Once a DockerFile is set-up, run <code>docker build</code> to build the container.</p>
@@ -381,7 +381,7 @@
             There are plenty of guides available out there that covers the fundamentals behind getting started with this (refer to next section for some links).</p>
           <p>As a result, Docker is easy to get started with. Once you have configured a DockerFile, you can reuse it everywhere else to run your container! The process for creating a DockerFile is also made easier due to the plethora of resources available
             and the Docker Hub.</p>
-          <h4 id="feature-docker-is-modular-and-scalable">Feature: Docker is modular and scalable<a class="fa fa-anchor" href="#feature-docker-is-modular-and-scalable"></a></h4>
+          <h4 id="feature-docker-is-modular-and-scalable">Feature: Docker is Modular and Scalable<a class="fa fa-anchor" href="#feature-docker-is-modular-and-scalable"></a></h4>
           <p>As mentioned earlier, Docker makes it much easier to deploy an application that is using a microservices based architecture. For example, you may have Postgres database running in one container, Redis server in another and a Python Flask application
             in another. Docker makes it much easier to group these containers together and scale/update individual components easily in the future.</p>
           <p>In order to provide a little more clarity to this, let us consider a simple blog application that is running using Nginx, WordPress and MariaDB. We can organise this as follows:</p>
@@ -412,7 +412,7 @@
                 that show you how to use Docker in a practical setting.</p>
             </li>
           </ul>
-          <h3 id="additional-tools-docker-swarm-and-kubernetes">Additional tools - Docker Swarm and Kubernetes<a class="fa fa-anchor" href="#additional-tools-docker-swarm-and-kubernetes"></a></h3>
+          <h3 id="additional-tools-docker-swarm-and-kubernetes">Additional Tools - Docker Swarm and Kubernetes<a class="fa fa-anchor" href="#additional-tools-docker-swarm-and-kubernetes"></a></h3>
           <p>If you have managed to familiarise yourself with the functionality that Docker is able to provide and have used Docker for your own projects, here are some additional tools that you might want to look into that make use of Docker.</p>
           <p>Kubernetes is open-source platform created by Google for container deployment operations, scaling up and down, and automation across the clusters of hosts. It is a tool that can help you manage many docker containers. You can read up more about
             it in their official documentation <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">here</a></p>
@@ -438,7 +438,7 @@
               <a class="nav-link py-1" href="#what-is-docker">What is Docker?&#x200E;</a>
               <a class="nav-link py-1" href="#why-docker">Why Docker?&#x200E;</a>
               <a class="nav-link py-1" href="#how-to-use-docker">How to use Docker?&#x200E;</a>
-              <a class="nav-link py-1" href="#additional-tools-docker-swarm-and-kubernetes">Additional tools - Docker Swarm and Kubernetes&#x200E;</a>
+              <a class="nav-link py-1" href="#additional-tools-docker-swarm-and-kubernetes">Additional Tools - Docker Swarm and Kubernetes&#x200E;</a>
               <a class="nav-link py-1" href="#conclusion-further-readings">Conclusion / Further Readings&#x200E;</a>
             </nav>
 
@@ -448,7 +448,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -315,12 +315,12 @@
             for Object-Oriented programs.
           </p>
           <p>This article compiles multiple posts from <a href="https://testing.googleblog.com">Google Testing Blog</a> on how to write more unit-testable code. It explains <a href="https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html">four common flaws</a>            in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.</p>
-          <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No seams for isolating the class under test<a class="fa fa-anchor" href="#flaw-1-no-seams-for-isolating-the-class-under-test"></a></h2>
+          <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No Seams for Isolating the Class Under Test<a class="fa fa-anchor" href="#flaw-1-no-seams-for-isolating-the-class-under-test"></a></h2>
           <p>Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.</p>
           <p>To create seams in your code, you need to acquire your dependency via <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. You inject real object for production and <a href="https://www.martinfowler.com/bliki/TestDouble.html">test doubles</a>            for testing. For example, if a class depends on some database connection to retrieve some user data, you can inject a fake database connection to always return prepared data immediately without really performing any database operation.</p>
           <p>That is the basic idea for how seams can help in unit testing. Below are five rules you can follow to create seams in your code.</p>
           <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a></p>
-          <h3 id="rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do actual work in constructors<a class="fa fa-anchor" href="#rule-1-don-t-do-actual-work-in-constructors"></a></h3>
+          <h3 id="rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do Actual Work in Constructors<a class="fa fa-anchor" href="#rule-1-don-t-do-actual-work-in-constructors"></a></h3>
           <h4 id="warning-signs">Warning Signs<a class="fa fa-anchor" href="#warning-signs"></a></h4>
           <ul>
             <li><code>new</code> keyword in a constructor or at field declaration</li>
@@ -330,7 +330,7 @@
           <p>Any work you do in a constructor needs to successfully navigate through in every test (not just the direct test, but also any related test which tries to instantiate your class indirectly as part of some larger object graph).</p>
           <p>In short, the constructor's job is to assign the dependencies to fields. And that's all.</p>
           <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h3 id="rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't mix object construction with application logic<a class="fa fa-anchor" href="#rule-2-don-t-mix-object-construction-with-application-logic"></a></h3>
+          <h3 id="rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't Mix Object Construction With Application Logic<a class="fa fa-anchor" href="#rule-2-don-t-mix-object-construction-with-application-logic"></a></h3>
           <h4 id="warning-signs-2">Warning Signs<a class="fa fa-anchor" href="#warning-signs-2"></a></h4>
           <ul>
             <li>Create objects using <code>new</code> keyword freely anywhere in your code</li>
@@ -339,7 +339,7 @@
           <p>First, <strong><a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factories</a></strong>, where all <code>new</code> operators reside in, are in charge of constructing objects, and nothing else.</p>
           <p>The other, <strong>application classes</strong>, are devoid of <code>new</code> operators. Instead of creating object, they simply ask for them. This makes it easier to test the application logic by replacing the real classes for test doubles.</p>
           <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-          <h3 id="rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't mix Service Objects with Value Objects<a class="fa fa-anchor" href="#rule-3-don-t-mix-service-objects-with-value-objects"></a></h3>
+          <h3 id="rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't Mix Service Objects With Value Objects<a class="fa fa-anchor" href="#rule-3-don-t-mix-service-objects-with-value-objects"></a></h3>
           <p>Value objects are your <strong>model</strong> objects, like <code>User</code>, <code>Email</code>, <code>CreditCard</code>.</p>
           <ol>
             <li>They are (or should be) very easy to construct. And they should never take a service object in its constructor (since otherwise it is not easy to construct).</li>
@@ -364,7 +364,7 @@
             <li>If the static method takes no arguments, either it returns a constant in which case there is nothing to test; or it accesses <a href="#rule-2-avoid-singletons">global state</a>, which is bad.</li>
           </ol>
           <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h3 id="rule-5-favor-composition-over-inheritance">Rule #5: Favor composition over inheritance<a class="fa fa-anchor" href="#rule-5-favor-composition-over-inheritance"></a></h3>
+          <h3 id="rule-5-favor-composition-over-inheritance">Rule #5: Favor Composition Over Inheritance<a class="fa fa-anchor" href="#rule-5-favor-composition-over-inheritance"></a></h3>
           <p>At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.</p>
           <p>Wrongly used inheritance clutters the focus of test because you need to mock out the your parent classes' irrelevant dependencies, too. For example,</p>
           <p>Inheriting from AuthenticatedServlet will make your sub-class very hard to test since every test will have to mock out the authentication. But what if AuthenticatedServlet inherits from DbTransactionServlet? (that gets so much harder)</p>
@@ -389,7 +389,7 @@
             uppercase S) is almost always causing undesirable global states, which you should avoid. Only few examples of Singleton Pattern, including Constants and Logging, are acceptable since they don't affect the application logic.</p>
           <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html">Singletons are Pathological Liars</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
           <h2 id="flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators<a class="fa fa-anchor" href="#flaw-3-dig-into-collaborators"></a></h2>
-          <h3 id="rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't look for things. Ask for things.<a class="fa fa-anchor" href="#rule-1-don-t-look-for-things-ask-for-things"></a></h3>
+          <h3 id="rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't Look for Things. Ask for Things.<a class="fa fa-anchor" href="#rule-1-don-t-look-for-things-ask-for-things"></a></h3>
           <h4 id="warning-signs-4">Warning Signs<a class="fa fa-anchor" href="#warning-signs-4"></a></h4>
           <ul>
             <li>Objects are passed in but never used directly (only used to get access to other objects)</li>
@@ -404,9 +404,9 @@
             an example of indirect dependency will be you pass in a path to the configuration file, and read a <code>Config</code> object from the path. To test Authenticator, you have to first write some configuration to a file, pass the file path to
             Authenticator, and let it read a <code>Config</code> itself. Versus you can directly create a <code>Config</code> object and pass it to Authenticator using direct dependency.</p>
           <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h2 id="flaw-4-class-does-too-much">Flaw #4: Class does too much<a class="fa fa-anchor" href="#flaw-4-class-does-too-much"></a></h2>
+          <h2 id="flaw-4-class-does-too-much">Flaw #4: Class Does Too Much<a class="fa fa-anchor" href="#flaw-4-class-does-too-much"></a></h2>
           <p>To extreme, it becomes an anti-pattern, <a href="https://en.wikipedia.org/wiki/God_object">God Object</a>.</p>
-          <h3 id="rule-1-avoid-mixing-of-concerns">Rule #1: Avoid mixing of concerns<a class="fa fa-anchor" href="#rule-1-avoid-mixing-of-concerns"></a></h3>
+          <h3 id="rule-1-avoid-mixing-of-concerns">Rule #1: Avoid Mixing of Concerns<a class="fa fa-anchor" href="#rule-1-avoid-mixing-of-concerns"></a></h3>
           <h4 id="warning-signs-5">Warning Signs:<a class="fa fa-anchor" href="#warning-signs-5"></a></h4>
           <ul>
             <li>summing up what the class does includes the word &quot;and&quot;</li>
@@ -417,7 +417,7 @@
           <p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a> also requires you to have classes with one concern (one reason to change), because these classes are simpler to understand what they
             are doing and easier to unit test.</p>
           <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-          <h3 id="rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor polymorphism over conditionals<a class="fa fa-anchor" href="#rule-2-favor-polymorphism-over-conditionals"></a></h3>
+          <h3 id="rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor Polymorphism Over Conditionals<a class="fa fa-anchor" href="#rule-2-favor-polymorphism-over-conditionals"></a></h3>
           <h4 id="warning-signs-6">Warning Signs:<a class="fa fa-anchor" href="#warning-signs-6"></a></h4>
           <ul>
             <li>Class has the same <code>switch</code> or <code>if</code> conditions in many places</li>
@@ -439,13 +439,13 @@
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
             <a class="nav-link py-1" href="#writing-testable-code">Writing Testable Code&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No seams for isolating the class under test&#x200E;</a>
+              <a class="nav-link py-1" href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No Seams for Isolating the Class Under Test&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do actual work in constructors&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't mix object construction with application logic&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't mix Service Objects with Value Objects&#x200E;</a>
+                <a class="nav-link py-1" href="#rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do Actual Work in Constructors&#x200E;</a>
+                <a class="nav-link py-1" href="#rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't Mix Object Construction With Application Logic&#x200E;</a>
+                <a class="nav-link py-1" href="#rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't Mix Service Objects With Value Objects&#x200E;</a>
                 <a class="nav-link py-1" href="#rule-4-avoid-static-methods">Rule #4: Avoid Static Methods&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-5-favor-composition-over-inheritance">Rule #5: Favor composition over inheritance&#x200E;</a>
+                <a class="nav-link py-1" href="#rule-5-favor-composition-over-inheritance">Rule #5: Favor Composition Over Inheritance&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#flaw-2-brittle-global-state-and-amp-singleton">Flaw #2: Brittle Global State &amp; Singleton&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
@@ -454,12 +454,12 @@
               </nav>
               <a class="nav-link py-1" href="#flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't look for things. Ask for things.&#x200E;</a>
+                <a class="nav-link py-1" href="#rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't Look for Things. Ask for Things.&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#flaw-4-class-does-too-much">Flaw #4: Class does too much&#x200E;</a>
+              <a class="nav-link py-1" href="#flaw-4-class-does-too-much">Flaw #4: Class Does Too Much&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rule-1-avoid-mixing-of-concerns">Rule #1: Avoid mixing of concerns&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor polymorphism over conditionals&#x200E;</a>
+                <a class="nav-link py-1" href="#rule-1-avoid-mixing-of-concerns">Rule #1: Avoid Mixing of Concerns&#x200E;</a>
+                <a class="nav-link py-1" href="#rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor Polymorphism Over Conditionals&#x200E;</a>
               </nav>
             </nav>
             <a class="nav-link py-1" href="#concluding-notes">Concluding Notes&#x200E;</a>
@@ -470,7 +470,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sat, Mar 21, 2020, 12:51:23 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
     </footer>
   </div>
 </body>
