@@ -22,7 +22,13 @@
         * [Benefit: Package Ecosystem](#benefit-package-ecosystem)
         * [Benefit: Fast Compiles and Small Bundles](#benefit-fast-compiles-and-small-bundles)
         * [Benefit: The Elm Way](#benefit-the-elm-way)
-    * [How to Get Started with Elm?‎](#how-to-get-started-with-elm)
+    * [The Elm Architecture](#the-elm-architecture)
+    * [Why not Elm?](#why-not-elm)
+        * [Interacting With JavasScript](#interacting-with-javascript)
+        * [Accessing the DOM](#accessing-the-dom)
+    * [How to Get Started With Elm?‎](#how-to-get-started-with-elm
+        * [Migrating From Other Frameworks](#migrating-from-other-frameworks)
+        * [Starting a New Project](#starting-a-new-project)
 </box>
 
 # Introduction to Elm
@@ -183,7 +189,7 @@ Elm's compiler is really fast. Its creator focused on compile times in versions 
 
 Examples of LOC vs compile times [here](https://discourse.elm-lang.org/t/how-are-0-19-compile-times-for-50k-loc-projects/3680).
 
-Lastly, Elm bundle size is small. Since Elm's functions are pure, tree-shaking can be done automatically. You can safely import a 1kLOC package only to use a one-liner function, and Elm can help you remove the 999 lines during compilation.
+Lastly, Elm bundle size is small. Since Elm's functions cannot perform side effects, unused functions can be automatically removed. You can safely import a 1kLOC package only to use a one-liner function, and Elm can help you remove the 999 lines during compilation.
 
 ### Benefit: The Elm Way
 
@@ -193,7 +199,7 @@ In fact, when other languages have gone on and added more features in newer vers
 
 ## The Elm Architecture
 
-![](images/TEA.png)
+<pic src="images/TEA.png" height="100"/>
 
 Elm doesn't allow side effects, so to build web apps, you use The Elm Architecture. It's similar to the model-view-controller design pattern.
 
@@ -242,7 +248,40 @@ Most Elm apps are written this way, you just keep adding stuff into your model, 
 
 The main benefit of this is that your app becomes more maintainable. There is only ever one single source of truth.
 
+## Why Not Elm?
+
+As much as Elm promotes the "one way of doing things" mantra, this means that some things that are easier to do in JavaScript become considerably more tedious in Elm.
+
+### Interacting With JavaScript
+
+To interact with outside JavaScript, you use [ports](https://guide.elm-lang.org/interop/ports.html).
+
+In essence, Elm treats outside JavaScript as a server that you send messages to and receive messages from. This preserves Elm's no side effects guarantee.
+
+However, this makes using certain JavaScript libraries that have no efficient Elm counterpart (e.g. [Typed Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)) harder, since what should be a simple function call becomes a tedious process of sending a request to the JavaScript "server", listening for a response, and then finally processing the response.
+
+### Accessing the DOM
+
+Let's say you want to get the width of an img element. This is really hard to do! Since all you do is tell Elm _how_ to render your application, you don't have any way to retrieve that particular img element in Elm, and you have to resort to using ports and JavaScript. This [stackoverflow](https://stackoverflow.com/questions/48551782/elm-get-the-size-of-an-image) post gives an example.
+
 ## How to Get Started with Elm?
+
+### Migrating From Other Frameworks
+
+If your project is already written in React, Vue, or another framework, is it worth it to migrate?
+
+The great news is that you don't have to spend weeks migrating only to figure out it wasn't worth the effort.
+
+You can introduce Elm slowly, by letting it take over only a single element in your page. Preferably, choose a part of your page that doesn't need to interact with the other parts.
+
+The increment/decrement demo above is a great choice, for example.
+
+Then, while Elm coexists with your other framework, you can decide if you want to incrementally port over your other framework's code to Elm.
+
+If you decide Elm isn't right for you, that's okay! You only tried it on a small sandboxed portion of your app, and you can choose to leave that Elm in or convert it back into your existing framework.
+
+### Starting a New Project
+
 Play with Elm without installation, using the Elm playground [Ellie](https://ellie-app.com/).
 
 After that, you can follow the official [Elm guide](https://guide.elm-lang.org/).
