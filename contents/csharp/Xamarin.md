@@ -28,7 +28,7 @@
     * [Modern Language Constructs and Robust Base Class Library](#modern-language-constructs-and-robust-base-class-library)
     * [Mobile Cross-Platform Support](#mobile-cross-platform-support)
     * [Modern Integrated Development Environment (IDE)](#modern-integrated-development-environment-ide)
-* [How to Get Started‎?](#how-to-get-started)
+* [Getting Started](#getting-started)
 </box>
 
 ## What is Xamarin?
@@ -138,7 +138,7 @@ Xamarin offers sophisticated cross-platform support for the two major platforms 
 
 Xamarin uses Visual Studio, a modern IDE that includes features such as code auto completion, a sophisticated project and solution management system, a comprehensive project template library, integrated source control, and more.
 
-## How to Get Started?
+## Getting Started
 
 If you are new to C#, you may follow this article to read more about C# [here]({{baseUrl}}/contents/csharp/IntroductionToCSharp.html).
 
