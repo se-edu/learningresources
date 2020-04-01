@@ -29,7 +29,7 @@ Node is mostly used in back-end and server side scenarios. For example, LinkedIn
 
 Now that we know what Node is, let us look at some benefits it has to offer.
 
-### Benefit 1: Easy to get Started
+### Benefit 1: Easy to Get Started
 
 To install Node, simply download the installer from the [official Node website](https://nodejs.org/en/download/) based on your OS and run it. This installs both Node and npm. Npm is a tool which will help you to search, install and manage node packages, which will be further explored [later](#benefit-5-easy-dependency-management-with-npm).
 

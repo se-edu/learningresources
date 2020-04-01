@@ -25,7 +25,7 @@ Java builds Monitor into [Java Object][6] and each object is itself a Monitor. A
 
 Java Synchronization is done by using keyword **synchronized**. It is commonly used in two forms: *synchronized statement* and *synchronized method*. We will use example codes to illustrate how synchronized keyword is used.
 
-## synchronized statement
+## Synchronized Statement
 
 Let us look at the following code snippet to understand synchronized statement:
 
@@ -37,7 +37,7 @@ synchronized(object) {
 
 The **synchronized** keyword takes in an **object** as an argument and uses brackets to enclose the **critical section** that accesses object data. In the code above, the **object** argument is the object to be used as the Monitor. When **critical section** is executed, the **object Monitor** locks all data of the object and only the **critical section**in the synchronized block can access data of the **object**. When the execution of **critical section** finishes on a certain thread, the thread gives up the **object Monitor** lock and other threads can access the data of **object**. Therefore, as long as **critical section** is included in a synchronized block of a **object Monitor**, data of the object is guaranteed to be thread safe.
 
-## synchronized method
+## Synchronized Method
 
 Another common way to use **synchronized** functionality is called **synchronized method**. The following code snippet is an example.
 
@@ -57,7 +57,7 @@ public void foo() {
 }
 ```
 
-# More features of Java synchronization
+# More Features of Java Synchronization
 
 Besides synchronized keyword to guard a critical section, another important feature of Java Synchronization is **wait()** and **notify()**.
 
@@ -81,11 +81,11 @@ public synchronized void cookChicken() {
 
 In method eatChicken, the condition of hasChicken must be true before eat() can take place. However, instead of terminating the method, the program can call wait() and then this thread is put into a * callback queue**. When some other threads change the conditions, in this case, if cookChicken() method produces chicken and the condition for eatChicken() might be changed, cookChicken() can call notifyAll(). notifyALl() wakes up one by one all the threads in the * callback queue** associated with the Monitor object used to by coooChicken(). In this case, eatChicken() is woken up and eatChicken() gains Monitor object lock and starts execution from wait() onwards. This is basically how wait() and notifyAll() work in Java. However, here are some points to take notes to use them correctly.
 
-### Understand which object is used as Monitor
+### Understand Which Object is Used as Monitor
 As described from the very beginning, all the synchronized feature is associated with a Monitor object as a lock. This is also true for wait() and notifyAll(). The Monitor object associated with wait() and notifyAll() is the Monitor object associated with the synchronized block that calls wait() and notifyAll().
 When wait() is called, the current thread pull is put into the callback queue of the Monitor object of the synchronized block. When notifyAll() is called, only threads waiting in the Monitor object queue associated with notifyAll() will be notified. Therefore, in the above example of eatChicken() and cookChick(), the wait() and notifyAll() will only work if both eatChicken() and cookChicken() are associated with the same Monitor object.
 
-### Check condition for wait() with while loop
+### Check Condition for wait() With While Loop
 wait() is usually used to check condition(e.g. hasChicken in the method eatChicken()). It is a good practice to always use wait() inside a while loop to check for the condition. This is to avoid the situation in which thread is woken for an unintended purpose. The example below illustrates this situation:
 ```
 public synchronized void eatChicken() {
@@ -134,7 +134,7 @@ When synchronized method foo() is called, it calls notifyAll() before after(). H
 ## notify()
 Another feature of synchronized is notify(), which notifies only one thread in the callback queue. This method is less used than notifyAll() because notify() only wakes up one randomly chosen thread from callback queue and it is hard to assert that the thread woken up is the intended thread. However, there are special situations in which notify() is used and is preferred. When all threads that call wait() are checking for the same condition, it is no different to call anyone of the thread. notify() can be used in this situation and is better than nofityAll() because notifyAll() wake up all the threads and is, therefore, more costly. When one can be sure that all the threads in the callback queue are waiting for the same condition, one can use notify().
 
-# Related areas
+# Related Areas
 Java Synchronization as demonstrated in this tutorial is easy to learn, and you are ready to use it after this tutorial. However, Java Synchronization is just a part of a bigger picture: Parallel programs in Java. To fully exploits the parallelism brought by modern hardware, you may also want to learn [Java Thread][2] and [Thread Safety][5]
 
 

@@ -109,7 +109,7 @@ The biggest issue is that Java isn’t a modern language, and although Java 8 wa
 - Initial readability of code may be hindered for core Java developers
 - Smaller community support
 
-# Resources to learn Kotlin
+# Resources to Learn Kotlin
 
 - [Official Resources by Android](https://developer.android.com/kotlin/resources.html)
 - [Kotlin Documentation](https://kotlinlang.org/docs/reference/)
