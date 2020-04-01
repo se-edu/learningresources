@@ -235,7 +235,7 @@ by changing XML configuration file without recompiling source code. The above co
 </aop:config>
 ```
 
-## Why use Spring?
+## Why Use Spring?
 
 Spring makes programming Java quicker, easier, and safer for everybody.
 Similar to other general Java frameworks (e.g. Grails, Play), Spring helps us focus on the core task rather than the boilerplate associated with it.
@@ -274,7 +274,7 @@ Projects like [Spring Boot](https://spring.io/projects/spring-boot) have made bo
 Spring thus is very easy to start but also powerful to extend to what programmers exactly need by providing multiple configuration options.
 Not to mention, it has excellent documentation and tutorials to help anyone get on-boarded.
 
-## How to get started‎
+## Getting Started
 
 The official website is a great place to get started. It includes:
 - [Spring Quickstart Guide](https://spring.io/quickstart)
