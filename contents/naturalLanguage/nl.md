@@ -27,7 +27,7 @@ Authors: [Lum Ka Fai Jeffry](https://github.com/j-lum)
 
 ## What is NLP?
 Natural Language Processing (NLP) is the set of methods for making human language accessible to computers.
-Recent advances in NLP have given rise to useful tools that have become embedded in our daily lives: 
+Recent advances in NLP have given rise to useful tools that have become embedded in our daily lives, for example: 
 spam and phishing classification keeps inboxes sane<sup>[1](#footnote1)</sup>;
 automated chatbots lighten the load on customer support staff and provide customers with immediate feedback<sup>[2](#footnote2)</sup>;
 machine translation bridge the gap between cultures<sup>[3](#footnote3)</sup>. 
@@ -40,7 +40,7 @@ Even though the study of NLP covers a diverse range of tasks, most of them can b
 ## Themes in NLP
 
 ### Syntax
-In order to leverage the power of modern machine learning techniques, raw text must be converted to a general-purpose linguistic structure.
+In order to transform language into a form understandable by computers, raw text must be converted to a general-purpose linguistic structure.
 In English, words can be decomposed to _morphemes_, the minimal unit of meaning (e.g. unhappiness to three morphemes un-happy-ness)<sup>[4](#footnote4)</sup>.
 Similarly, sentences can be tagged with word-level _parts-of-speech_ which describe the meaning of each word in the context of that sentence.
 
@@ -50,7 +50,7 @@ Similarly, sentences can be tagged with word-level _parts-of-speech_ which descr
     </pic>
 </p>
 
-For example, 'word-level' is tagged as an adjective (JJ) and 'sentences' as a plural noun (NNS)<sup>[6](#footnote5)</sup>.
+For example, 'informative' is tagged as an adjective (JJ) and 'article' as a noun (NN)<sup>[5](#footnote5)</sup>.
 
 <p align="center">
     <pic src="constituencyParse.png" alt="Constituency Parse" width="90%">
@@ -59,8 +59,8 @@ For example, 'word-level' is tagged as an adjective (JJ) and 'sentences' as a pl
 </p>
 
 From the parts-of-speech tags, a tree-structured representation of grammar can be produced.
-This tree is the result of a _constituency parse_, a task of recognizing a sentence and assigning a syntactic structure to it.
-From the tree we can see that the complex phrase 'word-level parts-of-speech' is simply a _noun phrase_.
+This tree is the result of a <tooltip content="a constituency parse is an assignment of a syntactic structure to a sentence"><i>constituency parse</i></tooltip>.
+From the tree we can see that the phrase 'an informative article' is simply a <tooltip content="a noun phrase is a group of words that includes a noun and modifiers like adjectives."><i>noun phrase</i></tooltip>.
 Incidentally, this is how Microsoft Word checks for grammatical errors<sup>[6](#footnote6)</sup>.
 Any tree that cannot be parsed may be grammatically incorrect or difficult to understand.
 
@@ -87,7 +87,7 @@ An approach is to represent the meaning of a sentence as a relationship triple c
 </p>
 
 From this representation of the sentence, it is possible for a system to answer novel questions like "Who has written articles?" or "What are the articles that 'I' have written".
-This technique, Open Information Extraction, is utilized by IBM's Watson to defeat human players in the American game show Jeopardy!<sup>[8](#footnote8)</sup>
+This technique, Open Information Extraction, is utilized by researchers to extract and summarize information from multiple documents.<sup>[8](#footnote8)</sup>
 
 ### Relations 
 Relations are crucial to the understanding of natural languages.
@@ -99,7 +99,7 @@ What is the event that prompted Geoffrey to buy a ring?
 The word _proposal_, while not stated in the example, implicitly links the two events together.
 While humans are able to draw the connections instinctually, it is not easy to formalize this process computationally.
 
-There are attempts to create semantic _ontologies_ for natural language, groupings of words by their meanings.
+There are attempts to create semantic <tooltip content="an ontology is a groupings of words by their meanings"><i>ontologies</i></tooltip> for natural language.
 **WordNet** is one such attempt, a handcrafted database that classifies words by concepts that they express<sup>[9](#footnote9)</sup>.
 
 <p align="center">
@@ -139,11 +139,11 @@ Techniques like **doc2vec**<sup>[13](#footnote13)</sup> build upon **word2vec** 
 Similar to **word2vec**, this enables classification of documents and paves the road to powerful information retrieval techniques. 
 
 #### Machine translation, e.g. Google Translate
-**seq2seq**<sup>[14](#footnote14)</sup>, a algorithm developed by Google, transforms a sequence to another. 
-This family of techniques uses special neural network architectures to model sentences.  
+**seq2seq**<sup>[3](#footnote3)</sup>, a algorithm developed by Google, transforms a sequence to another. 
+This family of techniques uses special <tooltip content="artifical neural networks a computer system made up of a number of simple, highly connected processing elements which translate information to some form of desired output"><i>artificial neural network</i></tooltip>   architectures to model sentences.  
 
-#### Automated customer support, e.g. ChatBot, Clare.AI, NanoRep
-Human-curated databases (e.g. **WordNet**) are used together with techniques like **word2vec** to extract actionable words or phrases<sup>[15](#footnote15)</sup>. 
+#### Automated customer support, e.g. ChatBot, NanoRep
+Human-curated databases (e.g. **WordNet**) are used together with techniques like **word2vec** to extract actionable words or phrases<sup>[14](#footnote14)</sup>. 
 For example, the two possible input from users regarding a replacement for a digital banking token: 
 
 > * I want to replace my token.
@@ -158,24 +158,26 @@ can be mapped back to the same intent to which a predefined response can be give
 </p>
 
 ## What's Next
-1. **Get an intuition for the English language**
+1. **Get an intuition for linguistics**
 
     [The Language Instinct](https://stevenpinker.com/publications/language-instinct) by Steven Pinker provides accessible insight about how humans learn language and the basics of formal linguistics. 
-    This is invaluable especially for those who grew up with English as a first language.
-
+    Learn about how to deconstruct language into formal structures for critical analysis through engaging examples.
+    
 1. **Visually explore the themes present in NLP**
     
     Stanford's [CoreNLP](https://corenlp.run/) provides a visual representation of NLP techniques.
     Explore how sentences are annotated with *parts-of-speech* tags and see the output of a constituency parse.
     
+1. **Take an online course on NLP**
+
+    Stanford University offers [CS224n: Natural Language Processing with Deep Learning](http://web.stanford.edu/class/cs224n/) online.
+    This course provides an introduction to modern techniques in NLP. 
+     
 1. **Experiment with NLP libraries**
 
     The aforementioned [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) library is a good starting point for developers comfortable in Java.
     For a simple and productive experience, [spaCy](https://spacy.io/) is a Python library suitable for experimentation and rapid prototyping.
-    
-1. **Read research papers to gain a deeper understanding of the techniques employed**
 
-    Stay up to date with research through portals like [arxiv sanity preserver](https://www.arxiv-sanity.com/search?q=nlp).
     
     
 ## References
@@ -187,11 +189,10 @@ can be mapped back to the same intent to which a predefined response can be give
 <a name="footnote5">[5]</a>: https://catalog.ldc.upenn.edu/docs/LDC95T7/cl93.html <br/>
 <a name="footnote6">[6]</a>: https://www.microsoft.com/en-us/research/project/nlpwin/ <br/>
 <a name="footnote7">[7]</a>: https://medium.com/huggingface/learning-meaning-in-natural-language-processing-the-semantics-mega-thread-9c0332dfe28e <br/>
-<a name="footnote8">[8]</a>: https://www.nytimes.com/2011/02/17/science/17jeopardy-watson.html?_r=0 <br/>
+<a name="footnote8">[8]</a>: https://www.aclweb.org/anthology/N13-1136 <br/>
 <a name="footnote9">[9]</a>: https://wordnet.princeton.edu/ <br/>
 <a name="footnote10">[10]</a>: https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf <br/>
 <a name="footnote11">[11]</a>: https://lamyiowce.github.io/word2viz/ <br/>
 <a name="footnote12">[12]</a>: https://www.aclweb.org/anthology/P18-4024.pdf <br/>
 <a name="footnote13">[13]</a>: https://cs.stanford.edu/~quocle/paragraph_vector.pdf <br/>
-<a name="footnote14">[14]</a>: https://google.github.io/seq2seq/ <br/>
-<a name="footnote15">[15]</a>: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/09/intent-detection-semantically.pdf <br/>
+<a name="footnote15">[14]</a>: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/09/intent-detection-semantically.pdf <br/>
