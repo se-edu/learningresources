@@ -31,7 +31,7 @@ Authors: [Syed Abdullah](https://github.com/Skaty)
   * [Query Language and Abstractions‎](#query-language-and-abstractions)
 </box>
 
-## Why learn databases and DBMSes?
+## Why Learn Databases and DBMSes?
 
 The programs that we create would handle data in some way or another. Be it a simple calculator application that tabulates user calculations (and maybe store them in a log of recent calculation) or a cluster of servers that handle indexing of a large number of documents. Data is what is worked on by any program, the inputs and outputs of a program or even a simple function are data.
 
