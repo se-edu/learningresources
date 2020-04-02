@@ -13,7 +13,8 @@
 
 # Introduction to Node
 
-Author: Rachael Sim
+Authors: [Rachael Sim](https://github.com/rachx), [Ang Ze Yu](https://github.com/ang-zeyu)<br>
+Reviewers: [Shradheya Thakre](https://github.com/tshradheya), [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Sam Yong](https://github.com/mauris), [Daryl Tan](https://github.com/openorclose), [Iskandar Zulkarnaien](https://www.github.com/iskandarzulkarnaien), [Tan Yuan Hong](https://www.github.com/le0tan)
 
 <box type="info" light><md>
 This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/sync-async) as asynchronous programming is key in Node.</md>
