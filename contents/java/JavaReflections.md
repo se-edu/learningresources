@@ -26,8 +26,8 @@ Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https:
     * [Updating Private Fields](#updating-private-fields)
     * [Testing Private Methods](#testing-private-methods)
     * [A More Advanced Application](#a-more-advanced-application)
-  * [Disadvantages of reflections‎](#disadvantages-of-reflections)
-  * [Further Resources for reflections‎](#further-resources-for-reflections)
+  * [Disadvantages of Reflections‎](#disadvantages-of-reflections)
+  * [Further Resources for Reflections‎](#further-resources-for-reflections)
 </box>
 
 ## Reflection
