@@ -297,6 +297,35 @@
       "headingKeywords": {}
     },
     {
+      "title": "Introduction to Elm",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/elm/Elm.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-elm": "Introduction to Elm",
+        "what-is-elm": "What is Elm?",
+        "why-learn-elm": "Why Learn Elm?",
+        "benefit-handling-all-cases": "Benefit: Handling All Cases",
+        "benefit-friendly-compiler": "Benefit: Friendly Compiler",
+        "benefit-canonical-coding-style": "Benefit: Canonical Coding Style",
+        "benefit-package-ecosystem": "Benefit: Package Ecosystem",
+        "benefit-fast-compiles-and-small-bundles": "Benefit: Fast Compiles and Small Bundles",
+        "benefit-the-elm-way": "Benefit: The Elm Way",
+        "the-elm-architecture": "The Elm Architecture",
+        "why-not-elm": "Why Not Elm?",
+        "interacting-with-javascript": "Interacting With JavaScript",
+        "accessing-the-dom": "Accessing the DOM",
+        "how-to-get-started-with-elm": "How to Get Started with Elm?",
+        "migrating-from-other-frameworks": "Migrating From Other Frameworks",
+        "starting-a-new-project": "Starting a New Project"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "An Introduction to Functional Programming",
       "header": "pagetop.md",
       "footer": "footer.md",

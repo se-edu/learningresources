@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.13.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Rvalue References and Move Semantics</title>
+  <title>SE-EDU/LearningResources - Introduction to Elm</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -58,12 +58,12 @@
           </button>
           <div class="dropdown-container dropdown-container-open">
             <ul class="pl-3 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">C++
- <i class="dropdown-btn-icon rotate-icon">
+              <li class="mt-2"><button class="dropdown-btn">C++
+ <i class="dropdown-btn-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
+                <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a current">Rvalue References and Move Semantics</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
                   </ul>
                 </div>
               </li>
@@ -76,7 +76,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
+              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a current">Elm</a></li>
               <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
               <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
               <li class="mt-2"><button class="dropdown-btn">Java
@@ -310,139 +310,186 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="rvalue-references-and-move-semantics">Rvalue References and Move Semantics<a class="fa fa-anchor" href="#rvalue-references-and-move-semantics"></a></h1>
-          <p>Authors: <a href="https://github.com/yamidark">Tan Jun An</a></p>
           <box id="article-toc">
             <ul>
-              <li><a href="#background">Background</a>
+              <li><a href="#introduction-to-elm">Introduction to Elm‎</a>
                 <ul>
-                  <li><a href="#value-semantics">Value Semantics</a></li>
-                  <li><a href="#reference-semantics">Reference Semantics</a></li>
+                  <li><a href="#what-is-elm">What Is Elm?‎</a></li>
+                  <li><a href="#why-learn-elm">Why Learn Elm?</a>
+                    <ul>
+                      <li><a href="#benefit-handling-all-cases">Benefit: Handling All Cases</a></li>
+                      <li><a href="#benefit-friendly-compiler">Benefit: Friendly Compiler</a></li>
+                      <li><a href="#benefit-canonical-coding-style">Benefit: Canonical Coding Style‎</a></li>
+                      <li><a href="#benefit-package-ecosystem">Benefit: Package Ecosystem</a></li>
+                      <li><a href="#benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles</a></li>
+                      <li><a href="#benefit-the-elm-way">Benefit: The Elm Way</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#the-elm-architecture">The Elm Architecture</a></li>
+                  <li><a href="#why-not-elm">Why not Elm?</a>
+                    <ul>
+                      <li><a href="#interacting-with-javascript">Interacting With JavasScript</a></li>
+                      <li><a href="#accessing-the-dom">Accessing the DOM</a></li>
+                    </ul>
+                  </li>
+                  <li>[How to Get Started With Elm?‎](#how-to-get-started-with-elm
+                    <ul>
+                      <li><a href="#migrating-from-other-frameworks">Migrating From Other Frameworks</a></li>
+                      <li><a href="#starting-a-new-project">Starting a New Project</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
-              <li><a href="#move-semantics">Move Semantics</a>
-                <ul>
-                  <li><a href="#rvalue-and-lvalue-references">Rvalue and Lvalue References</a></li>
-                  <li><a href="#using-rvalue-references">Using Rvalue References</a></li>
-                  <li><a href="#move-semantics">Move Semantics</a></li>
-                </ul>
-              </li>
-              <li><a href="#rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern</a></li>
-              <li><a href="#resources">Resources</a></li>
             </ul>
           </box>
 
-          <h2 id="background">Background<a class="fa fa-anchor" href="#background"></a></h2>
-          <p><em>C++</em> is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released
-            periodically. One such standard, the <code>C++11</code> standard, improved the performance of the language with features such as <strong><em>Rvalue References</em></strong> and <strong><em>Move Semantics</em></strong>.</p>
-          <p>In order to better understand the benefits of using Move Semantics, it is important to first understand the two other modes already available in C++, <strong><em>Value Semantics</em></strong> and <strong><em>References Semantics</em></strong>.</p>
-          <h3 id="value-semantics">Value Semantics<a class="fa fa-anchor" href="#value-semantics"></a></h3>
-          <p>Value (or copy) semantics is the programming style where users are only concerned about the values stored in the objects, rather than the object itself. As such, an extra copy of the object will always be created whenever it is passed to a function,
-            (also known as <a href="http://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/">pass-by-value</a>) or when constructing or assigning a new object. This ensures that each object declared (or function) will have their own copied
-            value to use, without having to concern themselves with their originator. By default, C++ uses this mode if variables are declared with only the data type.</p>
-          <p>Some advantages of Value Semantics include:</p>
+
+
+
+
+          <h1 id="introduction-to-elm">Introduction to Elm<a class="fa fa-anchor" href="#introduction-to-elm"></a></h1>
+          <p><strong>Author(s): <a href="https://github.com/openorclose">Daryl Tan</a></strong> <br>
+            <strong>Reviewer(s): <a href="https://github.com/alyip98">Alfred Yip</a>, <a href="https://github.com/jamessspanggg">James Pang</a></strong> <br></p>
+          <h2 id="what-is-elm">What is Elm?<a class="fa fa-anchor" href="#what-is-elm"></a></h2>
+          <p><a href="https://elm-lang.org/">Elm</a> is a statically typed, functional programming language that compiles to JavaScript and promises no runtime exceptions. You can use it to build reliable and maintainable applications for the web.</p>
+          <h2 id="why-learn-elm">Why Learn Elm?<a class="fa fa-anchor" href="#why-learn-elm"></a></h2>
+          <p>Languages like Haskell and OCaml from the <a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML family</a> have been well known to be maintainable and mostly error-free in practice. Their compilers catch bugs well before they
+            can make it into production. However, these functional programming languages are also well known to have a steep learning curve.</p>
+          <p>JavaScript, the standard language for web development, has a rather low learning curve but is considerably more difficult to maintain. To solve this, people write tests, add type annotations to JavaScript, and even try to adopt functional programming
+            patterns like immutability to increase maintanability.</p>
+          <p>Elm tries to be the best of both worlds. Its functional core provides maintainability, and it tries to greatly reduce the barriers to learning functional programming by simplifying concepts and having a really pleasant compiler.</p>
+          <h3 id="benefit-handling-all-cases">Benefit: Handling All Cases<a class="fa fa-anchor" href="#benefit-handling-all-cases"></a></h3>
+          <p>Like many functional programming languages, you get the &quot;if it compiles it works&quot; feeling in Elm.</p>
+          <p>If your code can produce more than one result (e.g. converting a string to an integer can either fail or succeed), Elm's compiler forces you to account for all cases in order to compile.</p>
+          <hr>
+          <p>Let's say you have an array, and you try to access its 10th element. What happens if there is no such element?</p>
+          <p>Some languages like JavaScript will give you <code>undefined</code>, and your code might very well continue to execute and only error out in a completely separate function, making it a pain to debug.</p>
+          <p>Other languages, like Java and Haskell, will throw a form of <code>IndexOutOfBoundsException</code>. That's ideal for you as a developer since you know exactly at which line this error occurs.</p>
+          <p>However, this doesn't make for a good user experience. What if you forget to test an edge case?</p>
+          <hr>
+          <p>In Elm, you will <strong>never</strong> run into these errors.</p>
+          <p>Elm forces you to handle both cases of the array access in your code:</p>
           <ul>
-            <li>Lesser memory management issues, as there won't be any <a href="https://www.quora.com/What-is-dangling-reference">dangling references</a> to objects that may not exist, nor any <a href="https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/">memory leaks</a>.</li>
-            <li><a href="https://en.wikipedia.org/wiki/Referential_transparency">Referential transparency</a>. Having our own copy of the object ensures that changing the values inside the copied object will not affect the original object. This is especially
-              useful in a <a href="https://stackoverflow.com/questions/1313062/what-is-a-multithreaded-application">multi-threaded</a> environment, as it removes the need to synchronise the object's values, allowing the program to run faster.</li>
-            <li>Better performance. If the function requires accessing of the object's value many times, having a local copy of the object may be faster than having a pointer to the object and dereferencing it each time. This is especially true in C++ which
-              encourages Value Semantics, with optimization techniques such as <a href="http://en.cppreference.com/w/cpp/language/copy_elision">copy elision</a> in the compiler which speeds up the process of passing-by-value.</li>
+            <li>the element exists</li>
+            <li>the element doesn't exist.</li>
           </ul>
-          <p>However, Value Semantics has <a href="https://www.quora.com/What-are-the-drawbacks-of-pass-by-value-result">one major flaw</a>:</p>
+          <p>If you don't handle them, your code won't compile!</p>
+          <h3 id="benefit-friendly-compiler">Benefit: Friendly Compiler<a class="fa fa-anchor" href="#benefit-friendly-compiler"></a></h3>
+          <p>Elm's compiler strives to be as friendly as possible, and offers as many hints as it can to help you fix errors. If nothing else, you should try Elm just to see how great error messages can be.</p>
+          <p>Here's a quick look at some of them:</p>
           <ul>
-            <li>Poor performance and scalability. If the function called is a read-only function, creating an additional copy will be an unnecessary consumption of memory and runtime. This is especially true when scaling up to pass around objects of larger
-              size, as more memory and runtime is needed to create each copy.</li>
+            <li>Cyclic dependencies:</li>
           </ul>
-          <h3 id="reference-semantics">Reference Semantics<a class="fa fa-anchor" href="#reference-semantics"></a></h3>
-          <p>Reference (or pointer) semantics is another choice available for use in C++, which allows users to declare <a href="http://www.cplusplus.com/doc/tutorial/pointers/">pointers</a> and <a href="https://www.geeksforgeeks.org/references-in-c/">references</a>            that point to the address of the object. As such, we can pass these reference address to functions and declaration of other pointers, and all of them will refer to and use the same object and address.</p>
-          <p>Some advantages of Reference Semantics include:</p>
+          <pre><code class="no-line-numbers hljs"><span>-- IMPORT CYCLE ----------------------------------------------------------------</span><span>&#x200B;</span><span>Your module imports form a cycle:</span><span>&#x200B;</span><span>    ┌─────┐</span><span>    │    Bar</span><span>    │     ↓</span><span>    │    Foo</span><span>    └─────┘</span><span>&#x200B;</span><span>Learn more about why this is disallowed and how to break cycles</span><span>here:&lt;https://elm-lang.org/0.19.0/import-cycles&gt;</span></code></pre>
           <ul>
-            <li>Improved performance and scalability. By passing around pointers and references to the same object, functions can just use the values in that object directly without having to create an extra copy, thus overcoming the major flaw of Value Semantics.</li>
-            <li>Interactions between objects and functions. Since the same object can be referred to by different pointers, its value can be modified in different areas of the program.</li>
+            <li>Wrong argument types:</li>
           </ul>
-          <p>However, Reference Semantics also comes with its own problems, such as:</p>
+          <pre><code class="no-line-numbers hljs"><span>&gt; String.join 4 [&quot;Hello&quot;, &quot;World&quot;]</span><span>-- TYPE MISMATCH ---------------------------------------------------------- REPL</span><span>&#x200B;</span><span>The 1st argument to `join` is not what I expect:</span><span>&#x200B;</span><span>3|   String.join 4 [&quot;Hello&quot;, &quot;World&quot;]</span><span>                 ^</span><span>This argument is a number of type:</span><span>&#x200B;</span><span>    number</span><span>&#x200B;</span><span>But `join` needs the 1st argument to be:</span><span>&#x200B;</span><span>    String</span><span>&#x200B;</span><span>Hint: Try using String.fromInt to convert it to a string?</span></code></pre>
           <ul>
-            <li>Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary <a href="https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html">data races</a> and
-              indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources
-              <a
-                href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a> and <a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a>.</li>
-            <li>Harder to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may
-              not know where and why the values are changing. A good example of this problem can be found in this <a href="http://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151">article</a>.</li>
+            <li>Syntax errors, e.g. if you try to import modules with the JavaScript syntax:</li>
           </ul>
-          <h2 id="move-semantics">Move Semantics<a class="fa fa-anchor" href="#move-semantics"></a></h2>
-          <p>From the summary above, there are many benefits for using Value Semantics. However, its one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics
-            may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, <code>C++11</code> introduced a
-            new mode to users, Move Semantics.</p>
-          <h3 id="rvalue-and-lvalue-references">Rvalue and Lvalue References<a class="fa fa-anchor" href="#rvalue-and-lvalue-references"></a></h3>
-          <p>To understand how Move Semantics work in C++, it is important to distinguish between an rvalue and an lvalue.</p>
-          <pre><code class="hljs"><span>lvalue = rvalue</span></code></pre>
-          <p>From the line above, lvalue (left value) basically refers to values that are addressable, while rvalue (right value) are temporary objects or values which are used only on the right side of an assignment expression. More details and classification
-            of these 2 values can be found <a href="http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">here</a>.</p>
-          <h3 id="using-rvalue-references">Using Rvalue References<a class="fa fa-anchor" href="#using-rvalue-references"></a></h3>
-          <p>Rvalue References allows us to distinguish an lvalue from an rvalue. In <code>C++11</code>, we can declare an Rvalue Reference using the <code>&amp;&amp;</code> operator:</p>
-          <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue = <span class="hljs-number">55</span>;</span></code></pre>
-          <p>We can also convert an lvalue to a rvalue using the <code>std::move</code> function:</p>
-          <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> lvalue = <span class="hljs-number">99</span>;</span><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue2 = <span class="hljs-built_in">std</span>::move(lvalue);</span></code></pre>
-          <p>We can also do <a href="https://en.wikibooks.org/wiki/Computer_Programming/Function_overloading">function overloading</a> in order to determine whether the parameters given are lvalues or rvalues:</p>
-          <pre><code class="hljs cpp"><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; lvalue)</span> </span>{ <span class="hljs-comment">// takes an lvalue</span></span><span>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"lvalue method used"</span>;</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp;&amp; rvalue)</span> </span>{ <span class="hljs-comment">// takes a rvalue</span></span><span>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"rvalue method used"</span>;</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;</span><span>    print(x); <span class="hljs-comment">// lvalue method used</span></span><span>    print(<span class="hljs-number">10</span>); <span class="hljs-comment">// rvalue method used.</span></span><span>}</span></code></pre>
-          <p>Usage of function overloading with Rvalue Reference parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!</p>
-          <h3 id="move-semantics-2">Move Semantics<a class="fa fa-anchor" href="#move-semantics-2"></a></h3>
-          <p>The main usage of Rvalue References is that it allows us to create <em>move</em> constructor and <em>move</em> assignments, instead of <em>copy</em> constructor and <em>copy</em> assignments by default. Since rvalues are typically temporary
-            objects, we can just <em>move</em> the value instead of <em>copying</em> it, thus reducing memory consumption and improving performance!</p>
-          <p>One example implementation of a move constructor and move assignment is shown below:</p>
-          <pre><code class="hljs cpp"><span>Foo(Foo&amp;&amp; other) { <span class="hljs-comment">// move constructor</span></span><span>    x = other.x;</span><span>    y = other.y;</span><span>    z = other.z;</span><span>}</span><span>&#x200B;</span><span>Foo&amp; <span class="hljs-keyword">operator</span>=(Foo&amp;&amp; other) { <span class="hljs-comment">// move assignment</span></span><span>    x = <span class="hljs-built_in">std</span>::move(other.x);</span><span>    y = <span class="hljs-built_in">std</span>::move(other.y);</span><span>    z = <span class="hljs-built_in">std</span>::move(other.z);</span><span>    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;</span><span>}</span></code></pre>
-          <p>In this move constructor and assignment, the contents of the <code>other</code> parameter is <em>moved</em> into the object, and the contents in <code>other</code> is destroyed afterwards. No additional memory allocation is required, and the
-            <em>move</em> operation is done quickly by a few assignment of address operations, leading to a faster and more memory efficient program.</p>
-          <p>Along with Move Semantics in <code>C++11</code>, the <a href="https://www.geeksforgeeks.org/the-c-standard-template-library-stl/">STL library</a> provides the overloaded <em>move</em> functions for its container classes (e.g. <code>vector</code>,
-            <code>list</code>, <code>set</code>), thus we can take advantage of these Move Semantics by simply supplying rvalues, without the need to redefine the classes ourselves.</p>
-          <h2 id="rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern<a class="fa fa-anchor" href="#rvalue-reference-anti-pattern"></a></h2>
-          <p>After learning about the new Rvalue References and Move Semantics in <code>C++11</code>, many programmers from the older C++ eras may fall into a trap of the Rvalue Reference <a href="https://en.wikipedia.org/wiki/Anti-pattern">Anti-Pattern</a>.</p>
-          <p>Consider these 2 class constructors:</p>
-          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span></code></pre>
-          <p>As shown above, the <em>move</em> constructor defines each of its parameter to be Rvalue References. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for <code>x</code> and rvalue for <code>y</code>,
-            the copy constructor instead will be called! This is because the <em>copy</em> constructor is able to accept both lvalues and rvalues, while the <em>move</em> constructor is only able to accept rvalues. As such, we may think we have made use
-            of Move Semantics to optimize our program, but that may not be the case!</p>
-          <p>One solution to this problem would be to overload the constructor for each combination of Rvalue Reference parameters possible, like this:</p>
-          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// move constructor 1</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 2</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span><span>&#x200B;</span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 3</span></span><span>    _x = x;</span><span>    _y = y;</span><span>}</span></code></pre>
-          <p>However, this is not feasible as we would require <code>2^n</code> overload functions, where <code>n</code> is the number of parameters. This results increased <a href="https://www.quora.com/What-is-boilerplate-code">boilerplate code</a>, which
-            in turn reduces code quality, increases memory consumption and compilation time.</p>
-          <p>Rather, what should be provided here is:</p>
-          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> y) { <span class="hljs-comment">// move constructor</span></span><span>    _x = <span class="hljs-built_in">std</span>::move(x);</span><span>    _y = <span class="hljs-built_in">std</span>::move(y);</span><span>}</span></code></pre>
-          <p>Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with <code>Foo(x,y)</code>, or to prevent
-            the additional copy by calling <code>Foo(std::move(x), std::move(y))</code>, depending on which value is no longer needed.</p>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
-          <p>The following resources gives more readings on what was discussed, and a more in-depth tutorial on Rvalue References and Move Semantics:</p>
+          <pre><code class="no-line-numbers hljs"><span>&gt; import * from 'Util'</span><span>-- EXPECTING IMPORT NAME -------------------------------------------------- REPL</span><span>&#x200B;</span><span>I was parsing an `import` until I got stuck here:</span><span>&#x200B;</span><span>2| import * from 'Util'</span><span>          ^</span><span>I was expecting to see a module name next, like in these examples:</span><span>&#x200B;</span><span>    import Dict</span><span>    import Maybe</span><span>    import Html.Attributes as A</span><span>    import Json.Decode exposing (..)</span><span>&#x200B;</span><span>Notice that the module names all start with capital letters. That is required!</span><span>&#x200B;</span><span>Read &lt;https://elm-lang.org/0.19.1/imports&gt; to learn more.</span></code></pre>
+          <h3 id="benefit-canonical-coding-style">Benefit: Canonical Coding Style<a class="fa fa-anchor" href="#benefit-canonical-coding-style"></a></h3>
+          <p>Like in Go, Elm has largely managed to avoid the style wars of older languages by having introduced a recommended style guide and code formatter (<code>elm-format</code>) early on.</p>
+          <p><code>elm-format</code> has no configuration, eliminating code style discussions with your team, and increasing the consistency of Elm code you see out in the wild.</p>
+          <p>In particular, the style guide aims to reduce version control diffs. Here's an example of the recommended style for a <code>Record</code> in Elm (a <code>Record</code> is like a JavaScript object):</p>
+          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =</span><span>    { age = <span class="hljs-number">18</span></span><span>    , firstName = <span class="hljs-string">"John"</span></span><span>    , lastName = <span class="hljs-string">"Doe"</span></span><span>    }</span></code></pre>
+          <p>Note how if you were to add a new field <code>favoriteLanguage</code> to <code>person</code>, there would only be a one line diff:</p>
+          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =</span><span>    { age = <span class="hljs-number">18</span></span><span>    , firstName = <span class="hljs-string">"John"</span></span><span>    , lastName = <span class="hljs-string">"Doe"</span></span><span>    , favoriteLanguage = <span class="hljs-string">"PHP"</span></span><span>    }</span></code></pre>
+          <p>If you're not used to this style (JavaScript achieves this reduced code diff via <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas">trailing commas</a> for example), don't worry. You can code however
+            you're used to and then run <code>elm-format</code> to format your code automatically!</p>
+          <p>That's the benefit of having one recommended style guide and using <code>elm-format</code>.</p>
+          <p>Further reading:</p>
           <ul>
-            <li><a href="https://blog.smartbear.com/development/the-biggest-changes-in-c11-and-why-you-should-care/">Biggest and important changes in C++11</a></li>
-            <li><a href="https://akrzemi1.wordpress.com/2012/02/03/value-semantics/">Why Value Semantics is good to use</a></li>
-            <li><a href="http://www.informit.com/articles/article.aspx?p=2731935&amp;seqNum=18">Comparison on pass-by-value or pass-by-reference</a></li>
-            <li><a href="http://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">Tutorial on what is a rvalue and what is a lvalue</a></li>
-            <li><a href="http://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php">Tutorial on using Rvalue References and Move Semantics</a></li>
-            <li><a href="http://thbecker.net/articles/rvalue_references/section_01.html">C++ Rvalue References Explained in 11 Sections</a></li>
-            <li><a href="http://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php">Sample examples of using Rvalue References and Move Semantics</a></li>
-            <li><a href="http://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html">The Rvalue Reference Anti-Pattern</a></li>
+            <li><a href="https://elm-lang.org/docs/style-guide">Official style guide</a></li>
+            <li><a href="https://github.com/avh4/elm-format">elm-format</a></li>
           </ul>
+          <h3 id="benefit-package-ecosystem">Benefit: Package Ecosystem<a class="fa fa-anchor" href="#benefit-package-ecosystem"></a></h3>
+          <p>You can share your package, or use any of the packages available at <a href="https://package.elm-lang.org/">https://package.elm-lang.org/</a>.</p>
+          <p>All packages there are written in Elm only and therefore cannot perform any side effects. This is unlike the package system in JavaScript, where packages can reassign global functions like <code>parseInt</code> and cause bugs whenever <code>parseInt</code>            is used elsewhere!</p>
+          <p>Furthermore, Elm has automatic enforced semantic versioning. Whenever you push an update to your package, Elm analyses your code, and depending on whether you have any breaking changes, updates the patch, minor, or major version accordingly.
+            This makes both package maintainers and users happy: maintainers don't have to worry about choosing new versions, and users can know that as long as the major version doesn't change, there won't be any breaking changes.</p>
+          <h3 id="benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles<a class="fa fa-anchor" href="#benefit-fast-compiles-and-small-bundles"></a></h3>
+          <p>Elm's compiler is really fast. Its creator focused on compile times in versions 0.19 and 0.19.1, which brought compile times for 100k LOC projects down to only 10s. If your project has less than 10k LOC, compilation should take no more than
+            1s.</p>
+          <p>Examples of LOC vs compile times <a href="https://discourse.elm-lang.org/t/how-are-0-19-compile-times-for-50k-loc-projects/3680">here</a>.</p>
+          <p>Lastly, Elm bundle size is small. Since Elm's functions cannot perform side effects, unused functions can be automatically removed. You can safely import a 1kLOC package only to use a one-liner function, and Elm can help you remove the 999 lines
+            during compilation.
+          </p>
+          <h3 id="benefit-the-elm-way">Benefit: The Elm Way<a class="fa fa-anchor" href="#benefit-the-elm-way"></a></h3>
+          <p>You may have noticed that Elm really likes the &quot;only one way to do it&quot; philosophy. You don't get to choose your package versions, and you don't get to configure <code>elm-format</code>. This is all done on purpose: to simplify developers'
+            lives.
+          </p>
+          <p>In fact, when other languages have gone on and added more features in newer versions, Elm has gone the other direction and removed many language features for the sake of simplicity.</p>
+          <h2 id="the-elm-architecture">The Elm Architecture<a class="fa fa-anchor" href="#the-elm-architecture"></a></h2>
+          <p>
+            <pic src="/learningresources/contents/elm/images/TEA.png" height="100"></pic>
+          </p>
+          <p>Elm doesn't allow side effects, so to build web apps, you use The Elm Architecture. It's similar to the model-view-controller design pattern.</p>
+          <p>You provide Elm with three items:</p>
+          <ul>
+            <li>an initial state your app is in</li>
+            <li>a view function that takes in a state, and returns a HTML representation of that state</li>
+            <li>an update function that takes in a state and a message. The function then can use information provided in the message to returns a new state.</li>
+          </ul>
+          <p>Here's a minimal example:</p>
+          <pre><code class="hljs elm"><span><span class="hljs-keyword">module</span> Main <span class="hljs-keyword">exposing</span> (main)</span><span>&#x200B;</span><span><span class="hljs-keyword">import</span> Browser</span><span><span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, button, text)</span><span><span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onClick)</span><span>&#x200B;</span><span><span class="hljs-comment">-- our initial state is a single number 1</span></span><span><span class="hljs-title">initialModel</span> = <span class="hljs-number">1</span></span><span>&#x200B;</span><span><span class="hljs-comment">-- if we get the message string "increment", we return a new number, model+1</span></span><span><span class="hljs-comment">-- else we don't update it, and return the same model</span></span><span><span class="hljs-title">update</span> msg model =</span><span>    <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span></span><span>        <span class="hljs-string">"increment"</span> -&gt; model + <span class="hljs-number">1</span></span><span>        _ -&gt; model</span><span>&#x200B;</span><span><span class="hljs-comment">-- we take in a model, and display the number it represents on a button element.</span></span><span><span class="hljs-comment">-- when the button is clicked, it sends the message string "increment" to Elm.</span></span><span><span class="hljs-comment">-- which will get passed to our `update` function.</span></span><span><span class="hljs-title">view</span> model = button [ onClick <span class="hljs-string">"increment"</span> ] [ text (<span class="hljs-type">String</span>.fromInt model) ]</span><span>&#x200B;</span><span><span class="hljs-comment">-- now we glue it all together!</span></span><span><span class="hljs-title">main</span> =</span><span>    <span class="hljs-type">Browser</span>.sandbox</span><span>        { init = initialModel</span><span>        , view = view</span><span>        , update = update</span><span>        }</span></code></pre>
+          <p>View it on the Elm playground <a href="https://ellie-app.com/88GSdxWWVFza1">here</a>.</p>
+          <p>Most Elm apps are written this way, you just keep adding stuff into your model, view, and update as you grow your app.</p>
+          <p>The main benefit of this is that your app becomes more maintainable. There is only ever one single source of truth.</p>
+          <h2 id="why-not-elm">Why Not Elm?<a class="fa fa-anchor" href="#why-not-elm"></a></h2>
+          <p>As much as Elm promotes the &quot;one way of doing things&quot; mantra, this means that some things that are easier to do in JavaScript become considerably more tedious in Elm.</p>
+          <h3 id="interacting-with-javascript">Interacting With JavaScript<a class="fa fa-anchor" href="#interacting-with-javascript"></a></h3>
+          <p>To interact with outside JavaScript, you use <a href="https://guide.elm-lang.org/interop/ports.html">ports</a>.</p>
+          <p>In essence, Elm treats outside JavaScript as a server that you send messages to and receive messages from. This preserves Elm's no side effects guarantee.</p>
+          <p>However, this makes using certain JavaScript libraries that have no efficient Elm counterpart (e.g. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">Typed Arrays</a>) harder, since what should be a simple function
+            call becomes a tedious process of sending a request to the JavaScript &quot;server&quot;, listening for a response, and then finally processing the response.</p>
+          <h3 id="accessing-the-dom">Accessing the DOM<a class="fa fa-anchor" href="#accessing-the-dom"></a></h3>
+          <p>Let's say you want to get the width of an img element. This is really hard to do! Since all you do is tell Elm <em>how</em> to render your application, you don't have any way to retrieve that particular img element in Elm, and you have to resort
+            to using ports and JavaScript. This <a href="https://stackoverflow.com/questions/48551782/elm-get-the-size-of-an-image">stackoverflow</a> post gives an example.</p>
+          <h2 id="how-to-get-started-with-elm">How to Get Started with Elm?<a class="fa fa-anchor" href="#how-to-get-started-with-elm"></a></h2>
+          <h3 id="migrating-from-other-frameworks">Migrating From Other Frameworks<a class="fa fa-anchor" href="#migrating-from-other-frameworks"></a></h3>
+          <p>If your project is already written in React, Vue, or another framework, is it worth it to migrate?</p>
+          <p>The great news is that you don't have to spend weeks migrating only to figure out it wasn't worth the effort.</p>
+          <p>You can introduce Elm slowly, by letting it take over only a single element in your page. Preferably, choose a part of your page that doesn't need to interact with the other parts.</p>
+          <p>The increment/decrement demo above is a great choice, for example.</p>
+          <p>Then, while Elm coexists with your other framework, you can decide if you want to incrementally port over your other framework's code to Elm.</p>
+          <p>If you decide Elm isn't right for you, that's okay! You only tried it on a small sandboxed portion of your app, and you can choose to leave that Elm in or convert it back into your existing framework.</p>
+          <h3 id="starting-a-new-project">Starting a New Project<a class="fa fa-anchor" href="#starting-a-new-project"></a></h3>
+          <p>Play with Elm without installation, using the Elm playground <a href="https://ellie-app.com/">Ellie</a>.</p>
+          <p>After that, you can follow the official <a href="https://guide.elm-lang.org/">Elm guide</a>.</p>
+          <p>View the official documentation along with documentation for all available Elm packages <a href="https://package.elm-lang.org/">here</a>.</p>
+          <p>Elm has a small but very helpful community. Join the <a href="https://elmlang.herokuapp.com/">Elm Slack</a> or the <a href="https://discourse.elm-lang.org/">Elm Discourse</a>.</p>
+          <p>If you're interested, the <a href="https://elm-lang.org/news">official Elm blog</a> has really interesting posts on their design philosophies.</p>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#rvalue-references-and-move-semantics">Rvalue References and Move Semantics&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-elm">Introduction to Elm&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#background">Background&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-elm">What is Elm?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-learn-elm">Why Learn Elm?&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#value-semantics">Value Semantics&#x200E;</a>
-                <a class="nav-link py-1" href="#reference-semantics">Reference Semantics&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-handling-all-cases">Benefit: Handling All Cases&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-friendly-compiler">Benefit: Friendly Compiler&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-canonical-coding-style">Benefit: Canonical Coding Style&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-package-ecosystem">Benefit: Package Ecosystem&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-the-elm-way">Benefit: The Elm Way&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#move-semantics">Move Semantics&#x200E;</a>
+              <a class="nav-link py-1" href="#the-elm-architecture">The Elm Architecture&#x200E;</a>
+              <a class="nav-link py-1" href="#why-not-elm">Why Not Elm?&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rvalue-and-lvalue-references">Rvalue and Lvalue References&#x200E;</a>
-                <a class="nav-link py-1" href="#using-rvalue-references">Using Rvalue References&#x200E;</a>
-                <a class="nav-link py-1" href="#move-semantics-2">Move Semantics&#x200E;</a>
+                <a class="nav-link py-1" href="#interacting-with-javascript">Interacting With JavaScript&#x200E;</a>
+                <a class="nav-link py-1" href="#accessing-the-dom">Accessing the DOM&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern&#x200E;</a>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
+              <a class="nav-link py-1" href="#how-to-get-started-with-elm">How to Get Started with Elm?&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#migrating-from-other-frameworks">Migrating From Other Frameworks&#x200E;</a>
+                <a class="nav-link py-1" href="#starting-a-new-project">Starting a New Project&#x200E;</a>
+              </nav>
             </nav>
 
           </nav>
