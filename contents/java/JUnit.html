@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.12.0">
+  <meta name="generator" content="MarkBind 2.13.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - JUnit</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -368,7 +368,7 @@
           <p>JUnit exposes an API that allows developers to do this process easily and clearly. The <code>@BeforeAll</code> tag allows us to run code once before all tests. Using <code>@BeforeAll</code>, we can easily initialize our testing environment:</p>
           <pre><code class="hljs java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{</span><span>  Database db;</span><span>  <span class="hljs-meta">@BeforeAll</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initializeDatabaseConnection</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-comment">// Initialize database connections</span></span><span>    db = connectToDatabase();</span><span>  }</span><span>  <span class="hljs-meta">@Test</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addUserTest</span><span class="hljs-params">()</span> </span>{</span><span>    db.addUser(<span class="hljs-string">'NewUser'</span>);</span><span>    ...</span><span>  }</span><span>}</span></code></pre>
           <p>JUnit also offers a <code>@BeforeEach</code> tag to run code before every test. One use case is to ensure that we standardise the testing environment before each test. For example, we can clear our database before each test to ensure that tests
-            do not <span for="modal:affectEachOther" trigger="click" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:affectEachOther'].show()" class="trigger">affect each other</span>.</p>
+            do not <span for="modal:affectEachOther" trigger="click" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:affectEachOther'].show()" class="trigger-click">affect each other</span>.</p>
           <pre><code class="hljs java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabase</span> </span>{</span><span>  Database db;</span><span>  <span class="hljs-meta">@BeforeEach</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">resetDatabaseTable</span><span class="hljs-params">()</span> </span>{</span><span>    db.truncate(<span class="hljs-string">"testTable"</span>);</span><span>  }</span><span>}</span></code></pre>
           <p>Similarly, we can use the <code>@AfterAll</code> and <code>@AfterEach</code> tags to run code after all tests, and after each test respectively:</p>
           <pre><code class="hljs java"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInvolvingDatabases</span> </span>{</span><span>  Database db;</span><span>  DatabaseSnapshot snapshot;</span><span>  <span class="hljs-meta">@AfterEach</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">restoreDatabaseTable</span><span class="hljs-params">()</span> </span>{</span><span>    db.restore(snapshot); <span class="hljs-comment">// Restore previous state of database</span></span><span>  }</span><span>  <span class="hljs-meta">@AfterAll</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">closeDatabaseConnection</span><span class="hljs-params">()</span> </span>{</span><span>    db.close(); <span class="hljs-comment">// Explicitly close DB connection instead of timing out.</span></span><span>  }</span><span>  </span><span>}</span></code></pre>
@@ -395,7 +395,7 @@
             <li>Official User Guide: <a href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5 User Guide</a></li>
           </ul>
         </div>
-        <b-modal id="modal:affectEachOther" ok-only size modal-class="mb-zoom" ref="modal:affectEachOther">
+        <b-modal id="modal:affectEachOther" hide-footer size modal-class="mb-zoom" ref="modal:affectEachOther">
           <div slot="modal-header" class="modal-title text-center">
             <h4 id="how-will-tests-affect-each-other">How will tests affect each other?<a class="fa fa-anchor" href="#how-will-tests-affect-each-other"></a></h4>
           </div>
@@ -426,7 +426,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.12.0</a> on Sun, Mar 29, 2020, 3:03:28 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Thu, Apr 2, 2020, 2:45:06 PM UTC]</small></div>
     </footer>
   </div>
 </body>
