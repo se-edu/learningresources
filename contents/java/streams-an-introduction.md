@@ -40,7 +40,7 @@ Author: Lee Yi Min
   * [Method References](#method-references)
   * [Lambda Expressions](#lambda-expressions)
   * [Stream](#stream)
-    * [Common pitfalls](#common-pitfalls)
+    * [Common Pitfalls](#common-pitfalls)
 </box>
 
 ## Overview
