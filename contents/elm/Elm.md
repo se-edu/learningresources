@@ -82,7 +82,7 @@ Elm's compiler strives to be as friendly as possible, and offers as many hints a
 Here's a quick look at some of them:
 
 - Cyclic dependencies:
-```
+```{.no-line-numbers}
 -- IMPORT CYCLE ----------------------------------------------------------------
 
 Your module imports form a cycle:
@@ -99,7 +99,7 @@ here:<https://elm-lang.org/0.19.0/import-cycles>
 
 - Wrong argument types:
 
-```
+```{.no-line-numbers}
 > String.join 4 ["Hello", "World"]
 -- TYPE MISMATCH ---------------------------------------------------------- REPL
 
@@ -120,7 +120,7 @@ Hint: Try using String.fromInt to convert it to a string?
 
 - Syntax errors, e.g. if you try to import modules with the JavaScript syntax:
 
-```
+```{.no-line-numbers}
 > import * from 'Util'
 -- EXPECTING IMPORT NAME -------------------------------------------------- REPL
 
