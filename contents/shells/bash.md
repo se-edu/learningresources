@@ -27,7 +27,7 @@ Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Ong Shu Peng](https
 * [How to get started?‎](#how-to-get-started)
 </box>
 
-## What is the shell?
+## What is the Shell?
 
 In general, a computer can be divided into 3 abstraction layers: hardware, kernel and applications. As users, we cannot control the hardware directly. Instructions have to be given through the kernel as the kernel is the one that controls the hardware.
 
