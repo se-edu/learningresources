@@ -13,7 +13,8 @@
 
 # Introduction to Xamarin
 
-**Author: [Ni Tianzhen](https://github.com/niqiukun)**
+**Author: [Ni Tianzhen](https://github.com/niqiukun)**<br>
+Reviewers: [Liu Yiwen](https://github.com/0blivious), [Tejas Bhuwania](https://github.com/Tejas2805)
 
 <box id="article-toc">
 
