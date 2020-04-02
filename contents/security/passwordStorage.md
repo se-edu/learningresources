@@ -97,7 +97,7 @@ Some examples of cryptographic <trigger for="pop:hashing-algo">hashing algorithm
 
 For example, a simple hashing algorithm that acts on numbers could add up all the digits in that number. This would mean hashing the number `1013` would result in 1+0+1+3 = `5`. Hashing the number `761` would result in `14`. Note that after hashing the number, there is no way to regain back the original number - data about the original number (such as number and position of digits) have been irrevocably lost in the process. Additionally, many different numbers could result in the same hash. For example, the numbers `101` and `20` both result in the hash of `2`. This is called a _hash collision_. A good hashing algorithm attempts to minimize the amount of hash collisions such that the probability of it happening is close to 0. In the case of the MD5 algorithm, the probability of a hash collision given any two inputs is 1 in 2<sup>128</sup> which is 1 in 340,282,366,920,938,463,463,374,607,431,768,211,456.
 
-### Why isn't hashing enough?
+### Why Isn't Hashing Enough?
 
 A _[rainbow table](https://en.wikipedia.org/wiki/Rainbow_table)_ is a precomputed table of hashes for some set of passwords. Basically, people build huge tables of hashes wherein the plaintext is already known, so that attempting to crack hashes becomes a simple problem of looking up the hash in the table and its corresponding value, instead of attempting to reverse the hash. Through this method, it is very easy to crack simple hashes by simply doing a lookup.
 
@@ -117,7 +117,7 @@ One question that is commonly asked by developers is where to store the salt. Th
 
 Many good password hashing algorithms today have built-in salts, such as [Argon2](https://github.com/P-H-C/phc-winner-argon2), [SCrypt](https://passlib.readthedocs.io/en/stable/lib/passlib.hash.scrypt.html) and [bcrypt](https://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage). A good password hashing algorithm or library will salt automatically.
 
-### What if there is a server breach?
+### What if There Is a Server Breach?
 
 A common question asked by developers is how much all of these security measures actually matter. After all, if an attacker has gained access to the entire application, does it matter if passwords are stored in plaintext or not?
 
@@ -125,7 +125,7 @@ If an attacker has already gained access to the entire application, then he alre
 
 Additionally, when a user signed up on your website and provided you a password, they implicitly trusted you to keep that information safe and secure for them. In a sense, you do have a responsibility to keep their passwords secure. By doing proper password storage, if your servers ever get breached, you can assure your customers that their passwords are properly secured, and still maintain some of their trust in you.
 
-## Getting started
+## Getting Started
 
 <box type="danger">
 It is far too easy to screw up and make a mistake. Instead, use one of the free libraries that provide a crypto function that has already been well-tested by the community. <b>Do not write your own crypto library.</b>
@@ -137,7 +137,7 @@ Here are some libraries you can use to implement password storage:
 * Python: [PassLib](https://passlib.readthedocs.io/en/stable/narr/hash-tutorial.html)
 * JavaScript: [bcrypt](https://www.npmjs.com/package/bcrypt)
 
-## Other resources
+## Other Resources
 
 * [Secure Salted Password Hashing - How to do it properly](https://crackstation.net/hashing-security.htm) is an excellent resource that explains how to perform salted password hashing correctly, including links to other good libraries and what else can be done.
 * [Awesome Cryptography](https://github.com/sobolevn/awesome-cryptography) is a curated list of resources on cryptographic algorithms - articles, blogs, books, libraries and more.

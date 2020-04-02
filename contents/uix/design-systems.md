@@ -19,7 +19,7 @@ Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Metta Ong](https
 
 <box id="article-toc">
 
-* [What is a Design System](#what-is-a-design-system)
+* [What is a Design System?](#what-is-a-design-system)
 * [Why should we use a Design System?](#why-should-we-use-a-design-system)
 * [Why not front-end frameworks or style guides?](#why-not-front-end-frameworks-or-style-guides)
 * [Benefits of a Design System](#benefits-of-a-design-system)
@@ -28,7 +28,7 @@ Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Metta Ong](https
 * [Summary](#summary)
 </box>
 
-## What is a Design System
+## What is a Design System?
 
 The following definition best encapsulates the essence of a Design System.
 > A Design System is the Single Source of Truth which groups all the elements that will allow the teams to design, realize and develop a product. <sub>--[Blog post from UX Collective](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969)</sub>
@@ -46,7 +46,7 @@ Below is a brief explanation of the parts that make up a Design System. The expl
 - **Building Blocks**: Building Blocks refer to documentation consisting of the collection of interface elements. Polaris has a section which describes their [components](https://polaris.shopify.com/components/get-started) in detail. For example, the custom [Datepicker](https://polaris.shopify.com/components/forms/date-picker#navigation) component is clearly documented with different examples.
 - **Style Guide**: A Style Guide focuses on graphic styles such as colors, fonts, illustrations, etc and their usage. For example, Polaris' [style guide](https://polaris.shopify.com/design/colors#section-color-usage) recommends to use Indigo for buttons and avoid using Indigo for text links.
 
-## Why should we use a Design System?
+## Why Should We Use a Design System?
 
 <center>
 <img src="https://cdn-images-1.medium.com/max/2600/1*wFOwLNi-xGBfyGnssynQaQ.png" alt="Typical Design and Development process" width="95%">
@@ -68,7 +68,7 @@ Here is another example of a conversation held at [Modus Create](https://moduscr
 _Figure 3. Conversation at Modus Create_ ([source](https://moduscreate.com/blog/design-systems-and-how-your-company-benefits-from-them/))
 </center>
 
-## Why not front-end frameworks or style guides?
+## Why Not Front-End Frameworks or Style Guides?
 Front-end frameworks such as [Bootstrap](https://getbootstrap.com/) have reusable components that save a lot of time and effort. However, there are a few disadvantages:
 1. **Not suitable for designers**: [Sketch](https://www.sketch.com/) is an industry standard tool used by designers for UI design. Most front-end frameworks do not have relevant *.sketch* or source files that allow them to change the design of components in the framework.
 2. **Not suitable for extensive customization**: Products with a distinctive level of identity require additional development effort, which defeats the point of using a framework.
@@ -85,7 +85,7 @@ Style guides present components that can be used quickly in mockups. This is an 
 ## Benefits of a Design System
 Design Systems combine the good parts of front-end frameworks and style guides.
 
-**Benefit 1: Shared Common language**
+**Benefit 1: Shared Common Language**
 
 Design Systems act as a [Single Source of Truth](https://en.wikipedia.org/wiki/Single_source_of_truth). This allows the whole organization to access changes and updates. Any member of a team would have complete documentation of design mock-ups at their fingertips. This results in fewer misunderstandings and much better implementation of designs.
 
@@ -103,7 +103,7 @@ When products are integrated with a Design System, updates are only required to 
 
 In a [blog post](https://airbnb.design/building-a-visual-language/) from Airbnb, the team explained how they were able to create nearly 50 screens within just a few hours by using their Design System. It was also mentioned by the team that they build and release features on all native platforms at roughly the same time now. Development is faster for them now since product engineers can focus more on writing the feature logic rather than code that is responsible for the presentation layer of the application.
 
-## How to build a Design System
+## How to Build a Design System?
 
 There are paid solutions out there to help organizations build Design Systems. However, there are open source tools to assist you in building your own Design System.
 
@@ -129,7 +129,7 @@ _Figure 5. React Styleguidist_ ([source](https://github.com/styleguidist/react-s
 
 [React Styleguidist](https://github.com/styleguidist/react-styleguidist) simplifies creating and maintaining a UI documentation site. It allows you to create pages in Markdown and import UI components. It helps in setting up the style guide of a Design System.
 
-## Examples of existing Design Systems
+## Examples of Existing Design Systems
 
 This [website](https://designsystemsrepo.com/design-systems/) presents a comprehensive and curated list of design systems.
 

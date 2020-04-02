@@ -72,7 +72,7 @@ At it's core, UX Design is about understanding both user and business goals, and
 
 Just like Software Development, UX Design is an iterative process. It involves many stages like researching, planning, testing, and at each stage are many different techniques that you could use. A good place to find these techniques would be the [UX Project Checklist](https://uxchecklist.github.io/) created by Andrea Soverini.
 
-## Which is more important?
+## Which is More Important?
 
 The metaphor of building a house by Clayton Yan (UX Designer at UserTesting) illustrates this aptly. UX is the structure (i.e. the number of rooms, one-storey or two-storey and where the front door leads). Meanwhile, UI is about the visual (i.e. whether the same wallpaper or vases is used). A good UX with bad UI is like an ugly house with nice structure. A good UI with bad UX is like a beautiful house with the front door leading straight to the bathroom. To sum it up, UI and UX are **equally** important in creating an awesome experience for the users. 
 

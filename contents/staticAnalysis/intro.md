@@ -95,7 +95,7 @@ return isConditionTrue();
 
 ## Limitation of Static Analysis
 
-### False positives
+### False Positives
 Since static analysis tools only recognize patterns, there might be false positives introduced.
 
 ``` java

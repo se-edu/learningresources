@@ -24,7 +24,7 @@ REST stands for *Representational State Transfer*. It is the architecture style 
 
 Let us learn a bit more about REST so that we can better understand the rationale behind the design of the Web and better design/consume RESTful APIs.
 
-## What does REST mean?
+## What Does REST Mean?
 
 ### Resource
 
@@ -43,7 +43,7 @@ Transfering to the users the representation of the resource instead of the resou
 The quote below from Roy Fielding outlines what the name entails:
 > The name “Representational State Transfer” is intended to evoke an image of how a well-designed Web application behaves: a network of web pages (a virtual state-machine), where the user progresses through the application by selecting links (state transitions), resulting in the next page (representing the next state of the application) being transferred to the user and rendered for their use.
 
-## What should REST bring to the Web?
+## What Should REST Bring to the Web?
 
 REST specifies the key designs of the Web. The design of the Web affects greatly how efficient, applicable and modifiable the Web can be. Hence, before understanding the REST principles, we need to understand the requirements of the Web i.e. what the Web is expected to be. 
 
@@ -56,7 +56,7 @@ The Web is expected to be a place for convenient storing and sharing of informat
 
 REST is the abstraction of the design that satisfies the above requirements. More details for the above requirements can be found in [Chapter 4.1 WWW Application Domain Requirements](https://www.ics.uci.edu/~fielding/pubs/dissertation/web_arch_domain.htm) in Roy Fielding's paper about REST. 
 
-## What exactly is REST?
+## What Exactly is REST?
 
 REST is an architectural style. Fielding defined architectural style as “a coordinated set of architectural constraints that restricts the roles/features of architectural elements and the allowed relationships among those elements within any architecture that conforms to that style”. 
 
@@ -83,7 +83,7 @@ There are four sub-constraints which further specify the Uniform Interface const
  * **Self-descriptive messages**: A message in a communication between the web components should contain all the information needed for the web components to understand its content. 
  * **Hypermedia as the engine of application state (HATEOAS)**: There should be hyperlinks embedded inside the representations given to the client, such that all the future actions that the client might take are within these representations. Hence, the client can interact with and navigate through the application without any prior knowledge of how to do so. Hence, the client and the server are more independent of each other. 
 
-### Code On Demand (Optional)
+### Code on Demand (Optional)
 The server can send a code snippet to the client to let the client execute. One example of this is the Javascript code sent along with the webpage in HTML. This constraint extends the client functionality and reduces the workload of the server by reducing the number of features to be implemented at the server. However, it reduces the visibility of the interactions between the client and the server and makes it more difficult to monitor the interactions. Hence, this constraint might be disabled in some implementations in REST style.
 
 ## Useful Resources

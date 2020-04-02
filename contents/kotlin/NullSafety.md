@@ -15,6 +15,20 @@
 
 Author: [Pan Haozhe](https://github.com/Haozhe321)
 
+<box id="article-toc">
+
+* [What is Null Safety?‎](#what-is-null-safety)
+    * [NullPointerException‎](#nullpointerexception)
+* [How does Kotlin handle Null Safety?‎](#how-does-kotlin-handle-null-safety)
+    * [Nullable and Non-nullable type‎](#nullable-and-non-nullable-type)
+    * [Safety Operators in Kotlin‎](#safety-operators-in-kotlin)
+        * [Safe call operator‎](#safe-call-operator)
+        * [Elvis Operators‎](#elvis-operators)
+        * [Not-null assertion operator‎](#not-null-assertion-operator)
+* [Summary‎](#summary)
+* [Learning resources‎](#learning-resources)
+</box>
+
 >“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with **checking performed automatically by the compiler**. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”  
 -Tony Hoare
 
@@ -79,8 +93,8 @@ bob.map(Person::getDepartment)
 
 Let's see how Kotlin deals with this issue while maintaining a simple and readable syntax.
 
-# How does Kotlin handle Null Safety?
-## Nullable and Non-nullable type
+# How Does Kotlin Handle Null Safety?
+## Nullable and Non-Nullable Type
 In Kotlin, a type can be _nullable_ or _non-nullable_, determined by the presence of a `?`. For example, an object of type `String` is non-nullable, while an object of type `String?` is nullable.  
 
 As the compiler catches `null` assignments to non-nullable objects, the following would result in compilation error.
@@ -100,7 +114,7 @@ In the second case, `secondString` can potentially be `null`, so `secondString.l
 
 ## Safety Operators in Kotlin
 Although non-nullable type is a strong feature in Kotlin, the [interoperability](https://kotlinlang.org/docs/reference/java-interop.html) with Java means that we have to use variables as nullable type sometimes. In the previous section, we seem to have hit an obstacle as the compiler blocks the call to `secondString.length`. In this section we look at some ways of overcoming this problem.
-### Safe call operator
+### Safe Call Operator
 Represented by `?.`, the safe call operator is used in this way  
 ```kotlin
 secondString?.length
@@ -136,7 +150,7 @@ Doing so like this can help programmers to check for function arguments before c
 At this point you may ask, "What if I still want my NPE?"
 
 
-### Not-null assertion operator
+### Not-Null Assertion Operator
 Represented by `!!`, the not-null assertion operator is used in this way
 ```kotlin
 val stringLength = secondString!!.length
@@ -151,7 +165,7 @@ The operator converts any value to a non-nullable type and throws an exception i
 4. Even if you make your object a nullable type, Kotlin handles it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier (with the help of Elvis operator).
 
 
-# Learning resources
+# Learning Resources
 * [Null Safety in Kotlin](https://kotlinlang.org/docs/reference/null-safety.html)
 * [Comprehensive Guide to Null Safety in Kotlin](http://www.baeldung.com/kotlin-null-safety)
 * [The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
