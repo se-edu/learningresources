@@ -19,7 +19,7 @@ Author: [Joanne Ong](https://github.com/joanneong)
 
 In 2015, Forbes published an article boldly titled [Agile: The World's Most Popular Innovation Engine](https://www.forbes.com/sites/stevedenning/2015/07/23/the-worlds-most-popular-innovation-engine/#22b176267c76). Indeed, as a software engineering student, you may have heard of the term "agile development", "agile model" or even simply "agile" before. In this chapter, we will explore agile development in greater depth, and learn why agile development is still thriving today.
 
-## What is agile development?
+## What is Agile Development?
 
 Popularised in 2001 by the [*Manifesto for Agile Software Development*](http://agilemanifesto.org/), agile development is essentially a software development approach that can be adopted to manage a software project.
 
@@ -27,7 +27,7 @@ Yet, you should not mistake agile development for any single method or framework
 
 But what does "flexible, iterative and people-centric" really mean? To comprehend this, let us examine each characteristic individually.
 
-#### 1. Agile development is "flexible"
+#### 1. Agile Development is "Flexible"
 
 For a start, agile development is "flexible" because it gives a project more room to evolve over time. This is possible as agile development utilises a form of planning known as [adaptive planning](https://www.projectmanager.com/blog/how-to-plan-in-an-agile-environment), which means that planning is done continuously throughout a project rather than sticking rigidly to a fixed plan established at the start. As a result, planning can take into consideration the project's current progress, and change accordingly to allow the project's priorities and scope to evolve.
 
@@ -37,13 +37,13 @@ To visualise this, let us consider adaptive planning in a game below:
 >
 >-- from [An agile, adaptive business strategy](http://agileforeveryone.com/2015/04/24/agile-adaptive-business-strategy-with-scrum/) by Edwin Dando
 
-#### 2. Agile development is "iterative"
+#### 2. Agile Development is "Iterative"
 
 Secondly, agile development is "iterative" because it breaks product development work down into short cycles known as [iterations](https://www.agilealliance.org/glossary/iteration/). Each iteration involves going through planning, designing, coding and testing to result in a working product at the end of an iteration. However, a single iteration may not have added enough functionality to warrant a new release, so in reality multiple iterations are often required to release a new product or feature. Here is a diagram to illustrate this concept:
 
 ![Agile Development - Iterations](images/projectManagement-agileDev-iterations.jpg)
 
-#### 3. Agile development is "people-centric"
+#### 3. Agile Development is "People-Centric"
 
 Thirdly, agile development is "people-centric" because it focuses heavily on collaboration and effective communication. In fact, there are many recommendations on how to form a good agile team. While the specifics vary in accordance with the framework that you choose, the general consensus remains that agile development involves several crucial team roles that work in close relation with each other.
 
@@ -51,7 +51,7 @@ In particular, agile development also zooms in on direct and simple conversation
 
 The key characteristics then enable our software projects to gain numerous benefits when agile development is adopted to manage the project.
 
-## Why adopt agile development?
+## Why Adopt Agile Development?
 
 There are quite a number of reasons why you might want to adopt development, but here are three of the most pertinent reasons why:
 
@@ -67,7 +67,7 @@ There are quite a number of reasons why you might want to adopt development, but
 
     Project control can be succinctly defined as the management of a project’s costs and schedule. With agile development’s iterative and people-centric nature, project managers can gain more opportunities to monitor what is going on in the project and assess the project’s progress more accurately. If need be, the project manager can also communicate with the client to decide whether to change the scope of the project. Even in the worst case scenario, agile development will still guarantee a working product delivered by the deadline since changes are made incrementally, eliminating the risk of total project failure.
 
-## How to adopt agile development?
+## How to Adopt Agile Development?
 
 Now that you have a glimpse of what agile development can offer you, you may be wondering, how can you adopt agile development in your software projects?
 
@@ -97,7 +97,7 @@ In addition to such agile frameworks, there are also many concrete practices tha
 
 Of course, your project does not have to be utilising **all** the frameworks/concrete practices in order to be agile in its development. Instead, great care should be taken to analyse and select the appropriate framework/concrete practices that will work best for the project.
 
-## Caveats: What can possibly go wrong?
+## Caveats: What can Possibly go Wrong?
 
 Given that agile development can bring about so many benefits to our software projects, we must not forget that things can still go very wrong when using agile development. Such unfortunate situations are known as [agile anti-patterns](https://age-of-product.com/agile-management-anti-patterns/), or [agile smells](https://medium.com/agile-government-leadership/when-good-scrum-goes-bad-identifying-bad-agile-smells-690e7a16b501), and some common problems include:
 
@@ -113,7 +113,7 @@ Given that agile development can bring about so many benefits to our software pr
 
     If the team is operating in the context of a large organisation, agile development may not work out as well as it promises to. Unsurprisingly, transiting to agile development in large organisations poses great challenges because large organisations tend to have many established protocols and workflows in place. These protocols may then be familiar to the organisations but are not necessarily in line with agile principles and ideals, but discarding them entirely would cause huge disruptions to the organisations. To combat this, larger organisations can think about [hybrid models](https://www.agilealliance.org/what-is-hybrid-agile-anyway/) - combining Agile methods with other non-Agile techniques that the organisation is currently accustomed to.
 
-## Putting it all together: The Spotify success story
+## Putting it all Together: The Spotify Success Story
 
 By now, you should have gained a healthy understanding of agile development: **what** it is, **why** we should adopt it, and **how** we can adopt it. As a conclusion, let us look at a small example of how [Spotify](https://www.spotify.com/sg-en/) - a Swedish music, podcast and video streaming service with over 70 million paying subscribers in 2018 - managed to apply agile development successfully to reap the benefits associated with agile development.
 
@@ -125,11 +125,11 @@ By now, you should have gained a healthy understanding of agile development: **w
 
 [And Spotify is not the only company to have benefitted from agile development](https://www.forbes.com/sites/stevedenning/2016/11/26/can-big-organizations-be-agile/#316f8d6238e7). Evidently, agile development has the potential to do much for your project and organization - but only after you learn how to unleash this potential proper.
 
-## Other related resources
+## Other Related Resources
 
 Here is a compilation of other resources on agile development for your further exploration:
 
-#### Getting started with agile development
+#### Getting Started With Agile Development
 
 - [How to start with agile development](https://saucelabs.com/blog/how-to-start-with-agile-development)
 - [The Agile Coach](https://www.atlassian.com/agile)
@@ -137,7 +137,7 @@ Here is a compilation of other resources on agile development for your further e
 - [Roles on Agile Teams: From Small to Large Teams](http://www.ambysoft.com/essays/agileRoles.html)
 - [Scaled Agile Framework (SAFe)](http://www.scaledagileframework.com/agile-teams/)
 
-#### Comparing different agile frameworks
+#### Comparing Different Agile Frameworks
 
 - [How to Pick the Right Agile Tool](https://www.smartsheet.com/how-pick-right-agile-tool)
 - [Kanban vs Scrum](https://www.cprime.com/2015/02/3-differences-between-scrum-and-kanban-you-need-to-know/)

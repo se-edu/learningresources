@@ -15,15 +15,18 @@
 
 Authors: [Tan Jun An](https://github.com/yamidark)
 
+<box id="article-toc">
+
 * [Background](#background)
-  * [Value Semantics](#value-semantics)
-  * [Reference Semantics](#reference-semantics)
+    * [Value Semantics](#value-semantics)
+    * [Reference Semantics](#reference-semantics)
 * [Move Semantics](#move-semantics)
-  * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
-  * [Using Rvalue References](#using-rvalue-references)
-  * [Move Semantics](#move-semantics)
-* [Rvalue Anti-Pattern](#rvalue-anti-pattern)
+    * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
+    * [Using Rvalue References](#using-rvalue-references)
+    * [Move Semantics](#move-semantics)
+* [Rvalue Reference Anti-Pattern](#rvalue-reference-anti-pattern)
 * [Resources](#resources)
+</box>
 
 ## Background
 *C++* is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released periodically. One such standard, the `C++11` standard, improved the performance of the language with features such as **_Rvalue References_** and **_Move Semantics_**.

@@ -27,7 +27,7 @@ optimization. There are two common types of performance profiling methods.
 Learn [which profiling method to use for your program](https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/) 
 when choosing between CPU sampling and instrumentation.
 
-## Performance Profiling For The First Time
+## Performance Profiling for the First Time
 
 This article provides resources to help you identify the performance issues as you 
 perform profiling on your program for the first time. The general steps in profiling a 
@@ -72,7 +72,7 @@ offer the option to change this behavior.
 
 * For Visual Studio 2015: [How to: Exclude or Include Short Functions from Instrumentation](https://msdn.microsoft.com/en-us/library/bb514150.aspx)
 
-## Profiling Other Types Of Data
+## Profiling Other Types of Data
 
 Other than collecting performance statistics and timing data, profilers are also able 
 to collect other information such as memory allocation and GPU usage. 

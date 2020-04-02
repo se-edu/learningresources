@@ -17,6 +17,21 @@
 
 Reviewers: [Aaron Chong](https://github.com/acjh), [Bryan Lew](https://github.com/blewjy), [Dickson Tan](https://github.com/Neurrone), [Rachael Sim](https://github.com/rachx), [Rahul Rajesh](https://github.com/rrtheonlyone), [Sam Yong](https://github.com/mauris), [Tan Wang Leng](https://github.com/yamgent), [Vivek Lakshmanan](https://github.com/vivekscl), [Wang Junming](https://github.com/junming403), [Xiao Pu](https://github.com/xpdavid)
 
+<box id="article-toc">
+
+* [Swift Overview‎](#swift-overview)
+* [Noteworthy Swift Features‎](#noteworthy-swift-features)
+    * [Type Inference‎](#type-inference)
+    * [Optionals‎](#optionals)
+    * [Defer Statements‎](#defer-statements)
+    * [Data Types‎](#data-types)
+    * [Protocol Oriented Programming‎](#protocol-oriented-programming)
+    * [Extensions‎](#extensions)
+    * [Automatic Reference Counting‎](#automatic-reference-counting)
+    * [CocoaPods‎](#cocoapods)
+* [How to Get Started‎](#how-to-get-started)
+</box>
+
 ## Swift Overview
 
 **Swift is the main programming language used for iOS programming.** Introduced in 2014 by Apple, Swift has more concise and more expressive syntax compared to its predecessor language [Objective-C](). Unlike most other software by Apple, Swift is [open source](https://github.com/apple/swift).
@@ -353,7 +368,7 @@ Here is an [article](https://krakendev.io/blog/weak-and-unowned-references-in-sw
 
 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) is a dependency manager for Swift and Objective-C Cocoa projects which has over 58 thousand libraries and is used in over 3 million apps. Instead of reinventing the wheel, you can check this out to obtain code that helps resolve common issues. If you have done something new with Swift, you can also make your code into a library with CocoaPods for others to use!
 
-## How to Get Started
+## How to Get Started?
 
 A Macbook is required for Swift development, but an iPhone or iPad is not. The Swift IDE `X-Code` has built-in simulators for all mobile devices.
 
