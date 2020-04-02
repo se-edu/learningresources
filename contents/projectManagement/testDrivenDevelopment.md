@@ -26,8 +26,8 @@ Reviewers: [Ang Ze Yu](https://github.com/ang-zeyu), [Neil Brian](https://github
   * [Limitations](#limitations)
     * [Limitation 1: Strict Emphasis on Communication of Requirements and Specifications](#limitation-1-strict-emphasis-on-communication-of-requirements-and-specifications)
     * [Limitation 2: Tough to Incorporate into Legacy Projects](#limitation-2-tough-to-incorporate-into-legacy-projects)
-    * [Limitation 3: High Maintenance](#limitiation-3-high-maintenance)
-    * [Limitation 4: Great Importance Given to Unit Tests](#limitiation-4-great-importance-given-to-unit-tests)
+    * [Limitation 3: High Maintenance](#limitation-3-high-maintenance)
+    * [Limitation 4: Great Importance Given to Unit Tests](#limitation-4-great-importance-given-to-unit-tests)
   * [Getting Started with Test-Driven Development](#getting-started-with-test-driven-development)
   * [References](#references)
 
@@ -85,7 +85,7 @@ Some reasons why teams can choose to adopt the approach of test-driven developme
 
 ### Benefit 1: Improves Code Quality
 
-TDD can lead to well-written code. This is a direct consequence of the cycle that was explained above. One of the best practices while following TDD is to focus on small units of code (methods, classes, modules, etc). This can lead to more modular, flexible code with looser coupling that can be scaled. This way the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new comer to understand it [^3].
+TDD can lead to well-written code. This is a direct consequence of the cycle that was explained above. One of the best practices while following TDD is to focus on small units of code (methods, classes, modules, etc). This can lead to more modular, flexible code with looser coupling that can be scaled. In this way, the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new comer to understand it [^3].
 
 Additionally, developers work on units of code that can be written and tested independently and integrated later. This can be achieved through <trigger trigger="click" for="modal:index-mock">mock frameworks</trigger>, which help drive home the rationale of writing unit tests.
 
@@ -134,13 +134,13 @@ When you bring TDD into the picture, things get more complex as failing tests ar
 
 Writing production code in legacy systems with the goal of passing a specific test is harder than it seems. For instance, there may be dependencies between components that need to be "broken" for them to be testable, which could result in  several workarounds. This could potentially add on to the complexity of the project, making it counter-productive as the entire point of the refactoring step is to make the code more readable [^5].
 
-### Limitiation 3: High Maintenance
+### Limitation 3: High Maintenance
     
 Maintaining test-suites becomes a part of the overall overhead of the project. Since TDD-style approaches rely heavily on tests, there is a need for the tests to be in proper shape in order to prevent a false sense of correctness. 
 
 TDD also has a steep learning curve. The entire process takes time to get accustomed to. Refactoring of code by using good design patterns comes with time, experience, and a lot of practice.
 
-### Limitiation 4: Great Importance Given to Unit Tests
+### Limitation 4: Great Importance Given to Unit Tests
 
 Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests [^4]. 
 
