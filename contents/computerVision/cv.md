@@ -16,15 +16,15 @@ Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
 <box id="article-toc">
 
-* [What is CV‎](#what-is-cv)
-  * [Applications of CV‎](#applications-of-cv)
-  * [Typical CV tasks‎](#typical-cv-tasks)
-* [Core problems in CV‎](#core-problems-in-cv)
+* [What is Computer Vision‎](#what-is-computer-vision)
+  * [Applications of Computer Vision‎](#applications-of-computer-vision)
+  * [Typical Computer Vision tasks‎](#typical-computer-vision-tasks)
+* [Core problems in Computer Vision‎](#core-problems-in-computer-vision)
   * [Image Transformations‎](#image-transformations)
   * [Image Classification‎](#image-classification)
   * [Object Detection‎](#object-detection)
   * [Object Tracking‎](#object-tracking)
-* [GPU-accelerated CV‎](#gpu-accelerated-cv)
+* [GPU-accelerated Computer Vision‎](#gpu-accelerated-computer-vision)
 * [What's next‎](#what-s-next)
 * [References‎](#references)
 </box>
