@@ -15,6 +15,36 @@
 
 Authors: Jamos Tay
 
+<!-- Table of Contents should be included after the Authors section -->
+<!-- To change a heading to a link, change it to lowercase, ignore all punctuations, replace all spaces with dashes and prepend a pound symbol -->
+<box id="article-toc">
+
+* [Overview‎](#overview)
+  * [What are Regular Expressions?‎](#what-are-regular-expressions)
+  * [Why should I learn Regex?‎](#why-should-i-learn-regex)
+* [Getting Started‎](#getting-started)
+  * [Introduction‎](#introduction)
+  * [Search Text‎](#search-text)
+    * [Example‎](#example)
+  * [Search and Replace‎](#search-and-replace)
+    * [Result‎](#result)
+  * [Capturing groups‎](#capturing-groups)
+    * [Result‎](#result)
+  * [Further exploration‎](#further-exploration)
+  * [Quick Reference‎](#quick-reference)
+  * [Helpful links‎](#helpful-links)
+* [Advanced topics‎](#advanced-topics)
+  * [The Regex Engine‎](#the-regex-engine)
+  * [Greedy Operators‎](#greedy-operators)
+    * [Effect on performance‎](#effect-on-performance)
+    * [Catastrophic Backtracking‎](#catastrophic-backtracking)
+    * [Matching Delimiters‎](#matching-delimiters)
+  * [Related links‎](#related-links)
+  * [Learning resources‎](#learning-resources)
+    * [Fun Stuff‎](#fun-stuff)
+    * [Further Reading‎](#further-reading)
+</box>
+
 # Overview
 
 ## What are Regular Expressions?
