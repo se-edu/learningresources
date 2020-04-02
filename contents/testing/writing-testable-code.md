@@ -17,7 +17,7 @@ When the project is big enough and needs to be maintainable in the long run, it 
 
 This article compiles multiple posts from [Google Testing Blog](https://testing.googleblog.com) on how to write more unit-testable code. It explains [four common flaws](https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html) in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.
 
-## Flaw #1: No seams for isolating the class under test
+## Flaw #1: No Seams for Isolating the Class Under Test
 
 Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.
 
@@ -27,7 +27,7 @@ That is the basic idea for how seams can help in unit testing. Below are five ru
 
 *Sources*: [Static Methods are Death to Testability](https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html)
 
-### Rule #1: Don't do actual work in constructors
+### Rule #1: Don't do Actual Work in Constructors
 
 #### Warning Signs
 
@@ -41,7 +41,7 @@ In short, the constructor's job is to assign the dependencies to fields. And tha
 
 *Sources*: [Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html).
 
-### Rule #2: Don't mix object construction with application logic
+### Rule #2: Don't Mix Object Construction With Application Logic
 
 #### Warning Signs
 
@@ -55,7 +55,7 @@ The other, **application classes**, are devoid of `new` operators. Instead of cr
 
 *Sources*: [Where Have all the "new" Operators Gone?](https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html) and [Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html)
 
-### Rule #3: Don't mix Service Objects with Value Objects
+### Rule #3: Don't Mix Service Objects With Value Objects
 
 Value objects are your **model** objects, like `User`, `Email`, `CreditCard`.
 
@@ -85,7 +85,7 @@ You can remove the static methods as below:
 
 *Sources*: [Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html).
 
-### Rule #5: Favor composition over inheritance
+### Rule #5: Favor Composition Over Inheritance
 
 At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.
 
@@ -123,7 +123,7 @@ Another problem about Singleton Pattern is that they are globally accessible, th
 
 ## Flaw #3: Dig Into Collaborators
 
-### Rule #1: Don't look for things. Ask for things.
+### Rule #1: Don't Look for Things. Ask for Things.
 
 #### Warning Signs
 
@@ -140,11 +140,11 @@ Say you have an Authenticator class which needs a `Config` object, do you pass i
 
 *Sources*: [Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html).
 
-## Flaw #4: Class does too much
+## Flaw #4: Class Does Too Much
 
 To extreme, it becomes an anti-pattern, [God Object](https://en.wikipedia.org/wiki/God_object).
 
-### Rule #1: Avoid mixing of concerns
+### Rule #1: Avoid Mixing of Concerns
 
 #### Warning Signs:
 
@@ -158,7 +158,7 @@ These classes are hard to test since there are multiple objects hiding inside of
 
 *Sources*: [Where Have all the "new" Operators Gone?](https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html) and [Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html)
 
-### Rule #2: Favor polymorphism over conditionals
+### Rule #2: Favor Polymorphism Over Conditionals
 
 #### Warning Signs:
 

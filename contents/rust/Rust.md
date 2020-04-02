@@ -15,6 +15,17 @@
 
 Author(s): [Tan Li Hao](https://github.com/LiHaoTan)
 
+<box id="article-toc">
+
+* [Why Rust‎](#why-rust)
+    * [Safety‎](#safety)
+    * [Better support for concurrency‎](#better-support-for-concurrency)
+    * [Practicality‎](#practicality)
+* [How to learn Rust‎](#how-to-learn-rust)
+    * [Resources to learn Rust‎](#resources-to-learn-rust)
+* [Why not Rust‎](#why-not-rust)
+</box>
+
 ## Why Rust
 Rust is a multi-paradigm (e.g. functional and imperative) systems language, but as it is relatively new the benefits of learning or using the language is not very clear. In any case, it is important to know the merits of a language so we know when to use them.
 
@@ -116,7 +127,7 @@ println!("{:?}", visible_indexes.get_visible_indexes()); // Cannot compile!
 
 In any single scope, there can only be one mutable borrow. However, the scope of the value borrowed by `indexes` does not end until the end of a block (i.e. a closing brace). Attempting to borrow the same value again in the same scope which will not compile in Rust.
 
-### Better support for concurrency
+### Better Support for Concurrency
 
 Concurrency is getting [increasingly important](https://softwareengineering.stackexchange.com/questions/115474/why-should-i-know-concurrent-programming) but it is challenging to write concurrent code ([[1]](https://news.ycombinator.com/item?id=8138578), [[2]](https://golang.org/doc/faq#csp), [[3]](http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/)).
 
@@ -159,7 +170,7 @@ See [non-goals](https://www.rust-lang.org/en-US/faq.html#what-are-some-non-goals
 #### Production Ready
 Also, in order for a language to be practical it must be usable in production. A well known large project that uses Rust is [Servo](https://github.com/servo/servo), the prototype browser engine Mozilla is working on. On top of that, there are many other [organizations running Rust in production](https://www.rust-lang.org/en-US/friends.html). As an example, Jamie Turner from Dropbox [explains the reasons for using Rust](https://news.ycombinator.com/item?id=11283688).
 
-#### Developer experience
+#### Developer Experience
 Practicality can also be measured with how much developers enjoy using the language and want to continue using it, because if the language is not very practical the developer experience would not be very good. For Rust, it is a language that developers want to continue using ([[1]](https://www.reddit.com/r/rust/comments/842adc/rust_voted_most_loved_language_for_the_3rd_year/dvmftnk/), [[2]](https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563)).
 
 Although Rust does not use particularly cutting-edge technologies, Rust is still modern in that it is [significantly influenced by functional programming](https://doc.rust-lang.org/book/second-edition/ch13-00-functional-features.html), and has a type system that is [drawn from Haskell's typeclasses](https://www.rust-lang.org/en-US/faq.html#compare-go-and-rust). This allows Rust to also benefit from the advantages of functional programming. 
@@ -168,13 +179,13 @@ There are also a lot of other details that go into making a great developer expe
 
 [fireflowers - The Rust Programming Language, in the words of its practitioners](https://brson.github.io/fireflowers/)
 
-## How to learn Rust
+## How to Learn Rust
 
 Knowing the merits of a language without knowing how to learn it however is not sufficient. As [mentioned](#developer-experience), part of making the developer experience great is good documentation. And there are many great avenues to learn Rust.
 
 One issue is that many have said Rust is difficult but we should not be so concerned because there has since been many [improvements](https://blog.rust-lang.org/2017/12/21/rust-in-2017.html#rust-should-have-a-lower-learning-curve) to reduce the learning curve.
 
-### Resources to learn Rust
+### Resources to Learn Rust
 
 There are already great official resources to learn Rust, for instance:
 - [The Rust Programming Language book](https://doc.rust-lang.org/book/)
