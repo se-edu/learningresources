@@ -19,15 +19,15 @@ Authors: [Boxin](https://github.com/boxin-yang)
 
 * [Introduction‎](#introduction)
 * [Basic Syntax‎](#basic-syntax)
-	* [synchronized statement‎](#synchronized-statement)
-	* [synchronized method‎](#synchronized-method)
-* [More features of Java synchronization‎](#more-features-of-java-synchronization)
+	* [Synchronized Statement‎](#synchronized-statement)
+	* [Synchronized Method‎](#synchronized-method)
+* [More Features of Java Synchronization‎](#more-features-of-java-synchronization)
 	* [wait() and notifyAll()‎](#wait-and-notifyall)
-		* [Understand which object is used as Monitor‎](#understand-which-object-is-used-as-monitor)
-		* [Check condition for wait() with while loop‎](#check-condition-for-wait-with-while-loop)
+		* [Understand Which Object is Used as Monitor‎](#understand-which-object-is-used-as-monitor)
+		* [Check Condition for wait() with While Loop‎](#check-condition-for-wait-with-while-loop)
 		* [Breakpoint of notifyAll()‎](#breakpoint-of-notifyall)
 	* [notify()‎](#notify)
-* [Related areas‎](#related-areas)
+* [Related Areas‎](#related-areas)
 </box>
 
 # Introduction
