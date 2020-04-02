@@ -51,7 +51,7 @@ A Regular Expression (or Regex for short) is a string of characters that define 
 
 Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with `C`, ends with a `S`, and only consists of letters: `C[A-z]+S`) and the section of text is searched, finding all the possible matches.
 
-## Why should I learn Regex?
+## Why Should I Learn Regex?
 
 * **Regex is everywhere** - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion (A full list is available [here](http://www.regular-expressions.info/tools.html)). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers to benefit from Regex.
 * **Regex is portable** - People often complain that switching to a new language usually means having to learn a new API and syntax. Regex however is implemented almost the same way on every single language, so you can just learn it once and use it everywhere.
@@ -123,7 +123,7 @@ As we can see, the `S` matches the very first S, [\d]{7} matches a string of 7 d
 > * Mary - SXXXXXXXX
 > * David - SXXXXXXXX
 
-## Capturing groups
+## Capturing Groups
 
 Now, imagine you have a section of text with many dates written in the US Date Format (MM-DD-YYYY).
 
@@ -150,7 +150,7 @@ In the replace field, `\1` represents the group matched in the string. For examp
 > * 24-02-2017 Presentation at work <br>
 > * 25-02-2017 Workshop
 
-## Further exploration
+## Further Exploration
 
 These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language (for example, Python uses the [`re`](https://docs.python.org/2/library/re.html) library, Java uses [`Pattern`](http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) and Javascript has regex built into the language using [`/` notation](https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions)), but the functionality is consistent so it's not difficult to port Regex from one language to another. You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.
 
@@ -174,14 +174,14 @@ Groups | `(...)` | Groups a pattern of data | `Used for extracting data, see abo
 For a full list of possible operators, refer to this cheat sheet:
 [Regex cheat sheet](http://www.rexegg.com/regex-quickstart.html)<br>
 
-## Helpful links
+## Helpful Links
 
 * [Regex101](https://regex101.com/) - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.
 * [Regular-Expressions](http://www.regular-expressions.info/examples.html) - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.
 * [Regexone](https://regexone.com/) - A free online course that teaches the many features of Regex interactively.
 * [Rexegg](http://www.rexegg.com) - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.
 
-# Advanced topics
+# Advanced Topics
 
 ## The Regex Engine
 
@@ -270,7 +270,7 @@ c......ed
 
 Finally, we get a match and see that both strings match.
 
-### Effect on performance
+### Effect on Performance
 
 Bad use of greedy operators (`.*`, `.+`) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:
 
@@ -382,12 +382,12 @@ c.ed
 Since `o` is a suitable match for `.+`, the engine accepts it and tries to match the `ed`. If no match is found, the engine would bactrack and match `c..ed`, and so on. We can see a clear advantage here for matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.
 
 
-## Related links
+## Related Links
 
 * [The Regex Engine](http://www.regular-expressions.info/engine.html)
 * [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
 
-## Learning resources
+## Learning Resources
 
 * [Printable cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
 * [Comprehensive Regex Knowledge Base](http://www.regular-expressions.info/)

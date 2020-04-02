@@ -51,7 +51,7 @@ Sometimes people use the term database to refer to a DBMS. However, to avoid any
 
 There are various concepts in the field of databases and DBMS and this guide will cover the basic concepts that are useful for someone who is starting out.
 
-## Database models
+## Database Models
 
 For databases to make any sense, there has to be a certain logical structure in the database (for instance, how data is stored). This logical structure is known as a **database model**.
 
@@ -66,7 +66,7 @@ There are many types of database models. Some examples are:
 
 [Click here](https://en.wikipedia.org/wiki/Database_model) to learn more about the different database models.
 
-### Why are there different models?
+### Why are There Different Models?
 
 There are advantages and disadvantages to utilising one of the many database models available. These different models seek to solve certain issues when programs deal with data.
 
@@ -76,7 +76,7 @@ However, having such a rigid structure would mean that there's a limitation on h
 
 For the purposes of introduction, we would mainly cover on aspects that are used in the relational and/or document-oriented database models.
 
-### Examples of DBMS implementations
+### Examples of DBMS Implementations
 
 - [MongoDB](https://www.mongodb.com/) (document-oriented)
 - [MySQL](https://www.mysql.com/) (relational)
@@ -126,7 +126,7 @@ Thus, the transaction that would be implemented in the program could be somethin
 
 As demonstrated above, the actions that needs to be done in order to transfer funds is wrapped as one large **transaction**. Hence, the *funds transfer* can be seen as the unit of work to be done on the database. The actions that make up the **transaction** are executed as though **transaction** is a single action.
 
-### ACID in transactions
+### ACID in Transactions
 
 For a **transaction** to be considered as an implementation of the **transaction** concept, it has to satisfy the ACID principle.
 
@@ -164,7 +164,7 @@ As such, these DBMSes follow the **BASE philosophy**:
 
 A formal method of modelling the relations that have been demonstrated in this chapter is through the use of **relational algebra**. This is a formal method for modelling the data and actions performed on a relational database.
 
-#### Further exploration
+#### Further Exploration
 
 - [Relational algebra](https://www.tutorialspoint.com/dbms/relational_algebra.htm)
 

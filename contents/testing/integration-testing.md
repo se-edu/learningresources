@@ -17,7 +17,7 @@
 
 Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin Kun Song](https://github.com/marvinchin), [Lin Si Jie](https://github.com/sijie123)
 
-## What is integration testing?
+## What is Integration Testing?
 
 Integration testing is a part of software testing where individual parts of your application are combined and tested as a group. This usually happens after the [<tooltip content="Testing of individual module units within a system">unit testing stage</tooltip>](https://www.guru99.com/unit-testing-guide.html) and before the [<tooltip content="Evaluation of the software against requirements gathered from users and system specifications">system testing stage</tooltip>](https://www.guru99.com/system-testing.html).
 Integration testing combines individually tested modules as a group and aims to discover faults related to the interactions between these modules.
@@ -36,7 +36,7 @@ After completion of unit testing on individual modules, an **integration test** 
 
 After completion of integration testing, a system test on the entire application could mimic a customer's point of view and checks that the functionalities such as `Order Food`, `Payment` and `Generate Report` work as intended.
 
-## Why is integration testing important?
+## Why is Integration Testing Important?
 
 In a software application, each software module is usually designed and unit tested by different programmers.
 Since these programmers may work in isolation and have different understandings of the software requirements, integration testing is necessary to ensure that the software modules work in unity and expose any faults in the interaction between different units.
@@ -58,7 +58,7 @@ The concept of [Continuous Integration Testing](https://crossbrowsertesting.com/
 
 :fas-info-circle: [This article](https://www.guru99.com/integration-testing.html) provides more information on instances where integration testing is important.
 
-## How does integration testing work?
+## How Does Integration Testing Work?
 
 Using this specific system as an example, below is a list of things you should follow to execute effective integration testing:
 
@@ -67,12 +67,12 @@ Using this specific system as an example, below is a list of things you should f
 1. Execute the test scripts and report defects if any.
 1. Track defects and re-test application.
 
-### 1. Prepare the integration test plan
+### 1. Prepare the Integration Test Plan
 
 Before the actual implementation of your integration tests, it is important to decide on the approach used.
 There are a few different approaches of integration testing in which you can adopt depending on the development progress of your application.
 
-#### Big bang approach:
+#### Big Bang Approach:
 
 This approach involves integrating all the modules in your design diagram together and testing everything at once in a complete state. 
 This is convenient but it is difficult to isolate defects and there is a high chance of missing critical underlying defects.
@@ -87,7 +87,7 @@ An example of how big bang integration testing can be applied to our given examp
 
 :fas-info-circle: [This article](https://www.tutorialspoint.com/software_testing_dictionary/big_bang_testing.htm) provides more details on the big bang approach.
 
-#### Incremental testing approach:
+#### Incremental Testing Approach:
 
 This approach involves integrating two or more logically related modules. The other related modules are added and tested for proper functioning. This is repeated until all the modules are joined (or _integrated incrementally_) and tested successfully. It is usually preferred for applications with many modules.
 
@@ -105,7 +105,7 @@ Incremental integration testing is further split into the 3 approaches shown bel
 
 :fas-info-circle: The [NUS Software Engineering textbook](https://se-education.org/se-book/integration/#integration) also offers some concrete examples of different approaches of integration testing.
 
-### 2. Design the test scenarios, cases and scripts
+### 2. Design the Test Scenarios, Cases and Scripts
 
 Before the actual coding is done, a basic test strategy deciding the test cases and test data used should be crafted. This usually involves setting a <span style="color:red">test case ID</span>, <span style="color:red">objective</span>, <span style="color:red">description</span> and <span style="color:red">expected result</span>.
 Using the example shown above, below shows a sample integration test used for the `login` and `ordering` modules:
@@ -121,7 +121,7 @@ Expected result: To be directed to order food page based on the login user
 
 :fas-info-circle: [This article](https://www.softwaretestinggenius.com/various-approaches-in-integration-testing/) explains more about the ways to structure incremental testing.
 
-### 3. Execute the test scripts and report defects if any
+### 3. Execute the Test Scripts and Report Defects if Any
 
 Depending on the approach you have chosen for your integration plan and the test cases, the way you execute your code for testing will differ.
 
@@ -134,14 +134,14 @@ The [NUS Software Engineering module site](https://nus-cs2103-ay1819s1.github.io
 
 :fas-info-circle: [This article](https://www.guru99.com/test-environment-software-testing.html) shows more details on how to set up a test environment for better integration testing.
 
-### 4. Track defects and re-test application
+### 4. Track Defects and Re-Test Application
 
 In the event of failing your integration test case, it is important to learn how to track down the [<tooltip content="Incorrect behavior observed from the system">defects</tooltip>](https://qacomplete.com/resources/articles/what-is-a-software-defect/) occured. 
 Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.
 
 :fas-info-circle: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
 
-## Tips for better integration tests
+## Tips for Better Integration Tests
 
 - **Make sure that each module is unit tested before integration testing**<br>
 By ensuring that each unit test is completed properly, integration testing will be smoother as we can focus mainly on the flow of data between modules.
@@ -163,7 +163,7 @@ You can find a list of most commonly used [automation tools](https://medium.com/
 
 :fas-info-circle: The article [Dos and donts of integration testing](https://www.fogbugz.com/blog/9-integration-testing-dos-and-donts/) has further advices on specific details to take note when writing your own integration test.
 
-## Tools used for Integration Testing
+## Tools Used for Integration Testing
 
 Generally integration test can be implemented based on your existing unit testing tools.
 However, if you do not have an existing testing tool in place, here are some useful tools that you can consider for your integration testing:

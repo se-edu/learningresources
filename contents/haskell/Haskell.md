@@ -17,7 +17,6 @@ Author: Thenaesh Elango
 
 <box id="article-toc">
 
-* [Introduction to Haskell‎](#introduction-to-haskell)
 * [Overview](#overview)
 * [Getting Started](#getting-started)
     * [Installation](#installation)
@@ -27,8 +26,8 @@ Author: Thenaesh Elango
 * [Whirlwind Tour](#whirlwind-tour)
     * [Types](#types)
         * [Basic Types‎](#basic-types)
-        * [Functions & Currying‎](#functions-and-currying)
-        * [Algebraic Data Types & Pattern Matching‎](#algebraic-data-types-and-pattern-matching)
+        * [Functions & Currying‎](#functions-and-amp-currying)
+        * [Algebraic Data Types & Pattern Matching‎](#algebraic-data-types-and-amp-pattern-matching)
         * [Type Parameters‎](#type-parameters)
         * [Inductive Data Types‎](#inductive-data-types)
         * [Further Reading‎](#further-reading)
@@ -37,7 +36,7 @@ Author: Thenaesh Elango
         * [Recursion‎](#recursion)
         * [Lists‎](#lists)
         * [List Processing - Fold‎](#list-processing-fold)
-        * [List Processing - Map & Filter‎](#list-processing-map-and-filter)
+        * [List Processing - Map & Filter‎](#list-processing-map-and-amp-filter)
         * [Programming with Other Inductive Data Types‎](#programming-with-other-inductive-data-types)
         * [Further Reading‎](#further-reading-2)
     * [Typeclasses](#typeclasses)
@@ -840,7 +839,7 @@ We can now try out the `isAscending` function:
     isAscending [] -- True
 ```
 
-### Instantiating Typeclasses with Parameterized Type Constructors
+### Instantiating Typeclasses With Parameterized Type Constructors
 
 Up to this point, we have been instantiating typeclasses with concrete types,
 such as `TrafficSignal` and `Tree t`. It is also possible to instantiate

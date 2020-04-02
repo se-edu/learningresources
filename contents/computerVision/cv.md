@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Introduction to computer vision (CV)
+# Introduction to Computer Vision (CV)
 Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
 <box id="article-toc">
@@ -29,14 +29,14 @@ Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 * [References‎](#references)
 </box>
 
-## What is CV
+## What is Computer Vision?
 Computer vision (CV) is a field of study of computer science concerning with the theories and technologies in building computer systems that can derive useful information from visual data. CV is a prominent field of study nowadays as it allows computers to autonomously solve problems that otherwise require human sight.<sup>[[1]](#footnote1)</sup> One notable example of such problems can be seen in smart traffic cameras that can extract car plates information from video feeds, a task that without computer vision would require a human to view the feeds and manually enter the cars' license numbers.<sup>[[14]](#footnote14)</sup>
 
 In computer vision, an image is represented by a number matrix, or a set of matrices, with each number in the matrix corresponds to the color value or intensity value of a pixel in the image.<sup>[[2]](#footnote2)</sup> With this representation, linear algebra can be exploited for many CV operations from the most basic like transformation to very complex like feature extraction and motion tracking.
 
 Additionally, with deep learning, a lot of new applications of computer vision have been introduced, including facial recognition, and object detection that is widely used in self-driving cars.<sup>[[3]](#footnote3)</sup>
 
-### Applications of CV
+### Applications of Computer Vision
 Many systems and applications rely on computer vision, as they work extensively with image and video input for:
 
 - Navigation, e.g. autonomous cars to keep track of the road, detect pedestrians, and avoid collision with other vehicles.<sup>[[3]](#footnote3)</sup>
@@ -45,7 +45,7 @@ Many systems and applications rely on computer vision, as they work extensively 
 - Automatic Inspection, e.g. measuring structures, modelling environment.<sup>[[4]](#footnote4)</sup>
 - Searching, e.g. image search engines.<sup>[[5]](#footnote5)</sup>
 
-### Typical CV tasks
+### Typical Computer Vision Tasks
 For a typical computer vision system, the tasks it aims to perform may include, but are not limited to, the following:<sup>[[6]](#footnote6)</sup>
 
 - Geometric Image Transformation
@@ -57,7 +57,7 @@ For a typical computer vision system, the tasks it aims to perform may include, 
 - Object Localization
 - Object Tracking
 
-## Core problems in CV
+## Core Problems in Computer Vision
 Most problems requiring computer vision can be boiled down to one or a combination of the following core problems: image transformation, classification, localization, detection, and tracking.<sup>[[6]](#footnote6)</sup>
 
 This section introduces some of those core problems, and cites working examples for demonstration purposes. The examples use Open Source Computer Vision library (OpenCV) - containing implemented algorithm packages and utility functions for building computer vision applications. It is freely distributed and licensed for both academic and commercial use. The code examples cited in this section are written in Python, but OpenCV has API supports for C++ and Java as well.
@@ -276,7 +276,7 @@ With `BackgroundSubtractorGMG`:
 
 ![Background subtracted](object-tracking-example-4.jpg "GMG")
 
-## GPU-accelerated CV
+## GPU-Accelerated Computer Vision
 
 For computer vision systems, digital images are often translated into matrices, whose nature depends on the chosen color presentation. For example, an image in the RGB (Red, Green, Blue) color space will be presented by 3 matrices, each contains the color intensity of the individual pixels with regards to red, green, or blue. There are other color representations, such as the CMYK or the HSV that annotates the pixels' Hue, Saturation, and Value.<sup>[[1]](#footnote1)</sup>
 
@@ -284,7 +284,7 @@ Underneath, all computer vision algorithms deal with images as matrices, thus em
 
 Most prominent computer vision libraries such as OpenCV, dlib, or VisionWorks support the use of GPUs in the computing process. For example, OpenCV has APIs that allow a kernel process running on the CPU to transfer image matrices to one or more GPUs to perform heavy functions such as Gaussian filtering or image stitching.<sup>[[12]](#footnote12)</sup> Hardware manufacturers have even tried to ease the image transferring process between CPU and GPU, by introducing system memory regions accessible to both CPU and GPU.<sup>[[13]](#footnote13)</sup>
 
-## What's next
+## What's Next?
 
 There is an abundance of resources to learn and apply computer vision; however, not all of them are free or beginner-friendly. This section mentions some great courses and tutorials that are freely accessible at the time of writing. If you are a starter, it is recommended that you follow these steps for your learning journey:
 

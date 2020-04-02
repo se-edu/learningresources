@@ -35,14 +35,14 @@ GPGPU stands for General-purpose computing on graphics processing units. It is t
 
 Simply put, it's a kind of parallel processing where we're trying to exploit the data-parallel hardware on GPUs to improve the throughput of our computers.
 
-### § 1.2 Why bother with parallel processing?
+### § 1.2 Why Bother With Parallel Processing?
 Moore's law is the observation made by Gordon Moore that the density of transistors in an integrated circuit board doubles approximately every two years. It has long been co-opted by the semiconductor industry as a target, and consumers have taken this growth for granted.
 
 Because it suggests exponential growth, it is unsustainable and it cannot be expected to continue indefinitely. In the words of Moore himself, "It can't continue forever.".<sup>[[2]](#footnote2)</sup> There are hard physical limits to this scaling such as heat dissipation rate<sup>[[3]](#footnote3)</sup> and size of microprocessor features.<sup>[[4]](#footnote4)</sup>
 
 As software engineers, this means that free and regular performance gains can no longer be expected.<sup>[[5]](#footnote5)</sup> To fully exploit CPU throughput gains, we need to code differently.
 
-### § 1.3 Aren't multicore CPUs enough?
+### § 1.3 Aren't Multicore CPUs Enough?
 Between CPUs and GPUs, there are differences in **scale** and **architecture**.
 - In terms of **scale**, CPUs only have several cores while GPUs house up to thousands of cores.
 - In terms of **architecture**, CPUs are designed to handle sequential processing and branches effectively, while GPUs excel at performing simpler computations on large amounts of data.
@@ -55,7 +55,7 @@ This means that CPUs and GPUs excel at different tasks. You'll typically want to
 >
 > *Compute intensive* refers to how the algorithm will have to process lots of data elements.
 
-### § 1.4 What are the challenges with GPGPU?
+### § 1.4 What are the Challenges With GPGPU?
 Not all problems are inherently parallelizable.
 
 The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that they don't handle branches and inter-thread communication well.

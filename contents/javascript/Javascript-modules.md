@@ -33,7 +33,7 @@ Reviewers: Chelsey Ong, Ong Shu Peng, Amrut Prabhu
 This article assumes the reader has some basic knowledge of JavaScript.
 </box>
 
-## What Is a Module?
+## What is a Module?
 
 In programming, the term module (other similar terms: _package, library, dependency, plugin, etc._) is used to refer to _a small part of code that is broken up from a larger code base_.
 
@@ -54,7 +54,7 @@ Modules allows developers to reuse their code that is contained in a module. If 
 
 There are 3 common ways to use modules in JavaScript: 1. using ES6 modules, 2. using CommonJS, 3. using the module pattern. While ES6 is the most recent and the official implementation, this article covers the other two as well because there is still a large number of existing projects that use them.
 
-### ES6 modules
+### ES6 Modules
 
 Introduced in 2015, ES6 modules is the official implementation of modules in JavaScript. It introduces 2 new syntax `import` and `export` to use modules in JavaScript.
 
@@ -192,13 +192,13 @@ anExampleModule.sumOfVariable(); // 3
 
 A more in-depth explanation of module pattern can be found in the [this course blog on mastering module pattern](https://ultimatecourses.com/blog/mastering-the-module-pattern).
 
-## Which to use?
+## Which to Use?
 
 Although ES6 modules is the official way to implement modules, there are situations where you might have to use one of the other options. Here are some examples:
 - If your application does not allow you to use transpiler and bundler (e.g. because of the additional overhead they add), you can use the module pattern.
 - If your application is NodeJS based, you might want to use CommonJS because NodeJS does not natively support ES6 modules.
 
-## How to start?
+## How to Start?
 
 You can start with module pattern right away by refactoring segments of your code into different files and wrapping the code in IIFE.
 
