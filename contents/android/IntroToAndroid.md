@@ -54,7 +54,7 @@ Android phones range from the premium Samsung phones to the lower-end handsets s
 
 However, having a wide variety of Android phones is a double-edged sword. The Android ecosystem is quite [fragmented](https://www.androidauthority.com/android-version-distribution-748439/), with mainly 5 Android versions being installed in Android devices today.  It is also more difficult to test Android apps because these apps have to work on all these different devices and it is impossible to test on all Android phones. Your app will have to cater to a wider range of phones with [different resolutions](https://stackoverflow.com/questions/7587854/is-there-a-list-of-screen-resolutions-for-all-android-based-phones-and-tablets) and pixel density. It is also tougher to get your apps noticed on the Google Play Store due to a huge number of apps being released everyday. Often, you will have to get featured by Google Play Store and be placed on the main page before anyone will notice your app.
 
-## 1.3 Why should I make native Android apps?
+## 1.3 Why Should I Make Native Android Apps?
 
 There are many ways to develop an app. Native apps are those created specifically for the mobile operating system. For Android, it means that you will use Java or Kotlin with the Android SDK and Google's official tools like Android Studio, just like how it is detailed in this book chapter.
 
@@ -65,7 +65,7 @@ Then, there are [hybrid apps](https://blog.techmagic.co/native-vs-hybrid-apps/).
 Until hybrid mobile frameworks catch up with native apps and can fully replace native development, there are often more benefits to developing native apps.
 
 
-### 1.4 Develop your first app today!
+### 1.4 Develop Your First App Today!
 
 The official programming language for Android development is Java, however, Android announced its support for Kotlin in 2017([source](https://android-developers.googleblog.com/2017/05/android-announces-support-for-kotlin.html)). Fret not, even if you are not an expert in either of those programming languages, you still can learn how to create your first app. Here's how.
 - Start by downloading the latest version of [Android Studio](https://developer.android.com/studio/index.html), the official IDE for Android. The installation should come with the Android Software Development Kit (SDK) needed for Android development.
@@ -73,7 +73,7 @@ The official programming language for Android development is Java, however, Andr
 - For more experienced programmers, popular Android development courses include those by Stanford at [their Android App Development module page](http://web.stanford.edu/class/cs193a/) and [Udemy's paid courses](https://www.udemy.com/courses/search/?q=android&src=ukw). A good book for Android would be the [Android Programming: The Big Nerd Ranch Guide](https://www.bignerdranch.com/books/android-programming/).
 - To learn Android development at your own pace, check out the comprehensive [Vogella Android tutorials](http://www.vogella.com/tutorials/android.html), which cover almost everything you would need to know. There are also open-source crowdsourced [guides by CodePath](https://guides.codepath.com/android).
 
-## 2. Android is not magic
+## 2. Android is Not Magic
 
 Here is a quick preview of some basic Android concepts to whet your appetite and to demystify Android app development!
 

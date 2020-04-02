@@ -51,7 +51,7 @@ If you're a Mac user, you don't need to do anything; Macs come with Ruby pre-ins
 For beginners and intermediate users, [tutorialspoint](https://www.tutorialspoint.com/ruby/index.htm) has great introductory Ruby tutorials, and [rubylearning.com](http://rubylearning.com/satishtalim/tutorial.html) is another great place.
 We will explore some of the more prominent language features of Ruby.
 
-### Everything is an object
+### Everything is an Object
 
 Ruby has no concept of "primitives". Anything that can be assigned to a variable is an object. Even numbers and boolean values `true` and `false` are objects.
 
@@ -80,7 +80,7 @@ end
 #  => 8
 ```
 
-### Readability is king
+### Readability is King
 
 > Ruby is simple in appearance, but is very complex inside, just like our human body.
 > 
@@ -104,7 +104,7 @@ end
 
 *No, you're not reading an English poem. You're reading Ruby!*
 
-### Functional programming is encouraged
+### Functional Programming is Encouraged
 
 For those familiar with [higher-order functions](http://www.cse.unsw.edu.au/~en1000/haskell/hof.html), Ruby supports *map*, *fold-left*, and *filter*.
 
@@ -124,7 +124,7 @@ For those familiar with [higher-order functions](http://www.cse.unsw.edu.au/~en1
 
 Joel McCracken makes an [excellent short presentation](http://joelmccracken.github.io/functional-programming-in-ruby/#/) on how functions are treated in Ruby.
 
-### Object-oriented programming is possible, too
+### Object-Oriented Programming is Possible, Too
 
 ```rb
 class Circle

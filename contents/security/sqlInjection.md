@@ -41,7 +41,7 @@ SELECT * FROM users WHERE Username = 'Admin'
 
 More information about SQL can be found [here](https://www.w3schools.com/sql/).
 
-## How does SQL Injection Work?
+## How Does SQL Injection Work?
 
 >**SQL injection is the placement of malicious code in SQL statements, via web page input.**<br>--source: [w3schools](https://www.w3schools.com/sql/sql_injection.asp)
 
@@ -148,7 +148,7 @@ There are a couple of ways to protect your website against SQL injection attacks
 
 The sections below explain the two options in more detail.
 
-### Solution 1: Prepared Statements using Parameterized Queries
+### Solution 1: Prepared Statements Using Parameterized Queries
 
 By defining all the SQL code first and passing in the parameters afterwards, you can make the database distinguish the difference between code and data. It would treat the values entered by the user as a parameter, and would not allow it to alter the query being executed. The way to achieve this varies by language, but it is easy to implement and effective.
 

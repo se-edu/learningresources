@@ -33,13 +33,13 @@ iOS is the mobile operating system that runs on Apple's mobile devices, most not
 
 [2 operating systems dominate the whole market share: iOS and Android](https://www.theverge.com/2017/2/16/14634656/android-ios-market-share-blackberry-2016). While more devices are running Android compared to iOS, given below are some areas in which iOS outshines Android:
 
-#### Better compatibility and standardisation
+#### Better Compatibility and Standardisation
 
 iOS applications are specific to the Apple devices of the iPhone and iPad line, whereas Android runs across numerous different types of devices, including phones, tablets, watches, and more. The large variation of devices poses a compatibility problem from a developer's standpoint, because now applications have to be tested and working across all these different devices, and also regularly maintained this way. Each hardware device may possibly be running their own version of Android or will only support up to a particular version, thus Android developers will have to ensure that their application is also compatible across different versions of Android.
 
 With less devices to target, iOS developers have more control over their application and are able to customise the application to a greater extent, because there are less variations (in terms of device compatibility) to worry about. OS versioning in iOS is also more structured, with better backwards-compatability across their devices. Users of iOS devices (oldest supported is iPhone 5S, as of March 2019) are always immediately prompted whenever a new version of iOS is available for download. This means that as developers, we have to worry less about compatability issues, and focus more on the application itself.
 
-#### Lucrative market
+#### Lucrative Market
 
 While Android has higher market share of devices, iOS applications generate [nearly double](https://techcrunch.com/2018/07/16/apples-app-store-revenue-nearly-double-that-of-google-play-in-first-half-of-2018/) the revenue compared to Android, largely due to the fact that users of iOS devices are generally more likely to spend on apps.
 
@@ -47,11 +47,11 @@ As an independent iOS developer, this means that your iOS application could brin
 
 More app revenue for iOS applications also means companies will look to tackle the iOS platform more so than Android, thus the demand for iOS developers will be high. This in turn results in [higher salary for iOS developers compared to their Android counterparts](https://www.fiercewireless.com/developer/ios-developers-earn-roughly-10k-more-than-android-counterparts-study-shows).
 
-#### Higher quality applications
+#### Higher Quality Applications
 
 The Apple App Store [subjects the apps to higher quality control](https://developer.apple.com/app-store/review/) (as compared to Android Play Store) before they are allowed to be published. This means that applications on the App Store are more robust, and of higher quality in general.
 
-## Native iOS applications vs. cross-platform applications
+## Native iOS Applications vs. Cross-Platform Applications
 
 Mobile applications that run on the iOS platform can be written both natively and using [cross-platform solutions](http://www.businessofapps.com/guide/cross-platform-mobile-app-development/). Native iOS applications are written using [Objective-C or Swift](https://android.jlelse.eu/objective-c-or-swift-which-technology-to-learn-for-ios-app-development-3c681d1a05ac) on the Xcode IDE that you can download if you are running a MacOS. Cross-platform solutions are tools that allow you to write code once and develop applications for more than 1 platform. Some examples include [React Native](https://facebook.github.io/react-native/), [Xamarin](https://visualstudio.microsoft.com/xamarin/), and [Ionic](https://ionicframework.com/). Both methods have their own pros and cons, and these factors not only affect the app developers, but also the users to some extent.
 
@@ -61,7 +61,7 @@ If you are coming from a web development background, you might want to consider 
 
 If you are a complete beginner to programming or do not have much software engineering experience, native iOS development with Swift might be a better choice to start with. Given that Swift is a statically typed language, more errors will be caught earlier, and you will be forced to be more structured and disciplined in your code. With Swift being a fast and readable language, it is not a bad language to start learning programming with or to pick up general software engineering skills with.
 
-## Getting started with native iOS development
+## Getting Started With Native iOS Development
 
 To get started with native iOS development, we have to first get some of the basic tools set up:
 

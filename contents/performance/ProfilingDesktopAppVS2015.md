@@ -11,7 +11,7 @@
 
 {{ booktitle | safe }}
 
-# Profiling a Desktop Application In Visual Studio 2015
+# Profiling a Desktop Application in Visual Studio 2015
 
 Author: [Ong Heng Le](https://github.com/initialshl)
 
@@ -20,7 +20,7 @@ Author: [Ong Heng Le](https://github.com/initialshl)
 This tutorial demonstrates how to get an overview of your desktop application's performance
 using the profiler included in [Visual Studio 2015](https://www.visualstudio.com/downloads/). 
 
-## 1. Run a performance profiling session
+## 1. Run a Performance Profiling Session
 
 To start a performance profiling session, follow this guide on 
 [Creating and running a performance session](https://msdn.microsoft.com/en-us/library/ms182372.aspx#Anchor_0).
@@ -36,7 +36,7 @@ about the execution time of each function.
 
 > The Visual Studio Profiler Team Blog has a [good explanation on inclusive and exclusive data values](https://blogs.msdn.microsoft.com/profiler/2004/06/09/what-are-exclusive-and-inclusive/).
 
-## 3. Trace down to the problem
+## 3. Trace Down to the Problem
 
 You can identify the performance issues using the performance report. The `Summary` view 
 shows these two useful information analyzed by the profiler.
@@ -54,7 +54,7 @@ by your program.
 > You can follow this [walkthrough](https://msdn.microsoft.com/en-us/library/ms182398.aspx)
 to experience how to identify performance problems and optimize your code.
 
-## 4. Identify areas for improvements upwards
+## 4. Identify Areas for Improvements Upwards
 
 You have identified the problem, and may now want to optimize the code in the 
 function body. But before that, here's a final tip: It is sometimes easier 

@@ -127,7 +127,7 @@ This way of using DI increases the efficiency and modularity (as per the [Angula
 
 Declarative Templates and Dependency Injection are only a couple of noteworthy features of Angular. A more comprehensive [list](https://angular.io/features) is available on the official website. 
  
-## Why use Angular?
+## Why Use Angular?
 
 Now that we know what Angular is, let us look at some benefits it has to offer.
 
@@ -189,7 +189,7 @@ that can be integrated with Angular for mobile application development. As per t
 You can integrate the Electron framework in your project using the Angular CLI and start building your application.
 This [article](https://medium.com/@yannmjl/how-to-build-native-cross-platform-desktop-apps-with-angular-electron-bd1d6e3919b2) is a good introduction to building desktop apps with Angular and Electron.
 
-### Benefit 3: Two-way Data Binding
+### Benefit 3: Two-Way Data Binding
 
 Web apps have two main components, a _View_ and a _Model_. The View component is responsible for displaying data (i.e., the part users see). The Model is concerned with the logic implementation of the application. It updates and retrieves the data to and from the database.
 _Data binding_ refers to the exchange of data between the View and Model components. There are two types of data binding as shown below.
@@ -218,7 +218,7 @@ Angular requires you to learn many concepts, such as _directives_, modules, comp
 Angular is opinionated about how you structure your code. This means that Angular provides you defaults for building applications. For instance, there are in-built services to perform data fetching, state management and much more. It is also opinionated about the development language as it requires you to use TypeScript.<br/>
 In contrast, React allows you to integrate any third party services in your application.
     
-## Comparison with Other Popular Frontend Frameworks
+## Comparison With Other Popular Frontend Frameworks
 
 [React](https://reactjs.org/) and [Vue](https://vuejs.org/) are two popular alternatives to Angular.
 
