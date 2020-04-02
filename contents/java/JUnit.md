@@ -23,7 +23,7 @@ Reviewers: [Aadyaa Maddi](https://github.com/amad-person), [Marvin Chin](https:/
 * [Why JUnit?‎](#why-junit)
 * [JUnit Features‎](#junit-features)
   * [Assertions API‎](#assertions-api)
-  * [Before/After hooks‎](#before-after-hooks)
+  * [Before/After Hooks‎](#before-after-hooks)
   * [Extension Model‎](#extension-model)
 * [Getting Started‎](#getting-started)
 </box>
