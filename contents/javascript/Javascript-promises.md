@@ -201,7 +201,7 @@ Another interesting thing to note: `await` will wait for the promise to return b
 
 In the promise-style, we handle errors using the `.catch()` block. However when using the async-await-style, we handle the errors using the more conventional `try ... catch` block. These can be explored further in [here](https://javascript.info/async-await#error-handling)
 
-## Where Promises can be used
+## Where Promises can be Used
 
 Given below are some examples where JavaScript promises can be used:
 
@@ -254,7 +254,7 @@ Given below are some examples where JavaScript promises can be used:
       .catch(err => console.log(err));
   ```
 
-## Doing more with Promises
+## Doing More With Promises
 
 Sometimes multiple promises may have to be used at a time, and Javascript provides excellent support with the `Promise.all` and `Promise.race` functions.
 

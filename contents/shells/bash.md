@@ -11,7 +11,7 @@
   
 {{ booktitle | safe }}
 
-# Introduction to Linux bash shell 
+# Introduction to Linux Bash Shell 
 
 Author: [Wang Junming](https://github.com/junming403)
 
@@ -50,7 +50,7 @@ One of the most widely used command is `ls`, which lists out all the files under
 <a href="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP" target="_blank"><img src="https://asciinema.org/a/06V6C9mg1lIAnJkzrsweojJUP.svg" alt="ls" style="width:500px;height:320px;"/></a>
 
 
-### Bash scripts
+### Bash Scripts
 
 Bash supports a powerful language for writing scripts, usually referred to as **bash scripts**.
 
@@ -107,7 +107,7 @@ Here is an video demonstration of the script in action.
 
 **Functions** in bash scripts are just like functions in normal programming languages. More information about bash scripts can be found [here](https://www.gnu.org/software/bash/manual/html_node/). 
 
-### Combining of scripts via stream redirection
+### Combining of Scripts via Stream Redirection
 
 In Linux, you can _redirect_ the output of one application to the input of another, combining the two applications together as if there is a _pipe_ between them. In fact, Linux can _pipe_ data between programs, files, and input/output devices seamlessly. You can take advantage of these abilities in your shell commands/scripts to perform complex tasks with just a few commands.
 
@@ -146,7 +146,7 @@ Let us say you want to check the status of process `p` running on your system. T
 
 A more detailed introduction to I/O stream redirection can be found [here](https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection).
 
-## Why use the shell?
+## Why Use the Shell?
 
 A common question many people ask is: Why type commands in a shell when we can do the same things using GUI applications? Here are some reasons:
 
@@ -154,7 +154,7 @@ A common question many people ask is: Why type commands in a shell when we can d
 - **Uniform**: Unlike GUI apps whose availability and usage can vary between Linux distributions, the shell is always available and the usage is almost the same across different Linux distributions. 
 - **More powerful**: GUIs tends to simplify things, giving the user fewer options. With a shell, you will have complete control of every option. While the shell has a steep learning curve, once you are familiar with it, you can do more things efficiently as compared to a GUI application. For example, you can automate things with a shell, something not easy to do with a GUI application.
 
-## How to get started?
+## How to Get Started?
 
 In our opinion, there is no need to learn the shell in one go. Instead, whenever you use a GUI tool to accomplish a task, try to learn how to do the same using the shell. For example, when using git, use it via the shell instead of a GUI tool such as Source Tree. That way, you can learn the shell incrementally, over time.
 

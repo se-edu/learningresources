@@ -17,8 +17,8 @@ Author: [Jeremy Tan](https://github.com/Parcly-Taxel)
 
 <box id="article-toc">
 
-* [NumPy's Purpose](#numpys-purpose)
-* [NumPy's Benefits and Drawbacks](#numpys-benefits-and-drawbacks)
+* [NumPy's Purpose](#numpy-s-purpose)
+* [NumPy's Benefits and Drawbacks](#numpy-s-benefits-and-drawbacks)
 * [Internals of NumPy](#internals-of-numpy)
   * [The Array Type](#the-array-type)
   * [Library Functions](#library-functions)

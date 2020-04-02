@@ -17,7 +17,7 @@ Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https:
 
 ## Reflection
 
-### What is Java reflections
+### What is Java Reflections?
 
 Reflection is the ability of a computer program to examine, inspect and modify its own behaviour at runtime. In particular, reflections in Java allows the inspection of classes, methods and fields during runtime, without having any knowledge of it during compile time.
 
@@ -68,7 +68,7 @@ One important point is that while Java reflections are powerful, its implementat
 
 ### Applications
 
-#### Accessing private fields
+#### Accessing Private Fields
 
 A good example of reflections is to get a private field of another class. While this should optimally be solved by modifying the field visibility to `protected` or `public`, sometimes it is not possible to do so because you might not have any access to the code (for example codes in libraries or frameworks).
 
@@ -125,7 +125,7 @@ Do take note that two exceptions need to be handled when accessing fields:
 1. `IllegalAccessException`, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. `f.setAccessible(true)`).
 1. `NoSuchFieldException`, which occurs if the field with the specified name (e.g. `age`) does not exist.
 
-#### Updating private fields
+#### Updating Private Fields
 
 Suppose that you need to write tests for `Sheep`. As part of setting up the test, you need to create a sheep with age = 20. Suppose that the age of the sheep is updated automatically as time passes, whereby the age increases by 1 after every minute. A naive way of creating a sheep with age = 20 is to simply wait for 20 minutes before performing the test:
 
@@ -151,7 +151,7 @@ public void foo() throws Exception {
 }
 ```
 
-#### Testing private methods
+#### Testing Private Methods
 
 Suppose you want to perform a unit test for the method `getAge()`. However, you are only able to indirectly do so by testing `isProducingWool()`. This is not good as we are not able to directly verify the age of a sheep. However, with the help of Reflection, we can now test private methods.
 
@@ -166,7 +166,7 @@ public void foo() throws Exception {
 }
 ```
 
-#### A more advanced application
+#### A More Advanced Application
 
 You might have learnt from your Software Engineering module that the Observer pattern can be used for objects that are interested to get notified if the state of another object is changed. The Observer pattern is useful because you can avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other while allowing the objects to be notified of any changes in another object.
 
@@ -230,7 +230,7 @@ public void findAllEventHandlersInClass(Class<?> clazz) {
 
 The first line of the `findAllEventHandlersInClass` method finds all classes and its parent classes of the registered class and converts it to a set. That is if you registered `Sheep extends Animal` as an event handler to the method, both `Sheep` and `Animal` will be captured by the first line. The following lines will then examine all their methods (during runtime!) for the `Subscribe` annotation and register the method so that it will receive the specified event when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how Java reflections works.
 
-### Disadvantages of reflections
+### Disadvantages of Reflections
 
 While Java reflections are powerful, you should not immediately jump on the reflections ship. This is because there are some drawbacks whenever you use reflections in your project. The following are some points you should consider before using Java reflections:
 
@@ -256,7 +256,7 @@ While Java reflections are powerful, you should not immediately jump on the refl
 
   Having to use reflection in order to bypass a class' encapsulation is usually indicative of an API design problem. We can remove the usage of Reflection in the examples given [above](#accessing-private-fields) by adding a getter and setter method for `age`. See this [post](https://stackoverflow.com/questions/34571/how-do-i-test-a-private-function-or-a-class-that-has-private-methods-fields-or/34658#34658) for further discussion. In this scenario whereby we cannot add a getter and setter method for `age`, we should create our own implementation of `Animal` class with the getter and setter methods.
 
-### Further Resources for reflections
+### Further Resources for Reflections
 
 * Introductions to Java reflections with some explanation
 

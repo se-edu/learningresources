@@ -17,16 +17,15 @@ Authors: [Tan Jun An](https://github.com/yamidark)
 
 <box id="article-toc">
 
-* [Rvalue References and Move Semantics‎](#rvalue-references-and-move-semantics)
-    * [Background](#background)
-        * [Value Semantics](#value-semantics)
-        * [Reference Semantics](#reference-semantics)
+* [Background](#background)
+    * [Value Semantics](#value-semantics)
+    * [Reference Semantics](#reference-semantics)
+* [Move Semantics](#move-semantics)
+    * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
+    * [Using Rvalue References](#using-rvalue-references)
     * [Move Semantics](#move-semantics)
-        * [Rvalue and Lvalue References](#rvalue-and-lvalue-references)
-        * [Using Rvalue References](#using-rvalue-references)
-        * [Move Semantics](#move-semantics)
-    * [Rvalue Reference Anti-Pattern](#rvalue-reference-anti-pattern)
-    * [Resources](#resources)
+* [Rvalue Reference Anti-Pattern](#rvalue-reference-anti-pattern)
+* [Resources](#resources)
 </box>
 
 ## Background

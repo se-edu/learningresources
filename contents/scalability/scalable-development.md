@@ -24,7 +24,7 @@ The key difference is their server infrastructure. A scalable server allows a co
 
 So what is scalability? Scalability is the capacity to which a system can cope with an increased workload. Workload can refer to number of users on the server, number of files uploaded, number of concurrent requests, or any quantity that the system needs to scale for.
 
-## Ways to scale
+## Ways to Scale
 
 Let's say you have a server running on a single host, but due to the growing number of users, it has been slowing down. What are the different ways you can speed it up?
 
@@ -49,7 +49,7 @@ This is arguably the easiest way to speed up your server, as it is a general sol
 
 However, due to Amdahl's law, each additional processor will give a less-than-proportionate speed up. Coupled with the exponential increase in price as the computing power of the CPU increases, this is typically not scalable in the long run.
 
-#### Should you choose one or the other?
+#### Should You Choose One or the Other?
 
 With vertical scaling, you get to take advantage of processing power and concurrency. But as mentioned above, this isn't sustainable over the long run because it: 
 1. Results in a single point of failure. 
@@ -92,7 +92,7 @@ In situations in which responding to request is crucial, asynchronous operations
 
 You can use the many program profilers available to find such [common bottlenecks](https://www.apicasystem.com/blog/5-common-performance-bottlenecks) in your server, thereby potentially saving huge amounts of time.
 
-## But wait!
+## But Wait!
 
 Before you start tweaking your server to make it scalable, be sure to avoid the following pitfalls:
 - Premature or unnecessary optimization: a tiny performance improvement that can make your code hard to understand later on is not worth it.

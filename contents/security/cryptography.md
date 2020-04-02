@@ -56,7 +56,7 @@ In a symmetric key cipher, the same key, a shared secret, is used for both encry
 The parties wishing to communicate securely share the same key. For example, in the substitution cipher, the same key (the substitution table) is used for both encryption and decryption.
 There are 2 types of symmetric ciphers: stream and block ciphers.
 
-#### Stream ciphers
+#### Stream Ciphers
 
 The ciphertext, keystream and  plaintext are sequences or streams of bits of equal length. 
 During encryption, each plaintext bit is combined (usually xored) with the corresponding keystream bit to produce the ciphertext bits. For example, the 1st plaintext bit is xored with the 1st keystream bit, 2nd plaintext bit with 2nd keystream bit and so on.

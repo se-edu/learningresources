@@ -33,10 +33,10 @@ Cross Site Scripting (XSS) is the most exploited web application vulnerability i
 
 XSS is a type of injection, in which malicious code are injected into trusted websites. XSS flaws that allow these attacks to happen are widespread and can occur anywhere a web application uses input from a user to generate an output on the website without validating it or encoding it. 
 
-## Why do you need to know about XSS?
+## Why Do You Need to Know About XSS?
 As software engineers, or aspiring software engineers, it is highly likely that we will build web applications. It is important to know how we can protect our web applications against XSS, so that it will not become a tool for attackers.
 
-## How does XSS work?
+## How Does XSS Work?
 One of the most common ways to accept inputs from users are text boxes. In this example, we will look at a website that allows users to enter their comments to blog posts. 
 
 Here is the comments section of the website: 
@@ -133,7 +133,7 @@ The first line selects the retweet button and then clicks it, and the second lin
 
 You can still see this tweet <a href="https://twitter.com/dergeruhn/status/476764918763749376?lang=en" target="_blank">here</a>.
 
-## How to prevent XSS?
+## How to Prevent XSS?
 
 There are a couple of ways to prevent your website against XSS. The two most
 common ways are:
@@ -176,7 +176,7 @@ You can also consider using XSS scanning tools to check whether your web applica
 1. http://w3af.org/ (Web Application Attack and Audit Framework)
 1. https://www.arachni-scanner.com/ (Web Application Security Scanner Framework)
 
-## Where to go from here?
+## Where to Go From Here?
 
 Although XSS is the most common web application vulnerability, there are also many other types of vulnerabilities. It is important to be aware of them to properly secure your web application. Given below is a summary of web application vulnerabilities (for the full report see <a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf" target="_blank">here</a>):
 

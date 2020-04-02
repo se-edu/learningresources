@@ -18,15 +18,14 @@ Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://gi
 
 <box id="article-toc">
 
-* [Introduction to C#‎](#introduction-to-c)
-    * [What is C#‎](#what-is-c)
-    * [C# Syntax Features‎](#c-syntax-features)
-        * [Object/Array/Collection Initializers‎](#object-array-collection-initializers)
-        * [Closures‎](#closures)
-        * [Nullable type‎](#nullable-type)
-        * [Other features](#other-features)
-    * [Why Learn C#‎](#why-learn-c)
-    * [How to Get Started‎](#how-to-get-started)
+* [What is C#‎](#what-is-c)
+* [C# Syntax Features‎](#c-syntax-features)
+    * [Object/Array/Collection Initializers‎](#object-array-collection-initializers)
+    * [Closures‎](#closures)
+    * [Nullable type‎](#nullable-type)
+    * [Other features](#other-features)
+* [Why Learn C#‎](#why-learn-c)
+* [How to Get Started‎](#how-to-get-started)
 </box>
 
 ## What is C#
@@ -125,7 +124,7 @@ counter(); //Returns 2
 
 The ability to capture the value `count` outside of the defined function scope that returns `count`, is called a closure. If you wish to read more about closures, you may consult [this article by dixin](https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure)
 
-### Nullable type
+### Nullable Type
 
 Normally to guard against null pointers, an `if` branch or a guard clause that checks against `null` is used. Below is a code example of conventional null pointer handling.
 ```csharp
@@ -178,7 +177,7 @@ Some explanation of what `Double fuelLeft = car?.GetFuel() ?? 0` does:
 
 More can be read about Nullables [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/)
 
-### Other features
+### Other Features
 
 The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. Some features that were not listed are [Async/Await](https://docs.microsoft.com/en-us/dotnet/csharp/async) and [Default Interface Implementation](https://www.infoq.com/articles/default-interface-methods-cs8). If you wish to explore other features, you may consult this [article](https://stackify.com/csharp-8-features/) and others online.
 
