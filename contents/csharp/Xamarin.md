@@ -50,7 +50,7 @@ While Shared Code consists of common business logic, cross-platform UI elements 
 
 Xamarin.Android and Xamarin.iOS handle the compilation of both shared code and platform dependent code into native assemblies. The difference between the two is that while Xamarin.Android compiles C# into Intermediate Language, which is then **Just-in-Time (JIT)** compiled to a native assembly within the Mono execution environment, Xamarin.iOS compiles C# into assembly code fully **Ahead-of-Time (AOT)**.
 
-Within the sub-projects, developers can access the complete Android or iOS SDK, wrapped with .NET APIs. This allows the entire application to be developed in C#, without writing any native code. Moreover, developers can leverage on the latest platform-specific features. For example, the `ARKit` Namespace, included in Xamarin iOS SDK 12, gives developers full access to ARKit of iOS SDK in C#.
+Within the sub-projects, developers can access the complete Android or iOS SDK, wrapped with .NET APIs. This allows the entire application to be developed in C#, without writing any native code. Moreover, developers can leverage on the latest platform-specific features. For example, the `ARKit` Namespace, included in Xamarin iOS SDK, gives developers full access to ARKit of iOS SDK in C#.
 
 Developers can also use native UI components and libraries wrapped with .NET APIs, such as Material Theme for Android and Storyboards for iOS. Alternatively, they can use Xamarin.Forms, which allows UI code to be shared across platforms.
 
@@ -112,7 +112,7 @@ Xamarin.Essentials is a library that provides cross-platform APIs for native dev
 
 ## Why Xamarin?
 
-While combining the abilities of native platforms, Xamarin has a number of features that win over its competitors:
+While combining the abilities of native platforms, Xamarin has a number of features that win over its <tooltip content="e.g. Flutter, React Native, Kotlin Multiplatform, etc.">competitors</tooltip>:
 
 ### Complete Binding for Underlying SDKs
 
