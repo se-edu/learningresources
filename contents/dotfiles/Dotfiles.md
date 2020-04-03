@@ -15,6 +15,20 @@
 
 **Author(s): [Tiu Wee Han](https://github.com/tiuweehan)**<br>
 
+<box id="article-toc">
+
+* [Introduction to Dotfiles](#introduction-to-dotfiles)
+    * [What are Dotfiles?‎](#what-are-dotfiles)
+    * [Why Dotfiles?](#why-dotfiles)
+        * [Benefit: Save and Reuse Configurations](#benefit-save-and-reuse-configurations)
+        * [Benefit: Personalised Shortcuts and Commands‎](#benefit-personalised-shortcuts-and-commands‎)
+        * [Benefit: Shell Utility and Styling](#benefit-shell-utility-and-styling)‎
+    * [Getting Started](#getting-started)
+        * [Management Strategies‎](#management-strategies)
+    * [Conclusion](#conclusion)
+
+</box>
+
 ### What are Dotfiles?
 Dotfiles are plain text configuration files on Unix like systems (e.g. MacOS, Linux, BSD). Dotfiles store settings of almost every application, service and tool running on your system. These files control the behavior of applications from boot to termination and everything in between.
 
@@ -155,7 +169,7 @@ By default, `PS1` is set to display only the username, host name and current wor
 
 </pic>
 
-##### Feature: Tab completion
+##### Feature: Tab Completion
 
 Tab completion is a feature that allows the user to select options from a drop down menu. This is a default feature when using `zsh`, but can be configured using dotfiles when using other shells like `bash`.
 
@@ -183,7 +197,7 @@ Dotfiles are also often used to style and colorise the terminal. This is not jus
 
 </pic>
 
-### How to get Started with Dotfiles?
+### Getting Started
 
 While dotfiles are easy to setup and configure, they can become disorganised over time as a developer as more and more configurations are added. As much as possible, they should be managed like any other software engineering project, applying software design principles such as modularisation to make them extensible and future-proof.
 
