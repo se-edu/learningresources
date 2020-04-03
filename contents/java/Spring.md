@@ -214,24 +214,23 @@ source code. This allows easier maintainance of the code as we can add/remove co
 by changing XML configuration file without recompiling source code. The above configuration can be written in XML file as:
 ```xml
  <aop:config>
-        <!-- Spring AOP Pointcut definitions -->
-        <aop:pointcut id="CRUDOperation"
-            expression="execution(* EmployeeManager.*(..))" />
+    <!-- Spring AOP Pointcut definitions -->
+    <aop:pointcut id="CRUDOperation" expression="execution(* EmployeeManager.*(..))" />
  
-        <!-- Spring AOP aspect 1 -->
-        <aop:aspect id="EmployeeCRUD" ref="crudAspectBean">
+    <!-- Spring AOP aspect 1 -->
+    <aop:aspect id="EmployeeCRUD" ref="crudAspectBean">
              
-            <!-- Spring AOP advises -->
-            <aop:before pointcut-ref="CRUDOperation" method="logBefore" />
-            <aop:after pointcut-ref="CRUDOperation" method="logAfter" />
+        <!-- Spring AOP advises -->
+        <aop:before pointcut-ref="CRUDOperation" method="logBefore" />
+        <aop:after pointcut-ref="CRUDOperation" method="logAfter" />
              
-        </aop:aspect>
+    </aop:aspect>
 
-        <!-- Spring AOP aspect instances -->
-        <bean id="crudAspectBean" class="com.aop.EmployeeCRUDAspect" />
+    <!-- Spring AOP aspect instances -->
+    <bean id="crudAspectBean" class="com.aop.EmployeeCRUDAspect" />
      
-        <!-- Target Object -->
-        <bean id="employeeManager" class="com.aop.EmployeeManagerImpl" />
+    <!-- Target Object -->
+    <bean id="employeeManager" class="com.aop.EmployeeManagerImpl" />
 </aop:config>
 ```
 
