@@ -17,13 +17,11 @@ We welcome contributions to this project.
 
 You can report errors, send suggestions, ask questions. <trigger trigger="click" for="modal:contributing-contactInfo">Here</trigger> is how you can contact us.
 
-You can also add new topics or update existing content:
-* If you don't have programming experience, <trigger trigger="click" for="modal:contributing-contactInfo">send us</trigger> your document.
-* If you have programming experience,
-  * [Fork this repo](https://github.com/se-edu/learningresources/fork) and clone it to your Computer.
-  * Install [MarkBind](https://markbind.github.io) in your Computer.
-  * Post in [our issue tracker](https://github.com/nus-oss/learningresources/issues) an outline of your proposed contribution. Wait for our response.
-  * After receiving the go-ahead from us, send your proposed contribution as a PR.
+You can also add new topics or update existing content by following these steps:
+* [Fork this repo](https://github.com/se-edu/learningresources/fork) and clone it to your Computer.
+* Install [MarkBind](https://markbind.github.io) in your Computer.
+* Post in [our issue tracker](https://github.com/nus-oss/learningresources/issues) an outline of your proposed contribution. Wait for our response.
+* After receiving the go-ahead from us, send your proposed contribution as a PR.
 
 <modal large title="How to contact us" id="modal:contributing-contactInfo">
   <include src="about.md#contact-info" />
@@ -31,7 +29,7 @@ You can also add new topics or update existing content:
 
 ## Guidelines for Writing Content
 
-* **Do include a table of contents.** A table of contents tells the reader what to expect, such as how long the article is and what content is covered. It also serves as a reference that makes it easier to jump around from section to section. In our case, we only show the table of contents for mobile users and for printing as Markbind already provides a navigation panel on the right side of every article. If you have programming experience, feel free to refer to this [pull request](https://github.com/se-edu/learningresources/pull/185) to see how to implement this behavior. Otherwise, do include a table of contents in the document you send us.
+* **Do include a table of contents.** A table of contents tells the reader what to expect, such as how long the article is and what content is covered. It also serves as a reference that makes it easier to jump around from section to section. In our case, we only show the table of contents for mobile users and for printing as Markbind already provides a navigation panel on the right side of every article. Feel free to refer to this [pull request](https://github.com/se-edu/learningresources/pull/185) to see how to implement this behavior.
 * **Do use Title Case for headings.** Using title case for headings gives articles a more polished, professional look that is more pleasing to the eye. If you are unfamiliar with the rules of title casing, you may refer to the following [website](https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case) or use online title case converters such as the one found [here](https://titlecase.com/).
 * **It is not a normal textbook. It’s a collection of articles**, each containing a **_curated_** list of **_tried-and-tested_** learning resources, **_organized_** in a meaningful sequence, with **_commentary_**.
   * The article can be on any technical topic useful for SE students.
