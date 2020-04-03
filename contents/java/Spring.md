@@ -25,7 +25,7 @@ This chapter assumes that the reader has a basic knowledge of Java enterprise.
 * [What is Spring Framework‎](#what-is-spring-framework)
 * [Core Features](#core-features)
   * [The IOC Container](#the-ioc-container)
-  * [Spring JDBCTemplate](#spring-jdbctemplate)
+  * [Spring JdbcTemplate](#spring-jdbctemplate)
   * [Spring AOP](#spring-aop)
 * [Why use Spring‎](#why-use-spring)
   * [Benefit 1: Modularity](#benefit-1-modularity)
@@ -100,12 +100,12 @@ public class Employee {
 We can then populate the Employee bean with the data provided in the following `applicationContext.xml` file:
 ```xml
 <bean id="obj" class="com.company.Employee">  
-<property name="id">  
-<value>20</value>  
-</property>  
-<property name="name">  
-<value>Amy</value>  
-</property>  
+    <property name="id">  
+        <value>20</value>  
+    </property>  
+    <property name="name">  
+        <value>Amy</value>  
+    </property>  
 </bean>  
 ```
    
@@ -161,14 +161,14 @@ without modifying the code itself, instead separately specifying which code is m
 specification. This allows behaviors that are not central to the business logic (such as logging) to be added to a program
 without cluttering the core code. AOP forms a basis for aspect-oriented software development.
 
-By separating application business logic from system services, Spring Framework supports Aspect Oriented Programming
+By separating application business logic from system services, Spring Framework supports AOP
 and enables cohesive development. It provides the way to dynamically add the
 cross-cutting concern before, after or around the actual logic using simple
 pluggable configurations. 
 
 For example, we wish to log something into the console everytime before we call the method `getEmployeeById`.
-We can then write aspect class annotated with @Aspect annotation and write point-cut expressions to match
-<tooltip content="Joinpoint is a point of execution of the program, such as the execution of a method or the handling of an exception..">
+We can then write aspect class annotated with `@Aspect` annotation and write point-cut expressions to match
+<tooltip content="Join point is a point of execution of the program, such as the execution of a method or the handling of an exception.">
 <i>joint-point</i>
 </tooltip> methods.
 ```java
