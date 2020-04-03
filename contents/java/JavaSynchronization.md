@@ -26,7 +26,7 @@ Authors: [Boxin](https://github.com/boxin-yang)
     * [Understand Which Object is Used as Monitor](#understand-which-object-is-used-as-monitor)
     * [Check Condition for wait() with While Loop](#check-condition-for-wait-with-while-loop)
     * [Breakpoint of notifyAll()](#breakpoint-of-notifyall)
-	* [notify()](#notify)
+  * [notify()](#notify)
 * [Related Areas](#related-areas)
 </box>
 
