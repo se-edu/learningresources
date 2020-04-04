@@ -47,31 +47,32 @@ The [official website](https://docs.spring.io/spring/docs/current/spring-framewo
 ### The IoC Container
 
 Inversion of Control (IoC) is a design principle. As the name suggests, it is used to invert
-different kinds of controls in object-oriented design to achieve loose coupling.
+different kinds of controls in object-oriented design to achieve looser coupling.
 Here, controls refer to any additional responsibilities a class has,
-other than its main responsibility. This include control over the flow of an application,
-and control over the flow of an object creation or dependent object creation and binding.
+other than its main responsibility. For example, this may include the control over the flow of an application,
+and control over the flow of an object creation.
 
-The Spring IoC container is at the core of the Spring Framework. The container will create the objects, wire them together,
+The Spring IoC container is at the core of the Spring Framework. The container will create the
+<tooltip content="These objects are are called beans in Spring Framework. A bean is an object that is instantiated,
+assembled, and otherwise managed by a Spring IoC container.">
+<i>objects</i>
+</tooltip> 
+, wire them together,
 configure them, and manage their complete life cycle from creation till destruction. The Spring container uses
 <tooltip content="Dependency injection is a way of providing a class with the required services.">
 <i>dependency injection</i>
 </tooltip> to manage the components that make up an application.
     
-In the Spring framework, the IoC container is represented by the interface `ApplicationContext`. The objects that
-form the backbone of your application and that are managed by the Spring IoC container are called beans.
-A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.
-These beans are created with the configuration metadata that you supply to the container,
+In the Spring framework, the IoC container is represented by the interface `ApplicationContext`.
+The beans are created with the configuration metadata that you supply to the container,
 which can be in the form of XML configuration or annotations.
 
 Below is one way to manually instantiate a container:
 ```java
 ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 ```
-   
-We can then perform dependency injection by using the external XML file.
-It makes our code loosely coupled and easier for testing. For example, we can have a simple Employee class
-containing two fields id and name with its setters and getters and a method to display these information.
+
+For example, say we have an Employee class like so:
 ```java
 package com.company;  
   
@@ -97,7 +98,9 @@ public class Employee {
     }
 }        
 ```
+
 We can then populate the Employee bean with the data provided in the following `applicationContext.xml` file:
+This makes our code loosely coupled and easier for testing. 
 ```xml
 <bean id="obj" class="com.company.Employee">  
     <property name="id">  
@@ -111,33 +114,28 @@ We can then populate the Employee bean with the data provided in the following `
    
 To better understand how this dependency injection work, we can have a `Test.java` looks like the following:
 ```java
-public class Test {  
-    public static void main(String[] args) {   
-        Resource r = new ClassPathResource("applicationContext.xml");  
-        BeanFactory factory = new XmlBeanFactory(r);  
+Resource r = new ClassPathResource("applicationContext.xml");  
+BeanFactory factory = new XmlBeanFactory(r);  
           
-        Employee e = (Employee)factory.getBean("obj");  
-        s.display();
-    }  
-}  
+Employee e = (Employee)factory.getBean("obj");  
+e.display();
 ```
-The out put of the above code will be `20 Amy`.
+
+The output of the above code would then be `20 Amy`.
 
 ### Spring JdbcTemplate
 
-Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. Traditionally, we
+The Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. Traditionally, we
 need to use Java Database Connectivity (JDBC) API to access tabular data stored in any relational database.
 It is a part of JavaSE (Java Standard Edition), from Oracle Corporation.
     
-Some problems of traditional JDBC API are listed as follows:
-- We need to write a lot of code before and after executing the SQL query, such as creating connection,
+In a traditional JDBC API:
+- a typical SQL query would involve quite some amount of boilerplate code, such as creating connection,
 statement, closing resultset, connection etc.
-- We need to perform exception handling code on the database logic.
-- We need to handle transaction.
-- Repetition of all these codes from one to another database logic is a time consuming task.
+- exception handling has to be manually written out.
+- transactions need to be manually created.
 
-Spring JdbcTemplate alleviates the above problems associated with JDBC API.
-It provides methods to write the queries directly, saving a lot of work and time.
+The Spring JdbcTemplate provides methods to write the queries directly, hence, saving time in writing such boilerplate code.
 
 Task | Spring | You
 -----|--------|----
@@ -154,20 +152,19 @@ Exception Handling | :heavy_check_mark: |
 ### Spring AOP
 
 Aspect Oriented Programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of
-<tooltip content="A cross-cutting concern is a concern that can affect the whole application and should be centralized in one location in code as much as possible.">
-<i>cross-cutting concerns</i></tooltip>. Examples of these concerns include transaction management, authentication, logging, security etc. 
+<tooltip content="Concerns that can affect the whole application and should be centralized in one location in code as much as possible. Examples of these concerns include transaction management, authentication, logging, security etc.">
+<i>cross-cutting concerns</i></tooltip>.
 It does so by adding additional behavior to existing code
 without modifying the code itself, instead separately specifying which code is modified via a "pointcut"
 specification. This allows behaviors that are not central to the business logic (such as logging) to be added to a program
 without cluttering the core code. AOP forms a basis for aspect-oriented software development.
 
-By separating application business logic from system services, Spring Framework supports AOP
-and enables cohesive development. It provides the way to dynamically add the
+Spring Framework supports AOP and enables cohesive development, by providing ways to dynamically add the
 cross-cutting concern before, after or around the actual logic using simple
 pluggable configurations. 
 
-For example, we wish to log something into the console everytime before we call the method `getEmployeeById`.
-We can then write aspect class annotated with `@Aspect` annotation and write point-cut expressions to match
+For example, say we wish to log something into the console everytime before we call the method `getEmployeeById`.
+We can then write aspect class annotated with `@Aspect` annotation and write point-cut expressions to log program information from joint points
 <tooltip content="Join point is a point of execution of the program, such as the execution of a method or the handling of an exception.">
 <i>joint-point</i>
 </tooltip> methods.
@@ -200,7 +197,7 @@ public class EmployeeManager
     }
 }
 ```
-In above example, `logBefore()` will be executed before `getEmployeeById()` method because it matches the join-point expression.
+In the above example, `logBefore()` will be executed before the `getEmployeeById()` method because it matches the join point specified earlier.
 Similarly, `logAfter()` will be executed after `getEmployeeById()`.
 The out put of the above code will be:
 ```
@@ -209,9 +206,14 @@ Method getEmployeeById() called
 EmployeeCRUDAspect.logAfter() : getEmployeeById
 ```
 
-The declaration of aspects and advices can also go into XML files so we do not need to write the annotation in our
-source code. This allows easier maintainance of the code as we can add/remove concerns 
-by changing XML configuration file without recompiling source code. The above configuration can be written in XML file as:
+The declaration of aspects and
+<tooltip content="Advice is an action taken by an aspect at a particular join point.">
+<i>advices </i>
+</tooltip>could also be written directly in the XML templates. This makes the code more readable and
+also allows for easier maintainance as we can add/remove concerns 
+by changing XML configuration file without recompiling source code.
+
+For example, the above configuration could be written in a XML file as:
 ```xml
  <aop:config>
     <!-- Spring AOP Pointcut definitions -->
@@ -237,13 +239,13 @@ by changing XML configuration file without recompiling source code. The above co
 ## Why Use Spring?
 
 Spring makes programming Java quicker, easier, and safer for everybody.
-Similar to other general Java frameworks (e.g. Grails, Play), Spring helps us focus on the core task rather than the boilerplate associated with it.
+Similar to other general Java frameworks (e.g. [Grails](https://grails.org/), [Play](https://www.playframework.com/)), Spring helps us focus on the core task rather than the boilerplate associated with it.
 Apart from that, Spring has other advantages like:
 
 ### Benefit 1: Modularity
 
 Spring provides different modules to achieve different services and functionality for development of application.
-These modules are designed in such a way that no module is dependent on the others, except Spring core module.
+These modules are designed in such a way that no module is dependent on the others, except the Spring core module.
 Thus, we can optionally include one or more Spring projects depending on the need. This makes Spring lightweight
 and require less configuration.
 
@@ -252,20 +254,18 @@ and require less configuration.
 _Figure 1. Overview of the Spring Framework_
 
 ### Benefit 2: Easy Integration
-
-Spring is designed to be used with all other frameworks of Java, you can use
+Spring is designed to be used compatible with many other frameworks of Java, for example
 <tooltip content="Struts is an open source framework that extends the Java Servlet API and employs a Model, View, Controller (MVC) architecture.">
-<i>Struts</i>
-</tooltip>, 
+<i>Struts </i>
+</tooltip>and
 <tooltip content="Hibernate is an object-relational mapping tool for the Java programming language. It provides a framework for mapping an object-oriented domain model to a relational database.">
 <i>Hibernate</i>
-</tooltip>, and other frameworks
-of Java together with Spring. Spring framework do not impose any restriction on the frameworks to be used together.
+</tooltip>. Spring framework do not impose any restriction on the frameworks to be used together.
 
 ### Benefit 3: Strong Community Support
-Spring is an open source framework led by Pivotal Software and backed by a large consortium of organizations and individual
-developers. This has meant that it remains relevant,
-as evident by the number of projects under its umbrella, which is ever increasing. 
+Spring is an open source framework led by [Pivotal](https://tanzu.vmware.com/) Software and backed by a large consortium of organizations and individual
+developers. This means that it remains relevant,
+as evident by the ever increasing number of projects under its umbrella, which is ever increasing. 
 
 ### Benefit 4: Usability
 One of the key aspects of any framework's popularity is how easy it is for developers to use it.
