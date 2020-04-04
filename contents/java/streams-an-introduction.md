@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -15,35 +15,34 @@
 
 Author: Lee Yi Min
 
+<box id="article-toc">
 
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+* [Overview](#overview)
+* [Getting Started](#getting-started)
+  * [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions)
+    * [Functional Interface](#functional-interface)
+    * [Method Reference](#method-reference)
+    * [Lambda Expressions](#lambda-expressions)
+    * [An Example](#an-example)
+  * [What is a stream?](#what-is-a-stream)
+* [Building a Stream Pipeline](#building-a-stream-pipeline)
+  * [Constructing Streams](#constructing-streams)
+  * [Intermediate Operations](#intermediate-operations)
+    * [Filter](#filter)
+    * [Map](#map)
+  * [Terminal Operations](#terminal-operations)
+    * [Collect](#collect)
+  * [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
+    * [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
+    * [Difficulty in optimising stream performance](#difficulty-in-optimising-stream-performance)
+* [Resources](#resources)
+  * [Functional Interfaces](#functional-interfaces)
+  * [Method References](#method-references)
+  * [Lambda Expressions](#lambda-expressions)
+  * [Stream](#stream)
+    * [Common Pitfalls](#common-pitfalls)
+</box>
 
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-	- [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions)
-		- [Functional Interface](#functional-interface)
-		- [Method Reference](#method-reference)
-		- [Lambda Expressions](#lambda-expressions)
-		- [An Example](#an-example)
-	- [What is a stream?](#what-is-a-stream)
-- [Building a Stream Pipeline](#building-a-stream-pipeline)
-	- [Constructing Streams](#constructing-streams)
-	- [Intermediate Operations](#intermediate-operations)
-		- [Filter](#filter)
-		- [Map](#map)
-	- [Terminal Operations](#terminal-operations)
-		- [Collect](#collect)
-	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
-		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
-		- [Difficulty in optimising stream performance](#difficulty-in-optimising-stream-performance)
-- [Resources](#resources)
-	- [Functional Interfaces](#functional-interfaces)
-	- [Method References](#method-references)
-	- [Lambda Expressions](#lambda-expressions)
-	- [Stream](#stream)
-		- [Common pitfalls](#common-pitfalls)
-
-<!-- /TOC -->
 ## Overview
 
 In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with lambda expressions and stream operations.
