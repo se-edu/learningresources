@@ -101,7 +101,7 @@ ssh remoteA
 ```
 This evidently saves time and effort needed to connect to a server. Aside from just connecting to servers, `ssh` can also be used for other purposes, all of which are easily [configurable](https://www.ssh.com/ssh/config) using dotfiles. These include [SSH proxies](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/), [launching GUI applications remotely](https://www.nics.tennessee.edu/x11_forwarding) and [SSH forwarding](https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/).
 
-<box type="danger">
+<box type="warning">
 Please ensure that your RSA private keys such as `~/.ssh/id_rsa` are kept safe at all times.
 </box>
 
@@ -208,16 +208,15 @@ There are several management stratgies for managing dotfiles, and most of them r
 1. **Use a [git worktree](https://www.atlassian.com/git/tutorials/dotfiles):**\
 The technique consists in storing a Git bare repository in a "side" folder (like `$HOME/.cfg` or `$HOME/.myconfig`) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
 2. **Use [symlinking](https://opensource.com/article/19/3/move-your-dotfiles-version-control):**\
-The `ln` command is used to create links in your (unix-based) system. Use the `--help` command to get more info on the myriad of options available to you. Just using the `ln` command creates something called a ‘hard link’, which is not what we want. We want a ‘symbolic’ link instead. The syntax is `ln -s <actual location of the file> <name and location you want to see that file under>`. For example:
+The `ln` command is used to create links in your (unix-based) system. Use the `--help` command to get more info on the myriad of options available to you. Just using the `ln` command creates something called a ‘hard link’, which is not what we want. We want a ‘symbolic’ link instead. The syntax is `ln -s <actual location of the file> <name and location you want to see that file under>`. For example, the command below will result in the gitconfig in the dotfiles directory to be accessible from the `~/.gitconfig` location, which is where Git is expecting to see all the Git preferences set.
+
 ```bash
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ```
-will result in the gitconfig in the dotfiles directory to be accessible from the `~/.gitconfig` location, which is where Git is expecting to see all the Git preferences set.
-
 3. **Use an existing dotfiles management tool such as [yadm](https://yadm.io/):**
 `yadm` is a command-line tool for managing dotfiles. with additional features such as allowing developers to select alternate versions of files based on the operating system or host name. `yadm` also supplies the ability to manage a subset of secure files, which are encrypted before they are  included in the repository.
 
-<box type="danger">
+<box type="warning">
 Before copying dotfiles over to a system, ensure that there is a backup of the local dotfiles so they are not overwritten.
 </box>
 
