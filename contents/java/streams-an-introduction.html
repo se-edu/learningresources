@@ -312,57 +312,62 @@
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
           <h1 id="java-8-streams-an-introduction">Java 8 Streams - An Introduction<a class="fa fa-anchor" href="#java-8-streams-an-introduction"></a></h1>
           <p>Author: Lee Yi Min</p>
+          <box id="article-toc">
+            <ul>
+              <li><a href="#overview">Overview</a></li>
+              <li><a href="#getting-started">Getting Started</a>
+                <ul>
+                  <li><a href="#functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions</a>
+                    <ul>
+                      <li><a href="#functional-interface">Functional Interface</a></li>
+                      <li><a href="#method-reference">Method Reference</a></li>
+                      <li><a href="#lambda-expressions">Lambda Expressions</a></li>
+                      <li><a href="#an-example">An Example</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#what-is-a-stream">What is a stream?</a></li>
+                </ul>
+              </li>
+              <li><a href="#building-a-stream-pipeline">Building a Stream Pipeline</a>
+                <ul>
+                  <li><a href="#constructing-streams">Constructing Streams</a></li>
+                  <li><a href="#intermediate-operations">Intermediate Operations</a>
+                    <ul>
+                      <li><a href="#filter">Filter</a></li>
+                      <li><a href="#map">Map</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#terminal-operations">Terminal Operations</a>
+                    <ul>
+                      <li><a href="#collect">Collect</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#drawbacks-and-pitfalls">Drawbacks and Pitfalls</a>
+                    <ul>
+                      <li><a href="#long-complicated-lambda-expressions">Long, complicated lambda expressions</a></li>
+                      <li><a href="#difficulty-in-optimising-stream-performance">Difficulty in optimising stream performance</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#resources">Resources</a>
+                <ul>
+                  <li><a href="#functional-interfaces">Functional Interfaces</a></li>
+                  <li><a href="#method-references">Method References</a></li>
+                  <li><a href="#lambda-expressions">Lambda Expressions</a></li>
+                  <li><a href="#stream">Stream</a>
+                    <ul>
+                      <li><a href="#common-pitfalls">Common Pitfalls</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </box>
 
-          <ul>
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#getting-started">Getting Started</a>
-              <ul>
-                <li><a href="#functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions</a>
-                  <ul>
-                    <li><a href="#functional-interface">Functional Interface</a></li>
-                    <li><a href="#method-reference">Method Reference</a></li>
-                    <li><a href="#lambda-expressions">Lambda Expressions</a></li>
-                    <li><a href="#an-example">An Example</a></li>
-                  </ul>
-                </li>
-                <li><a href="#what-is-a-stream">What is a stream?</a></li>
-              </ul>
-            </li>
-            <li><a href="#building-a-stream-pipeline">Building a Stream Pipeline</a>
-              <ul>
-                <li><a href="#constructing-streams">Constructing Streams</a></li>
-                <li><a href="#intermediate-operations">Intermediate Operations</a>
-                  <ul>
-                    <li><a href="#filter">Filter</a></li>
-                    <li><a href="#map">Map</a></li>
-                  </ul>
-                </li>
-                <li><a href="#terminal-operations">Terminal Operations</a>
-                  <ul>
-                    <li><a href="#collect">Collect</a></li>
-                  </ul>
-                </li>
-                <li><a href="#drawbacks-and-pitfalls">Drawbacks and Pitfalls</a>
-                  <ul>
-                    <li><a href="#long-complicated-lambda-expressions">Long, complicated lambda expressions</a></li>
-                    <li><a href="#difficulty-in-optimising-stream-performance">Difficulty in optimising stream performance</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#resources">Resources</a>
-              <ul>
-                <li><a href="#functional-interfaces">Functional Interfaces</a></li>
-                <li><a href="#method-references">Method References</a></li>
-                <li><a href="#lambda-expressions">Lambda Expressions</a></li>
-                <li><a href="#stream">Stream</a>
-                  <ul>
-                    <li><a href="#common-pitfalls">Common pitfalls</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
+
+
+
 
           <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
           <p>In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with
@@ -619,14 +624,31 @@
               <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#functional-interface-and-lambda-expressions">Functional Interface and Lambda Expressions&#x200E;</a>
+                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                  <a class="nav-link py-1" href="#functional-interface">Functional Interface&#x200E;</a>
+                  <a class="nav-link py-1" href="#method-reference">Method Reference&#x200E;</a>
+                  <a class="nav-link py-1" href="#lambda-expressions">Lambda Expressions&#x200E;</a>
+                  <a class="nav-link py-1" href="#an-example">An Example&#x200E;</a>
+                </nav>
                 <a class="nav-link py-1" href="#what-is-a-stream">What is a Stream?&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#building-a-stream-pipeline">Building a Stream Pipeline&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#constructing-streams">Constructing Streams&#x200E;</a>
                 <a class="nav-link py-1" href="#intermediate-operations">Intermediate Operations&#x200E;</a>
+                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                  <a class="nav-link py-1" href="#filter">Filter&#x200E;</a>
+                  <a class="nav-link py-1" href="#map">Map&#x200E;</a>
+                </nav>
                 <a class="nav-link py-1" href="#terminal-operations">Terminal Operations&#x200E;</a>
+                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                  <a class="nav-link py-1" href="#collect">Collect&#x200E;</a>
+                </nav>
                 <a class="nav-link py-1" href="#drawbacks-and-pitfalls">Drawbacks and Pitfalls&#x200E;</a>
+                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                  <a class="nav-link py-1" href="#long-complicated-lambda-expressions">Long, Complicated Lambda Expressions&#x200E;</a>
+                  <a class="nav-link py-1" href="#difficulty-in-optimising-stream-performance">Difficulty in Optimising Stream Performance&#x200E;</a>
+                </nav>
               </nav>
               <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
@@ -634,6 +656,9 @@
                 <a class="nav-link py-1" href="#method-references">Method References&#x200E;</a>
                 <a class="nav-link py-1" href="#lambda-expressions-2">Lambda Expressions&#x200E;</a>
                 <a class="nav-link py-1" href="#stream">Stream&#x200E;</a>
+                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                  <a class="nav-link py-1" href="#common-pitfalls">Common Pitfalls&#x200E;</a>
+                </nav>
               </nav>
             </nav>
 
@@ -643,7 +668,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Thu, Apr 2, 2020, 4:01:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sat, Apr 4, 2020, 11:42:49 AM UTC]</small></div>
     </footer>
   </div>
 </body>

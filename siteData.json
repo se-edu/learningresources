@@ -540,7 +540,7 @@
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
-      "pageNav": 3,
+      "pageNav": 4,
       "src": "contents/java/JavaReflections.md",
       "layout": "default",
       "headings": {
@@ -586,7 +586,7 @@
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
-      "pageNav": 3,
+      "pageNav": 4,
       "src": "contents/java/streams-an-introduction.md",
       "layout": "default",
       "headings": {
