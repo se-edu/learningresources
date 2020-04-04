@@ -312,39 +312,42 @@
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
           <h1 id="introduction-to-machine-learning-ml">Introduction to Machine Learning (ML)<a class="fa fa-anchor" href="#introduction-to-machine-learning-ml"></a></h1>
           <p>Authors: <a href="https://github.com/alexfjw">Alex Fong</a></p>
-          <ul>
-            <li><a href="#what-is-ml">What is ML</a>
-              <ul>
-                <li><a href="#types-of-ml-tasks">Types of ML tasks</a></li>
-                <li><a href="#types-of-ml-algorithms">Types of ML Algorithms</a>
-                  <ul>
-                    <li><a href="#supervised-learning">Supervised Learning</a></li>
-                    <li><a href="#unsupervised-learning">Unsupervised Learning</a></li>
-                  </ul>
-                </li>
-                <li><a href="#types-of-data">Types of Data</a></li>
-              </ul>
-            </li>
-            <li><a href="#how-ml-is-applied">How is ML Applied</a>
-              <ul>
-                <li><a href="#prototyping-platforms-and-tools">Prototyping Platforms and Tools</a></li>
-                <li><a href="#prototyping-workflow">Prototyping Workflow</a></li>
-                <li><a href="#basic-data-preprocessing">Basic Data Preprocessing</a></li>
-                <li><a href="#partitioning-of-data">Partitioning of Data</a>
-                  <ul>
-                    <li><a href="#test-set">Test Set</a></li>
-                    <li><a href="#validation-set">Validation Set</a></li>
-                    <li><a href="#training-set">Training Set</a></li>
-                  </ul>
-                </li>
-                <li><a href="#model-training-evaluation-data-analysis">Model Training, Evaluation, Data Analysis</a></li>
-                <li><a href="#production">Production</a></li>
-                <li><a href="#concluding-remarks">Concluding Remarks</a></li>
-              </ul>
-            </li>
-            <li><a href="#supplementary-resources">Supplementary Resources</a></li>
-            <li><a href="#footnotes">Footnotes</a></li>
-          </ul>
+          <box id="article-toc">
+            <ul>
+              <li><a href="#what-is-machine-learning">What is Machine Learning‎</a>
+                <ul>
+                  <li><a href="#types-of-machine-learning-tasks">Types of Machine Learning tasks‎</a></li>
+                  <li><a href="#types-of-machine-learning-algorithms">Types of Machine Learning Algorithms‎</a>
+                    <ul>
+                      <li><a href="#supervised-learning">Supervised Learning‎</a></li>
+                      <li><a href="#unsupervised-learning">Unsupervised Learning‎</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#types-of-data">Types of Data‎</a></li>
+                </ul>
+              </li>
+              <li><a href="#how-machine-learning-is-applied">How Machine Learning is Applied‎</a>
+                <ul>
+                  <li><a href="#prototyping-platforms-and-tools">Prototyping Platforms and Tools‎</a></li>
+                  <li><a href="#prototyping-workflow">Prototyping Workflow‎</a></li>
+                  <li><a href="#basic-data-preprocessing">Basic Data Preprocessing‎</a></li>
+                  <li><a href="#partitioning-of-data">Partitioning of Data‎</a>
+                    <ul>
+                      <li><a href="#test-set">Test Set‎</a></li>
+                      <li><a href="#validation-set">Validation Set‎</a></li>
+                      <li><a href="#training-set">Training Set‎</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#model-training-evaluation-data-analysis">Model Training, Evaluation, Data Analysis‎</a></li>
+                  <li><a href="#production">Production‎</a></li>
+                  <li><a href="#concluding-remarks">Concluding Remarks‎</a></li>
+                </ul>
+              </li>
+              <li><a href="#supplementary-resources">Supplementary Resources‎</a></li>
+              <li><a href="#footnotes">Footnotes‎</a></li>
+            </ul>
+          </box>
+
           <h2 id="what-is-machine-learning">What is Machine Learning?<a class="fa fa-anchor" href="#what-is-machine-learning"></a></h2>
           <p>Machine learning is a subfield in artificial intelligence whereby computers learn from data to perform a task. Machine learning is powerful because it can discern complex patterns within data, and utilize them to produce desired outputs.</p>
           <p>An example of a task is machine translation, where text is converted from one language to another by a computer. It is difficult to perform machine translation with regular programming, where we have to write clear instructions for the computer.
@@ -515,6 +518,10 @@
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
                 <a class="nav-link py-1" href="#types-of-machine-learning-tasks">Types of Machine Learning Tasks&#x200E;</a>
                 <a class="nav-link py-1" href="#types-of-machine-learning-algorithms">Types of Machine Learning Algorithms&#x200E;</a>
+                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                  <a class="nav-link py-1" href="#supervised-learning">Supervised Learning&#x200E;</a>
+                  <a class="nav-link py-1" href="#unsupervised-learning">Unsupervised Learning&#x200E;</a>
+                </nav>
                 <a class="nav-link py-1" href="#types-of-data">Types of Data&#x200E;</a>
               </nav>
               <a class="nav-link py-1" href="#how-is-machine-learning-applied">How is Machine Learning Applied?&#x200E;</a>
@@ -523,6 +530,11 @@
                 <a class="nav-link py-1" href="#prototyping-workflow">Prototyping Workflow&#x200E;</a>
                 <a class="nav-link py-1" href="#basic-data-preprocessing">Basic Data Preprocessing&#x200E;</a>
                 <a class="nav-link py-1" href="#partitioning-of-data">Partitioning of Data&#x200E;</a>
+                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                  <a class="nav-link py-1" href="#test-set">Test Set&#x200E;</a>
+                  <a class="nav-link py-1" href="#validation-set">Validation Set&#x200E;</a>
+                  <a class="nav-link py-1" href="#training-set">Training Set&#x200E;</a>
+                </nav>
                 <a class="nav-link py-1" href="#model-training-evaluation-data-analysis">Model Training, Evaluation, Data Analysis&#x200E;</a>
                 <a class="nav-link py-1" href="#production">Production&#x200E;</a>
                 <a class="nav-link py-1" href="#concluding-remarks">Concluding Remarks&#x200E;</a>
@@ -537,7 +549,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sat, Apr 4, 2020, 11:42:49 AM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sat, Apr 4, 2020, 2:55:42 PM UTC]</small></div>
     </footer>
   </div>
 </body>
