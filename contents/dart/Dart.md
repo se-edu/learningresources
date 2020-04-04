@@ -12,7 +12,9 @@
 {{ booktitle | safe }}
 
 # Introduction to Dart
-**Author(s): [Tan Yuanhong](https://github.com/le0tan)**<br>
+**Author: [Tan Yuanhong](https://github.com/le0tan)**
+
+Reviewers: [Daryl Tan](https://github.com/openorclose), [Ang Ze Yu](https://github.com/ang-zeyu), [Tejas Bhuwania](https://github.com/Tejas2805)
 
 ## What is Dart?
 Dart (previously also known as `dartlang`) is an object-oriented, <tooltip content="a style of Object-oriented programming (OOP) in which inheritance occurs via defining classes of objects, instead of inheritance occurring via the objects alone (compare prototype-based programming)">class defined</tooltip>, garbage-collected language using a C-style syntax that <tooltip content="also known as source-to-source compilation">transcompiles</tooltip> optionally into JavaScript. It's rumored that Dart was invented out of Google engineers' frustration with JavaScript (they even built [a version of Chromium browser](http://dartdoc.takyam.com/tools/dartium/) with Dart VM so that Dart code can be run on the web without transcompiling to JavaScript). However, as most developers still stick to JavaScript and it turned out that TypeScript is a much more widely-accepted solution for statically typed JavaScript transcompilation, Dart is then, with the emergence of <tooltip content="a cross-platform mobile UI framework developed by Google">Flutter</tooltip>, re-purposed as a **client-optimized** language that's optimized for **UI creation** and **cross-platform execution**.
@@ -25,7 +27,7 @@ Dart (previously also known as `dartlang`) is an object-oriented, <tooltip conte
 
 To be more specific, why is reactive programming, a declarative programming paradigm, important for UI development?
 
-**What is reactive programming?** Consider the expression `a = b + c`, in the world of *imperative programming*, it simply means "calculate the value of `b` and `c`, assign the result to `a`" - changing the value of `b` or `c` later would not change `a`. However, with reactive programming, you can consider `a` will always evaluate to the result of `b+c` even without you explicitly calling `a=b+c`. Such behavior is especially useful for writing UI - you no longer need to manually update the information displayed with a setter of some kind. Simply *declare* that variable `x` is related to UI element `y`, the runtime will update `y` whenever it detects a change in `x`. In short, reactive programming saves you from the headache of maintaining the consistency between the UI and internal states.
+**What is reactive programming?** Consider the expression `a = b + c`, in the world of *imperative programming*, it simply means "calculate the value of `b + c`, assign the result to `a`" - changing the value of `b` or `c` later would not change `a`. However, with reactive programming, you can consider `a` will always evaluate to the result of `b+c` even without you explicitly calling `a=b+c`. Such behavior is especially useful for writing UI - you no longer need to manually update the information displayed with a setter of some kind. Simply *declare* that variable `x` is related to UI element `y`, the runtime will update `y` whenever it detects a change in `x`. In short, reactive programming saves you from the headache of maintaining the consistency between the UI and internal states.
 
 From above, you can see that *reactive programming* is by nature *declarative* as you don't write code to tell computers what to do at each step, you describe what's the expected behavior (e.g. a box should be centered at the screen, a button should turn grey when clicked, etc.). 
 
@@ -56,7 +58,7 @@ The flexibility provided by the three execution modes of Dart makes Dart unique 
 
 ## Notable Characteristics
 
-### Built-in Asynchrony Support
+### Built-In Asynchrony Support
 
 Asynchronous programming is important for UI development because you don't want your UI to freeze when some time-consuming operation (e.g. network request, computationally heavy subroutines) is happening. 
 
@@ -218,7 +220,7 @@ Actually, **named** parameters are a type of [**optional** parameters](https://d
 
 **Tooling support**: Dart has out-of-the-box dependency management ([pub.dev](https://pub.dev/)), linting solution ([dartfmt](https://dart.dev/tools/dartfmt)), documentation generator ([dartdoc](https://dart.dev/tools/dartdoc)) and [official testing framework](https://pub.dev/packages/test). After installing Dart SDK, you're ready to go 99% of the time.
 
-**Popularity**: Dart is a relatively new (first appeared in 2011), but quickly gained popularity in recent years: it's ranked 16th the first time it entered the [IEEE Spectrum programming language ranking](https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019). And Dart is being actively maintained by a team at Google: check out the [GitHub repo of Dart SDK](https://github.com/dart-lang/sdk).
+**Popularity**: Dart is a relatively new (first appeared in 2011), but quickly gained popularity in recent years: it's ranked 16th the first time it entered the [IEEE Spectrum programming language ranking](https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019), and 23rd on [TIOBE](https://www.tiobe.com/tiobe-index/) as of April 2020. And Dart is being actively maintained by a team at Google: check out the [GitHub repo of Dart SDK](https://github.com/dart-lang/sdk).
 
 ### Limitations
 
