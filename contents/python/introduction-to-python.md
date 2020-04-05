@@ -18,7 +18,6 @@ Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang C
 <box id="article-toc">
 
 * [Getting started with Python‎](#getting-started-with-python)
-* [Python 2 vs Python 3‎](#python-2-vs-python-3)
 * [Virtual Environment‎](#virtual-environment)
 * [Common Data Structures‎](#common-data-structures)
 * [Indexing and Slicing‎](#indexing-and-slicing)
@@ -27,6 +26,7 @@ Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang C
 * [Python for Data Science‎](#python-for-data-science)
   * [Tutorials‎](#tutorials)
 * [Gotchas‎](#gotchas)
+* [A note on Python 2](#a-note-on-python-2)
 </box>
 
 Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.
@@ -38,14 +38,6 @@ If you're a programmer looking to get in on the Python action, check out [Google
 For absolute beginners, check out [this video](https://www.youtube.com/watch?v=N4mEzFDjqtA) by Derek Banas where he covers everything from installing Python and the basics to more advanced concepts like Inheritance and Polymorphism in under an hour! If you'd prefer to read, check out [Python Guru](http://thepythonguru.com/) which has plenty of code samples to help you along.
 
 Both newbies and experienced programmers can also benefit from [The Python Tutorial](https://docs.python.org/3/tutorial/index.html), which aims to introduce readers to Python's unique features and style.
-
-## Python 2 vs Python 3
-
-Despite obvious similarities in two Python versions, Python 3's intentional backward incompatibility makes choosing to learn Python 3 over Python 2 a tough problem for both new and experienced Python programmers. Some concerns include the lack of popular Python 2 packages in Python 3 as well as changes in some Python built-in libraries that might break existing systems. One example is that a simple `print 'Hello World'` that runs perfectly in Python 2 will cause a syntax error in Python 3.
-
-Read more in this Digital Ocean's [post](https://www.digitalocean.com/community/tutorials/python-2-vs-python-3-practical-considerations-2) to understand this conundrum of choosing between Python 2 and Python 3 better. If you choose to learn both Python 2 and Python 3, take a look at some of these important [changes](https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/) to avoid [gotchas](#gotchas) due to version differences.
-
-Overall, it is recommended to learn Python 3 as a beginner today as it has been [10 years since Python 3 debuted](https://www.python.org/download/releases/3.0/). This stance is also [supported](http://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html#why-is-python-3-considered-a-better-language-to-teach-beginning-programmers) by core members of Python. Moreover, unlike the early days of Python 3's release, many popular packages from Python 2 now support Python 3 as well. Since Python 2 is a legacy language while Python 3 is in active development, it would be better to learn Python 3 today.
 
 ## Virtual Environment
 
@@ -116,4 +108,11 @@ Learning how to avoid such pitfalls is one huge step towards being a productive 
 
 * [Top 10 Common Mistakes of Python Programmers](https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make)
 * [Common Python Gotchas](https://sopython.com/wiki/Common_Gotchas_In_Python)
+
+## A note on Python 2
+When reading about Python online, you may encounter references to *Python 2*.
+Python 2 is an older, **discontinued** version of the Python language.
+The Python Software Foundation is [no longer maintaining Python 2](https://www.python.org/doc/sunset-python-2/), which means
+new projects are unlikely to use it.
+
 </div>
