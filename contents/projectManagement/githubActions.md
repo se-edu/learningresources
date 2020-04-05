@@ -1,3 +1,16 @@
+<frontmatter>
+  title: Workflow Automation with Github Actions
+  header: pagetop.md
+  footer: footer.md
+  head: head.md
+  siteNav: mainNav.md
+  pageNav: 3
+</frontmatter>
+
+<div class="website-content">
+
+{{ booktitle | safe }}
+
 # Github Actions
 
 📝 [@alyip98](https://github.com/alyip98)
