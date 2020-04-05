@@ -24,7 +24,7 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
   * [Find hash-equals mismatch](#find-hash-equals-mismatch)
   * [Return value of method ignored](#return-value-of-method-ignored)
   * [Null pointer dereference](#null-pointer-dereference)
-* [How to use it](#how-to-use-it)
+* [How to use it?](#how-to-use-it)
   * [Configuration](#configuration)
   * [Suppress Warnings](#suppress-warnings)
   * [Running](#running)

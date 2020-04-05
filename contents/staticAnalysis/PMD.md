@@ -20,7 +20,7 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
 * [Overview‎](#overview)
 * [Features‎](#features)
 * [Limitation‎](#limitation)
-* [How to use it‎](#how-to-use-it)
+* [How to use it?‎](#how-to-use-it)
   * [Download‎](#download)
   * [Configuration‎](#configuration)
   * [Suppress Warnings‎](#suppress-warnings)
@@ -28,7 +28,7 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
   * [Integration with Build Automation Tools‎](#integration-with-build-automation-tools)
   * [Integration with IDEs‎](#integration-with-ides)
 * [Available Rulesets‎](#available-rulesets)
-* [How does it work‎](#how-does-it-work)
+* [How does it work?‎](#how-does-it-work)
 * [Customization‎](#customization)
 * [Resources‎](#resources)
 </box>
