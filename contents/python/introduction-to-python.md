@@ -26,7 +26,7 @@ Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang C
 * [Python for Data Science‎](#python-for-data-science)
   * [Tutorials‎](#tutorials)
 * [Gotchas‎](#gotchas)
-* [A note on Python 2](#a-note-on-python-2)
+* [A Note on Python 2](#a-note-on-python-2)
 </box>
 
 Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.
@@ -109,7 +109,7 @@ Learning how to avoid such pitfalls is one huge step towards being a productive 
 * [Top 10 Common Mistakes of Python Programmers](https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make)
 * [Common Python Gotchas](https://sopython.com/wiki/Common_Gotchas_In_Python)
 
-## A note on Python 2
+## A Note on Python 2
 When reading about Python online, you may encounter references to *Python 2*.
 Python 2 is an older, **discontinued** version of the Python language.
 The Python Software Foundation is [no longer maintaining Python 2](https://www.python.org/doc/sunset-python-2/), which means new projects are unlikely to use it.
