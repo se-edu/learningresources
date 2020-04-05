@@ -112,7 +112,6 @@ Learning how to avoid such pitfalls is one huge step towards being a productive 
 ## A note on Python 2
 When reading about Python online, you may encounter references to *Python 2*.
 Python 2 is an older, **discontinued** version of the Python language.
-The Python Software Foundation is [no longer maintaining Python 2](https://www.python.org/doc/sunset-python-2/), which means
-new projects are unlikely to use it.
+The Python Software Foundation is [no longer maintaining Python 2](https://www.python.org/doc/sunset-python-2/), which means new projects are unlikely to use it.
 
 </div>
