@@ -15,6 +15,17 @@
 
 Author: [Tran Tien Dat](https://github.com/tran-tien-dat)
 
+<box id="article-toc">
+
+* [Flow of a CSRF attack‎](#flow-of-a-csrf-attack)
+  * [Step 1: The victim logs in to a vulnerable web service‎](#step-1-the-victim-logs-in-to-a-vulnerable-web-service)
+  * [Step 2: The victim visits an untrusted website controlled by the attacker‎](#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker)
+  * [Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf‎](#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf)
+* [Conditions for a successful CSRF attack‎](#conditions-for-a-successful-csrf-attack)
+* [Defense against CSRF attacks‎](#defense-against-csrf-attacks)
+* [References‎](#references)
+</box>
+
 Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like [Gmail](http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html) and [Netflix](http://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html) in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.
 
 ## Flow of a CSRF Attack

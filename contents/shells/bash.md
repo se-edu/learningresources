@@ -18,6 +18,15 @@ Author: [Wang Junming](https://github.com/junming403)
 Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Ong Shu Peng](https://github.com/ongspxm), [Jeremy Choo](https://www.github.com/ChooJeremy), [Tan Zhen Yong
 ](https://github.com/Xenonym)
 
+<box id="article-toc">
+
+* [What is the shell?‎](#what-is-the-shell)
+  * [Bash scripts‎](#bash-scripts)
+  * [Combining of scripts via stream redirection‎](#combining-of-scripts-via-stream-redirection)
+* [Why use the shell?‎](#why-use-the-shell)
+* [How to get started?‎](#how-to-get-started)
+</box>
+
 ## What is the Shell?
 
 In general, a computer can be divided into 3 abstraction layers: hardware, kernel and applications. As users, we cannot control the hardware directly. Instructions have to be given through the kernel as the kernel is the one that controls the hardware.
