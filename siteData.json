@@ -867,6 +867,28 @@
       "headingKeywords": {}
     },
     {
+      "title": "Introduction to Natural Language Processing (NLP)",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/naturalLanguage/nl.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-natural-language-processing-nlp": "Introduction to Natural Language Processing (NLP)",
+        "what-is-nlp": "What is NLP?",
+        "themes-in-nlp": "Themes in NLP",
+        "syntax": "Syntax",
+        "semantics": "Semantics",
+        "relations": "Relations",
+        "applications-of-nlp": "Applications of NLP",
+        "what-s-next": "What's Next",
+        "references": "References"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Introduction to Node",
       "header": "pagetop.md",
       "footer": "footer.md",

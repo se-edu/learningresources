@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.13.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Performance Profiling</title>
+  <title>SE-EDU/LearningResources - Introduction to Natural Language Processing (NLP)</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -132,10 +132,10 @@
             </ul>
           </div>
           </li>
-          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
+          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+ <i class="dropdown-btn-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container dropdown-container-open">
+            <div class="dropdown-container">
               <ul class="pl-3 site-nav-list">
                 <li class="mt-2"><button class="dropdown-btn">Architecture
  <i class="dropdown-btn-icon">
@@ -157,13 +157,13 @@
                 </li>
                 <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
                 <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Performance
- <i class="dropdown-btn-icon rotate-icon">
+                <li class="mt-2"><button class="dropdown-btn">Performance
+ <i class="dropdown-btn-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container dropdown-container-open">
+                  <div class="dropdown-container">
                     <ul class="pl-3 site-nav-list">
                       <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a current">Performance Profiling</a></li>
+                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
                       <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
                     </ul>
                   </div>
@@ -251,10 +251,10 @@
               </ul>
             </div>
           </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
- <i class="dropdown-btn-icon">
+          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Other Topics</strong></strong>
+ <i class="dropdown-btn-icon rotate-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
+            <div class="dropdown-container dropdown-container-open">
               <ul class="pl-3 site-nav-list">
                 <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
                 <li class="mt-2"><button class="dropdown-btn">Databases
@@ -278,7 +278,7 @@
                     </ul>
                   </div>
                 </li>
-                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a current">Natural Language Processing</a></li>
                 <li class="mt-2"><button class="dropdown-btn">Security
  <i class="dropdown-btn-icon">
 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
@@ -312,80 +312,158 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="performance-profiling">Performance Profiling<a class="fa fa-anchor" href="#performance-profiling"></a></h1>
-          <p>Author: <a href="https://github.com/initialshl">Ong Heng Le</a></p>
-          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview"></a></h2>
-          <p>A performance profiler is a tool which collects data (such as function timings) about your program to identify the areas with performance issues, commonly used in code optimization. There are two common types of performance profiling methods.</p>
-          <ul>
-            <li><strong>CPU sampling</strong>: Collects <em>samples</em> at fixed intervals, which provides an overview of your program's performance</li>
-            <li><strong>Instrumentation</strong>: Collects detailed <em>elapsed times</em> for your program's function calls</li>
-          </ul>
-          <p>Learn <a href="https://blogs.msdn.microsoft.com/ejarvi/2005/04/07/the-choice-between-sampling-and-instrumentation/">which profiling method to use for your program</a> when choosing between CPU sampling and instrumentation.</p>
-          <h2 id="performance-profiling-for-the-first-time">Performance Profiling for the First Time<a class="fa fa-anchor" href="#performance-profiling-for-the-first-time"></a></h2>
-          <p>This article provides resources to help you identify the performance issues as you perform profiling on your program for the first time. The general steps in profiling a program for the first time are:</p>
-          <ol>
-            <li>Run a performance profiling session</li>
-            <li>View the performance report</li>
-            <li>Trace down to the problem</li>
-            <li>Identify areas for improvements upwards</li>
-          </ol>
-          <p>Most profilers are similar in their functionalities, user interface, and use of technical terms. You may adapt the tutorials in this article to your preferred profiling tools on your own project.</p>
-          <ul>
-            <li><a href="/learningresources/contents/performance/ProfilingDesktopAppVS2015.html">Profiling a Desktop Application In Visual Studio 2015</a></li>
-          </ul>
-          <h2 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics"></a></h2>
-          <h3 id="sampling-interval">Sampling Interval<a class="fa fa-anchor" href="#sampling-interval"></a></h3>
-          <p>CPU sampling captures data at fixed intervals, usually based on CPU cycles or time. Many profilers offer the option to <strong>set a custom interval or perform sampling based on events</strong>, such as page faults or system calls, in the sampling
-            settings.
+          <h1 id="introduction-to-natural-language-processing-nlp">Introduction to Natural Language Processing (NLP)<a class="fa fa-anchor" href="#introduction-to-natural-language-processing-nlp"></a></h1>
+          <p>Authors: <a href="https://github.com/j-lum">Lum Ka Fai Jeffry</a></p>
+          <box id="article-toc">
+            * [What is NLP?](#what-is-nlp) * [Themes in NLP](#themes-in-nlp) * [Syntax](#syntax) * [Semantics](#semantics) * [Relations](#relations) * [Applications of NLP](#applications-of-nlp) * [What's Next](#whats-next) * [References](#references)
+          </box>
+          <h2 id="what-is-nlp">What is NLP?<a class="fa fa-anchor" href="#what-is-nlp"></a></h2>
+          <p>Natural Language Processing (NLP) is the set of methods for making human language accessible to computers. Recent advances in NLP have given rise to useful tools that have become embedded in our daily lives, for example: spam and phishing classification
+            keeps inboxes sane<sup><a href="#footnote1">1</a></sup>; automated chatbots lighten the load on customer support staff and provide customers with immediate feedback<sup><a href="#footnote2">2</a></sup>; machine translation bridge the gap between
+            cultures
+            <sup><a href="#footnote3">3</a></sup>.</p>
+          <p>NLP draws from many other fields of science, from formal linguistics to statistics. The goal of NLP is to provide new computational capabilities around human language: for example, holding a conversation, summarizing an article, and so on.</p>
+          <p>Even though the study of NLP covers a diverse range of tasks, most of them can be generalized to three themes: <a href="#syntax"><em>syntax</em></a>, <a href="#semantics"><em>semantics</em></a> and <a href="#relations"><em>relations</em></a>.</p>
+          <h2 id="themes-in-nlp">Themes in NLP<a class="fa fa-anchor" href="#themes-in-nlp"></a></h2>
+          <h3 id="syntax">Syntax<a class="fa fa-anchor" href="#syntax"></a></h3>
+          <p>In order to transform language into a form understandable by computers, raw text must be converted to a general-purpose linguistic structure. In English, words can be decomposed to <em>morphemes</em>, the minimal unit of meaning (e.g. unhappiness
+            to three morphemes un-happy-ness)<sup><a href="#footnote4">4</a></sup>. Similarly, sentences can be tagged with word-level <em>parts-of-speech</em> which describe the meaning of each word in the context of that sentence.</p>
+          <p align="center">
+            <pic src="/learningresources/contents/naturalLanguage/partsOfSpeech.png" alt="partsOfSpeech" width="90%">
+              <sub><i>Figure 1. Parts of Speech</i></sub></pic>
           </p>
+          <p>For example, 'informative' is tagged as an adjective (JJ) and 'article' as a noun (NN)<sup><a href="#footnote5">5</a></sup>.</p>
+          <p align="center">
+            <pic src="/learningresources/contents/naturalLanguage/constituencyParse.png" alt="Constituency Parse" width="90%">
+              <sub><i>Figure 2. Constituency Parse</i></sub></pic>
+          </p>
+          <p>From the parts-of-speech tags, a tree-structured representation of grammar can be produced. This tree is the result of a <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">a constituency parse is an assignment of a syntactic structure to a sentence</span><i>constituency parse</i></span>.
+            From the tree we can see that the phrase 'an informative article' is simply a <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">a noun phrase is a group of words that includes a noun and modifiers like adjectives.</span><i>noun phrase</i></span>.
+            Incidentally, this is how Microsoft Word checks for grammatical errors<sup><a href="#footnote6">6</a></sup>. Any tree that cannot be parsed may be grammatically incorrect or difficult to understand.</p>
+          <h3 id="semantics">Semantics<a class="fa fa-anchor" href="#semantics"></a></h3>
+          <p>With the knowledge of a sentence and its structure, the next step is to understand the meaning it conveys. To this end, the representation of the meaning of a sentence should be able to link language to concepts<sup><a href="#footnote7">7</a></sup>.</p>
+          <p>Take for example the sentence:</p>
+          <blockquote>
+            <p>I wrote an article!</p>
+          </blockquote>
+          <p>In order to understand the meaning of the sentence, a few questions need to be answered:</p>
           <ul>
-            <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/ms182376.aspx">How to: Choose Sampling Events</a><br></li>
-            <li>For YourKit Java Profiler: <a href="https://www.yourkit.com/docs/java/help/sampling_settings.jsp">YourKit Java Profiler Help - CPU sampling settings</a></li>
+            <li>Who is 'I'?</li>
+            <li>What is 'an article'?</li>
+            <li>How are the two subjects related?</li>
           </ul>
-          <h3 id="instrumentation-overhead">Instrumentation Overhead<a class="fa fa-anchor" href="#instrumentation-overhead"></a></h3>
-          <p>Instrumentation profiling incurs a substantial overhead, which is an increase in file size and execution time of the program. This makes it unsuitable for large projects. In such cases, it is recommended to <strong>limit instrumentation to a specific portion of your project</strong>.</p>
-          <ul>
-            <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/cc470663.aspx">How to: Limit Instrumentation to Specific Functions</a> or <a href="https://msdn.microsoft.com/en-us/library/bb385752.aspx">Specific DLLs</a></li>
-          </ul>
-          <p>To reduce instrumentation overhead, some profilers may exclude <em>small functions</em>, which are short functions that do not make any function calls, and treat the time as being spent in their calling functions. This behavior is usually enabled
-            by default, which may be undesirable when you want to <strong>examine <em>small functions</em> carefully</strong>. Most profilers offer the option to change this behavior.</p>
-          <ul>
-            <li>For Visual Studio 2015: <a href="https://msdn.microsoft.com/en-us/library/bb514150.aspx">How to: Exclude or Include Short Functions from Instrumentation</a></li>
-          </ul>
-          <h2 id="profiling-other-types-of-data">Profiling Other Types of Data<a class="fa fa-anchor" href="#profiling-other-types-of-data"></a></h2>
-          <p>Other than collecting performance statistics and timing data, profilers are also able to collect other information such as memory allocation and GPU usage.</p>
-          <p>For Visual Studio 2015:</p>
+          <p>An approach is to represent the meaning of a sentence as a relationship triple consisting of a <em>Subject</em>, <em>Object</em> and <em>Relation</em>.</p>
+          <p align="center">
+            <pic src="/learningresources/contents/naturalLanguage/openIE.png" alt="Relation tuple" width="90%">
+              <sub><i>Figure 3. Relation tuple</i></sub></pic>
+          </p>
+          <p>From this representation of the sentence, it is possible for a system to answer novel questions like &quot;Who has written articles?&quot; or &quot;What are the articles that 'I' have written&quot;. This technique, Open Information Extraction,
+            is utilized by researchers to extract and summarize information from multiple documents.<sup><a href="#footnote8">8</a></sup></p>
+          <h3 id="relations">Relations<a class="fa fa-anchor" href="#relations"></a></h3>
+          <p>Relations are crucial to the understanding of natural languages. Consider the example:</p>
+          <blockquote>
+            <p>Geoffrey bought Mary a ring. They have been dating for months.</p>
+          </blockquote>
+          <p>What is the event that prompted Geoffrey to buy a ring? The word <em>proposal</em>, while not stated in the example, implicitly links the two events together. While humans are able to draw the connections instinctually, it is not easy to formalize
+            this process computationally.</p>
+          <p>There are attempts to create semantic <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">an ontology is a groupings of words by their meanings</span><i>ontologies</i></span>
+            for natural language.
+            <strong>WordNet</strong> is one such attempt, a handcrafted database that classifies words by concepts that they express<sup><a href="#footnote9">9</a></sup>.</p>
+          <p align="center">
+            <pic src="/learningresources/contents/naturalLanguage/wordNet.png" alt="WordNet results for write" width="90%">
+              <sub><i>Figure 4. WordNet results for the word "write"</i></sub></pic>
+          </p>
+          <p>More recently, techniques like <strong>word2vec</strong><sup><a href="#footnote10">10</a></sup> are able to model words and phrases as vectors of real numbers. This ability to quantify and categorize semantic similarity allows computers to infer
+            beyond just synonyms.</p>
+          <p align="center">
+            <pic src="/learningresources/contents/naturalLanguage/word2vec.png" alt="word2vec visualization for antonyms" width="90%">
+              <sub><i>Figure 5. word2vec visualization for antonyms</i></sub></pic>
+          </p>
+          <p>A simplified visualization of words in vector space shows that not only are words related in meaning close together, their antonyms are clustered together as well<sup><a href="#footnote11">11</a></sup>. This implies that word vectors can be
+            somewhat meaningfully combined by just using simple vector addition.</p>
+          <p>Word2vec has been used to analyze behaviour on e-commerce sites as human do not tend to browse for random items but purchase items that are related.</p>
+          <h3 id="applications-of-nlp">Applications of NLP<a class="fa fa-anchor" href="#applications-of-nlp"></a></h3>
+          <h4 id="input-methods-editors-e-g-chinese-japanese-and-korean">Input methods editors, e.g. Chinese, Japanese and Korean<a class="fa fa-anchor" href="#input-methods-editors-e-g-chinese-japanese-and-korean"></a></h4>
+          <p>Modern input method editors(IMEs) do more than simply translating input to output in the respective language. By tackling the syntactic and relational elements of natural language, IMEs provide autocomplete functionality by suggesting words
+            that are related or occur together frequently.</p>
+          <p>For example, typing &quot;<em>beijing</em>&quot; in Moon IME, a Chinese IME, will bring up &quot;<em>olympics</em>&quot; as a possible suggestion<sup><a href="#footnote12">12</a></sup>.</p>
+          <h4 id="indexing-and-information-retrieval-e-g-google-s-page-rank-and-normalization-of-search-terms">Indexing and information retrieval, e.g. Google's page rank and normalization of search terms<a class="fa fa-anchor" href="#indexing-and-information-retrieval-e-g-google-s-page-rank-and-normalization-of-search-terms"></a></h4>
+          <p>Search terms on Google are grouped together by semantic similarity in real time at volume to identify trends worldwide. This is achieved with techniques similar to <strong>word2vec</strong>.</p>
+          <h4 id="aggregation-and-clustering-of-documents-e-g-cambridge-analytica-google-news">Aggregation and clustering of documents, e.g. Cambridge Analytica, Google News<a class="fa fa-anchor" href="#aggregation-and-clustering-of-documents-e-g-cambridge-analytica-google-news"></a></h4>
+          <p>Techniques like <strong>doc2vec</strong><sup><a href="#footnote13">13</a></sup> build upon <strong>word2vec</strong> and provide a representation of paragraphs in vector space. Similar to <strong>word2vec</strong>, this enables classification
+            of documents and paves the road to powerful information retrieval techniques.</p>
+          <h4 id="machine-translation-e-g-google-translate">Machine translation, e.g. Google Translate<a class="fa fa-anchor" href="#machine-translation-e-g-google-translate"></a></h4>
+          <p><strong>seq2seq</strong><sup><a href="#footnote3">3</a></sup>, a algorithm developed by Google, transforms a sequence to another. This family of techniques uses special <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+              class="trigger"><span data-mb-html-for="_content">an artifical neural networks is a computer system made up of a number of simple, highly connected processing elements which translate information to some form of desired output</span><i>artificial neural network</i></span>
+            architectures to model sentences.</p>
+          <h4 id="automated-customer-support-e-g-chatbot-nanorep">Automated customer support, e.g. ChatBot, NanoRep<a class="fa fa-anchor" href="#automated-customer-support-e-g-chatbot-nanorep"></a></h4>
+          <p>Human-curated databases (e.g. <strong>WordNet</strong>) are used together with techniques like <strong>word2vec</strong> to extract actionable words or phrases<sup><a href="#footnote14">14</a></sup>. For example, the two possible input from
+            users regarding a replacement for a digital banking token:</p>
+          <blockquote>
+            <ul>
+              <li>I want to replace my token.</li>
+              <li>My old token is broken.</li>
+            </ul>
+          </blockquote>
+          <p>can be mapped back to the same intent to which a predefined response can be given.</p>
+          <p align="center">
+            <pic src="/learningresources/contents/naturalLanguage/dbsChatbot.png" alt="DBS chatbot responding to two different messages with a similar intent" width="90%">
+              <sub><i>Figure 6. DBS chatbot responding to two different messages with a similar intent</i></sub></pic>
+          </p>
+          <h2 id="what-s-next">What's Next<a class="fa fa-anchor" href="#what-s-next"></a></h2>
           <ol>
-            <li>List of <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">Profiling Tools</a> (A <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx#Anchor_10">table</a> which shows the most suitable tool for each project)</li>
-            <li><a href="https://msdn.microsoft.com/en-us/library/2s0xxa1d.aspx">How to: Collect Performance Data for a Web Site</a> (<a href="http://ASP.NET">ASP.NET</a> and JavaScript)</li>
-            <li><a href="https://msdn.microsoft.com/en-us/library/dd264934.aspx">Collecting .NET Memory Allocation and Lifetime Data</a></li>
-            <li><a href="https://msdn.microsoft.com/en-us/library/dd265004.aspx">Collecting Thread and Process Concurrency Data</a></li>
-            <li><a href="https://msdn.microsoft.com/en-us/library/dd465169.aspx">Collecting tier interaction data</a></li>
+            <li>
+              <p><strong>Get an intuition for linguistics</strong></p>
+              <p><a href="https://stevenpinker.com/publications/language-instinct">The Language Instinct</a> by Steven Pinker provides accessible insight about how humans learn language and the basics of formal linguistics. Learn about how to deconstruct
+                language into formal structures for critical analysis through engaging examples.</p>
+            </li>
+            <li>
+              <p><strong>Visually explore the themes present in NLP</strong></p>
+              <p>Stanford's <a href="https://corenlp.run/">CoreNLP</a> provides a visual representation of NLP techniques. Explore how sentences are annotated with <em>parts-of-speech</em> tags and see the output of a constituency parse.</p>
+            </li>
+            <li>
+              <p><strong>Take an online course on NLP</strong></p>
+              <p>Stanford University offers <a href="http://web.stanford.edu/class/cs224n/">CS224n: Natural Language Processing with Deep Learning</a> online. This course provides an introduction to modern techniques in NLP.</p>
+            </li>
+            <li>
+              <p><strong>Experiment with NLP libraries</strong></p>
+              <p>The aforementioned <a href="https://stanfordnlp.github.io/CoreNLP/">CoreNLP</a> library is a good starting point for developers comfortable in Java. For a simple and productive experience, <a href="https://spacy.io/">spaCy</a> is a Python
+                library suitable for experimentation and rapid prototyping.</p>
+            </li>
           </ol>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
-          <ol>
-            <li>What is a software profiler?: <a href="https://msdn.microsoft.com/en-us/library/bb384493(v=vs.110).aspx">Profiling Overview</a></li>
-            <li>Common performance profiling methods: <a href="https://msdn.microsoft.com/en-us/library/dd264994.aspx">Understanding Performance Collection Methods</a></li>
-            <li>Learn the best practices in profiling: <a href="https://netbeans.org/community/magazine/html/04/profiler.html">Advanced Profiling: Theory in Practice with NetBeans IDE</a></li>
-            <li>Why do profilers exclude small functions from instrumentation by default?: <a href="https://blogs.msdn.microsoft.com/profiler/2008/07/08/excluding-small-functions-from-instrumentation/">Excluding Small Functions From Instrumentation</a></li>
-          </ol>
+          <h2 id="references">References<a class="fa fa-anchor" href="#references"></a></h2>
+          <p><a name="footnote1">[1]</a>: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6562150/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6562150/</a> <br>
+            <a name="footnote2">[2]</a>: <a href="https://azure.microsoft.com/en-us/services/bot-service/">https://azure.microsoft.com/en-us/services/bot-service/</a> <br>
+            <a name="footnote3">[3]</a>: <a href="https://github.com/google/seq2seq">https://github.com/google/seq2seq</a> <br>
+            <a name="footnote4">[4]</a>: <a href="https://www.cs.bham.ac.uk/~pjh/sem1a5/pt2/pt2_intro_morphology.html">https://www.cs.bham.ac.uk/~pjh/sem1a5/pt2/pt2_intro_morphology.html</a> <br>
+            <a name="footnote5">[5]</a>: <a href="https://catalog.ldc.upenn.edu/docs/LDC95T7/cl93.html">https://catalog.ldc.upenn.edu/docs/LDC95T7/cl93.html</a> <br>
+            <a name="footnote6">[6]</a>: <a href="https://www.microsoft.com/en-us/research/project/nlpwin/">https://www.microsoft.com/en-us/research/project/nlpwin/</a> <br>
+            <a name="footnote7">[7]</a>: <a href="https://medium.com/huggingface/learning-meaning-in-natural-language-processing-the-semantics-mega-thread-9c0332dfe28e">https://medium.com/huggingface/learning-meaning-in-natural-language-processing-the-semantics-mega-thread-9c0332dfe28e</a>            <br>
+            <a name="footnote8">[8]</a>: <a href="https://www.aclweb.org/anthology/N13-1136">https://www.aclweb.org/anthology/N13-1136</a> <br>
+            <a name="footnote9">[9]</a>: <a href="https://wordnet.princeton.edu/">https://wordnet.princeton.edu/</a> <br>
+            <a name="footnote10">[10]</a>: <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf</a>            <br>
+            <a name="footnote11">[11]</a>: <a href="https://lamyiowce.github.io/word2viz/">https://lamyiowce.github.io/word2viz/</a> <br>
+            <a name="footnote12">[12]</a>: <a href="https://www.aclweb.org/anthology/P18-4024.pdf">https://www.aclweb.org/anthology/P18-4024.pdf</a> <br>
+            <a name="footnote13">[13]</a>: <a href="https://cs.stanford.edu/~quocle/paragraph_vector.pdf">https://cs.stanford.edu/~quocle/paragraph_vector.pdf</a> <br>
+            <a name="footnote15">[14]</a>: <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/09/intent-detection-semantically.pdf">https://www.microsoft.com/en-us/research/wp-content/uploads/2016/09/intent-detection-semantically.pdf</a>            <br></p>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#performance-profiling">Performance Profiling&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-natural-language-processing-nlp">Introduction to Natural Language Processing (NLP)&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-              <a class="nav-link py-1" href="#performance-profiling-for-the-first-time">Performance Profiling for the First Time&#x200E;</a>
-              <a class="nav-link py-1" href="#advanced-topics">Advanced Topics&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-nlp">What is NLP?&#x200E;</a>
+              <a class="nav-link py-1" href="#themes-in-nlp">Themes in NLP&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#sampling-interval">Sampling Interval&#x200E;</a>
-                <a class="nav-link py-1" href="#instrumentation-overhead">Instrumentation Overhead&#x200E;</a>
+                <a class="nav-link py-1" href="#syntax">Syntax&#x200E;</a>
+                <a class="nav-link py-1" href="#semantics">Semantics&#x200E;</a>
+                <a class="nav-link py-1" href="#relations">Relations&#x200E;</a>
+                <a class="nav-link py-1" href="#applications-of-nlp">Applications of NLP&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#profiling-other-types-of-data">Profiling Other Types of Data&#x200E;</a>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
+              <a class="nav-link py-1" href="#what-s-next">What's Next&#x200E;</a>
+              <a class="nav-link py-1" href="#references">References&#x200E;</a>
             </nav>
 
           </nav>
