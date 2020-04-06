@@ -15,22 +15,37 @@
 
 Authors: Li Kai
 
+<box id="article-toc">
+
+* [Writing testable JavaScript‎](#writing-testable-javascript-2)
+    * [Avoid coupling with selectors‎](#avoid-coupling-with-selectors)
+    * [Split business logic and presentation code‎](#split-business-logic-and-presentation-code)
+    * [Avoid big anonymous functions‎](#avoid-big-anonymous-functions)
+    * [Purity is worth pursuing‎](#purity-is-worth-pursuing)
+* [Writing reusable javascript‎](#writing-reusable-javascript)
+    * [Optional parameters‎](#optional-parameters)
+    * [Understand method chaining‎](#understand-method-chaining)
+    * [Addendum‎](#addendum)
+* [Resources‎](#resources)
+* [References‎](#references)
+</box>
+
 JavaScript is a powerful language. However, its flexibility leads to multiple ways for people to go about doing the same thing. The end result is that multiple collaborators working on a single project can produce different code that does the same thing.
 
 That is why there is a need to follow a standard way of writing JavaScript - it allows for more maintainable cleaner and more beautiful code.
 
 Good JavaScript code should be testable and reusable.
 
-## Writing testable JavaScript
+## Writing Testable JavaScript
 
-### Avoid coupling with selectors
+### Avoid Coupling With Selectors
 When writing front end code we would encounter code that manipulates the document object model (DOM). Let's look at one such example.
 
 ```js
-var DIV_STATUS_MESSAGE = '#statusMessagesToUser';
+var DIV_STATUS_MESSAGE_SELECTOR = '#statusMessagesToUser';
 
 function populateStatusMessageDiv(message, status) {
-    var $statusMessageDivToUser = $(DIV_STATUS_MESSAGE);
+    var statusMessageDivToUser = document.querySelector(DIV_STATUS_MESSAGE_SELECTOR);
     ...
 }
 ```
@@ -39,66 +54,59 @@ In this piece of code, we see that the selector is intrinsically tied to the fun
 
 ```js
 function populateStatusMessage(selector, message, status) {
-    var $statusMessageDivToUser = $(selector);
+    var statusMessageDivToUser = document.querySelector(selector);
     ...
 }
 ```
 
-### Split business logic and presentation code
+### Split Business Logic and Presentation Code
 When we have to write code that generates markup, it requires business logic. However, mixing the two up is not a good idea. Let's look at the following example:
 
 ```js
-$.ajax({
-    type: 'POST',
-    url: '/admin/adminStudentGoogleIdReset?' + params,
-    beforeSend: function() {
-        $(button).html("<img src='/images/ajax-loader.gif'/>");
-    },
-    error: function() {
-        $(button).html('An Error Occurred, Please Retry');
-    },
-    success: function(data) {
-        ...
-    }
-});
+fetch(
+  '/admin/adminStudentGoogleIdReset?' + params,
+  { method: 'POST' }
+)
+  .then(data => {
+    document.getElementById('result').innerHTML = data;
+  })
+  .catch(error => {
+    document.getElementById('error').innerHTML =
+        'An error occurred, please Retry';
+  });
 ```
 
 It order to test such a function, we would now have to incorporate both logic and also the mock-up generated. Splitting the logic and markup into two separate functions will both make it easier to test and composable because now you can reuse code that generates the markup in multiple places.
 
 ```js
-function setLoadingImage(selector) {
-    $(selector).html("<img src='/images/ajax-loader.gif'/>");
+function processData(data) {
+    document.getElementById('result').innerHTML = data;
 }
 
-function setErrorText(selector) {
-    $(selector).html('An Error Occurred, Please Retry');
+function handleError(error) {
+    document.getElementById('error').innerHTML =
+      'An error occurred, please Retry';
 }
 
-function displayResults(data) {
-    ...
-}
-
-$.ajax({
-    type: 'POST',
-    url: '/admin/adminStudentGoogleIdReset?' + params,
-    beforeSend: setLoadingImage,
-    error: setErrorText,
-    success: displayResults
-});
+fetch(
+  '/admin/adminStudentGoogleIdReset?' + params,
+  { method: 'POST' }
+)
+  .then(processData)
+  .catch(handleError);
 ```
 
 Already, we are seeing some of the patterns that lead to the MVC, albeit in a very small scale.
 
-### Avoid big anonymous functions
+### Avoid Big Anonymous Functions
 
-Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off in a `document.ready()` or `$.ajax()`.
+Although anonymous functions can lead to cleaner and shorter code, critical business logic should not be written in anonymous functions. The lack of namespace makes them impossible to test. This is common, and tempting when the code starts off with a listener for the `DOMContentLoaded` event.
 
 The testable way of writing such function is to simply give the function a name, which allows it to be tested.
 
 ```js
-$(document).ready(function() {
-    bindStudentPhotoLink('.profile-pic-icon-view-link');
-    ...
+document.addEventListener("DOMContentLoaded", function(event) { 
+  bindStudentPhotoLink('.profile-pic-icon-view-link');
 });
 
 function bindStudentPhotoLink(selector) {
@@ -127,7 +135,7 @@ var myApp = (function() {
 
 As demonstrated above, only `myApp` is declared in the global scope, and we can access its methods through the object notation, e.g. `myApp.next()`. This is also especially useful to declare private variables that be used among functions. `id` is not accessible outside of scope in this example.
 
-### Purity is worth pursuing
+### Purity is Worth Pursuing
 
 There are tonnes of literature about functional programming. I will heavily recommend reading the [Mostly adequate guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide). It explains functional concepts extremely well.
 
@@ -166,9 +174,9 @@ getTodo(counter, todos);
 
 Now, not only that the person who writes the unit test can write in fewer lines of code, you can also use the function for some other state other than the global values.
 
-## Writing reusable javascript
+## Writing Reusable Javascript
 
-### Optional parameters
+### Optional Parameters
 
 When writing certain functions, there would be certain situations where we want to have optional parameters. The easiest way would be to put optional parameters at the end of the parameter calls, like such:
 
@@ -196,8 +204,7 @@ function createPopUp(title, content, status, optionals) {
     ...
 }
 // es6 syntax with destructuring and default parameters
-function createPopUp(title, content, status, optionals) {
-    const { headerColor = 'default', bodyColor = 'default' } = optionals;
+function createPopUp(title, content, status, { headerColor = 'default', bodyColor = 'default' }) {
     ...
 }
 ```
@@ -208,9 +215,9 @@ By using an object, the user would just need to fill in what parameter they want
 createPopUp('Warning', 'This will delete everything!', dangerStatus, { bodyColor: 'red' });
 ```
 
-### Understand method chaining
+### Understand Method Chaining
 
-Method chaining is syntax such as `array.concat([1, 2]).push(1).filter(isEven)`. It is also sometimes referred to as the fluent interface. (see: [Method Chaining in JavaScript]())
+Method chaining is syntax such as `array.concat([1, 2]).filter(isEven)`. It is also sometimes referred to as the fluent interface. (see: [Method Chaining in JavaScript]())
 
 It is achieved by returning the object itself in the call.
 ```js

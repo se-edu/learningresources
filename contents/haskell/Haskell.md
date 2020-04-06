@@ -15,23 +15,41 @@
 
 Author: Thenaesh Elango
 
-**Table of Contents**
+<box id="article-toc">
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
-  * [Installation](#installation)
-  * [System-Wide Installation](#system-wide-installation)
-  * [Stack Installation](#stack-installation)
-  * [Usage](#usage)
+    * [Installation](#installation)
+        * [System-Wide Installation](#system-wide-installation)
+        * [Stack Installation](#stack-installation)
+    * [Usage](#usage)
 * [Whirlwind Tour](#whirlwind-tour)
-  * [Types](#types)
-  * [General Functional Programming](#general-functional-programming)
-  * [Typeclasses](#typeclasses)
+    * [Types](#types)
+        * [Basic Types‎](#basic-types)
+        * [Functions & Currying‎](#functions-and-amp-currying)
+        * [Algebraic Data Types & Pattern Matching‎](#algebraic-data-types-and-amp-pattern-matching)
+        * [Type Parameters‎](#type-parameters)
+        * [Inductive Data Types‎](#inductive-data-types)
+        * [Further Reading‎](#further-reading)
+    * [General Functional Programming](#general-functional-programming)
+        * [Functions‎](#functions)
+        * [Recursion‎](#recursion)
+        * [Lists‎](#lists)
+        * [List Processing - Fold‎](#list-processing-fold)
+        * [List Processing - Map & Filter‎](#list-processing-map-and-amp-filter)
+        * [Programming with Other Inductive Data Types‎](#programming-with-other-inductive-data-types)
+        * [Further Reading‎](#further-reading-2)
+    * [Typeclasses](#typeclasses)
+        * [Defining and Instantiating Typeclasses‎](#defining-and-instantiating-typeclasses)
+        * [Adding Typeclass Constraints to Functions‎](#adding-typeclass-constraints-to-functions)
+        * [Instantiating Typeclasses with Parameterized Type Constructors‎](#instantiating-typeclasses-with-parameterized-type-constructors)
+        * [Further Reading‎](#further-reading-3)
 * [Common Haskell Idioms](#common-haskell-idioms)
-  * [Functors](#functors)
-  * [Applicative Functors](#applicative-functors)
-  * [Monads](#monads)
+    * [Functors](#functors)
+    * [Applicative Functors](#applicative-functors)
+    * [Monads](#monads)
 * [Guides](#guides)
+</box>
 
 
 # Overview
@@ -821,7 +839,7 @@ We can now try out the `isAscending` function:
     isAscending [] -- True
 ```
 
-### Instantiating Typeclasses with Parameterized Type Constructors
+### Instantiating Typeclasses With Parameterized Type Constructors
 
 Up to this point, we have been instantiating typeclasses with concrete types,
 such as `TrafficSignal` and `Tree t`. It is also possible to instantiate

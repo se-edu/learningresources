@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -14,34 +14,37 @@
 # Introduction to Machine Learning (ML)
 Authors: [Alex Fong](https://github.com/alexfjw)
 
-- [What is ML](#what-is-ml)
-  - [Types of ML tasks](#types-of-ml-tasks)
-  - [Types of ML Algorithms](#types-of-ml-algorithms)
-    - [Supervised Learning](#supervised-learning)
-    - [Unsupervised Learning](#unsupervised-learning)
-  - [Types of Data](#types-of-data)
-- [How ML is Applied](#how-ml-is-applied)
-  - [Prototyping Platforms and Tools](#prototyping-platforms-and-tools)
-  - [Prototyping Workflow](#prototyping-workflow)
-  - [Basic Data Preprocessing](#basic-data-preprocessing)
-  - [Partitioning of Data](#partitioning-of-data)
-    - [Test Set](#test-set)
-    - [Validation Set](#validation-set)
-    - [Training Set](#training-set)
-  - [Model Training, Evaluation, Data Analysis](#model-training-evaluation-data-analysis)
-  - [Production](#production)
-  - [Concluding Remarks](#concluding-remarks)
-- [Supplementary Resources](#supplementary-resources)
-- [Footnotes](#footnotes)
+<box id="article-toc">
 
-## What is ML
+* [What is Machine Learning‎](#what-is-machine-learning)
+  * [Types of Machine Learning tasks‎](#types-of-machine-learning-tasks)
+  * [Types of Machine Learning Algorithms‎](#types-of-machine-learning-algorithms)
+    * [Supervised Learning‎](#supervised-learning)
+    * [Unsupervised Learning‎](#unsupervised-learning)
+  * [Types of Data‎](#types-of-data)
+* [How Machine Learning is Applied‎](#how-machine-learning-is-applied)
+  * [Prototyping Platforms and Tools‎](#prototyping-platforms-and-tools)
+  * [Prototyping Workflow‎](#prototyping-workflow)
+  * [Basic Data Preprocessing‎](#basic-data-preprocessing)
+  * [Partitioning of Data‎](#partitioning-of-data)
+    * [Test Set‎](#test-set)
+    * [Validation Set‎](#validation-set)
+    * [Training Set‎](#training-set)
+  * [Model Training, Evaluation, Data Analysis‎](#model-training-evaluation-data-analysis)
+  * [Production‎](#production)
+  * [Concluding Remarks‎](#concluding-remarks)
+* [Supplementary Resources‎](#supplementary-resources)
+* [Footnotes‎](#footnotes)
+</box>
+
+## What is Machine Learning?
 Machine learning is a subfield in artificial intelligence whereby computers learn from data to perform a task. Machine learning is powerful because it can discern complex patterns within data, and utilize them to produce desired outputs. 
 
 An example of a task is machine translation, where text is converted from one language to another by a computer. It is difficult to perform machine translation with regular programming, where we have to write clear instructions for the computer. ML alogirthms can be used instead to approximate the ideal instructions with data. In fact, ML algorithms have achieved state of the art performance for machine translation, as seen from the following blogpost on [Google's machine translation algorithm](https://blog.statsbot.co/machine-learning-translation-96f0ed8f19e4). 
 
 The ML algorithms are fed with data to approximate the ideal instructions for performing tasks. These approximations are never 100% correct and there are various parameters to tweak for maximizing performance. Statistical analysis is used to evaluate the performance of different ML algorithm configurations. 
 
-### Types of ML tasks
+### Types of Machine Learning Tasks
 Machine learning algorithms perform well for a large variety of tasks, from computer vision to natural language processing. Here is a non-exhaustive list:
 
 - Sentiment analysis ([NLTK example on Kaggle](https://www.kaggle.com/ngyptr/python-nltk-sentiment-analysis?scriptVersionId=904608))
@@ -57,7 +60,7 @@ Machine learning algorithms perform well for a large variety of tasks, from comp
 
 Different algorithms and ML pipelines exist for performing the above tasks.
 
-### Types of ML Algorithms
+### Types of Machine Learning Algorithms
 There are two broad categories of ML algorithms, *supervised learning* and *unsupervised learning*. 
 
 #### Supervised Learning
@@ -103,7 +106,7 @@ Data is broadly split into 2 categories, *structured* and *unstructured*.
 
 The distinction between the types of data is important as ML algorithms are not always compatible with both data types. For example, [Decision trees](https://en.wikipedia.org/wiki/Decision_tree) cannot be used for unstructured data. Data must be modified to a structured form for use with decision tree related algorithms.
 
-## How ML is Applied
+## How is Machine Learning Applied?
 Bringing a machine learning algorithm to production requires a workflow which differs greatly from that of software engineering. This is due to a focus on prototyping.  
 
 Prototyping is required as ML algorithms vary in efficacy when used in different domains, each domain containing data of a different nature.

@@ -15,6 +15,24 @@
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html), [Shradheya Thakre](https://github.com/tshradheya)
 
+<box id="article-toc">
+
+* [Overview](#overview)
+* [Features](#features)
+* [Examples of Bugs that can be found using FindBugs](#examples-of-bugs-that-can-be-found-using-findbugs)
+  * [Incorrectly overriding methods](#incorrectly-overriding-methods)
+  * [Find hash-equals mismatch](#find-hash-equals-mismatch)
+  * [Return value of method ignored](#return-value-of-method-ignored)
+  * [Null pointer dereference](#null-pointer-dereference)
+* [How to use it?](#how-to-use-it)
+  * [Configuration](#configuration)
+  * [Suppress Warnings](#suppress-warnings)
+  * [Running](#running)
+* [SpotBugs - The successor of Findbugs](#spotbugs-the-successor-of-findbugs)
+* [Advanced Topics](#advanced-topics)
+* [Resources](#resources)
+</box>
+
 ## Overview
 
 FindBugs is a static analysis tool to find bugs in **Java** programs. It looks for 'bug patterns' in the code and signals possible violations. Potential errors are classified in four ranks:
@@ -42,9 +60,9 @@ Refer to [FindBugs official documentation](http://findbugs.sourceforge.net/bugDe
 
 FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. This is unlike [CheckStyle](checkStyle.html) or [PMD](PMD.html) which can only check files one by one and analyse Java source code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
 
-## Examples of Bugs that can be found using FindBugs
+## Examples of Bugs That Can Be Found Using FindBugs
 
-### Incorrectly overriding methods
+### Incorrectly Overriding Methods
 
 Consider the following code:
 
@@ -62,11 +80,11 @@ class Foo {
 
 In the above code, if `foo.equals()` method is called, the `equals()` method of `Object` class rather than `Foo` class will be called. This is due to the way the Java code resolves overloaded methods at compile-time. FindBugs warns the developer of possible cases when a class defines a co-variant version of the `equals()` or `compareTo()` method.
 
-### Find hash-equals mismatch
+### Find Hash-Equals Mismatch
 
 The hashCode() and equals() method are called by many `Collection` based classes like - List, Maps, Sets, etc. FindBugs helps in finding problems when a class **overrides the `equals()` but not the `hashCode()` method or vice-versa**. Overriding only one of the `equals()` or `hashCode()` method can cause methods of Collection based classes to fail and hence FindBugs helps in reporting these errors at an early stage
 
-### Return value of method ignored
+### Return Value of Method Ignored
 
 FindBugs helps in finding places where your code has ignored the return value of method when it shouldn't have been.
 
@@ -80,7 +98,7 @@ In the above examples, one would assume that the variable `isCorrect` is assigne
 
 Hence, `line 2` should be `String newString  = s.replace('b', 'p'); //newString ="pop"`
 
-### Null pointer dereference
+### Null Pointer Dereference
 
 FindBugs looks for cases where a code path will or could cause a null pointer exception.
 
@@ -94,7 +112,7 @@ FindBugs looks for cases where a code path will or could cause a null pointer ex
 
 In the above example, the `aMap` may or may not contain "bob", so FindBugs will report *possible* `NullPointerException` at `line 5`
 
-## How to use it
+## How to Use It?
 
 ### Configuration
 
@@ -130,7 +148,7 @@ IDE Integration:
 - [IntelliJ Integration](https://plugins.jetbrains.com/plugin/3847-findbugs-idea)
 - [NetBeans Integration](https://netbeans.org/kb/docs/java/code-inspect.html)
 
-## SpotBugs - The successor of Findbugs
+## SpotBugs - The Successor of Findbugs
 
 On November 2016, FindBugs was [declared dead](https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2016-November/004321.html) and [SpotBugs](https://spotbugs.github.io/) was [declared as its successor](https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2017-September/004383.html) in September 2017.
 

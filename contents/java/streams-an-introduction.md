@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -15,35 +15,34 @@
 
 Author: Lee Yi Min
 
+<box id="article-toc">
 
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+* [Overview](#overview)
+* [Getting Started](#getting-started)
+  * [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions)
+    * [Functional Interface](#functional-interface)
+    * [Method Reference](#method-reference)
+    * [Lambda Expressions](#lambda-expressions)
+    * [An Example](#an-example)
+  * [What is a stream?](#what-is-a-stream)
+* [Building a Stream Pipeline](#building-a-stream-pipeline)
+  * [Constructing Streams](#constructing-streams)
+  * [Intermediate Operations](#intermediate-operations)
+    * [Filter](#filter)
+    * [Map](#map)
+  * [Terminal Operations](#terminal-operations)
+    * [Collect](#collect)
+  * [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
+    * [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
+    * [Difficulty in optimising stream performance](#difficulty-in-optimising-stream-performance)
+* [Resources](#resources)
+  * [Functional Interfaces](#functional-interfaces)
+  * [Method References](#method-references)
+  * [Lambda Expressions](#lambda-expressions)
+  * [Stream](#stream)
+    * [Common Pitfalls](#common-pitfalls)
+</box>
 
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-	- [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions)
-		- [Functional Interface](#functional-interface)
-		- [Method Reference](#method-reference)
-		- [Lambda Expressions](#lambda-expressions)
-		- [An Example](#an-example)
-	- [What is a stream?](#what-is-a-stream)
-- [Building a Stream Pipeline](#building-a-stream-pipeline)
-	- [Constructing Streams](#constructing-streams)
-	- [Intermediate Operations](#intermediate-operations)
-		- [Filter](#filter)
-		- [Map](#map)
-	- [Terminal Operations](#terminal-operations)
-		- [Collect](#collect)
-	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
-		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
-		- [Difficulty in optimising stream performance](#difficulty-in-optimising-stream-performance)
-- [Resources](#resources)
-	- [Functional Interfaces](#functional-interfaces)
-	- [Method References](#method-references)
-	- [Lambda Expressions](#lambda-expressions)
-	- [Stream](#stream)
-		- [Common pitfalls](#common-pitfalls)
-
-<!-- /TOC -->
 ## Overview
 
 In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with lambda expressions and stream operations.
@@ -181,7 +180,7 @@ students.sort(Student::compareToByHeight);
 ```
 Notice that the code is very easy to understand at a high level and what the intentions of the author can be understood from the code, reducing the need for further documentation. This also makes code more maintainable.
 
-### What is a stream?
+### What is a Stream?
 
 Now that we have the basics nailed, let's get started on Streams. Streams are basically sequences of elements. However, when dealing with streams, we are not so interested in where the data of elements is stored, what is currently stored in each element, but rather __what we can do with the elements__.
 
@@ -324,7 +323,7 @@ List<Student> firstYears = studentsByYear.get(1);
 
 In order to effectively utilise streams, one would also need to know the common drawbacks and pitfalls associated with streams. In this section, we will talk about two common pitfalls and how you can avoid them.
 
-#### Long, complicated lambda expressions
+#### Long, Complicated Lambda Expressions
 
 Lambda expressions allow us, as developers, to define a function quickly and easily. However, this power can be easily abused, and one might write a long, complicated lambda expression when trying to provide the required functional interface for the stream operation, resulting in code like this:
 ```java
@@ -362,7 +361,7 @@ result = futures.stream()
 ```
 With good method names given to the extracted lambda expressions, the code for the stream operation becomes self-documenting again.
 
-#### Difficulty in optimising stream performance
+#### Difficulty in Optimising Stream Performance
 
 Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to [this blog post](http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/), an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance between loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.
 
@@ -413,7 +412,7 @@ Gives a good overview on Streams and how it should be used.
 * https://www.ibm.com/developerworks/java/library/j-java-streams-5-brian-goetz/index.html  
 The five-part tutorial by Brian Goetz gives a complete guide on how to work with Stream, with the basic operations in the first part, reducing and collecting in the second part, understanding how streams are processed in the third part, and how to optimize parallel operations in the fourth and fifth part.
 
-#### Common pitfalls
+#### Common Pitfalls
 * https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/  
 The article gives a list of other common mistakes one may make when using streams.
 
