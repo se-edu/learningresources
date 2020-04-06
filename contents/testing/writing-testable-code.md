@@ -13,6 +13,25 @@
 
 # Writing Testable Code
 
+<box id="article-toc">
+
+* [Flaw #1: No seams for isolating the class under test](#flaw-1-no-seams-for-isolating-the-class-under-test)
+  * [Rule #1: Don't do actual work in constructors](#rule-1-don-t-do-actual-work-in-constructors)
+  * [Rule #2: Don't mix object construction with application logic](#rule-2-don-t-mix-object-construction-with-application-logic)
+  * [Rule #3: Don't mix Service Objects with Value Objects](#rule-3-don-t-mix-service-objects-with-value-objects)
+  * [Rule #4: Avoid Static Methods](#rule-4-avoid-static-methods)
+  * [Rule #5: Favor composition over inheritance](#rule-5-favor-composition-over-inheritance)
+* [Flaw #2: Brittle Global State & Singleton](#flaw-2-brittle-global-state-and-amp-singleton)
+  * [Rule #1: Avoid Global States](#rule-1-avoid-global-states)
+  * [Rule #2: Avoid Singleton Pattern](#rule-2-avoid-singleton-pattern)
+* [Flaw #3: Dig Into Collaborators](#flaw-3-dig-into-collaborators)
+  * [Rule #1: Don't look for things. Ask for things.](#rule-1-don-t-look-for-things-ask-for-things)
+* [Flaw #4: Class does too much](#flaw-4-class-does-too-much)
+  * [Rule #1: Avoid mixing of concerns](#rule-1-avoid-mixing-of-concerns)
+  * [Rule #2: Favor polymorphism over conditionals](#rule-2-favor-polymorphism-over-conditionals)
+* [Concluding Notes](#concluding-notes)
+</box>
+
 When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented programs.
 
 This article compiles multiple posts from [Google Testing Blog](https://testing.googleblog.com) on how to write more unit-testable code. It explains [four common flaws](https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html) in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.
