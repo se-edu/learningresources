@@ -140,7 +140,7 @@ Similar to **word2vec**, this enables classification of documents and paves the 
 
 #### Machine translation, e.g. Google Translate
 **seq2seq**<sup>[3](#footnote3)</sup>, a algorithm developed by Google, transforms a sequence to another. 
-This family of techniques uses special <tooltip content="artifical neural networks a computer system made up of a number of simple, highly connected processing elements which translate information to some form of desired output"><i>artificial neural network</i></tooltip>   architectures to model sentences.  
+This family of techniques uses special <tooltip content="an artifical neural networks is a computer system made up of a number of simple, highly connected processing elements which translate information to some form of desired output"><i>artificial neural network</i></tooltip>   architectures to model sentences.  
 
 #### Automated customer support, e.g. ChatBot, NanoRep
 Human-curated databases (e.g. **WordNet**) are used together with techniques like **word2vec** to extract actionable words or phrases<sup>[14](#footnote14)</sup>. 
