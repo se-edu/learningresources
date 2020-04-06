@@ -31,9 +31,9 @@ Notice the word **"protocol"** used in the description above - communication pro
 
 ### Ease of use like a networking library
 
-Most operating systems provides system calls or equivalent support for message queues (e.g. [POSIX mq](http://man7.org/linux/man-pages/man7/mq_overview.7.html), [Win32 winmsg](https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues)). However the way they operate is far from high-level and making your it directly interact with underlying OS APIs could possibly hurt the scalability (more on that later) of your application as you may find yourself in need of distributing the workload to different machines.
+Most operating systems provides system calls or equivalent support for message queues (e.g. [POSIX mq](http://man7.org/linux/man-pages/man7/mq_overview.7.html), [Win32 winmsg](https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues)). However the way they operate is far from high-level and making it directly interact with underlying OS APIs could possibly hurt the scalability of your application as you may, in the future, find yourself in need of distributing the workload to different machines.
 
-ZeroMQ looks like an embeddable networking library (read: easy to use) but acts like a concurrency framework (read: high performance). Using Python's built-in socket library as an example, if we are to write a simple TCP server in Python, it looks like this:
+ZeroMQ looks like an embeddable networking library (read: easy to use) but acts like a concurrency framework (read: high performance). Using Python's built-in socket library as an example, if we are to write a simple TCP server in <tooltip content="It's just a language of my choice. ZeroMQ provides bindings for most mainstream programming languages, which are listed [here](http://wiki.zeromq.org/bindings:_start)">Python</tooltip>, it looks like this:
 
 ```python
 import socket
