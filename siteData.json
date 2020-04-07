@@ -1579,6 +1579,30 @@
       "headingKeywords": {}
     },
     {
+      "title": "Introduction to Security Testing",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/testing/security-testing.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-security-testing": "Introduction to Security Testing",
+        "what-is-security-testing": "What Is Security Testing?",
+        "types-of-security-testing": "Types of Security Testing",
+        "why-have-security-testing": "Why Have Security Testing?",
+        "security-testing-in-action": "Security Testing in Action",
+        "at-a-glance": "At a Glance",
+        "step-1-before-development": "Step 1: Before Development",
+        "step-2-during-definition-and-design": "Step 2: During Definition and Design",
+        "step-3-during-development": "Step 3: During Development",
+        "step-4-during-deployment": "Step 4: During Deployment‎",
+        "where-to-go-from-here": "Where to Go From Here?"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Writing Testable Code",
       "header": "pagetop.md",
       "footer": "footer.md",
