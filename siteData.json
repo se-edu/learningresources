@@ -687,6 +687,26 @@
       "headingKeywords": {}
     },
     {
+      "title": "Redux",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 2,
+      "src": "contents/javascript/Javascript-framework-Redux.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-redux": "Introduction to Redux",
+        "what-is-redux": "What is Redux?",
+        "how-does-redux-work": "How Does Redux Work?",
+        "why-use-redux": "Why Use Redux?",
+        "when-not-to-use-redux": "When Not to Use Redux?",
+        "getting-started-with-redux": "Getting Started with Redux",
+        "references-further-reading": "References/Further Reading"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Introduction to Vue",
       "header": "pagetop.md",
       "footer": "footer.md",

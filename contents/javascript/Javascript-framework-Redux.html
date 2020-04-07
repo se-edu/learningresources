@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.13.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to iOS App Development</title>
+  <title>SE-EDU/LearningResources - Redux</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -234,10 +234,10 @@
               <ul class="pl-3 site-nav-list">
                 <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
                 <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a current">iOS</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
                 <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
                 <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
+                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a current">Redux</a></li>
                 <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
                 <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
               </ul>
@@ -314,85 +314,179 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-ios-development">Introduction to iOS Development<a class="fa fa-anchor" href="#introduction-to-ios-development"></a></h1>
-          <p><strong>Authors: <a href="https://github.com/blewjy">Bryan Lew</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/ChesterSng">Chester Sng</a>, <a href="https://github.com/Adoby7">Jiang Chunhui</a>, <a href="https://github.com/YuPeiHenry">Yu Pei, Henry</a></p>
-          <h2 id="what-is-ios">What is iOS?<a class="fa fa-anchor" href="#what-is-ios"></a></h2>
-          <p>iOS is the mobile operating system that runs on Apple's mobile devices, most notably the iPhone and the iPad. Applications that run on iOS can be downloaded officially from the App Store, and developers of iOS applications can submit their own
-            applications to the App Store to share it with the rest of the world.</p>
-          <h2 id="why-ios">Why iOS?<a class="fa fa-anchor" href="#why-ios"></a></h2>
-          <p><a href="https://www.theverge.com/2017/2/16/14634656/android-ios-market-share-blackberry-2016">2 operating systems dominate the whole market share: iOS and Android</a>. While more devices are running Android compared to iOS, given below are
-            some areas in which iOS outshines Android:</p>
-          <h4 id="better-compatibility-and-standardisation">Better Compatibility and Standardisation<a class="fa fa-anchor" href="#better-compatibility-and-standardisation"></a></h4>
-          <p>iOS applications are specific to the Apple devices of the iPhone and iPad line, whereas Android runs across numerous different types of devices, including phones, tablets, watches, and more. The large variation of devices poses a compatibility
-            problem from a developer's standpoint, because now applications have to be tested and working across all these different devices, and also regularly maintained this way. Each hardware device may possibly be running their own version of Android
-            or will only support up to a particular version, thus Android developers will have to ensure that their application is also compatible across different versions of Android.</p>
-          <p>With less devices to target, iOS developers have more control over their application and are able to customise the application to a greater extent, because there are less variations (in terms of device compatibility) to worry about. OS versioning
-            in iOS is also more structured, with better backwards-compatability across their devices. Users of iOS devices (oldest supported is iPhone 5S, as of March 2019) are always immediately prompted whenever a new version of iOS is available for
-            download. This means that as developers, we have to worry less about compatability issues, and focus more on the application itself.</p>
-          <h4 id="lucrative-market">Lucrative Market<a class="fa fa-anchor" href="#lucrative-market"></a></h4>
-          <p>While Android has higher market share of devices, iOS applications generate <a href="https://techcrunch.com/2018/07/16/apples-app-store-revenue-nearly-double-that-of-google-play-in-first-half-of-2018/">nearly double</a> the revenue compared
-            to Android, largely due to the fact that users of iOS devices are generally more likely to spend on apps.</p>
-          <p>As an independent iOS developer, this means that your iOS application could bring in more revenue for you as compared to an Android one, assuming you choose to monetize it.</p>
-          <p>More app revenue for iOS applications also means companies will look to tackle the iOS platform more so than Android, thus the demand for iOS developers will be high. This in turn results in <a href="https://www.fiercewireless.com/developer/ios-developers-earn-roughly-10k-more-than-android-counterparts-study-shows">higher salary for iOS developers compared to their Android counterparts</a>.</p>
-          <h4 id="higher-quality-applications">Higher Quality Applications<a class="fa fa-anchor" href="#higher-quality-applications"></a></h4>
-          <p>The Apple App Store <a href="https://developer.apple.com/app-store/review/">subjects the apps to higher quality control</a> (as compared to Android Play Store) before they are allowed to be published. This means that applications on the App
-            Store are more robust, and of higher quality in general.</p>
-          <h2 id="native-ios-applications-vs-cross-platform-applications">Native iOS Applications vs. Cross-Platform Applications<a class="fa fa-anchor" href="#native-ios-applications-vs-cross-platform-applications"></a></h2>
-          <p>Mobile applications that run on the iOS platform can be written both natively and using <a href="http://www.businessofapps.com/guide/cross-platform-mobile-app-development/">cross-platform solutions</a>. Native iOS applications are written using
-            <a href="https://android.jlelse.eu/objective-c-or-swift-which-technology-to-learn-for-ios-app-development-3c681d1a05ac">Objective-C or Swift</a> on the Xcode IDE that you can download if you are running a MacOS. Cross-platform solutions are
-            tools that allow you to write code once and develop applications for more than 1 platform. Some examples include <a href="https://facebook.github.io/react-native/">React Native</a>,
-            <a href="https://visualstudio.microsoft.com/xamarin/">Xamarin</a>, and <a href="https://ionicframework.com/">Ionic</a>. Both methods have their own pros and cons, and these factors not only affect the app developers, but also the users to
-            some extent.
+          <h1 id="introduction-to-redux">Introduction to Redux<a class="fa fa-anchor" href="#introduction-to-redux"></a></h1>
+          <p><strong>Author: <a href="https://github.com/nbriannl">Labayna Neil Brian Narido</a></strong> <br> Reviewers: <a href="https://www.github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://www.github.com/yash-chowdhary">Yash Chowdhary</a>, <a href="https://www.github.com/jamessspanggg">James Pang Mun Wai</a></p>
+          <box type="info" light>
+            This chapter does <b>not</b> assume the reader has knowledge of frontend frameworks. However, knowing a frontend framework, such as <a href="/learningresources/contents/javascript/Javascript-framework-React.html">React</a> can lead to a better
+            understanding of this chapter.
+          </box>
+
+          <box id="article-toc">
+            <ul>
+              <li><a href="#introduction-to-go">Introduction to Redux‎</a>
+                <ul>
+                  <li><a href="#what-is-redux">What Is Redux?</a></li>
+                  <li><a href="#how-does-redux-work">How Does Redux Work?</a></li>
+                  <li><a href="#why-use-redux">Why Use Redux?</a></li>
+                  <li><a href="#why-not-to-use-redux">When Not to Use Redux?</a></li>
+                  <li><a href="#getting-started-with-redux">Getting Started with Redux</a></li>
+                  <li><a href="#references-further-reading">References/Further Reading</a></li>
+                </ul>
+              </li>
+            </ul>
+          </box>
+
+
+
+          <h2 id="what-is-redux">What is Redux?<a class="fa fa-anchor" href="#what-is-redux"></a></h2>
+          <p><em>(This section is adapted from this <a href="https://medium.com/javascript-in-plain-english/the-only-introduction-to-redux-and-react-redux-youll-ever-need-8ce5da9e53c6">Medium article</a> by Hristijan Stevanoski)</em></p>
+          <p>To understand what Redux is, we have to understand what application state is.</p>
+          <p>You can think of application state like a global object holding information that you will use for various purposes in your application.</p>
+          <box light><template slot="_header"><p>Examples of application states</p></template>
+            <ul>
+              <li>For a general application you would need to keep track of whether a user is logged in and their user information</li>
+              <li>For a to-do list you would need to know what items are currently in the list</li>
+              <li>For a social media application you'd need to store serveral objects and arrays representing the stories to render in the News Feed
+              </li>
+            </ul>
+          </box>
+
+          <p>However, modern web applications often have large amounts of state. In such applications, state is likely to be shared between components and updated from various parts of the code, making state less predictable. This is where Redux comes into
+            the picture.
           </p>
-          <p>The main attraction to developing mobile applications using cross-platform solutions is development time. Cross-platform solutions allow you to write code once, but push it out to more than one OS, usually iOS and Android being two of these
-            platforms. This means that essentially, your development time is cut by half, because you are only writing code once for 2 separate applications. While this may sound like an attractive deal, there are a bunch of caveats to consider that can
-            potentially be a deal breaker, <a href="https://codeburst.io/native-vs-cross-platform-app-development-pros-and-cons-49f397bb38ac">performance and compatability issues being the frontrunners</a>.</p>
-          <p>If you are coming from a web development background, you might want to consider starting with React Native. React Native as a cross-platform mobile development framework will give you a mobile development environment that is very similar to
-            a web development one (especially if you are familiar with ReactJS), using the same JavaScript structure as ReactJS, and also uses <code>props</code>, <code>state</code>, and all the standard React component lifecycle methods. It will allow
-            you to learn about mobile development while on familiar ground.</p>
-          <p>If you are a complete beginner to programming or do not have much software engineering experience, native iOS development with Swift might be a better choice to start with. Given that Swift is a statically typed language, more errors will be
-            caught earlier, and you will be forced to be more structured and disciplined in your code. With Swift being a fast and readable language, it is not a bad language to start learning programming with or to pick up general software engineering
-            skills with.</p>
-          <h2 id="getting-started-with-native-ios-development">Getting Started With Native iOS Development<a class="fa fa-anchor" href="#getting-started-with-native-ios-development"></a></h2>
-          <p>To get started with native iOS development, we have to first get some of the basic tools set up:</p>
-          <ul>
-            <li>To use Xcode and write native iOS applications in Swift, you will need MacOS. If you are using a non-Mac operating system (Windows, Linux or others), you can install a MacOS Virtual Machine on your computer. This <a href="https://medium.com/@twister.mr/installing-macos-to-virtualbox-1fcc5cf22801">blog post</a>              is an excellent tutorial on how this can be done. If you already own a Macbook or an iMac, you are all set for this step.</li>
-            <li>Next, you should register for a free Apple Developer Account. Don't confuse this with the paid iOS Developer Program! Anyone can register for the Apple Developer Account for free. Go to <a href="https://developer.apple.com/register/">Apple's Developer Website</a>              to do this. It requires you to have an Apple ID, so you can use your existing one if you already have an Apple ID.</li>
-            <li>Once you have an Apple Developer Account, you can either directly download Xcode from the <a href="https://developer.apple.com/xcode/">website</a>, or search for Xcode on your Mac App Store. Xcode is the Integrated Development Environment
-              (IDE) that provides you with everything you need to develop an iOS app from scratch. It also comes with the iPhone and iPad simulator that you will need to test your application.</li>
-          </ul>
-          <p><a href="https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png" target="_self"><img src="https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png" alt class="img-fluid"></a> (
-            <a href="https://insights.dice.com/wp-content/uploads/2018/06/Xcode-Mac-iPad-Apple-Dice.png">Image</a> from <a href="https://insights.dice.com/">Dice Insights</a>)</p>
-          <p>Native iOS applications can be written in <a href="https://android.jlelse.eu/objective-c-or-swift-which-technology-to-learn-for-ios-app-development-3c681d1a05ac">Objective-C or Swift</a>. Swift is a relatively newer language, introduced only
-            in 2014, while Objective-C is more of an old school programming language. If you are just starting out on iOS development, you should strongly consider using Swift. The main reason being that many of the documentations and help on the internet
-            are written for iOS development in Swift, hence it will be easier to look for resources that target Swift instead of Objective-C. Furthermore, Apple mostly regards Swift as the main language for iOS programming now, and Objective-C support
-            is now more of a backward-compatability.
+          <p><strong>Redux</strong> is a library that manages application state for Javascript applications. You can use it together with view libraries such as <span placement="top" data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+              class="trigger"><span data-mb-html-for="_content">via React Redux</span><a href="https://react-redux.js.org/">React</a></span> and <span placement="top" data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+              class="trigger"><span data-mb-html-for="_content">via vuejs-redux</span>
+            <a href="https://github.com/titouancreach/vuejs-redux">Vue</a>
+            </span>.</p>
+          <p>The <a href="https://redux.js.org/introduction/getting-started">official website</a> describes Redux as follows:</p>
+          <blockquote>
+            <p><em>Redux</em> is a predictable state container for JavaScript apps.</p>
+            <p>It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as live code editing combined with a
+              time traveling debugger.</p>
+            <p>You can use Redux together with React, or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.</p>
+          </blockquote>
+          <h2 id="how-does-redux-work">How Does Redux Work?<a class="fa fa-anchor" href="#how-does-redux-work"></a></h2>
+          <p>The structure of Redux is relatively simple. Consisting of three components, Store, Actions and Reducer.</p>
+          <center>
+            <img src="/learningresources/contents/javascript/javascript-framework-redux-images/3basiccomponents.png" width="650">
+            <p><em>The three building blocks of Redux — Store, Actions and Reducer</em></p>
+          </center>
+          <p>For this section, let's use a simple to-do list application as an example.</p>
+          <p>The whole application state is stored in a single <strong>store</strong>, a plain object.</p>
+          <pre><code class="hljs js"><span>{</span><span>  todos: [{</span><span>    text: <span class="hljs-string">'Eat food'</span>,</span><span>    completed: <span class="hljs-literal">true</span></span><span>  }, {</span><span>    text: <span class="hljs-string">'Exercise'</span>,</span><span>    completed: <span class="hljs-literal">false</span></span><span>  }],</span><span>  visibilityFilter: <span class="hljs-string">'SHOW_COMPLETED'</span></span><span>}</span></code></pre>
+          <p>Information in the store is used for various application functionality, such as the App UI. For example, based on the array under <code>todos</code>, we can render a to-do list of tasks. Based on the <code>visibilityFilter</code>, the application
+            decides whether to render incompleted tasks.</p>
+          <p>The only way to change data in the state is by dispatching an <strong>action</strong>, which is a plain object as well. Actions must have a <code>type</code> property indicating the type of action being performed.</p>
+          <pre><code class="hljs js"><span>{ <span class="hljs-attr">type</span>: <span class="hljs-string">'ADD_TODO'</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Go to swimming pool'</span> }</span><span>{ <span class="hljs-attr">type</span>: <span class="hljs-string">'TOGGLE_TODO'</span>, <span class="hljs-attr">index</span>: <span class="hljs-number">1</span> }</span><span>{ <span class="hljs-attr">type</span>: <span class="hljs-string">'SET_VISIBILITY_FILTER'</span>, <span class="hljs-attr">filter</span>: <span class="hljs-string">'SHOW_ALL'</span> }</span></code></pre>
+          <p>Actions can be dispatched from user interactions in the application, such as button click events. For example, in our to-do list application, an <code>ADD_TODO</code> action could be dispatched when our the user fills up a task 'Go to swimming
+            pool' and clicks an 'Add To-do' button.</p>
+          <p>The current state, and an action is passed into a <strong>reducer</strong>, a function which returns the next state of the application</p>
+          <p>With the updated application state, the application will reflect the new information in the store accordingly. For example, it may render new tasks, or render incomplete tasks instead of completed tasks.</p>
+          <p>Reducers are <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A pure function is a function which: Given the same input, will always return the same output. And produces no side effects.</span>pure
+            functions
+            </span>. They take the previous state and an action, and return the next state as new state objects, instead of mutating the previous state.</p>
+          <p>For easier readability, the following code block examples on reducers are not pure functions. If you're interested, you may see how the reducers should actually be written in the <a href="https://redux.js.org/basics/reducers/#source-code">official Redux site</a>.
+            The code in the link includes some Redux API, and Javascript methods such as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"><code>.map</code></a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread operator</a>            to make the functions pure. But knowing the actual syntax for Redux is not the main focus of this introductory article.</p>
+          <p>In a real-world application with a large and complex application state, having a single reducer to manage multiple parts of the state may get confusing and complicated. We can have multiple, simpler reducers instead, and combine them into one
+            reducer.</p>
+          <p>For example, we have two simpler reducers.</p>
+          <p>Firstly, a reducer for the visibility filter <code>visibilityFilter</code>:</p>
+          <pre><code class="hljs js"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">visibilityFilter</span>(<span class="hljs-params">state = <span class="hljs-string">'SHOW_ALL'</span>, action</span>) </span>{</span><span>  <span class="hljs-keyword">if</span> (action.type === <span class="hljs-string">'SET_VISIBILITY_FILTER'</span>) {</span><span>    <span class="hljs-keyword">return</span> action.filter</span><span>  } <span class="hljs-keyword">else</span> {</span><span>    <span class="hljs-keyword">return</span> state</span><span>  }</span><span>}</span></code></pre>
+          <p>And secondly, a reducer, that manages the todo-list items <code>todos</code>:</p>
+          <pre><code class="hljs js"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">todos</span>(<span class="hljs-params">state = [], action</span>) </span>{</span><span>  <span class="hljs-keyword">switch</span> (action.type) {</span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">'ADD_TODO'</span>:</span><span>      <span class="hljs-keyword">return</span> state.concat([{ <span class="hljs-attr">text</span>: action.text, <span class="hljs-attr">completed</span>: <span class="hljs-literal">false</span> }])</span><span>    <span class="hljs-keyword">case</span> <span class="hljs-string">'TOGGLE_TODO'</span>:</span><span>      <span class="hljs-keyword">return</span> state.map(<span class="hljs-function">(<span class="hljs-params">todo, index</span>) =&gt;</span></span><span>        action.index === index</span><span>          ? { <span class="hljs-attr">text</span>: todo.text, <span class="hljs-attr">completed</span>: !todo.completed }</span><span>          : todo</span><span>      )</span><span>    <span class="hljs-keyword">default</span>:</span><span>      <span class="hljs-keyword">return</span> state</span><span>  }</span><span>}</span></code></pre>
+          <p>And these two reducers are called by a main reducer. With that the complete application state is managed.</p>
+          <pre><code class="hljs js"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">todoApp</span>(<span class="hljs-params">state = {}, action</span>) </span>{</span><span>  <span class="hljs-keyword">return</span> {</span><span>    todos: todos(state.todos, action),</span><span>    visibilityFilter: visibilityFilter(state.visibilityFilter, action)</span><span>  }</span><span>}</span></code></pre>
+          <p>Finally, take note that there are no direct setters to the store, and the store is read-only. The only way the <strong>store</strong> is updated is through a strict unidirection data flow where:</p>
+          <ol>
+            <li>An <strong>Action</strong> is dispatched and,</li>
+            <li>Together with the current state read from the <strong>Store</strong>, is passed into a <strong>Reducer</strong>, which returns the new state.</li>
+          </ol>
+          <h2 id="why-use-redux">Why Use Redux?<a class="fa fa-anchor" href="#why-use-redux"></a></h2>
+          <p>Now that we know what Redux is, let us take a look at how the structure of Redux and its concepts make possible some benefits.</p>
+          <ol>
+            <li>
+              <p><strong>State is made predictable</strong> <sup><a href="#footnote1">[1]</a></sup><br> In Redux, the single immutable store is the single source of truth for application state. Neither the view of the application, nor network callbacks directly
+                write to it. Changes to the state are via actions, which Redux centralizes and keep in strict order via the unidirection data flow. Also, reducers are pure functions, always producing the same result for the same state and action.
+                <br><br>Hence application state is updated in a predictable and structured manner. Having a predictable state, makes it easier to implement functionality that would be otherwise difficult, such as <span data-mb-component-type="tooltip"
+                  v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The general idea is to store the history of the state in the state! To read more, click the link.</span><a href="https://redux.js.org/recipes/implementing-undo-history/">Undo and Redo</a></span>.</p>
+            </li>
+            <li>
+              <p><strong>Easier to debug and inspect</strong> <sup><a href="#footnote1">[1]</a></sup><br> Since actions and state are plain objects, it is possible to serialize them and log them. <a href="https://github.com/reduxjs/redux-devtools">Redux DevTools</a>                provides first class support for application debugging. You can view a log of actions that took place, making it easy to understand errors in code. You can also print the store <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+                  class="trigger"><span data-mb-html-for="_content">for example using <code>console.log(store.getState())</code></span>within the code itself</span>. The Redux DevTools, used in the browser, also provides features such as a tree visualization
+                of the application state, as well a time travel ability to replay state changes.</p>
+            </li>
+          </ol>
+          <p><a href="https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png" target="_self"><img src="https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png" alt class="img-fluid"></a></p>
+          <center>
+            <p><em>Redux DevTools</em> (<a href="https://github.com/reduxjs/redux-devtools">image source</a>)</p>
+          </center>
+          <ol start="3">
+            <li>
+              <p><strong>Easier testing</strong> <sup><a href="#footnote1">[1]</a></sup><sup><a href="#footnote2">[2]</a></sup><br> Using Redux makes for testable code. Since the reducers used to change the state are pure functions, it is easy make tests.
+                Writing small, pure and isolated reducer functions in Redux, means we write small and isolated tests. For example, to test for the behavior of reducers, we simply write a reducer function, and define its arguments: a current state and
+                an action. Then we write our expected output, and compare whether the reducer returns what is expected. You may learn more about testing in this <a href="https://redux.js.org/recipes/writing-tests/">page</a>.</p>
+            </li>
+            <li>
+              <p><strong>Redux is extensible</strong><br> Redux, while being a small library, has an <a href="https://redux.js.org/introduction/ecosystem">ecosystem of open source tools, extensions and open source libraries</a>. These are not compulsary
+                to use, but can make it easier to solve problems that modern web applications face. Through the use of Redux, and some libraries within its ecosystem, we can fulfill <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+                  class="trigger"><span data-mb-html-for="_content"><strong>Server-side rendering (SSR)</strong> is a popular technique where you render the application on the server and then send a fully rendered page to the client.</span><a href="https://redux.js.org/recipes/server-rendering">server-side rendering</a></span>,
+                and handle <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content"><strong>Asynchronous action</strong>, are actions that run in parallel; they do not block. It is very common in web applications, because most applications fetch some kind of resource from an API.</span>
+                <a href="https://redux.js.org/advanced/async-actions">asynchronous actions</a>
+                </span>.</p>
+            </li>
+          </ol>
+          <h2 id="when-not-to-use-redux">When Not to Use Redux?<a class="fa fa-anchor" href="#when-not-to-use-redux"></a></h2>
+          <p>While Redux has its benefits, you should not add Redux for every application you make. You might be still getting experienced with your frontend framework for a project of yours, and adding Redux adds complexity because there is another set
+            of concepts and practices to take note.</p>
+          <p>In general, it would be apt to use Redux is when:</p>
+          <ol>
+            <li>You have reasonable amount of data changing over time</li>
+            <li>You need a single source of truth</li>
+            <li>You find keeping everything in a top-level parent component is not enough</li>
+          </ol>
+          <p>Another good rule of thumb is to figure out if you have any problems managing state in your application without Redux. <span effect="scale" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger"><span data-mb-html-for="header">As said by Dan Abramov (one of the creators of Redux)</span>
+            <span data-mb-html-for="content"><em>I would like to amend this: don't use Redux until you have problems with vanilla React.</em></span>If you don't have any, then you don't really need Redux.</span>
           </p>
-          <p>If you are new to Swift, you may want to read up on our Swift article: <a href="/learningresources/contents/swift/welcome-to-swift.html">Introduction to Swift</a></p>
-          <p>If you are ready to begin developing your first iOS application, you will want to check out these iOS development tutorials and articles meant for first-timers:</p>
+          <p>There are many other articles on why you shouldn't or when you shouldn't use Redux. If you are interested, some articles <sup><a href="#footnote3">[3]</a></sup> <sup><a href="#footnote4">[4]</a></sup> are available at the end of this page for
+            further reading.
+          </p>
+          <h2 id="getting-started-with-redux">Getting Started with Redux<a class="fa fa-anchor" href="#getting-started-with-redux"></a></h2>
+          <p>The <a href="/learningresources/contents/javascript/(https:/redux.js.org/)">official Redux website</a> is a great place to get started. It includes:</p>
           <ul>
-            <li><a href="https://codewithchris.com/how-to-make-an-iphone-app/">Codewithchris: How to make an iPhone app</a></li>
-            <li><a href="https://www.raywenderlich.com/3114-ios-tutorial-how-to-create-a-simple-iphone-app-part-1-3">raywenderlich.com &quot;How to build a simple iOS app&quot;</a></li>
+            <li><a href="https://redux.js.org/introduction/getting-started/">Installation instructions</a></li>
+            <li>A suggested list of resources encompassing <a href="https://redux.js.org/introduction/getting-started/#just-the-basics">Basic</a> and <a href="https://redux.js.org/introduction/getting-started/#intermediate-concepts">Intermediate</a> concepts.</li>
+            <li>A <a href="https://redux.js.org/basics/basic-tutorial">basic</a> and <a href="https://redux.js.org/advanced/advanced-tutorial">advanced</a> tutorial.</li>
           </ul>
-          <p>Some useful iOS development resources:</p>
+          <p>This article is based on the the sections <a href="https://redux.js.org/introduction/core-concepts">Core Concepts</a> and <a href="https://redux.js.org/introduction/three-principles">Three Principles</a> of the introduction, so you may find
+            the sections familiar and be able skim through those. However, it may be good to reinforce some of the cores concepts with the basic tutorial first, then proceed on with the advanced tutorial.</p>
+          <p>Installing the <a href="https://github.com/reduxjs/redux-devtools">Redux DevTools</a> would greatly help in terms of seeing Redux in action with whichever project or tutorial you are working on.</p>
+          <p>Redux especially works well with React. Read up on <a href="https://react-redux.js.org/">React Redux</a>, which are official React bindings for Redux</p>
+          <p>Other popular frontend frameworks may have their own state management libraries more suited for them. Many of the concepts of state management libraries are borrowed from Redux, hence you may find their concepts familiar. Some other frontend
+            libraries and their corresponding state management libraries are:</p>
           <ul>
-            <li><a href="https://www.raywenderlich.com/ios">Ray Wenderlich</a></li>
-            <li><a href="https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw">Brian Advent</a></li>
-            <li><a href="https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA">Let's Build That App</a></li>
+            <li>Vue: <a href="https://vuex.vuejs.org/">Vuex</a></li>
+            <li>Angular: <a href="https://ngrx.io/">NGRX</a></li>
           </ul>
+          <h2 id="references-further-reading">References/Further Reading<a class="fa fa-anchor" href="#references-further-reading"></a></h2>
+          <p><a name="footnote1">[1]</a>: <a href="https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/">Why use Redux? Reasons with clear examples by Neo Ighodaro</a> <br>
+            <a name="footnote2">[2]</a>: <a href="https://www.smashingmagazine.com/2016/06/an-introduction-to-redux/">Redux · An Introduction by Alex Bachuk</a><br>
+            <a name="footnote3">[3]</a>: <a href="https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367">You Might Not Need Redux by Dan Abramov</a> <br>
+            <a name="footnote4">[4]</a>: <a href="https://redux.js.org/faq/general#when-should-i-use-redux">When should I use Redux? (Redux Official Site)</a> <br></p>
         </div>
       </div>
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-ios-development">Introduction to iOS Development&#x200E;</a>
+            <a class="nav-link py-1" href="#introduction-to-redux">Introduction to Redux&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-ios">What is iOS?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-ios">Why iOS?&#x200E;</a>
-              <a class="nav-link py-1" href="#native-ios-applications-vs-cross-platform-applications">Native iOS Applications vs. Cross-Platform Applications&#x200E;</a>
-              <a class="nav-link py-1" href="#getting-started-with-native-ios-development">Getting Started With Native iOS Development&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-redux">What is Redux?&#x200E;</a>
+              <a class="nav-link py-1" href="#how-does-redux-work">How Does Redux Work?&#x200E;</a>
+              <a class="nav-link py-1" href="#why-use-redux">Why Use Redux?&#x200E;</a>
+              <a class="nav-link py-1" href="#when-not-to-use-redux">When Not to Use Redux?&#x200E;</a>
+              <a class="nav-link py-1" href="#getting-started-with-redux">Getting Started with Redux&#x200E;</a>
+              <a class="nav-link py-1" href="#references-further-reading">References/Further Reading&#x200E;</a>
             </nav>
 
           </nav>
