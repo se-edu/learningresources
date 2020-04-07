@@ -46,23 +46,14 @@ The [official website](https://docs.spring.io/spring/docs/current/spring-framewo
 
 ### The IoC Container
 
-Inversion of Control (IoC) is a design principle. As the name suggests, it is used to invert
-different kinds of controls in object-oriented design to achieve looser coupling.
-Here, controls refer to any additional responsibilities a class has,
-other than its main responsibility. For example, this may include the control over the flow of an application,
-and control over the flow of an object creation.
+Normally, objects in a Java application often have to take on additional responsibilities such as creating other objects,
+wiring them together, configuring them, and managing their life cycle. When using the Spring framework for an application,
+the framework takes care of many of those responsibilities. This design approach is called inversion of control (IoC)
+and Spring achieves it using something called the IoC container. The Spring IoC container manage the
+<tooltip content="A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.">
+<i>beans </i>
+</tooltip>in Spring Framework.
 
-The Spring IoC container is at the core of the Spring Framework. The container will create the
-<tooltip content="These objects are are called beans in Spring Framework. A bean is an object that is instantiated,
-assembled, and otherwise managed by a Spring IoC container.">
-<i>objects</i>
-</tooltip> 
-, wire them together,
-configure them, and manage their complete life cycle from creation till destruction. The Spring container uses
-<tooltip content="Dependency injection is a way of providing a class with the required services.">
-<i>dependency injection</i>
-</tooltip> to manage the components that make up an application.
-    
 In the Spring framework, the IoC container is represented by the interface `ApplicationContext`.
 The beans are created with the configuration metadata that you supply to the container,
 which can be in the form of XML configuration or annotations.
@@ -102,7 +93,7 @@ public class Employee {
 We can then populate the Employee bean with the data provided in the following `applicationContext.xml` file:
 This makes our code loosely coupled and easier for testing. 
 ```xml
-<bean id="obj" class="com.company.Employee">  
+<bean id="employeeAmy" class="com.company.Employee">  
     <property name="id">  
         <value>20</value>  
     </property>  
@@ -139,28 +130,22 @@ The Spring JdbcTemplate provides methods to write the queries directly, hence, s
 
 Task | Spring | You
 -----|--------|----
-Connection Management | :heavy_check_mark: | 
-Writing SQL Queries | | :heavy_check_mark: 
-Statement Management | :heavy_check_mark: |
-ResultSet Management | :heavy_check_mark: |
-Row Data Retrieval | | :heavy_check_mark: 
-Parameter Declaration | | :heavy_check_mark: 
-Parameter Setting | :heavy_check_mark: |
-Transaction Management | :heavy_check_mark: |
-Exception Handling | :heavy_check_mark: |
+Connection Management | :far-check-circle: | 
+Writing SQL Queries | | :far-check-circle: 
+Statement Management | :far-check-circle: |
+ResultSet Management | :far-check-circle: |
+Row Data Retrieval | | :far-check-circle: 
+Parameter Declaration | | :far-check-circle: 
+Parameter Setting | :far-check-circle: |
+Transaction Management | :far-check-circle: |
+Exception Handling | :far-check-circle: |
 
 ### Spring AOP
 
-Aspect Oriented Programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of
+Spring Framework addresses
 <tooltip content="Concerns that can affect the whole application and should be centralized in one location in code as much as possible. Examples of these concerns include transaction management, authentication, logging, security etc.">
-<i>cross-cutting concerns</i></tooltip>.
-It does so by adding additional behavior to existing code
-without modifying the code itself, instead separately specifying which code is modified via a "pointcut"
-specification. This allows behaviors that are not central to the business logic (such as logging) to be added to a program
-without cluttering the core code. AOP forms a basis for aspect-oriented software development.
-
-Spring Framework supports AOP and enables cohesive development, by providing ways to dynamically add the
-cross-cutting concern before, after or around the actual logic using simple
+<i>cross-cutting concerns</i></tooltip> by supporting Aspect Oriented Programming (AOP).
+It provides ways to dynamically add the cross-cutting concerns before, after or around the actual logic using simple
 pluggable configurations. 
 
 For example, say we wish to log something into the console everytime before we call the method `getEmployeeById`.
@@ -238,9 +223,10 @@ For example, the above configuration could be written in a XML file as:
 
 ## Why Use Spring?
 
-Spring makes programming Java quicker, easier, and safer for everybody.
+Spring makes programming Java quicker, easier, and safer. It enables you to
+build applications from “plain old Java objects” (POJOs) and to apply enterprise services non-invasively to POJOs.
 Similar to other general Java frameworks (e.g. [Grails](https://grails.org/), [Play](https://www.playframework.com/)), Spring helps us focus on the core task rather than the boilerplate associated with it.
-Apart from that, Spring has other advantages like:
+Apart from that, Spring has several other advantages, described in the sections below:
 
 ### Benefit 1: Modularity
 
