@@ -348,6 +348,25 @@
       "headingKeywords": {}
     },
     {
+      "title": "Introduction to Dotfiles",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 4,
+      "src": "contents/dotfiles/Dotfiles.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-dotfiles": "Introduction to Dotfiles",
+        "what-are-dotfiles": "What are Dotfiles?",
+        "why-dotfiles": "Why Dotfiles?",
+        "management-strategies": "Management Strategies",
+        "getting-started": "Getting Started",
+        "conclusion": "Conclusion"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Introduction to Elm",
       "header": "pagetop.md",
       "footer": "footer.md",
