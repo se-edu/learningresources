@@ -72,6 +72,7 @@
   * [iOS]({{baseUrl}}/contents/ios/IntroToIos.html)
   * [Node]({{baseUrl}}/contents/node/nodejs.html)
   * [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html)
+  * [Redux]({{baseUrl}}/contents/javascript/Javascript-framework-Redux.html)
   * [Ruby on Rails]({{baseUrl}}/contents/ruby/Rails.html)
   * [Vue]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
 
