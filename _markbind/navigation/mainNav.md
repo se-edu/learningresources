@@ -58,6 +58,7 @@
     * [ESLint]({{baseUrl}}/contents/staticAnalysis/ESLint.html)
   * Testing
     * [Integration Testing]({{baseUrl}}/contents/testing/integration-testing.html)
+    * [Security Testing]({{baseUrl}}/contents/testing/security-testing.html)
     * [Writing Testable Code]({{baseUrl}}/contents/testing/writing-testable-code.html)
   * UI/UX
     * [Accessibility]({{baseUrl}}/contents/uix/accessibility.html)
