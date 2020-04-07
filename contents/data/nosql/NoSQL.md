@@ -49,7 +49,7 @@ Basic knowledge of relational databases is assumed. If not, give the <a href="..
 
 **Non-Structured Query Language** <tooltip content="Some other common interpretations include 'not only SQL', 'non relational', 'no SQL'">(**NoSQL**)</tooltip> is a wide set of implementations of query technologies used to retrieve and store data in a non-tabular format.
 
-For example, here is one such data item - a book in the catalogue of an e-commerce website, reprsented in a
+For example, here is one such data item - a book in the catalogue of an e-commerce website, represented in a
 <popover effect="fade" header="Javascript Object Notation" content="A commonly used data format which represents data in a simple, human and machine-readable format." placement="top">JSON</popover>
 format.
  
