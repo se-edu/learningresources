@@ -17,6 +17,17 @@
 
 Reviewers: [Aadyaa Maddi](https://github.com/amad-person), [Marvin Chin](https://github.com/marvinchin)
 
+<box id="article-toc">
+
+* [What is JUnit?‎](#what-is-junit)
+* [Why JUnit?‎](#why-junit)
+* [JUnit Features‎](#junit-features)
+  * [Assertions API‎](#assertions-api)
+  * [Before/After Hooks‎](#before-after-hooks)
+  * [Extension Model‎](#extension-model)
+* [Getting Started‎](#getting-started)
+</box>
+
 ## What is JUnit?
 
 **JUnit is an _automated testing framework_ for Java** i.e., it can be used to programmatically verify the actual behavior of Java code against the expected behavior.

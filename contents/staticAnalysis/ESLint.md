@@ -15,6 +15,16 @@
 
 Author: [Nicholas Chua](https://github.com/nus-cs3281/2018/blob/master/students/nicholasChua/nicholasChua-Resume.md)
 
+<box id="article-toc">
+
+* [Overview](#overview)
+* [Rules](#rules)
+* [Setting Up](#setting-up)
+* [Usage](#usage)
+* [Plugins](#plugins)
+* [Resources](#resources)
+</box>
+
 ## Overview
 
 [ESLint](https://eslint.org/docs/about/) is an open source JavaScript linter.
@@ -67,7 +77,7 @@ else { baz(); }
 
 If you are unsure about the options of the rule you want to change, you can refer to the comprehensive [rule documentation](https://eslint.org/docs/rules/).
 
-## Setting Up
+## Setting up
 
 After [installing with npm](https://eslint.org/docs/user-guide/getting-started#installation-and-usage), ESLint can be configured in [two ways](https://eslint.org/docs/user-guide/configuring#configuring-rules):
 

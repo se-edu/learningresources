@@ -15,18 +15,19 @@
 
 Author: [Shradheya Thakre](https://github.com/tshradheya)
 
-**Chapter contents**
+<box id="article-toc">
 
-* [Overview](#overview)
-* [Why Kotlin?](#why-kotlin)
-    * [Concise](#concise)
-    * [Safe](#safe)
-    * [Interoperable](#interoperable)
-    * [Tool Friendly](#tool-friendly)
-* [Kotlin for Android Apps](#kotlin-for-android-apps)
-    * [Advantages of Shifting to Kotlin](#advantages-of-shifting-to-kotlin)
-    * [Drawbacks of Shifting to Kotlin](#drawbacks-of-shifting-to-kotlin)
-* [Resources to learn Kotlin](#resources-to-learn-kotlin)
+* [Overview‎](#overview)
+* [Why Kotlin?‎](#why-kotlin)
+    * [Concise‎](#concise)
+    * [Safe‎](#safe)
+    * [Interoperable‎](#interoperable)
+    * [Tool Friendly‎](#tool-friendly)
+* [Kotlin for Android Apps‎](#kotlin-for-android-apps)
+    * [Advantages of Shifting to Kotlin‎](#advantages-of-shifting-to-kotlin)
+    * [Drawbacks of Shifting to Kotlin‎](#drawbacks-of-shifting-to-kotlin)
+* [Resources to learn Kotlin‎](#resources-to-learn-kotlin)
+</box>
 
 # Overview
 
@@ -108,7 +109,7 @@ The biggest issue is that Java isn’t a modern language, and although Java 8 wa
 - Initial readability of code may be hindered for core Java developers
 - Smaller community support
 
-# Resources to learn Kotlin
+# Resources to Learn Kotlin
 
 - [Official Resources by Android](https://developer.android.com/kotlin/resources.html)
 - [Kotlin Documentation](https://kotlinlang.org/docs/reference/)

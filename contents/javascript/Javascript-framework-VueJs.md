@@ -47,7 +47,7 @@ new Vue ({
 ```
 <box type="warning">
 
-Note that `{\{` and `}\}` should not have the slash in your actual code.
+Note that `{\{` and `}\}` should be <code>{<span>{</span></code> and <code>}<span>}</span></code> respectively, due to the limitations of [MarkBind](https://markbind.org).
 </box>
 
 Step-by-step explanation of the code:
@@ -80,11 +80,11 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 <b>Step 4:</b> Pass the message to the HTML file using double curly brackets.
 ```HTML
   <div id="root">
-    <h2>{\{message}\{</h2>
+    <h2>{\{message}\}</h2>
   </div>
 ```
 
-<b>Step 5:</b> Open the brower and we will see "Hello World" being displayed:
+<b>Step 5:</b> Open the browser and we will see "Hello World" being displayed:
 > <h2>Hello World</h2>
 <br>
 
@@ -97,7 +97,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     ```js
     this.message = 'Hello Space';
     ```
-    When `message` is changed, the view will be re-rendered to show the new message. So you can say, DOM is "reacting" to `message`.
+    When `message` is changed, the view will be re-rendered to show the new message. So you can say, the DOM is "reacting" to the changes in `message`.
 
 <br>
 
@@ -108,8 +108,9 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     In other words, if you change the input value, the bound data will change, and vice versa.
 
     ```html
-    <input type="checkbox", v-model=isChecked">
-        <label for="checked">Select</label>
+    <input type="checkbox", v-model="isChecked">
+      <label for="checked">Select</label>
+    </input>
     ```
 
     When the checkbox is selected, `isChecked` is set to `true`. If the program sets `isChecked` to `false`, then checkbox will be unselected.
@@ -119,20 +120,39 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-3. **Passing Data From Outer to Inner Components**<br>
+3. **Conditionals and Loops**<br>
+    `v-if` allows you to conditionally insert/remove elements based on the truthfulness of the binding value.
+    
+    `v-for` allows you to loop through and render a list of items.
+    
+    Following the previous checkbox example, if you want to display a list of messages when the checkbox is checked, you can do the following:
+    ```html
+    <div v-if="isChecked">
+      <div v-for="message in messages">
+        <li>{\{message}\}</li>
+      </div>
+    </div>
+    ```
+<br>
+
+4. **Passing Data From Outer to Inner Components**<br>
     When you have components that are nested within each other, data is passed from the outer component to the inner component via `props`, where `props` are just custom data shared between the components.
 
     This follows the [1-way data flow](https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow) encouraged by Vue, which
     ensures that data can only be changed by the component itself and also allows bugs to be easily traced in the code.
+    
+    To pass props to a Vue component, `v-bind:<prop-name>` is used. A demonstration of passing props is shown in the code segment below:
 
     ```js
     Vue.component('todo-list', {
-        props: ['item'],
-        data: ['totalCount'],
-        template:
-          <div class='todo-list'>
-            <p>Total:{\{this.totalCount}\{</p>
-            <p>{\{item.name}\{: {\{item.count}\{</p>
+      props: ['item'],
+      data: ['totalCount'],
+      template:`
+        <div class='todo-list'>
+          <p>Total:{\{this.totalCount}\}</p>
+          <p>{\{item.name}\}: {\{item.count}\}</p>
+        </div>
+      `
     })
 
     <todo-list
@@ -150,7 +170,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-4. **Emitting Events**<br>
+5. **Emitting Events**<br>
     However, what if the user decides to update the `item.count`? The data for `item.count` has to be passed from `item` to `todo-list` so that `totalCount` can be updated inside `todo-list` .
 
     How do we do that if we have to follow the 1-way data flow rule?
@@ -163,28 +183,26 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
     ```js
     Vue.component('item', {
       data: ['count', 'name'],
-      template: {
-        <button v-on:click="$emit('increased-count', count+1)">Increment item count</button>
-      }
-    }
+      template: `<button v-on:click="$emit('increased-count', count+1)">Increment item count</button>`
+    })
 
     /* Inside todo-list component */
-    template: {
-        v-on:increased-count="updateCount"
-    }
+    template: `<item v-on:increased-count="updateCount" v-for="item in items"/>`
     ```
+   <box type="tip">
+   
+   When the button is clicked, the `item` component will emit a custom event named `increased-count` while the `todo-list` component listens for this event and executes its own `updateCount` method.
+   </box>
 
 <br>
 
-5. **Computed Properties**<br>
+6. **Computed Properties**<br>
     This is useful when you want to compose new data based on the data that has changed.
     Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.
 
     ```js
     computed: totalCount() {
-        let result = 0;
-        this.items.forEach((item) => result += item.count);
-        return result;
+      return this.items.reduce((sum, item) => sum + item.count);
     }
     ```
 
@@ -199,7 +217,7 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
-6. **Watched Properties**<br>
+7. **Watched Properties**<br>
     Watched properties are used to call other functions when a particular data has been updated, such as <tooltip content="independent operations">asynchronous operations</tooltip>.
 
     For example, when a new `item` is added, we want to send a notification to our friend to alert him or her about the change.
@@ -207,13 +225,11 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
     ```js
     watch: {
-        totalCount: function() {
-            let result = 0
-            this.items.forEach((item) => result += item.count);
-            this.totalCount = result;
+      totalCount: function() {
+        this.totalCount = this.items.reduce((sum, item) => sum + item.count);
 
-            // notify friend about the change
-        }
+        // notify friend about the change
+      }
     }
     ```
 
@@ -228,55 +244,73 @@ In this case, only the `root` component can be accessed in Vue while the rest ar
 
 <br>
 
+8. **Lifecycle Hooks**<br>
+    Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions in the background called lifecycle hooks, allowing users to add code at each stage that could improve its rendering speed.<br/><br/>
+    The following diagram shows all lifecycle hooks and their specific execution stages:<br/>
+    ![Vue's Lifecycle Diagram](javascript-framework-vue-images/vue-lifecycle-diagram.png "Vue's Lifecycle Diagram")
+    _Figure 1. Vue's Lifecycle Diagram_
+   
+    To run code at a specific stage, you can just define the corresponding hook function and add your code within the function.
+    For example, the `created` hook can be used to run code right after the Vue instance is created:
+    ```js
+    Vue.component('todo-list', {
+      ...
+      created: function() {
+        console.log("to-do list is created.");
+      }
+    })
+    ```
+   For more detailed information about Vue lifecycle hooks, visit [here](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks).<br/>
+     
 ## Why use Vue?
 
 Now that we know what Vue is, let us look at some benefits it has to offer.
 
 ### Benefit 1: Approachable
-
 Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br/><br/>
 Iteration in React:<br/><br/>
 The JavaScript file in ReactJs
-    ```js
-    var Iteration = React.createClass({
-       getInitialState() {
-         return {
-           array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-         }
-       },
-       render() {
-         this.state.array.map(function(date) {
-           return (
-             <span>{date}</span>
-           )
-         });
-       }
+
+```js
+var Iteration = React.createClass({
+  getInitialState() {
+    return {
+      array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    }
+  },
+  render() {
+    this.state.array.map(function(date) {
+      return (
+        <span>{date}</span>
+      )
     });
-    ReactDOM.render(<Iteration />, document.getElementById('array'));
-    ```
-    The HTML file in ReactJs
-    ```html
-    <div id="array"></div>
-    ```
-    Iteration in Vue:<br/><br/>
-    The JavaScript file in Vue
-    ```js
-    var Iteration = new Vue({
-      el: '#array',
-      data: {
-        array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-      }
-    });
-    ```
-    The HTML file in Vue
-    ```html
-    <div id="array">
-      <span v-for="date in array">{date}</span>
-    </div>
-    ```
+  }
+});
+ReactDOM.render(<Iteration />, document.getElementById('array'));
+```
+    
+The HTML file in ReactJs
+```html
+<div id="array"></div>
+```
+Iteration in Vue:<br/><br/>
+The JavaScript file in Vue
+```js
+var Iteration = new Vue({
+  el: '#array',
+  data: {
+    array: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  }
+});
+```
+The HTML file in Vue
+```html
+<div id="array">
+  <span v-for="date in array">{\{date}\}</span>
+</div>
+```
 
 ### Benefit 2: Progressive
-
 Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follows:
     > Vue is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
     >

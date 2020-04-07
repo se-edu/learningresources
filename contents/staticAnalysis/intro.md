@@ -15,6 +15,21 @@
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
 
+<box id="article-toc">
+
+* [Overview‎](#overview)
+* [Why Static Analysis?‎](#why-static-analysis)
+	* [Analyse Thoroughly‎](#analyse-thoroughly)
+	* [Find Potential Bugs Early‎](#find-potential-bugs-early)
+	* [Enforce a Standard in Project‎](#enforce-a-standard-in-project)
+	* [Improve Code Quality‎](#improve-code-quality)
+* [Limitation of Static Analysis‎](#limitation-of-static-analysis)
+	* [False positives‎](#false-positives)
+	* [Cannot Catch Error Introduced in Runtime Environment‎](#cannot-catch-error-introduced-in-runtime-environment)
+* [How to Do Static Analysis (Static Analysis Tools)‎](#how-to-do-static-analysis-static-analysis-tools)
+* [References‎](#references)
+</box>
+
 ## Overview
 
 Static analysis is the process of analysing computer programme **without** executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).
@@ -80,7 +95,7 @@ return isConditionTrue();
 
 ## Limitation of Static Analysis
 
-### False positives
+### False Positives
 Since static analysis tools only recognize patterns, there might be false positives introduced.
 
 ``` java
