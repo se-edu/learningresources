@@ -14,6 +14,7 @@
 # Introduction to Dotfiles
 
 **Author(s): [Tiu Wee Han](https://github.com/tiuweehan)**<br>
+Reviewers: [James Pang](https://github.com/jamessspanggg), [Liu Yiwen](https://github.com/0blivious)
 
 <box id="article-toc">
 
@@ -47,11 +48,11 @@ Some common uses of dotfiles include:
 
 #### Benefit 1: Configure Applications
 
-With Dotfiles, users have an easy and centralised way to configure their environment and applications. The usage of a file to store configurations also makes it easily shareable and reuseable by other people, as opposed to having to change settings within the application. Dotfiles can be used to configure almost all popular command line tools. In this section, we will explore dotfiles related to `git` and `ssh` - tools frequently used by developers.
+With dotfiles, users have an easy and centralised way to configure their environment and applications. The usage of a file to store configurations also makes it easily shareable and reuseable by other people, as opposed to having to change settings within the application. Dotfiles can be used to configure almost all popular command line tools. In this section, we will explore dotfiles related to `git` and `ssh` - tools frequently used by developers.
 
 ##### Feature 1.1: Git Dotfiles
 
-`git` is an indispensible tool for many developers and projects, and it is undoubtably the most popular version control software. Hence, it is highly beneficial to learn how to configure `git` dotfiles.
+`git` is an indispensible tool for many developers and projects, and it is undoubtedly the most popular version control software. Hence, it is highly beneficial to learn how to configure `git` dotfiles.
 
 Global settings for `git`, such as the user's name, email and GitHub username can be specified in the `~/.gitconfig` file. The code below is a bare-bones `~/.gitconfig` file.
 ```git
@@ -71,11 +72,11 @@ node_modules/ # Project specific packages for node projects
 .vs_code      # Project specific VS code text editor configuration
 bin/          # Binary executables
 ```
-This example also illustrates how using Dotfiles can add project specific configurations that all developers working on a project will adhere to universally, as opposed to system level settings which may vary from developer to developer.
+This example also illustrates how using dotfiles can add project specific configurations that all developers working on a project will adhere to universally, as opposed to system level settings which may vary from developer to developer.
 
 ##### Feature 1.2: SSH Dotfiles
 
-For developers and engineers working with remote servers, `ssh` is arguably the most essential tool for connecting and running commands on remote servers. However, for many beginners, working with `ssh` can be a daunting prospect. Configuring dotfiles is a good way to both simplify the usage of `ssh` and learn how to master it effectively
+For developers and engineers working with remote servers, `ssh` is arguably the most essential tool for connecting and running commands on remote servers. However, for many beginners, working with `ssh` can be a daunting prospect. Configuring dotfiles is a good way to both simplify the usage of `ssh` and learn how to master it effectively.
 
 Say a user John wants to connect to a remote server called `remoteA`. Typically, he will run the following command to connect to the server
 ```bash
@@ -106,7 +107,7 @@ Dotfiles allow users to create custom shortcuts and commands, including aliases,
 
 ##### Feature 2.1: Aliases
 
-An alias is a short cut command to a longer command. A new alias is defined by assigning a string with the command to a name in the format `alias <name>=<command>`. Aliases are often set in the `~/.bashrc` or `~/.zshrc` file. The examples below illustrate the use of aliasing.
+An alias is a shortcut command to a longer and more complex command. A new alias is defined by assigning a string with the command to a name in the format `alias <name>=<command>`. Aliases are often set in the `~/.bashrc` or `~/.zshrc` file. The examples below illustrate the use of aliasing.
 
 ```bash
 alias c='clear'
@@ -198,7 +199,7 @@ While dotfiles are easy to setup and configure, they can become disorganised ove
 
 #### Management Strategies
 
-There are many stratgies for managing dotfiles, but virtually all of them revolve around storing them in `git` repositories. The nature of dotfiles make `git` and ideal management tool - Dotfiles continously evolve over time as the user adds more configurations, and it may be useful to track old dotfiles for future reference.
+There are many stratgies for managing dotfiles, but virtually all of them revolve around storing them in `git` repositories. The nature of dotfiles make `git` and ideal management tool - they continously evolve over time as the user adds more configurations, and it may be useful to track old dotfiles for future reference.
 
 Another major benefit of managing dotfiles with `git` is that they can then be pushed to online repositories like GitHub or GitLab. These dotfiles can then be easily reused on other systems by simply pulling from these online repositories, allowing users to port their painstakingly created dotfiles anywhere. Since certain dotfiles may also vary across different systems (e.g. bash configurations may be different), users can use different branches to differentiate between these systems. It almost seems as though `git` was created for managing dotfiles!
 
@@ -221,9 +222,9 @@ Before copying dotfiles over to a system, ensure that there is a backup of the l
 
 ### Conclusion
 
-In a nutshell, Dotfiles are highly useful tools that can provide virtually unlimited customisability, and can tremendously improve the productivity of a developer. For junior developers that are keen on improve their linux or shell scripting knowledge, dotfiles are a good way to get started.
+In a nutshell, dotfiles are highly useful tools that can provide virtually unlimited customisability, and can tremendously improve the productivity of a developer. For junior developers that are keen on improve their linux or shell scripting knowledge, dotfiles are a good way to get started.
 
-Apart from those listed in the article, here are some further readings/resources to get started with Dotfiles:
+Apart from those listed in the article, here are some further readings/resources to get started with dotfiles:
 
 - [Unofficial Guide to Dotfiles on GitHub](https://dotfiles.github.io/)
 - [Introduction to Dotfiles](https://thoughtbot.com/upcase/videos/intro-to-dotfiles)
