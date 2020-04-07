@@ -33,7 +33,7 @@ Setting up a workflow in a repository is easy and hassle-free. [Starter workflow
 
 
 ### Reusable actions
-Actions are a small, reusable unit in a workflow. When setting up a workflow, we can use actions written by the community. The marketplace allows users to browse actions written by others for use in our workflows.
+Actions are small, reusable units in a workflow. When setting up a workflow, we can re-use actions that were already written by the community. These actions are available at the marketplace.
 
 
 ![](https://i.imgur.com/m9PddIu.png)
