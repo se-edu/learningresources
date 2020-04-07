@@ -32,7 +32,7 @@ Setting up a workflow in a repository is easy and hassle-free. [Starter workflow
 
 
 
-### Reusable actions
+### Reusable Actions
 Actions are small, reusable units in a workflow. When setting up a workflow, we can reuse actions that were already written by the community. These actions are available at the marketplace.
 
 
@@ -40,10 +40,10 @@ Actions are small, reusable units in a workflow. When setting up a workflow, we 
 
 
 
-### Cross OS support
+### Cross OS Support
 GitHub Actions gives you the option to [run workflows](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources) on Ubuntu, Windows and macOS.
 
-### Docker support
+### Docker Support
 GitHub Actions provides the ability to run docker images for projects that use a dockerized environment.
 
 ### Powerful
@@ -54,7 +54,7 @@ The free plan offers 2000 minutes of build time per month for public repositorie
 
 ---
 
-## How does GitHub Actions work
+## How does GitHub Actions Work
 <!--This is a simple high-level overview of the tool to give the reader some concrete sense of X (as opposed to limiting to an entirely abstract description). It's useful to give concrete examples such as code examples. Do not try to 'teach' how to use the X (assuming your in the style of a tutorial. If the tool is worth learning, there must be good tutorials about it already.-->
 ### Concepts
 #### Workflow
@@ -67,15 +67,15 @@ An action is a piece of code that performs one single modular task. For example,
 Workflows can be triggered by events on the GitHub repository, ranging from opening pull requests or issues, making commits to scheduled events, or even from an external event by calling GitHub's REST API endpoint.
 
 
-### How is GitHub Actions being used
+### How is GitHub Actions Being Used
 
-#### Simple CI/CD workflow example for a NodeJS app
+**Simple CI/CD workflow example for a NodeJS app**
 1. Trigger when a commit/pull request is made to master
 2. Build
 3. Run tests on ubuntu
 4. Deploy app if tests pass
 
-##### [Workflow file](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml)
+**[Workflow file](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml)**
 ```yaml
 name: Node.js CI
 
@@ -117,7 +117,7 @@ Provide a learning path for the reader. Try to give one good learning path rathe
 -->
 The [official documentation](https://help.github.com/en/actions/getting-started-with-github-actions/overview) provides a useful overview of GitHub Actions (summarized in this article), but it does not give you a clear and easy to follow path to getting started. This is a mini-guide for you to get started with GitHub Actions.
 
-### Set up a simple workflow (Node.js)
+### Set Up a Simple Workflow (Node.js)
 Fortunately for us, GitHub has made it extremely easy to set up a simple workflow without even leaving their website. 
 
 ![](https://i.imgur.com/zC4ScYn.png)
@@ -140,7 +140,7 @@ Fortunately for us, GitHub has made it extremely easy to set up a simple workflo
 
 The [starter workflows](https://github.com/actions/starter-workflows) repository contains good examples of CI workflows for popular languages as well as automation workflows for GitHub. 
 
-## Where to Go from Here?
+## Where to Go From Here
 <!--
 Give more resources. Instead of listing a lot of links, provide a brief summary of what value each resource can provide the reader.
 -->
@@ -150,7 +150,7 @@ A powerful extension to GitHub Actions is to use the [github-script](https://git
 
 I have also compiled a list of popular repositories that use GitHub Actions that you can use as a reference. Do note that this is far from a comprehensive list and is more of a sample of how organizations are leveraging GitHub Actions in their development and production workflow.
 
-### Repositories that use GitHub Actions
+### Repositories That Use GitHub Actions
 
 Org/Project | Workflows | Notes
 --- | --- | ---
