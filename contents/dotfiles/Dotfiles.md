@@ -24,20 +24,14 @@ Reviewers: [James Pang](https://github.com/jamessspanggg), [Liu Yiwen](https://g
         * [Benefit: Save and Reuse Configurations](#benefit-save-and-reuse-configurations)
         * [Benefit: Personalised Shortcuts and Commands‎](#benefit-personalised-shortcuts-and-commands‎)
         * [Benefit: Shell Utility and Styling](#benefit-shell-utility-and-styling)‎
+    * [Management Strategies‎](#management-strategies)
     * [Getting Started](#getting-started)
-        * [Management Strategies‎](#management-strategies)
     * [Conclusion](#conclusion)
 
 </box>
 
 ### What are Dotfiles?
 Dotfiles are plain text configuration files on Unix like systems (e.g. MacOS, Linux, BSD). Dotfiles store settings of almost every application, service and tool running on your system. These files control the behavior of applications from boot to termination and everything in between.
-
-<pic src="dotfiles-logo.png" alt="Dotfiles Logo" width="45%">
-  
-  <sub>_Figure 1. Dotfiles Logo_ [(source)](https://www.twilio.com/blog/using-dotfiles-productivity-bootstrap-systems)</sub>
-
-</pic>
 
 Some common uses of dotfiles include:
 - Scripts that run when a Shell is started: `.profile`, `.bashrc`, `.zshrc`
@@ -46,7 +40,7 @@ Some common uses of dotfiles include:
 
 ### Why Dotfiles?
 
-#### Benefit 1: Configure Applications
+#### Benefit 1: Easy and Centralised Way to Configure Applications
 
 With dotfiles, users have an easy and centralised way to configure their environment and applications. The usage of a file to store configurations also makes it easily shareable and reuseable by other people, as opposed to having to change settings within the application. Dotfiles can be used to configure almost all popular command line tools. In this section, we will explore dotfiles related to `git` and `ssh` - tools frequently used by developers.
 
@@ -124,19 +118,57 @@ In this case, a user is able to type `c` instead of typing out `clear` in order 
 
 Much like aliases, functions allows a user to abstract longer commands into short commands. However, there is additional functionality such as being able to pass command line [arguments](https://tecadmin.net/tutorial/bash-scripting/bash-command-arguments/) and [flags](https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash). This makes the commands more extensible and reuseable for a wide array of functionality.
 
-The example function `say_hello` below takes in 2 arguments, represented by `$1` and `$2`.
+The example function `mcd` below takes in a single argument represented by `$1`, creates a directory with the same name and enters it in a single command.
 ```bash
-say_hello () {
-  echo "hello $1, good $2!"
+function mcd() {
+  mkdir -p $1;
+  cd $1;
 }
 ```
-If the user were to type the following into the terminal:
+So if the user were to type the following into the terminal:
 ```bash
-say_hello John morning
+mcd my_folder
 ```
-it would produce the output:
-```
-hello John, good morning!
+it would create a folder called `my_folder` and enter into it in a single step.
+
+A highly useful and commonly used function is the `extract` function. This combines a lot of utilities to allow you to decompress just about any compressed file format, such as `tar`, `rar` and `zip`:
+
+```bash
+function extract() {
+ if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+    return 1
+ else
+    for n in $@
+    do
+      if [ -f "$n" ] ; then
+          case "${n%,}" in
+            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
+                         tar xvf "$n"       ;;
+            *.lzma)      unlzma ./"$n"      ;;
+            *.bz2)       bunzip2 ./"$n"     ;;
+            *.rar)       unrar x -ad ./"$n" ;;
+            *.gz)        gunzip ./"$n"      ;;
+            *.zip)       unzip ./"$n"       ;;
+            *.z)         uncompress ./"$n"  ;;
+            *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)
+                         7z x ./"$n"        ;;
+            *.xz)        unxz ./"$n"        ;;
+            *.exe)       cabextract ./"$n"  ;;
+            *)
+                         echo "extract: '$n' - unknown archive method"
+                         return 1
+                         ;;
+          esac
+      else
+          echo "'$n' - file does not exist"
+          return 1
+      fi
+    done
+fi
+}
 ```
 
 The use of functions essentially allows a user to create custom command-line tools to suit their needs.
@@ -193,11 +225,7 @@ Dotfiles are also often used to style and colorise the terminal. This is not jus
 
 </pic>
 
-### Getting Started
-
-While dotfiles are easy to setup and configure, they can become disorganised over time as a developer as more and more configurations are added. As much as possible, they should be managed like any other software engineering project, applying software design principles such as modularisation to make them extensible and future-proof.
-
-#### Management Strategies
+### Management Strategies
 
 There are many stratgies for managing dotfiles, but virtually all of them revolve around storing them in `git` repositories. The nature of dotfiles make `git` and ideal management tool - they continously evolve over time as the user adds more configurations, and it may be useful to track old dotfiles for future reference.
 
@@ -206,13 +234,14 @@ Another major benefit of managing dotfiles with `git` is that they can then be p
 The main difference between different strategies are how these dotfiles should be linked from the git repository into the system, since dotfiles can exist in different directories. The 3 most commonly used strategies are detailed below:
 
 1. **Use a [git worktree](https://www.atlassian.com/git/tutorials/dotfiles):**\
-The strategy uses a less well-known Git functionality of storing the Git worktree separately from the Git directory. This consists of a Git bare repository in a "side" folder (like `$HOME/.cfg` or `$HOME/.myconfig`) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
+The strategy uses a lesser-known Git functionality of storing the Git worktree separately from the Git directory. This consists of a Git bare repository in a "side" folder (like `$HOME/.cfg` or `$HOME/.myconfig`) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
 2. **Use [symlinking](https://opensource.com/article/19/3/move-your-dotfiles-version-control):**\
 This strategy involves using symlinks (The `ln` command) to create a shortcut linking to the dotfiles repository. The `ln` command is used to create links in your (unix-based) system. The syntax is `ln -s <actual location of the file> <name and location you want to see that file under>`. For example, the command below will result in the gitconfig in the dotfiles directory to be accessible from the `~/.gitconfig` location, which is where Git is expecting to see all the Git preferences set.
+  
+    ```
+    ln -s ~/dotfiles/gitconfig ~/.gitconfig
+    ```
 
-```bash
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-```
 3. **Use an existing dotfiles management tool such as [yadm](https://yadm.io/):**
 `yadm` is a command-line tool for managing dotfiles. It provides many features out of the box, which saves the user the time needed to manually configure his/her own dotfiles. It also supplies additional features, such as the ability to manage a subset of secure files, which are encrypted before they are included in the repository. However, the caveat of this strategy is that it requires new systems to have `yadm` installed, which significantly reduces the portability.
 
@@ -220,14 +249,16 @@ ln -s ~/dotfiles/gitconfig ~/.gitconfig
 Before copying dotfiles over to a system, ensure that there is a backup of the local dotfiles so they are not overwritten.
 </box>
 
-### Conclusion
+### Getting Started
 
-In a nutshell, dotfiles are highly useful tools that can provide virtually unlimited customisability, and can tremendously improve the productivity of a developer. For junior developers that are keen on improve their linux or shell scripting knowledge, dotfiles are a good way to get started.
-
-Apart from those listed in the article, here are some further readings/resources to get started with dotfiles:
+It is easy to get started with dotfiles - a simple way to start is just by adding aliases for commonly used commands! For developers looking to optimise their productivity even further with dotfiles beyond the examples in this article, here are some useful readings/resources to get started with dotfiles:
 
 - [Unofficial Guide to Dotfiles on GitHub](https://dotfiles.github.io/)
 - [Introduction to Dotfiles](https://thoughtbot.com/upcase/videos/intro-to-dotfiles)
 - [Awesome dotfiles: A curated list of dotfiles resources.](https://github.com/webpro/awesome-dotfiles)
+
+### Conclusion
+
+In a nutshell, dotfiles are highly useful tools that can provide virtually unlimited customisability, and can tremendously improve the productivity of a developer. For junior developers that are keen on improve their linux or shell scripting knowledge, dotfiles are a good way to get started.
 
 </div>
