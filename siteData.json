@@ -261,6 +261,31 @@
       "headingKeywords": {}
     },
     {
+      "title": "Introduction to NoSQL",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/data/nosql/NoSQL.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-nosql": "Introduction to NoSQL",
+        "what-is-nosql": "What is NoSQL?",
+        "key-characteristics-of-nosql-databases": "Key Characteristics of NoSQL Databases",
+        "1-powerful-and-simple-crud-operations": "1. Powerful and Simple CRUD Operations",
+        "2-schema-less-data": "2. Schema-Less Data",
+        "3-straightforward-expression-of-relations-in-data": "3. Straightforward Expression of Relations in Data",
+        "why-nosql": "Why NoSQL?",
+        "1-highly-suited-for-iterated-development": "1. Highly Suited for Iterated Development",
+        "2-easy-horizontal-scaling": "2. Easy Horizontal Scaling",
+        "3-widespread-adoption": "3. Widespread Adoption",
+        "caveats-of-nosql": "Caveats of NoSQL",
+        "how-to-get-started-with-nosql": "How to get Started With NoSQL?"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Introduction to SQL",
       "header": "pagetop.md",
       "footer": "footer.md",
