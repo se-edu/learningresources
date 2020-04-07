@@ -17,6 +17,17 @@
 
 Reviewers: [Chattoraj Ayush](https://github.com/AyushChatto), [Monika Manuela Hengki](https://github.com/monmanuela),  [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Rachael Sim](https://github.com/rachx), [Tran Tien Dat](https://github.com/tran-tien-dat), [Wen Xin](https://github.com/wenmogu)
 
+<box id="article-toc">
+
+* [SQL‎](#sql)
+* [How does SQL Injection Work?‎](#how-does-sql-injection-work)
+* [Why is it Important to Prevent SQL Injection?‎](#why-is-it-important-to-prevent-sql-injection)
+* [Preventing SQL Injection‎](#preventing-sql-injection)
+  * [Solution 1: Prepared Statements using Parameterized Queries‎](#solution-1-prepared-statements-using-parameterized-queries)
+  * [Solution 2: Whitelist Input Validation‎](#solution-2-whitelist-input-validation)
+* [Resources‎](#resources)
+</box>
+
 ## SQL
 SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many "tables" organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:
 
@@ -41,7 +52,7 @@ SELECT * FROM users WHERE Username = 'Admin'
 
 More information about SQL can be found [here](https://www.w3schools.com/sql/).
 
-## How does SQL Injection Work?
+## How Does SQL Injection Work?
 
 >**SQL injection is the placement of malicious code in SQL statements, via web page input.**<br>--source: [w3schools](https://www.w3schools.com/sql/sql_injection.asp)
 
@@ -148,7 +159,7 @@ There are a couple of ways to protect your website against SQL injection attacks
 
 The sections below explain the two options in more detail.
 
-### Solution 1: Prepared Statements using Parameterized Queries
+### Solution 1: Prepared Statements Using Parameterized Queries
 
 By defining all the SQL code first and passing in the parameters afterwards, you can make the database distinguish the difference between code and data. It would treat the values entered by the user as a parameter, and would not allow it to alter the query being executed. The way to achieve this varies by language, but it is easy to implement and effective.
 

@@ -15,6 +15,15 @@
 
 **Authors: [Rahul Rajesh](https://github.com/rrtheonlyone)**
 
+<box id="article-toc">
+
+* [What is Docker?‎](#what-is-docker)
+* [Why Docker?‎](#why-docker)
+* [How to use Docker?‎](#how-to-use-docker)
+* [Additional tools - Docker Swarm and Kubernetes‎](#additional-tools-docker-swarm-and-kubernetes)
+* [Conclusion / Further Readings‎](#conclusion-further-readings)
+</box>
+
 Reviewers: [Monika Manuela Hengki](https://github.com/monmanuela), [Wang Junming](https://github.com/junming403)
 
 ### What is Docker?
@@ -70,7 +79,7 @@ As you can read from above, Docker is undeniably a powerful tool that can allevi
 
 Now that we have a good idea of how Docker works and a summary of the notable advantages it is able to provide, let us take a closer look at some of the unique features that Docker is able to provide.
 
-#### Feature: Docker is lightweight 
+#### Feature: Docker is Lightweight 
  
 We have discussed above that Docker makes use of a container instead of a full-fledged VM to run your application. We have briefly covered the differences between a VM and a container above.
 
@@ -84,7 +93,7 @@ The table below lists some of the differences between a VM and a container:
 
 The image listed previously in the “What is Docker” section helps to give a pictorial representation of the points listed above in the table. To summarise, a Docker container shares the host OS and runs a discrete process on your operating system (much like any other application). As a result, Docker has a minimal footprint and is much more lightweight. This also makes it faster to run.
 
-#### Feature: Docker allows for sharing and reuse
+#### Feature: Docker Allows for Sharing and Reuse
 
 Docker containers require a base image to run. An image corresponds to the service you want e.g. python image / ubuntu image etc. An image helps to define what you want your packaged application and its dependencies to look like.
 
@@ -98,7 +107,7 @@ One of the reasons why Docker is so great is that it provides a shared resource 
 
 Hence, no matter what your use case is, there is a good chance that someone else has already built an image for it on the Docker Hub. With Docker, you do not have to spend hours thinking about how to configure your images. On top of that, you are free to augment existing images to fit you exact needs. You can then, share your new image back to the Docker Hub for others to use! 
 
-#### Feature: Docker is accessible
+#### Feature: Docker is Accessible
 
 On top of the abovementioned advantages, Docker has made it much easier for anyone from developers to system admins to take advantage of containers to quickly build and run applications. Docker allows anyone to package an application on their laptop which in turn can run unmodified on any public cloud or private cloud. Hence the mantra, “build once, run anywhere”.
 
@@ -123,7 +132,7 @@ For the example used, the layers are simple bash commands that help print “Hel
 
 As a result, Docker is easy to get started with. Once you have configured a DockerFile, you can reuse it everywhere else to run your container! The process for creating a DockerFile is also made easier due to the plethora of resources available and the Docker Hub.
 
-#### Feature: Docker is modular and scalable
+#### Feature: Docker is Modular and Scalable
 
 As mentioned earlier, Docker makes it much easier to deploy an application that is using a microservices based architecture. For example, you may have Postgres database running in one container, Redis server in another and a Python Flask application in another. Docker makes it much easier to group these containers together and scale/update individual components easily in the future.
 
@@ -153,7 +162,7 @@ Here is a learning path that you can follow to pick up Docker:
 
 - [Books covering specific use cases with Docker](https://github.com/eduleboss/the-best-docker-books) : Once you have a clearer picture on the fundamentals behind Docker, this resource will provide you with a collection of books that show you how to use Docker in a practical setting.  
 
-### Additional tools - Docker Swarm and Kubernetes
+### Additional Tools - Docker Swarm and Kubernetes
 
 If you have managed to familiarise yourself with the functionality that Docker is able to provide and have used Docker for your own projects, here are some additional tools that you might want to look into that make use of Docker.
 

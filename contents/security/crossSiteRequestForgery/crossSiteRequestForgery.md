@@ -15,9 +15,20 @@
 
 Author: [Tran Tien Dat](https://github.com/tran-tien-dat)
 
+<box id="article-toc">
+
+* [Flow of a CSRF attack‎](#flow-of-a-csrf-attack)
+  * [Step 1: The victim logs in to a vulnerable web service‎](#step-1-the-victim-logs-in-to-a-vulnerable-web-service)
+  * [Step 2: The victim visits an untrusted website controlled by the attacker‎](#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker)
+  * [Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf‎](#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf)
+* [Conditions for a successful CSRF attack‎](#conditions-for-a-successful-csrf-attack)
+* [Defense against CSRF attacks‎](#defense-against-csrf-attacks)
+* [References‎](#references)
+</box>
+
 Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like [Gmail](http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html) and [Netflix](http://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html) in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.
 
-## Flow of a CSRF attack
+## Flow of a CSRF Attack
 
 A CSRF attack tricks the victim to perform actions that they do not intend to do on a web application in which they're currently authenticated. It generally consists of 3 steps:
 1. The victim logs in to a vulnerable web service
@@ -26,7 +37,7 @@ A CSRF attack tricks the victim to perform actions that they do not intend to do
 
 These steps are best explained through an example. Suppose that Alice is a customer of the banking website `www.example-bank.com`. Alice wants to transfer money to her friend Bob (because she does not like the fact that he keeps paying for her meals when they go out together). 
 
-### Step 1: The victim logs in to a vulnerable web service
+### Step 1: The Victim Logs in to a Vulnerable Web Service
 
 Alice first logs in to the website at `www.example-bank.com/login`, providing her username and password. She then clicks on a hyperlink on the site to go to the URL `www.example-bank.com/transfer` to perform her transaction. Note that Alice does not have to enter her username and password again, but the bank still knows that the request is made by her. This is done through a mechanism of the HTTP protocol called a [HTTP Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). A *cookie* is a small piece of information that is sent along with all HTTP requests to a particular website. In our case, after receiving Alice's credentials for logging in, the bank instructs Alice's browser to store a *cookie* `auth=1abcd2ek3292fsa390sdf` and **send this cookie together with every subsequent request** to `www.example-bank.com`. Thus, once the web server sees this cookie in the request, it knows that this is an authenticated request from Alice. Many websites use this cookie mechanism so that users only have to log in once.
 
@@ -52,7 +63,7 @@ receiver-name=Bob&receiver-account-no=123456&amount=100
 
 The bank's server verifies that the cookie `auth=1abcd2ek3292fsa390sdf` is valid and is associated with Alice. It then proceeds to transfer $100 from Alice's account to account number 123456, which belongs to Bob.
 
-### Step 2: The victim visits an untrusted website controlled by the attacker
+### Step 2: The Victim Visits an Untrusted Website Controlled by the Attacker
 
 Alice then receives a chat message from her not-so-trustworthy friend, Eve:
 
@@ -63,7 +74,7 @@ Eve: OMG Alice! This site is selling the shoes you have always
 
 Excited by this piece of news, Alice clicks on the hyperlink to check out `www.i-am-not-evil.com`.
 
-### Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf
+### Step 3: The Untrusted Website Makes Requests to the Vulnerable Web Service on the Victim's Behalf
 
 While browsing `www.i-am-not-evil.com`, Alice clicks on the `View more pictures` button on the website to see more pictures of her favorite pair of shoes. Unbeknownst to her, that button has the following HTML code:
 
@@ -87,7 +98,7 @@ receiver-name=Eve&receiver-account-no=987654&amount=100000
 
 Since Alice is still logged in to `www.example-bank.com`, the browser automatically attaches the cookie `auth=1abcd2ek3292fsa390sdf` to any requests made to `www.example-bank.com`. Hence, the bank's server considers this as an authenticated request from Alice and proceeds to transfer $100,000 from Alice's account to account number 987654, which belongs to the attacker!
 
-## Conditions for a successful CSRF attack
+## Conditions for a Successful CSRF Attack
 
 From the example, we can see that a CSRF attack works by forging a valid request which **inherits the identity and privileges of the victim** on the vulnerable web server. Such inheritance of privileges is possible because the browser attaches any credentials associated with a website to all requests made to the site. Therefore, if the user is currently authenticated to the site, the site will have no way to distinguish between the forged request sent by the victim and a legitimate request sent by the victim. In short, there are 3 conditions necessary for the attack:
 
@@ -97,7 +108,7 @@ From the example, we can see that a CSRF attack works by forging a valid request
 
 *Note: [Social engineering](https://en.wikipedia.org/wiki/Social_engineering_%28security%29) refers to psychological manipulation of people into performing actions. In our example, Eve shares a link with a description that matches Alice's interest, which increases the chance that Alice will follow the link. Thus, this action is a form of social engineering.*
 
-## Defense against CSRF attacks
+## Defense Against CSRF Attacks
 
 Both users and websites can take actions to defend themselves against CSRF attacks. As the user, one can reduce the likelihood of being attacked by logging out of sensitive services like banking immediately after carrying out transactions. This will negate condition number 2. Condition number 3 can be mitigated if the user is extremely careful and never visits websites they do not know. However, users generally do not follow this and just click on interesting links they encounter on social media. Hence, this threat of social engineering could never be fully eliminated.
 

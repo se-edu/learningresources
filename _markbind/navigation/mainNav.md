@@ -7,6 +7,8 @@
     * [Rvalue References and Move Semantics]({{baseUrl}}/contents/c++/rvalue.html)
   * CSharp
 	* [Introduction to CSharp]({{baseUrl}}/contents/csharp/IntroductionToCSharp.html)
+  * [Dart]({{baseUrl}}/contents/dart/Dart.html)
+  * [Elm]({{baseUrl}}/contents/elm/Elm.html)
   * [Go]({{baseUrl}}/contents/go/Go.html)
   * [Haskell]({{baseUrl}}/contents/haskell/Haskell.html)
   * Java
@@ -23,7 +25,9 @@
   * Kotlin
     * [Introduction to Kotlin]({{baseUrl}}/contents/kotlin/kotlin.html)
     * [Null Safety In Kotlin]({{baseUrl}}/contents/kotlin/NullSafety.html)
-  * [Python]({{baseUrl}}/contents/python/introduction-to-python.html)
+  * Python
+    * [Introduction to Python]({{baseUrl}}/contents/python/introduction-to-python.html)
+    * [NumPy]({{baseUrl}}/contents/python/numpy.html)
   * [Ruby]({{baseUrl}}/contents/ruby/Ruby.html)
   * [Rust]({{baseUrl}}/contents/rust/Rust.html)
   * [Scala]({{baseUrl}}/contents/scala/Scala.html)
@@ -84,6 +88,7 @@
   * Multi-Threading
     * [GPGPU]({{baseUrl}}/contents/gpgpu/gpgpu.html)
     * [CUDA]({{baseUrl}}/contents/gpgpu/cuda.html)
+  * [Natural Language Processing]({{baseUrl}}/contents/naturalLanguage/nl.html)
   * Security
     * [Cross Site Request Forgery]({{baseUrl}}/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html)
     * [Cross Site Scripting]({{baseUrl}}/contents/security/crossSiteScripting/crossSiteScripting.html)
