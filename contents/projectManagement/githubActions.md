@@ -27,7 +27,7 @@ Github Actions is a workflow automation solution that is tightly integrated into
 ## Why Github Actions?
 <!--Motivate the reader to learn about X. Describe benefits of X to make the reader interested in X. Try to give a balanced view of by mentioning also WHY NOT X i.e., mention both advantages and disadvantages.-->
 ### Easy to use
-Setting up a workflow in a repository is easy and hassle-free. Templates for popular languages are available and the built-in editor offers code completion and documentation at a glance.
+Setting up a workflow in a repository is easy and hassle-free. [Starter workflows](https://github.com/actions/starter-workflows) for popular languages are available and the built-in editor offers code completion and documentation at a glance.
 ![](https://i.imgur.com/JiVXlO4.png)
 
 
@@ -138,7 +138,7 @@ Fortunately for us, Github has made it extremely easy to set up a simple workflo
     ![](https://i.imgur.com/ZxBlv8d.png)
 
 
-
+The [starter workflows](https://github.com/actions/starter-workflows) repository contains good examples of CI workflows for popular languages as well as automation workflows for GitHub. 
 
 ## Where to Go from Here?
 <!--
