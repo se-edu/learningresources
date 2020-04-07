@@ -14,7 +14,7 @@
 # Introduction to Spring Framework
 
 **Authors: [Liu Yiwen](https://github.com/0blivious)** <br>
-Reviewers: []()
+Reviewers: [ANG ZE YU](https://github.com/ang-zeyu), [LUM KA FAI JEFFRY](https://github.com/j-lum), [NI TIANZHEN](https://github.com/niqiukun)
 
 <box type="info">
 This chapter assumes that the reader has a basic knowledge of Java enterprise.
@@ -112,7 +112,7 @@ This makes our code loosely coupled and easier for testing.
 </bean>  
 ```
    
-To better understand how this dependency injection work, we can have a `Test.java` looks like the following:
+To better understand how this dependency injection works, we can have a `Test.java` looks like the following:
 ```java
 Resource r = new ClassPathResource("applicationContext.xml");  
 BeanFactory factory = new XmlBeanFactory(r);  
@@ -164,7 +164,7 @@ cross-cutting concern before, after or around the actual logic using simple
 pluggable configurations. 
 
 For example, say we wish to log something into the console everytime before we call the method `getEmployeeById`.
-We can then write aspect class annotated with `@Aspect` annotation and write point-cut expressions to log program information from joint points
+We can then write aspect class annotated with `@Aspect` annotation and write point-cut expressions to log program information from
 <tooltip content="Join point is a point of execution of the program, such as the execution of a method or the handling of an exception.">
 <i>joint-point</i>
 </tooltip> methods.
@@ -199,7 +199,7 @@ public class EmployeeManager
 ```
 In the above example, `logBefore()` will be executed before the `getEmployeeById()` method because it matches the join point specified earlier.
 Similarly, `logAfter()` will be executed after `getEmployeeById()`.
-The out put of the above code will be:
+The output of the above code will be:
 ```
 EmployeeCRUDAspect.logBefore() : getEmployeeById
 Method getEmployeeById() called
@@ -244,7 +244,7 @@ Apart from that, Spring has other advantages like:
 
 ### Benefit 1: Modularity
 
-Spring provides different modules to achieve different services and functionality for development of application.
+Spring provides different modules to achieve different services and functionality for application development.
 These modules are designed in such a way that no module is dependent on the others, except the Spring core module.
 Thus, we can optionally include one or more Spring projects depending on the need. This makes Spring lightweight
 and require less configuration.
@@ -254,18 +254,18 @@ and require less configuration.
 _Figure 1. Overview of the Spring Framework_
 
 ### Benefit 2: Easy Integration
-Spring is designed to be used compatible with many other frameworks of Java, for example
+Spring is designed to be compatible with many other frameworks of Java, for example
 <tooltip content="Struts is an open source framework that extends the Java Servlet API and employs a Model, View, Controller (MVC) architecture.">
 <i>Struts </i>
 </tooltip>and
 <tooltip content="Hibernate is an object-relational mapping tool for the Java programming language. It provides a framework for mapping an object-oriented domain model to a relational database.">
 <i>Hibernate</i>
-</tooltip>. Spring framework do not impose any restriction on the frameworks to be used together.
+</tooltip>. It does not impose any restriction on the frameworks to be used together.
 
 ### Benefit 3: Strong Community Support
 Spring is an open source framework led by [Pivotal](https://tanzu.vmware.com/) Software and backed by a large consortium of organizations and individual
 developers. This means that it remains relevant,
-as evident by the ever increasing number of projects under its umbrella, which is ever increasing. 
+as evident by the ever increasing number of projects under its umbrella. 
 
 ### Benefit 4: Usability
 One of the key aspects of any framework's popularity is how easy it is for developers to use it.
