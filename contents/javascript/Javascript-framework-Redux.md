@@ -172,7 +172,7 @@ Since actions and state are plain objects, it is possible to serialize them and 
 
 <center>
 
-_Redux DevTools_ ([image source](https://user-images.githubusercontent.com/7957859/48663602-3aac4900-ea9b-11e8-921f-97059cbb599c.png))
+_Redux DevTools_ ([image source](https://github.com/reduxjs/redux-devtools))
 </center>
 
 3. **Easier testing** <sup>[[1]](#footnote1)</sup><sup>[[2]](#footnote2)</sup><br/>
