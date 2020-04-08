@@ -30,11 +30,11 @@ Author: [Tan Yuanhong](https://github.com/le0tan)
 
 [ZeroMQ](https://zeromq.org/) is a high-performance asynchronous messaging library. It provides a message queue (MQ) for all processes communicating using the library, without a dedicated message broker - thus the *zero* in the name of *ZeroMQ*. 
 
-### What is Asynchronous Messaging and Message Queue?
+### What is **Asynchronous Communication** and **Message Queue**?
 
-Asynchronous (or async, in short) communication means the two (or more than two) ends of the communication don't need to be occupied at the same time to send messages. You may consider making a phone-call synchronous and sending an email async. And **message queue** is one of the async communication protocols that puts the messages in a queue, store them temporarily until the recipient retrieves them.
+**Asynchronous** (or async, in short) **communication** means the two (or more than two) ends of the communication don't need to be occupied at the same time to send messages. You may consider making a phone-call synchronous and sending an email async. And <tooltip content="To learn more about MQ, click [here](https://www.ibm.com/cloud/learn/message-queues)">**message queue**</tooltip> is one of the async communication protocols that puts the messages in a queue, stores them temporarily until the recipient retrieves them.
 
-Notice the word **"protocol"** used in the description above - communication protocol remains the same in spite of the actual medium of transport. It doesn't matter if your message is sent and received within process between threads, or between processes, or between different physical machines across the network. It merely specifies how communicators are supposed to encode/send and decode/receive their messages.
+Notice the word **"protocol"** used in the description above - communication protocol remains the same despite the actual medium of transport. It doesn't matter if your message is sent and received within the process between threads, or between processes, or between different physical machines across the network. It merely specifies how communicators are supposed to encode/send and decode/receive their messages.
 
 ## Why ZeroMQ?
 
@@ -44,7 +44,7 @@ Notice the word **"protocol"** used in the description above - communication pro
 
 Most operating systems provides system calls or equivalent support for message queues (e.g. [POSIX mq](http://man7.org/linux/man-pages/man7/mq_overview.7.html), [Win32 winmsg](https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues)). However the way they operate is far from high-level and making it directly interact with underlying OS APIs could possibly hurt the scalability of your application as you may, in the future, find yourself in need of distributing the workload to different machines.
 
-ZeroMQ looks like an embeddable networking library (read: easy to use) but acts like a concurrency framework (read: high performance). Using Python's built-in socket library as an example, if we are to write a simple TCP server in <tooltip content="It's just a language of my choice. ZeroMQ provides bindings for most mainstream programming languages, which are listed [here](http://wiki.zeromq.org/bindings:_start)">Python</tooltip>, it looks like this:
+ZeroMQ looks like an embeddable networking library (read: easy to use) but acts as a concurrency framework (read: high performance). Using Python's built-in socket library as an example, if we are to write a simple TCP server in <tooltip content="It's just a language of my choice. ZeroMQ provides bindings for most mainstream programming languages, which are listed [here](http://wiki.zeromq.org/bindings:_start)">Python</tooltip>, it looks like this:
 
 ```python
 import socket
