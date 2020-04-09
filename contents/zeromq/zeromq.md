@@ -84,7 +84,7 @@ Unlike system calls, ZeroMQ supports various transports like in-process, inter-p
 
 ### High Performance
 
-Unlike networking libraries, ZeroMQ performs well enough to "be the fabric for clustered products". To give you a rough idea of how lightweight ZeroMQ is, the C++ source code for the ZeroMQ core engine [libzmq](https://github.com/zeromq/libzmq/tree/master/src) is only 1.5 megabytes. Moreover, in the [benchmark](http://wiki.zeromq.org/area:results) for ZeroMQ, the latency is measured in microsecond and the throughput is measured in million messages per second. Even CERN [approved](http://cds.cern.ch/record/1391410/files/CERN-ATS-2011-196.pdf?version=1) the performance of ZeroMQ in the setting of operating accelerators.
+Unlike networking libraries, ZeroMQ performs well enough to "be the fabric for clustered products". To give you a rough idea of how lightweight ZeroMQ is, the C++ source code for the ZeroMQ core engine [libzmq](https://github.com/zeromq/libzmq/tree/master/src) is only 1.5 megabytes. Moreover, in the [benchmark](http://wiki.zeromq.org/area:results) for ZeroMQ, the latency is measured in microseconds and the throughput is measured in million messages per second. Even CERN [approved](http://cds.cern.ch/record/1391410/files/CERN-ATS-2011-196.pdf?version=1) the performance of ZeroMQ in the setting of operating accelerators.
 
 ## Getting Started
 
@@ -92,6 +92,6 @@ Developing software for concurrent operation is by no means entry-level content.
 
 [ZeroMQ - The Guide](http://zguide.zeromq.org/)
 
-If you simply want to get started soon and get to know the details as you adopt the library, you can download the library in your favorite language [here](https://zeromq.org/download/), then follow the corresponding examples written in the language of your choice.
+If you simply want to get started soon and understand the details as you adopt the library, you can download the library in your favorite language [here](https://zeromq.org/download/), then follow the corresponding examples written in the language of your choice.
 
 [ZeroMQ - Get Started](https://zeromq.org/get-started/)
