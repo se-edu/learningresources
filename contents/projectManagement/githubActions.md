@@ -28,7 +28,7 @@ GitHub Actions is a workflow automation solution that is tightly integrated into
 <!--Motivate the reader to learn about X. Describe benefits of X to make the reader interested in X. Try to give a balanced view of by mentioning also WHY NOT X i.e., mention both advantages and disadvantages.-->
 ### Easy to Use
 Setting up a workflow in a repository is easy and hassle-free. [Starter workflows](https://github.com/actions/starter-workflows) for popular languages are available and the built-in editor offers code completion and documentation at a glance.
-![](https://i.imgur.com/JiVXlO4.png)
+![](images/editor.png)
 
 
 
@@ -36,7 +36,7 @@ Setting up a workflow in a repository is easy and hassle-free. [Starter workflow
 Actions are small, reusable units in a workflow. When setting up a workflow, we can reuse actions written by the community. These actions are available at the marketplace.
 
 
-![](https://i.imgur.com/m9PddIu.png)
+![](images/marketplace.png)
 
 
 
@@ -97,12 +97,12 @@ Provide a learning path for the reader. Try to give one good learning path rathe
 ### Set Up a Simple Workflow (Node.js)
 GitHub has made it extremely easy to set up a simple workflow without even leaving the browser. 
 
-![](https://i.imgur.com/zC4ScYn.png)
+![](images/actions-tab.png)
 
 1. Head to the Actions tab on your repository
 2. You can choose to set up a workflow from a template or from scratch. We will use the Node.js template in this example
 3. The online editor is powerful and easy to use, boasting features such as inline documentation and autocomplete
-![](https://i.imgur.com/gknkruJ.png)
+![](images/editor.png)
 4. The template workflow (same as the example above) will
     1. Begin when a commit is pushed or a pull request is opened to `master`
     2. Checkout the current repo (using `actions/checkout`)
@@ -110,9 +110,9 @@ GitHub has made it extremely easy to set up a simple workflow without even leavi
     4. Build `npm run build --if-present`
     5. Run tests `npm run test`
     6. Report the status of the workflow via a status badge
-    ![](https://i.imgur.com/3Tsm2Ii.png)
+    ![](images/status.png)
 5. Since we set the workflow up on the `master` branch, when we commit the newly-created workflow file, we can see GitHub Actions in action by navigating to the Actions tab
-    ![](https://i.imgur.com/ZxBlv8d.png)
+    ![](images/progress.png)
 
 ## Where to Go From Here
 <!--
