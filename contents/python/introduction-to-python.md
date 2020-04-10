@@ -111,7 +111,7 @@ Learning how to avoid such pitfalls is one huge step towards being a productive 
 
 ## A Note on Python 2
 When reading about Python online, you may encounter references to *Python 2*. Python 2 is an older, **discontinued** version of the Python language.
-The current major version of Python, Python 3, is backwards incompatible with Python 2. Read this [article](https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/) to learn about some of the differences between Python 2 and 3.
+The current major version of Python, Python 3, is backward incompatible with Python 2. You may wish to read this [article](https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/) to learn about some of the differences between Python 2 and 3.
 
 The Python Software Foundation has [stopped maintaining Python 2](https://www.python.org/doc/sunset-python-2/), which means new projects are unlikely to use it.
 
