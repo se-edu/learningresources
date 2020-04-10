@@ -17,6 +17,15 @@
 
 🔎 
 
+<box id="article-toc">
+
+* [What is GitHub Actions‎](#what-is-github-actions)
+* [Why GitHub Actions‎](#why-github-actions)
+* [How does GitHub Actions Work‎](#how-does-github-actions-work)
+* [How is GitHub Actions Being Used‎](#how-is-github-actions-being-used)
+* [How to Get Started with GitHub Actions‎](#how-to-get-started-with-github-actions)
+* [Where to Go From Here‎](#where-to-go-from-here)
+</box>
 
 ## What is GitHub Actions
 <!--Explain how X fits into the big picture of SE. Describe it relative to topics the reader is likely to know.-->
