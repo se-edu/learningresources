@@ -35,13 +35,12 @@ GitHub Actions is a workflow automation solution that is tightly integrated into
 
 ## Why GitHub Actions
 <!--Motivate the reader to learn about X. Describe benefits of X to make the reader interested in X. Try to give a balanced view of by mentioning also WHY NOT X i.e., mention both advantages and disadvantages.-->
-### Easy to Use
+
+### 1. Easy to Use
 Setting up a workflow in a repository is easy and hassle-free. [Starter workflows](https://github.com/actions/starter-workflows) for popular languages are available and the built-in editor offers code completion and documentation at a glance.
 ![](images/editor.png)
 
-
-
-### Reusable Actions
+### 2. Reusable Actions
 Actions are small, reusable units in a workflow. When setting up a workflow, we can reuse actions written by the community. These actions are available at the marketplace.
 
 
@@ -49,17 +48,17 @@ Actions are small, reusable units in a workflow. When setting up a workflow, we 
 
 
 
-### Cross OS Support
+### 3. Cross OS Support
 GitHub Actions gives you the option to [run workflows](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources) on Ubuntu, Windows and macOS.
 
-### Docker Support
+### 4. Docker Support
 GitHub Actions provides the ability to run docker images for projects that use a dockerized environment.
 
-### Powerful
+### 5. Powerful
 Integration with the GitHub ecosystem allows GitHub Actions to do more than just build/test/deploy. You can automate everything related to your GitHub project, including bug triaging, labeling, automated dependency updating etc.
 Workflows can be triggered by events that happen on GitHub and will have access to the context of the issue/PR/commit that triggered it. 
 
-### Affordable
+### 6. Affordable
 Like many of its competitors, GitHub Actions provides **free unlimited runner time for public repositories**. 
 
 For private repositories, the free plan offers 2000 minutes of runner time per month and a pay-per-minute plan for additional minutes.
@@ -68,21 +67,21 @@ For private repositories, the free plan offers 2000 minutes of runner time per m
 
 ## How does GitHub Actions Work
 <!--This is a simple high-level overview of the tool to give the reader some concrete sense of X (as opposed to limiting to an entirely abstract description). It's useful to give concrete examples such as code examples. Do not try to 'teach' how to use the X (assuming your in the style of a tutorial. If the tool is worth learning, there must be good tutorials about it already.-->
-### Concepts
-#### Workflow
+### Workflow
 A workflow describes a sequence of jobs to be run when a trigger event occurs. 
 Each job consists of a series of steps, which may be actions or shell commands. 
 Each workflow is defined as a `.yml` file in the `.github/workflows` directory of a repository.
 
-#### Action
+### Action
 An action is a piece of code that performs an atomic task. 
 For example, [checking out a repository](https://github.com/actions/checkout), or [caching dependencies](https://github.com/actions/cache).
 
-#### Triggers
+### Triggers
 Workflows can be triggered by events on the GitHub repository, ranging from opening pull requests or issues, making commits to scheduled events, or even from an external event by calling GitHub's REST API endpoint.
 
+---
 
-### How is GitHub Actions Being Used
+## How is GitHub Actions Being Used
 
 **Simple CI [workflow](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml) for a Node.js app**
 1. Trigger when a commit/pull request is made to the master branch
@@ -99,11 +98,13 @@ Workflows can be triggered by events on the GitHub repository, ranging from open
 3. Otherwise,
     1. Add `Needs Attention` label
 
-## How to Get Started with GitHub Actions
+---
+
+## Set Up a Simple Workflow for a Node.js App
 <!--
 Provide a learning path for the reader. Try to give one good learning path rather than many random resources.
--->
-### Set Up a Simple Workflow (Node.js)
+--> 
+
 GitHub has made it extremely easy to set up a simple workflow without even leaving the browser. 
 
 ![](images/actions-tab.png)
@@ -122,6 +123,8 @@ GitHub has made it extremely easy to set up a simple workflow without even leavi
     ![](images/status.png)
 5. Since we set the workflow up on the `master` branch, when we commit the newly-created workflow file, we can see GitHub Actions in action by navigating to the Actions tab
     ![](images/progress.png)
+
+---
 
 ## Where to Go From Here
 <!--
