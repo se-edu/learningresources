@@ -13,9 +13,10 @@
 
 # GitHub Actions
 
-📝 [@alyip98](https://github.com/alyip98)
+📝 [Alfred Yip](https://github.com/alyip98)
 
-🔎 
+🔎 [James Pang](https://github.com/jamessspanggg), [Tan Yuanhong](https://github.com/le0tan), [Tejas Bhuwania](https://github.com/Tejas2805)
+
 
 <box id="article-toc">
 
