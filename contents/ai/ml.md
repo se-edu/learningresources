@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -14,25 +14,28 @@
 # Introduction to Machine Learning (ML)
 Authors: [Alex Fong](https://github.com/alexfjw)
 
-- [What is ML](#what-is-ml)
-  - [Types of ML tasks](#types-of-ml-tasks)
-  - [Types of ML Algorithms](#types-of-ml-algorithms)
-    - [Supervised Learning](#supervised-learning)
-    - [Unsupervised Learning](#unsupervised-learning)
-  - [Types of Data](#types-of-data)
-- [How is ML Applied](#how-ml-is-applied)
-  - [Prototyping Platforms and Tools](#prototyping-platforms-and-tools)
-  - [Prototyping Workflow](#prototyping-workflow)
-  - [Basic Data Preprocessing](#basic-data-preprocessing)
-  - [Partitioning of Data](#partitioning-of-data)
-    - [Test Set](#test-set)
-    - [Validation Set](#validation-set)
-    - [Training Set](#training-set)
-  - [Model Training, Evaluation, Data Analysis](#model-training-evaluation-data-analysis)
-  - [Production](#production)
-  - [Concluding Remarks](#concluding-remarks)
-- [Supplementary Resources](#supplementary-resources)
-- [Footnotes](#footnotes)
+<box id="article-toc">
+
+* [What is Machine Learning‎](#what-is-machine-learning)
+  * [Types of Machine Learning tasks‎](#types-of-machine-learning-tasks)
+  * [Types of Machine Learning Algorithms‎](#types-of-machine-learning-algorithms)
+    * [Supervised Learning‎](#supervised-learning)
+    * [Unsupervised Learning‎](#unsupervised-learning)
+  * [Types of Data‎](#types-of-data)
+* [How Machine Learning is Applied‎](#how-machine-learning-is-applied)
+  * [Prototyping Platforms and Tools‎](#prototyping-platforms-and-tools)
+  * [Prototyping Workflow‎](#prototyping-workflow)
+  * [Basic Data Preprocessing‎](#basic-data-preprocessing)
+  * [Partitioning of Data‎](#partitioning-of-data)
+    * [Test Set‎](#test-set)
+    * [Validation Set‎](#validation-set)
+    * [Training Set‎](#training-set)
+  * [Model Training, Evaluation, Data Analysis‎](#model-training-evaluation-data-analysis)
+  * [Production‎](#production)
+  * [Concluding Remarks‎](#concluding-remarks)
+* [Supplementary Resources‎](#supplementary-resources)
+* [Footnotes‎](#footnotes)
+</box>
 
 ## What is Machine Learning?
 Machine learning is a subfield in artificial intelligence whereby computers learn from data to perform a task. Machine learning is powerful because it can discern complex patterns within data, and utilize them to produce desired outputs. 

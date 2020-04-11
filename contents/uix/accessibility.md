@@ -17,6 +17,20 @@
 
 Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Jacob Li Pengcheng](https://github.com/jacoblipech), [Tan Heng Yeow](https://github.com/tanhengyeow)
 
+<box id="article-toc">
+
+* [What is accessibility?](#what-is-accessibility)
+* [Why is accessibility important?](#why-is-accessibility-important)
+* [How can I improve the accessibility of my website?](#how-can-i-improve-the-accessibility-of-my-website)
+  * [Visual](#visual)
+  * [Auditory](#auditory)
+  * [Cognitive](#cognitive)
+  * [Mobility](#mobility)
+* [Tools for Developers](#tools-for-developers)
+* [Concluding Remarks](#concluding-remarks)
+* [Useful Resources](#useful-resources)
+</box>
+
 <box type="info">
 Note that although the scope of this article covers the accessibility of websites, many of the points also apply to accessibility and UI/UX of other softwares too.
 </box>

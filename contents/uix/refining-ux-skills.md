@@ -15,13 +15,15 @@
 
 Author: [Tan Jun Kiat](https://github.com/junkiattan)
 
-## Table of Contents
-  * [Overview](#overview)
-  * [Building a relationship with a UX mentor](#building-a-relationship-with-a-ux-mentor)
-  * [Becoming a UX apprentice](#becoming-a-ux-apprentice)
-  * [Engaging in individual UX projects](#engaging-in-individual-ux-projects)
-  * [Summary](#summary)
-  * [Additional Resource(s)](#additional-resource-s)
+<box id="article-toc">
+
+* [Overview](#overview)
+* [Building a relationship with a UX mentor](#building-a-relationship-with-a-ux-mentor)
+* [Becoming a UX apprentice](#becoming-a-ux-apprentice)
+* [Engaging in individual UX projects](#engaging-in-individual-ux-projects)
+* [Summary](#summary)
+* [Additional Resource(s)](#additional-resource-s)
+</box>
 
 ## Overview
 As someone new to UX Design, honing your design skills is crucial to getting a UX-related career. In addition to knowing the definition of UX Design and it's stages, it is also important to know the practical aspect of starting and refining the required skillsets. This section will explain a few tactics to help you on this journey of improvement.

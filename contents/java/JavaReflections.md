@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -14,6 +14,21 @@
 # Advanced Java: Reflections
 
 Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)
+
+<box id="article-toc">
+
+* [Reflection‎](#reflection)
+  * [What is Java reflections‎](#what-is-java-reflections)
+  * [The Basics of Reflections‎](#the-basics-of-reflections)
+  * [Getting Started‎](#getting-started)
+  * [Applications‎](#applications)
+    * [Accessing Private Fields](#accessing-private-fields)
+    * [Updating Private Fields](#updating-private-fields)
+    * [Testing Private Methods](#testing-private-methods)
+    * [A More Advanced Application](#a-more-advanced-application)
+  * [Disadvantages of Reflections‎](#disadvantages-of-reflections)
+  * [Further Resources for Reflections‎](#further-resources-for-reflections)
+</box>
 
 ## Reflection
 

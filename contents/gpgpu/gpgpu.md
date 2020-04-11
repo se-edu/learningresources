@@ -15,15 +15,18 @@
 
 ###### Authors: [Pierce Anderson Fu](https://github.com/PierceAndy), [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
-- [GPGPU](#-1-gpgpu)
-    - [What is GPGPU?](#-11-what-is-gpgpu)
-    - [Why bother with parallel processing?](#-12-why-bother-with-parallel-processing)
-    - [Aren't multicore CPUs enough?](#-13-arent-multicore-cpus-enough)
-    - [What are the challenges with GPGPU?](#-14-what-are-the-challenges-with-gpgpu)
-    - [Implementations](#-15-implementations)
-    - [GPGPU in action](#-16-gpgpu-in-action)
-- [Further Readings](#-2-further-readings)
-- [References](#-3-references)
+<box id="article-toc">
+
+* [§ 1. GPGPU‎](#1-gpgpu)
+  * [§ 1.1 What is GPGPU?‎](#1-1-what-is-gpgpu)
+  * [§ 1.2 Why bother with parallel processing?‎](#1-2-why-bother-with-parallel-processing)
+  * [§ 1.3 Aren't multicore CPUs enough?‎](#1-3-aren-t-multicore-cpus-enough)
+  * [§ 1.4 What are the challenges with GPGPU?‎](#1-4-what-are-the-challenges-with-gpgpu)
+  * [§ 1.5 Implementations‎](#1-5-implementations)
+  * [§ 1.6 GPGPU in action‎](#1-6-gpgpu-in-action)
+* [§ 2. Further Readings‎](#2-further-readings)
+* [§ 3. References‎](#3-references)
+</box>
 
 ## § 1. GPGPU
 
