@@ -14,7 +14,7 @@
 # Introduction to Spring Framework
 
 **Authors: [Liu Yiwen](https://github.com/0blivious)** <br>
-Reviewers: [ANG ZE YU](https://github.com/ang-zeyu), [LUM KA FAI JEFFRY](https://github.com/j-lum), [NI TIANZHEN](https://github.com/niqiukun)
+Reviewers: [Ang Ze Yu](https://github.com/ang-zeyu), [Lum Ka Fai Jeffry](https://github.com/j-lum), [Ni Tianzhen](https://github.com/niqiukun)
 
 <box type="info">
 This chapter assumes that the reader has a basic knowledge of Java enterprise.
@@ -52,18 +52,10 @@ the framework takes care of many of those responsibilities. This design approach
 and Spring achieves it using something called the IoC container. The Spring IoC container manage the
 <tooltip content="A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.">
 <i>beans </i>
-</tooltip>in Spring Framework.
-
-In the Spring framework, the IoC container is represented by the interface `ApplicationContext`.
-The beans are created with the configuration metadata that you supply to the container,
+</tooltip>in Spring Framework. These beans are created with the configuration metadata that you supply to the container,
 which can be in the form of XML configuration or annotations.
 
-Below is one way to manually instantiate a container:
-```java
-ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-```
-
-For example, say we have an Employee class like so:
+To better understand how the IoC Container works, we will create an Employee class like so:
 ```java
 package com.company;  
   
@@ -90,8 +82,7 @@ public class Employee {
 }        
 ```
 
-We can then populate the Employee bean with the data provided in the following `applicationContext.xml` file:
-This makes our code loosely coupled and easier for testing. 
+We can then populate an Employee bean with the data provided in the following `applicationContext.xml` file:
 ```xml
 <bean id="employeeAmy" class="com.company.Employee">  
     <property name="id">  
@@ -102,8 +93,13 @@ This makes our code loosely coupled and easier for testing.
     </property>  
 </bean>  
 ```
-   
-To better understand how this dependency injection works, we can have a `Test.java` looks like the following:
+
+We then manually instantiate a container using the `applicationContext.xml` file we just created:
+```java
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+```
+ 
+To prove we managed to instantiate the bean correctly, we can have a `Test.java` looks like the following:
 ```java
 Resource r = new ClassPathResource("applicationContext.xml");  
 BeanFactory factory = new XmlBeanFactory(r);  
@@ -112,13 +108,13 @@ Employee e = (Employee)factory.getBean("obj");
 e.display();
 ```
 
-The output of the above code would then be `20 Amy`.
+The output of the above code would be `20 Amy`. Notice that the use of IoC container makes our code loosely coupled and easier for testing. 
 
 ### Spring JdbcTemplate
 
 The Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. Traditionally, we
 need to use Java Database Connectivity (JDBC) API to access tabular data stored in any relational database.
-It is a part of JavaSE (Java Standard Edition), from Oracle Corporation.
+It is a part of JavaSE (Java Standard Edition).
     
 In a traditional JDBC API:
 - a typical SQL query would involve quite some amount of boilerplate code, such as creating connection,
@@ -144,7 +140,7 @@ Exception Handling | :far-check-circle: |
 
 Spring Framework addresses
 <tooltip content="Concerns that can affect the whole application and should be centralized in one location in code as much as possible. Examples of these concerns include transaction management, authentication, logging, security etc.">
-<i>cross-cutting concerns</i></tooltip> by supporting Aspect Oriented Programming (AOP).
+<i>cross-cutting concerns</i></tooltip> by supporting [Aspect Oriented Programming](https://en.wikipedia.org/wiki/Aspect-oriented_programming) (AOP).
 It provides ways to dynamically add the cross-cutting concerns before, after or around the actual logic using simple
 pluggable configurations. 
 
@@ -156,7 +152,6 @@ We can then write aspect class annotated with `@Aspect` annotation and write poi
 ```java
 @Aspect
 public class EmployeeCRUDAspect {
-      
     @Before("execution(* EmployeeManager.getEmployeeById(..))") // point-cut expressions
     public void logBefore(JoinPoint joinPoint) {
         System.out.println("EmployeeCRUDAspect.logBefore() : "
@@ -174,8 +169,7 @@ public class EmployeeCRUDAspect {
 And the corresponding `EmployeeManager.java` file could be:
 ```java
 @Component
-public class EmployeeManager
-{
+public class EmployeeManager {
     public EmployeeDTO getEmployeeById(Integer employeeId) {
         System.out.println("Method getEmployeeById() called");
         return new EmployeeDTO();
@@ -220,6 +214,7 @@ For example, the above configuration could be written in a XML file as:
     <bean id="employeeManager" class="com.aop.EmployeeManagerImpl" />
 </aop:config>
 ```
+Code sections above are adapted from [Spring AOP Tutorial Example](https://howtodoinjava.com/spring-aop-tutorial/) with slight modification.
 
 ## Why Use Spring?
 
