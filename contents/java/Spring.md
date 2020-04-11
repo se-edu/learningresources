@@ -125,7 +125,7 @@ statement, closing resultset, connection etc.
 The Spring JdbcTemplate provides methods to write the queries directly, hence, saving time in writing such boilerplate code.
 
 Task | Spring | You
------|--------|----
+:-----:|:--------:|:----:
 Connection Management | :far-check-circle: | 
 Writing SQL Queries | | :far-check-circle: 
 Statement Management | :far-check-circle: |
