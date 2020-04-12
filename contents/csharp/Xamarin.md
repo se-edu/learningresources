@@ -20,9 +20,9 @@ Reviewers: [Liu Yiwen](https://github.com/0blivious), [Tejas Bhuwania](https://g
 
 * [What is Xamarin‎](#what-is-xamarin)
 * [How Xamarin Works?](#how-xamarin-works)
-    * [Xamarin.Android and Xamarin.iOS](#xamarin.android-and-xamarin.ios)
-    * [Xamarin.Forms](#xamarin.forms)
-    * [Xamarin.Essentials](#xamarin.essentials)
+    * [Xamarin.Android and Xamarin.iOS](#xamarin-android-and-xamarin-ios)
+    * [Xamarin.Forms](#xamarin-forms)
+    * [Xamarin.Essentials](#xamarin-essentials)
 * [Why Xamarin?‎](#why-xamarin)
     * [Complete Binding for Underlying SDKs](#complete-binding-for-underlying-sdks)
     * [Objective-C, Java, C, and C++ Interop](#objective-c-java-c-and-c-interop)
