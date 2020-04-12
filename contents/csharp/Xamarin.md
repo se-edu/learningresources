@@ -34,7 +34,7 @@ Reviewers: [Liu Yiwen](https://github.com/0blivious), [Tejas Bhuwania](https://g
 
 ## What is Xamarin?
 
-**[Xamarin](https://dotnet.microsoft.com/apps/xamarin)** is an open source developer platform for building modern and performant applications on various platforms, especially Android and iOS. It is built on top of Mono, an open-source version of the .NET Framework based on the .NET ECMA standards. It is currently maintained by Microsoft and the .NET community. As one of the most established mobile app development frameworks, Xamarin offers developers the option of writing apps in C#, instead of Java and Objective-C/Swift. The architecture of Xamarin aims to achieve maximum code reuse across different platforms while maintaining near-native performance.
+**[Xamarin](https://dotnet.microsoft.com/apps/xamarin)** is an open source developer platform for building modern and performant applications on various platforms, especially Android and iOS. It is built on top of Mono, an open-source version of the .NET Framework based on the .NET ECMA standards. It is currently maintained by Microsoft and the .NET community. As one of the most <tooltip content="Xamarin was first released in 2011. In comparison, React Native was first released in 2015 and Flutter was first released in 2017.">established</tooltip> mobile app development frameworks, Xamarin offers developers the option of writing apps in C#, instead of Java and Objective-C/Swift. The architecture of Xamarin aims to achieve maximum code reuse across different platforms while maintaining near-native performance.
 
 ## How Xamarin Works?
 
