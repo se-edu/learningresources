@@ -651,6 +651,31 @@
       "headingKeywords": {}
     },
     {
+      "title": "Introduction to Spring Framework",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/java/Spring.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-spring-framework": "Introduction to Spring Framework",
+        "what-is-spring-framework": "What is Spring Framework?",
+        "core-features": "Core Features",
+        "the-ioc-container": "The IoC Container",
+        "spring-jdbctemplate": "Spring JdbcTemplate",
+        "spring-aop": "Spring AOP",
+        "why-use-spring": "Why Use Spring?",
+        "benefit-1-modularity": "Benefit 1: Modularity",
+        "benefit-2-easy-integration": "Benefit 2: Easy Integration",
+        "benefit-3-strong-community-support": "Benefit 3: Strong Community Support",
+        "benefit-4-usability": "Benefit 4: Usability",
+        "getting-started": "Getting Started"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Java 8 Streams - An Introduction",
       "header": "pagetop.md",
       "footer": "footer.md",
