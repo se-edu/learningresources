@@ -26,7 +26,7 @@ Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang C
 * [Python for Data Science‎](#python-for-data-science)
   * [Tutorials‎](#tutorials)
 * [Gotchas‎](#gotchas)
-* [A Note on Python 2](#a-note-on-python-2)
+* [Python 2: a Discontinued Version](#python-2-a-discontinued-version)
 </box>
 
 Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.
