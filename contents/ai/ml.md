@@ -182,7 +182,7 @@ These insights guide the practitioner in tweaking the data and model for better 
 
 An example of data analysis for convolutional neural networks (an emerging class of ML algorithms) is to observe what the neural network is looking at when it makes its predictions. This can be done with class activation maps. After which, the practitioner may choose to perform further data preprocessing to help the neural network focus on the right areas. 
 
-<img src="http://cnnlocalization.csail.mit.edu/example.jpg" width="600"/><br/>
+<img src="classactivationmaps.jpg" width="600"/><br/>
 <sub>(Class activation maps, more information at http://cnnlocalization.csail.mit.edu)</sub>
 
 Tweaking parameters and retraining the algorithm continues until the practitioner is satisfied with a particular model's performance. The model's score on the test set is used for selecting between different algorithms at the production stage.

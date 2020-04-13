@@ -178,9 +178,9 @@ Here's how an audit report looks like:
 
 * [**ChromeLens**](http://chromelens.xyz/). This Chrome extension has 2 useful features:
   * **Filters**: To simulate various color blindness so you can browse your website as how a color blind person sees it.
-  ![Filters](http://chromelens.xyz/images/website_protanopia.png)
+  ![Filters](accessibility/website_protanopia.png)
   * **Tracker**: To show the pathway a blind user will go through when browsing your web page with a screen reader. You can check if your web page goes through a logical flow and that the important content is included for the screen reader to narrate.
-  ![Tracker](http://chromelens.xyz/images/website_trace.png)
+  ![Tracker](accessibility/website_trace.png)
 
 Note that although there are many accessibility testing tools available, user testing with actual users with disabilities is still important. The automated testing tools may not point out all of the accessibility issues that actual users face.
 
