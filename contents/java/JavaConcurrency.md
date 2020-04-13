@@ -223,7 +223,7 @@ The following resources are the many in-depth tutorials that will help you get a
 * [High-level overview of Concurrency in Java by Vogella](https://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency)
 * [Concurrency best practices](https://www.javacodegeeks.com/2015/09/concurrency-best-practices.html)
 * [Java 101: Understanding Java threads](https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html)
-* [Java Concurrency / Multithreading Tutorial by Jenkov](https://tutorials.jenkov.com/java-concurrency/index.html)
+* [Java Concurrency / Multithreading Tutorial by Jenkov](http://tutorials.jenkov.com/java-concurrency/index.html)
 * [Java Concurrency Tutorial by tutorialspoint](https://www.tutorialspoint.com/java_concurrency/concurrency_overview.htm)
 
 ### Further Reading
