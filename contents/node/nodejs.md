@@ -41,27 +41,27 @@ The following example demonstrates how a Node application imports required modul
 Create a file `server.js` with following content:
 
 ```js
-const https = require('https');
+const http = require('http');
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = https.createServer(function(req, res) {
+const server = http.createServer(function(req, res) {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World');
 });
 server.listen(port, hostname, function() {
-  console.log('Server running at https://' + hostname + ':' + port + '/');
+  console.log('Server running at http://' + hostname + ':' + port + '/');
 });
 ```
 
 After you save the file, you can execute it from your terminal:
 ```
 $ node server.js
-Server running at https://127.0.0.1:3000/
+Server running at http://127.0.0.1:3000/
 ```
-To test the server, open a browser tab and navigate to https://localhost:3000/. You should see 'Hello world'.
+To test the server, open a browser tab and navigate to http://localhost:3000/. You should see 'Hello world'.
 
 </box>
 
