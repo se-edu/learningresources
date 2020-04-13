@@ -393,10 +393,10 @@
             <sub>(T-SNE of Products Shape and Colour by <a href="https://twitter.com/ejlbell/status/698309469965516800">Eddie Bell</a>)</sub></p>
           <p>The following are popular resources for ML algorithms:</p>
           <ul>
-            <li>Machine Learning: <a href="/learningresources/contents/ai/cs229.stanford.edu">Stanford CS229</a></li>
+            <li>Machine Learning: <a href="http://cs229.stanford.edu/">Stanford CS229</a></li>
             <li>Convolutional Neural Networks for Visual Recognition: <a href="http://cs231n.stanford.edu/">Stanford CS231n</a></li>
-            <li>Natural Language Processing with Deep Learning: <a href="/learningresources/contents/ai/cs224n.stanford.edu">Stanford CS224n</a></li>
-            <li>A Practical Approach Towards Neural Networks: <a href="http://www.fast.ai/">University of San Francisco, FastAI</a></li>
+            <li>Natural Language Processing with Deep Learning: <a href="http://cs224n.stanford.edu/">Stanford CS224n</a></li>
+            <li>A Practical Approach Towards Neural Networks: <a href="https://www.fast.ai/">University of San Francisco, FastAI</a></li>
           </ul>
           <p><em>Neural networks</em> and <em>Deep Learning</em> are classes of ML algorithms.<br> They both contain supervised and unsupervised algorithms.</p>
           <p>Note that there is one other category of ML algorithms, called <em>reinforcement learning</em>. Reinforcement learning is different from the above mentioned categories and will not be discussed in this introductory piece. More information on
@@ -422,7 +422,7 @@
           <p>The entire prototyping process is similar to scientific experiments, where many model configurations are experimented on. Practitioners come up with a hypothesis on whether a configuration may improve performance, and verify if performance is
             as expected.</p>
           <h3 id="prototyping-platforms-and-tools">Prototyping Platforms and Tools<a class="fa fa-anchor" href="#prototyping-platforms-and-tools"></a></h3>
-          <p>The prototyping phase in ML is usually done on <a href="http://jupyter.org/">Jupyter notebooks</a>, or <a href="https://www.rstudio.com/products/rstudio/">RStudio</a>. The highlight of programming languages like Python and R, and the accompanying
+          <p>The prototyping phase in ML is usually done on <a href="https://jupyter.org/">Jupyter notebooks</a>, or <a href="https://www.rstudio.com/products/rstudio/">RStudio</a>. The highlight of programming languages like Python and R, and the accompanying
             software is their strong support for experimentation and visualization of results.</p>
           <p>Interpreted languages such as Python and R speed up prototyping iterations as they are less verbose than compiled languages like Java or C. Visualizations such as bar charts, graphs or just displaying the data assist in analysis and sharing
             of findings.</p>
@@ -449,7 +449,7 @@
             data but is unable to translate this performance to real world data. A thorough explanation of overfitting can be found in <a href="https://elitedatascience.com/overfitting-in-machine-learning">this article (from EliteDataScience)</a>.</p>
           <p>A test set solves the overfitting problem. A test set which resembles real world data as much as possible is created by partitioning the available data. Its size is dependent on the data available. The test set is used only for testing model
             performance, and will not be touched during model training.</p>
-          <p>Different schemes for partitioning must be used for data with different characteristics. More information on splitting test and validation sets (discussed next) can be found in <a href="http://www.fast.ai/2017/11/13/validation-sets/">this article (from FastAI)</a>.</p>
+          <p>Different schemes for partitioning must be used for data with different characteristics. More information on splitting test and validation sets (discussed next) can be found in <a href="https://www.fast.ai/2017/11/13/validation-sets/">this article (from FastAI)</a>.</p>
           <h4 id="validation-set">Validation Set<a class="fa fa-anchor" href="#validation-set"></a></h4>
           <p>A validation set is created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting a model's parameters. Adjusting model parameters and verifying performance is conducted
             on the validation set to prevent overfitting the test set.</p>
@@ -474,7 +474,7 @@
             practitioner may choose to perform further data preprocessing to help the neural network focus on the right areas.</p>
           <p><img src="http://cnnlocalization.csail.mit.edu/example.jpg" width="600"><br>
             <sub>(Class activation maps, more information at <a href="http://cnnlocalization.csail.mit.edu">http://cnnlocalization.csail.mit.edu</a>)</sub></p>
-          <p>Tweaking parameters and retraining the algorithm continues until the practitioner is satsified with a particular model's performance. The model's score on the test set is used for selecting between different algorithms at the production stage.</p>
+          <p>Tweaking parameters and retraining the algorithm continues until the practitioner is satisfied with a particular model's performance. The model's score on the test set is used for selecting between different algorithms at the production stage.</p>
           <h3 id="production">Production<a class="fa fa-anchor" href="#production"></a></h3>
           <p>The best algorithm discovered is rewritten for production. They are usually rewritten in performance focused languages like C++, or in lower level ML frameworks such as Tensorflow.</p>
           <p>Models are retrained on a regular basis when more data is available, allowing the model to learn new patterns from the data.</p>
@@ -491,23 +491,23 @@
           <ul>
             <li>General Machine Learning
               <ul>
-                <li><a href="http://www.numpy.org/">Numpy</a>, provides support for large, multi-dimensional arrays, matrices &amp; mathematical functions for operating these data structures</li>
+                <li><a href="https://www.numpy.org/">Numpy</a>, provides support for large, multi-dimensional arrays, matrices &amp; mathematical functions for operating these data structures</li>
                 <li><a href="https://pandas.pydata.org/">Pandas</a>, data analysis tool in Python</li>
-                <li><a href="http://scikit-learn.org/stable/">Scikit-Learn</a>, contains a big variety of machine learning algorithms (excluding Deep Learning)</li>
+                <li><a href="https://scikit-learn.org/stable/">Scikit-Learn</a>, contains a big variety of machine learning algorithms (excluding Deep Learning)</li>
               </ul>
             </li>
             <li>Deep Learning
               <ul>
                 <li><a href="https://www.tensorflow.org/">TensorFlow</a>, library for Deep Learning by Google</li>
-                <li><a href="http://web.stanford.edu/class/cs20si/">Stanford CS20: Tensorflow for Deep Learning Research</a>, up to date best practices for Tensorflow</li>
-                <li><a href="http://pytorch.org/">Pytorch</a>, by Facebook</li>
+                <li><a href="https://web.stanford.edu/class/cs20si/">Stanford CS20: Tensorflow for Deep Learning Research</a>, up to date best practices for Tensorflow</li>
+                <li><a href="https://pytorch.org/">Pytorch</a>, by Facebook</li>
               </ul>
             </li>
           </ul>
           <p>Popular resources for keeping up with machine learning research</p>
           <ul>
             <li><a href="https://arxiv.org/">https://arxiv.org/</a> (repository of electronic preprints of scientific papers)</li>
-            <li><a href="/learningresources/contents/ai/www.arxiv-sanity.com">https://www.arxiv-sanity.com</a> (provides a better browsing experience than Arxiv)</li>
+            <li><a href="https://www.arxiv-sanity.com">https://www.arxiv-sanity.com</a> (provides a better browsing experience than Arxiv)</li>
             <li><a href="https://openreview.net/">https://openreview.net/</a> (peer reviews of research papers submitted to conferences)</li>
           </ul>
           <h2 id="footnotes">Footnotes<a class="fa fa-anchor" href="#footnotes"></a></h2>
@@ -556,7 +556,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sun, Apr 12, 2020, 4:41:42 AM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Mon, Apr 13, 2020, 5:35:54 PM UTC]</small></div>
     </footer>
   </div>
 </body>

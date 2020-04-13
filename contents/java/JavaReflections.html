@@ -364,7 +364,7 @@
           <p>This means that you can store any <code>Class</code> object in any data structure for future retrieval. This is the main entry point for Java's reflections. You can now get the name of the class, create new instances of the class, observe its
             public/private fields - the possibilities are endless!</p>
           <h3 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started"></a></h3>
-          <p>There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is this <a href="http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">article by JavaWorld</a>.</p>
+          <p>There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is this <a href="https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">article by JavaWorld</a>.</p>
           <p>One important point is that while Java reflections are powerful, its implementations are not very straightforward. There are however some libraries out there such as the <a href="https://github.com/google/guava/wiki/ReflectionExplained">Google's Guava library</a>            which contains many utility methods and classes that makes our life easier.</p>
           <h3 id="applications">Applications<a class="fa fa-anchor" href="#applications"></a></h3>
           <h4 id="accessing-private-fields">Accessing Private Fields<a class="fa fa-anchor" href="#accessing-private-fields"></a></h4>
@@ -378,7 +378,7 @@
           <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">super</span>();</span><span>  }</span><span>&#x200B;</span><span>  <span class="hljs-comment">/**</span></span><span><span class="hljs-comment">   * A sheep begins to produce wool after it's a year old!</span></span><span><span class="hljs-comment">   */</span></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isProducingWool</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-keyword">return</span> getAge() &gt; <span class="hljs-number">1</span>;</span><span>  }</span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{</span><span>    <span class="hljs-comment">// Since class is a reserved keyword, we use clazz in variable names</span></span><span>    Class&lt;Animal&gt; animalClazz = Animal<span class="hljs-class">.<span class="hljs-keyword">class</span></span>;</span><span>&#x200B;</span><span>    <span class="hljs-keyword">try</span> {</span><span>      Field f = animalClazz.getDeclaredField(<span class="hljs-string">"age"</span>);</span><span>      f.setAccessible(<span class="hljs-keyword">true</span>);</span><span>      <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>) f.get(<span class="hljs-keyword">this</span>);</span><span>    } <span class="hljs-keyword">catch</span> (IllegalAccessException | NoSuchFieldException e) {</span><span>      <span class="hljs-comment">// perform error handling</span></span><span>    }</span><span>  }</span><span>}</span></code></pre>
           <p>And there you have it! What <code>Sheep</code> is really doing is to examine itself at runtime in order to obtain the <code>age</code> field inherited from <code>Animal</code>. This technique can be used in test cases to access private fields
             and methods in the class under test without modifying the visibility modifiers of the fields and methods in the class itself.</p>
-          <p>You may notice that the <code>Sheep#getAge()</code> method sets the age <code>Field</code> object to be accessible and might wonder the implications. Fret not! The <code>Field#getDeclaredField()</code> actually returns a new <code>Field</code>            instance - so you're just setting that particular local <code>Field</code> instance to be accessible, not the actual <code>age</code> field itself. You can read more about it in this <a href="http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue">StackOverflow question</a>.</p>
+          <p>You may notice that the <code>Sheep#getAge()</code> method sets the age <code>Field</code> object to be accessible and might wonder the implications. Fret not! The <code>Field#getDeclaredField()</code> actually returns a new <code>Field</code>            instance - so you're just setting that particular local <code>Field</code> instance to be accessible, not the actual <code>age</code> field itself. You can read more about it in this <a href="https://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue">StackOverflow question</a>.</p>
           <p>Do take note that two exceptions need to be handled when accessing fields:</p>
           <ol>
             <li><code>IllegalAccessException</code>, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. <code>f.setAccessible(true)</code>).</li>
@@ -450,12 +450,12 @@
           <ul>
             <li>
               <p>Introductions to Java reflections with some explanation</p>
-              <p><a href="http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html</a>
-                <a href="http://www.journaldev.com/1789/java-reflection-example-tutorial">http://www.journaldev.com/1789/java-reflection-example-tutorial</a></p>
+              <p><a href="https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html</a>
+                <a href="https://www.journaldev.com/1789/java-reflection-example-tutorial">https://www.journaldev.com/1789/java-reflection-example-tutorial</a></p>
             </li>
             <li>
               <p>A short but precise overview of Java reflections</p>
-              <p><a href="http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html">http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html</a></p>
+              <p><a href="https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html">https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html</a></p>
             </li>
             <li>
               <p>Google's Guava reflection library provides some utility methods and classes</p>
@@ -493,7 +493,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sun, Apr 12, 2020, 4:41:42 AM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Mon, Apr 13, 2020, 5:35:54 PM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -364,9 +364,9 @@
           <pre><code class="hljs rb"><span><span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">5</span></span><span>  puts <span class="hljs-string">"I am counting <span class="hljs-subst">#{num}</span>!"</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span><span class="hljs-keyword">unless</span> number.even?</span><span>  puts <span class="hljs-string">"Number is odd!"</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>[<span class="hljs-string">"chocolate"</span>, <span class="hljs-string">"strawberry"</span>, <span class="hljs-string">"vanilla"</span>].each { <span class="hljs-params">|flavour|</span></span><span>  make_ice_cream(flavour)</span><span>}</span></code></pre>
           <p><em>No, you're not reading an English poem. You're reading Ruby!</em></p>
           <h3 id="functional-programming-is-encouraged">Functional Programming is Encouraged<a class="fa fa-anchor" href="#functional-programming-is-encouraged"></a></h3>
-          <p>For those familiar with <a href="http://www.cse.unsw.edu.au/~en1000/haskell/hof.html">higher-order functions</a>, Ruby supports <em>map</em>, <em>fold-left</em>, and <em>filter</em>.</p>
+          <p>For those familiar with <a href="https://www.cse.unsw.edu.au/~en1000/haskell/hof.html">higher-order functions</a>, Ruby supports <em>map</em>, <em>fold-left</em>, and <em>filter</em>.</p>
           <pre><code class="hljs rb"><span><span class="hljs-comment"># Map</span></span><span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].map { <span class="hljs-params">|n|</span> n * n }</span><span><span class="hljs-comment">#  =&gt; [1, 4, 9, 16, 25]</span></span><span>&#x200B;</span><span><span class="hljs-comment"># Fold-left</span></span><span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].inject(<span class="hljs-number">0</span>) { <span class="hljs-params">|sum, n|</span> sum + n }</span><span><span class="hljs-comment">#  =&gt; 15</span></span><span>&#x200B;</span><span><span class="hljs-comment"># Filter</span></span><span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].select { <span class="hljs-params">|n|</span> n.even? }</span><span><span class="hljs-comment">#  =&gt; [2, 4]</span></span></code></pre>
-          <p>Joel McCracken makes an <a href="http://joelmccracken.github.io/functional-programming-in-ruby/#/">excellent short presentation</a> on how functions are treated in Ruby.</p>
+          <p>Joel McCracken makes an <a href="https://joelmccracken.github.io/functional-programming-in-ruby/#/">excellent short presentation</a> on how functions are treated in Ruby.</p>
           <h3 id="object-oriented-programming-is-possible-too">Object-Oriented Programming is Possible, Too<a class="fa fa-anchor" href="#object-oriented-programming-is-possible-too"></a></h3>
           <pre><code class="hljs rb"><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span></span></span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialize</span><span class="hljs-params">(r)</span></span></span><span>    @radius = r</span><span>  <span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_radius</span></span></span><span>    <span class="hljs-keyword">return</span> @radius</span><span>  <span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_area</span></span></span><span>    <span class="hljs-keyword">return</span> Math::PI * @radius * @radius</span><span>  <span class="hljs-keyword">end</span></span><span><span class="hljs-keyword">end</span></span><span>&#x200B;</span><span>c = Circle.new(<span class="hljs-number">5</span>)</span><span>c.get_area</span><span><span class="hljs-comment">#  =&gt; 78.53981633974483</span></span></code></pre>
           <p>More on this in <a href="https://www.tutorialspoint.com/ruby/ruby_object_oriented.htm">Object-oriented Ruby tutorial</a>.</p>
@@ -384,13 +384,13 @@
           <h2 id="ruby-frameworks-and-devops">Ruby Frameworks and DevOps<a class="fa fa-anchor" href="#ruby-frameworks-and-devops"></a></h2>
           <p>As with most other languages, tools and frameworks exist for serious Ruby developers and project managers to assist many of their tasks.</p>
           <ul>
-            <li><strong>Frameworks:</strong> <a href="http://rubyonrails.org">Ruby on Rails</a> is by far the most popular web application framework for Ruby. Another popular framework is <a href="http://www.sinatrarb.com">Sinatra</a>.</li>
+            <li><strong>Frameworks:</strong> <a href="https://rubyonrails.org">Ruby on Rails</a> is by far the most popular web application framework for Ruby. Another popular framework is <a href="http://www.sinatrarb.com">Sinatra</a>.</li>
             <li><strong>Libraries:</strong> Ruby libraries come in form of <em>gems</em>. The complete registry can be found on <a href="https://rubygems.org">this website</a>.</li>
             <li><strong>IDE:</strong> <a href="http://www.aptana.com/products/studio3.html">Aptana Studio</a> is the favourite IDE for Rails developers. Other alternatives are <a href="https://www.jetbrains.com/ruby/">RubyMine</a> (commercial) and Eclipse
               with
               <a href="https://sourceforge.net/projects/rubyeclipse/">RDT plugin</a>.</li>
             <li><strong>Task Automation:</strong> <a href="http://docs.seattlerb.org/rake/">Rake</a> is the most commonly used automation tool.</li>
-            <li><strong>Static Analysis:</strong> <a href="http://batsov.com/rubocop/">RuboCop</a> is the sole leading static analysis tool for Ruby language.</li>
+            <li><strong>Static Analysis:</strong> <a href="https://batsov.com/rubocop/">RuboCop</a> is the sole leading static analysis tool for Ruby language.</li>
           </ul>
           <p><a href="https://github.com/markets/awesome-ruby">This repository</a> lists down a large collection of Ruby libraries, tools, frameworks, and software.</p>
         </div>
@@ -419,7 +419,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sun, Apr 12, 2020, 4:41:42 AM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Mon, Apr 13, 2020, 5:35:54 PM UTC]</small></div>
     </footer>
   </div>
 </body>

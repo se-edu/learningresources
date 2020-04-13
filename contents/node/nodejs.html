@@ -402,13 +402,13 @@ users and developers of the package to keep its dependencies compatible.
             to commonly used commands, this also sets up and encourages a consistent development and build workflow in the project.</p>
           <h3 id="benefit-7-easy-to-reuse-code-from-others">Benefit 7: Easy to Reuse Code From Others<a class="fa fa-anchor" href="#benefit-7-easy-to-reuse-code-from-others"></a></h3>
           <p>Node's module system allows you to include other JavaScript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.</p>
-          <p>Node comes bundled with useful <a href="https://nodejs.org/api/">core modules</a> such as the <code>fs</code> (file system) module which includes classes, methods and events to deal with file I/O operations and the <code>http</code> module which
-            helps Node to transfer data over HTTP. There are also many useful and well-tested modules maintained by the community and external developers such as <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
+          <p>Node comes bundled with useful <a href="https://nodejs.org/api/">core modules</a> such as the <code>fs</code> (file system) module which includes classes, methods and events to deal with file I/O operations and the <code>https</code> module
+            which helps Node to transfer data over HTTP. There are also many useful and well-tested modules maintained by the community and external developers such as <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
               class="trigger"><span data-mb-html-for="_content">A library providing various useful wrapper functions over JavaScript's promises</span><em>Bluebird</em></span>
             on <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">the largest ecosystem of open source libraries in the world!</span>npm</span>.</p>
           <p>This makes development a breeze -- if a specific functionality has a large development overhead, you could look to such modules to speed things up.</p>
           <p>Importing modules is easy - simply use the <code>require()</code> function and provide the module identifier or the file path.</p>
-          <pre><code class="hljs js"><span><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>); <span class="hljs-comment">// import a core module</span></span><span><span class="hljs-keyword">const</span> <span class="hljs-built_in">Promise</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bluebird'</span>); <span class="hljs-comment">// import a non-core module</span></span></code></pre>
+          <pre><code class="hljs js"><span><span class="hljs-keyword">const</span> https = <span class="hljs-built_in">require</span>(<span class="hljs-string">'https'</span>); <span class="hljs-comment">// import a core module</span></span><span><span class="hljs-keyword">const</span> <span class="hljs-built_in">Promise</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bluebird'</span>); <span class="hljs-comment">// import a non-core module</span></span></code></pre>
           <p>Node will first check if the module identifier passed to <code>require</code> is a core module or a relative path. If so, it will return the core module or the value of <code>module.exports</code> in the specified file path's code. Otherwise,
             Node will attempt to load the module from the <code>node_modules</code> folder in the parent directory of the current module.</p>
           <h3 id="benefit-8-support-for-better-code-organization">Benefit 8: Support for Better Code Organization<a class="fa fa-anchor" href="#benefit-8-support-for-better-code-organization"></a></h3>
@@ -438,7 +438,7 @@ users and developers of the package to keep its dependencies compatible.
             <li>A guide on asynchronous programming in JS - <a href="https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/sync-async">You Don't Know JS: Async &amp; Performance</a></li>
             <li>A comprehensive introduction to Node - <a href="https://github.com/maxogden/art-of-node/">The art of node</a></li>
             <li>Making better use of npm scripts - <a href="https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633">freeCodeCamp's Introduction to NPM Scripts</a>, <a href="https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">How to Use npm as a Build Tool</a></li>
-            <li>Using <code>module.exports</code> - <a href="http://stackabuse.com/how-to-use-module-exports-in-node-js/">Tendai Mutunhire's article</a>.</li>
+            <li>Using <code>module.exports</code> - <a href="https://stackabuse.com/how-to-use-module-exports-in-node-js/">Tendai Mutunhire's article</a>.</li>
             <li>Advice on how to write clean code that makes it easy to add new features - <a href="https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/">Fundamental rules of a Node.js project structure</a></li>
             <li>A compilation of useful node modules - <a href="https://github.com/sindresorhus/awesome-nodejs">Awesome Nodejs</a></li>
             <li>A summary and curation of the top-ranked content on Node best practices - <a href="https://github.com/i0natan/nodebestpractices">Node.js Best Practices</a></li>
@@ -476,7 +476,7 @@ users and developers of the package to keep its dependencies compatible.
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Sun, Apr 12, 2020, 4:41:42 AM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Mon, Apr 13, 2020, 5:35:54 PM UTC]</small></div>
     </footer>
   </div>
 </body>
