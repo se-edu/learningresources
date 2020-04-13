@@ -172,7 +172,7 @@ It will result in the button running the javascript code when pressed → <a hre
 
 You can also consider using XSS scanning tools to check whether your web application is vulnerable. Below are links of some open-source XSS scanning tools: 
 
-1. https://wapiti.sourceforge.net/ (Web Application Vulnerability Scanner)
+1. http://wapiti.sourceforge.net/ (Web Application Vulnerability Scanner)
 1. https://w3af.org/ (Web Application Attack and Audit Framework)
 1. https://www.arachni-scanner.com/ (Web Application Security Scanner Framework)
 
@@ -187,7 +187,7 @@ Although XSS is the most common web application vulnerability, there are also ma
 References:
 
 1. https://en.wikipedia.org/wiki/Cross-site_scripting (Overview of XSS taken from here)
-1. https://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 32 & 33)
+1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 32 & 33)
 (Basic description of the XSS attack taken from here)
 1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks
 (Description of the two types of XSS attack taken from here)

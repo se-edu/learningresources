@@ -141,7 +141,7 @@ Testing used to be a nightmare for app development but since 2017, Test-driven d
 
 #### Unit Testing and Mocking
 
-Mocking is usually needed in unit testing to simulate the behaviour of real objects (that are dependencies) to verify the behaviour of the object that you are testing. In Android app development, [Mockito](https://site.mockito.org/), a popular mocking library for unit tests in Java, is often used. However, due to the difficulty of mocking the Android SDK to create unit tests, [Robolectric](https://robolectric.org/) was developed to solve this issue. Robolectric can still be used alongside Mockito. The benefit of Robolectric is that it handles emulation UI code such that tests that rely on the UI can be run on the Java Virtual Machine (JVM) rather than having to run them on an emulator. In other words, tests can be written and run faster.
+Mocking is usually needed in unit testing to simulate the behaviour of real objects (that are dependencies) to verify the behaviour of the object that you are testing. In Android app development, [Mockito](https://site.mockito.org/), a popular mocking library for unit tests in Java, is often used. However, due to the difficulty of mocking the Android SDK to create unit tests, [Robolectric](http://robolectric.org/) was developed to solve this issue. Robolectric can still be used alongside Mockito. The benefit of Robolectric is that it handles emulation UI code such that tests that rely on the UI can be run on the Java Virtual Machine (JVM) rather than having to run them on an emulator. In other words, tests can be written and run faster.
 
 #### Integration Testing
 

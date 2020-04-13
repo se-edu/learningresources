@@ -81,7 +81,7 @@ Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup>[[
 Compatible with a range of components and large ecosystem products<sup>[[8]](#footnote8)</sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup>[[9]](#footnote9)</sup>.
 
 ## § 2. Further Readings
-- [How concurrency is the next big change in software development since OO](https://www.gotw.ca/publications/concurrency-ddj.htm)
+- [How concurrency is the next big change in software development since OO](http://www.gotw.ca/publications/concurrency-ddj.htm)
 - [Official CUDA C programming guide: What GPUs excel at processing, and why](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
 - [Official CUDA C programming guide: Architecture of NVIDIA GPUs](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture)
 - [Lightning talk slides: An Introduction to GPGPU](https://github.com/nus-oss/lightningtalks/issues/10)

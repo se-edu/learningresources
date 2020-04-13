@@ -40,7 +40,7 @@ Here are some tips to get started with horizontal scaling:
 - Understand [Parallel Computing](https://web.eecs.umich.edu/~qstout/parallel.html) and how to use it to speed up computation. 
 - Learn how to utilize MapReduce on [Hadoop](https://www.tutorialspoint.com/hadoop/index.htm). The Hadoop ecosystem is so versatile and widely-used that there are companies offering Hadoop as a service, so you do not have to set up the server yourself.
 - Host your server on [Google App Engine](https://cloud.google.com/appengine/docs). Despite being more expensive than Amazon Web Services and DigitalOcean, it offers very scalable infrastructure for your server.
-- Run a server with multiple nodes with MPI. [Open MPI](https://www.open-mpi.org) is an open source message-passing library that can be used to send data between the nodes in your server. You might have to study [cloud computing infrastructure](https://whatiscloud.com/basic_concepts_and_terminology/it_resource) in order to make use of this.
+- Run a server with multiple nodes with MPI. [Open MPI](https://www.open-mpi.org) is an open source message-passing library that can be used to send data between the nodes in your server. You might have to study [cloud computing infrastructure](http://whatiscloud.com/basic_concepts_and_terminology/it_resource) in order to make use of this.
 - Study various scalable architecture for servers ([resource](https://srinathsview.blogspot.sg/2011/10/list-of-known-scalable-architecture.html)).
 
 #### Vertical Scaling

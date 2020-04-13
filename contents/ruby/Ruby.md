@@ -48,7 +48,7 @@ Popular websites running on Ruby: GitHub, Airbnb, Twitter, Shopify.
 To install Ruby, go to the download page of the above website and follow the instructions.
 If you're a Mac user, you don't need to do anything; Macs come with Ruby pre-installed!
 
-For beginners and intermediate users, [tutorialspoint](https://www.tutorialspoint.com/ruby/index.htm) has great introductory Ruby tutorials, and [rubylearning.com](https://rubylearning.com/satishtalim/tutorial.html) is another great place.
+For beginners and intermediate users, [tutorialspoint](https://www.tutorialspoint.com/ruby/index.htm) has great introductory Ruby tutorials, and [rubylearning.com](http://rubylearning.com/satishtalim/tutorial.html) is another great place.
 We will explore some of the more prominent language features of Ruby.
 
 ### Everything is an Object
@@ -152,21 +152,21 @@ More on this in [Object-oriented Ruby tutorial](https://www.tutorialspoint.com/r
 
 - [Blocks in Ruby](https://www.tutorialspoint.com/ruby/ruby_blocks.htm) - ever imagine that a method invocation can be another method's parameter?
 - [Modules and mixins in Ruby](https://www.tutorialspoint.com/ruby/ruby_modules.htm) - provides namespacing, and makes multiple inheritance (or a variant of it, technically) possible.
-- [Threads and fibers in Ruby](https://pltconfusion.com/concurrency_primitives_and_abstractions_in_ruby/) - dealing with concurrencies.
+- [Threads and fibers in Ruby](http://pltconfusion.com/concurrency_primitives_and_abstractions_in_ruby/) - dealing with concurrencies.
 - [Metaprogramming in Ruby](https://www.toptal.com/ruby/ruby-metaprogramming-cooler-than-it-sounds) - when your Ruby code *writes* Ruby code at runtime.
 - [Domain-Specific Languages (DSLs) in Ruby](https://www.leighhalliday.com/creating-ruby-dsl) - Ruby's amazing support for blocks and metaprogramming makes it a first choice for many developers to write a DSL.
 - [Ruby style guide](https://github.com/bbatsov/ruby-style-guide) - as agreed by the community at large.
-- [21 Ruby tricks](https://www.rubyinside.com/21-ruby-tricks-902.html) - making good use of Ruby's language features.
-- [Ruby best practices](https://www.reedbushey.com/119Ruby%20Best%20Practices.pdf) - a book written by a Ruby expert with foreword provided by Yukihiro Matsumoto himself.
+- [21 Ruby tricks](http://www.rubyinside.com/21-ruby-tricks-902.html) - making good use of Ruby's language features.
+- [Ruby best practices](http://www.reedbushey.com/119Ruby%20Best%20Practices.pdf) - a book written by a Ruby expert with foreword provided by Yukihiro Matsumoto himself.
 
 ## Ruby Frameworks and DevOps
 
 As with most other languages, tools and frameworks exist for serious Ruby developers and project managers to assist many of their tasks.
 
-- **Frameworks:** [Ruby on Rails](https://rubyonrails.org) is by far the most popular web application framework for Ruby. Another popular framework is [Sinatra](https://www.sinatrarb.com).
+- **Frameworks:** [Ruby on Rails](https://rubyonrails.org) is by far the most popular web application framework for Ruby. Another popular framework is [Sinatra](http://www.sinatrarb.com).
 - **Libraries:** Ruby libraries come in form of *gems*. The complete registry can be found on [this website](https://rubygems.org).
-- **IDE:** [Aptana Studio](https://www.aptana.com/products/studio3.html) is the favourite IDE for Rails developers. Other alternatives are [RubyMine](https://www.jetbrains.com/ruby/) (commercial) and Eclipse with [RDT plugin](https://sourceforge.net/projects/rubyeclipse/).
-- **Task Automation:** [Rake](https://docs.seattlerb.org/rake/) is the most commonly used automation tool.
+- **IDE:** [Aptana Studio](http://www.aptana.com/products/studio3.html) is the favourite IDE for Rails developers. Other alternatives are [RubyMine](https://www.jetbrains.com/ruby/) (commercial) and Eclipse with [RDT plugin](https://sourceforge.net/projects/rubyeclipse/).
+- **Task Automation:** [Rake](http://docs.seattlerb.org/rake/) is the most commonly used automation tool.
 - **Static Analysis:** [RuboCop](https://batsov.com/rubocop/) is the sole leading static analysis tool for Ruby language.
 
 [This repository](https://github.com/markets/awesome-ruby) lists down a large collection of Ruby libraries, tools, frameworks, and software.

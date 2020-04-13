@@ -49,7 +49,7 @@ Machine learning algorithms perform well for a large variety of tasks, from comp
 
 - Sentiment analysis ([NLTK example on Kaggle](https://www.kaggle.com/ngyptr/python-nltk-sentiment-analysis?scriptVersionId=904608))
 - Machine translation ([NMT](https://github.com/tensorflow/nmt), by Google)
-- Image generation ([SuperRes](https://github.com/alexjc/neural-enhance), [Texture Synthesis](https://bethgelab.org/deeptextures/))
+- Image generation ([SuperRes](https://github.com/alexjc/neural-enhance), [Texture Synthesis](http://bethgelab.org/deeptextures/))
 - Voice recognition, generation ([DeepSpeech](https://github.com/mozilla/DeepSpeech))
 - Noise suppression ([RNNoise](https://people.xiph.org/~jm/demo/rnnoise/))
 - Optical Character Recognition ([Tesseract-OCR](https://github.com/tesseract-ocr/tesseract))

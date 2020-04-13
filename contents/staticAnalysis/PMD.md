@@ -35,7 +35,7 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
 
 ## Overview
 
-PMD is a static analyser for Java, JavaScript, Salesforce.com Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector([CPD](https://pmd.sourceforge.net/pmd-4.3.0/cpd.html)), which helps to find duplicated code, is also included as an add-on in PMD.
+PMD is a static analyser for Java, JavaScript, Salesforce.com Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)), which helps to find duplicated code, is also included as an add-on in PMD.
 
 *Note that the links in this chapter is based on [PMD version 5.5.3](https://pmd.github.io/pmd-5.5.3/). You can check the latest version and documentation at its [GitHub Page](https://pmd.github.io/).*
 
@@ -51,7 +51,7 @@ PMD supports checking rules for the following languages.
 - [Velocity](https://pmd.github.io/pmd-5.4.1/pmd-vm/index.html)
 - [XML and XSL](https://pmd.github.io/pmd-5.5.3/pmd-xml/index.html)
 
-PMD doesn't support checking rules for the following languages. Only Copy/Paste Detector ([CPD](https://pmd.sourceforge.net/pmd-4.3.0/cpd.html)) is supported for them.
+PMD doesn't support checking rules for the following languages. Only Copy/Paste Detector ([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)) is supported for them.
 
 - [C++](https://pmd.github.io/pmd-5.5.3/pmd-cs/index.html)
 - [C#](https://pmd.github.io/pmd-5.5.3/pmd-cpp/index.html)

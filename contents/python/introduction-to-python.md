@@ -60,7 +60,7 @@ The [official Python documentation](https://docs.python.org/3/tutorial/venv.html
 
 Strings, lists, and dictionaries belong to a type of class known as `Iterables`. An `Iterable` is defined by Python to be "an object capable of returning its members one at a time".
 
-Due to their versatility you'll often find that strings, lists, and dictionaries are all you'll ever need. However, there may come a time when you'll need to create your own `Iterable` data structure. If that's the case, you may want to delve into the inner workings of `Iterable` classes, check out [Iterables, Iterators and Generators](https://excess.org/article/2013/02/itergen1/) by Ian Ward. He begins by explaining the `Iterable` class, then goes into the `Iterator` and `Generator` classes, both of which are powerful tools in Python.
+Due to their versatility you'll often find that strings, lists, and dictionaries are all you'll ever need. However, there may come a time when you'll need to create your own `Iterable` data structure. If that's the case, you may want to delve into the inner workings of `Iterable` classes, check out [Iterables, Iterators and Generators](http://excess.org/article/2013/02/itergen1/) by Ian Ward. He begins by explaining the `Iterable` class, then goes into the `Iterator` and `Generator` classes, both of which are powerful tools in Python.
 
 ## Indexing and Slicing
 
@@ -78,7 +78,7 @@ In addition to scripting and OOP, Python also supports [functional programming](
 
 *"Why would I want to relearn how to code?!"*, you may ask. Big Data's increasing relevance has thrown the spotlight on distributed systems and concurrency techniques. No prizes for guessing which programming paradigm is most amenable to the implementation of these systems. [Here](https://www.python-course.eu/python3_lambda.php) is a great introduction to the tools at the heart of functional programming in Python 3: `map`, `filter`, `reduce`, and `lambda`.
 
-An alternative way of doing functional programming in Python using list comprehensions to replace the `map`, `filter`, and `reduce` functions. [Here](https://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html) is a comparison of both methods, complete with examples!
+An alternative way of doing functional programming in Python using list comprehensions to replace the `map`, `filter`, and `reduce` functions. [Here](http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html) is a comparison of both methods, complete with examples!
 
 ## Python for Data Science
 

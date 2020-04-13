@@ -238,7 +238,7 @@ even though the compiler is likely able to infer types.
 
 If the above syntax is confusing and the comments insufficient, the reader may
 wish to consult the detailed introduction to Haskell syntax
-[here](https://learnyouahaskell.com/starting-out).
+[here](http://learnyouahaskell.com/starting-out).
 
 The type definition for `square` is rather obvious. But the type definition of
 `hypotenuse` is a little strange. One would expect `(Double, Double) -> Double)`
@@ -480,7 +480,7 @@ We are now poised to enter the world of actual functional programming in Haskell
 
 A function may be defined in one of several ways. We illustrate the various
 syntaxes for defining a function below, with more details
-[here](https://learnyouahaskell.com/syntax-in-functions) if needed:
+[here](http://learnyouahaskell.com/syntax-in-functions) if needed:
 
 ```haskell
     sumOfSquares :: Double -> Double -> Double
@@ -714,8 +714,8 @@ The above runs in O(log n) as long as the tree is balanced.
 
 ### Further Reading
 
-* [Function Syntax](https://learnyouahaskell.com/syntax-in-functions)
-* [Higher-Order Functions](https://learnyouahaskell.com/higher-order-functions)
+* [Function Syntax](http://learnyouahaskell.com/syntax-in-functions)
+* [Higher-Order Functions](http://learnyouahaskell.com/higher-order-functions)
 
 
 ## Typeclasses
@@ -880,7 +880,7 @@ As an exercise, the reader may wish to redefine the size of a `Tree` to mean
 
 ### Further Reading
 
-* [More on Creating Typeclasses](https://learnyouahaskell.com/making-our-own-types-and-typeclasses)
+* [More on Creating Typeclasses](http://learnyouahaskell.com/making-our-own-types-and-typeclasses)
 * [Collection and Relationship between Standard Typeclasses](https://wiki.haskell.org/Typeclassopedia)
 
 
@@ -1040,9 +1040,9 @@ with in a manner familiar to imperative programmers.
 
 Monads are a big topic, and additional resources are available:
 
-* [Monads](https://learnyouahaskell.com/a-fistful-of-monads)
+* [Monads](http://learnyouahaskell.com/a-fistful-of-monads)
 * [Monad Laws](https://en.wikibooks.org/wiki/Haskell/Understanding_monads#Monad_Laws) that every monad should obey
-* [IO Monad](https://learnyouahaskell.com/input-and-output)
+* [IO Monad](http://learnyouahaskell.com/input-and-output)
 * [State Monad](https://en.wikibooks.org/wiki/Haskell/Understanding_monads/State), allows state to be carried in a monadic context, allowing imperative-style computation
 * [ST Monad](https://en.wikibooks.org/wiki/Haskell/Mutable_objects), allows mutable state to be carried in a monadic context, useful for implementing inherently destructive algorithms
 * [Arrays](https://wiki.haskell.org/Arrays), allows constant-time access to elements like a C array, with mutable variants in the `IO` and `ST` monads provided
@@ -1052,7 +1052,7 @@ Monads are a big topic, and additional resources are available:
 
 # Guides
 
-* [Learn You a Haskell](https://learnyouahaskell.com) is a good beginner text
+* [Learn You a Haskell](http://learnyouahaskell.com) is a good beginner text
 for learning Haskell. It does not have much real-world examples, but does quite
 a good job in explaining difficult theoretical concepts (e.g. functors,
 applicative functors and monads) well. It is recommended to read  the material
@@ -1061,7 +1061,7 @@ in 4 chunks:
     * 7: modules (very important for large codebases)
     * 8-10: details of the type-system
     * 11-14: monads
-* [Real World Haskell](https://book.realworldhaskell.org/) is a rather old text
+* [Real World Haskell](http://book.realworldhaskell.org/) is a rather old text
 which is possibly outdated. Still, it shows plenty of examples of how Haskell
 may be used in actual real-life scenarios (databases, web programming, etc).
 * [Haskell Wikibook](https://en.wikibooks.org/wiki/Haskell) is a comprehensive

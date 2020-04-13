@@ -39,10 +39,10 @@ Complexity metrics measure how "complex" methods, classes, packages, etc. are. "
 
 They are arguably the most useful metrics for the largest number of developers because they are the easiest to grasp, the most directly relevant to the coding activity, and applicable to most/all programming languages.
 
-- The most well-known complexity metric is **Cyclomatic Complexity (CC)**, invented by Thomas McCabe in 1976. CC corresponds to the **minimum number of test cases needed to achieve 100% branch coverage**. [Here](https://www.whiteboxtest.com/cyclomatic-complexity.php) is an excellent explanation on how to make use of it to measure your code quality.
+- The most well-known complexity metric is **Cyclomatic Complexity (CC)**, invented by Thomas McCabe in 1976. CC corresponds to the **minimum number of test cases needed to achieve 100% branch coverage**. [Here](http://www.whiteboxtest.com/cyclomatic-complexity.php) is an excellent explanation on how to make use of it to measure your code quality.
 - An alternative, less well-known, harder to calculate complexity metric is **NPath Complexity (NC)**, invented by Brian A. Nejmeh in 1988. NC corresponds to the **minimum number of test cases needed to achieve 100% path coverage**.
 
-> [Here](https://www.literateprogramming.com/mccabe.pdf) is the original paper by McCabe, and [here](https://dl.acm.org/citation.cfm?doid=42372.42379) is the original paper by Nejmeh.
+> [Here](http://www.literateprogramming.com/mccabe.pdf) is the original paper by McCabe, and [here](https://dl.acm.org/citation.cfm?doid=42372.42379) is the original paper by Nejmeh.
 
 These complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.
 
@@ -52,7 +52,7 @@ Class design metrics measure how "well-designed" a class is. "Well-designed" her
 
 Metrics on this level are more applicable for QA team members and software architects, but still hold some relevance to students and junior developers who have to design a class-level API.
 
-The most well-accepted metrics for class design are [**The Chidamber and Kemerer Metrics**](https://www.virtualmachinery.com/sidebar3.htm):
+The most well-accepted metrics for class design are [**The Chidamber and Kemerer Metrics**](http://www.virtualmachinery.com/sidebar3.htm):
 - Weighted Methods per Class (WMC)
 - Coupling Between Objects (CBO)
 - Response For Class (RFC)
@@ -64,7 +64,7 @@ The most well-accepted metrics for class design are [**The Chidamber and Kemerer
 
 Package design metrics measure how "well-designed" a package is. "Well-designed" here is similarly defined as the one in class design metrics. Metrics on this level are mostly applicable only for QA team members and software architects.
 
-The most well-accepted metrics for package design are [**"the group of five"**](https://www.virtualmachinery.com/jhawkmetricssyspack.htm):
+The most well-accepted metrics for package design are [**"the group of five"**](http://www.virtualmachinery.com/jhawkmetricssyspack.htm):
 - Afferent Coupling (Ca)
 - Efferent Coupling (Ce)
 - Instability (I)

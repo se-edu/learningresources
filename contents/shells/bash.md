@@ -140,7 +140,7 @@ fi
 ```
 Furthermore, you can use the `|` symbol to chain various Linux commands together such that the output of the previous commands is passed as input to the next command.
 
-The following example make use of shell commands [ps](https://man7.org/linux/man-pages/man1/ps.1.html) and [grep](https://man7.org/linux/man-pages/man1/grep.1.html). ps displays information about a selection of the active processes and grep searches for the pattern in the given input. 
+The following example make use of shell commands [ps](http://man7.org/linux/man-pages/man1/ps.1.html) and [grep](http://man7.org/linux/man-pages/man1/grep.1.html). ps displays information about a selection of the active processes and grep searches for the pattern in the given input. 
 
 Let us say you want to check the status of process `p` running on your system. The `ps aux` command by itself lists all the processes currently running. If there are too many processes listed and you cannot find `p`, you can pass the result of `ps aux` to `grep 'p'` to as `ps aux | grep 'p'` to capture process `p`'s status.
 

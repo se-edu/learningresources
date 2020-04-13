@@ -62,7 +62,7 @@ If your system suffers from memory related performance issues, here are some sol
     gc.collect()
     ```
 
-- Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive `int` over `Integer` to reduce the overhead introduce by the `Integer` Object wrapper. This [guide](https://java-performance.info/overview-of-memory-saving-techniques-java/) for Java also proposes ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object wrappers.
+- Using appropriate variable types can also offer memory usage improvement. For example, we should prefer to use primitive `int` over `Integer` to reduce the overhead introduce by the `Integer` Object wrapper. This [guide](http://java-performance.info/overview-of-memory-saving-techniques-java/) for Java also proposes ways to overcome obstacles introduced by the usage of primitives such as restrictions of JDK collections that requires Object wrappers.
 
 ## Using Cache Friendly Code
 

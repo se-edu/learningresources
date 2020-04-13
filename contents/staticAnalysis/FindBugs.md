@@ -56,7 +56,7 @@ The "bug patterns" can be divided into nine groups:
 1. Security
 1. Dodgy code
 
-Refer to [FindBugs official documentation](https://findbugs.sourceforge.net/bugDescriptions.html) for a comprehensive list of bugs and the explanation of each bug.
+Refer to [FindBugs official documentation](http://findbugs.sourceforge.net/bugDescriptions.html) for a comprehensive list of bugs and the explanation of each bug.
 
 FindBugs analyses bytecode in compiled Java `.class` file and checks multiple files at the same time. This is unlike [CheckStyle](checkStyle.html) or [PMD](PMD.html) which can only check files one by one and analyse Java source code, allowing FindBugs to spot errors that would have been missed by CheckStyle and PMD. For example, one of the bug patterns in FindBugs is `RCN: Redundant nullcheck of value known to be non-null`. FindBugs will analyse all the assignments to a particular variable in the code base and then check whether the `nullcheck` for the variable is redundant or not.
 
@@ -116,13 +116,13 @@ In the above example, the `aMap` may or may not contain "bob", so FindBugs will 
 
 ### Configuration
 
-You can tell FindBugs which bug patterns to exclude and include by using [FilterFiles](https://findbugs.sourceforge.net/manual/filter.html). By default, if no filter files are provided, FindBugs will run all checks.
+You can tell FindBugs which bug patterns to exclude and include by using [FilterFiles](http://findbugs.sourceforge.net/manual/filter.html). By default, if no filter files are provided, FindBugs will run all checks.
 
 ### Suppress Warnings
 
 You can use filter files with `exclude` option in FindBugs as discussed above to suppress warnings.
 
-In addition, you can also use `SuppressWarnings` [annotation](https://findbugs.sourceforge.net/manual/annotations.html) to filter out unwanted violations.
+In addition, you can also use `SuppressWarnings` [annotation](http://findbugs.sourceforge.net/manual/annotations.html) to filter out unwanted violations.
 
 ### Running
 
@@ -130,21 +130,21 @@ There are several ways to run FindBugs.
 
 GUI:
 
-- [Using the FindBugs GUI](https://findbugs.sourceforge.net/manual/gui.html)
+- [Using the FindBugs GUI](http://findbugs.sourceforge.net/manual/gui.html)
 
 Command Line:
 
-- [Command Line](https://findbugs.sourceforge.net/manual/running.html)
+- [Command Line](http://findbugs.sourceforge.net/manual/running.html)
 
 Build Automation Tools:
 
-- [Ant Task](https://findbugs.sourceforge.net/manual/anttask.html)
+- [Ant Task](http://findbugs.sourceforge.net/manual/anttask.html)
 - [FindBugs Maven Plugin](https://gleclaire.github.io/findbugs-maven-plugin/)
 - [Gradle FindBugs](https://docs.gradle.org/current/userguide/findbugs_plugin.html)
 
 IDE Integration:
 
-- [Eclipse Integration](https://findbugs.sourceforge.net/manual/eclipse.html)
+- [Eclipse Integration](http://findbugs.sourceforge.net/manual/eclipse.html)
 - [IntelliJ Integration](https://plugins.jetbrains.com/plugin/3847-findbugs-idea)
 - [NetBeans Integration](https://netbeans.org/kb/docs/java/code-inspect.html)
 
@@ -156,14 +156,14 @@ The current projects using `FindBugs` can make a shift to `SpotBugs` by followin
 
 ## Advanced Topics
 
-- [Data mining of bugs with FindBugs](https://findbugs.sourceforge.net/manual/datamining.html): The data for each analysis will be collected and you can use these statistics for data mining.
-- [Configure Analysis Properties](https://findbugs.sourceforge.net/manual/analysisprops.html#analysisproptable): You can define properties to configure options for some checks. For example, you can define the assertion methods in your project so that null pointer dereference bug detector will not raise violations if assertion methods are used.
-- [Use annotations](https://findbugs.sourceforge.net/manual/annotations.html): You can use annotations to indicate your intents so that FindBugs can issue warnings more appropriately.
+- [Data mining of bugs with FindBugs](http://findbugs.sourceforge.net/manual/datamining.html): The data for each analysis will be collected and you can use these statistics for data mining.
+- [Configure Analysis Properties](http://findbugs.sourceforge.net/manual/analysisprops.html#analysisproptable): You can define properties to configure options for some checks. For example, you can define the assertion methods in your project so that null pointer dereference bug detector will not raise violations if assertion methods are used.
+- [Use annotations](http://findbugs.sourceforge.net/manual/annotations.html): You can use annotations to indicate your intents so that FindBugs can issue warnings more appropriately.
 - [Writing custom detectors](https://www.ibm.com/developerworks/library/j-findbug2/): You can follow the tutorial step by step to write your customised detector.
 
 ## Resources
 
-- [FindBugs Official Website](https://findbugs.sourceforge.net): Official website of FindBugs. You can find more documentations here.
+- [FindBugs Official Website](http://findbugs.sourceforge.net): Official website of FindBugs. You can find more documentations here.
 - [An Evaluation of FindBugs](https://www.cs.cmu.edu/~aldrich/courses/654/tools/Sandcastle-FindBugs-2009.pdf): Analysis of FindBugs in 2009's version, some content may be outdated. Useful for understanding the benefits and drawbacks.
 - [Improve the quality of your code](https://www.ibm.com/developerworks/library/j-findbug1/): Some examples showing the bugs reported by FindBugs. You can get a rough idea of how FindBugs will help you in your project.
 

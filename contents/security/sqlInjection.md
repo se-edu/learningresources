@@ -213,7 +213,7 @@ References:
 
 1. https://www.owasp.org/index.php/SQL_Injection
 (Basic description of SQL Injection attack taken from here)
-1. https://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 105-110)
+1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 105-110)
 (Description of the two types of SQL injection attack taken from here)
 
 Additional Reading Resources:

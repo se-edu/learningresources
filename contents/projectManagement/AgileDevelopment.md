@@ -79,7 +79,7 @@ That said, there are many agile development frameworks that can help to guide yo
 - [Kanban](https://www.atlassian.com/agile/kanban)
 - [Scrumban](https://www.agilealliance.org/what-is-scrumban/)
 - [Lean Software Development](https://leankit.com/learn/lean/principles-of-lean-development/)
-- [Extreme Programming (XP)](https://www.agilenutshell.com/xp)
+- [Extreme Programming (XP)](http://www.agilenutshell.com/xp)
 - [Feature-Driven Development (FDD)](https://agilemodeling.com/essays/fdd.htm)
 - [Dynamic Systems Development Method (DSDM)](https://dsdmofagilemethodology.wikidot.com/)
 
@@ -88,11 +88,11 @@ In addition to such agile frameworks, there are also many concrete practices tha
 - [User Stories](https://www.agilemodeling.com/artifacts/userStory.htm)
 - [User Story Mapping](https://www.thoughtworks.com/insights/blog/story-mapping-visual-way-building-product-backlog)
 - [Backlogs](https://www.agilealliance.org/glossary/backlog/)
-- [Velocity Tracking](https://www.softwaretestingstudio.com/agile-velocity-sprint-metrics/)
+- [Velocity Tracking](http://www.softwaretestingstudio.com/agile-velocity-sprint-metrics/)
 - [Timeboxing](https://www.telerik.com/blogs/the-importance-of-timeboxing-and-iterations-for-agile-planning)
 - [Pair Programming](https://www.codementor.io/pair-programming)
 - [Test Driven Development (TDD)](https://www.agiletestingframework.com/atf/testing/test-driven-development-tdd/)
-- [Continuous Integration](https://istqbexamcertification.com/what-is-continuous-integration-in-agile-methodology/)
+- [Continuous Integration](http://istqbexamcertification.com/what-is-continuous-integration-in-agile-methodology/)
 - [Reflection loops](https://dzone.com/articles/reflection-loops-agile)
 
 Of course, your project does not have to be utilising **all** the frameworks/concrete practices in order to be agile in its development. Instead, great care should be taken to analyse and select the appropriate framework/concrete practices that will work best for the project.

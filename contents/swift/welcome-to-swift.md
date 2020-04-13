@@ -271,7 +271,7 @@ Also, enums with associated values is not supported in languages such as [Java](
 
 ### Protocol Oriented Programming
 
-The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](https://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html) by using composition instead of inheritance for defining new classes based on existing classes.
+The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html) by using composition instead of inheritance for defining new classes based on existing classes.
 
 Here's some code to serve as a brief introduction to POP:
 

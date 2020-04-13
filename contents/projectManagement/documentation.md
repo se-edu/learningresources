@@ -31,7 +31,7 @@ There are many benefits to writing good documentation, such as the following:
 * **Makes things easier for yourself**: when you look back at your code a few months later, well-written documentation can make things a lot easier by explaining what you had been thinking when you were writing the code, when you find yourself confused by your own work
 * **Improves your code**: documentation forces you to think carefully about what you are trying to do and why you have chosen to implement it in a particular way
 * **Encourages others to contribute to your software**: by documenting how to contribute, it makes easier for others to do so, so they are more likely to help out
-* **Encourages others to use your software**: ["If it isn't documented, it doesn't exist."](https://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680)
+* **Encourages others to use your software**: ["If it isn't documented, it doesn't exist."](http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=1680)
 
 ## Writing Good Documentation
 
@@ -159,14 +159,14 @@ In addition to the links mentioned above, here are the links used in the writing
 * https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/
 * https://bryce.fisher-fleig.org/blog/effective-commit-messages/
 * https://tom.preston-werner.com/2010/08/23/readme-driven-development.html
-* https://www.cs.ecu.edu/karl/3300/spr14/Notes/Documentation/documentation.html
+* http://www.cs.ecu.edu/karl/3300/spr14/Notes/Documentation/documentation.html
 * https://www.tylerbutler.com/2013/06/the-importance-of-documentation/
 * https://softwareengineering.stackexchange.com/questions/154615/are-unit-tests-really-used-as-documentation
 * https://blog.smartbear.com/careers/13-things-people-hate-about-your-open-source-docs/
 * https://byrslf.co/writing-great-documentation-44d90367115a#.qdxj6dcx4
 * https://news.ycombinator.com/item?id=8414714
 * https://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm
-* https://www.onlamp.com/pub/a/onlamp/2006/09/07/unit-testing-docs.html
+* http://www.onlamp.com/pub/a/onlamp/2006/09/07/unit-testing-docs.html
 * https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/
 * https://vip.wordpress.com/documentation/commit-messages/#a-good-commit-message-should-not-depend-on-the-code-to-explain-what-it-does-or-why-it-does-it
 * https://news.ycombinator.com/item?id=10212582

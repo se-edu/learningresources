@@ -26,7 +26,7 @@ Author: [Tran Tien Dat](https://github.com/tran-tien-dat)
 * [References‎](#references)
 </box>
 
-Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like [Gmail](https://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html) and [Netflix](https://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html) in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.
+Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like [Gmail](http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html) and [Netflix](https://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html) in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.
 
 ## Flow of a CSRF Attack
 

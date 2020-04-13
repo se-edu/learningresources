@@ -130,8 +130,8 @@ After User Testing and the launch of the final product, the next stage is Mainte
   * Recursively update, revise and maintain the content in the application
   
 #### Deliverables
-  * [Sitemaps](https://www.kristenjoybaker.com/uploads/1/3/7/6/13760055/3563790_orig.jpg) - Depiction of how all pages of the product interconnect
-  * [Taxonomies](https://blog.fuzzymath.com/wp-content/uploads/2015/09/UCAN_Taxonomy-1024x775.png) - Organized depiction of how features or information in the product relate to one another
+  * [Sitemaps](http://www.kristenjoybaker.com/uploads/1/3/7/6/13760055/3563790_orig.jpg) - Depiction of how all pages of the product interconnect
+  * [Taxonomies](http://blog.fuzzymath.com/wp-content/uploads/2015/09/UCAN_Taxonomy-1024x775.png) - Organized depiction of how features or information in the product relate to one another
   * [Content Governance Plans](https://image.slidesharecdn.com/contentstrategyin2015-150706154016-lva1-app6891/95/slide-43-1024.jpg) - Complete strategy for updating, revising and maintaining all content within the product
   
 ### Ending Notes

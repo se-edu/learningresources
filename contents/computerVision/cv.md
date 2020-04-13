@@ -323,7 +323,7 @@ or the Python version:
 <a name="footnote3">[3]</a>: https://blogs.nvidia.com/blog/2017/07/23/future-of-computer-vision/<br />
 <a name="footnote4">[4]</a>: https://web.stanford.edu/class/cs231m/<br />
 <a name="footnote5">[5]</a>: https://cloud.google.com/vision/<br />
-<a name="footnote6">[6]</a>: https://cs231n.stanford.edu/<br />
+<a name="footnote6">[6]</a>: http://cs231n.stanford.edu/<br />
 <a name="footnote7">[7]</a>: https://www.cis.rit.edu/class/simg782/lectures/lecture_02/lec782_05_02.pdf<br />
 <a name="footnote8">[8]</a>: https://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/<br />
 <a name="footnote9">[9]</a>: http://image-net.org/challenges/LSVRC/2016/%23det<br />
