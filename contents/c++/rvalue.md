@@ -181,7 +181,7 @@ The following resources gives more readings on what was discussed, and a more in
 * [Comparison on pass-by-value or pass-by-reference](https://www.informit.com/articles/article.aspx?p=2731935&seqNum=18)
 * [Tutorial on what is a rvalue and what is a lvalue](https://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php)
 * [Tutorial on using Rvalue References and Move Semantics](https://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php)
-* [C++ Rvalue References Explained in 11 Sections](https://thbecker.net/articles/rvalue_references/section_01.html)
+* [C++ Rvalue References Explained in 11 Sections](http://thbecker.net/articles/rvalue_references/section_01.html)
 * [Sample examples of using Rvalue References and Move Semantics](https://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php)
 * [The Rvalue Reference Anti-Pattern](https://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html)
 

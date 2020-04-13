@@ -93,7 +93,7 @@ Compatible with a range of components and large ecosystem products<sup>[[8]](#fo
 <a name="footnote2">[2]</a>: https://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/<br />
 <a name="footnote3">[3]</a>: https://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf<br />
 <a name="footnote4">[4]</a>: https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/<br />
-<a name="footnote5">[5]</a>: https://www.gotw.ca/publications/concurrency-ddj.htm<br />
+<a name="footnote5">[5]</a>: http://www.gotw.ca/publications/concurrency-ddj.htm<br />
 <a name="footnote6">[6]</a>: https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/<br />
 <a name="footnote7">[7]</a>: https://en.wikipedia.org/wiki/Tegra#Tegra_X1/<br />
 <a name="footnote8">[8]</a>: https://elinux.org/Jetson_TX2#Ecosystem_Products<br />

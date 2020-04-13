@@ -95,7 +95,7 @@ The first stage is Preliminary Research. This is where you would:
 #### Deliverables
   * [Personas](https://static1.squarespace.com/static/519deddfe4b07b846eef9842/55915575e4b0a919cf5a0da5/55a5b693e4b0576c4f936a78/1436923548676/11_all_with_eps_brands.jpg?format=750w) - User profiles that are representative of the target audiences
   * [User Stories](https://i.pinimg.com/originals/00/ac/37/00ac379ca5b9c28de3d56bdea4580e2e.jpg) - Representation of the most important user actions or motivations for each persona
-  * [User Scenarios](https://www.davedoyle.com/prof/portfolio/images/large/petcare_scenario.gif) - Case studies of how users use the products, supplementing User Stories to allow you to better empathize with the users
+  * [User Scenarios](http://www.davedoyle.com/prof/portfolio/images/large/petcare_scenario.gif) - Case studies of how users use the products, supplementing User Stories to allow you to better empathize with the users
   * [User Flows](https://cdn-images-1.medium.com/max/1600/0*aO_6rai_fTnSe5rh.) - Depiction of how users navigate through the product for each scenario
   
 ### Prototyping
@@ -117,7 +117,7 @@ After Prototyping, the next stage is User Testing. This is where you would:
   
 #### Deliverables (before actual testing with users)
   * [Usability Test Plan](https://www.smileycat.com/wp-content/uploads/2016/05/usability-test-plan-dashboard.png) - Summary of background, goals, and test methodology
-  * [User Testing Script](https://www.ariadne.ac.uk/images/issue62-loureiroKoechlin/CeciliaLoureiroKoechlin-03-small.gif) - What to say as the facilitator, encouraging users to think out loud during the test
+  * [User Testing Script](http://www.ariadne.ac.uk/images/issue62-loureiroKoechlin/CeciliaLoureiroKoechlin-03-small.gif) - What to say as the facilitator, encouraging users to think out loud during the test
   
 #### Deliverables (after actual testing with users)
   * [Usability Reports](https://image.slidesharecdn.com/january2012nhupa-120206210831-phpapp02/95/delivering-results-how-do-you-report-user-research-findings-18-728.jpg?cb=1374224669) - Thorough introduction to what aspects of the product was or was not effective and how to improve

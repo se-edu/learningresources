@@ -116,7 +116,7 @@ If you would like to read up more about optionals, take a look at these articles
 
 #### Guard Statements
 
-Notice that the [happy path](https://xunitpatterns.com/happy%20path.html) in the code above is indented:
+Notice that the [happy path](http://xunitpatterns.com/happy%20path.html) in the code above is indented:
 
 ```swift
 func timeTravel(album: String) {
