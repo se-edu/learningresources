@@ -84,7 +84,7 @@ Stream ciphers are used for their efficiency, ease of implementation in hardware
 However, block ciphers are more widely used than stream ciphers. In some modes of operation, they can be used like stream ciphers, reducing the need for dedicated stream ciphers.
 
 [RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged due to known vulnerabilities. 
-The [eSTREAM project](http://www.ecrypt.eu.org/stream/), a research effort to develop state-of-the-art stream ciphers, has identified several ciphers suitable for widespread adoption. However, being relatively new, they have not been analyzed as extensively by cryptographers.
+The [eSTREAM project](https://www.ecrypt.eu.org/stream/), a research effort to develop state-of-the-art stream ciphers, has identified several ciphers suitable for widespread adoption. However, being relatively new, they have not been analyzed as extensively by cryptographers.
 
 #### Block Ciphers
 
@@ -109,7 +109,7 @@ Block ciphers can also provide additional services such as integrity, depending 
 This [article](http://www.crypto-it.net/eng/theory/modes-of-block-ciphers.html) provides a nice overview of common modes. 
 
 Most modes require a random value called an initialization vector (IV) so that encrypting the same message twice doesn't produce the same ciphertext, which leaks information. 
-It is critical that the IV be [random, used only once and unpredictable](https://defuse.ca/cbcmodeiv.htm). Not doing so has caused several vulnerabilities such as the [BEAST Attack on TLS](http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html) and [the recovery of WEP keys](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy).
+It is critical that the IV be [random, used only once and unpredictable](https://defuse.ca/cbcmodeiv.htm). Not doing so has caused several vulnerabilities such as the [BEAST Attack on TLS](https://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html) and [the recovery of WEP keys](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy).
 
 ### Asymmetric Key Cryptosystems
 
@@ -132,7 +132,7 @@ For this to be secure, it must be computationally infeasible to obtain the priva
 
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is one of the earliest and most widely used public key cryposystems. 
 Its one-way function is the integer factorization problem; Given 2 large primes `p` and `q`, it is easy to compute the product `pq`, but difficult to factor `pq`. 
-The [first article of this 2-part series  ](http://doctrina.org/How-RSA-Works-With-Examples.html) explains how RSA works, as well as the minimal number theory required. The [follow-up article](http://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html) explains why RSA works by introducing some important results in number theory.
+The [first article of this 2-part series  ](https://doctrina.org/How-RSA-Works-With-Examples.html) explains how RSA works, as well as the minimal number theory required. The [follow-up article](https://doctrina.org/Why-RSA-Works-Three-Fundamental-Questions-Answered.html) explains why RSA works by introducing some important results in number theory.
 
 ## Other Resources
 

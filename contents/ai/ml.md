@@ -49,7 +49,7 @@ Machine learning algorithms perform well for a large variety of tasks, from comp
 
 - Sentiment analysis ([NLTK example on Kaggle](https://www.kaggle.com/ngyptr/python-nltk-sentiment-analysis?scriptVersionId=904608))
 - Machine translation ([NMT](https://github.com/tensorflow/nmt), by Google)
-- Image generation ([SuperRes](https://github.com/alexjc/neural-enhance), [Texture Synthesis](http://bethgelab.org/deeptextures/))
+- Image generation ([SuperRes](https://github.com/alexjc/neural-enhance), [Texture Synthesis](https://bethgelab.org/deeptextures/))
 - Voice recognition, generation ([DeepSpeech](https://github.com/mozilla/DeepSpeech))
 - Noise suppression ([RNNoise](https://people.xiph.org/~jm/demo/rnnoise/))
 - Optical Character Recognition ([Tesseract-OCR](https://github.com/tesseract-ocr/tesseract))
@@ -86,10 +86,10 @@ This approach can be used by e-commerce sites to identify similar products, wher
 <sub>(T-SNE of Products Shape and Colour by [Eddie Bell](https://twitter.com/ejlbell/status/698309469965516800))</sub>  
 
 The following are popular resources for ML algorithms:
-- Machine Learning: [Stanford CS229](cs229.stanford.edu/)
+- Machine Learning: [Stanford CS229](http://cs229.stanford.edu/)
 - Convolutional Neural Networks for Visual Recognition: [Stanford CS231n](http://cs231n.stanford.edu/)
-- Natural Language Processing with Deep Learning: [Stanford CS224n](cs224n.stanford.edu/)
-- A Practical Approach Towards Neural Networks: [University of San Francisco, FastAI](http://www.fast.ai/)
+- Natural Language Processing with Deep Learning: [Stanford CS224n](http://cs224n.stanford.edu/)
+- A Practical Approach Towards Neural Networks: [University of San Francisco, FastAI](https://www.fast.ai/)
 
 *Neural networks* and *Deep Learning* are classes of ML algorithms.  
 They both contain supervised and unsupervised algorithms. 
@@ -118,7 +118,7 @@ A machine learning algorithm is referred to as a *model*, after it is fed with d
 The entire prototyping process is similar to scientific experiments, where many model configurations are experimented on. Practitioners come up with a hypothesis on whether a configuration may improve performance, and verify if performance is as expected.
 
 ### Prototyping Platforms and Tools
-The prototyping phase in ML is usually done on [Jupyter notebooks](http://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of programming languages like Python and R, and the accompanying software is their strong support for experimentation and visualization of results. 
+The prototyping phase in ML is usually done on [Jupyter notebooks](https://jupyter.org/), or [RStudio](https://www.rstudio.com/products/rstudio/). The highlight of programming languages like Python and R, and the accompanying software is their strong support for experimentation and visualization of results. 
 
 Interpreted languages such as Python and R speed up prototyping iterations as they are less verbose than compiled languages like Java or C. 
 Visualizations such as bar charts, graphs or just displaying the data assist in analysis and sharing of findings. 
@@ -154,7 +154,7 @@ A thorough explanation of overfitting can be found in [this article (from EliteD
 
 A test set solves the overfitting problem. A test set which resembles real world data as much as possible is created by partitioning the available data. Its size is dependent on the data available. The test set is used only for testing model performance, and will not be touched during model training. 
 
-Different schemes for partitioning must be used for data with different characteristics. More information on splitting test and validation sets (discussed next) can be found in [this article (from FastAI)](http://www.fast.ai/2017/11/13/validation-sets/).
+Different schemes for partitioning must be used for data with different characteristics. More information on splitting test and validation sets (discussed next) can be found in [this article (from FastAI)](https://www.fast.ai/2017/11/13/validation-sets/).
 
 #### Validation Set
 A validation set is created from the remaining data in a similar fashion as the test set. The validation set is used to evaluate the performance of adjusting a model's parameters. Adjusting model parameters and verifying performance is conducted on the validation set to prevent overfitting the test set.
@@ -185,7 +185,7 @@ An example of data analysis for convolutional neural networks (an emerging class
 <img src="http://cnnlocalization.csail.mit.edu/example.jpg" width="600"/><br/>
 <sub>(Class activation maps, more information at http://cnnlocalization.csail.mit.edu)</sub>
 
-Tweaking parameters and retraining the algorithm continues until the practitioner is satsified with a particular model's performance. The model's score on the test set is used for selecting between different algorithms at the production stage.
+Tweaking parameters and retraining the algorithm continues until the practitioner is satisfied with a particular model's performance. The model's score on the test set is used for selecting between different algorithms at the production stage.
 
 ### Production
 The best algorithm discovered is rewritten for production. They are usually rewritten in performance focused languages like C++, or in lower level ML frameworks such as Tensorflow. 
@@ -212,17 +212,17 @@ The process is mostly similar for all ML algorithms, from classical to emerging 
 
 Commonly used libraries for machine learning
 - General Machine Learning
-  - [Numpy](http://www.numpy.org/), provides support for large, multi-dimensional arrays, matrices & mathematical functions for operating these data structures
+  - [Numpy](https://www.numpy.org/), provides support for large, multi-dimensional arrays, matrices & mathematical functions for operating these data structures
   - [Pandas](https://pandas.pydata.org/), data analysis tool in Python
-  - [Scikit-Learn](http://scikit-learn.org/stable/), contains a big variety of machine learning algorithms (excluding Deep Learning)
+  - [Scikit-Learn](https://scikit-learn.org/stable/), contains a big variety of machine learning algorithms (excluding Deep Learning)
 - Deep Learning
   - [TensorFlow](https://www.tensorflow.org/), library for Deep Learning by Google
-  - [Stanford CS20: Tensorflow for Deep Learning Research](http://web.stanford.edu/class/cs20si/), up to date best practices for Tensorflow
-  - [Pytorch](http://pytorch.org/), by Facebook
+  - [Stanford CS20: Tensorflow for Deep Learning Research](https://web.stanford.edu/class/cs20si/), up to date best practices for Tensorflow
+  - [Pytorch](https://pytorch.org/), by Facebook
   
 Popular resources for keeping up with machine learning research
 - [https://arxiv.org/](https://arxiv.org/) (repository of electronic preprints of scientific papers)
-- [https://www.arxiv-sanity.com](www.arxiv-sanity.com) (provides a better browsing experience than Arxiv)
+- [https://www.arxiv-sanity.com](https://www.arxiv-sanity.com) (provides a better browsing experience than Arxiv)
 - [https://openreview.net/](https://openreview.net/) (peer reviews of research papers submitted to conferences)
 
 ## Footnotes

@@ -135,6 +135,6 @@ Here, we will introduce several well-known ones in detail. You can click the hyp
 
 ## References
 
-- [Why Static Code Analysis is Important?](http://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html)
+- [Why Static Code Analysis is Important?](https://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html)
 
 </div>

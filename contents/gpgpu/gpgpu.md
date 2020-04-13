@@ -62,7 +62,7 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 
 ### § 1.5 Implementations
 
-- CUDA: [Official website](http://www.nvidia.com/object/cuda_home_new.html)
+- CUDA: [Official website](https://www.nvidia.com/object/cuda_home_new.html)
 - OpenCL: [Official website](https://www.khronos.org/opencl/)
 
 ### § 1.6 GPGPU in action
@@ -81,19 +81,19 @@ Packed with a NVIDIA Pascal GPU with 256 CUDA cores at maximally 1300 MHz<sup>[[
 Compatible with a range of components and large ecosystem products<sup>[[8]](#footnote8)</sup>, the Jetson platform is now widely used for deploying vision and neural network processing onboard mobile platforms like self-driving cars, autonomous robots, drones, IoT, handheld medical devices, etc<sup>[[9]](#footnote9)</sup>.
 
 ## § 2. Further Readings
-- [How concurrency is the next big change in software development since OO](http://www.gotw.ca/publications/concurrency-ddj.htm)
-- [Official CUDA C programming guide: What GPUs excel at processing, and why](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
-- [Official CUDA C programming guide: Architecture of NVIDIA GPUs](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture)
+- [How concurrency is the next big change in software development since OO](https://www.gotw.ca/publications/concurrency-ddj.htm)
+- [Official CUDA C programming guide: What GPUs excel at processing, and why](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
+- [Official CUDA C programming guide: Architecture of NVIDIA GPUs](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture)
 - [Lightning talk slides: An Introduction to GPGPU](https://github.com/nus-oss/lightningtalks/issues/10)
 - [se-edu's learning resource on CUDA](cuda.html)
 
 ## § 3. References
 
 <a name="footnote1">[1]</a>: https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units<br />
-<a name="footnote2">[2]</a>: http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/<br />
-<a name="footnote3">[3]</a>: http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf<br />
+<a name="footnote2">[2]</a>: https://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/<br />
+<a name="footnote3">[3]</a>: https://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf<br />
 <a name="footnote4">[4]</a>: https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/<br />
-<a name="footnote5">[5]</a>: http://www.gotw.ca/publications/concurrency-ddj.htm<br />
+<a name="footnote5">[5]</a>: https://www.gotw.ca/publications/concurrency-ddj.htm<br />
 <a name="footnote6">[6]</a>: https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/<br />
 <a name="footnote7">[7]</a>: https://en.wikipedia.org/wiki/Tegra#Tegra_X1/<br />
 <a name="footnote8">[8]</a>: https://elinux.org/Jetson_TX2#Ecosystem_Products<br />

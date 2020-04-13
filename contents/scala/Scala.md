@@ -38,7 +38,7 @@ Let's look at some characteristics of Scala mentioned in the above quote:
 * **Scala supports _object-oriented_ programming**: Every value in Scala is an object, including functions and primitives. Classes are extended by *subclassing* and a flexible *mixin-based* mechanism to avoid the problems of multiple inheritance.
 * **Scala supports _functional_ programming**: Every function in Scala is a value. Scala provides a lightweight syntax for defining [*anonymous functions*](https://docs.scala-lang.org/tour/basics.html#functions). It also support many other features of FP including [*higher-order functions*](https://docs.scala-lang.org/tour/higher-order-functions.html), [*nested functions*](https://docs.scala-lang.org/tour/nested-functions.html), [*currying*](https://docs.scala-lang.org/tour/multiple-parameter-lists.html), [*pattern matching*](https://docs.scala-lang.org/tour/pattern-matching.html), *immutability* and *lazy evaluation*.
 * **Scala is _statically typed_**: It enforces type checking like verifying and enforcing the constraints of types at compile-time. 
-* **Scala can work the Java and JavaScript runtimes**: Scala provides language interoperability with Java, so that libraries written in Java can be referenced directly in Scala. Also, by *[Scala.js](http://www.scala-js.org/)*, Scala code can be easily compiled to JavaScript.
+* **Scala can work the Java and JavaScript runtimes**: Scala provides language interoperability with Java, so that libraries written in Java can be referenced directly in Scala. Also, by *[Scala.js](https://www.scala-js.org/)*, Scala code can be easily compiled to JavaScript.
 
 As Scala supports both OOP and FP paradigms, it is considered a *multi-paradigm* language. Furthermore, Scala proponents claim it to have a simple syntax that can produce elegant code.
 
@@ -232,7 +232,7 @@ It's a great way to get a brief introduction to Scala while testing your knowled
 This is a course about functional programming given by Martin Odersky himself. 
 You can access the course material and exercises by signing up for the course.
 
-* [allaboutscala](http://allaboutscala.com/) provides detailed tutorials for beginners.
+* [allaboutscala](https://allaboutscala.com/) provides detailed tutorials for beginners.
 
 More details can be find here: [Scala Learning Resources](https://scala-lang.org/documentation/learn.html).
 </div>

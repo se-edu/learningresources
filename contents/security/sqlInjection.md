@@ -213,12 +213,12 @@ References:
 
 1. https://www.owasp.org/index.php/SQL_Injection
 (Basic description of SQL Injection attack taken from here)
-1. http://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 105-110)
+1. https://projects.webappsec.org/f/WASC-TC-v2_0.pdf (page 105-110)
 (Description of the two types of SQL injection attack taken from here)
 
 Additional Reading Resources:
 
-1. http://www.sqlinjection.net/
+1. https://www.sqlinjection.net/
 (Good starting point for diving deeper into SQL injection)
 1. https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)
 (How to test your website for SQL injection attacks)
@@ -226,7 +226,7 @@ Additional Reading Resources:
 (Parameterized query examples for some common languages)
 1. https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
 (A list of possible preventions, which contains even more ways to protect your site from SQL injection attacks).
-1. http://guides.rubyonrails.org/security.html#sql-injection
+1. https://guides.rubyonrails.org/security.html#sql-injection
 (Discussion of how SQL injection attacks work, some possible scenarios of such attacks, and possible preventive measures using Ruby on Rails)
 1. https://www.owasp.org/index.php/Blind_SQL_Injection
 (Discussion about a type of SQL injection attack, when only generic messages are displayed by the website)

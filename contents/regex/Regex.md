@@ -53,7 +53,7 @@ Imagine you're a witness of a robbery. How might you describe the robber to the 
 
 ## Why Should I Learn Regex?
 
-* **Regex is everywhere** - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion (A full list is available [here](http://www.regular-expressions.info/tools.html)). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers to benefit from Regex.
+* **Regex is everywhere** - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion (A full list is available [here](https://www.regular-expressions.info/tools.html)). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers to benefit from Regex.
 * **Regex is portable** - People often complain that switching to a new language usually means having to learn a new API and syntax. Regex however is implemented almost the same way on every single language, so you can just learn it once and use it everywhere.
 * **Regex is useful** - Although Regex doesn't have a specific use, it is a general use library with many different applications. It can be used automate many different common programming tasks such as validating user input, parsing data from text, and string manipulation, all of which are commonly done in any programming project.
 * **Regex is convenient** - "Regex offers a simple and painless way of dealing some with them" because not all string processing are regex-related.
@@ -152,7 +152,7 @@ In the replace field, `\1` represents the group matched in the string. For examp
 
 ## Further Exploration
 
-These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language (for example, Python uses the [`re`](https://docs.python.org/2/library/re.html) library, Java uses [`Pattern`](http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) and Javascript has regex built into the language using [`/` notation](https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions)), but the functionality is consistent so it's not difficult to port Regex from one language to another. You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.
+These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language (for example, Python uses the [`re`](https://docs.python.org/2/library/re.html) library, Java uses [`Pattern`](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) and Javascript has regex built into the language using [`/` notation](https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions)), but the functionality is consistent so it's not difficult to port Regex from one language to another. You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.
 
 For more examples of what Regex can do, you can refer to the tutorial links in the appendix.
 
@@ -161,7 +161,7 @@ For more examples of what Regex can do, you can refer to the tutorial links in t
 Name | Regex | Use | Example
 --- | --- | --- | ---
 Literal characters | Any character(s) | Matches any substring | `cat` matches `category`
-Escape characters | `\t`, `\n`, `\d`... | Matches [special characters](http://www.regular-expressions.info/refcharacters.html). | `\t` matches a tab character
+Escape characters | `\t`, `\n`, `\d`... | Matches [special characters](https://www.regular-expressions.info/refcharacters.html). | `\t` matches a tab character
 Anchors | `^`, `$` | Matches start and end of string | `^ant` matches `antics` but not `pant`
 Character classes | `[abc]` | Matches any character in the character class | `l[ai]st` matches `last` and `list`
 Quantifiers | `+` | Matches one or more of the previous character | `no+` matches `nooooooo` but not `n`
@@ -172,14 +172,14 @@ Groups | `(...)` | Groups a pattern of data | `Used for extracting data, see abo
 
 
 For a full list of possible operators, refer to this cheat sheet:
-[Regex cheat sheet](http://www.rexegg.com/regex-quickstart.html)<br>
+[Regex cheat sheet](https://www.rexegg.com/regex-quickstart.html)<br>
 
 ## Helpful Links
 
 * [Regex101](https://regex101.com/) - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.
-* [Regular-Expressions](http://www.regular-expressions.info/examples.html) - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.
+* [Regular-Expressions](https://www.regular-expressions.info/examples.html) - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.
 * [Regexone](https://regexone.com/) - A free online course that teaches the many features of Regex interactively.
-* [Rexegg](http://www.rexegg.com) - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.
+* [Rexegg](https://www.rexegg.com) - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.
 
 # Advanced Topics
 
@@ -384,13 +384,13 @@ Since `o` is a suitable match for `.+`, the engine accepts it and tries to match
 
 ## Related Links
 
-* [The Regex Engine](http://www.regular-expressions.info/engine.html)
-* [Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
+* [The Regex Engine](https://www.regular-expressions.info/engine.html)
+* [Catastrophic Backtracking](https://www.regular-expressions.info/catastrophic.html)
 
 ## Learning Resources
 
 * [Printable cheat sheet for quick reference](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
-* [Comprehensive Regex Knowledge Base](http://www.regular-expressions.info/)
+* [Comprehensive Regex Knowledge Base](https://www.regular-expressions.info/)
 
 ### Fun Stuff
 * [Regex Golf - Test your Regex skills!](https://alf.nu/RegexGolf)

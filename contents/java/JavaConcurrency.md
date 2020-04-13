@@ -122,7 +122,7 @@ To solve this issue of interference, the keyword `synchronized` is used to ensur
 
 This can be illustrated by the following image where once Thread 2 (T2) acquires the lock for the synchronized block of code, the other two threads (T1 and T3) must wait for the synchronized block of code to release it's lock once T2 to complete its execution:
 
-![Synchronized block](http://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg)
+![Synchronized block](https://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg)
 
 For a deeper look, see the [Java Synchronisation](JavaSynchronization.html) section.
 
@@ -220,10 +220,10 @@ When a CPU switches from executing one thread to executing another, the CPU need
 The following resources are the many in-depth tutorials that will help you get a better grasp of concurrency in Java.
 
 * [Seven part series on the basics of Concurrency in Java](https://baptiste-wicht.com/posts/2010/05/java-concurrency-part-1-threads.html)
-* [High-level overview of Concurrency in Java by Vogella](http://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency)
+* [High-level overview of Concurrency in Java by Vogella](https://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency)
 * [Concurrency best practices](https://www.javacodegeeks.com/2015/09/concurrency-best-practices.html)
 * [Java 101: Understanding Java threads](https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html)
-* [Java Concurrency / Multithreading Tutorial by Jenkov](http://tutorials.jenkov.com/java-concurrency/index.html)
+* [Java Concurrency / Multithreading Tutorial by Jenkov](https://tutorials.jenkov.com/java-concurrency/index.html)
 * [Java Concurrency Tutorial by tutorialspoint](https://www.tutorialspoint.com/java_concurrency/concurrency_overview.htm)
 
 ### Further Reading

@@ -156,7 +156,7 @@ People with cognitive disabilities are more likely to take things literally and 
 
 More importantly, after following the best practices, you should conduct user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.
 
-WebAIM's [Cognitive](http://webaim.org/articles/cognitive/) page provides a useful expansion of the ideas above, and is certainly worth reading.
+WebAIM's [Cognitive](https://webaim.org/articles/cognitive/) page provides a useful expansion of the ideas above, and is certainly worth reading.
 
 ### Mobility
 Mobility impairments include paralysis, physical weakness or loss of control in limbs. This can cause users to find it difficult or impossible to use a mouse as the main form of interaction with websites.
@@ -174,13 +174,13 @@ Here are some useful tools that you can use to improve the accessibility of your
 Here's how an audit report looks like:
 ![Lighthouse audit](accessibility/lh-audit.png "Lighthouse audit")
 
-* [**Color Safe Palette Generator**](http://colorsafe.co/). This website can help you to create a color palette that is based on the Web Content Accessibility Guidelines (WCAG) for text and background contrast ratios.
+* [**Color Safe Palette Generator**](https://colorsafe.co/). This website can help you to create a color palette that is based on the Web Content Accessibility Guidelines (WCAG) for text and background contrast ratios.
 
-* [**ChromeLens**](http://chromelens.xyz/). This Chrome extension has 2 useful features:
+* [**ChromeLens**](https://chromelens.xyz/). This Chrome extension has 2 useful features:
   * **Filters**: To simulate various color blindness so you can browse your website as how a color blind person sees it.
-  ![Filters](http://chromelens.xyz/images/website_protanopia.png)
+  ![Filters](https://chromelens.xyz/images/website_protanopia.png)
   * **Tracker**: To show the pathway a blind user will go through when browsing your web page with a screen reader. You can check if your web page goes through a logical flow and that the important content is included for the screen reader to narrate.
-  ![Tracker](http://chromelens.xyz/images/website_trace.png)
+  ![Tracker](https://chromelens.xyz/images/website_trace.png)
 
 Note that although there are many accessibility testing tools available, user testing with actual users with disabilities is still important. The automated testing tools may not point out all of the accessibility issues that actual users face.
 

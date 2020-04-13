@@ -76,7 +76,7 @@ if(bob != null) {
 ```
 The deep-nested `if` statement reduces readability of our code.
 
-The other way is to use [Java Optionals](http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html).
+The other way is to use [Java Optionals](https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html).
 For the first example above, we can do
 ``` java
 a.ifPresent(this::doSomething);
@@ -167,7 +167,7 @@ The operator converts any value to a non-nullable type and throws an exception i
 
 # Learning Resources
 * [Null Safety in Kotlin](https://kotlinlang.org/docs/reference/null-safety.html)
-* [Comprehensive Guide to Null Safety in Kotlin](http://www.baeldung.com/kotlin-null-safety)
+* [Comprehensive Guide to Null Safety in Kotlin](https://www.baeldung.com/kotlin-null-safety)
 * [The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
 
 </div>

@@ -140,7 +140,7 @@ Although lambda expressions can be expressed in a block, it does not introduce a
 
 This also means that lambda expressions are able to access local variables of the enclosing scope as well. However, any local variables accessed by a lambda expression must be final or effectively final (ie. cannot be reassigned another value).
 
-To understand more about lambda expressions, take a look at http://www.lambdafaq.org/ ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html).
+To understand more about lambda expressions, take a look at https://www.lambdafaq.org/ ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html).
 
 
 #### An Example
@@ -363,7 +363,7 @@ With good method names given to the extracted lambda expressions, the code for t
 
 #### Difficulty in Optimising Stream Performance
 
-Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to [this blog post](http://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/), an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance between loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.
+Performance is undeniably an important aspect in programming. So you might wonder if the performance of Stream is comparable to loops or how much performance gain can you get with parallel streams. According to [this blog post](https://blog.takipi.com/benchmark-how-java-8-lambdas-and-streams-can-make-your-code-5-times-slower/), an simple implementation using stream can be about 4 times slower than using a traditional loop, even when the stream was parallelised. The performance of streams was eventually improved with some optimisation and the difference in performance between loops and streams was reduced to a negligible amount. However, this example serves as a reminder that writing a efficient stream pipeline is no easy task.
 
 Loops are one of the most common control flow structures we use and many of us would probably have a relatively good idea of what are the things you should avoid in loops to achieve good performance. However, this is not the case with streams. As streams have a more high-level abstraction, it is more difficult to understand what is going on beneath our code. Streams are fairly new compared to loops and the unfamiliarity with streams is also another factor which adds on to the difficulty in optimising stream performance.
 
@@ -390,13 +390,13 @@ Read this to get a good understanding of how each method reference is translated
 
 ### Lambda Expressions
 
-* http://www.lambdafaq.org/  
+* https://www.lambdafaq.org/  
 A helpful reference and tutorial on functional-style programming in Java. Explanations given are concise and easy to understand.
 
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html  
 Read this to understand more about the use cases for lambda expressions.
 
-* http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7  
+* https://www.informit.com/articles/article.aspx?p=2303960&seqNum=7  
 The article is from a book, Core Java for the Impatient, and talks about the scoping of lambda expressions and what you can or cannot do with variables belonging to the enclosing scope.
 
 ### Stream

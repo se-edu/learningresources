@@ -183,7 +183,7 @@ These classes are hard to test since there are multiple objects hiding inside of
 
 * Class has the same `switch` or `if` conditions in many places
 
-For a detailed code example, please refer to this [Stack Overflow answer](http://stackoverflow.com/a/234491/3522482).
+For a detailed code example, please refer to this [Stack Overflow answer](https://stackoverflow.com/a/234491/3522482).
 
 From the answer, if you have one switch statement based on an internal field you probably have the same switch in multiple places. This causes problems when you add a new case as you have to update all the switch statements.
 

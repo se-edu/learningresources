@@ -84,10 +84,10 @@ Some websites use HTTPS only on the login page to encrypt the login credentials 
 HTTPS provides security to a web application.  If the web application requires secure network traffic (e.g. online banking), HTTPS should be implemented. However, servers usually need to pay for the digital certificate used by HTTPS. Also, the additional layer of encryption and decryption adds overhead to network traffic (though the impact is not significant). If secure network traffic is not required (e.g. University home page), HTTPS may not be used.
 
 [1]: https://github.com/boxin-yang
-[2]: http://searchsoftwarequality.techtarget.com/definition/session-ID
+[2]: https://searchsoftwarequality.techtarget.com/definition/session-ID
 [3]: https://github.com/codebutler/firesheep
 [4]: https://www.facebook.com/notes/facebook-engineering/secure-browsing-by-default/10151590414803920/
-[5]: http://searchnetworking.techtarget.com/definition/Network-tap
+[5]: https://searchnetworking.techtarget.com/definition/Network-tap
 [6]: https://en.wikipedia.org/wiki/Domain_Name_System
 [7]: https://en.wikipedia.org/wiki/Address_Resolution_Protocol
 [8]: https://en.wikipedia.org/wiki/DNS_spoofing

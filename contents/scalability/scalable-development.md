@@ -37,11 +37,11 @@ Horizontal scaling is simply buying more machines to host your server. This meth
 However, to fully reap the benefits of multiple machines, you will need to learn various techniques to modify your server infrastructure. In most cases you cannot simply run multiple instances of the server and expect it to work.
 
 Here are some tips to get started with horizontal scaling:
-- Understand [Parallel Computing](http://web.eecs.umich.edu/~qstout/parallel.html) and how to use it to speed up computation. 
+- Understand [Parallel Computing](https://web.eecs.umich.edu/~qstout/parallel.html) and how to use it to speed up computation. 
 - Learn how to utilize MapReduce on [Hadoop](https://www.tutorialspoint.com/hadoop/index.htm). The Hadoop ecosystem is so versatile and widely-used that there are companies offering Hadoop as a service, so you do not have to set up the server yourself.
 - Host your server on [Google App Engine](https://cloud.google.com/appengine/docs). Despite being more expensive than Amazon Web Services and DigitalOcean, it offers very scalable infrastructure for your server.
-- Run a server with multiple nodes with MPI. [Open MPI](https://www.open-mpi.org) is an open source message-passing library that can be used to send data between the nodes in your server. You might have to study [cloud computing infrastructure](http://whatiscloud.com/basic_concepts_and_terminology/it_resource) in order to make use of this.
-- Study various scalable architecture for servers ([resource](http://srinathsview.blogspot.sg/2011/10/list-of-known-scalable-architecture.html)).
+- Run a server with multiple nodes with MPI. [Open MPI](https://www.open-mpi.org) is an open source message-passing library that can be used to send data between the nodes in your server. You might have to study [cloud computing infrastructure](https://whatiscloud.com/basic_concepts_and_terminology/it_resource) in order to make use of this.
+- Study various scalable architecture for servers ([resource](https://srinathsview.blogspot.sg/2011/10/list-of-known-scalable-architecture.html)).
 
 #### Vertical Scaling
 
@@ -69,7 +69,7 @@ In certain scenarios, the runtime complexity can be reduced as a trade-off betwe
 There are a few common bottlenecks that can be avoided such as database querying, reading or writing to files and slow communication across network. Different bottlenecks can be solved with their respective solutions. Here are some ways to avoid bottlenecks.
 
 #### Caching
-With an increasing user base, your server has to deal with a larger number of requests along with the bottlenecks mentioned previously such as network congestion and database querying. As a result, the response becomes slower. This is where [caching](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache) comes in. A cache is a key-value store that resides between the application and the database which can either be in the browser or part of your server infrastructure itself. By retrieving data from the cache instead of the database, the data is retrieved locally (either from the browser or web server) instead of remotely from a database. Simply put, data is retrieved from a closer location and as a result, the response time reduces greatly.
+With an increasing user base, your server has to deal with a larger number of requests along with the bottlenecks mentioned previously such as network congestion and database querying. As a result, the response becomes slower. This is where [caching](https://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache) comes in. A cache is a key-value store that resides between the application and the database which can either be in the browser or part of your server infrastructure itself. By retrieving data from the cache instead of the database, the data is retrieved locally (either from the browser or web server) instead of remotely from a database. Simply put, data is retrieved from a closer location and as a result, the response time reduces greatly.
 
 The next thing to consider is [what to cache](https://www.infoq.com/articles/ebay-scalability-best-practices). The rule of thumb is to cache data that is:
 1. Frequently accessed.

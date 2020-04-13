@@ -208,7 +208,7 @@ Official tutorial here: https://documen.tician.de/pycuda/tutorial.html
 >
 > You can find out the compute capability of your NVIDIA card from the [official website](https://developer.nvidia.com/cuda-gpus) or [this table from Wikipedia](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
 >
-> You can also find out more about the features and specifications of each compute capability version from the [official documentation](http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities) or [these tables from Wikipedia](https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications).
+> You can also find out more about the features and specifications of each compute capability version from the [official documentation](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities) or [these tables from Wikipedia](https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications).
 
 ## § 3. CUDA vs OpenCL
 
@@ -222,24 +222,24 @@ Additionally, they use different terms. For instance, what NIVIDIA refers to as 
 
 This topic is widely covered. Here are some good references on what the differences are, and what the implications are when choosing one over the other:
 - https://wiki.tiker.net/CudaVsOpenCL
-- http://create.pro/blog/opencl-vs-cuda/
+- https://create.pro/blog/opencl-vs-cuda/
 - https://streamcomputing.eu/blog/2010-04-22/difference-between-cuda-and-opencl/
 
 ## § 4. Further Readings
 - [Official CUDA C developer resources](https://developer.nvidia.com/cuda-zone)
-- [Official CUDA C programming guide](http://docs.nvidia.com/cuda/cuda-c-programming-guide)
+- [Official CUDA C programming guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide)
 - [Lightning talk slides: GPU Programming Made Easy with Python](https://github.com/nus-oss/lightningtalks/issues/44)
 - [se-edu's learning resource on GPGPU](gpgpu.html)
 
 ## § 5. References
 
-<a name="footnote1">[1]</a>: http://www.nvidia.com/object/cuda_home_new.html<br />
-<a name="footnote2">[2]</a>: http://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels<br />
+<a name="footnote1">[1]</a>: https://www.nvidia.com/object/cuda_home_new.html<br />
+<a name="footnote2">[2]</a>: https://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels<br />
 <a name="footnote3">[3]</a>: https://llpanorama.wordpress.com/2008/06/11/threads-and-blocks-and-grids-oh-my/<br />
-<a name="footnote4">[4]</a>: http://docs.nvidia.com/cuda/cuda-c-programming-guide/#hardware-implementation<br />
-<a name="footnote5">[5]</a>: http://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm<br />
+<a name="footnote4">[4]</a>: https://docs.nvidia.com/cuda/cuda-c-programming-guide/#hardware-implementation<br />
+<a name="footnote5">[5]</a>: https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm<br />
 <a name="footnote6">[6]</a>: https://mathema.tician.de/software/pycuda/<br />
-<a name="footnote7">[7]</a>: http://stackoverflow.com/a/5957647<br />
+<a name="footnote7">[7]</a>: https://stackoverflow.com/a/5957647<br />
 <a name="footnote8">[8]</a>: https://developer.nvidia.com/cuda-faq#Programming<br />
 <a name="footnote9">[9]</a>: https://www.khronos.org/opencl/<br />
 

@@ -42,13 +42,13 @@ UI is about the design of the buttons, the layout of the website and the respons
 
 Due to the overlapping nature of UI and UX, you might still have some questions such as *'Doesn't improving the UI also improve the UX?'* Indeed, it does. In fact, UI **can** be part of UX.
 
-> Note that **can** is used because UI is no longer a necessity to UX due to the emergence of [zero UI](http://blog.careerfoundry.com/ui-design/what-is-zero-ui), which won't be covered here.
+> Note that **can** is used because UI is no longer a necessity to UX due to the emergence of [zero UI](https://blog.careerfoundry.com/ui-design/what-is-zero-ui), which won't be covered here.
 
 To gain a better understanding, let's look at real life examples of good UI but bad UX. A prime example would be the [Mystery Meat Navigation](https://www.techinasia.com/talk/material-design-mystery-meat-navigation-problem) problem. It refers to buttons and links that do not explain themselves; users have to click on them to find out where it leads. In essence, the pursuit of clean and neat UI has resulted in omission of details that provide clarity for the user. This results in bad UX because people do not like to puzzle over how things work. A good UX should never make the user think.
 
 If you would like to read more about the differences between UI and UX, here are a few articles:
 
-* [The Difference Between UX and UI Design-A Layman’s Guide](http://blog.careerfoundry.com/ui-design/the-difference-between-ux-and-ui-design-a-laymans-guide/) - provides breakdown of the disciplines involved.
+* [The Difference Between UX and UI Design-A Layman’s Guide](https://blog.careerfoundry.com/ui-design/the-difference-between-ux-and-ui-design-a-laymans-guide/) - provides breakdown of the disciplines involved.
 * [What’s the difference between UI and UX?](https://www.usertesting.com/blog/2016/04/27/ui-vs-ux/) - provides opinions from UX experts.
 * [The superpowers of UX & UI designers](https://www.ymedialabs.com/ux-vs-ui/) - provides illustrations to highlight the differences.
 
@@ -56,7 +56,7 @@ If you would like to read more about the differences between UI and UX, here are
 
 Flat and minimalist design are technically easier to create than realistic design. Thanks to the rise of flat and minimalist design you don't have to be a photoshop expert to get started on UI design. 
 
-A good way to start is by observing existing designs. Use existing UI Designs as references and try to apply the design patterns in your own application. Using [UI design guidelines](http://www.goodui.org/) can help to highlight and avoid common mistakes. Online lessons like [Hack Design](https://hackdesign.org/lessons#graphic-design-principles) also provide a variety of materials covering the basics of UI design. The best thing is that they are free!
+A good way to start is by observing existing designs. Use existing UI Designs as references and try to apply the design patterns in your own application. Using [UI design guidelines](https://www.goodui.org/) can help to highlight and avoid common mistakes. Online lessons like [Hack Design](https://hackdesign.org/lessons#graphic-design-principles) also provide a variety of materials covering the basics of UI design. The best thing is that they are free!
 
 Here is a non-exhaustive list of UI design concepts you can choose to dive into if you are interested:
 * Color Theory - Take a look at [Smashing Magazine](https://www.smashingmagazine.com/2010/01/color-theory-for-designers-part-1-the-meaning-of-color/) for a introduction to color theory
@@ -64,7 +64,7 @@ Here is a non-exhaustive list of UI design concepts you can choose to dive into 
 * Typography - Here is an [article](https://www.springboard.com/blog/best-resources-typography-design-online/) that has a list of resources to get you started on typography
 * Iconography - Take a look at [Metro Studio](https://www.syncfusion.com/downloads/metrostudio) for free icons.
 * Visual Hierarchy - This [article](https://www.awwwards.com/understanding-web-ui-visual-hierarchy.html) covers the different techniques used to create visual hierachies
-* Flat vs Skeuomorphism - This [article](http://www.webinsation.com/flat-design-some-good-some-bad/) provides the good and bad of flat design
+* Flat vs Skeuomorphism - This [article](https://www.webinsation.com/flat-design-some-good-some-bad/) provides the good and bad of flat design
 
 ## UX Design
 
@@ -88,14 +88,14 @@ Catering the right experiences for users does not have to be difficult. The stag
 
 ### Preliminary Research
 The first stage is Preliminary Research. This is where you would:
-  * Understand your target audience through [Contextual Inquiry](http://www.usabilitybok.org/contextual-inquiry), which involves interviewing users to find out about their wants, needs and pain-points, in the setting of them using the actual product and/or products from competitors
+  * Understand your target audience through [Contextual Inquiry](https://www.usabilitybok.org/contextual-inquiry), which involves interviewing users to find out about their wants, needs and pain-points, in the setting of them using the actual product and/or products from competitors
   * Gather the tools needed for the project such as wireframing or prototyping [tools](https://medium.com/@Mockplus/the-10-best-wireframing-and-prototyping-tools-for-designers-a808e81ecadf) for creating low to high fidelity products for testing
   * Depending on whether the project is self-initiated (taking a known product and re-designing it) or client-based (working for businesses or non-profits), discuss and create a project plan with stakeholders
 
 #### Deliverables
   * [Personas](https://static1.squarespace.com/static/519deddfe4b07b846eef9842/55915575e4b0a919cf5a0da5/55a5b693e4b0576c4f936a78/1436923548676/11_all_with_eps_brands.jpg?format=750w) - User profiles that are representative of the target audiences
   * [User Stories](https://i.pinimg.com/originals/00/ac/37/00ac379ca5b9c28de3d56bdea4580e2e.jpg) - Representation of the most important user actions or motivations for each persona
-  * [User Scenarios](http://www.davedoyle.com/prof/portfolio/images/large/petcare_scenario.gif) - Case studies of how users use the products, supplementing User Stories to allow you to better empathize with the users
+  * [User Scenarios](https://www.davedoyle.com/prof/portfolio/images/large/petcare_scenario.gif) - Case studies of how users use the products, supplementing User Stories to allow you to better empathize with the users
   * [User Flows](https://cdn-images-1.medium.com/max/1600/0*aO_6rai_fTnSe5rh.) - Depiction of how users navigate through the product for each scenario
   
 ### Prototyping
@@ -112,12 +112,12 @@ After Preliminary Research, the next stage is Prototyping. This is where you wou
 ### User Testing
 After Prototyping, the next stage is User Testing. This is where you would:
   * Have a clear sense of the user goals at this stage
-  * Use a low or high fidelity prototype during [usability testing](http://www.uxbooth.com/articles/usability-testing-dont-guess-test/) to determine product effectiveness
+  * Use a low or high fidelity prototype during [usability testing](https://www.uxbooth.com/articles/usability-testing-dont-guess-test/) to determine product effectiveness
   * Follow an [iterative design process](https://www.interaction-design.org/literature/article/design-iteration-brings-powerful-results-so-do-it-again-designer) to re-prototype after gathering user feedback
   
 #### Deliverables (before actual testing with users)
   * [Usability Test Plan](https://www.smileycat.com/wp-content/uploads/2016/05/usability-test-plan-dashboard.png) - Summary of background, goals, and test methodology
-  * [User Testing Script](http://www.ariadne.ac.uk/images/issue62-loureiroKoechlin/CeciliaLoureiroKoechlin-03-small.gif) - What to say as the facilitator, encouraging users to think out loud during the test
+  * [User Testing Script](https://www.ariadne.ac.uk/images/issue62-loureiroKoechlin/CeciliaLoureiroKoechlin-03-small.gif) - What to say as the facilitator, encouraging users to think out loud during the test
   
 #### Deliverables (after actual testing with users)
   * [Usability Reports](https://image.slidesharecdn.com/january2012nhupa-120206210831-phpapp02/95/delivering-results-how-do-you-report-user-research-findings-18-728.jpg?cb=1374224669) - Thorough introduction to what aspects of the product was or was not effective and how to improve
@@ -130,8 +130,8 @@ After User Testing and the launch of the final product, the next stage is Mainte
   * Recursively update, revise and maintain the content in the application
   
 #### Deliverables
-  * [Sitemaps](http://www.kristenjoybaker.com/uploads/1/3/7/6/13760055/3563790_orig.jpg) - Depiction of how all pages of the product interconnect
-  * [Taxonomies](http://blog.fuzzymath.com/wp-content/uploads/2015/09/UCAN_Taxonomy-1024x775.png) - Organized depiction of how features or information in the product relate to one another
+  * [Sitemaps](https://www.kristenjoybaker.com/uploads/1/3/7/6/13760055/3563790_orig.jpg) - Depiction of how all pages of the product interconnect
+  * [Taxonomies](https://blog.fuzzymath.com/wp-content/uploads/2015/09/UCAN_Taxonomy-1024x775.png) - Organized depiction of how features or information in the product relate to one another
   * [Content Governance Plans](https://image.slidesharecdn.com/contentstrategyin2015-150706154016-lva1-app6891/95/slide-43-1024.jpg) - Complete strategy for updating, revising and maintaining all content within the product
   
 ### Ending Notes

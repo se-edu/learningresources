@@ -262,7 +262,7 @@ If multiple asynchronous operations have to be performed, and these operations a
 
 There is an excellent write up on these methods [here](https://davidwalsh.name/promises), which go through how best to use these functions.
 
-In addition, there are other libraries such as [Bluebird](http://bluebirdjs.com/docs/getting-started.html) and [Q](https://github.com/kriskowal/q) which offer even more functionality such as Promise monitoring and synchronous inspection of Promises.
+In addition, there are other libraries such as [Bluebird](https://bluebirdjs.com/docs/getting-started.html) and [Q](https://github.com/kriskowal/q) which offer even more functionality such as Promise monitoring and synchronous inspection of Promises.
 
 ## Further Reading
 

@@ -118,13 +118,13 @@ Image classification refers to the task of identifying the object present in an 
 
 ![Classification](image-classification-1.png "Cat Classified")
 
-*[source](http://cs231n.github.io/classification/)*
+*[source](https://cs231n.github.io/classification/)*
 
 Image classification is often paired with object localization, which is the task of finding where in the image the object is. Many more complex problems in computer vision, such as object detection and segmentation, can be reduced to image classification and localization.<sup>[[6]](#footnote6)</sup>
 
 ![Classification](image-classification-2.png "Cat Localized")
 
-*[Fei-Fei Li, Andrej Karpathy & Justin Johnson (2016) cs231n, Lecture 8 - Slide 8, Spatial Localization and Detection (01/02/2016)](http://cs231n.github.io/classification/)*
+*[Fei-Fei Li, Andrej Karpathy & Justin Johnson (2016) cs231n, Lecture 8 - Slide 8, Spatial Localization and Detection (01/02/2016)](https://cs231n.github.io/classification/)*
 
 At the moment, there already exist classification/localization models that surpass trained humans. For example, in the 2014 ImageNet Large Scale Visual Recognition Challenge (ILSVRC),
 > Our results indicate that a trained human annotator is capable of outperforming the best model (GoogLeNet) with approximately 1.7% chance (p = 0.022).<sup>[[8]](#footnote8)</sup>
@@ -292,7 +292,7 @@ Firstly, you should acquire basic familiarity in Python, C++, or Java, as most t
 
 - [Python For Beginners](https://www.python.org/about/gettingstarted/)
 
-- [Learn C++](http://www.learncpp.com/)
+- [Learn C++](https://www.learncpp.com/)
 
 - [Java Tutorial](https://www.tutorialspoint.com/java/index.htm)
 
@@ -321,11 +321,11 @@ or the Python version:
 <a name="footnote1">[1]</a>: https://en.wikipedia.org/wiki/Computer_vision<br />
 <a name="footnote2">[2]</a>: https://courses.cs.washington.edu/courses/cse576/book/ch2.pdf<br />
 <a name="footnote3">[3]</a>: https://blogs.nvidia.com/blog/2017/07/23/future-of-computer-vision/<br />
-<a name="footnote4">[4]</a>: http://web.stanford.edu/class/cs231m/<br />
+<a name="footnote4">[4]</a>: https://web.stanford.edu/class/cs231m/<br />
 <a name="footnote5">[5]</a>: https://cloud.google.com/vision/<br />
-<a name="footnote6">[6]</a>: http://cs231n.stanford.edu/<br />
+<a name="footnote6">[6]</a>: https://cs231n.stanford.edu/<br />
 <a name="footnote7">[7]</a>: https://www.cis.rit.edu/class/simg782/lectures/lecture_02/lec782_05_02.pdf<br />
-<a name="footnote8">[8]</a>: http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/<br />
+<a name="footnote8">[8]</a>: https://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/<br />
 <a name="footnote9">[9]</a>: http://image-net.org/challenges/LSVRC/2016/%23det<br />
 <a name="footnote10">[10]</a>: https://en.wikipedia.org/wiki/Video_tracking<br />
 <a name="footnote11">[11]</a>: http://www.gipsa-lab.grenoble-inp.fr/summerschool/gpu/fichiers/GIPSA_talk.pdf<br />
@@ -337,6 +337,6 @@ or the Python version:
 <a name="footnote17">[17]</a>: http://personal.ee.surrey.ac.uk/Personal/R.Bowden/publications/avbs01/avbs01.pdf<br />
 <a name="footnote18">[18]</a>: https://pdfs.semanticscholar.org/56b1/eee82a51ce17d72a91b5876a3281418679cc.pdf<br />
 <a name="footnote19">[19]</a>: https://www.sciencedirect.com/science/article/pii/S0167865505003521<br />
-<a name="footnote20">[20]</a>: http://goldberg.berkeley.edu/pubs/acc-2012-visual-tracking-final.pdf<br />
+<a name="footnote20">[20]</a>: https://goldberg.berkeley.edu/pubs/acc-2012-visual-tracking-final.pdf<br />
 
 </div>

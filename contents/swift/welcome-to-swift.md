@@ -112,11 +112,11 @@ func timeTravel(album: String) {
 
 If you would like to read up more about optionals, take a look at these articles:
 * [Swift optionals explained simply](https://hackernoon.com/swift-optionals-explained-simply-e109a4297298)
-* [What is an optional value in Swift?](http://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift)
+* [What is an optional value in Swift?](https://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift)
 
 #### Guard Statements
 
-Notice that the [happy path](http://xunitpatterns.com/happy%20path.html) in the code above is indented:
+Notice that the [happy path](https://xunitpatterns.com/happy%20path.html) in the code above is indented:
 
 ```swift
 func timeTravel(album: String) {
@@ -271,7 +271,7 @@ Also, enums with associated values is not supported in languages such as [Java](
 
 ### Protocol Oriented Programming
 
-The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](http://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html) by using composition instead of inheritance for defining new classes based on existing classes.
+The heart of Swift is Protocol Oriented Programming (POP). POP helps to solve the [bloat that is sometimes caused by Object Oriented Programming (OOP)](https://blogs.perl.org/users/sid_burn/2014/03/inheritance-is-bad-code-reuse-part-1.html) by using composition instead of inheritance for defining new classes based on existing classes.
 
 Here's some code to serve as a brief introduction to POP:
 
