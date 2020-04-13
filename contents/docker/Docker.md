@@ -177,6 +177,6 @@ In a nutshell, Docker is a lightweight solution to run you application in an iso
 Apart from those listed in the article, here are some further readings/references to get moving with Docker:
 - [Full Guide on multiple aspects of docker](https://docker-curriculum.com/)
 - [Video Series on Docker](https://medium.freecodecamp.org/docker-quick-start-video-tutorials-1dfc575522a0)
-- [Internals of Docker](http://docker-saigon.github.io/post/Docker-Internals/)
+- [Internals of Docker](https://docker-saigon.github.io/post/Docker-Internals/)
 
 </div>

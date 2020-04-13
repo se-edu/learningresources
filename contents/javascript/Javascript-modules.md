@@ -79,9 +79,9 @@ import * as anExampleModule from './anExampleModule.js';
 anExampleModule.sumOfVariable(); // 3
 ```
 
-ES6 modules supports advanced features such as _[asynchronous loading](http://exploringjs.com/es6/ch_modules.html#sec_modules-in-browsers), [tree shaking](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd), [static code analysis](http://exploringjs.com/es6/ch_modules.html#static-module-structure)_ and [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Imports). These features will not be covered in this article.
+ES6 modules supports advanced features such as _[asynchronous loading](https://exploringjs.com/es6/ch_modules.html#sec_modules-in-browsers), [tree shaking](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd), [static code analysis](https://exploringjs.com/es6/ch_modules.html#static-module-structure)_ and [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Imports). These features will not be covered in this article.
 
-A more in-depth explanation of ES6 modules can be found in the [Modules chapter of the Exploring ES6 online book](http://exploringjs.com/es6/ch_modules.html).
+A more in-depth explanation of ES6 modules can be found in the [Modules chapter of the Exploring ES6 online book](https://exploringjs.com/es6/ch_modules.html).
 
 ES6 modules is supported by all major browsers as of 2020. However, you may need to support browsers that do not implement ES6 modules.
 

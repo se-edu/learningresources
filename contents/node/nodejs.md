@@ -181,14 +181,14 @@ Apart from acting as <tooltip content="See here for some common use cases of npm
 
 Node's module system allows you to include other JavaScript files and thus makes it easy to reuse external libraries and organize your code into separate parts with limited responsibilities.
 
-Node comes bundled with useful [core modules](https://nodejs.org/api/) such as the `fs` (file system) module which includes classes, methods and events to deal with file I/O operations and the `http` module which helps Node to transfer data over HTTP.
+Node comes bundled with useful [core modules](https://nodejs.org/api/) such as the `fs` (file system) module which includes classes, methods and events to deal with file I/O operations and the `https` module which helps Node to transfer data over HTTP.
 There are also many useful and well-tested modules maintained by the community and external developers such as <tooltip content="A library providing various useful wrapper functions over JavaScript's promises">*Bluebird*</tooltip> on <tooltip content="the largest ecosystem of open source libraries in the world!">npm</tooltip>.
 
 This makes development a breeze -- if a specific functionality has a large development overhead, you could look to such modules to speed things up.
 
 Importing modules is easy - simply use the `require()` function and provide the module identifier or the file path.
 ```js
-const http = require('http'); // import a core module
+const https = require('https'); // import a core module
 const Promise = require('bluebird'); // import a non-core module
 ```
 
@@ -236,7 +236,7 @@ However, Node is **not suitable** for
 * A guide on asynchronous programming in JS - [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/sync-async)
 * A comprehensive introduction to Node -  [The art of node](https://github.com/maxogden/art-of-node/)
 * Making better use of npm scripts - [freeCodeCamp's Introduction to NPM Scripts](https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633), [How to Use npm as a Build Tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
-* Using `module.exports` - [Tendai Mutunhire's article](http://stackabuse.com/how-to-use-module-exports-in-node-js/).
+* Using `module.exports` - [Tendai Mutunhire's article](https://stackabuse.com/how-to-use-module-exports-in-node-js/).
 * Advice on how to write clean code that makes it easy to add new features - [Fundamental rules of a Node.js project structure](https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial/)
 * A compilation of useful node modules - [Awesome Nodejs](https://github.com/sindresorhus/awesome-nodejs)
 *  A summary and curation of the top-ranked content on Node best practices - [Node.js Best Practices](https://github.com/i0natan/nodebestpractices)

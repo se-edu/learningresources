@@ -156,7 +156,7 @@ People with cognitive disabilities are more likely to take things literally and 
 
 More importantly, after following the best practices, you should conduct user testing with people with cognitive disabilities. Sometimes the web page may look fine to someone without disabilities, but it could be difficult for someone with autism or ADHD to navigate through the web page.
 
-WebAIM's [Cognitive](http://webaim.org/articles/cognitive/) page provides a useful expansion of the ideas above, and is certainly worth reading.
+WebAIM's [Cognitive](https://webaim.org/articles/cognitive/) page provides a useful expansion of the ideas above, and is certainly worth reading.
 
 ### Mobility
 Mobility impairments include paralysis, physical weakness or loss of control in limbs. This can cause users to find it difficult or impossible to use a mouse as the main form of interaction with websites.

@@ -139,7 +139,7 @@ Command Line:
 Build Automation Tools:
 
 - [Ant Task](http://findbugs.sourceforge.net/manual/anttask.html)
-- [FindBugs Maven Plugin](http://gleclaire.github.io/findbugs-maven-plugin/)
+- [FindBugs Maven Plugin](https://gleclaire.github.io/findbugs-maven-plugin/)
 - [Gradle FindBugs](https://docs.gradle.org/current/userguide/findbugs_plugin.html)
 
 IDE Integration:
@@ -152,7 +152,7 @@ IDE Integration:
 
 On November 2016, FindBugs was [declared dead](https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2016-November/004321.html) and [SpotBugs](https://spotbugs.github.io/) was [declared as its successor](https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2017-September/004383.html) in September 2017.
 
-The current projects using `FindBugs` can make a shift to `SpotBugs` by following the [migration manual](http://spotbugs.readthedocs.io/en/latest/migration.html)
+The current projects using `FindBugs` can make a shift to `SpotBugs` by following the [migration manual](https://spotbugs.readthedocs.io/en/latest/migration.html)
 
 ## Advanced Topics
 
@@ -164,7 +164,7 @@ The current projects using `FindBugs` can make a shift to `SpotBugs` by followin
 ## Resources
 
 - [FindBugs Official Website](http://findbugs.sourceforge.net): Official website of FindBugs. You can find more documentations here.
-- [An Evaluation of FindBugs](http://www.cs.cmu.edu/~aldrich/courses/654/tools/Sandcastle-FindBugs-2009.pdf): Analysis of FindBugs in 2009's version, some content may be outdated. Useful for understanding the benefits and drawbacks.
+- [An Evaluation of FindBugs](https://www.cs.cmu.edu/~aldrich/courses/654/tools/Sandcastle-FindBugs-2009.pdf): Analysis of FindBugs in 2009's version, some content may be outdated. Useful for understanding the benefits and drawbacks.
 - [Improve the quality of your code](https://www.ibm.com/developerworks/library/j-findbug1/): Some examples showing the bugs reported by FindBugs. You can get a rough idea of how FindBugs will help you in your project.
 
 </div>

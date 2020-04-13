@@ -112,7 +112,7 @@ Incremental integration testing is further split into the 3 approaches shown bel
 | <span style="color:green">**Advantages**</span>| Early discovery of high level architecture / design defects. | Easier to create test cases bottom up. | Beneficial for big project to distribute tasks on testing.
 | | Main control points of the system are tested early. | Critical modules on functionalities are tested first. | Allow top-down and bottom-up approach to run side by side. |
 | <span style="color:red">**Disadvantages**</span> | Significant low level modules are tested late in the cycle. | There is no testable working system until the higher level modules are build. | It is difficult to test for highly interconnected modules. |
-| | A [<tooltip content="A program that simulates the behaviours of software modules">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporarily replace a module">driver</tooltip>](http://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can better understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
+| | A [<tooltip content="A program that simulates the behaviours of software modules">stub</tooltip>](https://stackoverflow.com/questions/463278/what-is-a-stub) is not perfect to simulate data flow as it only contain very basic, hardcoded data of the module. | A [<tooltip content="Module with dummy code to temporarily replace a module">driver</tooltip>](https://www.professionalqa.com/test-driver) test is even harder to write than stub. | Higher cost from using both driver and stub. You can better understand the difference [here](https://www.quora.com/What-is-the-difference-between-stubs-and-drivers-in-software-testing).
 
 :fas-info-circle: [This article](https://www.softwaretestinghelp.com/incremental-testing/) provides a more detailed guide, with examples, on using specific methods for incremental testing together.
 
@@ -152,7 +152,7 @@ The [NUS Software Engineering module site](https://nus-cs2103-ay1819s1.github.io
 In the event of failing your integration test case, it is important to learn how to track down the [<tooltip content="Incorrect behavior observed from the system">defects</tooltip>](https://qacomplete.com/resources/articles/what-is-a-software-defect/) occured. 
 Thereafter, you should make changes to your application to fix them and re-test your application with integration testing to ensure that the defects are no longer there.
 
-:fas-info-circle: [This article](http://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
+:fas-info-circle: [This article](https://www.professionalqa.com/defect-tracking-process) covers more details on how to effectively track down defects in a system and fix them.
 
 ## Tips for Better Integration Tests
 
@@ -181,7 +181,7 @@ You can find a list of most commonly used [automation tools](https://medium.com/
 Generally integration test can be implemented based on your existing unit testing tools.
 However, if you do not have an existing testing tool in place, here are some useful tools that you can consider for your integration testing:
 
-- [VectorCast](http://www.vectorcast.com/) is a tool which operates based on executing unit tests first before integration tests as discussed in this article.
+- [VectorCast](https://www.vectorcast.com/) is a tool which operates based on executing unit tests first before integration tests as discussed in this article.
 
 - [Gauge](https://gauge.org/) acts as a plugin which can be incorporated to any language or IDE. 
 It is an lightweight cross-platform test automation tool which makes testing easier to maintain, more readable and scalable.

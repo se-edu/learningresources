@@ -42,7 +42,7 @@ They are arguably the most useful metrics for the largest number of developers b
 - The most well-known complexity metric is **Cyclomatic Complexity (CC)**, invented by Thomas McCabe in 1976. CC corresponds to the **minimum number of test cases needed to achieve 100% branch coverage**. [Here](http://www.whiteboxtest.com/cyclomatic-complexity.php) is an excellent explanation on how to make use of it to measure your code quality.
 - An alternative, less well-known, harder to calculate complexity metric is **NPath Complexity (NC)**, invented by Brian A. Nejmeh in 1988. NC corresponds to the **minimum number of test cases needed to achieve 100% path coverage**.
 
-> [Here](http://www.literateprogramming.com/mccabe.pdf) is the original paper by McCabe, and [here](http://dl.acm.org/citation.cfm?doid=42372.42379) is the original paper by Nejmeh.
+> [Here](http://www.literateprogramming.com/mccabe.pdf) is the original paper by McCabe, and [here](https://dl.acm.org/citation.cfm?doid=42372.42379) is the original paper by Nejmeh.
 
 These complexity metrics can be extended to class level (e.g. summing or averaging the complexity values of all methods in a class), package level, or even project level.
 
@@ -88,7 +88,7 @@ However, measures that are seemingly trivial and easy-to-overlook can also count
 
 You would have noticed that these metrics are self-formulated rather than being inherent properties of a piece of software, and you are right.
 
-You might then ask: can I define my own code quality metric? Yes, you can. [This page](http://www.developer.com/tech/article.php/3644656/Software-Quality-Metrics.htm) has a good guide on how to formulate your own metric.
+You might then ask: can I define my own code quality metric? Yes, you can. [This page](https://www.developer.com/tech/article.php/3644656/Software-Quality-Metrics.htm) has a good guide on how to formulate your own metric.
 
 ## Making Sense of It
 
@@ -97,21 +97,21 @@ Any code quality metric is as good as how it is used; without context, it is mer
 - It makes more sense to say: "This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it, and it is bad."
 - It makes the most sense to say: "This method has a CC value of 42. That means we need at least 42 test cases to achieve full branch coverage for it. This indicates an overly complex method, and it will be difficult to maintain in the long run. Try to separate it to calls of a few methods of CC value of 10 or less each; that way we can better design test cases for those smaller methods and achieve perfect coverage."
 
-[Here](http://homepages.dcc.ufmg.br/~figueiredo/disciplinas/lectures/detection-strategy-examples_v01.pdf) is an excellent example of how different metrics are used to determine which classes/methods need some maintenance works.
+[Here](https://homepages.dcc.ufmg.br/~figueiredo/disciplinas/lectures/detection-strategy-examples_v01.pdf) is an excellent example of how different metrics are used to determine which classes/methods need some maintenance works.
 
 ## Code Quality Metrics Tools
 
 Measuring complexity (relevant to most developers):
 - Java: [PMD](https://pmd.github.io)
-- JavaScript: [ESLint](http://eslint.org)
+- JavaScript: [ESLint](https://eslint.org)
 - C#: [Visual Studio Code Analysis](https://blogs.msdn.microsoft.com/zainnab/2011/05/17/code-metrics-cyclomatic-complexity/)
 - Python: [radon](https://pypi.python.org/pypi/radon)
-- Ruby: [RuboCop](http://batsov.com/rubocop/)
+- Ruby: [RuboCop](https://batsov.com/rubocop/)
 - PHP: [PHPMD](https://phpmd.org)
 
 Measuring design (relevant to architects, QA team), most of them commercial:
-- Java: [JArchitect](http://www.jarchitect.com)
-- C#: [NDepend](http://www.ndepend.com)
+- Java: [JArchitect](https://www.jarchitect.com)
+- C#: [NDepend](https://www.ndepend.com)
 - PHP: [PHP Depend](https://pdepend.org)
 
 </div>

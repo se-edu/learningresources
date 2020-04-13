@@ -72,7 +72,7 @@ CheckStyle supports suppressing warnings in four ways:
 
 - [Annotations](http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter)
 - [Comments](http://checkstyle.sourceforge.net/config_filters.html#SuppressionCommentFilter)
-- [File Filter](http://checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter)
+- [File Filter](http//checkstyle.sourceforge.net/config_filefilters.html#BeforeExecutionExclusionFileFilter)
 - [Configuration File](http://checkstyle.sourceforge.net/config_filters.html#SuppressionFilter)
 
 ### Running
@@ -94,10 +94,10 @@ IDE Integration:
 - [IntelliJ Integration](https://plugins.jetbrains.com/idea/plugin/1065-checkstyle-idea)
 
 ## Available Configurations
-There are two widely used configurations: [Sun Code Conversions](http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html) and [Google Java Style](http://checkstyle.sourceforge.net/reports/google-java-style.html). Some common rules are already included in these configurations.
+There are two widely used configurations: [Sun Code Conversions](https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html) and [Google Java Style](http://checkstyle.sourceforge.net/reports/google-java-style.html). Some common rules are already included in these configurations.
 
 ## How Does It Work?
-CheckStyle will use [ANTLR](http://www.antlr.org) to parse your code into a [AST(Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and visit it in a [DFS(Depth First Search)](https://en.wikipedia.org/wiki/Depth-first_search) pattern to check violations. Thus, it is necessary to make the code compilable in order for the ANTLR to work.  You can view the syntax tree using [CheckStyle Grammar Tree Viewer](http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui)
+CheckStyle will use [ANTLR](https://www.antlr.org) to parse your code into a [AST(Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and visit it in a [DFS(Depth First Search)](https://en.wikipedia.org/wiki/Depth-first_search) pattern to check violations. Thus, it is necessary to make the code compilable in order for the ANTLR to work.  You can view the syntax tree using [CheckStyle Grammar Tree Viewer](http://checkstyle.sourceforge.net/writingchecks.html#The_Checkstyle_SDK_Gui)
 
 ## Customisation
 - [Writing Checks](http://checkstyle.sourceforge.net/writingchecks.html) (I want to write my own check for Java code.)
@@ -109,5 +109,5 @@ CheckStyle will use [ANTLR](http://www.antlr.org) to parse your code into a [AST
 ## Resources
 - [CheckStyle](http://checkstyle.sourceforge.net/): CheckStyle official website. You can download the latest version, view online documentation there.
 - [CheckStyle Github](https://github.com/checkstyle/checkstyle): CheckStyle GitHub page. You can contribute to the project or report bugs there.
-- [StackOverflow CheckStyle](http://stackoverflow.com/questions/tagged/checkstyle): Question/Answer forum in StackOverflow for CheckStyle. You can ask question related to the using of CheckStyle.
+- [StackOverflow CheckStyle](https://stackoverflow.com/questions/tagged/checkstyle): Question/Answer forum in StackOverflow for CheckStyle. You can ask question related to the using of CheckStyle.
 </div>

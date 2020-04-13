@@ -106,7 +106,7 @@ end
 
 ### Functional Programming is Encouraged
 
-For those familiar with [higher-order functions](http://www.cse.unsw.edu.au/~en1000/haskell/hof.html), Ruby supports *map*, *fold-left*, and *filter*.
+For those familiar with [higher-order functions](https://www.cse.unsw.edu.au/~en1000/haskell/hof.html), Ruby supports *map*, *fold-left*, and *filter*.
 
 ```rb
 # Map
@@ -122,7 +122,7 @@ For those familiar with [higher-order functions](http://www.cse.unsw.edu.au/~en1
 #  => [2, 4]
 ```
 
-Joel McCracken makes an [excellent short presentation](http://joelmccracken.github.io/functional-programming-in-ruby/#/) on how functions are treated in Ruby.
+Joel McCracken makes an [excellent short presentation](https://joelmccracken.github.io/functional-programming-in-ruby/#/) on how functions are treated in Ruby.
 
 ### Object-Oriented Programming is Possible, Too
 
@@ -163,11 +163,11 @@ More on this in [Object-oriented Ruby tutorial](https://www.tutorialspoint.com/r
 
 As with most other languages, tools and frameworks exist for serious Ruby developers and project managers to assist many of their tasks.
 
-- **Frameworks:** [Ruby on Rails](http://rubyonrails.org) is by far the most popular web application framework for Ruby. Another popular framework is [Sinatra](http://www.sinatrarb.com).
+- **Frameworks:** [Ruby on Rails](https://rubyonrails.org) is by far the most popular web application framework for Ruby. Another popular framework is [Sinatra](http://www.sinatrarb.com).
 - **Libraries:** Ruby libraries come in form of *gems*. The complete registry can be found on [this website](https://rubygems.org).
 - **IDE:** [Aptana Studio](http://www.aptana.com/products/studio3.html) is the favourite IDE for Rails developers. Other alternatives are [RubyMine](https://www.jetbrains.com/ruby/) (commercial) and Eclipse with [RDT plugin](https://sourceforge.net/projects/rubyeclipse/).
 - **Task Automation:** [Rake](http://docs.seattlerb.org/rake/) is the most commonly used automation tool.
-- **Static Analysis:** [RuboCop](http://batsov.com/rubocop/) is the sole leading static analysis tool for Ruby language.
+- **Static Analysis:** [RuboCop](https://batsov.com/rubocop/) is the sole leading static analysis tool for Ruby language.
 
 [This repository](https://github.com/markets/awesome-ruby) lists down a large collection of Ruby libraries, tools, frameworks, and software.
 

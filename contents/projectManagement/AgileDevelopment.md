@@ -21,7 +21,7 @@ In 2015, Forbes published an article boldly titled [Agile: The World's Most Popu
 
 ## What is Agile Development?
 
-Popularised in 2001 by the [*Manifesto for Agile Software Development*](http://agilemanifesto.org/), agile development is essentially a software development approach that can be adopted to manage a software project.
+Popularised in 2001 by the [*Manifesto for Agile Software Development*](https://agilemanifesto.org/), agile development is essentially a software development approach that can be adopted to manage a software project.
 
 Yet, you should not mistake agile development for any single method or framework (e.g. [Scrum](https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMI2Y-34IDX2QIVwZWPCh3aUg7tEAAYASAAEgLPKvD_BwE)). Rather, you should see agile development as an overarching approach possessing several distinguishing characteristics as consolidated in the *Manifesto*. To further simplify these characteristics, agile development can essentially be described as an approach that is flexible, iterative and people-centric.
 
@@ -35,7 +35,7 @@ To visualise this, let us consider adaptive planning in a game below:
 
 >Imagine playing the old Battleships Game. You are using a traditional business strategy, which means that you have to select all your moves up front and then sit back and wait to see if you have won. I am using an agile business strategy, which means I can make a move, see what happens, learn from this, and adapt. Guess who is more likely to win?
 >
->-- from [An agile, adaptive business strategy](http://agileforeveryone.com/2015/04/24/agile-adaptive-business-strategy-with-scrum/) by Edwin Dando
+>-- from [An agile, adaptive business strategy](https://agileforeveryone.com/2015/04/24/agile-adaptive-business-strategy-with-scrum/) by Edwin Dando
 
 #### 2. Agile Development is "Iterative"
 
@@ -80,12 +80,12 @@ That said, there are many agile development frameworks that can help to guide yo
 - [Scrumban](https://www.agilealliance.org/what-is-scrumban/)
 - [Lean Software Development](https://leankit.com/learn/lean/principles-of-lean-development/)
 - [Extreme Programming (XP)](http://www.agilenutshell.com/xp)
-- [Feature-Driven Development (FDD)](http://agilemodeling.com/essays/fdd.htm)
-- [Dynamic Systems Development Method (DSDM)](http://dsdmofagilemethodology.wikidot.com/)
+- [Feature-Driven Development (FDD)](https://agilemodeling.com/essays/fdd.htm)
+- [Dynamic Systems Development Method (DSDM)](https://dsdmofagilemethodology.wikidot.com/)
 
 In addition to such agile frameworks, there are also many concrete practices that support agile development. These practices span over aspects like requirements, design, coding, testing and risk management, potentially easing your transition to agile development:
 
-- [User Stories](http://www.agilemodeling.com/artifacts/userStory.htm)
+- [User Stories](https://www.agilemodeling.com/artifacts/userStory.htm)
 - [User Story Mapping](https://www.thoughtworks.com/insights/blog/story-mapping-visual-way-building-product-backlog)
 - [Backlogs](https://www.agilealliance.org/glossary/backlog/)
 - [Velocity Tracking](http://www.softwaretestingstudio.com/agile-velocity-sprint-metrics/)
@@ -134,14 +134,14 @@ Here is a compilation of other resources on agile development for your further e
 - [How to start with agile development](https://saucelabs.com/blog/how-to-start-with-agile-development)
 - [The Agile Coach](https://www.atlassian.com/agile)
 - [The Beginner's Guide to Scrum and Agile Project Management](https://blog.trello.com/beginners-guide-scrum-and-agile-project-management)
-- [Roles on Agile Teams: From Small to Large Teams](http://www.ambysoft.com/essays/agileRoles.html)
-- [Scaled Agile Framework (SAFe)](http://www.scaledagileframework.com/agile-teams/)
+- [Roles on Agile Teams: From Small to Large Teams](https://www.ambysoft.com/essays/agileRoles.html)
+- [Scaled Agile Framework (SAFe)](https://www.scaledagileframework.com/agile-teams/)
 
 #### Comparing Different Agile Frameworks
 
 - [How to Pick the Right Agile Tool](https://www.smartsheet.com/how-pick-right-agile-tool)
 - [Kanban vs Scrum](https://www.cprime.com/2015/02/3-differences-between-scrum-and-kanban-you-need-to-know/)
-- [Scrum vs Kanban vs Scrumban](http://www.eylean.com/blog/2013/05/scrum-vs-kanban-vs-scrumban-planning-estimation-and-performance-metrics/)
+- [Scrum vs Kanban vs Scrumban](https://www.eylean.com/blog/2013/05/scrum-vs-kanban-vs-scrumban-planning-estimation-and-performance-metrics/)
 - [Scrum vs Kanban vs Lean vs XP](https://dzone.com/articles/agile-framework-comparison-scrum-vs-kanban-vs-lean)
 - [XP vs FDD vs FDSM](https://project-management.com/xp-fdd-dsdm-and-crystal-methods-of-agile-development/)
 

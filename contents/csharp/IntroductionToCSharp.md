@@ -94,7 +94,7 @@ In the above example, we want to test a `BookShelf`'s behaviors only related to 
 
 ### Closures
 
-Sometimes, it may be useful to [defer execution](http://www.informit.com/articles/article.aspx?p=2171751 "Code that is executed only when results need to be evaluated. There are many reasons for executing code later") or capture a local context for later execution. Context capturing is reflected below:
+Sometimes, it may be useful to [defer execution](https://www.informit.com/articles/article.aspx?p=2171751 "Code that is executed only when results need to be evaluated. There are many reasons for executing code later") or capture a local context for later execution. Context capturing is reflected below:
 
 ```csharp
 //Capturing local context
@@ -192,8 +192,8 @@ Getting started with C# is not difficult. You can download Visual Studio and fol
 
 If you are entirely new to programming, you may find more hands on practice with simpler steps at [CSharp net](https://csharp.net-tutorials.com/getting-started/introduction/). This tutorial tends to be more rigorous and goes through in great detail the steps, starting from installing a development environment, to writing basic C# programs and finally topics commonly used in real applications, such as file handling and debugging. If you wish to skip certain parts of the tutorial, the structured contents are displayed on the right side of the website.
 
-If you want to have a go at maintaining and enhancing a small project, you may find this [fictitious airline reservation system](http://1000projects.org/airline-reservation-system-a-net-project-with-code.html) project
-to be a good starting point. It covers commonly used components of a software, such as UI (Application User Interface), data storage and handling, and the logic behind the program (such as buying a ticket). More similar projects can be found at [1000projects.org](http://1000projects.org/c-projects.html).
+If you want to have a go at maintaining and enhancing a small project, you may find this [fictitious airline reservation system](https://1000projects.org/airline-reservation-system-a-net-project-with-code.html) project
+to be a good starting point. It covers commonly used components of a software, such as UI (Application User Interface), data storage and handling, and the logic behind the program (such as buying a ticket). More similar projects can be found at [1000projects.org](https://1000projects.org/c-projects.html).
 
 If you feel that you have a grasp of C# fundamentals but find it difficult to write programs of bigger scale, you may consult
 [CSharp corner](https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/) for a list of design patterns that you may employ to better organise and plan your program structure. Sometimes, you may find that you have problems collaborating on a C# project. This may be due to some common misconceptions and mistakes you are commiting without realisation. You may reduce these problems by reading about [some common mistakes in C# programming](https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/).

@@ -112,7 +112,7 @@ func timeTravel(album: String) {
 
 If you would like to read up more about optionals, take a look at these articles:
 * [Swift optionals explained simply](https://hackernoon.com/swift-optionals-explained-simply-e109a4297298)
-* [What is an optional value in Swift?](http://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift)
+* [What is an optional value in Swift?](https://stackoverflow.com/questions/24003642/what-is-an-optional-value-in-swift)
 
 #### Guard Statements
 

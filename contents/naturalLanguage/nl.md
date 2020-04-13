@@ -170,7 +170,7 @@ can be mapped back to the same intent to which a predefined response can be give
     
 1. **Take an online course on NLP**
 
-    Stanford University offers [CS224n: Natural Language Processing with Deep Learning](http://web.stanford.edu/class/cs224n/) online.
+    Stanford University offers [CS224n: Natural Language Processing with Deep Learning](https://web.stanford.edu/class/cs224n/) online.
     This course provides an introduction to modern techniques in NLP. 
      
 1. **Experiment with NLP libraries**

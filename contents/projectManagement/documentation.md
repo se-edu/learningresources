@@ -54,11 +54,11 @@ In general, written documentation should use:
 
 Futhermore, you should always:
 
-* [test your instructions](http://idratherbewriting.com/2015/07/07/testing-your-instructions/)
+* [test your instructions](https://idratherbewriting.com/2015/07/07/testing-your-instructions/)
 * find *someone else* to test your instructions
 * [revise, revise and revise!](https://jacobian.org/writing/editors/)
 
-[This](http://www.bluemangolearning.com/software-documentation/) provides useful general tips for writing documentation and 
+[This](https://www.bluemangolearning.com/software-documentation/) provides useful general tips for writing documentation and 
 [this guide](https://jacobian.org/writing/technical-style/) provides more tips on writing well. 
 
 #### README
@@ -66,10 +66,10 @@ Futhermore, you should always:
 A README serves as an introduction to your project, and is often the first thing people see when encountering your project.<br>
 A good README should convince users to use your product or contribute to your code, by providing enough information to make it easy for them to get started.
 
-For a good guide on how to write a README, check out [this guide](http://www.writethedocs.org/guide/writing/beginners-guide-to-docs/).
+For a good guide on how to write a README, check out [this guide](https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/).
 
 * Some suggest that READMEs should be written before you start coding, as it gives you an overview of your project and what you need to do.
-This is known as [Readme Driven Development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html).
+This is known as [Readme Driven Development](https://tom.preston-werner.com/2010/08/23/readme-driven-development.html).
 
 #### User Guide
 
@@ -77,7 +77,7 @@ A user guide teaches users how to use your software.
 User guides can include quickstart guides, reference materials, tutorials, cookbooks/recipes and more.
 
 [Here](https://jacobian.org/writing/what-to-write/) is a useful guide on how to tackle different types of user documentation.
-[This](http://stevelosh.com/blog/2013/09/teach-dont-tell/) points out the problems with common approaches to documentation and builds on the previous article.
+[This](https://stevelosh.com/blog/2013/09/teach-dont-tell/) points out the problems with common approaches to documentation and builds on the previous article.
 
 #### Developer Guide
 
@@ -95,7 +95,7 @@ Note that such documentation should always be updated together with the code.
 #### Comments
 
 Comments are a well-known form of documentation.
-They [complement the code](http://softwareengineering.stackexchange.com/a/285789) and are intended for developers who use and work on the code.
+They [complement the code](https://softwareengineering.stackexchange.com/a/285789) and are intended for developers who use and work on the code.
 They include API documentation for variables, methods, classes, and packages, as well as inline comments.
 
 API documentation for variables, methods, classes, and packages explain what they do.
@@ -111,7 +111,7 @@ Note however, that excessive comments are also a code smell.
 Comments should not repeat what the code is saying and requiring a lot of comments to explain what you are doing can suggest that the code is too convoluted.
 Often, comments can be replaced by clearer code.
 As much as possible, code should be written as clearly as possible, with comments added in only when necessary.
-[This Stack Overflow answer](http://stackoverflow.com/a/209089) gives a good example on how to do this.
+[This Stack Overflow answer](https://stackoverflow.com/a/209089) gives a good example on how to do this.
 For a more detailed explanation, read [this article](https://blog.codinghorror.com/coding-without-comments/).
 
 #### Source Code
@@ -136,15 +136,15 @@ Having access to how the code base was changed over time can shows how, when and
 For this to work well, it is important to write good commit messages and follow good commit practices.
 
 [This](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message) explains what to include in commit messages while
-[this article](http://mislav.net/2014/02/hidden-documentation/) explains how to use Git to make full use of your code's version control history.
+[this article](https://mislav.net/2014/02/hidden-documentation/) explains how to use Git to make full use of your code's version control history.
 For more resources on commit messages, check out [this Stack Overflow thread](https://stackoverflow.com/questions/15324900/standard-to-follow-when-writing-git-commit-messages).
 
 ## Resources
 
 * For inspiration: https://github.com/PharkMillups/beautiful-docs
-* An overview of the different types of documentation and good examples of each type: http://www.ybrikman.com/writing/2014/05/05/you-are-what-you-document/
-* Documentation principles: http://www.writethedocs.org/guide/writing/docs-principles/
-* Agile documentation: http://www.agilemodeling.com/essays/agileDocumentationBestPractices.htm
+* An overview of the different types of documentation and good examples of each type: https://www.ybrikman.com/writing/2014/05/05/you-are-what-you-document/
+* Documentation principles: https://www.writethedocs.org/guide/writing/docs-principles/
+* Agile documentation: https://www.agilemodeling.com/essays/agileDocumentationBestPractices.htm
 * Video on how to write great documentation: https://www.youtube.com/watch?v=z3fRu9pkuXE
 
 ## Acknowledgements
@@ -152,20 +152,20 @@ For more resources on commit messages, check out [this Stack Overflow thread](ht
 In addition to the links mentioned above, here are the links used in the writing of this article:
 
 * https://opensource.com/business/15/5/write-better-docs
-* http://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm
+* https://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm
 * https://spin.atomicobject.com/2015/04/17/code-as-documentation/
-* http://mikegrouchy.com/blog/2013/03/yes-your-code-does-need-comments.html
+* https://mikegrouchy.com/blog/2013/03/yes-your-code-does-need-comments.html
 * https://chromium.googlesource.com/chromium/src/+/master/docs/documentation_best_practices.md#Documentation-is-the-story-of-your-code
 * https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/
 * https://bryce.fisher-fleig.org/blog/effective-commit-messages/
-* http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
+* https://tom.preston-werner.com/2010/08/23/readme-driven-development.html
 * http://www.cs.ecu.edu/karl/3300/spr14/Notes/Documentation/documentation.html
-* http://www.tylerbutler.com/2013/06/the-importance-of-documentation/
+* https://www.tylerbutler.com/2013/06/the-importance-of-documentation/
 * https://softwareengineering.stackexchange.com/questions/154615/are-unit-tests-really-used-as-documentation
-* http://blog.smartbear.com/careers/13-things-people-hate-about-your-open-source-docs/
+* https://blog.smartbear.com/careers/13-things-people-hate-about-your-open-source-docs/
 * https://byrslf.co/writing-great-documentation-44d90367115a#.qdxj6dcx4
 * https://news.ycombinator.com/item?id=8414714
-* http://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm
+* https://www.developer.com/tech/article.php/10923_3848981_2/The-7-Rules-for-Writing-World-Class-Technical-Documentation.htm
 * http://www.onlamp.com/pub/a/onlamp/2006/09/07/unit-testing-docs.html
 * https://blog.jooq.org/2013/02/26/the-golden-rules-of-code-documentation/
 * https://vip.wordpress.com/documentation/commit-messages/#a-good-commit-message-should-not-depend-on-the-code-to-explain-what-it-does-or-why-it-does-it

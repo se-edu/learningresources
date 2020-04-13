@@ -310,7 +310,7 @@ Read more:
 | rebase | you created a branch from `master` to develop a feature, and someone else pushed a change to `master` before you finished |
 
 It is generally considered good practice to rebase your feature branch onto whatever branch you're trying to patch _before_ you make the pull request, resolving any conflicts that arise. This:
-- [keeps the history clear and linear](http://www.bitsnbites.eu/a-tidy-linear-git-history/)
+- [keeps the history clear and linear](https://www.bitsnbites.eu/a-tidy-linear-git-history/)
     - makes backtracking easier
     - easy to follow history
     - reverting/rolling back is much simpler
@@ -319,7 +319,7 @@ It is generally considered good practice to rebase your feature branch onto what
 - makes reviewing/testing easier by [not including irrelevant code by merging](https://lwn.net/Articles/328436/)
 
 Read more:
-- [A Tidy, Linear Git History](http://www.bitsnbites.eu/a-tidy-linear-git-history/) - this is an excellent article which has formed my opinion on rebase vs. merge
+- [A Tidy, Linear Git History](https://www.bitsnbites.eu/a-tidy-linear-git-history/) - this is an excellent article which has formed my opinion on rebase vs. merge
 - [Rebasing and merging: some git best practices](https://lwn.net/Articles/328436/) - the merging/rebase issue involving wisdom from the creator of `git`, Linus Torvalds
 - [Merging vs. Rebasing - Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 - [When do you use git rebase instead of git merge - StackOverflow](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178) - a discussion on when to rebase and when to merge
@@ -330,7 +330,7 @@ These are the resources used in the writing of this chapter, as well as any addi
 
 - [A Note About Git Commit Messages by Tim Pope](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 - [Git Best Practices by Seth Robertson](https://sethrobertson.github.io/GitBestPractices/)
-- [A Tidy, Linear Git History](http://www.bitsnbites.eu/a-tidy-linear-git-history/)
+- [A Tidy, Linear Git History](https://www.bitsnbites.eu/a-tidy-linear-git-history/)
 - [Rebasing and merging: some git best practices](https://lwn.net/Articles/328436/) involves wisdom from Linus Torvalds
 - [Formats and Conventions: Commit Messages](https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message)
 
@@ -348,7 +348,7 @@ These are the resources used in the writing of this chapter, as well as any addi
 - [Rewriting History - Atlassian](https://www.atlassian.com/git/tutorials/rewriting-history)
 
 ## Further Reading
-- [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) - discusses the underlying implementation of `git` (merkle tree)
+- [Git for Computer Scientists](https://eagain.net/articles/git-for-computer-scientists/) - discusses the underlying implementation of `git` (merkle tree)
 - [Pro Git](https://git-scm.com/book/en/v2)
 - [The most useful git commands](https://orga.cat/posts/most-useful-git-commands) - a reference sheet of some handy command macros
 

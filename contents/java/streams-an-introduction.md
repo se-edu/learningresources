@@ -140,7 +140,7 @@ Although lambda expressions can be expressed in a block, it does not introduce a
 
 This also means that lambda expressions are able to access local variables of the enclosing scope as well. However, any local variables accessed by a lambda expression must be final or effectively final (ie. cannot be reassigned another value).
 
-To understand more about lambda expressions, take a look at http://www.lambdafaq.org/ ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html).
+To understand more about lambda expressions, take a look at https://www.lambdafaq.org/ ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html).
 
 
 #### An Example
@@ -390,13 +390,13 @@ Read this to get a good understanding of how each method reference is translated
 
 ### Lambda Expressions
 
-* http://www.lambdafaq.org/  
+* https://www.lambdafaq.org/  
 A helpful reference and tutorial on functional-style programming in Java. Explanations given are concise and easy to understand.
 
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html  
 Read this to understand more about the use cases for lambda expressions.
 
-* http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7  
+* https://www.informit.com/articles/article.aspx?p=2303960&seqNum=7  
 The article is from a book, Core Java for the Impatient, and talks about the scoping of lambda expressions and what you can or cannot do with variables belonging to the enclosing scope.
 
 ### Stream
