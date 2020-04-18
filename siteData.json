@@ -209,6 +209,32 @@
       "headingKeywords": {}
     },
     {
+      "title": "Xamarin",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/csharp/Xamarin.md",
+      "layout": "default",
+      "headings": {
+        "introduction-to-xamarin": "Introduction to Xamarin",
+        "what-is-xamarin": "What is Xamarin?",
+        "how-xamarin-works": "How Xamarin Works?",
+        "xamarin-android-and-xamarin-ios": "Xamarin.Android and Xamarin.iOS",
+        "xamarin-forms": "Xamarin.Forms",
+        "xamarin-essentials": "Xamarin.Essentials",
+        "why-xamarin": "Why Xamarin?",
+        "complete-binding-for-underlying-sdks": "Complete Binding for Underlying SDKs",
+        "objective-c-java-c-and-c-interop": "Objective-C, Java, C, and C++ Interop",
+        "modern-language-constructs-and-robust-base-class-library": "Modern Language Constructs and Robust Base Class Library",
+        "mobile-cross-platform-support": "Mobile Cross-Platform Support",
+        "modern-integrated-development-environment-ide": "Modern Integrated Development Environment (IDE)",
+        "getting-started": "Getting Started"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "Introduction to Dart",
       "header": "pagetop.md",
       "footer": "footer.md",
