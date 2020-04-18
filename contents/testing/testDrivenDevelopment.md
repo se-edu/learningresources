@@ -24,10 +24,9 @@ Reviewers: [Ang Ze Yu](https://github.com/ang-zeyu), [Neil Brian](https://github
     * [Benefit 2: Focuses on Understanding Product Requirements](#benefit-2-focuses-on-understanding-product-requirements)
     * [Benefit 3: Increases Productivity](#benefit-3-increases-productivity)
   * [Limitations](#limitations)
-    * [Limitation 1: Strict Emphasis on Communication of Requirements and Specifications](#limitation-1-strict-emphasis-on-communication-of-requirements-and-specifications)
-    * [Limitation 2: Tough to Incorporate into Legacy Projects](#limitation-2-tough-to-incorporate-into-legacy-projects)
-    * [Limitation 3: High Maintenance](#limitation-3-high-maintenance)
-    * [Limitation 4: Great Importance Given to Unit Tests](#limitation-4-great-importance-given-to-unit-tests)
+    * [Limitation 1: Tough to Incorporate into Legacy Projects](#limitation-1-tough-to-incorporate-into-legacy-projects)
+    * [Limitation 2: High Maintenance](#limitation-2-high-maintenance)
+    * [Limitation 3: Possibility of over-emphasizing unit tests at the expense of other tests](#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests)
   * [Getting Started with Test-Driven Development](#getting-started-with-test-driven-development)
   * [References](#references)
 
@@ -102,7 +101,7 @@ Test-driven development requires the developers to have a good understanding of 
 1. you could end up testing something that doesn't need to be tested, or 
 1. you could end up overlooking some requirements that _must_ be tested, thus giving you a false sense of accomplishment when you write production code to pass the test
 
-TDD thus helps in preventing teams from rushing into development and pushes them to prioritize the requirements-gathering step. 
+TDD thus helps in preventing teams from rushing into development and pushes them to prioritize the requirements-gathering step, forcing them to understand the requirement of whatever small thing which will be implemented, whether it is a user story, a method, class, etc.
 
 ### Benefit 3: Increases Productivity
 
@@ -116,13 +115,7 @@ As mentioned before, test-driven development can potentially result in software 
 
 Even with some of the attractive benefits of adopting TDD, there is no one-size-fits-all solution for project design management. Some of the limitations of TDD are: 
 
-### Limitation 1: Strict Emphasis on Communication of Requirements and Specifications
-
-Product/Feature requirements are crucial to teams that employ a TDD-style approach to development. As mentioned earlier, the very first step of the development cycle is to write acceptance tests. If the requirements are not communicated properly, teams will end up constantly having to change their test suites. In extreme scenarios, a re-write may be necessary.
-
-As a result, a lot of man hours can go into making sure the requirements are in order -  consequently, this could result in a slow start to development.
-
-### Limitation 2: Tough to Incorporate into Legacy Projects
+### Limitation 1: Tough to Incorporate into Legacy Projects
 
 <trigger trigger="click" for="modal:index-legacy">Legacy projects</trigger> [^7] are hard to maintain even without having to incorporate TDD into them. As these projects have a history of design and implementation choices made based on the requirements and/or the resources at the time, investing man hours in revamping or "modernizing" them is not always deemed as top priority. 
 
@@ -134,17 +127,17 @@ When you bring TDD into the picture, things get more complex as failing tests ar
 
 Writing production code in legacy systems with the goal of passing a specific test is harder than it seems. For instance, there may be dependencies between components that need to be "broken" for them to be testable, which could result in  several workarounds. This could potentially add on to the complexity of the project, making it counter-productive as the entire point of the refactoring step is to make the code more readable [^5].
 
-### Limitation 3: High Maintenance
+### Limitation 2: High Maintenance
     
 Maintaining test-suites becomes a part of the overall overhead of the project. Since TDD-style approaches rely heavily on tests, there is a need for the tests to be in proper shape in order to prevent a false sense of correctness. 
 
 TDD also has a steep learning curve. The entire process takes time to get accustomed to. Refactoring of code by using good design patterns comes with time, experience, and a lot of practice.
 
-### Limitation 4: Great Importance Given to Unit Tests
+### Limitation 3: Possibility of over-emphasizing unit tests at the expense of other tests
 
 Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests [^4]. 
 
-### Getting Started with Test-Driven Development
+## Getting Started with Test-Driven Development
 
 As explained above, test-driven development is a software design technique. While it does have an established and unelaborate framework, there are elements of the development cycle that -
 1. could be new to you (such as testing and mock frameworks), or 
