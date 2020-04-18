@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.13.1">
+  <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - NumPy</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../markbind/css/octicons.css">
   <link rel="stylesheet" href="../../markbind/css/github.min.css">
   <link rel="stylesheet" href="../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
   <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
   <link rel="stylesheet" href="../../markbind/css/site-nav.css">
   <link rel="stylesheet" href="../../markbind/css/page-nav.css">
@@ -51,273 +52,272 @@
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-<ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
-          </button>
-          <div class="dropdown-container dropdown-container-open">
-            <ul class="pl-3 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn">C++
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn">CSharp
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-              <li class="mt-2"><button class="dropdown-btn">Java
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn">JavaScript
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn">Kotlin
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Python
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <ul class="px-0 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a current">NumPy</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">C++
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">CSharp
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Java
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">JavaScript
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Kotlin
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Python
+                        <i class="dropdown-btn-icon rotate-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container dropdown-container-open">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a current">NumPy</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><button class="dropdown-btn">Architecture
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Project Management
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Revision Control
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Testing
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Databases
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Security
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Shell
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
             </ul>
-          </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><button class="dropdown-btn">Architecture
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Code Quality
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Performance
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Project Management
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Revision Control
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Static Analysis
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Testing
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">UI/UX
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Databases
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Security
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Shell
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          </ul>
-          </span>
-        </div>
+          </span></div>
       </nav>
+
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="numpy">NumPy<a class="fa fa-anchor" href="#numpy"></a></h1>
+          <h1 id="numpy">NumPy<a class="fa fa-anchor" href="#numpy" onclick="event.stopPropagation()"></a></h1>
           <p>Author: <a href="https://github.com/Parcly-Taxel">Jeremy Tan</a></p>
           <box id="article-toc">
             <ul>
@@ -334,46 +334,59 @@
           </box>
 
           <box type="info">
-            <p>Before reading this article, you should have basic knowledge of Python and its iterable types. If not, do read <a href="/learningresources/contents/python/introduction-to-python.html">the introduction to Python</a> included among these learning
-              resources.
+            <p>Before reading this article, you should have basic knowledge of Python and its iterable types.
+              If not, do read <a href="/learningresources/contents/python/introduction-to-python.html">the introduction to Python</a> included among these learning resources.
             </p>
           </box>
-          <h2 id="numpy-s-purpose">NumPy's Purpose<a class="fa fa-anchor" href="#numpy-s-purpose"></a></h2>
-          <p>Data scientists often work with highly structured data, like time series or plots of pixel values. On these data sets, they routinely need to perform operations uniformly and efficiently. Without external packages, Python can express and handle
-            some of these operations reliably. For huge sets, however – like the training and test data provided to machine learning algorithms – Python becomes complicated and sluggish.</p>
-          <p><a href="https://numpy.org">NumPy</a> fills in the gaps, simplifying (and speeding up) the code required to process and visualise data sets large and small. So many other science-oriented Python libraries depend on NumPy (pandas, matplotlib,
-            etc.) that NumPy describes itself as &quot;the fundamental package for scientific computing in Python&quot;.</p>
-          <h2 id="numpy-s-benefits-and-drawbacks">NumPy's Benefits and Drawbacks<a class="fa fa-anchor" href="#numpy-s-benefits-and-drawbacks"></a></h2>
-          <p>NumPy's main benefit is its abstraction of arrays. In a traditional imperative style, handling multi-dimensional arrays requires multiple for loops or list comprehensions; both approaches lead to tedious, error-prone code, and do not take advantage
-            of vector instructions in modern processors.</p>
+          <h2 id="numpy-s-purpose">NumPy's Purpose<a class="fa fa-anchor" href="#numpy-s-purpose" onclick="event.stopPropagation()"></a></h2>
+          <p>Data scientists often work with highly structured data, like time series or plots of pixel values. On these data sets,
+            they routinely need to perform operations uniformly and efficiently. Without external packages, Python can express
+            and handle some of these operations reliably. For huge sets, however – like the training and test data provided to
+            machine learning algorithms – Python becomes complicated and sluggish.</p>
+          <p><a href="https://numpy.org">NumPy</a> fills in the gaps, simplifying (and speeding up) the code required to process and
+            visualise data sets large and small. So many other science-oriented Python libraries depend on NumPy (pandas,
+            matplotlib, etc.) that NumPy describes itself as &quot;the fundamental package for scientific computing in Python&quot;.</p>
+          <h2 id="numpy-s-benefits-and-drawbacks">NumPy's Benefits and Drawbacks<a class="fa fa-anchor" href="#numpy-s-benefits-and-drawbacks" onclick="event.stopPropagation()"></a></h2>
+          <p>NumPy's main benefit is its abstraction of arrays. In a traditional imperative style, handling multi-dimensional
+            arrays requires multiple for loops or list comprehensions; both approaches lead to tedious, error-prone code, and
+            do not take advantage of vector instructions in modern processors.</p>
           <p>For example, to find the average of each column in a two-dimensional array (list of lists):</p>
-          <pre><code class="hljs python"><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_averages</span><span class="hljs-params">(arr)</span>:</span></span><span>    l = len(arr[<span class="hljs-number">0</span>])</span><span>    m = len(arr)</span><span>    <span class="hljs-keyword">return</span> max(sum(arr[j][i] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(m)) / m <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(l))</span></code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_averages</span><span class="hljs-params">(arr)</span>:</span><br></span><span>    l = len(arr[<span class="hljs-number">0</span>])<br></span><span>    m = len(arr)<br></span><span>    <span class="hljs-keyword">return</span> max(sum(arr[j][i] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(m)) / m <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(l))<br></span></code></pre>
           <p>This is quite a lot of work for a simple task. The equivalent code in NumPy is a single call:</p>
-          <pre><code class="hljs python"><span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><span>np.mean(arr, <span class="hljs-number">0</span>)</span></code></pre>
+          <pre><code class="hljs python"><span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br></span><span>np.mean(arr, <span class="hljs-number">0</span>)<br></span></code></pre>
           <p>If you frequently deal with data sets more complicated than one-dimensional lists, NumPy is suited for you.</p>
-          <p>Transcribing array-based mathematics into NumPy is also made simpler by the many array functions and operators in its library. Not only is the code clearer – a Python virtue – but it can reduce development and debugging time.</p>
-          <pre><code class="hljs python"><span><span class="hljs-comment"># A and B are 2-by-2 matrices, c is a scalar</span></span><span>A = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">3</span>]])</span><span>B = np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">-3</span>]])</span><span>c = <span class="hljs-number">2</span></span><span>&#x200B;</span><span>c * A <span class="hljs-comment"># scalar multiplication</span></span><span>A @ B <span class="hljs-comment"># matrix multiplication</span></span><span>A &gt; B <span class="hljs-comment"># compare A and B elementwise</span></span><span>B.T <span class="hljs-comment"># matrix transpose</span></span></code></pre>
-          <p>The downside to these benefits is a large memory footprint: NumPy's performance depends on compiled C and Fortran code, so it may not be suitable for embedded systems. All elements of a NumPy array must also be of <em>the same</em> type, a primitive
-            C type or something similar to one, for the rest of NumPy to work well; in particular Python integers are treated as generic Python objects if they are too large, negating speed improvements, while strings have to be interpreted as character
-            arrays.</p>
-          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array([<span class="hljs-number">1.5</span>, <span class="hljs-string">"a"</span>])</span><span>array([<span class="hljs-string">'1.5'</span>, <span class="hljs-string">'a'</span>], dtype=<span class="hljs-string">'&lt;U32'</span>) <span class="hljs-comment"># not a numeric type!</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array([<span class="hljs-number">10</span> ** <span class="hljs-number">20</span>, <span class="hljs-number">1</span>])</span><span>array([<span class="hljs-number">100000000000000000000</span>, <span class="hljs-number">1</span>], dtype=object)</span></code></pre>
-          <p>Another limitation occurs when resizing arrays. In most cases, enlarging an array creates a new copy, like in C, rather than simply making space for the new cells like in Python. Memory has to be managed manually for code that works with data
-            at scale.</p>
-          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>A = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">-3</span>]])</span><span><span class="hljs-meta">&gt;&gt;&gt; </span>B = np.append(A, [[<span class="hljs-number">-3</span>], [<span class="hljs-number">1</span>]], axis=<span class="hljs-number">1</span>) <span class="hljs-comment"># creates a new object</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>B[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>] += <span class="hljs-number">1</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>A</span><span>array([[ <span class="hljs-number">5</span>,  <span class="hljs-number">0</span>],</span><span>       [<span class="hljs-number">-1</span>, <span class="hljs-number">-3</span>]]) <span class="hljs-comment"># not modified</span></span></code></pre>
-          <h2 id="internals-of-numpy">Internals of NumPy<a class="fa fa-anchor" href="#internals-of-numpy"></a></h2>
-          <p>Although NumPy overall is an intricate language, you should be able to easily grasp its two main features: C-like arrays and the functions that work on them.</p>
-          <h3 id="the-array-type">The Array Type<a class="fa fa-anchor" href="#the-array-type"></a></h3>
-          <p>NumPy is built around its <code>array</code> type (an alias for <code>ndarray</code>, hinting at its multidimensional nature). Unlike Python lists, elements of <code>array</code> instances are stored in memory contiguously, reducing interpreter
-            overhead and enabling parallel operations.</p>
-          <p>An <code>array</code> object can be initialised from iterables or nested lists through <code>np.array</code> (assuming NumPy has been imported as <code>np</code>, as is usually done in production code, and which will be assumed in the rest of
-            this article):
-          </p>
-          <pre><code class="hljs python"><span>a = np.array([<span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>]) <span class="hljs-comment"># 1D array</span></span><span>b = np.array([[<span class="hljs-number">8</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>]]) <span class="hljs-comment"># 2D array</span></span></code></pre>
-          <p>By default, these arrays are indexed in C order (last index changes fastest), as can be illustrated by invoking the <code>reshape</code> array method:</p>
-          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array(range(<span class="hljs-number">27</span>)).reshape((<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>))</span><span>array([[[ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>],</span><span>        [ <span class="hljs-number">3</span>,  <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>],</span><span>        [ <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>,  <span class="hljs-number">8</span>]],</span><span>&#x200B;</span><span>       [[ <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>],</span><span>        [<span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>],</span><span>        [<span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">17</span>]],</span><span>&#x200B;</span><span>       [[<span class="hljs-number">18</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>],</span><span>        [<span class="hljs-number">21</span>, <span class="hljs-number">22</span>, <span class="hljs-number">23</span>],</span><span>        [<span class="hljs-number">24</span>, <span class="hljs-number">25</span>, <span class="hljs-number">26</span>]]])</span></code></pre>
-          <p>Otherwise, indexing is mostly as in standard Python, with the convenience that extra square brackets can be omitted for multi-<em>axis</em> (array coordinate) indexing, so <code>a[0][1:][2]</code> becomes <code>a[0,1:,2]</code>. See <a href="https://numpy.org/devdocs/reference/arrays.indexing.html">this page</a>            for a more detailed explanation.</p>
-          <h3 id="library-functions">Library Functions<a class="fa fa-anchor" href="#library-functions"></a></h3>
-          <p>In addition to its array type, NumPy provides a large <a href="https://numpy.org/devdocs/reference/routines.html">library</a> for manipulating arrays. These include:</p>
+          <p>Transcribing array-based mathematics into NumPy is also made simpler by the many array functions and operators
+            in its library. Not only is the code clearer – a Python virtue – but it can reduce development and debugging time.</p>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># A and B are 2-by-2 matrices, c is a scalar</span><br></span><span>A = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">3</span>]])<br></span><span>B = np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">-3</span>]])<br></span><span>c = <span class="hljs-number">2</span><br></span><span><br></span><span>c * A <span class="hljs-comment"># scalar multiplication</span><br></span><span>A @ B <span class="hljs-comment"># matrix multiplication</span><br></span><span>A &gt; B <span class="hljs-comment"># compare A and B elementwise</span><br></span><span>B.T <span class="hljs-comment"># matrix transpose</span><br></span></code></pre>
+          <p>The downside to these benefits is a large memory footprint: NumPy's performance depends on compiled C and Fortran code,
+            so it may not be suitable for embedded systems. All elements of a NumPy array must also be of <em>the same</em> type,
+            a primitive C type or something similar to one, for the rest of NumPy to work well; in particular Python integers
+            are treated as generic Python objects if they are too large, negating speed improvements, while strings have to be
+            interpreted as character arrays.</p>
+          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array([<span class="hljs-number">1.5</span>, <span class="hljs-string">"a"</span>])<br></span><span>array([<span class="hljs-string">'1.5'</span>, <span class="hljs-string">'a'</span>], dtype=<span class="hljs-string">'&lt;U32'</span>) <span class="hljs-comment"># not a numeric type!</span><br></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array([<span class="hljs-number">10</span> ** <span class="hljs-number">20</span>, <span class="hljs-number">1</span>])<br></span><span>array([<span class="hljs-number">100000000000000000000</span>, <span class="hljs-number">1</span>], dtype=object)<br></span></code></pre>
+          <p>Another limitation occurs when resizing arrays. In most cases, enlarging an array creates a new copy, like in C,
+            rather than simply making space for the new cells like in Python. Memory has to be managed manually for code that
+            works with data at scale.</p>
+          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>A = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">-3</span>]])<br></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>B = np.append(A, [[<span class="hljs-number">-3</span>], [<span class="hljs-number">1</span>]], axis=<span class="hljs-number">1</span>) <span class="hljs-comment"># creates a new object</span><br></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>B[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>] += <span class="hljs-number">1</span><br></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>A<br></span><span>array([[ <span class="hljs-number">5</span>,  <span class="hljs-number">0</span>],<br></span><span>       [<span class="hljs-number">-1</span>, <span class="hljs-number">-3</span>]]) <span class="hljs-comment"># not modified</span><br></span></code></pre>
+          <h2 id="internals-of-numpy">Internals of NumPy<a class="fa fa-anchor" href="#internals-of-numpy" onclick="event.stopPropagation()"></a></h2>
+          <p>Although NumPy overall is an intricate language, you should be able to easily grasp its two main features:
+            C-like arrays and the functions that work on them.</p>
+          <h3 id="the-array-type">The Array Type<a class="fa fa-anchor" href="#the-array-type" onclick="event.stopPropagation()"></a></h3>
+          <p>NumPy is built around its <code>array</code> type (an alias for <code>ndarray</code>, hinting at its multidimensional nature). Unlike Python
+            lists, elements of <code>array</code> instances are stored in memory contiguously, reducing interpreter overhead
+            and enabling parallel operations.</p>
+          <p>An <code>array</code> object can be initialised from iterables or nested lists through <code>np.array</code> (assuming NumPy has been
+            imported as <code>np</code>, as is usually done in production code, and which will be assumed in the rest of this article):</p>
+          <pre><code class="hljs python"><span>a = np.array([<span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>]) <span class="hljs-comment"># 1D array</span><br></span><span>b = np.array([[<span class="hljs-number">8</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>]]) <span class="hljs-comment"># 2D array</span><br></span></code></pre>
+          <p>By default, these arrays are indexed in C order (last index changes fastest), as can be illustrated by
+            invoking the <code>reshape</code> array method:</p>
+          <pre><code class="hljs python"><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.array(range(<span class="hljs-number">27</span>)).reshape((<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>))<br></span><span>array([[[ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>],<br></span><span>        [ <span class="hljs-number">3</span>,  <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>],<br></span><span>        [ <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>,  <span class="hljs-number">8</span>]],<br></span><span><br></span><span>       [[ <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>],<br></span><span>        [<span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>],<br></span><span>        [<span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">17</span>]],<br></span><span><br></span><span>       [[<span class="hljs-number">18</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>],<br></span><span>        [<span class="hljs-number">21</span>, <span class="hljs-number">22</span>, <span class="hljs-number">23</span>],<br></span><span>        [<span class="hljs-number">24</span>, <span class="hljs-number">25</span>, <span class="hljs-number">26</span>]]])<br></span></code></pre>
+          <p>Otherwise, indexing is mostly as in standard Python, with the convenience that extra square brackets can be
+            omitted for multi-<em>axis</em> (array coordinate) indexing, so <code>a[0][1:][2]</code> becomes <code>a[0,1:,2]</code>.
+            See <a href="https://numpy.org/devdocs/reference/arrays.indexing.html">this page</a> for a more detailed explanation.</p>
+          <h3 id="library-functions">Library Functions<a class="fa fa-anchor" href="#library-functions" onclick="event.stopPropagation()"></a></h3>
+          <p>In addition to its array type, NumPy provides a large <a href="https://numpy.org/devdocs/reference/routines.html">library</a>
+            for manipulating arrays. These include:</p>
           <ul>
             <li><a href="https://numpy.org/devdocs/reference/routines.array-creation.html">creating special types of arrays</a></li>
             <li><a href="https://numpy.org/devdocs/reference/routines.sort.html">sorting and searching</a></li>
@@ -381,36 +394,51 @@
             <li><a href="https://numpy.org/devdocs/reference/routines.linalg.html">linear algebra</a></li>
             <li><a href="https://numpy.org/devdocs/reference/routines.math.html">other mathematical functions</a></li>
           </ul>
-          <pre><code class="hljs python"><span><span class="hljs-comment"># Example: solve a system of linear equations with NumPy</span></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>A = np.array([[<span class="hljs-number">9</span>, <span class="hljs-number">-9</span>, <span class="hljs-number">-10</span>], [<span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">-4</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">-9</span>]])</span><span><span class="hljs-meta">&gt;&gt;&gt; </span>b = np.array([<span class="hljs-number">-3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">-7</span>])</span><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.linalg.solve(A, b)</span><span>array([<span class="hljs-number">0.95958854</span>, <span class="hljs-number">0.22997796</span>, <span class="hljs-number">0.95664952</span>])</span></code></pre>
-          <p>Many of these functions work equally well on one-dimensional arrays as they do on 11-dimensional ones due to the compiled binaries. Many can take in standard Python nested lists, automatically converting them to NumPy's array type before proceeding.
-            Some functions also accept extra arguments that refine the parts of arrays they work on or the values they return, allowing finer control beyond indexing and slicing. The <code>axis</code> argument in <code>np.mean</code>
+          <pre><code class="hljs python"><span><span class="hljs-comment"># Example: solve a system of linear equations with NumPy</span><br></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>A = np.array([[<span class="hljs-number">9</span>, <span class="hljs-number">-9</span>, <span class="hljs-number">-10</span>], [<span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">-4</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">-9</span>]])<br></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>b = np.array([<span class="hljs-number">-3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">-7</span>])<br></span><span><span class="hljs-meta">&gt;&gt;&gt; </span>np.linalg.solve(A, b)<br></span><span>array([<span class="hljs-number">0.95958854</span>, <span class="hljs-number">0.22997796</span>, <span class="hljs-number">0.95664952</span>])<br></span></code></pre>
+          <p>Many of these functions work equally well on one-dimensional arrays as they do on 11-dimensional ones due to the
+            compiled binaries. Many can take in standard Python nested lists, automatically converting them to NumPy's
+            array type before proceeding. Some functions also accept extra arguments that refine the parts of arrays they work on
+            or the values they return, allowing finer control beyond indexing and slicing. The <code>axis</code> argument in <code>np.mean</code>
             <a href="#numpys-benefits-and-drawbacks">above</a> is an example.</p>
           <p>For even faster programs, it is possible to interact with external C libraries through NumPy's
-            <a href="https://numpy.org/devdocs/reference/c-api/index.html">application programming interface</a>, but this is not needed for general use. The primary reason for exposing such a functionality is the continuing widespread use of C libraries
+            <a href="https://numpy.org/devdocs/reference/c-api/index.html">application programming interface</a>, but this is not needed
+            for general use. The primary reason for exposing such a functionality is the continuing widespread use of C libraries
             in mathematics and physics.</p>
-          <h2 id="tutorials-and-resources">Tutorials and Resources<a class="fa fa-anchor" href="#tutorials-and-resources"></a></h2>
-          <p>Where can you get started with learning NumPy, then? The <a href="https://numpy.org/devdocs/user/index.html">NumPy User Guide</a> contains several tutorials for programmers of all abilities, including the following:</p>
+          <h2 id="tutorials-and-resources">Tutorials and Resources<a class="fa fa-anchor" href="#tutorials-and-resources" onclick="event.stopPropagation()"></a></h2>
+          <p>Where can you get started with learning NumPy, then? The <a href="https://numpy.org/devdocs/user/index.html">NumPy User Guide</a>
+            contains several tutorials for programmers of all abilities, including the following:</p>
           <ul>
-            <li><a href="https://numpy.org/devdocs/user/absolute_beginners.html">NumPy: the absolute basics for beginners</a> introduces the array type.</li>
-            <li><a href="https://numpy.org/devdocs/user/basics.html">NumPy basics</a> goes into slightly more advanced topics, such as broadcasting (the mechanism for interpreting operations between differently sized arrays, or between arrays and scalars).</li>
-            <li>The <a href="https://numpy.org/devdocs/user/quickstart.html">quickstart</a> encompasses both the above tutorials, fits on one page and also has handy links to commonly used functions.</li>
+            <li><a href="https://numpy.org/devdocs/user/absolute_beginners.html">NumPy: the absolute basics for beginners</a> introduces the
+              array type.</li>
+            <li><a href="https://numpy.org/devdocs/user/basics.html">NumPy basics</a> goes into slightly more advanced topics, such as
+              broadcasting (the mechanism for interpreting operations between differently sized arrays, or between arrays
+              and scalars).</li>
+            <li>The <a href="https://numpy.org/devdocs/user/quickstart.html">quickstart</a> encompasses both the above tutorials, fits on
+              one page and also has handy links to commonly used functions.</li>
             <li>A tutorial on doing <a href="https://numpy.org/devdocs/user/tutorial-svd.html">some linear algebra with NumPy</a>.</li>
-            <li><a href="https://numpy.org/devdocs/user/numpy-for-matlab-users.html">A cheat sheet</a> for programmers coming from MATLAB, another array-based programming language.</li>
+            <li><a href="https://numpy.org/devdocs/user/numpy-for-matlab-users.html">A cheat sheet</a> for programmers coming from MATLAB,
+              another array-based programming language.</li>
           </ul>
           <hr>
           <p>In practice, NumPy is not often used alone, but rather as part of what NumPy's documentation calls a <em>scientific
-Python distribution</em>, which also includes several NumPy dependents. The most widely used such distribution is
+              Python distribution</em>, which also includes several NumPy dependents. The most widely used such distribution is
             <a href="https://www.anaconda.com/distribution">Anaconda</a>.</p>
-          <p>Some of these dependents are listed below, with links to tutorials that themselves use NumPy to drive their high-level routines. Reading them may illuminate your journey in understanding and the underlying array language.</p>
+          <p>Some of these dependents are listed below, with links to tutorials that themselves use NumPy to drive their high-level
+            routines. Reading them may illuminate your journey in understanding and the underlying array language.</p>
           <ul>
-            <li><a href="https://matplotlib.org/tutorials/index.html">matplotlib</a>: produces plots of all kinds. Input to the plotting functions is typically in the form of NumPy arrays.</li>
-            <li><a href="https://docs.scipy.org/doc/scipy/reference/tutorial/general.html">SciPy</a>: essentially a more elaborated NumPy with computationally intensive routines for tasks such as optimisation and image processing.</li>
+            <li><a href="https://matplotlib.org/tutorials/index.html">matplotlib</a>: produces plots of all kinds. Input to the plotting
+              functions is typically in the form of NumPy arrays.</li>
+            <li><a href="https://docs.scipy.org/doc/scipy/reference/tutorial/general.html">SciPy</a>: essentially a more elaborated NumPy
+              with computationally intensive routines for tasks such as optimisation and image processing.</li>
             <li><a href="https://scikit-learn.org/stable/tutorial/basic/tutorial.html">scikit-learn</a>: like SciPy, but for machine learning.</li>
             <li><a href="https://pandas.pydata.org/docs/getting_started/10min.html">pandas</a>: uses NumPy in its <code>DataFrame</code> object.</li>
-            <li><a href="https://numba.pydata.org/numba-doc/latest/user/5minguide.html">Numba</a>: heavily relies on the contingency offered by NumPy objects to enable massively parallel computation.</li>
+            <li><a href="https://numba.pydata.org/numba-doc/latest/user/5minguide.html">Numba</a>: heavily relies on the contingency offered
+              by NumPy objects to enable massively parallel computation.</li>
           </ul>
         </div>
       </div>
+
+
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
@@ -433,7 +461,7 @@ Python distribution</em>, which also includes several NumPy dependents. The most
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Tue, Apr 14, 2020, 2:53:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sat, Apr 18, 2020, 9:37:46 AM UTC]</small></div>
     </footer>
   </div>
 </body>

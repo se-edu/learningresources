@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.13.1">
+  <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Java Synchronization</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../markbind/css/octicons.css">
   <link rel="stylesheet" href="../../markbind/css/github.min.css">
   <link rel="stylesheet" href="../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
   <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
   <link rel="stylesheet" href="../../markbind/css/site-nav.css">
   <link rel="stylesheet" href="../../markbind/css/page-nav.css">
@@ -51,273 +52,272 @@
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-<ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
-          </button>
-          <div class="dropdown-container dropdown-container-open">
-            <ul class="pl-3 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn">C++
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn">CSharp
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Java
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <ul class="px-0 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a current">Java Synchronization</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">C++
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">CSharp
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Java
+                        <i class="dropdown-btn-icon rotate-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container dropdown-container-open">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a current">Java Synchronization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">JavaScript
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Kotlin
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Python
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">JavaScript
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Architecture
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Project Management
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Revision Control
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Testing
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Kotlin
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Python
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Databases
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Security
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Shell
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
             </ul>
-          </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><button class="dropdown-btn">Architecture
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Code Quality
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Performance
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Project Management
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Revision Control
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Static Analysis
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Testing
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">UI/UX
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Databases
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Security
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Shell
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          </ul>
-          </span>
-        </div>
+          </span></div>
       </nav>
+
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="java-synchronization">Java Synchronization<a class="fa fa-anchor" href="#java-synchronization"></a></h1>
+          <h1 id="java-synchronization">Java Synchronization<a class="fa fa-anchor" href="#java-synchronization" onclick="event.stopPropagation()"></a></h1>
           <p>Authors: <a href="https://github.com/boxin-yang">Boxin</a></p>
           <box id="article-toc">
             <ul>
@@ -344,69 +344,52 @@
             </ul>
           </box>
 
-          <h1 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction"></a></h1>
-          <p>Java Synchronization is the Java implementation of <a href="https://en.wikipedia.org/wiki/Monitor_(synchronization)">Monitor</a>. The Monitor is used with [parallel threads][2] to ensure [mutual exclusion][3] in [critical section][4]. It is
-            a mechanism to ensure [thread safety][5] when parallel threads are accessing shared data of an object.</p>
-          <p>Java builds Monitor into [Java Object][6] and each object is itself a Monitor. Although Java has also implemented other mechanisms such as [Semaphore][7] in Java 5, Java Monitor is more widely used since it is supported in the first version
-            of Java. In this tutorial, we will go through Java Synchronization in terms of basic syntax, useful features and best practice.</p>
-          <h1 id="basic-syntax">Basic Syntax<a class="fa fa-anchor" href="#basic-syntax"></a></h1>
-          <p>Java Synchronization is done by using keyword <strong>synchronized</strong>. It is commonly used in two forms: <em>synchronized statement</em> and <em>synchronized method</em>. We will use example codes to illustrate how synchronized keyword
-            is used.</p>
-          <h2 id="synchronized-statement">Synchronized Statement<a class="fa fa-anchor" href="#synchronized-statement"></a></h2>
+          <h1 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction" onclick="event.stopPropagation()"></a></h1>
+          <p>Java Synchronization is the Java implementation of <a href="https://en.wikipedia.org/wiki/Monitor_(synchronization)">Monitor</a>. The Monitor is used with [parallel threads][2] to ensure [mutual exclusion][3] in [critical section][4]. It is a mechanism to ensure [thread safety][5] when parallel threads are accessing shared data of an object.</p>
+          <p>Java builds Monitor into [Java Object][6] and each object is itself a Monitor. Although Java has also implemented other mechanisms such as [Semaphore][7] in Java 5, Java Monitor is more widely used since it is supported in the first version of Java. In this tutorial, we will go through Java Synchronization in terms of basic syntax, useful features and best practice.</p>
+          <h1 id="basic-syntax">Basic Syntax<a class="fa fa-anchor" href="#basic-syntax" onclick="event.stopPropagation()"></a></h1>
+          <p>Java Synchronization is done by using keyword <strong>synchronized</strong>. It is commonly used in two forms: <em>synchronized statement</em> and <em>synchronized method</em>. We will use example codes to illustrate how synchronized keyword is used.</p>
+          <h2 id="synchronized-statement">Synchronized Statement<a class="fa fa-anchor" href="#synchronized-statement" onclick="event.stopPropagation()"></a></h2>
           <p>Let us look at the following code snippet to understand synchronized statement:</p>
-          <pre><code class="hljs"><span>synchronized(object) {</span><span>	// critical section</span><span>}</span></code></pre>
-          <p>The <strong>synchronized</strong> keyword takes in an <strong>object</strong> as an argument and uses brackets to enclose the <strong>critical section</strong> that accesses object data. In the code above, the <strong>object</strong> argument
-            is the object to be used as the Monitor. When <strong>critical section</strong> is executed, the <strong>object Monitor</strong> locks all data of the object and only the <strong>critical section</strong>in the synchronized block can access
-            data of the
-            <strong>object</strong>. When the execution of <strong>critical section</strong> finishes on a certain thread, the thread gives up the <strong>object Monitor</strong> lock and other threads can access the data of <strong>object</strong>. Therefore,
-            as long as <strong>critical section</strong> is included in a synchronized block of a <strong>object Monitor</strong>, data of the object is guaranteed to be thread safe.</p>
-          <h2 id="synchronized-method">Synchronized Method<a class="fa fa-anchor" href="#synchronized-method"></a></h2>
+          <pre><code class="hljs"><span>synchronized(object) {<br></span><span>	// critical section<br></span><span>}<br></span></code></pre>
+          <p>The <strong>synchronized</strong> keyword takes in an <strong>object</strong> as an argument and uses brackets to enclose the <strong>critical section</strong> that accesses object data. In the code above, the <strong>object</strong> argument is the object to be used as the Monitor. When <strong>critical section</strong> is executed, the <strong>object Monitor</strong> locks all data of the object and only the <strong>critical section</strong>in the synchronized block can access data of the <strong>object</strong>. When the execution of <strong>critical section</strong> finishes on a certain thread, the thread gives up the <strong>object Monitor</strong> lock and other threads can access the data of <strong>object</strong>. Therefore, as long as <strong>critical section</strong> is included in a synchronized block of a <strong>object Monitor</strong>, data of the object is guaranteed to be thread safe.</p>
+          <h2 id="synchronized-method">Synchronized Method<a class="fa fa-anchor" href="#synchronized-method" onclick="event.stopPropagation()"></a></h2>
           <p>Another common way to use <strong>synchronized</strong> functionality is called <strong>synchronized method</strong>. The following code snippet is an example.</p>
-          <pre><code class="hljs"><span>public synchronized void foo() {</span><span>	// method code</span><span>}</span></code></pre>
-          <p>In this example, <strong>synchronized</strong> is used as a method modifier to indicate that the method is synchronized. In the case of a synchronized method, all the content in the method is considered as <strong>critical section</strong> and
-            the Monitor object used is dependent on the method. If the method is an instance method, then the Monitor object used is <strong>this</strong> instance. If the method is a class method, then the Monitor object used is a special class object
-            initialized during run time for each class. The equivalence of the above code is:</p>
-          <pre><code class="hljs"><span>public void foo() {</span><span>	synchronized(this) {</span><span>		// method code</span><span>	}</span><span>}</span></code></pre>
-          <h1 id="more-features-of-java-synchronization">More Features of Java Synchronization<a class="fa fa-anchor" href="#more-features-of-java-synchronization"></a></h1>
+          <pre><code class="hljs"><span>public synchronized void foo() {<br></span><span>	// method code<br></span><span>}<br></span></code></pre>
+          <p>In this example, <strong>synchronized</strong> is used as a method modifier to indicate that the method is synchronized. In the case of a synchronized method, all the content in the method is considered as <strong>critical section</strong> and the Monitor object used is dependent on the method. If the method is an instance method, then the Monitor object used is <strong>this</strong> instance. If the method is a class method, then the Monitor object used is a special class object initialized during run time for each class. The equivalence of the above code is:</p>
+          <pre><code class="hljs"><span>public void foo() {<br></span><span>	synchronized(this) {<br></span><span>		// method code<br></span><span>	}<br></span><span>}<br></span></code></pre>
+          <h1 id="more-features-of-java-synchronization">More Features of Java Synchronization<a class="fa fa-anchor" href="#more-features-of-java-synchronization" onclick="event.stopPropagation()"></a></h1>
           <p>Besides synchronized keyword to guard a critical section, another important feature of Java Synchronization is <strong>wait()</strong> and <strong>notify()</strong>.</p>
-          <h2 id="wait-and-notifyall">wait() and notifyAll()<a class="fa fa-anchor" href="#wait-and-notifyall"></a></h2>
-          <p>In a synchronized block, sometimes some conditions are required for execution. If such conditions are not met, wait() method can be used to give up the Monitor object lock and put the current thread into a * callback queue** once the conditions
-            are met. Let us use the following code as an example.</p>
-          <pre><code class="hljs"><span>public synchronized void eatChicken() {</span><span>	while (!hasChicken) {</span><span>		wait();</span><span>	}</span><span>	eat();</span><span>	hasChicken = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void cookChicken() {</span><span>	hasChicken = true;</span><span>	notifyAll();</span><span>}</span></code></pre>
-          <p>In method eatChicken, the condition of hasChicken must be true before eat() can take place. However, instead of terminating the method, the program can call wait() and then this thread is put into a * callback queue**. When some other threads
-            change the conditions, in this case, if cookChicken() method produces chicken and the condition for eatChicken() might be changed, cookChicken() can call notifyAll(). notifyALl() wakes up one by one all the threads in the * callback queue**
-            associated with the Monitor object used to by coooChicken(). In this case, eatChicken() is woken up and eatChicken() gains Monitor object lock and starts execution from wait() onwards. This is basically how wait() and notifyAll() work in Java.
-            However, here are some points to take notes to use them correctly.</p>
-          <h3 id="understand-which-object-is-used-as-monitor">Understand Which Object is Used as Monitor<a class="fa fa-anchor" href="#understand-which-object-is-used-as-monitor"></a></h3>
-          <p>As described from the very beginning, all the synchronized feature is associated with a Monitor object as a lock. This is also true for wait() and notifyAll(). The Monitor object associated with wait() and notifyAll() is the Monitor object associated
-            with the synchronized block that calls wait() and notifyAll(). When wait() is called, the current thread pull is put into the callback queue of the Monitor object of the synchronized block. When notifyAll() is called, only threads waiting
-            in the Monitor object queue associated with notifyAll() will be notified. Therefore, in the above example of eatChicken() and cookChick(), the wait() and notifyAll() will only work if both eatChicken() and cookChicken() are associated with
-            the same Monitor object.
-          </p>
-          <h3 id="check-condition-for-wait-with-while-loop">Check Condition for wait() With While Loop<a class="fa fa-anchor" href="#check-condition-for-wait-with-while-loop"></a></h3>
-          <p>wait() is usually used to check condition(e.g. hasChicken in the method eatChicken()). It is a good practice to always use wait() inside a while loop to check for the condition. This is to avoid the situation in which thread is woken for an
-            unintended purpose. The example below illustrates this situation:</p>
-          <pre><code class="hljs"><span>public synchronized void eatChicken() {</span><span>	if (!hasChicken) {</span><span>		wait();</span><span>	}</span><span>	eat();</span><span>	hasChicken = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void drink() {</span><span>	if (!hasDrink) {</span><span>		wait();</span><span>	}</span><span>	drink();</span><span>	hasDrink = false;</span><span>}</span><span>&#x200B;</span><span>public synchronized void cookChicken() {</span><span>	hasChicken = true;</span><span>	notifyAll();</span><span>}</span><span>&#x200B;</span><span>public synchronized void prepareDrink() {</span><span>	hasDrink = true;</span><span>	notifyAll();</span><span>}</span></code></pre>
-          <p>In this example, all four synchronized methods are associated with the same Monitor object. When both eatChicken() and drink() are called and are both put into the callback queue because current hasChicken is false and hasDrink is false, calling
-            notifyAll() from cookChicken() will wake up both drink() and eatChicken() one after another. If while loop is not used to check for the condition, both drink() and eatChicken() will execute and the execution of drink() is not intended. However,
-            instead if while loop is used to check for the condition, when drink() is woken, hasDrink will be checked again and drink() will call wait() again. One alternative solution is to make sure all wait() and notifyAll() associated with the same
-            Monitor object are checking the same conditions. However, this is hard to maintain and verify.</p>
-          <h3 id="breakpoint-of-notifyall">Breakpoint of notifyAll()<a class="fa fa-anchor" href="#breakpoint-of-notifyall"></a></h3>
+          <h2 id="wait-and-notifyall">wait() and notifyAll()<a class="fa fa-anchor" href="#wait-and-notifyall" onclick="event.stopPropagation()"></a></h2>
+          <p>In a synchronized block, sometimes some conditions are required for execution. If such conditions are not met, wait() method can be used to give up the Monitor object lock and put the current thread into a * callback queue** once the conditions are met. Let us use the following code as an example.</p>
+          <pre><code class="hljs"><span>public synchronized void eatChicken() {<br></span><span>	while (!hasChicken) {<br></span><span>		wait();<br></span><span>	}<br></span><span>	eat();<br></span><span>	hasChicken = false;<br></span><span>}<br></span><span><br></span><span>public synchronized void cookChicken() {<br></span><span>	hasChicken = true;<br></span><span>	notifyAll();<br></span><span>}<br></span></code></pre>
+          <p>In method eatChicken, the condition of hasChicken must be true before eat() can take place. However, instead of terminating the method, the program can call wait() and then this thread is put into a * callback queue**. When some other threads change the conditions, in this case, if cookChicken() method produces chicken and the condition for eatChicken() might be changed, cookChicken() can call notifyAll(). notifyALl() wakes up one by one all the threads in the * callback queue** associated with the Monitor object used to by coooChicken(). In this case, eatChicken() is woken up and eatChicken() gains Monitor object lock and starts execution from wait() onwards. This is basically how wait() and notifyAll() work in Java. However, here are some points to take notes to use them correctly.</p>
+          <h3 id="understand-which-object-is-used-as-monitor">Understand Which Object is Used as Monitor<a class="fa fa-anchor" href="#understand-which-object-is-used-as-monitor" onclick="event.stopPropagation()"></a></h3>
+          <p>As described from the very beginning, all the synchronized feature is associated with a Monitor object as a lock. This is also true for wait() and notifyAll(). The Monitor object associated with wait() and notifyAll() is the Monitor object associated with the synchronized block that calls wait() and notifyAll().
+            When wait() is called, the current thread pull is put into the callback queue of the Monitor object of the synchronized block. When notifyAll() is called, only threads waiting in the Monitor object queue associated with notifyAll() will be notified. Therefore, in the above example of eatChicken() and cookChick(), the wait() and notifyAll() will only work if both eatChicken() and cookChicken() are associated with the same Monitor object.</p>
+          <h3 id="check-condition-for-wait-with-while-loop">Check Condition for wait() With While Loop<a class="fa fa-anchor" href="#check-condition-for-wait-with-while-loop" onclick="event.stopPropagation()"></a></h3>
+          <p>wait() is usually used to check condition(e.g. hasChicken in the method eatChicken()). It is a good practice to always use wait() inside a while loop to check for the condition. This is to avoid the situation in which thread is woken for an unintended purpose. The example below illustrates this situation:</p>
+          <pre><code class="hljs"><span>public synchronized void eatChicken() {<br></span><span>	if (!hasChicken) {<br></span><span>		wait();<br></span><span>	}<br></span><span>	eat();<br></span><span>	hasChicken = false;<br></span><span>}<br></span><span><br></span><span>public synchronized void drink() {<br></span><span>	if (!hasDrink) {<br></span><span>		wait();<br></span><span>	}<br></span><span>	drink();<br></span><span>	hasDrink = false;<br></span><span>}<br></span><span><br></span><span>public synchronized void cookChicken() {<br></span><span>	hasChicken = true;<br></span><span>	notifyAll();<br></span><span>}<br></span><span><br></span><span>public synchronized void prepareDrink() {<br></span><span>	hasDrink = true;<br></span><span>	notifyAll();<br></span><span>}<br></span></code></pre>
+          <p>In this example, all four synchronized methods are associated with the same Monitor object. When both eatChicken() and drink() are called and are both put into the callback queue because current hasChicken is false and hasDrink is false, calling notifyAll() from cookChicken() will wake up both drink() and eatChicken() one after another. If while loop is not used to check for the condition, both drink() and eatChicken() will execute and the execution of drink() is not intended.
+            However, instead if while loop is used to check for the condition, when drink() is woken, hasDrink will be checked again and drink() will call wait() again. One alternative solution is to make sure all wait() and notifyAll() associated with the same Monitor object are checking the same conditions. However, this is hard to maintain and verify.</p>
+          <h3 id="breakpoint-of-notifyall">Breakpoint of notifyAll()<a class="fa fa-anchor" href="#breakpoint-of-notifyall" onclick="event.stopPropagation()"></a></h3>
           <p>One important point to take note when using notifyAll() is to understand what happens when notify all is called and how code gives up its Monitor object lock. Taking the following code snippet as an example:</p>
-          <pre><code class="hljs"><span>public synchronized void foo() {</span><span>	before();</span><span>	notifyAll();</span><span>	after();</span><span>}</span></code></pre>
-          <p>When synchronized method foo() is called, it calls notifyAll() before after(). However, after notifyAll() is called, the method foo() does not give up Monitor object lock immediately. Instead, all codes in the synchronized block(in this case
-            the method body) will be executed before the thread gives up the Monitor object lock and notifies all the threads in the callback queue.</p>
-          <h2 id="notify">notify()<a class="fa fa-anchor" href="#notify"></a></h2>
-          <p>Another feature of synchronized is notify(), which notifies only one thread in the callback queue. This method is less used than notifyAll() because notify() only wakes up one randomly chosen thread from callback queue and it is hard to assert
-            that the thread woken up is the intended thread. However, there are special situations in which notify() is used and is preferred. When all threads that call wait() are checking for the same condition, it is no different to call anyone of
-            the thread. notify() can be used in this situation and is better than nofityAll() because notifyAll() wake up all the threads and is, therefore, more costly. When one can be sure that all the threads in the callback queue are waiting for the
-            same condition, one can use notify().</p>
-          <h1 id="related-areas">Related Areas<a class="fa fa-anchor" href="#related-areas"></a></h1>
-          <p>Java Synchronization as demonstrated in this tutorial is easy to learn, and you are ready to use it after this tutorial. However, Java Synchronization is just a part of a bigger picture: Parallel programs in Java. To fully exploits the parallelism
-            brought by modern hardware, you may also want to learn [Java Thread][2] and [Thread Safety][5]</p>
-          <p>[2]: to be updated when @ablyx finishes on java threads [3]: <a href="https://en.wikipedia.org/wiki/Mutual_exclusion">https://en.wikipedia.org/wiki/Mutual_exclusion</a> [4]: <a href="https://en.wikipedia.org/wiki/Critical_section">https://en.wikipedia.org/wiki/Critical_section</a>            [5]: <a href="https://en.wikipedia.org/wiki/Thread_safety">https://en.wikipedia.org/wiki/Thread_safety</a> [6]: <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html</a>            [7]: <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">https://en.wikipedia.org/wiki/Semaphore_(programming)</a></p>
+          <pre><code class="hljs"><span>public synchronized void foo() {<br></span><span>	before();<br></span><span>	notifyAll();<br></span><span>	after();<br></span><span>}<br></span></code></pre>
+          <p>When synchronized method foo() is called, it calls notifyAll() before after(). However, after notifyAll() is called, the method foo() does not give up Monitor object lock immediately. Instead, all codes in the synchronized block(in this case the method body) will be executed before the thread gives up the Monitor object lock and notifies all the threads in the callback queue.</p>
+          <h2 id="notify">notify()<a class="fa fa-anchor" href="#notify" onclick="event.stopPropagation()"></a></h2>
+          <p>Another feature of synchronized is notify(), which notifies only one thread in the callback queue. This method is less used than notifyAll() because notify() only wakes up one randomly chosen thread from callback queue and it is hard to assert that the thread woken up is the intended thread. However, there are special situations in which notify() is used and is preferred. When all threads that call wait() are checking for the same condition, it is no different to call anyone of the thread. notify() can be used in this situation and is better than nofityAll() because notifyAll() wake up all the threads and is, therefore, more costly. When one can be sure that all the threads in the callback queue are waiting for the same condition, one can use notify().</p>
+          <h1 id="related-areas">Related Areas<a class="fa fa-anchor" href="#related-areas" onclick="event.stopPropagation()"></a></h1>
+          <p>Java Synchronization as demonstrated in this tutorial is easy to learn, and you are ready to use it after this tutorial. However, Java Synchronization is just a part of a bigger picture: Parallel programs in Java. To fully exploits the parallelism brought by modern hardware, you may also want to learn [Java Thread][2] and [Thread Safety][5]</p>
+          <p>[2]: to be updated when @ablyx finishes on java threads
+            [3]: <a href="https://en.wikipedia.org/wiki/Mutual_exclusion">https://en.wikipedia.org/wiki/Mutual_exclusion</a>
+            [4]: <a href="https://en.wikipedia.org/wiki/Critical_section">https://en.wikipedia.org/wiki/Critical_section</a>
+            [5]: <a href="https://en.wikipedia.org/wiki/Thread_safety">https://en.wikipedia.org/wiki/Thread_safety</a>
+            [6]: <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html</a>
+            [7]: <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">https://en.wikipedia.org/wiki/Semaphore_(programming)</a></p>
         </div>
       </div>
+
+
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
@@ -436,7 +419,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Tue, Apr 14, 2020, 2:53:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sat, Apr 18, 2020, 9:37:46 AM UTC]</small></div>
     </footer>
   </div>
 </body>

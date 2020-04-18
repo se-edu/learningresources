@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.13.1">
+  <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Null Safety in Kotlin</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../markbind/css/octicons.css">
   <link rel="stylesheet" href="../../markbind/css/github.min.css">
   <link rel="stylesheet" href="../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
   <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
   <link rel="stylesheet" href="../../markbind/css/site-nav.css">
   <link rel="stylesheet" href="../../markbind/css/page-nav.css">
@@ -51,273 +52,272 @@
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-<ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
-          </button>
-          <div class="dropdown-container dropdown-container-open">
-            <ul class="pl-3 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn">C++
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn">CSharp
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-              <li class="mt-2"><button class="dropdown-btn">Java
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn">JavaScript
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Kotlin
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <ul class="px-0 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a current">Null Safety In Kotlin</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">C++
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">CSharp
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Java
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">JavaScript
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Kotlin
+                        <i class="dropdown-btn-icon rotate-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container dropdown-container-open">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a current">Null Safety In Kotlin</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Python
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Python
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Architecture
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Project Management
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Revision Control
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Testing
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Databases
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Security
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Shell
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
             </ul>
-          </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><button class="dropdown-btn">Architecture
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Code Quality
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Performance
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Project Management
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Revision Control
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Static Analysis
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Testing
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">UI/UX
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Databases
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Security
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Shell
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          </ul>
-          </span>
-        </div>
+          </span></div>
       </nav>
+
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="null-safety-in-kotlin">Null Safety in Kotlin<a class="fa fa-anchor" href="#null-safety-in-kotlin"></a></h1>
+          <h1 id="null-safety-in-kotlin">Null Safety in Kotlin<a class="fa fa-anchor" href="#null-safety-in-kotlin" onclick="event.stopPropagation()"></a></h1>
           <p>Author: <a href="https://github.com/Haozhe321">Pan Haozhe</a></p>
           <box id="article-toc">
             <ul>
@@ -344,77 +344,69 @@
           </box>
 
           <blockquote>
-            <p>“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with <strong>checking performed automatically by the compiler</strong>. But I couldn't
-              resist the temptation to put in a null reference, simply because it was so easy to implement.”<br> -Tony Hoare</p>
+            <p>“I call it my billion-dollar mistake. It was the invention of the null reference…My goal was to ensure that all use of references should be absolutely safe, with <strong>checking performed automatically by the compiler</strong>. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement.”<br>
+              -Tony Hoare</p>
           </blockquote>
           <p>This document explains Kotlin's null safety feature. For an overview of Kotlin, see <a href="/learningresources/contents/kotlin/kotlin.html">here</a>.</p>
-          <h1 id="what-is-null-safety">What is Null Safety?<a class="fa fa-anchor" href="#what-is-null-safety"></a></h1>
-          <p><em>Null Safety</em> (or <em>void safety</em>) is the guarantee that no object reference will have a <code>null</code> value. In object-oriented languages, access to objects is achieved through references. A typical function call is of the form
-            <code>object.func()</code>;
-            <code>object</code> denotes a reference to a certain object, and <code>func</code> denotes a function call. At execution time, the reference to <code>object</code> can be <code>void</code>, leading to run-time exceptions (In the case of Java,
-            a NullPointerException) and often abnormal termination of the program.</p>
-          <h2 id="nullpointerexception">NullPointerException<a class="fa fa-anchor" href="#nullpointerexception"></a></h2>
-          <p>When developing Android applications in Java, <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/NullPointerException.html">NullPointerException (NPE)</a> was a big problem. In fact, About <a href="https://image.slidesharecdn.com/droidcon-bugsense-130408170720-phpapp01/95/droid-con-bugsense-16-638.jpg?cb=1365440918">one third of app crashes can be attributed to NPE</a>.
-            To see how it happens, let's take a look at the piece of Java code below:</p>
-          <pre><code class="hljs java"><span>String a = <span class="hljs-keyword">null</span>;</span><span><span class="hljs-keyword">if</span>(a.length &gt; <span class="hljs-number">5</span>) {</span><span>    <span class="hljs-comment">//do something</span></span><span>}</span></code></pre>
+          <h1 id="what-is-null-safety">What is Null Safety?<a class="fa fa-anchor" href="#what-is-null-safety" onclick="event.stopPropagation()"></a></h1>
+          <p><em>Null Safety</em> (or <em>void safety</em>) is the guarantee that no object reference will have a <code>null</code> value.
+            In object-oriented languages, access to objects is achieved through references. A typical function call is of the form <code>object.func()</code>; <code>object</code> denotes a reference to a certain object, and <code>func</code> denotes a function call. At execution time, the reference to <code>object</code> can be <code>void</code>, leading to run-time exceptions (In the case of Java, a NullPointerException) and often abnormal termination of the program.</p>
+          <h2 id="nullpointerexception">NullPointerException<a class="fa fa-anchor" href="#nullpointerexception" onclick="event.stopPropagation()"></a></h2>
+          <p>When developing Android applications in Java, <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/NullPointerException.html">NullPointerException (NPE)</a> was a big problem. In fact, About <a href="https://image.slidesharecdn.com/droidcon-bugsense-130408170720-phpapp01/95/droid-con-bugsense-16-638.jpg?cb=1365440918">one third of app crashes can be attributed to NPE</a>. To see how it happens, let's take a look at the piece of Java code below:</p>
+          <pre><code class="hljs java"><span>String a = <span class="hljs-keyword">null</span>;<br></span><span><span class="hljs-keyword">if</span>(a.length &gt; <span class="hljs-number">5</span>) {<br></span><span>    <span class="hljs-comment">//do something</span><br></span><span>}<br></span></code></pre>
           <p>When the above code is run, an NPE will be thrown on line 2 because a <code>null</code> object has no methods. To prevent an object from taking on a <code>null</code> value, programmers typically resort to doing additional checks like this:</p>
-          <pre><code class="hljs java"><span>String a = <span class="hljs-keyword">null</span>;</span><span><span class="hljs-keyword">if</span>(a != <span class="hljs-keyword">null</span> &amp;&amp; a.length &gt; <span class="hljs-number">5</span>) {</span><span>        <span class="hljs-comment">//do something</span></span><span>}</span></code></pre>
+          <pre><code class="hljs java"><span>String a = <span class="hljs-keyword">null</span>;<br></span><span><span class="hljs-keyword">if</span>(a != <span class="hljs-keyword">null</span> &amp;&amp; a.length &gt; <span class="hljs-number">5</span>) {<br></span><span>        <span class="hljs-comment">//do something</span><br></span><span>}<br></span></code></pre>
           <p>And of course, that's all fine, until we want to do something more complex. Say Bob belongs to a department, and we want to get the name of the department manager. That will look like this:</p>
-          <pre><code class="hljs java"><span>String managerName = bob.department.manager.name;</span></code></pre>
+          <pre><code class="hljs java"><span>String managerName = bob.department.manager.name;<br></span></code></pre>
           <p>Because each variable can be <code>null</code>, to prevent the NPE we put the code in the following code block:</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">if</span>(bob != <span class="hljs-keyword">null</span>) {</span><span>    Department department = bob.department;</span><span>    <span class="hljs-keyword">if</span>(department != <span class="hljs-keyword">null</span>) {</span><span>        Employee manager = department.manager;</span><span>        <span class="hljs-keyword">if</span>(manager != <span class="hljs-keyword">null</span>) {</span><span>            String name = manager.name;</span><span>            <span class="hljs-keyword">if</span>(name != <span class="hljs-keyword">null</span>) {</span><span>                <span class="hljs-comment">//do something</span></span><span>            }</span><span>        }</span><span>    }</span><span>}</span></code></pre>
+          <pre><code class="hljs java"><span><span class="hljs-keyword">if</span>(bob != <span class="hljs-keyword">null</span>) {<br></span><span>    Department department = bob.department;<br></span><span>    <span class="hljs-keyword">if</span>(department != <span class="hljs-keyword">null</span>) {<br></span><span>        Employee manager = department.manager;<br></span><span>        <span class="hljs-keyword">if</span>(manager != <span class="hljs-keyword">null</span>) {<br></span><span>            String name = manager.name;<br></span><span>            <span class="hljs-keyword">if</span>(name != <span class="hljs-keyword">null</span>) {<br></span><span>                <span class="hljs-comment">//do something</span><br></span><span>            }<br></span><span>        }<br></span><span>    }<br></span><span>}<br></span></code></pre>
           <p>The deep-nested <code>if</code> statement reduces readability of our code.</p>
-          <p>The other way is to use <a href="https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html">Java Optionals</a>. For the first example above, we can do</p>
-          <pre><code class="hljs"><span>a.ifPresent(this::doSomething);</span></code></pre>
+          <p>The other way is to use <a href="https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html">Java Optionals</a>.
+            For the first example above, we can do</p>
+          <pre><code class="hljs"><span>a.ifPresent(this::doSomething);<br></span></code></pre>
           <p>And for the deeply-nested <code>if</code> statements, the verbosity can be reduced with</p>
-          <pre><code class="hljs"><span>bob.map(Person::getDepartment)</span><span>    .map(Person::getManager)</span><span>    .map(Person::getName)</span><span>    .ifPresent(Person::doSomething);</span></code></pre>
+          <pre><code class="hljs"><span>bob.map(Person::getDepartment)<br></span><span>    .map(Person::getManager)<br></span><span>    .map(Person::getName)<br></span><span>    .ifPresent(Person::doSomething);<br></span></code></pre>
           <p><code>map()</code> is a method in Java Optionals class that applies the function inside the parentheses to the object that is calling it. If the object is not present, it will return an empty Optional.</p>
           <p>Let's see how Kotlin deals with this issue while maintaining a simple and readable syntax.</p>
-          <h1 id="how-does-kotlin-handle-null-safety">How Does Kotlin Handle Null Safety?<a class="fa fa-anchor" href="#how-does-kotlin-handle-null-safety"></a></h1>
-          <h2 id="nullable-and-non-nullable-type">Nullable and Non-Nullable Type<a class="fa fa-anchor" href="#nullable-and-non-nullable-type"></a></h2>
+          <h1 id="how-does-kotlin-handle-null-safety">How Does Kotlin Handle Null Safety?<a class="fa fa-anchor" href="#how-does-kotlin-handle-null-safety" onclick="event.stopPropagation()"></a></h1>
+          <h2 id="nullable-and-non-nullable-type">Nullable and Non-Nullable Type<a class="fa fa-anchor" href="#nullable-and-non-nullable-type" onclick="event.stopPropagation()"></a></h2>
           <p>In Kotlin, a type can be <em>nullable</em> or <em>non-nullable</em>, determined by the presence of a <code>?</code>. For example, an object of type <code>String</code> is non-nullable, while an object of type <code>String?</code> is nullable.</p>
           <p>As the compiler catches <code>null</code> assignments to non-nullable objects, the following would result in compilation error.</p>
-          <pre><code class="hljs Kotlin"><span><span class="hljs-keyword">var</span> firstString: String = <span class="hljs-string">"hello world"</span></span><span>firstString = <span class="hljs-literal">null</span> <span class="hljs-comment">//compilation error</span></span></code></pre>
+          <pre><code class="hljs Kotlin"><span><span class="hljs-keyword">var</span> firstString: String = <span class="hljs-string">"hello world"</span><br></span><span>firstString = <span class="hljs-literal">null</span> <span class="hljs-comment">//compilation error</span><br></span></code></pre>
           <p>In comparison, the following assignment to a nullable type is allowed</p>
-          <pre><code class="hljs Kotlin"><span><span class="hljs-keyword">var</span> secondString: String? = <span class="hljs-string">"hello world"</span></span><span>secondString = <span class="hljs-literal">null</span> <span class="hljs-comment">//okay</span></span></code></pre>
-          <p>In the first case, we can safely call <code>firstString.length</code> without having to worry about a NPE because <code>firstString</code> can never be <code>null</code>.<br> In the second case, <code>secondString</code> can potentially be <code>null</code>,
-            so <code>secondString.length</code> will result in a compilation error as the compiler see the danger of such statement and blocks it early.</p>
-          <h2 id="safety-operators-in-kotlin">Safety Operators in Kotlin<a class="fa fa-anchor" href="#safety-operators-in-kotlin"></a></h2>
-          <p>Although non-nullable type is a strong feature in Kotlin, the <a href="https://kotlinlang.org/docs/reference/java-interop.html">interoperability</a> with Java means that we have to use variables as nullable type sometimes. In the previous section,
-            we seem to have hit an obstacle as the compiler blocks the call to <code>secondString.length</code>. In this section we look at some ways of overcoming this problem.</p>
-          <h3 id="safe-call-operator">Safe Call Operator<a class="fa fa-anchor" href="#safe-call-operator"></a></h3>
+          <pre><code class="hljs Kotlin"><span><span class="hljs-keyword">var</span> secondString: String? = <span class="hljs-string">"hello world"</span><br></span><span>secondString = <span class="hljs-literal">null</span> <span class="hljs-comment">//okay</span><br></span></code></pre>
+          <p>In the first case, we can safely call <code>firstString.length</code> without having to worry about a NPE because <code>firstString</code> can never be <code>null</code>.<br>
+            In the second case, <code>secondString</code> can potentially be <code>null</code>, so <code>secondString.length</code> will result in a compilation error as the compiler see the danger of such statement and blocks it early.</p>
+          <h2 id="safety-operators-in-kotlin">Safety Operators in Kotlin<a class="fa fa-anchor" href="#safety-operators-in-kotlin" onclick="event.stopPropagation()"></a></h2>
+          <p>Although non-nullable type is a strong feature in Kotlin, the <a href="https://kotlinlang.org/docs/reference/java-interop.html">interoperability</a> with Java means that we have to use variables as nullable type sometimes. In the previous section, we seem to have hit an obstacle as the compiler blocks the call to <code>secondString.length</code>. In this section we look at some ways of overcoming this problem.</p>
+          <h3 id="safe-call-operator">Safe Call Operator<a class="fa fa-anchor" href="#safe-call-operator" onclick="event.stopPropagation()"></a></h3>
           <p>Represented by <code>?.</code>, the safe call operator is used in this way</p>
-          <pre><code class="hljs kotlin"><span>secondString?.length</span></code></pre>
+          <pre><code class="hljs kotlin"><span>secondString?.length<br></span></code></pre>
           <p>This returns the length of <code>secondString</code> if <code>secondString</code> is not <code>null</code>, and <code>null</code> otherwise.</p>
           <p>Now we can chain like this</p>
-          <pre><code class="hljs Kotlin"><span>bob?.department?.manager?.name</span></code></pre>
+          <pre><code class="hljs Kotlin"><span>bob?.department?.manager?.name<br></span></code></pre>
           <p>This chain will return <code>null</code> if any of the variables inside the chain is <code>null</code>.</p>
-          <h3 id="elvis-operators">Elvis Operators<a class="fa fa-anchor" href="#elvis-operators"></a></h3>
+          <h3 id="elvis-operators">Elvis Operators<a class="fa fa-anchor" href="#elvis-operators" onclick="event.stopPropagation()"></a></h3>
           <p>Represented by <code>?:</code>, the Elvis operator is used in this way</p>
-          <pre><code class="hljs kotlin"><span><span class="hljs-keyword">val</span> length = secondString?.length ?: -<span class="hljs-number">1</span></span></code></pre>
+          <pre><code class="hljs kotlin"><span><span class="hljs-keyword">val</span> length = secondString?.length ?: -<span class="hljs-number">1</span><br></span></code></pre>
           <p>If the expression to the left of <code>?:</code> is not null, the Elvis operator (<code>?.</code>) will return it as it is; else it will return a default value supplied (-1 in this case).</p>
           <p>We also notice the use of safe call operator together with Elvis operator in the same statement.</p>
           <p>But the Elvis operator is more powerful than this. <code>return</code> and <code>throw</code> statements are legitimate default values on the right side of the Elvis operator. So you can define your own error message to aid debugging. For example:</p>
-          <pre><code class="hljs kotlin"><span><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">myFunc</span><span class="hljs-params">(node: <span class="hljs-type">Node</span>)</span></span>: String? {</span><span>    <span class="hljs-keyword">val</span> parent = node.getParent() ?: <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span></span><span>    <span class="hljs-keyword">val</span> name = node.getName() ?: <span class="hljs-keyword">throw</span> IllegalArgumentException(<span class="hljs-string">"Name expected"</span>)</span><span>    <span class="hljs-comment">// ...</span></span><span>}</span></code></pre>
+          <pre><code class="hljs kotlin"><span><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">myFunc</span><span class="hljs-params">(node: <span class="hljs-type">Node</span>)</span></span>: String? {<br></span><span>    <span class="hljs-keyword">val</span> parent = node.getParent() ?: <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span><br></span><span>    <span class="hljs-keyword">val</span> name = node.getName() ?: <span class="hljs-keyword">throw</span> IllegalArgumentException(<span class="hljs-string">"Name expected"</span>)<br></span><span>    <span class="hljs-comment">// ...</span><br></span><span>}<br></span></code></pre>
           <p>Doing so like this can help programmers to check for function arguments before carrying on with the required computation.</p>
           <p>At this point you may ask, &quot;What if I still want my NPE?&quot;</p>
-          <h3 id="not-null-assertion-operator">Not-Null Assertion Operator<a class="fa fa-anchor" href="#not-null-assertion-operator"></a></h3>
+          <h3 id="not-null-assertion-operator">Not-Null Assertion Operator<a class="fa fa-anchor" href="#not-null-assertion-operator" onclick="event.stopPropagation()"></a></h3>
           <p>Represented by <code>!!</code>, the not-null assertion operator is used in this way</p>
-          <pre><code class="hljs kotlin"><span><span class="hljs-keyword">val</span> stringLength = secondString!!.length</span></code></pre>
-          <p>The operator converts any value to a non-nullable type and throws an exception if the value is null. In the above example, <code>stringLength</code> will be assigned the length of <code>secondString</code> if <code>secondString</code> is not
-            <code>null</code>; if secondString is <code>null</code>, a NPE is thrown. Kotlin tries to reduce the number of NPEs thrown as it is a run-time exception that is difficult to debug, in addition to creating so many app crashes. Hence NPEs in
-            Kotlin are explicitly asked for.
-          </p>
-          <h1 id="summary">Summary<a class="fa fa-anchor" href="#summary"></a></h1>
+          <pre><code class="hljs kotlin"><span><span class="hljs-keyword">val</span> stringLength = secondString!!.length<br></span></code></pre>
+          <p>The operator converts any value to a non-nullable type and throws an exception if the value is null. In the above example, <code>stringLength</code> will be assigned the length of <code>secondString</code> if <code>secondString</code> is not <code>null</code>; if secondString is <code>null</code>, a NPE is thrown. Kotlin tries to reduce the number of NPEs thrown as it is a run-time exception that is difficult to debug, in addition to creating so many app crashes. Hence NPEs in Kotlin are explicitly asked for.</p>
+          <h1 id="summary">Summary<a class="fa fa-anchor" href="#summary" onclick="event.stopPropagation()"></a></h1>
           <ol>
             <li>Kotlin increases null safety of programs because some of the work required to ensure null safety is offloaded from the programmer to the compiler, which is less error prone.</li>
             <li>Null Safety is enforced by the Kotlin language. This is better compared to Java Optionals which is a Class and not a language construct like Kotlin's null-safety system.</li>
             <li>If you expect your object to <strong>not</strong> take on a <code>null</code> value, make it a non-nullable type!</li>
-            <li>Even if you make your object a nullable type, Kotlin handles it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier (with the help of
-              Elvis operator).
-            </li>
+            <li>Even if you make your object a nullable type, Kotlin handles it better than Java because it can help to prevent NPE. An generic NPE is hard to debug; in Kotlin a descriptive message could be given to make debugging easier (with the help of Elvis operator).</li>
           </ol>
-          <h1 id="learning-resources">Learning Resources<a class="fa fa-anchor" href="#learning-resources"></a></h1>
+          <h1 id="learning-resources">Learning Resources<a class="fa fa-anchor" href="#learning-resources" onclick="event.stopPropagation()"></a></h1>
           <ul>
             <li><a href="https://kotlinlang.org/docs/reference/null-safety.html">Null Safety in Kotlin</a></li>
             <li><a href="https://www.baeldung.com/kotlin-null-safety">Comprehensive Guide to Null Safety in Kotlin</a></li>
@@ -422,6 +414,8 @@
           </ul>
         </div>
       </div>
+
+
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
@@ -450,7 +444,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Tue, Apr 14, 2020, 2:53:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sat, Apr 18, 2020, 9:37:46 AM UTC]</small></div>
     </footer>
   </div>
 </body>

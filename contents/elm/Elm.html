@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.13.1">
+  <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to Elm</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../markbind/css/octicons.css">
   <link rel="stylesheet" href="../../markbind/css/github.min.css">
   <link rel="stylesheet" href="../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
   <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
   <link rel="stylesheet" href="../../markbind/css/site-nav.css">
   <link rel="stylesheet" href="../../markbind/css/page-nav.css">
@@ -51,269 +52,268 @@
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-<ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
-          </button>
-          <div class="dropdown-container dropdown-container-open">
-            <ul class="pl-3 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn">C++
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+            <ul class="px-0 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">C++
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">CSharp
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a current">Elm</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Java
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">JavaScript
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Kotlin
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Python
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">CSharp
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Architecture
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Project Management
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Revision Control
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Testing
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a current">Elm</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-              <li class="mt-2"><button class="dropdown-btn">Java
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">JavaScript
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Kotlin
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Databases
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Security
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Shell
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Python
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
             </ul>
-          </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><button class="dropdown-btn">Architecture
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Code Quality
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Performance
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Project Management
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Revision Control
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Static Analysis
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Testing
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">UI/UX
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Databases
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Security
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Shell
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          </ul>
-          </span>
-        </div>
+          </span></div>
       </nav>
+
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
@@ -354,18 +354,16 @@
 
 
 
-          <h1 id="introduction-to-elm">Introduction to Elm<a class="fa fa-anchor" href="#introduction-to-elm"></a></h1>
+          <h1 id="introduction-to-elm">Introduction to Elm<a class="fa fa-anchor" href="#introduction-to-elm" onclick="event.stopPropagation()"></a></h1>
           <p><strong>Author(s): <a href="https://github.com/openorclose">Daryl Tan</a></strong> <br>
             <strong>Reviewer(s): <a href="https://github.com/alyip98">Alfred Yip</a>, <a href="https://github.com/jamessspanggg">James Pang</a></strong> <br></p>
-          <h2 id="what-is-elm">What is Elm?<a class="fa fa-anchor" href="#what-is-elm"></a></h2>
+          <h2 id="what-is-elm">What is Elm?<a class="fa fa-anchor" href="#what-is-elm" onclick="event.stopPropagation()"></a></h2>
           <p><a href="https://elm-lang.org/">Elm</a> is a statically typed, functional programming language that compiles to JavaScript and promises no runtime exceptions. You can use it to build reliable and maintainable applications for the web.</p>
-          <h2 id="why-learn-elm">Why Learn Elm?<a class="fa fa-anchor" href="#why-learn-elm"></a></h2>
-          <p>Languages like Haskell and OCaml from the <a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML family</a> have been well known to be maintainable and mostly error-free in practice. Their compilers catch bugs well before they
-            can make it into production. However, these functional programming languages are also well known to have a steep learning curve.</p>
-          <p>JavaScript, the standard language for web development, has a rather low learning curve but is considerably more difficult to maintain. To solve this, people write tests, add type annotations to JavaScript, and even try to adopt functional programming
-            patterns like immutability to increase maintanability.</p>
+          <h2 id="why-learn-elm">Why Learn Elm?<a class="fa fa-anchor" href="#why-learn-elm" onclick="event.stopPropagation()"></a></h2>
+          <p>Languages like Haskell and OCaml from the <a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML family</a> have been well known to be maintainable and mostly error-free in practice. Their compilers catch bugs well before they can make it into production. However, these functional programming languages are also well known to have a steep learning curve.</p>
+          <p>JavaScript, the standard language for web development, has a rather low learning curve but is considerably more difficult to maintain. To solve this, people write tests, add type annotations to JavaScript, and even try to adopt functional programming patterns like immutability to increase maintanability.</p>
           <p>Elm tries to be the best of both worlds. Its functional core provides maintainability, and it tries to greatly reduce the barriers to learning functional programming by simplifying concepts and having a really pleasant compiler.</p>
-          <h3 id="benefit-handling-all-cases">Benefit: Handling All Cases<a class="fa fa-anchor" href="#benefit-handling-all-cases"></a></h3>
+          <h3 id="benefit-handling-all-cases">Benefit: Handling All Cases<a class="fa fa-anchor" href="#benefit-handling-all-cases" onclick="event.stopPropagation()"></a></h3>
           <p>Like many functional programming languages, you get the &quot;if it compiles it works&quot; feeling in Elm.</p>
           <p>If your code can produce more than one result (e.g. converting a string to an integer can either fail or succeed), Elm's compiler forces you to account for all cases in order to compile.</p>
           <hr>
@@ -381,54 +379,47 @@
             <li>the element doesn't exist.</li>
           </ul>
           <p>If you don't handle them, your code won't compile!</p>
-          <h3 id="benefit-friendly-compiler">Benefit: Friendly Compiler<a class="fa fa-anchor" href="#benefit-friendly-compiler"></a></h3>
+          <h3 id="benefit-friendly-compiler">Benefit: Friendly Compiler<a class="fa fa-anchor" href="#benefit-friendly-compiler" onclick="event.stopPropagation()"></a></h3>
           <p>Elm's compiler strives to be as friendly as possible, and offers as many hints as it can to help you fix errors. If nothing else, you should try Elm just to see how great error messages can be.</p>
           <p>Here's a quick look at some of them:</p>
           <ul>
             <li>Cyclic dependencies:</li>
           </ul>
-          <pre><code class="no-line-numbers hljs"><span>-- IMPORT CYCLE ----------------------------------------------------------------</span><span>&#x200B;</span><span>Your module imports form a cycle:</span><span>&#x200B;</span><span>    ┌─────┐</span><span>    │    Bar</span><span>    │     ↓</span><span>    │    Foo</span><span>    └─────┘</span><span>&#x200B;</span><span>Learn more about why this is disallowed and how to break cycles</span><span>here:&lt;https://elm-lang.org/0.19.0/import-cycles&gt;</span></code></pre>
+          <pre><code class="no-line-numbers hljs"><span>-- IMPORT CYCLE ----------------------------------------------------------------<br></span><span><br></span><span>Your module imports form a cycle:<br></span><span><br></span><span>    ┌─────┐<br></span><span>    │    Bar<br></span><span>    │     ↓<br></span><span>    │    Foo<br></span><span>    └─────┘<br></span><span><br></span><span>Learn more about why this is disallowed and how to break cycles<br></span><span>here:&lt;https://elm-lang.org/0.19.0/import-cycles&gt;<br></span></code></pre>
           <ul>
             <li>Wrong argument types:</li>
           </ul>
-          <pre><code class="no-line-numbers hljs"><span>&gt; String.join 4 [&quot;Hello&quot;, &quot;World&quot;]</span><span>-- TYPE MISMATCH ---------------------------------------------------------- REPL</span><span>&#x200B;</span><span>The 1st argument to `join` is not what I expect:</span><span>&#x200B;</span><span>3|   String.join 4 [&quot;Hello&quot;, &quot;World&quot;]</span><span>                 ^</span><span>This argument is a number of type:</span><span>&#x200B;</span><span>    number</span><span>&#x200B;</span><span>But `join` needs the 1st argument to be:</span><span>&#x200B;</span><span>    String</span><span>&#x200B;</span><span>Hint: Try using String.fromInt to convert it to a string?</span></code></pre>
+          <pre><code class="no-line-numbers hljs"><span>&gt; String.join 4 [&quot;Hello&quot;, &quot;World&quot;]<br></span><span>-- TYPE MISMATCH ---------------------------------------------------------- REPL<br></span><span><br></span><span>The 1st argument to `join` is not what I expect:<br></span><span><br></span><span>3|   String.join 4 [&quot;Hello&quot;, &quot;World&quot;]<br></span><span>                 ^<br></span><span>This argument is a number of type:<br></span><span><br></span><span>    number<br></span><span><br></span><span>But `join` needs the 1st argument to be:<br></span><span><br></span><span>    String<br></span><span><br></span><span>Hint: Try using String.fromInt to convert it to a string?<br></span></code></pre>
           <ul>
             <li>Syntax errors, e.g. if you try to import modules with the JavaScript syntax:</li>
           </ul>
-          <pre><code class="no-line-numbers hljs"><span>&gt; import * from 'Util'</span><span>-- EXPECTING IMPORT NAME -------------------------------------------------- REPL</span><span>&#x200B;</span><span>I was parsing an `import` until I got stuck here:</span><span>&#x200B;</span><span>2| import * from 'Util'</span><span>          ^</span><span>I was expecting to see a module name next, like in these examples:</span><span>&#x200B;</span><span>    import Dict</span><span>    import Maybe</span><span>    import Html.Attributes as A</span><span>    import Json.Decode exposing (..)</span><span>&#x200B;</span><span>Notice that the module names all start with capital letters. That is required!</span><span>&#x200B;</span><span>Read &lt;https://elm-lang.org/0.19.1/imports&gt; to learn more.</span></code></pre>
-          <h3 id="benefit-canonical-coding-style">Benefit: Canonical Coding Style<a class="fa fa-anchor" href="#benefit-canonical-coding-style"></a></h3>
+          <pre><code class="no-line-numbers hljs"><span>&gt; import * from 'Util'<br></span><span>-- EXPECTING IMPORT NAME -------------------------------------------------- REPL<br></span><span><br></span><span>I was parsing an `import` until I got stuck here:<br></span><span><br></span><span>2| import * from 'Util'<br></span><span>          ^<br></span><span>I was expecting to see a module name next, like in these examples:<br></span><span><br></span><span>    import Dict<br></span><span>    import Maybe<br></span><span>    import Html.Attributes as A<br></span><span>    import Json.Decode exposing (..)<br></span><span><br></span><span>Notice that the module names all start with capital letters. That is required!<br></span><span><br></span><span>Read &lt;https://elm-lang.org/0.19.1/imports&gt; to learn more.<br></span></code></pre>
+          <h3 id="benefit-canonical-coding-style">Benefit: Canonical Coding Style<a class="fa fa-anchor" href="#benefit-canonical-coding-style" onclick="event.stopPropagation()"></a></h3>
           <p>Like in Go, Elm has largely managed to avoid the style wars of older languages by having introduced a recommended style guide and code formatter (<code>elm-format</code>) early on.</p>
           <p><code>elm-format</code> has no configuration, eliminating code style discussions with your team, and increasing the consistency of Elm code you see out in the wild.</p>
           <p>In particular, the style guide aims to reduce version control diffs. Here's an example of the recommended style for a <code>Record</code> in Elm (a <code>Record</code> is like a JavaScript object):</p>
-          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =</span><span>    { age = <span class="hljs-number">18</span></span><span>    , firstName = <span class="hljs-string">"John"</span></span><span>    , lastName = <span class="hljs-string">"Doe"</span></span><span>    }</span></code></pre>
+          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =<br></span><span>    { age = <span class="hljs-number">18</span><br></span><span>    , firstName = <span class="hljs-string">"John"</span><br></span><span>    , lastName = <span class="hljs-string">"Doe"</span><br></span><span>    }<br></span></code></pre>
           <p>Note how if you were to add a new field <code>favoriteLanguage</code> to <code>person</code>, there would only be a one line diff:</p>
-          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =</span><span>    { age = <span class="hljs-number">18</span></span><span>    , firstName = <span class="hljs-string">"John"</span></span><span>    , lastName = <span class="hljs-string">"Doe"</span></span><span>    , favoriteLanguage = <span class="hljs-string">"PHP"</span></span><span>    }</span></code></pre>
-          <p>If you're not used to this style (JavaScript achieves this reduced code diff via <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas">trailing commas</a> for example), don't worry. You can code however
-            you're used to and then run <code>elm-format</code> to format your code automatically!</p>
+          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =<br></span><span>    { age = <span class="hljs-number">18</span><br></span><span>    , firstName = <span class="hljs-string">"John"</span><br></span><span>    , lastName = <span class="hljs-string">"Doe"</span><br></span><span>    , favoriteLanguage = <span class="hljs-string">"PHP"</span><br></span><span>    }<br></span></code></pre>
+          <p>If you're not used to this style (JavaScript achieves this reduced code diff via <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas">trailing commas</a> for example), don't worry. You can code however you're used to and then run <code>elm-format</code> to format your code automatically!</p>
           <p>That's the benefit of having one recommended style guide and using <code>elm-format</code>.</p>
           <p>Further reading:</p>
           <ul>
             <li><a href="https://elm-lang.org/docs/style-guide">Official style guide</a></li>
             <li><a href="https://github.com/avh4/elm-format">elm-format</a></li>
           </ul>
-          <h3 id="benefit-package-ecosystem">Benefit: Package Ecosystem<a class="fa fa-anchor" href="#benefit-package-ecosystem"></a></h3>
+          <h3 id="benefit-package-ecosystem">Benefit: Package Ecosystem<a class="fa fa-anchor" href="#benefit-package-ecosystem" onclick="event.stopPropagation()"></a></h3>
           <p>You can share your package, or use any of the packages available at <a href="https://package.elm-lang.org/">https://package.elm-lang.org/</a>.</p>
-          <p>All packages there are written in Elm only and therefore cannot perform any side effects. This is unlike the package system in JavaScript, where packages can reassign global functions like <code>parseInt</code> and cause bugs whenever <code>parseInt</code>            is used elsewhere!</p>
-          <p>Furthermore, Elm has automatic enforced semantic versioning. Whenever you push an update to your package, Elm analyses your code, and depending on whether you have any breaking changes, updates the patch, minor, or major version accordingly.
-            This makes both package maintainers and users happy: maintainers don't have to worry about choosing new versions, and users can know that as long as the major version doesn't change, there won't be any breaking changes.</p>
-          <h3 id="benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles<a class="fa fa-anchor" href="#benefit-fast-compiles-and-small-bundles"></a></h3>
-          <p>Elm's compiler is really fast. Its creator focused on compile times in versions 0.19 and 0.19.1, which brought compile times for 100k LOC projects down to only 10s. If your project has less than 10k LOC, compilation should take no more than
-            1s.</p>
+          <p>All packages there are written in Elm only and therefore cannot perform any side effects. This is unlike the package system in JavaScript, where packages can reassign global functions like <code>parseInt</code> and cause bugs whenever <code>parseInt</code> is used elsewhere!</p>
+          <p>Furthermore, Elm has automatic enforced semantic versioning. Whenever you push an update to your package, Elm analyses your code, and depending on whether you have any breaking changes, updates the patch, minor, or major version accordingly. This makes both package maintainers and users happy: maintainers don't have to worry about choosing new versions, and users can know that as long as the major version doesn't change, there won't be any breaking changes.</p>
+          <h3 id="benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles<a class="fa fa-anchor" href="#benefit-fast-compiles-and-small-bundles" onclick="event.stopPropagation()"></a></h3>
+          <p>Elm's compiler is really fast. Its creator focused on compile times in versions 0.19 and 0.19.1, which brought compile times for 100k LOC projects down to only 10s. If your project has less than 10k LOC, compilation should take no more than 1s.</p>
           <p>Examples of LOC vs compile times <a href="https://discourse.elm-lang.org/t/how-are-0-19-compile-times-for-50k-loc-projects/3680">here</a>.</p>
-          <p>Lastly, Elm bundle size is small. Since Elm's functions cannot perform side effects, unused functions can be automatically removed. You can safely import a 1kLOC package only to use a one-liner function, and Elm can help you remove the 999 lines
-            during compilation.
-          </p>
-          <h3 id="benefit-the-elm-way">Benefit: The Elm Way<a class="fa fa-anchor" href="#benefit-the-elm-way"></a></h3>
-          <p>You may have noticed that Elm really likes the &quot;only one way to do it&quot; philosophy. You don't get to choose your package versions, and you don't get to configure <code>elm-format</code>. This is all done on purpose: to simplify developers'
-            lives.
-          </p>
+          <p>Lastly, Elm bundle size is small. Since Elm's functions cannot perform side effects, unused functions can be automatically removed. You can safely import a 1kLOC package only to use a one-liner function, and Elm can help you remove the 999 lines during compilation.</p>
+          <h3 id="benefit-the-elm-way">Benefit: The Elm Way<a class="fa fa-anchor" href="#benefit-the-elm-way" onclick="event.stopPropagation()"></a></h3>
+          <p>You may have noticed that Elm really likes the &quot;only one way to do it&quot; philosophy. You don't get to choose your package versions, and you don't get to configure <code>elm-format</code>. This is all done on purpose: to simplify developers' lives.</p>
           <p>In fact, when other languages have gone on and added more features in newer versions, Elm has gone the other direction and removed many language features for the sake of simplicity.</p>
-          <h2 id="the-elm-architecture">The Elm Architecture<a class="fa fa-anchor" href="#the-elm-architecture"></a></h2>
+          <h2 id="the-elm-architecture">The Elm Architecture<a class="fa fa-anchor" href="#the-elm-architecture" onclick="event.stopPropagation()"></a></h2>
           <p>
             <pic src="/learningresources/contents/elm/images/TEA.png" height="100"></pic>
           </p>
@@ -440,29 +431,27 @@
             <li>an update function that takes in a state and a message. The function then can use information provided in the message to returns a new state.</li>
           </ul>
           <p>Here's a minimal example:</p>
-          <pre><code class="hljs elm"><span><span class="hljs-keyword">module</span> Main <span class="hljs-keyword">exposing</span> (main)</span><span>&#x200B;</span><span><span class="hljs-keyword">import</span> Browser</span><span><span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, button, text)</span><span><span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onClick)</span><span>&#x200B;</span><span><span class="hljs-comment">-- our initial state is a single number 1</span></span><span><span class="hljs-title">initialModel</span> = <span class="hljs-number">1</span></span><span>&#x200B;</span><span><span class="hljs-comment">-- if we get the message string "increment", we return a new number, model+1</span></span><span><span class="hljs-comment">-- else we don't update it, and return the same model</span></span><span><span class="hljs-title">update</span> msg model =</span><span>    <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span></span><span>        <span class="hljs-string">"increment"</span> -&gt; model + <span class="hljs-number">1</span></span><span>        _ -&gt; model</span><span>&#x200B;</span><span><span class="hljs-comment">-- we take in a model, and display the number it represents on a button element.</span></span><span><span class="hljs-comment">-- when the button is clicked, it sends the message string "increment" to Elm.</span></span><span><span class="hljs-comment">-- which will get passed to our `update` function.</span></span><span><span class="hljs-title">view</span> model = button [ onClick <span class="hljs-string">"increment"</span> ] [ text (<span class="hljs-type">String</span>.fromInt model) ]</span><span>&#x200B;</span><span><span class="hljs-comment">-- now we glue it all together!</span></span><span><span class="hljs-title">main</span> =</span><span>    <span class="hljs-type">Browser</span>.sandbox</span><span>        { init = initialModel</span><span>        , view = view</span><span>        , update = update</span><span>        }</span></code></pre>
+          <pre><code class="hljs elm"><span><span class="hljs-keyword">module</span> Main <span class="hljs-keyword">exposing</span> (main)<br></span><span><br></span><span><span class="hljs-keyword">import</span> Browser<br></span><span><span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, button, text)<br></span><span><span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onClick)<br></span><span><br></span><span><span class="hljs-comment">-- our initial state is a single number 1</span><br></span><span><span class="hljs-title">initialModel</span> = <span class="hljs-number">1</span><br></span><span><br></span><span><span class="hljs-comment">-- if we get the message string "increment", we return a new number, model+1</span><br></span><span><span class="hljs-comment">-- else we don't update it, and return the same model</span><br></span><span><span class="hljs-title">update</span> msg model =<br></span><span>    <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span><br></span><span>        <span class="hljs-string">"increment"</span> -&gt; model + <span class="hljs-number">1</span><br></span><span>        _ -&gt; model<br></span><span><br></span><span><span class="hljs-comment">-- we take in a model, and display the number it represents on a button element.</span><br></span><span><span class="hljs-comment">-- when the button is clicked, it sends the message string "increment" to Elm.</span><br></span><span><span class="hljs-comment">-- which will get passed to our `update` function.</span><br></span><span><span class="hljs-title">view</span> model = button [ onClick <span class="hljs-string">"increment"</span> ] [ text (<span class="hljs-type">String</span>.fromInt model) ]<br></span><span><br></span><span><span class="hljs-comment">-- now we glue it all together!</span><br></span><span><span class="hljs-title">main</span> =<br></span><span>    <span class="hljs-type">Browser</span>.sandbox<br></span><span>        { init = initialModel<br></span><span>        , view = view<br></span><span>        , update = update<br></span><span>        }<br></span></code></pre>
           <p>View it on the Elm playground <a href="https://ellie-app.com/88GSdxWWVFza1">here</a>.</p>
           <p>Most Elm apps are written this way, you just keep adding stuff into your model, view, and update as you grow your app.</p>
           <p>The main benefit of this is that your app becomes more maintainable. There is only ever one single source of truth.</p>
-          <h2 id="why-not-elm">Why Not Elm?<a class="fa fa-anchor" href="#why-not-elm"></a></h2>
+          <h2 id="why-not-elm">Why Not Elm?<a class="fa fa-anchor" href="#why-not-elm" onclick="event.stopPropagation()"></a></h2>
           <p>As much as Elm promotes the &quot;one way of doing things&quot; mantra, this means that some things that are easier to do in JavaScript become considerably more tedious in Elm.</p>
-          <h3 id="interacting-with-javascript">Interacting With JavaScript<a class="fa fa-anchor" href="#interacting-with-javascript"></a></h3>
+          <h3 id="interacting-with-javascript">Interacting With JavaScript<a class="fa fa-anchor" href="#interacting-with-javascript" onclick="event.stopPropagation()"></a></h3>
           <p>To interact with outside JavaScript, you use <a href="https://guide.elm-lang.org/interop/ports.html">ports</a>.</p>
           <p>In essence, Elm treats outside JavaScript as a server that you send messages to and receive messages from. This preserves Elm's no side effects guarantee.</p>
-          <p>However, this makes using certain JavaScript libraries that have no efficient Elm counterpart (e.g. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">Typed Arrays</a>) harder, since what should be a simple function
-            call becomes a tedious process of sending a request to the JavaScript &quot;server&quot;, listening for a response, and then finally processing the response.</p>
-          <h3 id="accessing-the-dom">Accessing the DOM<a class="fa fa-anchor" href="#accessing-the-dom"></a></h3>
-          <p>Let's say you want to get the width of an img element. This is really hard to do! Since all you do is tell Elm <em>how</em> to render your application, you don't have any way to retrieve that particular img element in Elm, and you have to resort
-            to using ports and JavaScript. This <a href="https://stackoverflow.com/questions/48551782/elm-get-the-size-of-an-image">stackoverflow</a> post gives an example.</p>
-          <h2 id="how-to-get-started-with-elm">How to Get Started with Elm?<a class="fa fa-anchor" href="#how-to-get-started-with-elm"></a></h2>
-          <h3 id="migrating-from-other-frameworks">Migrating From Other Frameworks<a class="fa fa-anchor" href="#migrating-from-other-frameworks"></a></h3>
+          <p>However, this makes using certain JavaScript libraries that have no efficient Elm counterpart (e.g. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">Typed Arrays</a>) harder, since what should be a simple function call becomes a tedious process of sending a request to the JavaScript &quot;server&quot;, listening for a response, and then finally processing the response.</p>
+          <h3 id="accessing-the-dom">Accessing the DOM<a class="fa fa-anchor" href="#accessing-the-dom" onclick="event.stopPropagation()"></a></h3>
+          <p>Let's say you want to get the width of an img element. This is really hard to do! Since all you do is tell Elm <em>how</em> to render your application, you don't have any way to retrieve that particular img element in Elm, and you have to resort to using ports and JavaScript. This <a href="https://stackoverflow.com/questions/48551782/elm-get-the-size-of-an-image">stackoverflow</a> post gives an example.</p>
+          <h2 id="how-to-get-started-with-elm">How to Get Started with Elm?<a class="fa fa-anchor" href="#how-to-get-started-with-elm" onclick="event.stopPropagation()"></a></h2>
+          <h3 id="migrating-from-other-frameworks">Migrating From Other Frameworks<a class="fa fa-anchor" href="#migrating-from-other-frameworks" onclick="event.stopPropagation()"></a></h3>
           <p>If your project is already written in React, Vue, or another framework, is it worth it to migrate?</p>
           <p>The great news is that you don't have to spend weeks migrating only to figure out it wasn't worth the effort.</p>
           <p>You can introduce Elm slowly, by letting it take over only a single element in your page. Preferably, choose a part of your page that doesn't need to interact with the other parts.</p>
           <p>The increment/decrement demo above is a great choice, for example.</p>
           <p>Then, while Elm coexists with your other framework, you can decide if you want to incrementally port over your other framework's code to Elm.</p>
           <p>If you decide Elm isn't right for you, that's okay! You only tried it on a small sandboxed portion of your app, and you can choose to leave that Elm in or convert it back into your existing framework.</p>
-          <h3 id="starting-a-new-project">Starting a New Project<a class="fa fa-anchor" href="#starting-a-new-project"></a></h3>
+          <h3 id="starting-a-new-project">Starting a New Project<a class="fa fa-anchor" href="#starting-a-new-project" onclick="event.stopPropagation()"></a></h3>
           <p>Play with Elm without installation, using the Elm playground <a href="https://ellie-app.com/">Ellie</a>.</p>
           <p>After that, you can follow the official <a href="https://guide.elm-lang.org/">Elm guide</a>.</p>
           <p>View the official documentation along with documentation for all available Elm packages <a href="https://package.elm-lang.org/">here</a>.</p>
@@ -470,6 +459,8 @@
           <p>If you're interested, the <a href="https://elm-lang.org/news">official Elm blog</a> has really interesting posts on their design philosophies.</p>
         </div>
       </div>
+
+
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
@@ -505,7 +496,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Tue, Apr 14, 2020, 2:53:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sat, Apr 18, 2020, 9:37:46 AM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.13.1">
+  <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Introduction to React</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../markbind/css/octicons.css">
   <link rel="stylesheet" href="../../markbind/css/github.min.css">
   <link rel="stylesheet" href="../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
   <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
   <link rel="stylesheet" href="../../markbind/css/site-nav.css">
   <link rel="stylesheet" href="../../markbind/css/page-nav.css">
@@ -51,376 +52,357 @@
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-<ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
-          </button>
-          <div class="dropdown-container">
-            <ul class="pl-3 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn">C++
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <ul class="px-0 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">C++
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">CSharp
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Java
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">JavaScript
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Kotlin
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Python
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">CSharp
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Architecture
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Project Management
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Revision Control
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Testing
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-              <li class="mt-2"><button class="dropdown-btn">Java
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a current">React</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">JavaScript
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Kotlin
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Databases
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Security
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Shell
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Python
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
             </ul>
-          </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><button class="dropdown-btn">Architecture
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Code Quality
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Performance
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Project Management
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Revision Control
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Static Analysis
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Testing
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">UI/UX
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container dropdown-container-open">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a current">React</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Databases
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Security
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Shell
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          </ul>
-          </span>
-        </div>
+          </span></div>
       </nav>
+
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-react">Introduction to React<a class="fa fa-anchor" href="#introduction-to-react"></a></h1>
-          <p><strong>Author: <a href="https://github.com/amad-person">Aadyaa Maddi</a></strong> <br> Reviewers: <a href="https://github.com/amrut-prabhu">Amrut Prabhu</a>, <a href="https://github.com/marvinchin">Marvin Chin</a></p>
-          <h2 id="what-is-react">What is React?<a class="fa fa-anchor" href="#what-is-react"></a></h2>
+          <h1 id="introduction-to-react">Introduction to React<a class="fa fa-anchor" href="#introduction-to-react" onclick="event.stopPropagation()"></a></h1>
+          <p><strong>Author: <a href="https://github.com/amad-person">Aadyaa Maddi</a></strong> <br>
+            Reviewers: <a href="https://github.com/amrut-prabhu">Amrut Prabhu</a>, <a href="https://github.com/marvinchin">Marvin Chin</a></p>
+          <h2 id="what-is-react">What is React?<a class="fa fa-anchor" href="#what-is-react" onclick="event.stopPropagation()"></a></h2>
           <p>The <a href="https://reactjs.org/tutorial/tutorial.html#what-is-react">official website</a> describes React as follows:</p>
           <blockquote>
             <p><em>React</em> is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called 'components'.</p>
           </blockquote>
-          <h2 id="react-features">React Features<a class="fa fa-anchor" href="#react-features"></a></h2>
+          <h2 id="react-features">React Features<a class="fa fa-anchor" href="#react-features" onclick="event.stopPropagation()"></a></h2>
           <p>Let us understand some key features of React with the help of an example. A web application that displays the name of a person is given below:</p>
           <iframe src="https://codesandbox.io/embed/8kxx088nx2?fontsize=12&view=preview" style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
           <box type="info">
             The sandbox above is editable. You can change the name using the textbox in the application and see how the UI automatically gets updated. You can view the application code by clicking the blue button next to "React: An Introductory Example".
           </box>
-          <h3 id="declarative-framework">Declarative Framework<a class="fa fa-anchor" href="#declarative-framework"></a></h3>
-          <p>The UI of a React application is defined using a mix of HTML code and HTML-like syntax, called <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>. The main view of the application above (defined in the <code>App.render()</code>            method in <code>index.js</code>) is given as follows:</p>
-          <pre><code class="hljs jsx"><span>&lt;div className=<span class="hljs-string">"App"</span>&gt;</span><span>  &lt;h1&gt;Person Data&lt;<span class="hljs-regexp">/h1&gt;</span></span><span><span class="hljs-regexp">  &lt;PersonComponent</span></span><span><span class="hljs-regexp">    name={this.state.name}</span></span><span><span class="hljs-regexp">    changeHandler={this.handleChange}</span></span><span><span class="hljs-regexp">  /</span>&gt;</span><span>&lt;<span class="hljs-regexp">/div&gt;</span></span></code></pre>
-          <p>In the above example, we declare what we want to display (i.e. <code>name</code>) and React renders the appropriate view based on the updated application data. This is known as the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
-              class="trigger"><span data-mb-html-for="_content">Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.</span><em>declarative</em></span> approach. With the declarative
-            approach, you just need to specify <em>what</em> you want to show in the UI when the application data changes, rather than giving instructions on <em>how</em> to update the UI.</p>
-          <h3 id="components">Components<a class="fa fa-anchor" href="#components"></a></h3>
+          <h3 id="declarative-framework">Declarative Framework<a class="fa fa-anchor" href="#declarative-framework" onclick="event.stopPropagation()"></a></h3>
+          <p>The UI of a React application is defined using a mix of HTML code and HTML-like syntax, called <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>. The main view of the application above (defined in the <code>App.render()</code> method in <code>index.js</code>) is given as follows:</p>
+          <pre><code class="hljs jsx"><span>&lt;div className=<span class="hljs-string">"App"</span>&gt;<br></span><span>  &lt;h1&gt;Person Data&lt;<span class="hljs-regexp">/h1&gt;</span><br></span><span><span class="hljs-regexp">  &lt;PersonComponent</span><br></span><span><span class="hljs-regexp">    name={this.state.name}</span><br></span><span><span class="hljs-regexp">    changeHandler={this.handleChange}</span><br></span><span><span class="hljs-regexp">  /</span>&gt;<br></span><span>&lt;<span class="hljs-regexp">/div&gt;</span><br></span></code></pre>
+          <p>In the above example, we declare what we want to display (i.e. <code>name</code>) and React renders the appropriate view based on the updated application data. This is known as the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Declarative programming focuses on what the program should accomplish without specifying how the program should achieve the result.</span><em>declarative</em></span> approach. With the declarative approach, you just need to specify <em>what</em> you want to show in the UI when the application data changes, rather than giving instructions on <em>how</em> to update the UI.</p>
+          <h3 id="components">Components<a class="fa fa-anchor" href="#components" onclick="event.stopPropagation()"></a></h3>
           <p>React encapsulates application views and relevant data and logic for updating the views using <em>components</em>. A combination of components that exchange information with one another is used to build the UI of a React application.</p>
           <p>For example, the application above is divided into two components:</p>
           <ol>
             <li>
               <p><strong>App</strong></p>
-              <p>The <code>App</code> component (defined in <code>index.js</code>) contains the main view of the application. It stores the application data (i.e. <code>name</code>) in an object called <em><code>state</code></em> and has a method to update
-                the it every time the value in the textbox changes. It passes the application data and the method to the <code>PersonComponent</code>.</p>
-              <pre><code class="hljs jsx"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{</span><span>  <span class="hljs-keyword">const</span> [name, setName] = useState(<span class="hljs-string">"John Doe"</span>);</span><span>&#x200B;</span><span>  <span class="hljs-keyword">const</span> handleChange = <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {</span><span>    setName(event.target.value);</span><span>  };</span><span>&#x200B;</span><span>  <span class="hljs-keyword">return</span> (</span><span>    &lt;div className=<span class="hljs-string">"App"</span>&gt;</span><span>      &lt;h1&gt;Person Data&lt;<span class="hljs-regexp">/h1&gt;</span></span><span><span class="hljs-regexp">      &lt;PersonComponent</span></span><span><span class="hljs-regexp">        name={name}</span></span><span><span class="hljs-regexp">        changeHandler={handleChange}</span></span><span><span class="hljs-regexp">      /</span>&gt;</span><span>    &lt;<span class="hljs-regexp">/div&gt;</span></span><span><span class="hljs-regexp">  );</span></span><span><span class="hljs-regexp">}</span></span></code></pre>
+              <p>The <code>App</code> component (defined in <code>index.js</code>) contains the main view of the application. It stores the application data (i.e. <code>name</code>) in an object called <em><code>state</code></em> and has a method to update the it every time the value in the textbox changes. It passes the application data and the method to the <code>PersonComponent</code>.</p>
+              <pre><code class="hljs jsx"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{<br></span><span>  <span class="hljs-keyword">const</span> [name, setName] = useState(<span class="hljs-string">"John Doe"</span>);<br></span><span><br></span><span>  <span class="hljs-keyword">const</span> handleChange = <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {<br></span><span>    setName(event.target.value);<br></span><span>  };<br></span><span><br></span><span>  <span class="hljs-keyword">return</span> (<br></span><span>    &lt;div className=<span class="hljs-string">"App"</span>&gt;<br></span><span>      &lt;h1&gt;Person Data&lt;<span class="hljs-regexp">/h1&gt;</span><br></span><span><span class="hljs-regexp">      &lt;PersonComponent</span><br></span><span><span class="hljs-regexp">        name={name}</span><br></span><span><span class="hljs-regexp">        changeHandler={handleChange}</span><br></span><span><span class="hljs-regexp">      /</span>&gt;<br></span><span>    &lt;<span class="hljs-regexp">/div&gt;</span><br></span><span><span class="hljs-regexp">  );</span><br></span><span><span class="hljs-regexp">}</span><br></span></code></pre>
             </li>
             <li>
               <p><strong>PersonComponent</strong></p>
               <p><code>PersonComponent</code> (defined in <code>personComponent.js</code>) renders the details of the person. It accepts input from the <code>App</code> component in the form of <em><code>props</code></em>.</p>
-              <pre><code class="hljs jsx"><span><span class="hljs-keyword">const</span> PersonComponent = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> {</span><span>  <span class="hljs-keyword">return</span> (</span><span>    &lt;div className=<span class="hljs-string">"Person"</span>&gt;</span><span>      &lt;h2&gt;About Me&lt;<span class="hljs-regexp">/h2&gt;</span></span><span><span class="hljs-regexp">      &lt;p&gt;My name is {props.name}.&lt;/</span>p&gt;</span><span>      &lt;label htmlFor=<span class="hljs-string">"name"</span>&gt;Name: &lt;<span class="hljs-regexp">/label&gt;</span></span><span><span class="hljs-regexp">      &lt;input id="name" onChange={props.changeHandler} value={props.name} /</span>&gt;</span><span>    &lt;<span class="hljs-regexp">/div&gt;</span></span><span><span class="hljs-regexp">  );</span></span><span><span class="hljs-regexp">};</span></span></code></pre>
+              <pre><code class="hljs jsx"><span><span class="hljs-keyword">const</span> PersonComponent = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> {<br></span><span>  <span class="hljs-keyword">return</span> (<br></span><span>    &lt;div className=<span class="hljs-string">"Person"</span>&gt;<br></span><span>      &lt;h2&gt;About Me&lt;<span class="hljs-regexp">/h2&gt;</span><br></span><span><span class="hljs-regexp">      &lt;p&gt;My name is {props.name}.&lt;/</span>p&gt;<br></span><span>      &lt;label htmlFor=<span class="hljs-string">"name"</span>&gt;Name: &lt;<span class="hljs-regexp">/label&gt;</span><br></span><span><span class="hljs-regexp">      &lt;input id="name" onChange={props.changeHandler} value={props.name} /</span>&gt;<br></span><span>    &lt;<span class="hljs-regexp">/div&gt;</span><br></span><span><span class="hljs-regexp">  );</span><br></span><span><span class="hljs-regexp">};</span><br></span></code></pre>
             </li>
           </ol>
           <p>As you can see, React components are just JavaScript functions that accept arbitrary input and return a declarative view describing what should appear in the application's UI.</p>
-          <h3 id="one-way-data-binding">One-Way Data Binding<a class="fa fa-anchor" href="#one-way-data-binding"></a></h3>
-          <p><em>Data binding</em> refers to the exchange of information between the application data and the UI. React provides <em>one-way</em> data binding. In applications that use one-way data binding, changes to the application data are automatically
-            reflected in the UI. However, changes to the UI need to be manually propagated to the application data.</p>
-          <p>In the above application, you can see that the UI is updated whenever a different name is entered in the textbox. These updates do not happen in a single step - the application data is first updated using the <code>handleChange()</code> method,
-            and then the UI is updated to reflect these changes.</p>
-          <h2 id="why-use-react">Why use React?<a class="fa fa-anchor" href="#why-use-react"></a></h2>
+          <h3 id="one-way-data-binding">One-Way Data Binding<a class="fa fa-anchor" href="#one-way-data-binding" onclick="event.stopPropagation()"></a></h3>
+          <p><em>Data binding</em> refers to the exchange of information between the application data and the UI. React provides <em>one-way</em> data binding. In applications that use one-way data binding, changes to the application data are automatically reflected in the UI. However, changes to the UI need to be manually propagated to the application data.</p>
+          <p>In the above application, you can see that the UI is updated whenever a different name is entered in the textbox. These updates do not happen in a single step - the application data is first updated using the <code>handleChange()</code> method, and then the UI is updated to reflect these changes.</p>
+          <h2 id="why-use-react">Why use React?<a class="fa fa-anchor" href="#why-use-react" onclick="event.stopPropagation()"></a></h2>
           <p>Now that we know what React is, let us look at some benefits it has to offer.</p>
-          <h3 id="benefit-1-better-performance">Benefit 1: Better Performance<a class="fa fa-anchor" href="#benefit-1-better-performance"></a></h3>
-          <p>Web applications can have a lot of user interaction and data updates, which results in changes being made to the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.</span>DOM</span>.
-            Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A reflow occurs when the structure of the DOM tree changes, and a repaint occurs on style changes. These operations can get quite expensive for large DOM trees.</span><em><a href="https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">reflow and repaint</a></em></span>
-            the UI every time the DOM is changed.</p>
+          <h3 id="benefit-1-better-performance">Benefit 1: Better Performance<a class="fa fa-anchor" href="#benefit-1-better-performance" onclick="event.stopPropagation()"></a></h3>
+          <p>Web applications can have a lot of user interaction and data updates, which results in changes being made to the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The Document Object Model, or the 'DOM', is an interface to web pages. It represents the page as nodes and objects, allowing programs to read and manipulate the page's content, structure, and styles.</span>DOM</span>. Adding and removing DOM nodes isn't slow, but the performance-bottleneck arises because the browser needs to <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A reflow occurs when the structure of the DOM tree changes, and a repaint occurs on style changes. These operations can get quite expensive for large DOM trees.</span><em><a href="https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">reflow and repaint</a></em></span> the UI every time the DOM is changed.</p>
           <p>React minimizes this update time by using a <em>virtual DOM</em>. The virtual DOM is a JavaScript object that is kept in the memory of your application.</p>
           <p><a href="/learningresources/contents/javascript/javascript-framework-react-images/ReactVirtualDOM.png" target="_self"><img src="/learningresources/contents/javascript/javascript-framework-react-images/ReactVirtualDOM.png" alt class="img-fluid" title="React's Virtual DOM"></a>
             <em>Figure 1. How React's actual DOM gets updated.</em></p>
           <p>As shown in Figure 1 above, updates to the UI will first be made to the virtual DOM. Then, React will compare the virtual DOM with the actual DOM using a <em><a href="https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm">diffing algorithm</a></em>.
             Finally, React updates the actual DOM only in places it differs with the virtual DOM. It batches multiple changes together and updates the actual DOM in one go, minimizing update time.</p>
-          <h3 id="benefit-2-abstraction">Benefit 2: Abstraction<a class="fa fa-anchor" href="#benefit-2-abstraction"></a></h3>
-          <p>The traditional <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Imperative programming focuses on explicitly describing how a program operates.</span><em>imperative</em></span>
-            approach of building a web application requires you to describe how you want your UI to change when your application data changes.</p>
-          <p>Most web applications usually have to interact with a lot of DOM elements and events. Also, different browsers have variations in their implementations of the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
-              class="trigger"><span data-mb-html-for="_content">The core DOM consists of the properties and methods of the DOM (nodeName, getElementById(), etc).</span><a href="https://quirksmode.org/dom/core/">core DOM</a></span>, <span data-mb-component-type="tooltip"
-              v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The events system consists of different kinds of events that the DOM supports (blur, change, etc).</span><a href="https://www.quirksmode.org/dom/events/index.html">events system</a></span>
-            and even <a href="https://www.quirksmode.org/dom/w3c_css.html">styles</a> that can be applied to DOM elements! If you want your application to work across different browsers, you would need to manually take care of these variations with the
-            imperative approach.
-          </p>
-          <p>React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally,
-            React provides its own <a href="https://reactjs.org/docs/events.html">events system</a> so that events can work in the same way across different browsers.</p>
-          <h3 id="benefit-3-testability">Benefit 3: Testability<a class="fa fa-anchor" href="#benefit-3-testability"></a></h3>
+          <h3 id="benefit-2-abstraction">Benefit 2: Abstraction<a class="fa fa-anchor" href="#benefit-2-abstraction" onclick="event.stopPropagation()"></a></h3>
+          <p>The traditional <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Imperative programming focuses on explicitly describing how a program operates.</span><em>imperative</em></span> approach of building a web application requires you to describe how you want your UI to change when your application data changes.</p>
+          <p>Most web applications usually have to interact with a lot of DOM elements and events. Also, different browsers have variations in their implementations of the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The core DOM consists of the properties and methods of the DOM (nodeName, getElementById(), etc).</span><a href="https://quirksmode.org/dom/core/">core DOM</a></span>, <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The events system consists of different kinds of events that the DOM supports (blur, change, etc).</span><a href="https://www.quirksmode.org/dom/events/index.html">events system</a></span> and even <a href="https://www.quirksmode.org/dom/w3c_css.html">styles</a> that can be applied to DOM elements! If you want your application to work across different browsers, you would need to manually take care of these variations with the imperative approach.</p>
+          <p>React's declarative approach simplifies this process because it abstracts the complexity of interacting with the actual DOM elements and events. For example, the virtual DOM helps React abstract browser-specific operations on DOM elements. Additionally, React provides its own <a href="https://reactjs.org/docs/events.html">events system</a> so that events can work in the same way across different browsers.</p>
+          <h3 id="benefit-3-testability">Benefit 3: Testability<a class="fa fa-anchor" href="#benefit-3-testability" onclick="event.stopPropagation()"></a></h3>
           <p>A React application is made up of a combination of components. Components are independent from each other, and like functions, they map the same input to the same output. This makes it easy to write unit tests for your application.</p>
-          <p>Additionally, React only allows data to flow downwards (one-way data binding) using <code>state</code> and <code>props</code>, which makes your application <a href="https://reactjs.org/docs/design-principles.html#debugging">easier to debug</a>            as you can be sure that the data updates the UI, and never the other way around.</p>
-          <h3 id="other-advantages-of-react">Other Advantages of React<a class="fa fa-anchor" href="#other-advantages-of-react"></a></h3>
+          <p>Additionally, React only allows data to flow downwards (one-way data binding) using <code>state</code> and <code>props</code>, which makes your application <a href="https://reactjs.org/docs/design-principles.html#debugging">easier to debug</a> as you can be sure that the data updates the UI, and never the other way around.</p>
+          <h3 id="other-advantages-of-react">Other Advantages of React<a class="fa fa-anchor" href="#other-advantages-of-react" onclick="event.stopPropagation()"></a></h3>
           <p>Besides the three main benefits explained above, React has the following advantages:</p>
           <ul>
-            <li>React is not an <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">An opiniated framework guides or locks you into their preferred way of doing things.</span><em>opinionated</em></span>
-              framework, which gives you the flexibility to choose your application stack.</li>
+            <li>React is not an <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">An opiniated framework guides or locks you into their preferred way of doing things.</span><em>opinionated</em></span> framework, which gives you the flexibility to choose your application stack.</li>
             <li>React is constantly being updated with new features (e.g. <a href="https://reactjs.org/docs/hooks-intro.html">hooks</a> were released in v16.8) and performance optimizations.</li>
           </ul>
-          <h2 id="disadvantages-of-react">Disadvantages of React<a class="fa fa-anchor" href="#disadvantages-of-react"></a></h2>
+          <h2 id="disadvantages-of-react">Disadvantages of React<a class="fa fa-anchor" href="#disadvantages-of-react" onclick="event.stopPropagation()"></a></h2>
           <p>Like any other framework/library, React has its share of disadvantages.</p>
           <ol>
-            <li><strong>Fast-Paced Development:</strong> <br> The high pace of development of React means that you would need to regularly relearn how to do things.</li>
-            <li><strong>React is Just a UI library:</strong><br> As React only allows one-way data binding, you can't use it in applications that follow the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.</span><em>MVC</em></span>
-              architecture. You would have to use <a href="https://github.com/facebook/flux">Flux</a>, an application architecture that favors one-way data binding instead.</li>
+            <li><strong>Fast-Paced Development:</strong> <br>
+              The high pace of development of React means that you would need to regularly relearn how to do things.</li>
+            <li><strong>React is Just a UI library:</strong><br>
+              As React only allows one-way data binding, you can't use it in applications that follow the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">MVC, or Model-View-Controller is a popular application structure for building web applications. It separates the UI and the data of your application, and changes can be made to your application using controllers.</span><em>MVC</em></span> architecture. You would have to use <a href="https://github.com/facebook/flux">Flux</a>, an application architecture that favors one-way data binding instead.</li>
           </ol>
-          <h2 id="react-and-other-competing-alternatives">React and Other Competing Alternatives<a class="fa fa-anchor" href="#react-and-other-competing-alternatives"></a></h2>
-          <p>There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are <a href="https://se-education.org/learningresources/contents/javascript/Javascript-framework-Angular.html">Angular</a>            and <a href="https://se-education.org/learningresources/contents/javascript/Javascript-framework-VueJs.html">Vue</a>.</p>
+          <h2 id="react-and-other-competing-alternatives">React and Other Competing Alternatives<a class="fa fa-anchor" href="#react-and-other-competing-alternatives" onclick="event.stopPropagation()"></a></h2>
+          <p>There are a lot of JavaScript frameworks and libraries that you can use to build your next web application. Some popular alternatives to React are <a href="https://se-education.org/learningresources/contents/javascript/Javascript-framework-Angular.html">Angular</a> and <a href="https://se-education.org/learningresources/contents/javascript/Javascript-framework-VueJs.html">Vue</a>.</p>
           <p>How do you decide which one to use? Here are some resources to help you choose between them:</p>
           <ul>
             <li><a href="https://blog.teamtreehouse.com/react-angular-vue">React, Angular, Vue: What they can do and which one is for you</a> - This article has guidelines for choosing which technology to learn.</li>
-            <li><a href="https://www.codeinwp.com/blog/angular-vs-vue-vs-react/">Angular vs Vue vs React</a> - In addition to comparing the three technologies, this article aims to give a general structure for comparing JavaScript frameworks and libraries.
-              Hence, you can use this structure to choose between any new frameworks that may arrive in the future.</li>
-            <li><a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018: Front-end Frameworks</a> - This survey compares the average salaries, company size, developer satisfaction, etc. for the most used JavaScript front-end technologies,
-              so you can decide which technology will be worth learning for a career in front-end software engineering.</li>
+            <li><a href="https://www.codeinwp.com/blog/angular-vs-vue-vs-react/">Angular vs Vue vs React</a> - In addition to comparing the three technologies, this article aims to give a general structure for comparing JavaScript frameworks and libraries. Hence, you can use this structure to choose between any new frameworks that may arrive in the future.</li>
+            <li><a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018: Front-end Frameworks</a> - This survey compares the average salaries, company size, developer satisfaction, etc. for the most used JavaScript front-end technologies, so you can decide which technology will be worth learning for a career in front-end software engineering.</li>
           </ul>
-          <p>Every framework has its pros and cons, but hopefully you have managed to see that React <a href="https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome">removes some of the complexity</a> that comes with building user
-            interfaces.</p>
-          <h2 id="getting-started-with-react">Getting Started With React<a class="fa fa-anchor" href="#getting-started-with-react"></a></h2>
+          <p>Every framework has its pros and cons, but hopefully you have managed to see that React <a href="https://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome">removes some of the complexity</a> that comes with building user interfaces.</p>
+          <h2 id="getting-started-with-react">Getting Started With React<a class="fa fa-anchor" href="#getting-started-with-react" onclick="event.stopPropagation()"></a></h2>
           <p>The official React <a href="https://reactjs.org/">website</a> is a great place to get started. It includes:</p>
           <ul>
             <li>A step-by-step <a href="https://reactjs.org/tutorial/tutorial.html">tutorial</a> for building a React application, if you prefer to learn by doing.</li>
             <li>A <a href="https://reactjs.org/docs/hello-world.html">guide</a> to master the main concepts of React, if you prefer to learn by reading instead.</li>
           </ul>
-          <p>If you want to add React to an existing project, you can take a look at React's official <a href="https://reactjs.org/docs/add-react-to-a-website.html">guide</a> for doing so. Alternatively, if you are creating a new React application, you can
-            use one of the <a href="https://reactjs.org/docs/create-a-new-react-app.html">recommended toolchains</a> to get the best user and developer experience.</p>
-          <p><a href="https://github.com/facebook/create-react-app">Create React App</a> is a convenient environment for learning React, and it is the recommended way to create <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter"
-              class="trigger"><span data-mb-html-for="_content">A single-page application is an app that works inside a browser and does not require page reloading during use.</span><em>single-page applications</em></span> with React.</p>
+          <p>If you want to add React to an existing project, you can take a look at React's official <a href="https://reactjs.org/docs/add-react-to-a-website.html">guide</a> for doing so. Alternatively, if you are creating a new React application, you can use one of the <a href="https://reactjs.org/docs/create-a-new-react-app.html">recommended toolchains</a> to get the best user and developer experience.</p>
+          <p><a href="https://github.com/facebook/create-react-app">Create React App</a> is a convenient environment for learning React, and it is the recommended way to create <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A single-page application is an app that works inside a browser and does not require page reloading during use.</span><em>single-page applications</em></span> with React.</p>
           <p>The official website also has <a href="https://reactjs.org/docs/getting-started.html#advanced-concepts">advanced guides</a> if you want to understand how React works behind the scenes.</p>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources"></a></h2>
+          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources" onclick="event.stopPropagation()"></a></h2>
           <p>As React is a fairly popular library, you can find a lot of comprehensive resources online. Here are some resources that can be useful:</p>
           <ul>
             <li><a href="https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795">The React Handbook</a> - This article provides a well-rounded overview of React.</li>
@@ -429,10 +411,13 @@
             <li>React's <a href="https://reactjs.org/docs/react-api.html">API Reference</a> - You can learn more about React's API here.</li>
             <li>The <a href="https://github.com/facebook/react-devtools">React DevTools</a> browser extension - This is used for inspecting and debugging React applications from within your browser's developer tools.</li>
           </ul>
-          <p>If you need help with React, you can get support from React's <a href="https://reactjs.org/community/support.html">community</a> of millions of developers that are active on <a href="https://stackoverflow.com/questions/tagged/reactjs">Stack Overflow</a>            and discussion forums like <a href="https://dev.to/t/react">Dev</a> and <a href="https://hashnode.com/n/reactjs">Hashnode</a>.</p>
+          <p>If you need help with React, you can get support from React's <a href="https://reactjs.org/community/support.html">community</a> of millions of developers that are active on <a href="https://stackoverflow.com/questions/tagged/reactjs">Stack Overflow</a>
+            and discussion forums like <a href="https://dev.to/t/react">Dev</a> and <a href="https://hashnode.com/n/reactjs">Hashnode</a>.</p>
           <p>Lastly, if you want to know what to learn after getting familiar with React, <a href="https://github.com/adam-golab/react-developer-roadmap">here is a comprehensive roadmap</a> that you can follow to become a full-fledged React developer.</p>
         </div>
       </div>
+
+
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
@@ -465,7 +450,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Tue, Apr 14, 2020, 2:53:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sat, Apr 18, 2020, 9:37:46 AM UTC]</small></div>
     </footer>
   </div>
 </body>

@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.13.1">
+  <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Javascript: Promises</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../markbind/css/octicons.css">
   <link rel="stylesheet" href="../../markbind/css/github.min.css">
   <link rel="stylesheet" href="../../markbind/css/markbind.css">
+  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
   <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
   <link rel="stylesheet" href="../../markbind/css/site-nav.css">
   <link rel="stylesheet" href="../../markbind/css/page-nav.css">
@@ -51,274 +52,274 @@
       <nav id="site-nav" class="navbar navbar-light bg-transparent">
         <div class="border-right-grey nav-inner position-sticky slim-scroll">
           <span id="toc">
-<ul class="px-0 site-nav-list">
-<li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i>
-          </button>
-          <div class="dropdown-container dropdown-container-open">
-            <ul class="pl-3 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn">C++
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn">CSharp
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-              <li class="mt-2"><button class="dropdown-btn">Java
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">JavaScript
- <i class="dropdown-btn-icon rotate-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+            <ul class="px-0 site-nav-list">
+              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
+                  <i class="dropdown-btn-icon rotate-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container dropdown-container-open">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a current">Javascript Promises</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">C++
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">CSharp
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Java
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">JavaScript
+                        <i class="dropdown-btn-icon rotate-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container dropdown-container-open">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a current">Javascript Promises</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Kotlin
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Python
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Kotlin
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Architecture
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Code Quality
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Performance
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Project Management
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Revision Control
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Testing
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><button class="dropdown-btn">Python
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
                 <div class="dropdown-container">
                   <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
                   </ul>
                 </div>
               </li>
-              <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-              <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
+                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
+                  <i class="dropdown-btn-icon">
+                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                <div class="dropdown-container">
+                  <ul class="pl-3 site-nav-list">
+                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Databases
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
+                    <li class="mt-2"><button class="dropdown-btn">Security
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mt-2"><button class="dropdown-btn">Shell
+                        <i class="dropdown-btn-icon">
+                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
+                      <div class="dropdown-container">
+                        <ul class="pl-3 site-nav-list">
+                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
             </ul>
-          </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><button class="dropdown-btn">Architecture
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Code Quality
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Performance
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Project Management
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Revision Control
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Static Analysis
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Testing
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">UI/UX
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-            <div class="dropdown-container">
-              <ul class="pl-3 site-nav-list">
-                <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Databases
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Multi-Threading
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                <li class="mt-2"><button class="dropdown-btn">Security
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                      <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="mt-2"><button class="dropdown-btn">Shell
- <i class="dropdown-btn-icon">
-<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                  <div class="dropdown-container">
-                    <ul class="pl-3 site-nav-list">
-                      <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          </ul>
-          </span>
-        </div>
+          </span></div>
       </nav>
+
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="javascript-promises">Javascript: Promises<a class="fa fa-anchor" href="#javascript-promises"></a></h1>
-          <p><strong>Authors: Daniel Berzin Chua, Ong Shu Peng</strong><br> Reviewers: Chelsey Ong, Damith C, Gilbert Emerson, Tan Heng Yeow</p>
+          <h1 id="javascript-promises">Javascript: Promises<a class="fa fa-anchor" href="#javascript-promises" onclick="event.stopPropagation()"></a></h1>
+          <p><strong>Authors: Daniel Berzin Chua, Ong Shu Peng</strong><br>
+            Reviewers: Chelsey Ong, Damith C, Gilbert Emerson, Tan Heng Yeow</p>
           <box id="article-toc">
             <ul>
               <li><a href="#why-promises">Why Promises?‎</a></li>
@@ -331,31 +332,21 @@
             </ul>
           </box>
 
-          <h2 id="why-promises">Why Promises?<a class="fa fa-anchor" href="#why-promises"></a></h2>
-          <p>Typically, code we write executes in <em>synchronous</em> manner i.e., the current operation completes its work before proceeding with next operation. However, take an HTTP request for example. It is an operation that takes a while to process,
-            depending on your internet speed and where you are in the world. If such an operation was to be executed in a synchronous manner, your application would be slow because it has to wait for this request to complete and it would not make for
-            a particularly good user experience. Instead, we can make HTTP requests to operate <em>asynchronously</em> in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished
-            before proceeding on with other operations; it allow those operations to continue processing in the background while other operations are executed.</p>
-          <p>However, programming and debugging of asynchronous operations is more difficult compared to synchronous operations, because you would need some way to know when the operation has finished, or in the case of debugging, the point at which the
-            operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.</p>
-          <p>To illustrate this problem, we'll use <code>setTimeout()</code>: a function that has 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed, and an additional parameters to pass to the <em>callback</em>. A
-            callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. <code>setTimeout()</code> is asynchronous as the code below it will execute while the timer is counting down, as
-            you will see in the following code snippet.</p>
+          <h2 id="why-promises">Why Promises?<a class="fa fa-anchor" href="#why-promises" onclick="event.stopPropagation()"></a></h2>
+          <p>Typically, code we write executes in <em>synchronous</em> manner i.e., the current operation completes its work before proceeding with next operation. However, take an HTTP request for example. It is an operation that takes a while to process, depending on your internet speed and where you are in the world. If such an operation was to be executed in a synchronous manner, your application would be slow because it has to wait for this request to complete and it would not make for a particularly good user experience. Instead, we can make HTTP requests to operate <em>asynchronously</em> in order to improve the speed and user experience of your program. Asynchronous operations do not wait for their work to be finished before proceeding on with other operations; it allow those operations to continue processing in the background while other operations are executed.</p>
+          <p>However, programming and debugging of asynchronous operations is more difficult compared to synchronous operations, because you would need some way to know when the operation has finished, or in the case of debugging, the point at which the operation is called. It can be especially confusing to trace the code since it may not run in the sequence that you would normally expect.</p>
+          <p>To illustrate this problem, we'll use <code>setTimeout()</code>: a function that has 3 parameters, a callback, a time (in milliseconds) to wait before the callback is executed, and an additional parameters to pass to the <em>callback</em>. A callback is a function that is passed as a parameter to another function, and it will be executed after that function finishes. <code>setTimeout()</code> is asynchronous as the code below it will execute while the timer is counting down, as you will see in the following code snippet.</p>
           <p>You would probably expect <code>console.log(x)</code> to print <code>I have been updated</code> after 1 second has passed. Instead, it prints <code>I have not been updated.</code> Give it a try in Google Chrome's developer console.</p>
-          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;</span><span>&#x200B;</span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{</span><span>    x = <span class="hljs-string">"I have been updated"</span>;</span><span>}, <span class="hljs-number">1000</span>);</span><span>&#x200B;</span><span><span class="hljs-built_in">console</span>.log(x);</span></code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;<br></span><span><br></span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<br></span><span>    x = <span class="hljs-string">"I have been updated"</span>;<br></span><span>}, <span class="hljs-number">1000</span>);<br></span><span><br></span><span><span class="hljs-built_in">console</span>.log(x);<br></span></code></pre>
           <p>To fix this problem, we can simply shift the <code>console.log(x)</code> into the callback to get the expected result. It will now print the correct value.</p>
-          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;</span><span>&#x200B;</span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{</span><span>    x = <span class="hljs-string">"I have been updated"</span>;</span><span>    <span class="hljs-built_in">console</span>.log(x);</span><span>}, <span class="hljs-number">1000</span>);</span></code></pre>
-          <p>However, this fix will only go so far. If we had another <code>setTimeout()</code> that depended on the result of the earlier <code>setTimeout()</code>, we would have to nest the functions within each other which would make for hard-to-read
-            code as follows.
-          </p>
-          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;</span><span>&#x200B;</span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{</span><span>    x = <span class="hljs-string">"I have been updated"</span>;</span><span>    <span class="hljs-built_in">console</span>.log(x);</span><span>    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><span>        x = <span class="hljs-string">"I have been updated 2 times."</span>;</span><span>        <span class="hljs-built_in">console</span>.log(x);</span><span>        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><span>            x = <span class="hljs-string">"I have been updated 3 times."</span>;</span><span>            <span class="hljs-built_in">console</span>.log(x);</span><span>            <span class="hljs-comment">// and so on...</span></span><span>        }, <span class="hljs-number">1000</span>);</span><span>    }, <span class="hljs-number">1000</span>);</span><span>}, <span class="hljs-number">1000</span>);</span></code></pre>
-          <p>This is what's infamously known as <em>callback hell</em>. It's a natural result of using too many callbacks, as this would result in the code becoming deeply nested. It would be difficult for anyone to read your code and to understand what
-            exactly is going on.</p>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;<br></span><span><br></span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<br></span><span>    x = <span class="hljs-string">"I have been updated"</span>;<br></span><span>    <span class="hljs-built_in">console</span>.log(x);<br></span><span>}, <span class="hljs-number">1000</span>);<br></span></code></pre>
+          <p>However, this fix will only go so far. If we had another <code>setTimeout()</code> that depended on the result of the earlier <code>setTimeout()</code>, we would have to nest the functions within each other which would make for hard-to-read code as follows.</p>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">var</span> x = <span class="hljs-string">"I have not been updated"</span>;<br></span><span><br></span><span>setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{<br></span><span>    x = <span class="hljs-string">"I have been updated"</span>;<br></span><span>    <span class="hljs-built_in">console</span>.log(x);<br></span><span>    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br></span><span>        x = <span class="hljs-string">"I have been updated 2 times."</span>;<br></span><span>        <span class="hljs-built_in">console</span>.log(x);<br></span><span>        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br></span><span>            x = <span class="hljs-string">"I have been updated 3 times."</span>;<br></span><span>            <span class="hljs-built_in">console</span>.log(x);<br></span><span>            <span class="hljs-comment">// and so on...</span><br></span><span>        }, <span class="hljs-number">1000</span>);<br></span><span>    }, <span class="hljs-number">1000</span>);<br></span><span>}, <span class="hljs-number">1000</span>);<br></span></code></pre>
+          <p>This is what's infamously known as <em>callback hell</em>. It's a natural result of using too many callbacks, as this would result in the code becoming deeply nested. It would be difficult for anyone to read your code and to understand what exactly is going on.</p>
           <p>We can instead use Promises for cleaner code that would be easier to read, write and debug.</p>
-          <h2 id="what-is-a-promise">What is a Promise?<a class="fa fa-anchor" href="#what-is-a-promise"></a></h2>
+          <h2 id="what-is-a-promise">What is a Promise?<a class="fa fa-anchor" href="#what-is-a-promise" onclick="event.stopPropagation()"></a></h2>
           <p>The following example is adapted from <a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies</a>.</p>
-          <p>Promises in Javascript behave the same way as Promises do in real life. Imagine that your friend promises to return you money that you have lent him. At the time this promise was made, you would not know if your friend would really return your
-            money. Your friend could either return your money on time, or he could just not do it.</p>
+          <p>Promises in Javascript behave the same way as Promises do in real life. Imagine that your friend promises to return you money that you have lent him. At the time this promise was made, you would not know if your friend would really return your money. Your friend could either return your money on time, or he could just not do it.</p>
           <p>These situations correspond to the 3 states of Promises in Javascript.</p>
           <div class="table-responsive">
             <table class="markbind-table table table-bordered table-striped">
@@ -382,55 +373,46 @@
             </table>
           </div>
           <p>Promises provide the ability to specify how the execution of some part of your code would depend on the status of an asynchronous operation. It can now wait for the asynchronous operation to resolve first before doing any work on its result.</p>
-          <h2 id="how-promises-work">How Promises Work<a class="fa fa-anchor" href="#how-promises-work"></a></h2>
+          <h2 id="how-promises-work">How Promises Work<a class="fa fa-anchor" href="#how-promises-work" onclick="event.stopPropagation()"></a></h2>
           <p>Let's learn how promises work by starting with an example that uses callbacks and converting it to use promises.</p>
-          <p>Say we have two functions, <code>getData()</code> and <code>filterData()</code> which require some time to complete. You will have to get the data from some server using <code>getData()</code>, then process it using <code>filterData()</code>,
-            before you can start displaying the results.</p>
-          <p>How would such functions be implemented using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively &quot;passing&quot; any
-            form of data out, without explicitly returning any value.</p>
+          <p>Say we have two functions, <code>getData()</code> and <code>filterData()</code> which require some time to complete. You will have to get the data from some server using <code>getData()</code>, then process it using <code>filterData()</code>, before you can start displaying the results.</p>
+          <p>How would such functions be implemented using the callback method? The callback method utilizes the fact that we can easily pass functions into javascript as parameters and then use them within the function, effectively &quot;passing&quot; any form of data out, without explicitly returning any value.</p>
           <p>We will implement the above use case in the callback-style (mimicking the long return time of the functions using <code>setTimeout</code>):</p>
-          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val, callback</span>) </span>{</span><span>    <span class="hljs-comment">// return val after a short wait</span></span><span>    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><span>        callback(val);</span><span>    }, <span class="hljs-number">1000</span>);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">/** Delayed function calls **/</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">callback</span>) </span>{</span><span>    executeWithDelay(<span class="hljs-string">'some random data'</span>, callback);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterData</span>(<span class="hljs-params">data, callback</span>) </span>{</span><span>    executeWithDelay(data.split(<span class="hljs-string">' '</span>), callback);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    getData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{</span><span>        filterData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filtered</span>)</span>{</span><span>            <span class="hljs-comment">// will print array of splitted text</span></span><span>            <span class="hljs-built_in">console</span>.log(filtered);</span><span>        })</span><span>    });</span><span>}</span><span>&#x200B;</span><span>main();</span></code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val, callback</span>) </span>{<br></span><span>    <span class="hljs-comment">// return val after a short wait</span><br></span><span>    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br></span><span>        callback(val);<br></span><span>    }, <span class="hljs-number">1000</span>);<br></span><span>}<br></span><span><br></span><span><span class="hljs-comment">/** Delayed function calls **/</span><br></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">callback</span>) </span>{<br></span><span>    executeWithDelay(<span class="hljs-string">'some random data'</span>, callback);<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterData</span>(<span class="hljs-params">data, callback</span>) </span>{<br></span><span>    executeWithDelay(data.split(<span class="hljs-string">' '</span>), callback);<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{<br></span><span>    getData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{<br></span><span>        filterData(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filtered</span>)</span>{<br></span><span>            <span class="hljs-comment">// will print array of splitted text</span><br></span><span>            <span class="hljs-built_in">console</span>.log(filtered);<br></span><span>        })<br></span><span>    });<br></span><span>}<br></span><span><br></span><span>main();<br></span></code></pre>
           <p>Now we will rewrite all these using promises. We will be using the same function and variable names, to show how exactly promise compare to callbacks.</p>
-          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val</span>) </span>{</span><span>    <span class="hljs-comment">// return val after a short wait</span></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {</span><span>        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><span>            resolve(val);</span><span>        }, <span class="hljs-number">1000</span>);</span><span>    });</span><span>}</span><span>&#x200B;</span><span><span class="hljs-comment">/** note these functions now return a promise **/</span></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getdata</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">return</span> executeWithDelay(<span class="hljs-string">'some random data'</span>);</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterdata</span>(<span class="hljs-params">data, callback</span>) </span>{</span><span>    <span class="hljs-keyword">return</span> executeWithDelay(data.split(<span class="hljs-string">' '</span>));</span><span>}</span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">return</span> getData()</span><span>        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))</span><span>        .then(<span class="hljs-function"><span class="hljs-params">filtered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));</span><span>}</span><span>&#x200B;</span><span>main();</span></code></pre>
-          <h2 id="imperative-style-promises-async-await">Imperative Style Promises: <code>async-await</code><a class="fa fa-anchor" href="#imperative-style-promises-async-await"></a></h2>
-          <p>The example above uses <code>.then()</code> to pass data from one function to the next is often seen in <em>functional programming</em>. The original promise is passed from one <code>.then()</code> to the other, and with each <code>.then()</code>,
-            a new promise is returned for the next <code>.then()</code> to work on.</p>
+          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">executeWithDelay</span>(<span class="hljs-params">val</span>) </span>{<br></span><span>    <span class="hljs-comment">// return val after a short wait</span><br></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {<br></span><span>        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br></span><span>            resolve(val);<br></span><span>        }, <span class="hljs-number">1000</span>);<br></span><span>    });<br></span><span>}<br></span><span><br></span><span><span class="hljs-comment">/** note these functions now return a promise **/</span><br></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getdata</span>(<span class="hljs-params"></span>) </span>{<br></span><span>    <span class="hljs-keyword">return</span> executeWithDelay(<span class="hljs-string">'some random data'</span>);<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterdata</span>(<span class="hljs-params">data, callback</span>) </span>{<br></span><span>    <span class="hljs-keyword">return</span> executeWithDelay(data.split(<span class="hljs-string">' '</span>));<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{<br></span><span>    <span class="hljs-keyword">return</span> getData()<br></span><span>        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))<br></span><span>        .then(<span class="hljs-function"><span class="hljs-params">filtered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));<br></span><span>}<br></span><span><br></span><span>main();<br></span></code></pre>
+          <h2 id="imperative-style-promises-async-await">Imperative Style Promises: <code>async-await</code><a class="fa fa-anchor" href="#imperative-style-promises-async-await" onclick="event.stopPropagation()"></a></h2>
+          <p>The example above uses <code>.then()</code> to pass data from one function to the next is often seen in <em>functional programming</em>. The original promise is passed from one <code>.then()</code> to the other, and with each <code>.then()</code>, a new promise is returned for the next <code>.then()</code> to work on.</p>
           <p>That is somewhat different from the imperative programming style most programmers are more familiar with. The <code>async</code> and <code>await</code> keywords facilitate a imperative way of using promises.</p>
           <p>Consider the <code>main</code> function from the previous example:</p>
-          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">return</span> getData()</span><span>        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))</span><span>        .then(<span class="hljs-function"><span class="hljs-params">fltered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));</span><span>}</span></code></pre>
+          <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{<br></span><span>    <span class="hljs-keyword">return</span> getData()<br></span><span>        .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> filterData(data))<br></span><span>        .then(<span class="hljs-function"><span class="hljs-params">fltered</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(filtered));<br></span><span>}<br></span></code></pre>
           <p>It can be rewritten in the async-await-style as follows:</p>
-          <pre><code class="hljs javascript"><span><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{</span><span>    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> getData();</span><span>    <span class="hljs-keyword">const</span> filtered = <span class="hljs-keyword">await</span> filterData(data);</span><span>&#x200B;</span><span>    <span class="hljs-built_in">console</span>.log(filtered);</span><span>    <span class="hljs-keyword">return</span> filtered;</span><span>}</span></code></pre>
-          <p>The <code>async</code> keyword ensures that the <code>main()</code> function returns a promise. In our case, this will cause <code>main()</code> to return a promise with <code>filtered</code> as its data. The information can then be used like
-            so <code>main().then(filtered =&gt; alert(filtered));</code>.</p>
-          <p>Another interesting thing to note: <code>await</code> will wait for the promise to return before executing anything below. In this case, <code>console.log</code> will be executed after the two <code>await</code> calls, even when it doesn't depend
-            on the results of those calls.</p>
+          <pre><code class="hljs javascript"><span><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{<br></span><span>    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> getData();<br></span><span>    <span class="hljs-keyword">const</span> filtered = <span class="hljs-keyword">await</span> filterData(data);<br></span><span><br></span><span>    <span class="hljs-built_in">console</span>.log(filtered);<br></span><span>    <span class="hljs-keyword">return</span> filtered;<br></span><span>}<br></span></code></pre>
+          <p>The <code>async</code> keyword ensures that the <code>main()</code> function returns a promise. In our case, this will cause <code>main()</code> to return a promise with <code>filtered</code> as its data. The information can then be used like so <code>main().then(filtered =&gt; alert(filtered));</code>.</p>
+          <p>Another interesting thing to note: <code>await</code> will wait for the promise to return before executing anything below. In this case, <code>console.log</code> will be executed after the two <code>await</code> calls, even when it doesn't depend on the results of those calls.</p>
           <p>In the promise-style, we handle errors using the <code>.catch()</code> block. However when using the async-await-style, we handle the errors using the more conventional <code>try ... catch</code> block. These can be explored further in <a href="https://javascript.info/async-await#error-handling">here</a></p>
-          <h2 id="where-promises-can-be-used">Where Promises can be Used<a class="fa fa-anchor" href="#where-promises-can-be-used"></a></h2>
+          <h2 id="where-promises-can-be-used">Where Promises can be Used<a class="fa fa-anchor" href="#where-promises-can-be-used" onclick="event.stopPropagation()"></a></h2>
           <p>Given below are some examples where JavaScript promises can be used:</p>
           <ul>
             <li>
               <p><strong>HTTP Requests</strong></p>
-              <p>Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount
-                of time for the response to be returned.</p>
+              <p>Earlier in this chapter, HTTP requests were mentioned as an example of an asynchronous operation. By using Promises, you would be able to act on the result from the request without having to use callbacks or wait an arbitrarily set amount of time for the response to be returned.</p>
               <p>The following code sends a GET request to a URL and logs the body of the response using Promises. By using Promises instead of callbacks, we have clean code and improved performance as the code is able to run in the background.</p>
               <p>Code adapted from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise MDN docs</a></p>
-              <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchPage</span>(<span class="hljs-params">url</span>) </span>{</span><span>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {</span><span>    <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><span>    xhr.open(<span class="hljs-string">"GET"</span>, url);</span><span>    xhr.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(xhr.responseText);</span><span>    xhr.onerror = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(xhr.statusText);</span><span>    xhr.send();</span><span>  });</span><span>}</span><span>&#x200B;</span><span>fetchPage(<span class="hljs-string">'path/to/resource'</span>)</span><span>    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(response))</span><span>    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));</span></code></pre>
+              <pre><code class="hljs javascript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchPage</span>(<span class="hljs-params">url</span>) </span>{<br></span><span>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {<br></span><span>    <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();<br></span><span>    xhr.open(<span class="hljs-string">"GET"</span>, url);<br></span><span>    xhr.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(xhr.responseText);<br></span><span>    xhr.onerror = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(xhr.statusText);<br></span><span>    xhr.send();<br></span><span>  });<br></span><span>}<br></span><span><br></span><span>fetchPage(<span class="hljs-string">'path/to/resource'</span>)<br></span><span>    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(response))<br></span><span>    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));<br></span></code></pre>
             </li>
             <li>
               <p><strong>Disk I/O</strong></p>
-              <p>Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead,
-                we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.</p>
-              <pre><code class="hljs javascript"><span><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);   <span class="hljs-comment">// this is the in-built filesystem module from Node.js</span></span><span>&#x200B;</span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFileWithPromise</span>(<span class="hljs-params">filePath</span>) </span>{</span><span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{</span><span>        fs.readFile(filePath, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, data</span>) </span>{</span><span>            <span class="hljs-keyword">if</span> (err) {</span><span>                reject(err);</span><span>            } <span class="hljs-keyword">else</span> {</span><span>                resolve(data);</span><span>            }</span><span>        });</span><span>    })</span><span>&#x200B;</span><span>};</span><span>&#x200B;</span><span>readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)</span><span>    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(data))</span><span>    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));</span></code></pre>
+              <p>Reading a file, especially a large one may take some time to complete. If we were to use a synchronous file reading function, the rest of your program wouldn't be able to run because it is stuck waiting for the file to be read. Instead, we can use asynchronous file reading functions which allow for background loading of the file, whilst keeping your program humming along.</p>
+              <pre><code class="hljs javascript"><span><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);   <span class="hljs-comment">// this is the in-built filesystem module from Node.js</span><br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFileWithPromise</span>(<span class="hljs-params">filePath</span>) </span>{<br></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{<br></span><span>        fs.readFile(filePath, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, data</span>) </span>{<br></span><span>            <span class="hljs-keyword">if</span> (err) {<br></span><span>                reject(err);<br></span><span>            } <span class="hljs-keyword">else</span> {<br></span><span>                resolve(data);<br></span><span>            }<br></span><span>        });<br></span><span>    })<br></span><span><br></span><span>};<br></span><span><br></span><span>readFileWithPromise(<span class="hljs-string">'path/to/file'</span>)<br></span><span>    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(data))<br></span><span>    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));<br></span></code></pre>
             </li>
           </ul>
-          <h2 id="doing-more-with-promises">Doing More With Promises<a class="fa fa-anchor" href="#doing-more-with-promises"></a></h2>
+          <h2 id="doing-more-with-promises">Doing More With Promises<a class="fa fa-anchor" href="#doing-more-with-promises" onclick="event.stopPropagation()"></a></h2>
           <p>Sometimes multiple promises may have to be used at a time, and Javascript provides excellent support with the <code>Promise.all</code> and <code>Promise.race</code> functions.</p>
-          <p>If multiple asynchronous operations have to be performed, and these operations are independent in that they do not rely on each other's values, <code>Promise.all()</code>can be used to execute all these operations at a go. It takes in an array
-            of Promises and returns either an array with all the resolved values, or the value of the first rejected Promise. After which, <code>then()</code> which was previously mentioned, can be used to act on all these resolved values.</p>
+          <p>If multiple asynchronous operations have to be performed, and these operations are independent in that they do not rely on each other's values, <code>Promise.all()</code>can be used to execute all these operations at a go. It takes in an array of Promises and returns either an array with all the resolved values, or the value of the first rejected Promise. After which, <code>then()</code> which was previously mentioned, can be used to act on all these resolved values.</p>
           <p>There is an excellent write up on these methods <a href="https://davidwalsh.name/promises">here</a>, which go through how best to use these functions.</p>
-          <p>In addition, there are other libraries such as <a href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> and <a href="https://github.com/kriskowal/q">Q</a> which offer even more functionality such as Promise monitoring and synchronous
-            inspection of Promises.</p>
-          <h2 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading"></a></h2>
+          <p>In addition, there are other libraries such as <a href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> and <a href="https://github.com/kriskowal/q">Q</a> which offer even more functionality such as Promise monitoring and synchronous inspection of Promises.</p>
+          <h2 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading" onclick="event.stopPropagation()"></a></h2>
           <p>You may read more about Promises, and how to use them at the following pages:</p>
           <ul>
             <li><a href="https://developers.google.com/web/fundamentals/primers/promises">JavaScript Promises: an Introduction</a></li>
@@ -439,6 +421,8 @@
           </ul>
         </div>
       </div>
+
+
       <nav id="page-nav" class="navbar navbar-light bg-transparent">
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
@@ -460,7 +444,7 @@
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Tue, Apr 14, 2020, 2:53:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sat, Apr 18, 2020, 9:37:46 AM UTC]</small></div>
     </footer>
   </div>
 </body>

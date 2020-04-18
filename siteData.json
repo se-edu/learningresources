@@ -401,7 +401,7 @@
       "footer": "footer.md",
       "head": "head.md",
       "siteNav": "mainNav.md",
-      "pageNav": 3,
+      "pageNav": 4,
       "src": "contents/functionalProgramming/intro.md",
       "layout": "default",
       "headings": {

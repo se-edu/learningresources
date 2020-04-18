@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.13.1">
+  <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SE-EDU/LearningResources - Contributing to this Project</title>
   <link rel="stylesheet" href="markbind/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="markbind/css/octicons.css">
   <link rel="stylesheet" href="markbind/css/github.min.css">
   <link rel="stylesheet" href="markbind/css/markbind.css">
+  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
   <link rel="stylesheet" href="markbind/layouts/default/styles.css">
   <link rel="stylesheet" href="/learningresources/css/main.css">
   <link rel="icon" href="/learningresources/favicon.ico">
@@ -46,14 +47,14 @@
       </navbar>
     </header>
     <div id="flex-body">
+
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="contributing-to-this-project">Contributing to this Project<a class="fa fa-anchor" href="#contributing-to-this-project"></a></h1>
+          <h1 id="contributing-to-this-project">Contributing to this Project<a class="fa fa-anchor" href="#contributing-to-this-project" onclick="event.stopPropagation()"></a></h1>
           <p>We welcome contributions to this project.</p>
-          <h2 id="how-to-contribute">How to Contribute<a class="fa fa-anchor" href="#how-to-contribute"></a></h2>
-          <p>You can report errors, send suggestions, ask questions. <span trigger="click" for="modal:contributing-contactInfo" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:contributing-contactInfo'].show()"
-              class="trigger-click">Here</span> is how you can contact us.</p>
+          <h2 id="how-to-contribute">How to Contribute<a class="fa fa-anchor" href="#how-to-contribute" onclick="event.stopPropagation()"></a></h2>
+          <p>You can report errors, send suggestions, ask questions. <span trigger="click" for="modal:contributing-contactInfo" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:contributing-contactInfo'].show()" class="trigger-click">Here</span> is how you can contact us.</p>
           <p>You can also add new topics or update existing content by following these steps:</p>
           <ul>
             <li><a href="https://github.com/se-edu/learningresources/fork">Fork this repo</a> and clone it to your Computer.</li>
@@ -63,25 +64,21 @@
           </ul>
           <b-modal id="modal:contributing-contactInfo" hide-footer size="lg" modal-class="mb-zoom" ref="modal:contributing-contactInfo"><template slot="modal-title">How to contact us</template>
             <div>
-              <h2 id="contact">Contact<a class="fa fa-anchor" href="#contact"></a></h2>
+              <h2 id="contact">Contact<a class="fa fa-anchor" href="#contact" onclick="event.stopPropagation()"></a></h2>
               <p>Suggestions, questions, and bug reports can be posted in <a href="https://github.com/nus-oss/learningresources/issues">our issue tracker</a>.</p>
               <p>Alternatively, contact project mentor <a href="https://www.comp.nus.edu.sg/~damithch">Damith C. Rajapakse</a>.</p>
             </div>
           </b-modal>
-          <h2 id="guidelines-for-writing-content">Guidelines for Writing Content<a class="fa fa-anchor" href="#guidelines-for-writing-content"></a></h2>
+          <h2 id="guidelines-for-writing-content">Guidelines for Writing Content<a class="fa fa-anchor" href="#guidelines-for-writing-content" onclick="event.stopPropagation()"></a></h2>
           <ul>
             <li>
-              <p><strong>Do include a table of contents.</strong> A table of contents tells the reader what to expect, such as how long the article is and what content is covered. It also serves as a reference that makes it easier to jump around from section
-                to section. In our case, we only show the table of contents for mobile users and for printing as Markbind already provides a navigation panel on the right side of every article. Feel free to refer to this <a href="https://github.com/se-edu/learningresources/pull/185">pull request</a>                to see how to implement this behavior.</p>
+              <p><strong>Do include a table of contents.</strong> A table of contents tells the reader what to expect, such as how long the article is and what content is covered. It also serves as a reference that makes it easier to jump around from section to section. In our case, we only show the table of contents for mobile users and for printing as Markbind already provides a navigation panel on the right side of every article. Feel free to refer to this <a href="https://github.com/se-edu/learningresources/pull/185">pull request</a> to see how to implement this behavior.</p>
             </li>
             <li>
-              <p><strong>Do use Title Case for headings.</strong> Using title case for headings gives articles a more polished, professional look that is more pleasing to the eye. If you are unfamiliar with the rules of title casing, you may refer to the
-                following
-                <a href="https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case">website</a> or use online title case converters such as the one found <a href="https://titlecase.com/">here</a>.</p>
+              <p><strong>Do use Title Case for headings.</strong> Using title case for headings gives articles a more polished, professional look that is more pleasing to the eye. If you are unfamiliar with the rules of title casing, you may refer to the following <a href="https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case">website</a> or use online title case converters such as the one found <a href="https://titlecase.com/">here</a>.</p>
             </li>
             <li>
-              <p><strong>It is not a normal textbook. It’s a collection of articles</strong>, each containing a <strong><em>curated</em></strong> list of <strong><em>tried-and-tested</em></strong> learning resources, <strong><em>organized</em></strong> in
-                a meaningful sequence, with <strong><em>commentary</em></strong>.</p>
+              <p><strong>It is not a normal textbook. It’s a collection of articles</strong>, each containing a <strong><em>curated</em></strong> list of <strong><em>tried-and-tested</em></strong> learning resources, <strong><em>organized</em></strong> in a meaningful sequence, with <strong><em>commentary</em></strong>.</p>
               <ul>
                 <li>The article can be on any technical topic useful for SE students.</li>
                 <li>Don’t try to follow the structure of normal textbooks.</li>
@@ -94,27 +91,24 @@
               <ul>
                 <li><strong>What is X?</strong>: Explain how X fits into the big picture of SE. Describe it relative to topics the reader is likely to know.</li>
                 <li><strong>Why X?</strong>: Motivate the reader to learn about X. Describe benefits of X to make the reader interested in X. Try to give a balanced view of by mentioning also WHY NOT X i.e., mention both advantages and disadvantages.</li>
-                <li><strong>How does X work?</strong> How is X being used? This is a simple high-level overview of the tool to give the reader some concrete sense of X (as opposed to limiting to an entirely abstract description). It's useful to give concrete
-                  examples such as code examples. <mark>Do not try to 'teach' how to use the X</mark> (assuming your in the style of a tutorial. If the tool is worth learning, there must be good tutorials about it already.</li>
+                <li><strong>How does X work?</strong> How is X being used? This is a simple high-level overview of the tool to give the reader some concrete sense of X (as opposed to limiting to an entirely abstract description). It's useful to give concrete examples such as code examples. <mark>Do not try to 'teach' how to use the X</mark> (assuming your in the style of a tutorial. If the tool is worth learning, there must be good tutorials about it already.</li>
                 <li><strong>How to Get Started with X?</strong>: Provide a learning path for the reader. Try to give one good learning path rather than many random resources.</li>
                 <li><strong>Where to Go from Here?</strong>: Give more resources. Instead of listing a lot of links, provide a brief summary of what value each resource can provide the reader.</li>
               </ul>
             </li>
             <li>
-              <p><strong>Do not assume a lot of prior knowledge on the part of the reader.</strong> The less prior knowledge you assume, the wider your reader base becomes. The article is aimed at typical SE students, but not necessarily SE students in your
-                school. Just because it is covered in a core module in your school does not mean it will be known to every reader.</p>
+              <p><strong>Do not assume a lot of prior knowledge on the part of the reader.</strong> The less prior knowledge you assume, the wider your reader base becomes. The article is aimed at typical SE students, but not necessarily SE students in your school. Just because it is covered in a core module in your school does not mean it will be known to every reader.</p>
             </li>
             <li>
-              <p><strong>Do not re-invent the wheel by writing a lot of original content.</strong> Instead, give a brief high-level view and point to other existing resources that you recommend the reader to use. original source.</p>
+              <p><strong>Do not re-invent the wheel by writing a lot of original content.</strong> Instead, give a brief high-level view and point to other existing resources that you recommend the reader to use.
+                original source.</p>
               <ul>
-                <li>Note that <mark>the reader should still get a complete and useful picture</mark> even if she does not refer any of the given links. i.e., make the content self-contained and grounded/concrete instead of too abstract to be of much use.
-                  To that end, you may repeat/adapt content snippets from other resources (instead of simply giving a link) with proper attribution.</li>
+                <li>Note that <mark>the reader should still get a complete and useful picture</mark> even if she does not refer any of the given links. i.e., make the content self-contained and grounded/concrete instead of too abstract to be of much use. To that end, you may repeat/adapt content snippets from other resources (instead of simply giving a link) with proper attribution.</li>
                 <li>If you reuse assets from other sources <span class="dimmed">(e.g., diagrams)</span>, remember to <mark>cite the original source</mark>.</li>
               </ul>
             </li>
             <li>
-              <p><strong>Stay an <em>independent</em> observer</strong>. When writing about a tool/technique that has competing alternatives, the article will have more credibility if you write it from the point of view of an independent observer. For example,
-                avoid unsubstantiated marketing claims e.g., <em>X is the best tool for doing Y</em>. Instead, you can cite quotes by other credible sources or from the tool/technique itself. See the two examples below:</p>
+              <p><strong>Stay an <em>independent</em> observer</strong>. When writing about a tool/technique that has competing alternatives, the article will have more credibility if you write it from the point of view of an independent observer. For example, avoid unsubstantiated marketing claims e.g., <em>X is the best tool for doing Y</em>. Instead, you can cite quotes by other credible sources or from the tool/technique itself. See the two examples below:</p>
               <blockquote>
                 <p>Tool X claims to have the fastest performance [<a href>source</a>].</p>
               </blockquote>
@@ -138,10 +132,12 @@
           </box>
         </div>
       </div>
+
+
     </div>
     <footer>
       <div class="text-center">
-        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.13.1</a> on Tue, Apr 14, 2020, 2:53:15 PM UTC]</small></div>
+        <small>[Generated by <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sat, Apr 18, 2020, 9:37:46 AM UTC]</small></div>
     </footer>
   </div>
 </body>
