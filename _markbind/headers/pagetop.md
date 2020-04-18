@@ -7,7 +7,7 @@
   <li><a href="https://se-edu.github.io/addressbook-level4/" class="nav-link"><md>AB-4</md></a></li>
   <li><a href="https://se-edu.github.io/collate/" class="nav-link"><md>Collate</md></a></li>
   <li><a href="https://se-edu.github.io/se-book/" class="nav-link"><md>Book</md></a></li>
-  <dropdown text="Resources" class="nav-link">
+  <dropdown header="Resources" class="nav-link">
     <li><a href="{{baseUrl}}/index.html" class="dropdown-item"><md>Home</md></a></li>
     <li><a href="{{baseUrl}}/contributing.html" class="dropdown-item"><md>Contribute</md></a></li>
     <li><a href="{{baseUrl}}/about.html" class="dropdown-item"><md>About</md></a></li>

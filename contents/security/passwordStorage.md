@@ -36,7 +36,7 @@ Many software applications use a username and password combination as user accou
 - Hashing
 - Salting
 
-<popover id="pop:plaintext" title="_Plaintext_ refers to unencrypted information" placement="top">
+<popover id="pop:plaintext" header="_Plaintext_ refers to unencrypted information" placement="top">
   <div slot="content">
 It is a cryptography term generally referring to text before encyption or after decrypting it. Another term for it is cleartext.
   </div>
@@ -46,13 +46,13 @@ It is a cryptography term generally referring to text before encyption or after 
 
 _Encryption_ is the process of converting plaintext into <trigger for="pop:ciphertext">ciphertext</trigger> along with an <trigger for="pop:encrypt-key">encryption key</trigger>. To <tooltip content="The opposite of encryption">decrypt</tooltip> the message, a <trigger for="pop:decrypt-key">decryption key</trigger> is required to convert the ciphertext back into it's original plaintext for it to be read. This process is called _decryption_. Without the decryption key, the ciphertext is simply a bunch of meaningless data. There are two main types of <tooltip content="When you choose to encrypt data, you must choose a specific algorithm to encrypt with. There are many, such as AES, DES and RSA">encryption algorithms</tooltip>: _Symmetric key algorithms_, where encryption and decryption keys are identical or closely related, and _Asymmetric key algorithms_, where encryption and decryption keys are different.
 
-<popover id="pop:ciphertext" title="_Ciphertext_ refers to encrypted information" placement="top">
+<popover id="pop:ciphertext" header="_Ciphertext_ refers to encrypted information" placement="top">
   <div slot="content">
 It is a cryptography term generally referring to data after encrypting it.
   </div>
 </popover>
 
-<popover id="pop:decrypt-key" title="All decryption algorithms require a _decryption key_" placement="top">
+<popover id="pop:decrypt-key" header="All decryption algorithms require a _decryption key_" placement="top">
   <div slot="content">
 Without this decryption key, decryption cannot be performed. Only the intended recipient of the data should have the decryption key.
   </div>
@@ -69,7 +69,7 @@ This would mean that encrypting the message `I love you` would result in `L oryh
 
 Naturally, this isn't a very good encryption method because even if one doesn't know the decryption key, the method can be easily <trigger for="pop:brute">brute forced</trigger> by trying all <tooltip content="25 combinations because shifting by 26 simply results in the ciphertext being identical to the plaintext">25</tooltip> possible combinations and seeing if any of the results in a readable message. 
 
-<popover id="pop:brute" title="A brute force attack is an attack where all possible combinations are tested to see if they work." placement="top">
+<popover id="pop:brute" header="A brute force attack is an attack where all possible combinations are tested to see if they work." placement="top">
   <div slot="content">
  A brute force attack usually takes very long to carry out.
   </div>
@@ -89,7 +89,7 @@ I had a secret agent send me information about the secret ingredient of Mick's c
 
 Encryption might seem like a good idea because the ciphertext is meaningless without the decryption key, which prevents all of the problems with storing the data directly in plaintext. However, because encryption is <tooltip content="If a function is reversible, and it converts from x to y, then it can also convert from y back to x"> reversible</tooltip>, it is always possible to regain the original password from the ciphertext. Since the password is encrypted, the decryption key must also be stored somewhere. This means that if someone manages to hack into the application and read the encrypted passwords, it is also likely that they will be able to read the decryption key. With the decryption key, they will be able to decrypt all the passwords and read them anyway. This makes encryption unsuitable for password storage.
 
-<popover id="pop:encrypt-key" title="All encryption algorithms require an _encryption key_" placement="top">
+<popover id="pop:encrypt-key" header="All encryption algorithms require an _encryption key_" placement="top">
   <div slot="content">
 The key is usually randomly generated text that is used to encrypt the original data.
   </div>
@@ -99,7 +99,7 @@ The key is usually randomly generated text that is used to encrypt the original 
 
 _Hashing_ is a <tooltip content="A one way function is a function that is easy to compute the result of, but whose results are difficult to reverse back to the original input">one-way</tooltip> function that transforms a set of data into another set of data. Unlike encryption, when hashing is done, information that describes the original set of data is lost irrevocably in the process. This means that it is impossible to recover the original input from the <tooltip content="A hash is the output of a hashing algorithm">hash.
 
-<popover id="pop:hashing-algo" title="A _hashing algorithm_ is a specific type of operation that hashes the input" placement="top">
+<popover id="pop:hashing-algo" header="A _hashing algorithm_ is a specific type of operation that hashes the input" placement="top">
   <div slot="content">
 Different types of hashing algorithms will result in different output.
   </div>

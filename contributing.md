@@ -23,7 +23,7 @@ You can also add new topics or update existing content by following these steps:
 * Post in [our issue tracker](https://github.com/nus-oss/learningresources/issues) an outline of your proposed contribution. Wait for our response.
 * After receiving the go-ahead from us, send your proposed contribution as a PR.
 
-<modal large title="How to contact us" id="modal:contributing-contactInfo">
+<modal large header="How to contact us" id="modal:contributing-contactInfo">
   <include src="about.md#contact-info" />
 </modal>
 
