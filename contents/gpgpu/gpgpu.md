@@ -15,15 +15,18 @@
 
 ###### Authors: [Pierce Anderson Fu](https://github.com/PierceAndy), [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
-- [GPGPU](#-1-gpgpu)
-    - [What is GPGPU?](#-11-what-is-gpgpu)
-    - [Why bother with parallel processing?](#-12-why-bother-with-parallel-processing)
-    - [Aren't multicore CPUs enough?](#-13-arent-multicore-cpus-enough)
-    - [What are the challenges with GPGPU?](#-14-what-are-the-challenges-with-gpgpu)
-    - [Implementations](#-15-implementations)
-    - [GPGPU in action](#-16-gpgpu-in-action)
-- [Further Readings](#-2-further-readings)
-- [References](#-3-references)
+<box id="article-toc">
+
+* [§ 1. GPGPU‎](#1-gpgpu)
+  * [§ 1.1 What is GPGPU?‎](#1-1-what-is-gpgpu)
+  * [§ 1.2 Why bother with parallel processing?‎](#1-2-why-bother-with-parallel-processing)
+  * [§ 1.3 Aren't multicore CPUs enough?‎](#1-3-aren-t-multicore-cpus-enough)
+  * [§ 1.4 What are the challenges with GPGPU?‎](#1-4-what-are-the-challenges-with-gpgpu)
+  * [§ 1.5 Implementations‎](#1-5-implementations)
+  * [§ 1.6 GPGPU in action‎](#1-6-gpgpu-in-action)
+* [§ 2. Further Readings‎](#2-further-readings)
+* [§ 3. References‎](#3-references)
+</box>
 
 ## § 1. GPGPU
 
@@ -59,7 +62,7 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 
 ### § 1.5 Implementations
 
-- CUDA: [Official website](http://www.nvidia.com/object/cuda_home_new.html)
+- CUDA: [Official website](https://www.nvidia.com/object/cuda_home_new.html)
 - OpenCL: [Official website](https://www.khronos.org/opencl/)
 
 ### § 1.6 GPGPU in action
@@ -79,16 +82,16 @@ Compatible with a range of components and large ecosystem products<sup>[[8]](#fo
 
 ## § 2. Further Readings
 - [How concurrency is the next big change in software development since OO](http://www.gotw.ca/publications/concurrency-ddj.htm)
-- [Official CUDA C programming guide: What GPUs excel at processing, and why](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
-- [Official CUDA C programming guide: Architecture of NVIDIA GPUs](http://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture)
+- [Official CUDA C programming guide: What GPUs excel at processing, and why](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#from-graphics-processing-to-general-purpose-parallel-computing)
+- [Official CUDA C programming guide: Architecture of NVIDIA GPUs](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#simt-architecture)
 - [Lightning talk slides: An Introduction to GPGPU](https://github.com/nus-oss/lightningtalks/issues/10)
 - [se-edu's learning resource on CUDA](cuda.html)
 
 ## § 3. References
 
 <a name="footnote1">[1]</a>: https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units<br />
-<a name="footnote2">[2]</a>: http://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/<br />
-<a name="footnote3">[3]</a>: http://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf<br />
+<a name="footnote2">[2]</a>: https://www.techworld.com/news/operating-systems/moores-law-is-dead-says-gordon-moore-3576581/<br />
+<a name="footnote3">[3]</a>: https://theory.physics.lehigh.edu/rotkin/newdata/mypreprs/spie-09b.pdf<br />
 <a name="footnote4">[4]</a>: https://arstechnica.com/gadgets/2016/07/itrs-roadmap-2021-moores-law/<br />
 <a name="footnote5">[5]</a>: http://www.gotw.ca/publications/concurrency-ddj.htm<br />
 <a name="footnote6">[6]</a>: https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/<br />

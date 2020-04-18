@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -15,35 +15,34 @@
 
 Author: Lee Yi Min
 
+<box id="article-toc">
 
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+* [Overview](#overview)
+* [Getting Started](#getting-started)
+  * [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions)
+    * [Functional Interface](#functional-interface)
+    * [Method Reference](#method-reference)
+    * [Lambda Expressions](#lambda-expressions)
+    * [An Example](#an-example)
+  * [What is a stream?](#what-is-a-stream)
+* [Building a Stream Pipeline](#building-a-stream-pipeline)
+  * [Constructing Streams](#constructing-streams)
+  * [Intermediate Operations](#intermediate-operations)
+    * [Filter](#filter)
+    * [Map](#map)
+  * [Terminal Operations](#terminal-operations)
+    * [Collect](#collect)
+  * [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
+    * [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
+    * [Difficulty in optimising stream performance](#difficulty-in-optimising-stream-performance)
+* [Resources](#resources)
+  * [Functional Interfaces](#functional-interfaces)
+  * [Method References](#method-references)
+  * [Lambda Expressions](#lambda-expressions)
+  * [Stream](#stream)
+    * [Common Pitfalls](#common-pitfalls)
+</box>
 
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-	- [Functional Interface and Lambda Expressions](#functional-interface-and-lambda-expressions)
-		- [Functional Interface](#functional-interface)
-		- [Method Reference](#method-reference)
-		- [Lambda Expressions](#lambda-expressions)
-		- [An Example](#an-example)
-	- [What is a stream?](#what-is-a-stream)
-- [Building a Stream Pipeline](#building-a-stream-pipeline)
-	- [Constructing Streams](#constructing-streams)
-	- [Intermediate Operations](#intermediate-operations)
-		- [Filter](#filter)
-		- [Map](#map)
-	- [Terminal Operations](#terminal-operations)
-		- [Collect](#collect)
-	- [Drawbacks and Pitfalls](#drawbacks-and-pitfalls)
-		- [Long, complicated lambda expressions](#long-complicated-lambda-expressions)
-		- [Difficulty in optimising stream performance](#difficulty-in-optimising-stream-performance)
-- [Resources](#resources)
-	- [Functional Interfaces](#functional-interfaces)
-	- [Method References](#method-references)
-	- [Lambda Expressions](#lambda-expressions)
-	- [Stream](#stream)
-		- [Common pitfalls](#common-pitfalls)
-
-<!-- /TOC -->
 ## Overview
 
 In Java 8, we were introduced to new features such as lambda expressions and streams. If you weren't familiar with the concept of functional programming, you might be silently screaming in your head as you stare at a chunk of code infused with lambda expressions and stream operations.
@@ -141,7 +140,7 @@ Although lambda expressions can be expressed in a block, it does not introduce a
 
 This also means that lambda expressions are able to access local variables of the enclosing scope as well. However, any local variables accessed by a lambda expression must be final or effectively final (ie. cannot be reassigned another value).
 
-To understand more about lambda expressions, take a look at http://www.lambdafaq.org/ ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html).
+To understand more about lambda expressions, take a look at https://www.lambdafaq.org/ ! The website provides easy-to-understand answers to many questions which you may have on lambda expressions. For a detailed use case of lambda expressions, you can read [this Java tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html).
 
 
 #### An Example
@@ -391,13 +390,13 @@ Read this to get a good understanding of how each method reference is translated
 
 ### Lambda Expressions
 
-* http://www.lambdafaq.org/  
+* https://www.lambdafaq.org/  
 A helpful reference and tutorial on functional-style programming in Java. Explanations given are concise and easy to understand.
 
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html  
 Read this to understand more about the use cases for lambda expressions.
 
-* http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7  
+* https://www.informit.com/articles/article.aspx?p=2303960&seqNum=7  
 The article is from a book, Core Java for the Impatient, and talks about the scoping of lambda expressions and what you can or cannot do with variables belonging to the enclosing scope.
 
 ### Stream

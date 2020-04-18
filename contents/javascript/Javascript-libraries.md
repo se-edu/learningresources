@@ -34,7 +34,7 @@ There are a large amount of Javascript testing libraries. The below is a non-exh
 
 So which one do you choose? Among the above, I have had the opportunity of write in all of the above except Tape. 
 
-The general advice is to go for Mocha if you are new, due to its [large community](http://stateofjs.com/2016/testing/) and therefore overall amount of help available. When you are familiar with Mocha and understand its pitfalls (speed and organisation), you can explore other libraries such as Jest.
+The general advice is to go for Mocha if you are new, due to its [large community](https://stateofjs.com/2016/testing/) and therefore overall amount of help available. When you are familiar with Mocha and understand its pitfalls (speed and organisation), you can explore other libraries such as Jest.
 
 Jest, due to its speed, support for React.js, support for asynchronous testing and helpful terminal outputs, seems to be the upcoming major player. The fact that it is being made by Facebook is icing to the cake.
 

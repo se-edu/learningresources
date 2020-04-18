@@ -17,6 +17,17 @@
 
 Reviewers: [Aadyaa Maddi](https://github.com/amad-person), [Marvin Chin](https://github.com/marvinchin)
 
+<box id="article-toc">
+
+* [What is JUnit?‎](#what-is-junit)
+* [Why JUnit?‎](#why-junit)
+* [JUnit Features‎](#junit-features)
+  * [Assertions API‎](#assertions-api)
+  * [Before/After Hooks‎](#before-after-hooks)
+  * [Extension Model‎](#extension-model)
+* [Getting Started‎](#getting-started)
+</box>
+
 ## What is JUnit?
 
 **JUnit is an _automated testing framework_ for Java** i.e., it can be used to programmatically verify the actual behavior of Java code against the expected behavior.
@@ -254,7 +265,7 @@ If this introduction has got you interested in using JUnit, do check out the fol
 </div>
 
 <modal id="modal:affectEachOther">
-  <div slot="modal-header" class="modal-title text-center">
+  <div slot="header" class="modal-title text-center">
     <h4>How will tests affect each other?</h4>
   </div>
   <p>If we do not reset a shared resource (e.g. databse / file), a test that uses the resource permanently changes the resource. As a result, other tests cannot assume anything about the initial state of this resource.</p>

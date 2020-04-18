@@ -15,7 +15,18 @@
 
 Author: [Tran Tien Dat](https://github.com/tran-tien-dat)
 
-Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like [Gmail](http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html) and [Netflix](http://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html) in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.
+<box id="article-toc">
+
+* [Flow of a CSRF attack‎](#flow-of-a-csrf-attack)
+  * [Step 1: The victim logs in to a vulnerable web service‎](#step-1-the-victim-logs-in-to-a-vulnerable-web-service)
+  * [Step 2: The victim visits an untrusted website controlled by the attacker‎](#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker)
+  * [Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf‎](#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf)
+* [Conditions for a successful CSRF attack‎](#conditions-for-a-successful-csrf-attack)
+* [Defense against CSRF attacks‎](#defense-against-csrf-attacks)
+* [References‎](#references)
+</box>
+
+Cross-Site Request Forgery (CSRF) is a dangerous type of attack that has affected major sites like [Gmail](http://archive.oreilly.com/pub/post/gmail_exploit_contact_list_hij.html) and [Netflix](https://blog.jeremiahgrossman.com/2006/10/more-on-netflixs-csrf-advisory.html) in the past. This article attempts to give an easy-to-digest introduction to the attack and how to protect your website from it.
 
 ## Flow of a CSRF Attack
 
@@ -44,7 +55,7 @@ At `www.example-bank.com/transfer`, Alice fills out the following HTML form to t
 As Alice clicks the submit button, the browser will send the following request to `www.example-bank.com`:
 
 ```
-POST http://www.example-bank.com/transfer HTTP/1.1
+POST https://www.example-bank.com/transfer HTTP/1.1
 Cookie: auth=1abcd2ek3292fsa390sdf
 
 receiver-name=Bob&receiver-account-no=123456&amount=100
@@ -68,7 +79,7 @@ Excited by this piece of news, Alice clicks on the hyperlink to check out `www.i
 While browsing `www.i-am-not-evil.com`, Alice clicks on the `View more pictures` button on the website to see more pictures of her favorite pair of shoes. Unbeknownst to her, that button has the following HTML code:
 
 ```HTML
-<form action="http://www.example-bank.com/transfer" method="POST">
+<form action="https://www.example-bank.com/transfer" method="POST">
 <input type="text" name="receiver-name" value="Eve"/>
 <input type="number" name="receiver-account-no" value="987654"/>
 <input type="number" name="amount" value="100000"/>
@@ -76,10 +87,10 @@ While browsing `www.i-am-not-evil.com`, Alice clicks on the `View more pictures`
 </form>
 ```
 
-So, when she clicks that button, the browser actually sends the following request to `http://www.example-bank.com`:
+So, when she clicks that button, the browser actually sends the following request to `https://www.example-bank.com`:
 
 ```
-POST http://www.example-bank.com/transfer HTTP/1.1
+POST https://www.example-bank.com/transfer HTTP/1.1
 Cookie: auth=1abcd2ek3292fsa390sdf
 
 receiver-name=Eve&receiver-account-no=987654&amount=100000
@@ -119,7 +130,7 @@ So a valid request by Alice made from the bank's own website will also carry thi
 
 - https://owasp.org/www-community/attacks/csrf (A more technical description of the attack)
 - https://owasp.org/www-project-cheat-sheets/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html (In-depth discussion of the various defense approaches, including those that do not work)
-- http://www.cgisecurity.com/csrf-faq.html (Short FAQs about CSRF)
+- https://www.cgisecurity.com/csrf-faq.html (Short FAQs about CSRF)
 - https://docs.djangoproject.com/en/2.0/ref/csrf/ (CSRF Protection in Django)
 
 </div>

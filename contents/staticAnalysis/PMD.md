@@ -15,6 +15,24 @@
 
 Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html)
 
+<box id="article-toc">
+
+* [Overview‎](#overview)
+* [Features‎](#features)
+* [Limitation‎](#limitation)
+* [How to use it?‎](#how-to-use-it)
+  * [Download‎](#download)
+  * [Configuration‎](#configuration)
+  * [Suppress Warnings‎](#suppress-warnings)
+  * [Command Line Usage‎](#command-line-usage)
+  * [Integration with Build Automation Tools‎](#integration-with-build-automation-tools)
+  * [Integration with IDEs‎](#integration-with-ides)
+* [Available Rulesets‎](#available-rulesets)
+* [How does it work?‎](#how-does-it-work)
+* [Customization‎](#customization)
+* [Resources‎](#resources)
+</box>
+
 ## Overview
 
 PMD is a static analyser for Java, JavaScript, Salesforce.com Apex, PL/SQL, Apache Velocity, XML, XSL. The copy/paste-detector([CPD](http://pmd.sourceforge.net/pmd-4.3.0/cpd.html)), which helps to find duplicated code, is also included as an add-on in PMD.
@@ -59,7 +77,7 @@ Limitations are almost the same as [CheckStyle](CheckStyle.html).
 ## How to Use It?
 
 ### Download
-PMD can be run on both Windows and Linux/Unix operating system with the help of [Java JRE](http://www.oracle.com/technetwork/java/javase/overview/index.html) 1.7 or higher. Refer to [How to install PMD and CPD](https://pmd.github.io/pmd-5.5.3/usage/installing.html) for more details.
+PMD can be run on both Windows and Linux/Unix operating system with the help of [Java JRE](https://www.oracle.com/technetwork/java/javase/overview/index.html) 1.7 or higher. Refer to [How to install PMD and CPD](https://pmd.github.io/pmd-5.5.3/usage/installing.html) for more details.
 
 ### Configuration
 You can configure PMD to only include the rules that your want (see [How to make a new rule set](https://pmd.github.io/pmd-5.5.3/customizing/howtomakearuleset.html)).
@@ -94,7 +112,7 @@ PMD has organised rules into different categories. For example, the rules for Ja
 You may refer to the [Features](#features) section to view the rules according to your languages and refer to [Configuration](#configuration) section to configure your rulesets.
 
 ## How Does it Work?
-PMD use [JavaCC](http://javacc.org) to parse your code to a [AST(Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and visited it recursively ([more details](https://pmd.github.io/pmd-5.4.1/customizing/howitworks.html)). Thus, one of the requirements for PMD to work is that the code must be in valid Java syntax. You can view the syntax tree by using [bin/designer.bat](https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html)
+PMD use [JavaCC](https://javacc.org) to parse your code to a [AST(Abstract Syntax Tree)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and visited it recursively ([more details](https://pmd.github.io/pmd-5.4.1/customizing/howitworks.html)). Thus, one of the requirements for PMD to work is that the code must be in valid Java syntax. You can view the syntax tree by using [bin/designer.bat](https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html)
 
 ## Customization
 - [How to write a PMD rule](https://pmd.github.io/pmd-5.5.3/customizing/howtowritearule.html) (A quicker way to write rule sets [Using XPath in PMD](https://pmd.github.io/pmd-5.4.1/customizing/xpathruletutorial.html), [XPath Rule tutorial](https://pmd.github.io/pmd-5.4.1/customizing/xpathruletutorial.html))

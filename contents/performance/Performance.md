@@ -15,6 +15,15 @@
 
 Author: [Ian Teo](https://github.com/IanTeo), [Phang Chun Rong](https://www.github.com/Crphang)
 
+<box id="article-toc">
+
+* [Overview‎](#overview)
+* [Using Appropriate Data Structures and Algorithms‎](#using-appropriate-data-structures-and-algorithms)
+* [Memory Management Usage‎](#memory-management-usage)
+* [Using Cache Friendly Code‎](#using-cache-friendly-code)
+* [Other Resources‎](#other-resources)
+</box>
+
 ## Overview
 
 Computer performance can be defined as the rate of work accomplished by a computer system. Even if execution time is not important for a particular application, it may be important to reduce CPU cycles so as to consume less power; from applications running in small battery operated devices to huge data centres.
@@ -25,7 +34,7 @@ I think many people have heard of this quote from Donald Knuth before. This quot
 
 > We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.
 
-You can find a nice explaination of the quote [here](http://wiki.c2.com/?PrematureOptimization).
+You can find a nice explaination of the quote [here](https://wiki.c2.com/?PrematureOptimization).
 
 This is not a guide on how to optimize that 3%, but rather, to explain standard optimization techniques that you should apply in all of your code, so that you do not create sub-optimal codes (premature pessimization). If you want to find out more about optimizing that 3%, you can find more at [Other Resources](#other-resources) below.
 
@@ -43,9 +52,9 @@ A good example of how Data Structures and Algorithms can improve execution time 
 
 If you are interested in learning more about Data Structures and Algorithms, you can learn more from the following resources:
 
-* [Geeksforgeeks.org](http://www.geeksforgeeks.org/data-structures/): Introduction to data structures with code examples
+* [Geeksforgeeks.org](https://www.geeksforgeeks.org/data-structures/): Introduction to data structures with code examples
 * [Introduction to Algorithms (Book)](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844): A good read for beginners interested in data structures and algorithms
-* [MIT online course](http://courses.csail.mit.edu/6.851/spring12/lectures/): A online course by MIT on data structures and algorithms
+* [MIT online course](https://courses.csail.mit.edu/6.851/spring12/lectures/): A online course by MIT on data structures and algorithms
 * [topcoder.com](https://www.topcoder.com/community/data-science/data-science-tutorials/the-importance-of-algorithms/): A good write up on the importance of algorithms
 
 ## Memory Management Usage
@@ -69,7 +78,7 @@ If your system suffers from memory related performance issues, here are some sol
 Before we can talk about this, we need to know what the computer memory is. Computer memory has different components, [registers](https://en.wikipedia.org/wiki/Processor_register), [L1/L2/L3 cache](https://www.cs.umd.edu/class/fall2001/cmsc411/proj01/cache/cache.html), [RAM](https://en.wikipedia.org/wiki/Random-access_memory), and [disk](https://en.wikipedia.org/wiki/Hard_disk_drive) in order of their speed.
 
 > You can take a look at the extent of the difference of their access speeds [here](https://gist.github.com/jboner/2841832) <br>
-> You can also check out this [infographic](http://imgur.com/8LIwV4C)
+> You can also check out this [infographic](https://imgur.com/8LIwV4C)
 
 To understand this topic, you only need to know how the cache works. It is okay if you do not understand exactly how the other components, registers, RAM and disk work. The cache is simply a place to store memory so that it can be accessed quickly. The cache is usually split into a few layers, L1, L2 and L3 cache, where the L1 cache is the fastest and L3 is the slowest. The faster a cache is, the more expensive it is. This means that the L1 cache (a few kilobytes big) is smaller than the L2 cache (a few megabytes big) and so on, until the RAM (a few gigabytes big).
 

@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -14,6 +14,21 @@
 # An Introduction to Functional Programming
 
 Authors: [Phang Chun Rong](https://github.com/crphang)
+
+<box id="article-toc">
+
+* [What is Functional Programming‎](#what-is-functional-programming)
+* [Functional Programming Languages‎](#functional-programming-languages)
+* [Concepts in Functional Programming‎](#concepts-in-functional-programming)
+    * [Pure Functions](#pure-functions)
+    * [Immutability](#immutability)
+* [Techniques in Functional Programming‎](#techniques-in-functional-programming)
+    * [Recursion](#recursion)
+    * [Higher Order Functions](#higher-order-functions)
+* [Advantages of Functional Programming‎](#advantages-of-functional-programming)
+* [Disadvantages of Functional Programming‎](#disadvantages-of-functional-programming)
+* [Guides on Functional Programming‎](#guides-on-functional-programming)
+</box>
 
 ## What is Functional Programming
 
@@ -70,7 +85,7 @@ Having immutability built into functional programming languages like Haskell hel
 To know more about immutability in functional languages, you can take a look at:
 
 - [Immutability in Haskell](https://mmhaskell.com/blog/2017/1/9/immutability-is-awesome)
-- [Immutability in Elm](http://elmprogramming.com/immutability.html)
+- [Immutability in Elm](https://elmprogramming.com/immutability.html)
 - [Why does immutability enable functional programming](https://stackoverflow.com/questions/12207757/why-do-immutable-objects-enable-functional-programming)
 
 ## Techniques in Functional Programming
@@ -133,7 +148,7 @@ Functional programming is not a new concept and has been around since the 1950s.
 
 - Lack of imperative data structures. One good example is the [lack of hash map](https://stackoverflow.com/questions/6793259/how-does-one-implement-hash-tables-in-a-functional-language) which is an important performant dictionary.
 - Functional programming can be [slower](https://www.quora.com/Do-functional-programming-languages-always-run-slower-than-imperative-language) than optimal Imperative programming for reasons such as data copying due to data immutability.
-- And various [other concerns](http://flyingfrogblog.blogspot.sg/2016/05/disadvantages-of-purely-functional.html)
+- And various [other concerns](https://flyingfrogblog.blogspot.sg/2016/05/disadvantages-of-purely-functional.html)
 
 Some of these reasons help in part explain why 'impure' functional languages like Scala is much more popular today than Haskell. Scala is a general purpose language that has interoperability with Java and has support for both imperative and functional programming paradigms. This establishes a [middle ground](https://cacm.acm.org/magazines/2014/4/173220-unifying-functional-and-object-oriented-programming-with-scala/fulltext) for programmers new to functional programming.
 

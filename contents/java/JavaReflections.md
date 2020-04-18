@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -14,6 +14,21 @@
 # Advanced Java: Reflections
 
 Authors: [Jeremy Goh](https://github.com/MightyCupcakes), [Yong Zhi Yuan](https://github.com/Zhiyuan-Amos)
+
+<box id="article-toc">
+
+* [Reflection‎](#reflection)
+  * [What is Java reflections‎](#what-is-java-reflections)
+  * [The Basics of Reflections‎](#the-basics-of-reflections)
+  * [Getting Started‎](#getting-started)
+  * [Applications‎](#applications)
+    * [Accessing Private Fields](#accessing-private-fields)
+    * [Updating Private Fields](#updating-private-fields)
+    * [Testing Private Methods](#testing-private-methods)
+    * [A More Advanced Application](#a-more-advanced-application)
+  * [Disadvantages of Reflections‎](#disadvantages-of-reflections)
+  * [Further Resources for Reflections‎](#further-resources-for-reflections)
+</box>
 
 ## Reflection
 
@@ -62,7 +77,7 @@ This means that you can store any `Class` object in any data structure for futur
 
 ### Getting Started
 
-There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is this [article by JavaWorld](http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html).
+There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is this [article by JavaWorld](https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html).
 
 One important point is that while Java reflections are powerful, its implementations are not very straightforward. There are however some libraries out there such as the [Google's Guava library](https://github.com/google/guava/wiki/ReflectionExplained) which contains many utility methods and classes that makes our life easier.
 
@@ -119,7 +134,7 @@ public class Sheep extends Animal {
 
 And there you have it! What `Sheep` is really doing is to examine itself at runtime in order to obtain the `age` field inherited from `Animal`. This technique can be used in test cases to access private fields and methods in the class under test without modifying the visibility modifiers of the fields and methods in the class itself.
 
-You may notice that the `Sheep#getAge()` method sets the age `Field` object to be accessible and might wonder the implications. Fret not! The `Field#getDeclaredField()` actually returns a new `Field` instance - so you're just setting that particular local `Field` instance to be accessible, not the actual `age` field itself. You can read more about it in this [StackOverflow question](http://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue).
+You may notice that the `Sheep#getAge()` method sets the age `Field` object to be accessible and might wonder the implications. Fret not! The `Field#getDeclaredField()` actually returns a new `Field` instance - so you're just setting that particular local `Field` instance to be accessible, not the actual `age` field itself. You can read more about it in this [StackOverflow question](https://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue).
 
 Do take note that two exceptions need to be handled when accessing fields: 
 1. `IllegalAccessException`, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. `f.setAccessible(true)`).
@@ -260,12 +275,12 @@ While Java reflections are powerful, you should not immediately jump on the refl
 
 * Introductions to Java reflections with some explanation
 
-  [http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html](http://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html)
-  [http://www.journaldev.com/1789/java-reflection-example-tutorial](http://www.journaldev.com/1789/java-reflection-example-tutorial)
+  [https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html](https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html)
+  [https://www.journaldev.com/1789/java-reflection-example-tutorial](https://www.journaldev.com/1789/java-reflection-example-tutorial)
 
 * A short but precise overview of Java reflections
 
-  [http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html](http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html)
+  [https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html](https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html)
 
 * Google's Guava reflection library provides some utility methods and classes 
 

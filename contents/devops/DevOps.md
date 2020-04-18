@@ -15,13 +15,27 @@
 
 Authors: [John Yong](https://github.com/whipermr5)
 
+<box id="article-toc">
+
+* [What is DevOps?‎](#what-is-devops)
+* [Aspects of DevOps‎](#aspects-of-devops)
+  * [Code Development & Review‎](#code-development-and-amp-review)
+  * [Build & Test Automation‎](#build-and-amp-test-automation)
+  * [Deployment & Infrastructure‎](#deployment-and-amp-infrastructure)
+  * [Monitoring‎](#monitoring)
+* [Getting Started‎](#getting-started)
+* [Useful Links‎](#useful-links)
+  * [Quick References‎](#quick-references)
+  * [Further Reading‎](#further-reading)
+</box>
+
 ## What is DevOps?
 
 > &ldquo;DevOps is the practice of operations and development engineers participating together in the entire service lifecycle, from design through the development process to production support.&rdquo; &mdash; [the agile admin](https://theagileadmin.com/what-is-devops/)
 
 The term **DevOps** comes from the amalgamation of two words - **Dev**elopment and **Op**eration**s**. While there are many definitions and opinions out there about what DevOps really is, and no one true answer, most agree that it is the idea of Developers and Operations working together to achieve a goal ([source](https://blog.xebialabs.com/2015/04/23/best-guide-to-getting-started-in-devops/)). This involves a **shift in mindset** away from the traditional view of Development and Operations as two distinct teams with few overlapping responsibilities, to a new mindset where developers and operations engineers communicate, collaborate and share the responsibility of developing and delivering software.
 
-Indeed, some see DevOps as a culture shift that involves more than just developers and operations teams, but also everyone involved in delivering value to end users, including testers and Quality Assurance, Project Management and Human Resources teams ([source](http://blog.nwcadence.com/devops-culture-not-team/)). However, this document will focus more on the development and operations side of DevOps, which is what budding software engineers like yourself need to know.
+Indeed, some see DevOps as a culture shift that involves more than just developers and operations teams, but also everyone involved in delivering value to end users, including testers and Quality Assurance, Project Management and Human Resources teams ([source](https://blog.nwcadence.com/devops-culture-not-team/)). However, this document will focus more on the development and operations side of DevOps, which is what budding software engineers like yourself need to know.
 
 > Tip: for a comprehensive discussion of what DevOps is and is not, refer to *the agile admin*'s article, [What Is DevOps?](https://theagileadmin.com/what-is-devops/)
 
@@ -66,7 +80,7 @@ Local Build Tools
 > In addition to automating builds, these also manage dependencies
 
 - [Gradle](https://gradle.org/)
-- [Ant](http://ant.apache.org/)
+- [Ant](https://ant.apache.org/)
 - [Maven](https://maven.apache.org/)
 
 Hosted CI Tools
@@ -123,6 +137,6 @@ As a software engineering student, the best way to get started is to gain some p
 ### Further Reading
 - [Best Guide to Getting Started In DevOps](https://blog.xebialabs.com/2015/04/23/best-guide-to-getting-started-in-devops/) - recommends various places you can read up more on the topic
 - [9½ Simple Steps On How To Start With DevOps Today](https://devops.com/9%C2%BD-simple-steps-start-devops-today/) - includes practical suggestions like using a code static analysis tool
-- [A Pragmatic Guide to Getting Started with DevOps](http://www.ca.com/us/lpg/~/media/Files/eBooks/a-pragmatic-guide-to-getting-started-with-devops.pdf) - more of a management point of view but interesting
+- [A Pragmatic Guide to Getting Started with DevOps](https://www.ca.com/us/lpg/~/media/Files/eBooks/a-pragmatic-guide-to-getting-started-with-devops.pdf) - more of a management point of view but interesting
 - [The DevOps Handbook: How to Create World-Class Speed, Reliability, and Security in Technology Organizations](https://books.google.com.sg/books/about/The_Devops_Handbook.html?id=XrQcrgEACAAJ) - about managing tech organisations, written by a CTO
 </div>

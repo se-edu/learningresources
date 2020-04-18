@@ -17,6 +17,15 @@
 
 Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Rahul Rajesh](https://github.com/rrtheonlyone)
 
+<box id="article-toc">
+
+* [What is SQL?‎](#what-is-sql)
+  * [How does SQL work?‎](#how-does-sql-work)
+* [Why learn SQL?‎](#why-learn-sql)
+* [Disadvantage‎](#disadvantage)
+* [How to get started with SQL?‎](#how-to-get-started-with-sql)
+</box>
+
 ## What is SQL?
 
 A Relational Database Management System (RDBMS) is a popular database solution used by software applications to manage their data.
@@ -149,4 +158,4 @@ Here are some recommended steps for learning SQL:
 
 1. **Use SQL in practice**: Look into different RDBMSs and decide which one you want to work with. You can start by comparing the 3 mentioned in this [**Oracle vs MySQL vs SQL Server**](https://blog.udemy.com/oracle-vs-mysql-vs-sql-server/) post and work from there. Then, set up the corresponding RDBMS and integrate it with an application. This will give you good experience and exposure to how databases are used in practice.
 
-    In the case of MySQL, a good resource for getting started with this is [**MySQLTutorial.org**](http://www.mysqltutorial.org/). The `Interfaces` section of the website contains multiple tutorials explaining how to integrate and work with MySQL from [Node.js](http://www.mysqltutorial.org/mysql-nodejs/), [Java](http://www.mysqltutorial.org/mysql-jdbc-tutorial/), [Python](http://www.mysqltutorial.org/python-mysql/) and more.
+    In the case of MySQL, a good resource for getting started with this is [**MySQLTutorial.org**](https://www.mysqltutorial.org/). The `Interfaces` section of the website contains multiple tutorials explaining how to integrate and work with MySQL from [Node.js](https://www.mysqltutorial.org/mysql-nodejs/), [Java](https://www.mysqltutorial.org/mysql-jdbc-tutorial/), [Python](https://www.mysqltutorial.org/python-mysql/) and more.

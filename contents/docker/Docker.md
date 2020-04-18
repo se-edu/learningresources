@@ -15,6 +15,15 @@
 
 **Authors: [Rahul Rajesh](https://github.com/rrtheonlyone)**
 
+<box id="article-toc">
+
+* [What is Docker?‎](#what-is-docker)
+* [Why Docker?‎](#why-docker)
+* [How to use Docker?‎](#how-to-use-docker)
+* [Additional tools - Docker Swarm and Kubernetes‎](#additional-tools-docker-swarm-and-kubernetes)
+* [Conclusion / Further Readings‎](#conclusion-further-readings)
+</box>
+
 Reviewers: [Monika Manuela Hengki](https://github.com/monmanuela), [Wang Junming](https://github.com/junming403)
 
 ### What is Docker?
@@ -168,6 +177,6 @@ In a nutshell, Docker is a lightweight solution to run you application in an iso
 Apart from those listed in the article, here are some further readings/references to get moving with Docker:
 - [Full Guide on multiple aspects of docker](https://docker-curriculum.com/)
 - [Video Series on Docker](https://medium.freecodecamp.org/docker-quick-start-video-tutorials-1dfc575522a0)
-- [Internals of Docker](http://docker-saigon.github.io/post/Docker-Internals/)
+- [Internals of Docker](https://docker-saigon.github.io/post/Docker-Internals/)
 
 </div>

@@ -17,6 +17,15 @@
 
 Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Monika Manuela Hengki](https://www.github.com/monmanuela)
 
+<box id="article-toc">
+
+* [What is Web Performance‎](#what-is-web-performance)
+* [Why Web Performance Matters‎](#why-web-performance-matters)
+* [Key Ideas in Improving Web Performance‎](#key-ideas-in-improving-web-performance)
+* [Measuring Web Performance‎](#measuring-web-performance)
+* [Additional Resources‎](#additional-resources)
+</box>
+
 ## What is Web Performance?
 
 Web Performance is a broad term that refers to how performant a web application *feels* to its users. This includes many aspects such as how long the site takes to load, how quickly the site becomes interactive, and how responsive it feels when the user interacts with the site.

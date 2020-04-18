@@ -17,6 +17,17 @@
 
 Reviewers: [Chattoraj Ayush](https://github.com/AyushChatto), [Monika Manuela Hengki](https://github.com/monmanuela),  [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Rachael Sim](https://github.com/rachx), [Tran Tien Dat](https://github.com/tran-tien-dat), [Wen Xin](https://github.com/wenmogu)
 
+<box id="article-toc">
+
+* [SQL‎](#sql)
+* [How does SQL Injection Work?‎](#how-does-sql-injection-work)
+* [Why is it Important to Prevent SQL Injection?‎](#why-is-it-important-to-prevent-sql-injection)
+* [Preventing SQL Injection‎](#preventing-sql-injection)
+  * [Solution 1: Prepared Statements using Parameterized Queries‎](#solution-1-prepared-statements-using-parameterized-queries)
+  * [Solution 2: Whitelist Input Validation‎](#solution-2-whitelist-input-validation)
+* [Resources‎](#resources)
+</box>
+
 ## SQL
 SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many "tables" organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:
 
@@ -207,7 +218,7 @@ References:
 
 Additional Reading Resources:
 
-1. http://www.sqlinjection.net/
+1. https://www.sqlinjection.net/
 (Good starting point for diving deeper into SQL injection)
 1. https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)
 (How to test your website for SQL injection attacks)
@@ -215,7 +226,7 @@ Additional Reading Resources:
 (Parameterized query examples for some common languages)
 1. https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
 (A list of possible preventions, which contains even more ways to protect your site from SQL injection attacks).
-1. http://guides.rubyonrails.org/security.html#sql-injection
+1. https://guides.rubyonrails.org/security.html#sql-injection
 (Discussion of how SQL injection attacks work, some possible scenarios of such attacks, and possible preventive measures using Ruby on Rails)
 1. https://www.owasp.org/index.php/Blind_SQL_Injection
 (Discussion about a type of SQL injection attack, when only generic messages are displayed by the website)

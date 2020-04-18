@@ -70,7 +70,7 @@ name := "John Smith"
 
 Thus, we see that there are several potential ways to declare a variable in Go. Choosing which style of variable declaration to use depends on how verbose a programmer wants to be in declaring the variable. However, the upshot of having many different degrees of verbosity is that common problems of both dynamically- and statically-typed languages can be avoided. Unlikely dynamically-typed languages, in which the type of a variable is sometimes unclear, a type in Go can always be explicitly declared to increase code clarity. On the other hand, when a variable's type can be clearly inferred, programmers can choose not to be unnecessarily verbose in their code.
 
-Go's syntax for more complex types such as pointers, arrays and structs is also somewhat idiosyncratic, and can be explored in this [Go blog article](https://blog.golang.org/gos-declaration-syntax), or with the help of [this tutorial on pointers](http://www.golang-book.com/books/intro/8) and [this tutorial on structs](https://www.golang-book.com/books/intro/9).
+Go's syntax for more complex types such as pointers, arrays and structs is also somewhat idiosyncratic, and can be explored in this [Go blog article](https://blog.golang.org/gos-declaration-syntax), or with the help of [this tutorial on pointers](https://www.golang-book.com/books/intro/8) and [this tutorial on structs](https://www.golang-book.com/books/intro/9).
 
 ### Benefit: Better Support for Concurrency
 One of Go's special features is its focus on implementing concurrency simply and well. To this end, Go's standard library comes with two features that allow for easy and maintainable concurrency.
@@ -117,7 +117,7 @@ c = make(chan int)
 c := make(chan int)
 ```
 
-Channels can transmit data of any type; thus, creating a channel that transmits channels (i.e. a `chan chan`) is theoretically possible and may even be [useful](http://tleyden.github.io/blog/2013/11/23/understanding-chan-chans-in-go/).
+Channels can transmit data of any type; thus, creating a channel that transmits channels (i.e. a `chan chan`) is theoretically possible and may even be [useful](https://tleyden.github.io/blog/2013/11/23/understanding-chan-chans-in-go/).
 
 Goroutines send and receive messages through a channel using the `<-` operator.
 

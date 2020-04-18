@@ -18,7 +18,6 @@ Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang C
 <box id="article-toc">
 
 * [Getting started with Python‎](#getting-started-with-python)
-* [Python 2 vs Python 3‎](#python-2-vs-python-3)
 * [Virtual Environment‎](#virtual-environment)
 * [Common Data Structures‎](#common-data-structures)
 * [Indexing and Slicing‎](#indexing-and-slicing)
@@ -27,6 +26,7 @@ Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang C
 * [Python for Data Science‎](#python-for-data-science)
   * [Tutorials‎](#tutorials)
 * [Gotchas‎](#gotchas)
+* [Python 2: a Discontinued Version](#python-2-a-discontinued-version)
 </box>
 
 Python is a simple yet powerful and versatile language. Conceived in the late 80s, it is now widely used across many fields of computer science and software engineering. While not as speedy as compiled languages like C or Java, Python's emphasis on readability, and resulting ease of maintenance, often outweighs the advantages conferred by compiled languages. This especially true in applications where execution speed is non-critical.
@@ -35,17 +35,9 @@ Python is a simple yet powerful and versatile language. Conceived in the late 80
 
 If you're a programmer looking to get in on the Python action, check out [Google's Python class](https://developers.google.com/edu/python/), which will introduce you to Python's concepts and core data structures like lists, dictionaries, and strings!
 
-For absolute beginners, check out [this video](https://www.youtube.com/watch?v=N4mEzFDjqtA) by Derek Banas where he covers everything from installing Python and the basics to more advanced concepts like Inheritance and Polymorphism in under an hour! If you'd prefer to read, check out [Python Guru](http://thepythonguru.com/) which has plenty of code samples to help you along.
+For absolute beginners, check out [this video](https://www.youtube.com/watch?v=N4mEzFDjqtA) by Derek Banas where he covers everything from installing Python and the basics to more advanced concepts like Inheritance and Polymorphism in under an hour! If you'd prefer to read, check out [Python Guru](https://thepythonguru.com/) which has plenty of code samples to help you along.
 
 Both newbies and experienced programmers can also benefit from [The Python Tutorial](https://docs.python.org/3/tutorial/index.html), which aims to introduce readers to Python's unique features and style.
-
-## Python 2 vs Python 3
-
-Despite obvious similarities in two Python versions, Python 3's intentional backward incompatibility makes choosing to learn Python 3 over Python 2 a tough problem for both new and experienced Python programmers. Some concerns include the lack of popular Python 2 packages in Python 3 as well as changes in some Python built-in libraries that might break existing systems. One example is that a simple `print 'Hello World'` that runs perfectly in Python 2 will cause a syntax error in Python 3.
-
-Read more in this Digital Ocean's [post](https://www.digitalocean.com/community/tutorials/python-2-vs-python-3-practical-considerations-2) to understand this conundrum of choosing between Python 2 and Python 3 better. If you choose to learn both Python 2 and Python 3, take a look at some of these important [changes](https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/) to avoid [gotchas](#gotchas) due to version differences.
-
-Overall, it is recommended to learn Python 3 as a beginner today as it has been [10 years since Python 3 debuted](https://www.python.org/download/releases/3.0/). This stance is also [supported](http://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html#why-is-python-3-considered-a-better-language-to-teach-beginning-programmers) by core members of Python. Moreover, unlike the early days of Python 3's release, many popular packages from Python 2 now support Python 3 as well. Since Python 2 is a legacy language while Python 3 is in active development, it would be better to learn Python 3 today.
 
 ## Virtual Environment
 
@@ -53,18 +45,18 @@ When starting new projects or hopping onto existing Python repositories, you are
 
 The [official Python documentation](https://docs.python.org/3/tutorial/venv.html) gives instructions on the standard way of creating a virtual environment - defining a directory location and activating it. However, you can consider using other libraries that can make this process smoother. Some of the most popular ones are:
 
-* [virtualenvwrapper](http://virtualenvwrapper.readthedocs.io/en/latest/install.html) - Allows you to define all environments in a single place instead of having to manage the different environments in your local system.
+* [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) - Allows you to define all environments in a single place instead of having to manage the different environments in your local system.
 * [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv). `pyenv` allows easy management of different Python versions and `pyenv-virtualenv` allows managing virtualenv associated to the Python versions managed by `pyenv`.
 
 ## Common Data Structures
 
 Strings, lists, and dictionaries belong to a type of class known as `Iterables`. An `Iterable` is defined by Python to be "an object capable of returning its members one at a time".
 
-Due to their versatility you'll often find that strings, lists, and dictionaries are all you'll ever need. However, there may come a time when you'll need to create your own `Iterable` data structure. If that's the case, you may want to delve into the inner workings of `Iterable` classes, check out [Iterables, Iterators and Generators](https://excess.org/article/2013/02/itergen1/) by Ian Ward. He begins by explaining the `Iterable` class, then goes into the `Iterator` and `Generator` classes, both of which are powerful tools in Python.
+Due to their versatility you'll often find that strings, lists, and dictionaries are all you'll ever need. However, there may come a time when you'll need to create your own `Iterable` data structure. If that's the case, you may want to delve into the inner workings of `Iterable` classes, check out [Iterables, Iterators and Generators](http://excess.org/article/2013/02/itergen1/) by Ian Ward. He begins by explaining the `Iterable` class, then goes into the `Iterator` and `Generator` classes, both of which are powerful tools in Python.
 
 ## Indexing and Slicing
 
-Accessing an element in a list using its index is known as indexing, e.g. `my_list[0]` returns the first element of my_list (Iterables are zero-indexed—their first index is 0). Slicing, on the other hand, allows us to access a range of elements in a list. Extended slicing extends this functionality by introducing a step parameter, enabling operations like accessing every other element. Read more about this in a blog post on [indexing and slicing](https://samsontmr.github.io/Slicing-and-Dicing/) in Python! There, I also explain the basics of list comprehension, a type of syntactic sugar for transforming lists. Trey Hunner gives an in-depth explanation [here](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/) using the for-loops we all know and love.
+Accessing an element in a list using its index is known as indexing, e.g. `my_list[0]` returns the first element of my_list (Iterables are zero-indexed—their first index is 0). Slicing, on the other hand, allows us to access a range of elements in a list. Extended slicing extends this functionality by introducing a step parameter, enabling operations like accessing every other element. Read more about this in a blog post on [indexing and slicing](https://samsontmr.github.io/Slicing-and-Dicing/) in Python! There, I also explain the basics of list comprehension, a type of syntactic sugar for transforming lists. Trey Hunner gives an in-depth explanation [here](https://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/) using the for-loops we all know and love.
 
 ## Object Oriented Programming in Python
 
@@ -76,23 +68,23 @@ This is where Object Oriented Programming comes in, offering a way to think abou
 
 In addition to scripting and OOP, Python also supports [functional programming](https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536#.70kgem2gc), a completely different paradigm from OOP and procedural programming. Where procedural programming and OOP makes heavy use of states, functional programming eschews them completely. In this paradigm, the result of a function is wholly dependent on its arguments.
 
-*"Why would I want to relearn how to code?!"*, you may ask. Big Data's increasing relevance has thrown the spotlight on distributed systems and concurrency techniques. No prizes for guessing which programming paradigm is most amenable to the implementation of these systems. [Here](http://www.python-course.eu/python3_lambda.php) is a great introduction to the tools at the heart of functional programming in Python 3: `map`, `filter`, `reduce`, and `lambda`.
+*"Why would I want to relearn how to code?!"*, you may ask. Big Data's increasing relevance has thrown the spotlight on distributed systems and concurrency techniques. No prizes for guessing which programming paradigm is most amenable to the implementation of these systems. [Here](https://www.python-course.eu/python3_lambda.php) is a great introduction to the tools at the heart of functional programming in Python 3: `map`, `filter`, `reduce`, and `lambda`.
 
 An alternative way of doing functional programming in Python using list comprehensions to replace the `map`, `filter`, and `reduce` functions. [Here](http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html) is a comparison of both methods, complete with examples!
 
 ## Python for Data Science
 
-Data Science seems to be all the rage recently, so you'll be glad to know that Python has become a major player in the field of Data Science, rivalled mainly by R. Some commonly used Python libraries in Data Science include [pandas](http://pandas.pydata.org/) for data management and manipulation, [numpy](http://www.numpy.org/) and [scipy](http://www.scipy.org/) for scientific computing, [scikit-learn](http://scikit-learn.org/) for general machine learning and [matplotlib](http://matplotlib.org/) for data visualization.
+Data Science seems to be all the rage recently, so you'll be glad to know that Python has become a major player in the field of Data Science, rivalled mainly by R. Some commonly used Python libraries in Data Science include [pandas](https://pandas.pydata.org/) for data management and manipulation, [numpy](https://www.numpy.org/) and [scipy](https://www.scipy.org/) for scientific computing, [scikit-learn](https://scikit-learn.org/) for general machine learning and [matplotlib](https://matplotlib.org/) for data visualization.
 
 ### Tutorials
 
 To get started, take a look at:
 *   [Introduction to pandas](https://samsontmr.github.io/Sentimental-Pandas/)
 *   [Numpy Quickstart Guide](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
-*   [matplotlib Tutorials](http://matplotlib.org/users/tutorials.html#introductory)
-*   [scikit-learn Basics](http://scikit-learn.org/stable/tutorial/basic/tutorial.html)
-*   [scikit-learn Machine Learning tutorials](http://scikit-learn.org/stable/tutorial/index.html) are also available for those looking to pick up machine learning.
-    *   If you learn best by working on projects, fret not! [Kaggle](http://kaggle.com) is a treasure trove of real-world datasets that you can hone your data science skills on.
+*   [matplotlib Tutorials](https://matplotlib.org/users/tutorials.html#introductory)
+*   [scikit-learn Basics](https://scikit-learn.org/stable/tutorial/basic/tutorial.html)
+*   [scikit-learn Machine Learning tutorials](https://scikit-learn.org/stable/tutorial/index.html) are also available for those looking to pick up machine learning.
+    *   If you learn best by working on projects, fret not! [Kaggle](https://kaggle.com) is a treasure trove of real-world datasets that you can hone your data science skills on.
 
 ## Gotchas
 
@@ -116,4 +108,11 @@ Learning how to avoid such pitfalls is one huge step towards being a productive 
 
 * [Top 10 Common Mistakes of Python Programmers](https://www.toptal.com/python/top-10-mistakes-that-python-programmers-make)
 * [Common Python Gotchas](https://sopython.com/wiki/Common_Gotchas_In_Python)
+
+## Python 2: a Discontinued Version
+When reading about Python online, you may encounter references to *Python 2*. Python 2 is an older, **discontinued** version of the Python language.
+The current major version of Python, Python 3, is backward incompatible with Python 2. You may wish to read this [article](https://www.geeksforgeeks.org/important-differences-between-python-2-x-and-python-3-x-with-examples/) to learn about some of the differences between Python 2 and 3.
+
+The Python Software Foundation has [stopped maintaining Python 2](https://www.python.org/doc/sunset-python-2/), which means new projects are unlikely to use it.
+
 </div>

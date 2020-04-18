@@ -15,6 +15,15 @@
 
 Authors: [Dickson Tan](https://github.com/neurrone)
 
+<box id="article-toc">
+
+* [Overview‎](#overview)
+* [Encryption‎](#encryption)
+* [Symmetric Key Ciphers‎](#symmetric-key-ciphers)
+* [Asymmetric Key Cryptosystems‎](#asymmetric-key-cryptosystems)
+* [Other Resources‎](#other-resources)
+</box>
+
 ## Overview
 
 Cryptography is the science of developing methods for secure communication, while Cryptanalysis is the discipline of breaking such methods.
@@ -75,7 +84,7 @@ Stream ciphers are used for their efficiency, ease of implementation in hardware
 However, block ciphers are more widely used than stream ciphers. In some modes of operation, they can be used like stream ciphers, reducing the need for dedicated stream ciphers.
 
 [RC4](https://en.wikipedia.org/wiki/RC4) is the most widely used stream cipher. Though its use is now discouraged due to known vulnerabilities. 
-The [eSTREAM project](http://www.ecrypt.eu.org/stream/), a research effort to develop state-of-the-art stream ciphers, has identified several ciphers suitable for widespread adoption. However, being relatively new, they have not been analyzed as extensively by cryptographers.
+The [eSTREAM project](https://www.ecrypt.eu.org/stream/), a research effort to develop state-of-the-art stream ciphers, has identified several ciphers suitable for widespread adoption. However, being relatively new, they have not been analyzed as extensively by cryptographers.
 
 #### Block Ciphers
 

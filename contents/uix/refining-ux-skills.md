@@ -15,13 +15,15 @@
 
 Author: [Tan Jun Kiat](https://github.com/junkiattan)
 
-## Table of Contents
-  * [Overview](#overview)
-  * [Building a relationship with a UX mentor](#building-a-relationship-with-a-ux-mentor)
-  * [Becoming a UX apprentice](#becoming-a-ux-apprentice)
-  * [Engaging in individual UX projects](#engaging-in-individual-ux-projects)
-  * [Summary](#summary)
-  * [Additional Resource(s)](#additional-resource-s)
+<box id="article-toc">
+
+* [Overview](#overview)
+* [Building a relationship with a UX mentor](#building-a-relationship-with-a-ux-mentor)
+* [Becoming a UX apprentice](#becoming-a-ux-apprentice)
+* [Engaging in individual UX projects](#engaging-in-individual-ux-projects)
+* [Summary](#summary)
+* [Additional Resource(s)](#additional-resource-s)
+</box>
 
 ## Overview
 As someone new to UX Design, honing your design skills is crucial to getting a UX-related career. In addition to knowing the definition of UX Design and it's stages, it is also important to know the practical aspect of starting and refining the required skillsets. This section will explain a few tactics to help you on this journey of improvement.
@@ -40,7 +42,7 @@ There are many avenues to find a UX mentor. Listed below are some links to get y
 
 Mentoring networks:
 1. [Find a Mentor (RookieUp)](https://www.rookieup.com/find-a-mentor/)
-1. [UXPA UK Mentoring programme](http://uxpa-uk.org/development/mentoring/)
+1. [UXPA UK Mentoring programme](https://uxpa-uk.org/development/mentoring/)
 1. [IDF Design League program](https://www.interaction-design.org/design-league?ep=az)
 1. [UX Mentorship Program (The UX Review)](https://theuxreview.co.uk/ux-mentorship-program-by-uxr/)
 
@@ -77,7 +79,7 @@ There are many bootcamps of both classifications for considerations. I have list
 Online:
 1. [UX Design (Career Foundry)](https://careerfoundry.com/en/courses/become-a-ux-designer/)
 1. [Designer Track (Bloc)](https://www.bloc.io/designer-track)
-1. [UX Design Bootcamp (Designation)](http://designation.io/)
+1. [UX Design Bootcamp (Designation)](https://designation.io/)
 1. [UX Design Course (BrainStation)](https://brainstation.io/course/online/remote-user-experience-design-bootcamp)
 
 In-person:
@@ -101,7 +103,7 @@ Find a local organisation with a website/app that you believe needs design help.
 Listed below are some examples of UX projects that can be self-initiated.
 1. [10 UX/UI Projects to Help You Build Your Portfolio](https://www.rookieup.com/blog/10-uxui-projects-help-build-portfolio/)
 1. [5 Hidden Sources of UX Portfolio Projects](https://www.uxbeginner.com/5-hidden-sources-of-ux-portfolio-projects/)
-1. [Two Projects to Hone your UX Skills](http://thehipperelement.com/post/145959249463/two-projects-to-hone-your-ux-skills)
+1. [Two Projects to Hone your UX Skills](https://thehipperelement.com/post/145959249463/two-projects-to-hone-your-ux-skills)
 
 #### Potential Pitfalls:
 *Projects that don’t count as legitimate UX experience*: It is important to be careful of the type of projects you end up taking. Producing content for non-digital media, such as a brochure or an advertisement, would not be as relevant as producing wireframes for a website. Furthermore, even with a relevant UX experience, it is crucial to be able to link your work to communicate the following points:
@@ -121,6 +123,6 @@ Know that there are many others before you who were new but successfully went in
 * [How I Landed a UX Job in 8 Months Without Work Experience or a Degree](https://medium.com/capitalonedesign/how-i-landed-a-ux-job-in-8-months-without-work-experience-or-a-degree-a057d32df1f9)
 
 ## Additional Resource(s)
-1. [List of Meetups/Conferences/Resources in Singapore](http://interface.sg/)
+1. [List of Meetups/Conferences/Resources in Singapore](https://interface.sg/)
 
 </div>

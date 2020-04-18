@@ -7,6 +7,8 @@
     * [Rvalue References and Move Semantics]({{baseUrl}}/contents/c++/rvalue.html)
   * CSharp
 	* [Introduction to CSharp]({{baseUrl}}/contents/csharp/IntroductionToCSharp.html)
+  * [Dart]({{baseUrl}}/contents/dart/Dart.html)
+  * [Elm]({{baseUrl}}/contents/elm/Elm.html)
   * [Go]({{baseUrl}}/contents/go/Go.html)
   * [Haskell]({{baseUrl}}/contents/haskell/Haskell.html)
   * Java
@@ -56,6 +58,7 @@
     * [ESLint]({{baseUrl}}/contents/staticAnalysis/ESLint.html)
   * Testing
     * [Integration Testing]({{baseUrl}}/contents/testing/integration-testing.html)
+    * [Security Testing]({{baseUrl}}/contents/testing/security-testing.html)
     * [Test-Driven Development]({{baseUrl}}/contents/testing/testDrivenDevelopment.html)
     * [Writing Testable Code]({{baseUrl}}/contents/testing/writing-testable-code.html)
   * UI/UX
@@ -70,22 +73,28 @@
   * [iOS]({{baseUrl}}/contents/ios/IntroToIos.html)
   * [Node]({{baseUrl}}/contents/node/nodejs.html)
   * [React]({{baseUrl}}/contents/javascript/Javascript-framework-React.html)
+  * [Redux]({{baseUrl}}/contents/javascript/Javascript-framework-Redux.html)
   * [Ruby on Rails]({{baseUrl}}/contents/ruby/Rails.html)
+  * [Spring]({{baseUrl}}/contents/java/Spring.html)
   * [Vue]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
+  * [Xamarin]({{baseUrl}}/contents/csharp/Xamarin.html)
 
 * ****Tools Useful for Software Engineers****
   * [Regular Expressions]({{baseUrl}}/contents/regex/Regex.html)
   * [Docker]({{baseUrl}}/contents/docker/Docker.html)
+  * [Dotfiles]({{baseUrl}}/contents/dotfiles/Dotfiles.html)
 
 * ****Other Topics****
   * [Computer Vision]({{baseUrl}}/contents/computerVision/cv.html)
   * Databases
     * [DBMS]({{baseUrl}}/contents/data/databases/databases.html)
     * [SQL]({{baseUrl}}/contents/data/sql/SQL.html)
+    * [NoSQL]({{baseUrl}}/contents/data/nosql/NoSQL.html)
   * [Machine Learning]({{baseUrl}}/contents/ai/ml.html)
   * Multi-Threading
     * [GPGPU]({{baseUrl}}/contents/gpgpu/gpgpu.html)
     * [CUDA]({{baseUrl}}/contents/gpgpu/cuda.html)
+  * [Natural Language Processing]({{baseUrl}}/contents/naturalLanguage/nl.html)
   * Security
     * [Cross Site Request Forgery]({{baseUrl}}/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html)
     * [Cross Site Scripting]({{baseUrl}}/contents/security/crossSiteScripting/crossSiteScripting.html)
