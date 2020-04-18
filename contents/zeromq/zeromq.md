@@ -13,7 +13,9 @@
 
 # Introduction to ZeroMQ
 
-Author: [Tan Yuanhong](https://github.com/le0tan)
+**Author: [Tan Yuanhong](https://github.com/le0tan)**
+
+Reviewers: [Tiu Wee Han](https://github.com/tiuweehan), [Tejas Bhuwania](https://github.com/Tejas2805)
 
 <box id="article-toc">
 
@@ -38,7 +40,7 @@ Notice the word **"protocol"** used in the description above - communication pro
 
 ## Why ZeroMQ?
 
-**TL;DR**: By adopting ZeroMQ in your concurrent application, you're less likely to have (or at least have less) bottleneck on inter-process/thread/machine communication, while still being able to write communication logic in familiar socket APIs.
+**Essentially**: By adopting ZeroMQ in your concurrent application, you're less likely to have (or at least have less) performance bottleneck on inter-process/thread/machine communication, while still being able to write communication logic in familiar socket APIs.
 
 ### Ease of Use
 
@@ -84,7 +86,7 @@ Unlike system calls, ZeroMQ supports various transports like in-process, inter-p
 
 ### High Performance
 
-Unlike networking libraries, ZeroMQ performs well enough to "be the fabric for clustered products". To give you a rough idea of how lightweight ZeroMQ is, the C++ source code for the ZeroMQ core engine [libzmq](https://github.com/zeromq/libzmq/tree/master/src) is only 1.5 megabytes. Moreover, in the [benchmark](http://wiki.zeromq.org/area:results) for ZeroMQ, the latency is measured in microseconds and the throughput is measured in million messages per second. Even CERN [approved](http://cds.cern.ch/record/1391410/files/CERN-ATS-2011-196.pdf?version=1) the performance of ZeroMQ in the setting of operating accelerators.
+Unlike <tooltip content="e.g. the `socket` module of Python standard library">networking libraries</tooltip>, ZeroMQ performs well enough to "be the fabric for clustered products". To give you a rough idea of how lightweight ZeroMQ is, the C++ source code for the ZeroMQ core engine [libzmq](https://github.com/zeromq/libzmq/tree/master/src) is only 1.5 megabytes. Moreover, in the [benchmark](http://wiki.zeromq.org/area:results) for ZeroMQ, the latency is measured in microseconds and the throughput is measured in million messages per second. Even CERN [approved](http://cds.cern.ch/record/1391410/files/CERN-ATS-2011-196.pdf?version=1) the performance of ZeroMQ in the setting of operating accelerators.
 
 ## Getting Started
 
@@ -95,3 +97,11 @@ Developing software for concurrent operation is by no means entry-level content.
 If you simply want to get started soon and understand the details as you adopt the library, you can download the library in your favorite language [here](https://zeromq.org/download/), then follow the corresponding examples written in the language of your choice.
 
 [ZeroMQ - Get Started](https://zeromq.org/get-started/)
+
+## Acknowledgements
+
+In addition to the links mentioned above, here are the links used in the writing of this article:
+
+- [Socket Programming in Python](https://www.tutorialspoint.com/python/python_networking.htm)
+- [Build Algorithmic Trading Strategies with Python & ZeroMQ: Part 1](https://www.youtube.com/watch?v=4MxjFTQHTfw&t)
+- [Why ZeroMQ?](https://www.youtube.com/watch?v=_JCBphyciAs)
