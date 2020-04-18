@@ -15,19 +15,22 @@
 
 Authors: [Lee Yan Hwa](https://github.com/leeyh20)
 
-- [Getting Started](#1-getting-started)
-    - [What is Android?](#11-what-is-android)
-    - [Why Android?](#12-why-android)
-    - [Why should I make native Android apps?](#13-why-should-i-make-native-android-apps)
-    - [Develop your first app today!](#14-develop-your-first-app-today)
-- [Android is not magic](#2-android-is-not-magic)
-    - [App Components](#21-app-components)
-    - [Activity Lifecycle](#22-activity-lifecycle)
-    - [The Architecture of Android](#23-the-architecture-of-android)
-- [Useful Android Developer Tools](#3-useful-android-developer-tools)
-    - [Testing](#31-testing)
-    - [Debugging](#32-debugging)
-- [Further Readings](#4-further-readings)
+<box id="article-toc">
+
+* [1. Getting Started‎](#1-getting-started)
+    * [1.1 What is Android?‎](#1-1-what-is-android)
+    * [1.2 Why Android?‎](#1-2-why-android)
+    * [1.3 Why should I make native Android apps?‎](#1-3-why-should-i-make-native-android-apps)
+    * [1.4 Develop your first app today!‎](#1-4-develop-your-first-app-today)
+* [2. Android is not magic‎](#2-android-is-not-magic)
+    * [2.1 App Components‎](#2-1-app-components)
+    * [2.2 Activity Lifecycle‎](#2-2-activity-lifecycle)
+    * [2.3 The Architecture of Android‎](#2-3-the-architecture-of-android)
+* [3. Useful Android Developer Tools‎](#3-useful-android-developer-tools)
+    * [3.1 Testing‎](#3-1-testing)
+    * [3.2 Debugging‎](#3-2-debugging)
+* [4. Further Readings‎](#4-further-readings)
+</box>
 
 ## 1. Getting Started
 

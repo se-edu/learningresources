@@ -16,6 +16,19 @@
 **Authors: [Chelsey Ong](https://github.com/chelseyong), [Lu Lechuan](https://github.com/LuLechuan)** <br>
 Reviewers: [Gilbert Emerson](https://github.com/emer7), [Ong Shu Peng](https://github.com/ongspxm)
 
+<box id="article-toc">
+
+* [What is Vue?‎](#what-is-vue)
+* [Vue Features‎](#vue-features)
+* [Why use Vue?‎](#why-use-vue)
+  * [Benefit 1: Approachable‎](#benefit-1-approachable)
+  * [Benefit 2: Progressive‎](#benefit-2-progressive)
+  * [Benefit 3: Versatile‎](#benefit-3-versatile)
+  * [Benefit 4: Clean‎](#benefit-4-clean)
+* [Disadvantages of Vue‎](#disadvantages-of-vue)
+* [Resources‎](#resources)
+</box>
+
 <box type="info">
 This chapter assumes that the reader has a basic knowledge of HTML and JavaScript.
 </box>

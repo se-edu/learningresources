@@ -16,6 +16,23 @@
 Authors: [Rachael Sim](https://github.com/rachx), [Ang Ze Yu](https://github.com/ang-zeyu)<br>
 Reviewers: [Shradheya Thakre](https://github.com/tshradheya), [Nicholas Chua](https://github.com/nicholaschuayunzhi), [Sam Yong](https://github.com/mauris), [Daryl Tan](https://github.com/openorclose), [Iskandar Zulkarnaien](https://www.github.com/iskandarzulkarnaien), [Tan Yuan Hong](https://www.github.com/le0tan)
 
+<box id="article-toc">
+
+* [What is Node?‎](#what-is-node)
+* [Why use Node?‎](#why-use-node)
+  * [Benefit 1: Easy to get Started‎](#benefit-1-easy-to-get-started)
+  * [Benefit 2: Avoid Synchronization Problems and Overheads‎](#benefit-2-avoid-synchronization-problems-and-overheads)
+  * [Benefit 3: Fast for I/O Intensive Programs‎](#benefit-3-fast-for-i-o-intensive-programs)
+  * [Benefit 4: Use JavaScript for Both Front and Back-end Development‎](#benefit-4-use-javascript-for-both-front-and-back-end-development)
+  * [Benefit 5: Easy Dependency Management With npm‎](#benefit-5-easy-dependency-management-with-npm)
+  * [Benefit 6: Versatile npm scripts‎](#benefit-6-versatile-npm-scripts)
+  * [Benefit 7: Easy to Reuse Code From Others‎](#benefit-7-easy-to-reuse-code-from-others)
+  * [Benefit 8: Relatively Large Developer Community‎](#benefit-8-relatively-large-developer-community)
+  * [Benefit 9: Support for Better Code Organization‎](#benefit-9-support-for-better-code-organization)
+* [Use cases‎](#use-cases)
+* [Resources‎](#resources)
+</box>
+
 <box type="info" light><md>
 This chapter assumes that the reader is familiar with JavaScript and asynchronous programming. If you are not familiar with asynchronous programming, a good resource to checkout is the [asynchronous programming section of the You Don't Know JS guide ](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/sync-async) as asynchronous programming is key in Node.</md>
 </box>

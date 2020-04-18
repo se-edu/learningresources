@@ -17,6 +17,21 @@
 
 Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Marvin Chin](https://github.com/marvinchin)
 
+<box id="article-toc">
+
+* [Ruby on Rails Overview‎](#ruby-on-rails-overview)
+  * [The Rails Way‎](#the-rails-way)
+* [Why Rails‎](#why-rails)
+  * [Fast iteration speed for product developement‎](#fast-iteration-speed-for-product-developement)
+  * [Optimized for Programmer Happiness‎](#optimized-for-programmer-happiness)
+  * [Large and Active Community of Developers‎](#large-and-active-community-of-developers)
+* [Drawbacks‎](#drawbacks)
+  * [Lack of Flexibility‎](#lack-of-flexibility)
+  * [Performance‎](#performance)
+  * [Learning Curve‎](#learning-curve)
+* [Getting Started‎](#getting-started)
+</box>
+
 ## Ruby on Rails Overview
 
 **Ruby on Rails** is a web application framework written in the Ruby programming language. It was designed with the intention of making programming web applications easier and quicker by reducing the amount of code you write. Rails achieves this by being an "opinionated framework", which means that the developers believe that there is a certain approach - often called "The Rails Way" - that is ideal for building most types of web applications. By adhering to this approach, Rails allows you to focus primarily on the logic, and fills in much of the boilerplate code for you. 
