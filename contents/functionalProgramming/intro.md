@@ -4,7 +4,7 @@
   footer: footer.md
   head: head.md
   siteNav: mainNav.md
-  pageNav: 3
+  pageNav: 4
 </frontmatter>
 
 <div class="website-content">
@@ -14,6 +14,21 @@
 # An Introduction to Functional Programming
 
 Authors: [Phang Chun Rong](https://github.com/crphang)
+
+<box id="article-toc">
+
+* [What is Functional Programming‎](#what-is-functional-programming)
+* [Functional Programming Languages‎](#functional-programming-languages)
+* [Concepts in Functional Programming‎](#concepts-in-functional-programming)
+    * [Pure Functions](#pure-functions)
+    * [Immutability](#immutability)
+* [Techniques in Functional Programming‎](#techniques-in-functional-programming)
+    * [Recursion](#recursion)
+    * [Higher Order Functions](#higher-order-functions)
+* [Advantages of Functional Programming‎](#advantages-of-functional-programming)
+* [Disadvantages of Functional Programming‎](#disadvantages-of-functional-programming)
+* [Guides on Functional Programming‎](#guides-on-functional-programming)
+</box>
 
 ## What is Functional Programming
 

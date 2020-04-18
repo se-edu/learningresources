@@ -15,6 +15,19 @@
 
 Authors: [Wilson Kurniawan](https://github.com/wkurniawan07)
 
+<box id="article-toc">
+
+* [Overview‎](#overview)
+* [Examples of Metrics‎](#examples-of-metrics)
+  * [Complexity Metrics‎](#complexity-metrics)
+  * [Class Design Metrics‎](#class-design-metrics)
+  * [Package Design Metrics‎](#package-design-metrics)
+  * [Seemingly Trivial Metrics‎](#seemingly-trivial-metrics)
+* [Define Your Own Metric‎](#define-your-own-metric)
+* [Making Sense of It‎](#making-sense-of-it)
+* [Code Quality Metrics Tools‎](#code-quality-metrics-tools)
+</box>
+
 ## Overview
 
 - It is undisputed that developers, code reviewers, testers, QA team members, and software architects alike want code to be as simple, understandable, and (put more positive adjectives here) as possible.

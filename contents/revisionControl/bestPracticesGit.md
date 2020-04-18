@@ -15,23 +15,25 @@
 
 Author(s): [Darren Wee](https://github.com/darrenwee)
 
-- [Introduction](#introduction)
-- [Best Practices](#best-practices)
-    - [Write Good Commit Messages](#write-good-commit-messages)
-        - [What Constitutes a Good Commit Message](#what-constitutes-a-good-commit-message)
-        - [Set Up Your Editor for Commit Messages](#set-up-your-editor-for-commit-messages)
-    - [Always Commit Functional Code](#always-commit-functional-code)
-        - [Stashing](#stashing)
-    - [One Logical Change per Commit](#one-logical-change-per-commit)
-    - [Hide the Sausage Making](#hide-the-sausage-making)
-        - [How to Hide the Sausage Making](#how-to-hide-the-sausage-making)
-    - [Respect Published History](#respect-published-history)
-    - [Keep Up To Date](#keep-up-to-date)
-        - [Working with Remotes](#working-with-remotes)
-        - [Rebase versus Merging](#rebase-versus-merging)
-- [Resources](#resources)
-    - [Further Reading](#further-reading)
+<box id="article-toc">
 
+* [Introduction‎](#introduction)
+* [Best Practices‎](#best-practices)
+    * [Write Good Commit Messages‎](#write-good-commit-messages)
+        * [What Constitutes a Good Commit Message‎](#what-constitutes-a-good-commit-message)
+        * [Set Up Your Editor for Commit Messages‎](#set-up-your-editor-for-commit-messages)
+    * [Always Commit Functional Code‎](#always-commit-functional-code)
+        * [Stashing‎](#stashing)
+    * [One Logical Change per Commit‎](#one-logical-change-per-commit)
+    * [Hide the Sausage Making‎](#hide-the-sausage-making)
+        * [How to Hide the Sausage Making‎](#how-to-hide-the-sausage-making)
+    * [Respect Published History‎](#respect-published-history)
+    * [Keep Up To Date‎](#keep-up-to-date)
+        * [Working with Remotes‎](#working-with-remotes)
+        * [Rebase versus Merging‎](#rebase-versus-merging)
+* [Resources‎](#resources)
+    * [Further Reading‎](#further-reading)
+</box>
 
 # Introduction
 [`git`](https://git-scm.com/) is a popular source code management tool and commonly used in many open-source projects, especially those on [GitHub](https://github.com).

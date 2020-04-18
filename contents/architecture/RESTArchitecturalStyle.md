@@ -15,6 +15,24 @@
 
 Author: [Wen Xin](https://github.com/wenmogu)
 
+<box id="article-toc">
+
+* [Overview‎](#overview)
+* [What does REST mean?‎](#what-does-rest-mean)
+  * [Resource‎](#resource)
+  * [Representational State‎](#representational-state)
+  * [Representational State Transfer‎](#representational-state-transfer)
+* [What should REST bring to the Web?‎](#what-should-rest-bring-to-the-web)
+* [What exactly is REST?‎](#what-exactly-is-rest)
+  * [Client-Server‎](#client-server)
+  * [Stateless‎](#stateless)
+  * [Cache‎](#cache)
+  * [Layered System‎](#layered-system)
+  * [Uniform Interface‎](#uniform-interface)
+  * [Code On Demand (Optional)‎](#code-on-demand-optional)
+* [Useful Resources‎](#useful-resources)
+</box>
+
 ## Overview 
 
 REST stands for *Representational State Transfer*. It is the architecture style of the World Wide Web. In particular,
