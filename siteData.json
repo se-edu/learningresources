@@ -1163,7 +1163,6 @@
       "headings": {
         "an-introduction-to-python": "An Introduction to Python",
         "getting-started-with-python": "Getting Started With Python",
-        "python-2-vs-python-3": "Python 2 vs Python 3",
         "virtual-environment": "Virtual Environment",
         "common-data-structures": "Common Data Structures",
         "indexing-and-slicing": "Indexing and Slicing",
@@ -1171,7 +1170,8 @@
         "functional-programming": "Functional Programming",
         "python-for-data-science": "Python for Data Science",
         "tutorials": "Tutorials",
-        "gotchas": "Gotchas"
+        "gotchas": "Gotchas",
+        "python-2-a-discontinued-version": "Python 2: a Discontinued Version"
       },
       "headingKeywords": {}
     },
