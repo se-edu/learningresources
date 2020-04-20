@@ -81,6 +81,7 @@
 * ****Tools Useful for Software Engineers****
   * [Regular Expressions]({{baseUrl}}/contents/regex/Regex.html)
   * [Docker]({{baseUrl}}/contents/docker/Docker.html)
+  * [ZeroMQ]({{baseUrl}}/contents/zeromq/zeromq.html)
   * [Dotfiles]({{baseUrl}}/contents/dotfiles/Dotfiles.html)
 
 * ****Other Topics****
