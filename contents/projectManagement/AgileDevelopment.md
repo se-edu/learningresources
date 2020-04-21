@@ -102,7 +102,7 @@ In addition to such agile frameworks, there are also many concrete practices tha
 - [Velocity Tracking](http://www.softwaretestingstudio.com/agile-velocity-sprint-metrics/)
 - [Timeboxing](https://www.telerik.com/blogs/the-importance-of-timeboxing-and-iterations-for-agile-planning)
 - [Pair Programming](https://www.codementor.io/pair-programming)
-- [Test Driven Development (TDD)](https://www.agiletestingframework.com/atf/testing/test-driven-development-tdd/)
+- [Test Driven Development (TDD)](testDrivenDevelopment.html)
 - [Continuous Integration](http://istqbexamcertification.com/what-is-continuous-integration-in-agile-methodology/)
 - [Reflection loops](https://dzone.com/articles/reflection-loops-agile)
 
