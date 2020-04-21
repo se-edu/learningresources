@@ -26,7 +26,7 @@ Reviewers: [Ang Ze Yu](https://github.com/ang-zeyu), [Neil Brian](https://github
   * [Limitations](#limitations)
     * [Limitation 1: Tough to Incorporate into Legacy Projects](#limitation-1-tough-to-incorporate-into-legacy-projects)
     * [Limitation 2: High Maintenance](#limitation-2-high-maintenance)
-    * [Limitation 3: Possibility of over-emphasizing unit tests at the expense of other tests](#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests)
+    * [Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests](#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests)
   * [Getting Started with Test-Driven Development](#getting-started-with-test-driven-development)
   * [References](#references)
 
@@ -133,7 +133,7 @@ Maintaining test-suites becomes a part of the overall overhead of the project. S
 
 TDD also has a steep learning curve. The entire process takes time to get accustomed to. Refactoring of code by using good design patterns comes with time, experience, and a lot of practice.
 
-### Limitation 3: Possibility of over-emphasizing unit tests at the expense of other tests
+### Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests
 
 Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests [^4]. 
 
