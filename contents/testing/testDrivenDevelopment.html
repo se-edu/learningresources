@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Security Testing</title>
+  <title>SE-EDU/LearningResources - Test-Driven Development</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -207,8 +207,8 @@
                       <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a current">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a current">Test-Driven Development</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
                         </ul>
                       </div>
@@ -319,180 +319,190 @@
 
       <div id="content-wrapper">
         <div class="website-content">
-          <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="introduction-to-security-testing">Introduction to Security Testing<a class="fa fa-anchor" href="#introduction-to-security-testing" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author: <a href="https://github.com/madanalogy">Ahmed Bahajjaj</a></strong><br>
-            Reviewers: <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/j-lum">Jeffry Lum</a>, <a href="https://github.com/tiuweehan">Tiu Wee Han</a></p>
+          <h1 id="test-driven-development">Test-Driven Development<a class="fa fa-anchor" href="#test-driven-development" onclick="event.stopPropagation()"></a></h1>
+          <p>Author: <a href="https://github.com/yash-chowdhary">Yash Chowdhary</a></p>
+          <p>Reviewers: <a href="https://github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://github.com/nbriannl">Neil Brian</a>, <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/Tejas2805">Tejas Bhuwania</a></p>
           <box id="article-toc">
-            <ul>
-              <li><a href="#introduction-to-security-testing">Introduction to Security Testing</a>
+            <ul class="px-3">
+              <li><a href="#test-driven-development">Test-Driven Development</a>
                 <ul>
-                  <li><a href="#what-is-security-testing">What Is Security Testing?‎</a></li>
-                  <li><a href="#why-have-security-testing">Why Have Security Testing?</a></li>
-                  <li><a href="#security-testing-in-action">Security Testing in Action</a></li>
-                  <li><a href="#where-to-go-from-here">Where to Go From Here?</a></li>
+                  <li><a href="#what-is-test-driven-development">What is Test-Driven Development</a></li>
+                  <li><a href="#benefits-of-test-driven-development">Benefits of Test-Driven Development</a>
+                    <ul>
+                      <li><a href="#benefit-1-improves-code-quality">Benefit 1: Improves Code Quality</a></li>
+                      <li><a href="#benefit-2-focuses-on-understanding-product-requirements">Benefit 2: Focuses on Understanding Product Requirements</a></li>
+                      <li><a href="#benefit-3-increases-productivity">Benefit 3: Increases Productivity</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#limitations">Limitations</a>
+                    <ul>
+                      <li><a href="#limitation-1-tough-to-incorporate-into-legacy-projects">Limitation 1: Tough to Incorporate into Legacy Projects</a></li>
+                      <li><a href="#limitation-2-high-maintenance">Limitation 2: High Maintenance</a></li>
+                      <li><a href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests">Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#getting-started-with-test-driven-development">Getting Started with Test-Driven Development</a></li>
+                  <li><a href="#references">References</a></li>
                 </ul>
               </li>
             </ul>
           </box>
-
-
-
-          <h2 id="what-is-security-testing">What Is Security Testing?<a class="fa fa-anchor" href="#what-is-security-testing" onclick="event.stopPropagation()"></a></h2>
-          <p>Testing is defined by the Open Web Application Security Project (<span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">OWASP is a worldwide non-profit organization focused on improving the security of software.</span><strong>OWASP</strong></span>) as a process of comparing the state of a system or application against a set of criteria<span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1">[1]</a></sup></span>. Security testing then is a type of software testing where the criteria to be compared against comprise of security requirements.</p>
-          <p>The OWASP Zed-Attack-Proxy (ZAP) Project defines software security testing as the process of assessing and testing a system to discover security risks and <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A vulnerability is a hole or a weakness in a system that allows an attacker to cause harm to the stakeholders of the system.</span><strong>vulnerabilities</strong></span> of the system and its data<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2">[2]</a></sup></span>. Assessments are defined as the analysis and discovery of vulnerabilities without attempting to actually exploit those vulnerabilities, and testing as the discovery and attempted exploitation of vulnerabilities.</p>
-          <h3 id="types-of-security-testing">Types of Security Testing<a class="fa fa-anchor" href="#types-of-security-testing" onclick="event.stopPropagation()"></a></h3>
-          <p>Security testing is often categorised, somewhat arbitrarily, according to either the type of vulnerability being tested or the type of testing being done. A common categorisation as defined by OWASP ZAP is as follows<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2:1">[2]</a></sup></span>:</p>
-          <ul>
-            <li><strong>Vulnerability Assessment</strong>: The system is scanned and analyzed for security vulnerabilities.</li>
-            <li><strong>Penetration Testing</strong>: The system undergoes analysis and attack from simulated malicious attackers.</li>
-            <li><strong>Runtime Testing</strong>: The system undergoes analysis and security testing from an end-user.</li>
-            <li><strong>Code Review</strong>: The system code undergoes a detailed review and analysis looking specifically for security vulnerabilities.</li>
-          </ul>
-          <p>
-            <box type="info">Note that risk assessment, which is commonly listed as part of security testing, is not included in this list. That is because a risk assessment is not actually a test but rather the analysis of the perceived severity of different risks (software security, personnel security, hardware security, etc.) and any mitigation steps for those risks.</box>
-          </p>
-          <h2 id="why-have-security-testing">Why Have Security Testing?<a class="fa fa-anchor" href="#why-have-security-testing" onclick="event.stopPropagation()"></a></h2>
-          <p>Security testing ensures that a system is secure. Since security requirements differ depending on the goals of the project, it is often hard to define the concept of what it means to be secure. One definition is as follows<span for="pop:footnote3" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote3'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote3" id="footnoteref3">[3]</a></sup></span>:</p>
-          <p>
-            <box type="definition">Security means that authorized access is granted to protected data and unauthorized access is restricted.</box>
-          </p>
-          <p>This definition encompasses two major aspects; first is the protection of data and the second is access to that data. Whether the system is desktop or web-based, we will loosely define security as revolving around the two aforementioned aspects.</p>
-          <p>Due to the logical limitations of security testing however, passing security testing is not an indication that no flaws exist or that the system adequately satisfies the security requirements<span for="pop:footnote4" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote4'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote4" id="footnoteref4">[4]</a></sup></span>. Why have security testing then? In brief, unauthorised access to data is a very expensive problem<span for="pop:footnote5" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote5'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote5" id="footnoteref5">[5]</a></sup></span> and since a system would be more secure with security testing than without<span for="pop:footnote6" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote6'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote6" id="footnoteref6">[6]</a></sup></span>, an effort should be made to have security testing.</p>
-          <p>
-            <box type="warning">There is more to the concept of security than the working definition used here.</box>
-          </p>
-          <h2 id="security-testing-in-action">Security Testing in Action<a class="fa fa-anchor" href="#security-testing-in-action" onclick="event.stopPropagation()"></a></h2>
-          <p>Security testing can be integrated into every stage of the Software Development Life Cycle <a href="https://se-education.org/se-book/processModels/">(SDLC)</a>. A conceptual example of such an integration is as follows<span for="pop:footnote7" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote7'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote7" id="footnoteref7">[7]</a></sup></span>:</p>
+          <h2 id="what-is-test-driven-development">What is Test-Driven Development?<a class="fa fa-anchor" href="#what-is-test-driven-development" onclick="event.stopPropagation()"></a></h2>
+          <p>Typically, you write tests for production code you've <em>already written</em>. Test-driven development (a.k.a TDD) is a software development technique that emphasizes writing tests <em>before</em> writing production code.</p>
+          <p>Robert Martin describes the &quot;Three Laws of TDD&quot; as -</p>
+          <blockquote>
+            <p>&quot;First Law: You may not write production code until you have written a failing unit test.</p>
+            <p>Second Law: You may not write more of a unit test than is sufficient to fail, and not compiling is failing.</p>
+            <p>Third Law: You may not write more production code than is sufficient to pass the currently failing test.”</p>
+          </blockquote>
+          <p>These 3 laws help to formulate a step-by-step process of practising test-driven development. Figure 1 below highlights one iteration of this general TDD process. In practice, several such iterations are required - sometimes even to get the same test or portion of the test to pass.</p>
           <center>
-            <pic src="/learningresources/contents/testing/security-testing/Sec-Test-Fig-1.png" width="800" alt="Example">
-              Figure 1 - Example of Security Testing during a SDLC.
+            <pic src="/learningresources/contents/testing/images/tddSteps.jpg" alt="tddSteps" height="650">
+              <p><em>Figure 1. General TDD process.</em><span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1">[1]</a></sup></span></p>
             </pic>
           </center>
-          <br>
-          <p>To understand this in more detail, we can deconstruct the application of security testing into its manifestation in different stages of software development.</p>
-          <h3 id="at-a-glance">At a Glance<a class="fa fa-anchor" href="#at-a-glance" onclick="event.stopPropagation()"></a></h3>
-          <p>The following series of steps adapted from the OWASP Testing Guide<span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1:1">[1]</a></sup></span> provide general applications of security testing in a generic SDLC process.</p>
-          <center>
-            <pic src="/learningresources/contents/testing/security-testing/Sec-Test-Fig-2.png" width="650" alt="Workflow">
-              Figure 2 - Testing Framework Workflow from the OWASP Testing Guide.
-            </pic>
-          </center>
-          <br>
-          <h3 id="step-1-before-development">Step 1: Before Development<a class="fa fa-anchor" href="#step-1-before-development" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="1-1-define-an-sdlc">1.1 Define an SDLC<a class="fa fa-anchor" href="#1-1-define-an-sdlc" onclick="event.stopPropagation()"></a></h4>
-          <p>Before application development starts, an adequate SDLC must be defined where security is inherent at each stage.</p>
-          <h4 id="1-2-review-policies-and-standards">1.2 Review Policies and Standards<a class="fa fa-anchor" href="#1-2-review-policies-and-standards" onclick="event.stopPropagation()"></a></h4>
-          <p>Ensure that there are appropriate policies, standards, and documentation in place. Documentation is extremely important as it gives development teams guidelines and policies that they can follow. An example of one such documentation is the OWASP Secure Coding Practices Quick Reference Guide<span for="pop:footnote8" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote8'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote8" id="footnoteref8">[8]</a></sup></span>.</p>
-          <p>
-            <box type="important">People can only do the right thing if they know what the right thing is.</box>
-          </p>
-          <p>If the application is to be developed in Java, it is essential that there is a Java secure coding standard. If the application is to use cryptography, it is essential that there is a cryptography standard. No policies or standards can cover every situation that the development team will face. By documenting common and predictable issues, there will be fewer decisions that need to be made during the development process.</p>
-          <h3 id="step-2-during-definition-and-design">Step 2: During Definition and Design<a class="fa fa-anchor" href="#step-2-during-definition-and-design" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="2-1-review-security-requirements">2.1 Review Security Requirements<a class="fa fa-anchor" href="#2-1-review-security-requirements" onclick="event.stopPropagation()"></a></h4>
-          <p>Security requirements define how an application works from a security perspective. It is essential that the security requirements are tested. In particular, assumptions that are made in the requirements are tested while checking if there are any gaps in the requirement definitions.</p>
-          <p>For example, if there is a security requirement that states that users must be registered before they can get access to a particular section of a website, does this mean that the user must be registered with the system or should the user be authenticated? Ensure that requirements are as unambiguous as possible.</p>
-          <h4 id="2-2-review-design-and-amp-architecture">2.2 Review Design &amp; Architecture<a class="fa fa-anchor" href="#2-2-review-design-and-amp-architecture" onclick="event.stopPropagation()"></a></h4>
-          <p>Applications should have a documented design and architecture. This documentation can include models, textual documents, and other similar artifacts. It is essential to test these artifacts to ensure that the design and architecture enforce the appropriate level of security as defined in the requirements.</p>
-          <p>Identifying security flaws in the design phase is not only one of the most cost-efficient places to identify flaws, but can be one of the most effective places to make changes. For example, if it is identified that the design calls for authorization decisions to be made in multiple places, it may be appropriate to consider having a central component responsible for authorization. If the application is performing data validation at multiple places, it may be appropriate to develop a central validation framework (i.e. fixing input validation in one place, rather than in hundreds of places).</p>
-          <h3 id="step-3-during-development">Step 3: During Development<a class="fa fa-anchor" href="#step-3-during-development" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="3-1-unit-and-amp-system-tests">3.1 Unit &amp; System Tests<a class="fa fa-anchor" href="#3-1-unit-and-amp-system-tests" onclick="event.stopPropagation()"></a></h4>
-          <p><a href="https://se-education.org/se-book/testing/#unit-testing">Unit tests</a> and <a href="https://se-education.org/se-book/testing/#system-testing">system tests</a> should be written to explicitly ensure adherence to functional security requirements. For example, an application with an access control feature should include unit tests to ensure that unauthorised access credentials are not accepted.</p>
-          <h4 id="3-2-code-walk-through">3.2 Code Walk Through<a class="fa fa-anchor" href="#3-2-code-walk-through" onclick="event.stopPropagation()"></a></h4>
-          <p>The security team should perform a code walk through with the developers, and in some cases, the system architects. A code walk through is a high-level walk through of the code where the developers can explain the logic and flow of the implemented code. It allows the code review team to obtain a general understanding of the code, and allows the developers to explain why certain things were developed the way they were.</p>
-          <p>
-            <box type="tip">The purpose is not to perform a code review, but to understand at a high level: the flow, the layout, and the structure of the code that makes up the application.</box>
-          </p>
-          <h4 id="3-3-code-reviews">3.3 Code Reviews<a class="fa fa-anchor" href="#3-3-code-reviews" onclick="event.stopPropagation()"></a></h4>
-          <p>Armed with a good understanding of how the code is structured and why certain things were coded the way they were, the tester can now examine the actual code for security defects.</p>
-          <h3 id="step-4-during-deployment">Step 4: During Deployment‎<a class="fa fa-anchor" href="#step-4-during-deployment" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="4-1-penetration-testing">4.1 Penetration Testing<a class="fa fa-anchor" href="#4-1-penetration-testing" onclick="event.stopPropagation()"></a></h4>
-          <p>Having tested the requirements, analyzed the design, and performed code review, it might be assumed that all issues have been caught. Hopefully this is the case, but penetration testing (a.k.a. pentesting) the application after it has been deployed provides a last check to ensure that nothing has been missed.</p>
-          <p>
-            <box type="info">Penetration testing is carried out as if the tester was a malicious external attacker.</box>
-          </p>
-          <p>The ultimate goal of pentesting is to search for vulnerabilities so that these vulnerabilities can be addressed. It can also verify that a system is not vulnerable to a known class or specific defect; or, in the case of vulnerabilities that have been reported as fixed, verify that the system is no longer vulnerable to that defect.<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2:2">[2]</a></sup></span></p>
-          <h2 id="where-to-go-from-here">Where to Go From Here?<a class="fa fa-anchor" href="#where-to-go-from-here" onclick="event.stopPropagation()"></a></h2>
-          <p>Now that you know conceptually what security testing is about and how it's generally applied, you can afford to focus on topics depending on your role and interests:</p>
-          <ul>
-            <li><strong>Developer</strong>: Focus on how you can translate security requirements into actual code. Additionally, it would be worth your while as well to go through the OWASP Secure Coding Practices Quick Reference Guide<span for="pop:footnote8" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote8'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote8" id="footnoteref8:1">[8]</a></sup></span>.</li>
-            <li><strong>Project Manager</strong>: Your role is crucial before deployment (in selecting an SDLC and setting out project policies) as well as during requirements definition. It is recommended to read entirely the OWASP Testing Guide<span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1:2">[1]</a></sup></span> to have a complete understanding of what is required.</li>
-            <li><strong>Security Specialist</strong>: Your duties often come in the requirements definition stage and system deployment stage, maybe during code walk through as well depending on organisational decisions. Start with the Wikipedia Article on Security Testing<span for="pop:footnote4" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote4'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote4" id="footnoteref4:1">[4]</a></sup></span> to learn more about security concepts and OWASP ZAP<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2:3">[2]</a></sup></span> to learn basic penetration testing.</li>
-          </ul>
+          <p>Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the general development process of TDD is as follows <span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2">[2]</a></sup></span>:</p>
+          <ol>
+            <li>
+              <p><strong>Add a test</strong></p>
+              <p>In this phase of the cycle, all you need to focus on is writing tests. Understanding the product's/feature's requirements and specifications is crucial at this stage of the development cycle.</p>
+            </li>
+            <li>
+              <p><strong>Run the test</strong></p>
+              <p>In this phase, you check if the new test added fails. This is an important step as it shows that the new test does not pass without requiring new code, and also rules out false positives (i.e. the test passes when it shouldn't). Furthermore, the reason for its failure must be clear.</p>
+            </li>
+            <li>
+              <p><strong>Write production code</strong></p>
+              <p>Here is when you write code to pass the test. The sole aim at this point is to pass the test and to write production code restricted to the scope of the test. It is possible that the code may not be in its best form (style- and syntax-wise), but that's something you need not worry about at this stage.</p>
+            </li>
+            <li>
+              <p><strong>Re-run test(s)</strong></p>
+              <p>Re-running the test suite and ensuring the test passes not only helps in keeping the cycle running, but also in increasing your confidence in the code that you have just written. This is because it shows that the new code meets the test requirements and does not break any existing features/requirements.</p>
+            </li>
+            <li>
+              <p><strong>Refactor the code</strong></p>
+              <p>As and when you write more production code and test to make sure it meets all your business, product, and/or feature requirements, it's important that the code itself meets a certain standard. Improving code style and readability, employing design patterns, and reducing duplication of code are some of the <a href="https://refactoring.com/catalog/">many things</a> you can work on.</p>
+            </li>
+          </ol>
+          <p>Steps 1-5 outline one iteration of the TDD process. When you combine multiple iterations of this process, it can be thought of as a TDD cycle.</p>
+          <h2 id="benefits-of-test-driven-development">Benefits of Test-Driven Development<a class="fa fa-anchor" href="#benefits-of-test-driven-development" onclick="event.stopPropagation()"></a></h2>
+          <p>Some reasons why teams can choose to adopt the approach of test-driven development are:</p>
+          <h3 id="benefit-1-improves-code-quality">Benefit 1: Improves Code Quality<a class="fa fa-anchor" href="#benefit-1-improves-code-quality" onclick="event.stopPropagation()"></a></h3>
+          <p>TDD can lead to well-written code. This is a direct consequence of the cycle that was explained above. One of the best practices while following TDD is to focus on small units of code (methods, classes, modules, etc). This can lead to more modular, flexible code with looser coupling that can be scaled. In this way, the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new comer to understand it <span for="pop:footnote3" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote3'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote3" id="footnoteref3">[3]</a></sup></span>.</p>
+          <p>Additionally, developers work on units of code that can be written and tested independently and integrated later. This can be achieved through <span trigger="click" for="modal:index-mock" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:index-mock'].show()" class="trigger-click">mock frameworks</span>, which help drive home the rationale of writing unit tests.</p>
+          <p>The tests aim to cover all possible branches and paths that the production code can take because no more code is written than is necessary. This potentially indicates that the software will high code coverage. Detecting bugs at early stages is easier when you're working with code that has high coverage <span for="pop:footnote4" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote4'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote4" id="footnoteref4">[4]</a></sup></span>.</p>
+          <b-modal id="modal:index-mock" hide-footer size modal-class="mb-zoom" ref="modal:index-mock"><template slot="modal-title">Mock Objects and Frameworks</template>
+            Mock objects are simulated objects whose sole purpose is to act as a black box that mimics the behaviour of real-world objects during testing. They are especially useful in writing unit tests, which are meant to test the functionality of a portion of production code assuming that the rest of the code behaves as it should.
+          </b-modal>
+          <h3 id="benefit-2-focuses-on-understanding-product-requirements">Benefit 2: Focuses on Understanding Product Requirements<a class="fa fa-anchor" href="#benefit-2-focuses-on-understanding-product-requirements" onclick="event.stopPropagation()"></a></h3>
+          <p>Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is writing tests. Coming up with tests without a clear picture of the requirements or specifications can be dangerous as:</p>
+          <ol>
+            <li>you could end up testing something that doesn't need to be tested, or</li>
+            <li>you could end up overlooking some requirements that <em>must</em> be tested, thus giving you a false sense of accomplishment when you write production code to pass the test</li>
+          </ol>
+          <p>TDD thus helps in preventing teams from rushing into development and pushes them to prioritize the requirements-gathering step, forcing them to understand the requirement of whatever small thing which will be implemented, whether it is a user story, a method, class, etc.</p>
+          <h3 id="benefit-3-increases-productivity">Benefit 3: Increases Productivity<a class="fa fa-anchor" href="#benefit-3-increases-productivity" onclick="event.stopPropagation()"></a></h3>
+          <p>A study done by researchers in CMU found that programmers who wrote more tests tended to be more productive<span for="pop:footnote5" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote5'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote5" id="footnoteref5">[5]</a></sup></span>, and since employing TDD meant writing more tests, there is a correlation between productivity and TDD.</p>
+          <p>Test-driven development makes programmers think about the desired outcome of certain processes, features, and how other code can be integrated. Programmers will then think about coming up with failing tests and working their way up to writing code that passes the test. Employing test-driven development thus helps to get a better understanding of the design of a program <span for="pop:footnote3" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote3'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote3" id="footnoteref3:1">[3]</a></sup></span>.</p>
+          <p>As mentioned before, test-driven development can potentially result in software with high code coverage. This, in turn, can boost individual and team morale, confidence in the code, and productivity as a consequence.</p>
+          <h2 id="limitations">Limitations<a class="fa fa-anchor" href="#limitations" onclick="event.stopPropagation()"></a></h2>
+          <p>Even with some of the attractive benefits of adopting TDD, there is no one-size-fits-all solution for project design management. Some of the limitations of TDD are:</p>
+          <h3 id="limitation-1-tough-to-incorporate-into-legacy-projects">Limitation 1: Tough to Incorporate into Legacy Projects<a class="fa fa-anchor" href="#limitation-1-tough-to-incorporate-into-legacy-projects" onclick="event.stopPropagation()"></a></h3>
+          <p><span trigger="click" for="modal:index-legacy" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:index-legacy'].show()" class="trigger-click">Legacy projects</span> <span for="pop:footnote6" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote6'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote6" id="footnoteref6">[6]</a></sup></span> are hard to maintain even without having to incorporate TDD into them. As these projects have a history of design and implementation choices made based on the requirements and/or the resources at the time, investing man hours in revamping or &quot;modernizing&quot; them is not always deemed as top priority.</p>
+          <b-modal id="modal:index-legacy" hide-footer size modal-class="mb-zoom" ref="modal:index-legacy"><template slot="modal-title">Legacy Code</template>
+            Legacy code refers to an application system source code type that is no longer supported. Legacy code can also refer to unsupported operating systems, hardware and formats. In most cases, legacy code is converted to a modern software language and platform. However, to retain familiar user functionality, legacy code is sometimes carried into new environments.
+          </b-modal>
+          <p>When you bring TDD into the picture, things get more complex as failing tests are written at first with the assumption that production code will be written to ensure they pass.</p>
+          <p>Writing production code in legacy systems with the goal of passing a specific test is harder than it seems. For instance, there may be dependencies between components that need to be &quot;broken&quot; for them to be testable, which could result in several workarounds. This could potentially add on to the complexity of the project, making it counter-productive as the entire point of the refactoring step is to make the code more readable <span for="pop:footnote7" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote7'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote7" id="footnoteref7">[7]</a></sup></span>.</p>
+          <h3 id="limitation-2-high-maintenance">Limitation 2: High Maintenance<a class="fa fa-anchor" href="#limitation-2-high-maintenance" onclick="event.stopPropagation()"></a></h3>
+          <p>Maintaining test-suites becomes a part of the overall overhead of the project. Since TDD-style approaches rely heavily on tests, there is a need for the tests to be in proper shape in order to prevent a false sense of correctness.</p>
+          <p>TDD also has a steep learning curve. The entire process takes time to get accustomed to. Refactoring of code by using good design patterns comes with time, experience, and a lot of practice.</p>
+          <h3 id="limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests">Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests<a class="fa fa-anchor" href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests" onclick="event.stopPropagation()"></a></h3>
+          <p>Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests <span for="pop:footnote8" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote8'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote8" id="footnoteref8">[8]</a></sup></span>.</p>
+          <h2 id="getting-started-with-test-driven-development">Getting Started with Test-Driven Development<a class="fa fa-anchor" href="#getting-started-with-test-driven-development" onclick="event.stopPropagation()"></a></h2>
+          <p>As explained above, test-driven development is a software design technique. While it does have an established and unelaborate framework, there are elements of the development cycle that -</p>
+          <ol>
+            <li>could be new to you (such as testing and mock frameworks), or</li>
+            <li>you require practice in (such as refactoring code)</li>
+          </ol>
+          <p>For those of you who'd like to get your hands dirty, here are a couple of tutorials on getting started with unit testing with Java - one using the <a href="https://dev.to/chrisvasqm/introduction-to-unit-testing-with-java-2544">TestNG framework</a>, and another using the <a href="https://www.guru99.com/junit-tutorial.html">JUnit framework</a>. They are both comprehensive tutorials, covering topics from setting up your environment for testing and writing basic tests to annotations.</p>
+          <p><a href="https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&amp;s=books&amp;ie=UTF8&amp;qid=1495080564&amp;sr=1-1&amp;keywords=tdd+by+example">'Test-Driven Development: By Example'</a> by Kent Beck is a worthwhile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.</p>
+          <p>For those interested in diving deeper, Scott W. Ambler's <a href="http://agiledata.org/essays/tdd.html">'Introduction to Test-Driven Development (TDD)'</a> gives an in-depth understanding of the topic.</p>
+          <h2 id="references">References<a class="fa fa-anchor" href="#references" onclick="event.stopPropagation()"></a></h2>
         </div>
         <hr class="footnotes-sep">
         <section class="footnotes">
           <ol class="footnotes-list">
             <li id="footnote1" class="footnote-item">
-              <p><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a>: An extremely comprehensive guide on security testing with in-depth coverage of web-application security testing.</p>
+              <p><a href="http://agiledata.org/essays/tdd.html">Agile Data, Scott W. Ambler</a></p>
             </li>
             <li id="footnote2" class="footnote-item">
-              <p><a href="https://www.zaproxy.org/getting-started/">OWASP Zed-Attack-Proxy</a>: A tool for conducting vulnerability assessments and penetration testing.</p>
+              <p>Beck, K. 2000. <a href="https://dl.acm.org/doi/book/10.5555/318762">&quot;Extreme Programming Explained&quot;</a></p>
             </li>
             <li id="footnote3" class="footnote-item">
-              <p><a href="https://www.softwaretestinghelp.com/how-to-test-application-security-web-and-desktop-application-security-testing-techniques/">Breakdown by SoftwareTestingHelp.com</a>: A breakdown of security testing into common attack vectors and recommended tools.</p>
+              <p><a href="http://www.pathfindersolns.com/wp-content/uploads/2012/05/Effective-TDD-Executive-Summary.pdf">Effective TDD for Complex, Embedded Systems Whitepaper</a></p>
             </li>
             <li id="footnote4" class="footnote-item">
-              <p><a href="https://en.wikipedia.org/wiki/Security_testing">Wikipedia Article on Security Testing</a>: Coverage on the abstract concepts of security testing and the taxonomy involved.</p>
+              <p>P. S. Kochhar, F. Thung and D. Lo, 2015. <a href="/learningresources/contents/testing/(https:/doi.org/10.1109/SANER.2015.7081877)">&quot;Code coverage and test suite effectiveness: Empirical study with real bugs in large systems&quot;</a></p>
             </li>
             <li id="footnote5" class="footnote-item">
-              <p><a href="https://www.ibm.com/downloads/cas/ZYKLN2E3">2017 Cost of Data Breach Study</a>: IBM sponsored report for a study on the cost of data breaches in 2017.</p>
+              <p>Erdogmus, 2005. <a href="https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en">&quot;On the Effectiveness of Test-first Approach to Programming&quot;</a></p>
             </li>
             <li id="footnote6" class="footnote-item">
-              <p><a href="https://medium.com/@cxosmo/owasp-top-10-real-world-examples-part-1-a540c4ea2df5">OWASP Top 10 Examples</a>: Real examples of what might happen if Security Testing is overlooked.</p>
+              <p><a href="https://www.techopedia.com/definition/25326/legacy-code">Legacy Code</a></p>
             </li>
             <li id="footnote7" class="footnote-item">
-              <p><a href="https://www.guru99.com/what-is-security-testing.html">Overview by Guru99.com</a>: A brief summary of Security Testing and it's role in Software Testing.</p>
+              <p>Smart, J.F. 2009. <a href="https://dzone.com/articles/introduction-test-driven">&quot;An Introduction to Test-Driven Development with Legacy code&quot;</a></p>
             </li>
             <li id="footnote8" class="footnote-item">
-              <p><a href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf">OWASP Secure Coding Practices</a>: A quick reference guide for secure coding practices.</p>
+              <p><a href="http://dalkescientific.com/writings/diary/archive/2009/12/29/problems_with_tdd.html">Problems with TDD</a></p>
             </li>
           </ol>
           <span id="pop:footnote1" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a>: An extremely comprehensive guide on security testing with in-depth coverage of web-application security testing.</p>
+              <p><a href="http://agiledata.org/essays/tdd.html">Agile Data, Scott W. Ambler</a></p>
             </div>
           </span>
 
           <span id="pop:footnote2" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://www.zaproxy.org/getting-started/">OWASP Zed-Attack-Proxy</a>: A tool for conducting vulnerability assessments and penetration testing.</p>
+              <p>Beck, K. 2000. <a href="https://dl.acm.org/doi/book/10.5555/318762">&quot;Extreme Programming Explained&quot;</a></p>
             </div>
           </span>
 
           <span id="pop:footnote3" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://www.softwaretestinghelp.com/how-to-test-application-security-web-and-desktop-application-security-testing-techniques/">Breakdown by SoftwareTestingHelp.com</a>: A breakdown of security testing into common attack vectors and recommended tools.</p>
+              <p><a href="http://www.pathfindersolns.com/wp-content/uploads/2012/05/Effective-TDD-Executive-Summary.pdf">Effective TDD for Complex, Embedded Systems Whitepaper</a></p>
             </div>
           </span>
 
           <span id="pop:footnote4" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://en.wikipedia.org/wiki/Security_testing">Wikipedia Article on Security Testing</a>: Coverage on the abstract concepts of security testing and the taxonomy involved.</p>
+              <p>P. S. Kochhar, F. Thung and D. Lo, 2015. <a href="/learningresources/contents/testing/(https:/doi.org/10.1109/SANER.2015.7081877)">&quot;Code coverage and test suite effectiveness: Empirical study with real bugs in large systems&quot;</a></p>
             </div>
           </span>
 
           <span id="pop:footnote5" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://www.ibm.com/downloads/cas/ZYKLN2E3">2017 Cost of Data Breach Study</a>: IBM sponsored report for a study on the cost of data breaches in 2017.</p>
+              <p>Erdogmus, 2005. <a href="https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en">&quot;On the Effectiveness of Test-first Approach to Programming&quot;</a></p>
             </div>
           </span>
 
           <span id="pop:footnote6" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://medium.com/@cxosmo/owasp-top-10-real-world-examples-part-1-a540c4ea2df5">OWASP Top 10 Examples</a>: Real examples of what might happen if Security Testing is overlooked.</p>
+              <p><a href="https://www.techopedia.com/definition/25326/legacy-code">Legacy Code</a></p>
             </div>
           </span>
 
           <span id="pop:footnote7" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://www.guru99.com/what-is-security-testing.html">Overview by Guru99.com</a>: A brief summary of Security Testing and it's role in Software Testing.</p>
+              <p>Smart, J.F. 2009. <a href="https://dzone.com/articles/introduction-test-driven">&quot;An Introduction to Test-Driven Development with Legacy code&quot;</a></p>
             </div>
           </span>
 
           <span id="pop:footnote8" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
             <div data-mb-html-for="content">
-              <p><a href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf">OWASP Secure Coding Practices</a>: A quick reference guide for secure coding practices.</p>
+              <p><a href="http://dalkescientific.com/writings/diary/archive/2009/12/29/problems_with_tdd.html">Problems with TDD</a></p>
             </div>
           </span>
         </section>
@@ -504,22 +514,23 @@
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#introduction-to-security-testing">Introduction to Security Testing&#x200E;</a>
+            <a class="nav-link py-1" href="#test-driven-development">Test-Driven Development&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-security-testing">What Is Security Testing?&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-test-driven-development">What is Test-Driven Development?&#x200E;</a>
+              <a class="nav-link py-1" href="#benefits-of-test-driven-development">Benefits of Test-Driven Development&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#types-of-security-testing">Types of Security Testing&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-1-improves-code-quality">Benefit 1: Improves Code Quality&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-2-focuses-on-understanding-product-requirements">Benefit 2: Focuses on Understanding Product Requirements&#x200E;</a>
+                <a class="nav-link py-1" href="#benefit-3-increases-productivity">Benefit 3: Increases Productivity&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#why-have-security-testing">Why Have Security Testing?&#x200E;</a>
-              <a class="nav-link py-1" href="#security-testing-in-action">Security Testing in Action&#x200E;</a>
+              <a class="nav-link py-1" href="#limitations">Limitations&#x200E;</a>
               <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#at-a-glance">At a Glance&#x200E;</a>
-                <a class="nav-link py-1" href="#step-1-before-development">Step 1: Before Development&#x200E;</a>
-                <a class="nav-link py-1" href="#step-2-during-definition-and-design">Step 2: During Definition and Design&#x200E;</a>
-                <a class="nav-link py-1" href="#step-3-during-development">Step 3: During Development&#x200E;</a>
-                <a class="nav-link py-1" href="#step-4-during-deployment">Step 4: During Deployment‎&#x200E;</a>
+                <a class="nav-link py-1" href="#limitation-1-tough-to-incorporate-into-legacy-projects">Limitation 1: Tough to Incorporate into Legacy Projects&#x200E;</a>
+                <a class="nav-link py-1" href="#limitation-2-high-maintenance">Limitation 2: High Maintenance&#x200E;</a>
+                <a class="nav-link py-1" href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests">Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests&#x200E;</a>
               </nav>
-              <a class="nav-link py-1" href="#where-to-go-from-here">Where to Go From Here?&#x200E;</a>
+              <a class="nav-link py-1" href="#getting-started-with-test-driven-development">Getting Started with Test-Driven Development&#x200E;</a>
+              <a class="nav-link py-1" href="#references">References&#x200E;</a>
             </nav>
 
           </nav>
