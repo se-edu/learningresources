@@ -13,9 +13,9 @@
 
 # GitHub Actions
 
-📝 [Alfred Yip](https://github.com/alyip98)
+Author: [Alfred Yip](https://github.com/alyip98)
 
-🔎 [James Pang](https://github.com/jamessspanggg), [Tan Yuanhong](https://github.com/le0tan), [Tejas Bhuwania](https://github.com/Tejas2805)
+Reviewers: [James Pang](https://github.com/jamessspanggg), [Tan Yuanhong](https://github.com/le0tan), [Tejas Bhuwania](https://github.com/Tejas2805)
 
 
 <box id="article-toc">
@@ -30,7 +30,11 @@
 
 ## What is GitHub Actions
 <!--Explain how X fits into the big picture of SE. Describe it relative to topics the reader is likely to know.-->
-GitHub Actions is a workflow automation solution that is tightly integrated into the GitHub ecosystem. It is commonly used to provide end-to-end continuous integration and continuous deployment (CI/CD) directly in your repository. With its tight integration with GitHub's ecosystem of services, users have the potential to automate more than just CI/CD.
+
+GitHub Actions is a **workflow automation** solution that is tightly **integrated** into the GitHub ecosystem. 
+It is commonly used to provide end-to-end continuous integration and deployment (CI/CD) directly in a repository. 
+Beyond that, users also have the potential to automate more than just CI/CD with GitHub Actions through GitHub's webhooks API,
+including workflows such as labelling issues and tracking bundle size.
 
 ---
 
@@ -62,42 +66,24 @@ Workflows can be triggered by events that happen on GitHub and will have access 
 ### 6. Affordable
 Like many of its competitors, GitHub Actions provides **free unlimited runner time for public repositories**. 
 
-For private repositories, the free plan offers 2000 minutes of runner time per month and a pay-per-minute plan for additional minutes.
+For private repositories, the runner time you get with a free plan is limited, but still ample for hobby projects.
 
 ---
 
-## How does GitHub Actions Work
+## Concepts
 <!--This is a simple high-level overview of the tool to give the reader some concrete sense of X (as opposed to limiting to an entirely abstract description). It's useful to give concrete examples such as code examples. Do not try to 'teach' how to use the X (assuming your in the style of a tutorial. If the tool is worth learning, there must be good tutorials about it already.-->
-### Workflow
-A workflow describes a sequence of jobs to be run when a trigger event occurs. 
-Each job consists of a series of steps, which may be actions or shell commands. 
-Each workflow is defined as a `.yml` file in the `.github/workflows` directory of a repository.
 
-### Action
-An action is a piece of code that performs an atomic task. 
-For example, [checking out a repository](https://github.com/actions/checkout), or [caching dependencies](https://github.com/actions/cache).
+* **Workflow**
+    A workflow describes a sequence of jobs to be run when a trigger event occurs. 
+    Each job consists of a series of steps, which may be actions or shell commands. 
+    Each workflow is defined as a `.yml` file in the `.github/workflows` directory of a repository.
 
-### Triggers
-Workflows can be triggered by events on the GitHub repository, ranging from opening pull requests or issues, making commits to scheduled events, or even from an external event by calling GitHub's REST API endpoint.
+* **Action**
+    An action is a piece of code that performs an atomic task. 
+    For example, [checking out a repository](https://github.com/actions/checkout), or [caching dependencies](https://github.com/actions/cache).
 
----
-
-## How is GitHub Actions Being Used
-
-**Simple CI [workflow](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml) for a Node.js app**
-1. Trigger when a commit/pull request is made to the master branch
-2. Install dependencies
-3. Build
-4. Run tests with multiple versions of Node on Ubuntu
-
-**[Issue Labeling](https://github.com/facebook/react-native/blob/master/.github/workflows/needs-attention.yml)**
-1. Trigger when a new issue is opened
-2. Check issue body for required information
-    1. If issue is missing information (e.g. steps to reproduce) 
-    2. Add comment to ask author to provide missing information
-    3. Add `Needs Author Feedback` label
-3. Otherwise,
-    1. Add `Needs Attention` label
+* **Triggers**
+    Workflows can be triggered by events on the GitHub repository, ranging from opening pull requests or issues, making commits to scheduled events, or even from an external event by calling GitHub's REST API endpoint.
 
 ---
 
@@ -111,18 +97,18 @@ GitHub has made it extremely easy to set up a simple workflow without even leavi
 ![](images/actions-tab.png)
 
 1. Head to the Actions tab on your repository
-2. You can choose to set up a workflow from a template or from scratch. We will use the Node.js template in this example
-3. The online editor is powerful and easy to use, boasting features such as inline documentation and autocomplete
+1. You can choose to set up a workflow from a template or from scratch. We will use the Node.js template in this example
+1. The online editor is powerful and easy to use, boasting features such as inline documentation and autocomplete
 ![](images/editor.png)
-4. The template workflow (same as the example above) will
+1. The template workflow (same as the example above) will
     1. Begin when a commit is pushed or a pull request is opened to `master`
-    2. Checkout the current repo (using `actions/checkout`)
-    3. Install dependencies `npm ci`
-    4. Build `npm run build --if-present`
-    5. Run tests `npm run test`
-    6. Report the status of the workflow via a status badge
+    1. Checkout the current repo (using `actions/checkout`)
+    1. Install dependencies `npm ci`
+    1. Build `npm run build --if-present`
+    1. Run tests `npm run test`
+    1. Report the status of the workflow via a status badge
     ![](images/status.png)
-5. Since we set the workflow up on the `master` branch, when we commit the newly-created workflow file, we can see GitHub Actions in action by navigating to the Actions tab
+1. Since we set the workflow up on the `master` branch, when we commit the newly-created workflow file, we can see GitHub Actions in action by navigating to the Actions tab
     ![](images/progress.png)
 
 ---
@@ -143,7 +129,7 @@ The Octokit API allows you to create workflows that span across GitHub's ecosyst
 
 I have also compiled a list of popular repositories that use GitHub Actions that you can use as a reference. Do note that this is far from a comprehensive list and is more of a sample of how organizations are leveraging GitHub Actions in their development and production workflow.
 
-### Repositories That Use GitHub Actions
+<panel header="Repositories that use GitHub Actions">
 
 Org/Project | Workflows | Notes
 --- | --- | ---
@@ -153,3 +139,5 @@ React Native | [needs-attention](https://github.com/facebook/react-native/blob/m
 Node.js | [workflows](https://github.com/nodejs/node/tree/master/.github/workflows) | Linters, tests and build jobs
 Chart.js | [CI](https://github.com/chartjs/Chart.js/blob/master/.github/workflows/ci.yml) | Conditional workflow for windows and ubuntu
 Next.js | [workflows](https://github.com/zeit/next.js/tree/canary/.github/workflows) | Complex yet well structured build/test/deploy workflow. Automatically reports bundle size statistics in pull requests and on releases. Scheduled tests that run every 12 hours.
+
+</panel>
