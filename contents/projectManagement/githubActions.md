@@ -22,6 +22,12 @@ Reviewers: [James Pang](https://github.com/jamessspanggg), [Tan Yuanhong](https:
 
 * [What is GitHub Actions‎](#what-is-github-actions)
 * [Why GitHub Actions‎](#why-github-actions)
+    * [Easy to Use](#1-easy-to-use)
+    * [Reusable Actions](#2-reusable-actions)
+    * [Cross OS Support](#3-cross-os-support)
+    * [Docker Support](#4-docker-support)
+    * [Powerful](#5-powerful)
+    * [Affordable](#6-affordable)
 * [Concepts](#concepts)
 * [Set up a Simple Workflow for a Node.js App](#set-up-a-simple-workflow-for-a-node-js-app)
 * [Where to Go From Here‎](#where-to-go-from-here)
