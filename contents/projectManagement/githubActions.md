@@ -119,7 +119,7 @@ Give more resources. Instead of listing a lot of links, provide a brief summary 
 The official [documentation](https://help.github.com/en/actions) is a good resource to learn more about GitHub Actions.
 The [starter workflows](https://github.com/actions/starter-workflows) repository contains good examples of 
 CI workflows for popular languages as well as automation workflows for GitHub.
-Here are a list of [awesome actions](https://github.com/sdras/awesome-actions) that you can use when writing your workflow.
+Here is a list of [awesome actions](https://github.com/sdras/awesome-actions) that you can use when writing your workflow.
  
 
 A powerful extension to GitHub Actions is to use the [github-script](https://github.com/actions/github-script) action 
