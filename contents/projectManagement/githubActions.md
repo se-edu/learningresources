@@ -99,7 +99,7 @@ GitHub has made it extremely easy to set up a simple workflow without even leavi
 1. You can choose to set up a workflow from a template or from scratch. We will use the Node.js template in this example
 1. The online editor is powerful and easy to use, boasting features such as inline documentation and autocomplete
 ![](images/editor.png)
-1. The template workflow (same as the example above) will
+1. The template workflow will
     1. Begin when a commit is pushed or a pull request is opened to `master`
     1. Checkout the current repo (using `actions/checkout`)
     1. Install dependencies `npm ci`
