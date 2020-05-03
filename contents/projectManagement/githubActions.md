@@ -15,7 +15,7 @@
 
 Author: [Alfred Yip](https://github.com/alyip98)
 
-Reviewers: [James Pang](https://github.com/jamessspanggg), [Tan Yuanhong](https://github.com/le0tan), [Tejas Bhuwania](https://github.com/Tejas2805)
+Reviewers: [James Pang](https://github.com/jamessspanggg), [Tan Yuanhong](https://github.com/le0tan), [Tejas Bhuwania](https://github.com/Tejas2805), [Daryl Tan](https://github.com/openorclose)
 
 
 <box id="article-toc">
