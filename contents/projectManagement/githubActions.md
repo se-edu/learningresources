@@ -22,9 +22,8 @@ Reviewers: [James Pang](https://github.com/jamessspanggg), [Tan Yuanhong](https:
 
 * [What is GitHub Actions‎](#what-is-github-actions)
 * [Why GitHub Actions‎](#why-github-actions)
-* [How does GitHub Actions Work‎](#how-does-github-actions-work)
-* [How is GitHub Actions Being Used‎](#how-is-github-actions-being-used)
-* [How to Get Started with GitHub Actions‎](#how-to-get-started-with-github-actions)
+* [Concepts](#concepts)
+* [Set up a Simple Workflow for a Node.js App](#set-up-a-simple-workflow-for-a-node-js-app)
 * [Where to Go From Here‎](#where-to-go-from-here)
 </box>
 
