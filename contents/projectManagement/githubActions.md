@@ -126,7 +126,7 @@ A powerful extension to GitHub Actions is to use the [github-script](https://git
 to run JavaScript within the workflow using GitHub's [Octokit](https://octokit.github.io/rest.js/v17/) API. 
 The Octokit API allows you to create workflows that span across GitHub's ecosystem of services.
 
-I have also compiled a list of popular repositories that use GitHub Actions that you can use as a reference. Do note that this is far from a comprehensive list and is more of a sample of how organizations are leveraging GitHub Actions in their development and production workflow.
+Here is a compiled list of popular repositories that use GitHub Actions that you can use as a reference. Do note that this is far from a comprehensive list and is more of a sample of how organizations are leveraging GitHub Actions in their development and production workflow.
 
 <panel header="Examples of different ways GitHub Actions can be used">
 
