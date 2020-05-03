@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="MarkBind 2.14.1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Accessibility</title>
+  <title>SE-EDU/LearningResources - Workflow Automation with GitHub Actions</title>
   <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
   <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
@@ -168,14 +168,14 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
+                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Project Management
+                        <i class="dropdown-btn-icon rotate-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
+                      <div class="dropdown-container dropdown-container-open">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a current">Github Actions</a></li>
                         </ul>
                       </div>
                     </li>
@@ -214,13 +214,13 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">UI/UX
-                        <i class="dropdown-btn-icon rotate-icon">
+                    <li class="mt-2"><button class="dropdown-btn">UI/UX
+                        <i class="dropdown-btn-icon">
                           <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
+                      <div class="dropdown-container">
                         <ul class="pl-3 site-nav-list">
                           <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a current">Design Systems</a></li>
+                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
                           <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
                         </ul>
@@ -321,103 +321,155 @@
       <div id="content-wrapper">
         <div class="website-content">
           <p class="lead"><big><span><span class="dimmed"><strong>Learning Resources for Software Engineering Students</strong> »</span></span></big></p>
-          <h1 id="design-systems">Design Systems<a class="fa fa-anchor" href="#design-systems" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/tanhengyeow">Tan Heng Yeow</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/RonakLakhotia">Ronak Lakhotia</a>, <a href="https://github.com/ongspxm">Metta Ong</a></p>
+          <h1 id="github-actions">GitHub Actions<a class="fa fa-anchor" href="#github-actions" onclick="event.stopPropagation()"></a></h1>
+          <p>Author: <a href="https://github.com/alyip98">Alfred Yip</a></p>
+          <p>Reviewers: <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/le0tan">Tan Yuanhong</a>, <a href="https://github.com/Tejas2805">Tejas Bhuwania</a>, <a href="https://github.com/openorclose">Daryl Tan</a></p>
           <box id="article-toc">
             <ul>
-              <li><a href="#what-is-a-design-system">What is a Design System?</a></li>
-              <li><a href="#why-should-we-use-a-design-system">Why should we use a Design System?</a></li>
-              <li><a href="#why-not-front-end-frameworks-or-style-guides">Why not front-end frameworks or style guides?</a></li>
-              <li><a href="#benefits-of-a-design-system">Benefits of a Design System</a></li>
-              <li><a href="#how-to-build-a-design-system">How to build a Design System?</a></li>
-              <li><a href="#examples-of-existing-design-systems">Examples of existing Design Systems</a></li>
-              <li><a href="#summary">Summary</a></li>
+              <li><a href="#what-is-github-actions">What is GitHub Actions‎</a></li>
+              <li><a href="#why-github-actions">Why GitHub Actions‎</a>
+                <ul>
+                  <li><a href="#1-easy-to-use">Easy to Use</a></li>
+                  <li><a href="#2-reusable-actions">Reusable Actions</a></li>
+                  <li><a href="#3-cross-os-support">Cross OS Support</a></li>
+                  <li><a href="#4-docker-support">Docker Support</a></li>
+                  <li><a href="#5-powerful">Powerful</a></li>
+                  <li><a href="#6-affordable">Affordable</a></li>
+                </ul>
+              </li>
+              <li><a href="#concepts">Concepts</a></li>
+              <li><a href="#set-up-a-simple-workflow-for-a-node-js-app">Set up a Simple Workflow for a Node.js App</a></li>
+              <li><a href="#where-to-go-from-here">Where to Go From Here‎</a></li>
             </ul>
           </box>
 
-          <h2 id="what-is-a-design-system">What is a Design System?<a class="fa fa-anchor" href="#what-is-a-design-system" onclick="event.stopPropagation()"></a></h2>
-          <p>The following definition best encapsulates the essence of a Design System.</p>
-          <blockquote>
-            <p>A Design System is the Single Source of Truth which groups all the elements that will allow the teams to design, realize and develop a product. <sub>--<a href="https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969">Blog post from UX Collective</a></sub></p>
-          </blockquote>
-          <p>The typical structure of a Design System looks like this:</p>
-          <center>
-            <img src="https://cdn-images-1.medium.com/max/2600/1*wSHUJh069L618oXqVZYDtA.png" alt="Typical structure of a Design System" width="95%">
-            <p><em>Figure 1. Typical structure of a Design System</em> (<a href="https://uxdesign.cc/can-design-systems-fix-the-relationship-between-designers-developers-eb12fc9329ab">source</a>)</p>
-          </center>
-          <p>Below is a brief explanation of the parts that make up a Design System. The explanation includes reference to a living example, <a href="https://polaris.shopify.com/">Polaris</a>, Shopify's Design System.</p>
+          <h2 id="what-is-github-actions">What is GitHub Actions<a class="fa fa-anchor" href="#what-is-github-actions" onclick="event.stopPropagation()"></a></h2>
+
+          <p>GitHub Actions is a <strong>workflow automation</strong> solution that is tightly <strong>integrated</strong> into the GitHub ecosystem.
+            It is commonly used to provide end-to-end continuous integration and deployment (CI/CD) directly in a repository.
+            Beyond that, users also have the potential to automate more than just CI/CD with GitHub Actions through GitHub's webhooks API,
+            including workflows such as labelling issues and tracking bundle size.</p>
+          <hr>
+          <h2 id="why-github-actions">Why GitHub Actions<a class="fa fa-anchor" href="#why-github-actions" onclick="event.stopPropagation()"></a></h2>
+
+          <h3 id="1-easy-to-use">1. Easy to Use<a class="fa fa-anchor" href="#1-easy-to-use" onclick="event.stopPropagation()"></a></h3>
+          <p>Setting up a workflow in a repository is easy and hassle-free. <a href="https://github.com/actions/starter-workflows">Starter workflows</a> for popular languages are available and the built-in editor offers code completion and documentation at a glance.
+            <a href="/learningresources/contents/projectManagement/images/editor.png" target="_self"><img src="/learningresources/contents/projectManagement/images/editor.png" alt class="img-fluid"></a></p>
+          <h3 id="2-reusable-actions">2. Reusable Actions<a class="fa fa-anchor" href="#2-reusable-actions" onclick="event.stopPropagation()"></a></h3>
+          <p>Actions are small, reusable units in a workflow. When setting up a workflow, we can reuse actions written by the community. These actions are available at the marketplace.</p>
+          <p><a href="/learningresources/contents/projectManagement/images/marketplace.png" target="_self"><img src="/learningresources/contents/projectManagement/images/marketplace.png" alt class="img-fluid"></a></p>
+          <h3 id="3-cross-os-support">3. Cross OS Support<a class="fa fa-anchor" href="#3-cross-os-support" onclick="event.stopPropagation()"></a></h3>
+          <p>GitHub Actions gives you the option to <a href="https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources">run workflows</a> on Ubuntu, Windows and macOS.</p>
+          <h3 id="4-docker-support">4. Docker Support<a class="fa fa-anchor" href="#4-docker-support" onclick="event.stopPropagation()"></a></h3>
+          <p>GitHub Actions provides the ability to run docker images for projects that use a dockerized environment.</p>
+          <h3 id="5-powerful">5. Powerful<a class="fa fa-anchor" href="#5-powerful" onclick="event.stopPropagation()"></a></h3>
+          <p>Integration with the GitHub ecosystem allows GitHub Actions to do more than just build/test/deploy. You can automate everything related to your GitHub project, including bug triaging, labeling, automated dependency updating etc.
+            Workflows can be triggered by events that happen on GitHub and will have access to the context of the issue/PR/commit that triggered it.</p>
+          <h3 id="6-affordable">6. Affordable<a class="fa fa-anchor" href="#6-affordable" onclick="event.stopPropagation()"></a></h3>
+          <p>Like many of its competitors, GitHub Actions provides <strong>free unlimited runner time for public repositories</strong>.</p>
+          <p>For private repositories, the runner time you get with a free plan is limited, but still ample for hobby projects.</p>
+          <hr>
+          <h2 id="concepts">Concepts<a class="fa fa-anchor" href="#concepts" onclick="event.stopPropagation()"></a></h2>
+
           <ul>
-            <li><strong>Rules</strong>: Rules include abstract elements such as brand values, mindset, and shared beliefs. For example, one of Polaris' <a href="https://polaris.shopify.com/patterns-and-guides/product-experience-principles#navigation">product experience principles</a> is to <em>Put merchants first</em>. The principle promotes thinking about the needs of different types of merchants and be intentional about how to respond to them in the product or feature.</li>
-            <li><strong>Pattern Library</strong>: A Pattern Library integrates functional components and their usage. For example, Shopify's <a href="https://github.com/Shopify/polaris-react">product component library</a> contains a custom <a href="https://github.com/Shopify/polaris-react/tree/master/src/components/DatePicker">Datepicker</a> component for merchants to select a date range.</li>
-            <li><strong>Building Blocks</strong>: Building Blocks refer to documentation consisting of the collection of interface elements. Polaris has a section which describes their <a href="https://polaris.shopify.com/components/get-started">components</a> in detail. For example, the custom <a href="https://polaris.shopify.com/components/forms/date-picker#navigation">Datepicker</a> component is clearly documented with different examples.</li>
-            <li><strong>Style Guide</strong>: A Style Guide focuses on graphic styles such as colors, fonts, illustrations, etc and their usage. For example, Polaris' <a href="https://polaris.shopify.com/design/colors#section-color-usage">style guide</a> recommends to use Indigo for buttons and avoid using Indigo for text links.</li>
+            <li>
+              <p><strong>Workflow</strong>
+                A workflow describes a sequence of jobs to be run when a trigger event occurs.
+                Each job consists of a series of steps, which may be actions or shell commands.
+                Each workflow is defined as a <code>.yml</code> file in the <code>.github/workflows</code> directory of a repository.</p>
+            </li>
+            <li>
+              <p><strong>Action</strong>
+                An action is a piece of code that performs an atomic task.
+                For example, <a href="https://github.com/actions/checkout">checking out a repository</a>, or <a href="https://github.com/actions/cache">caching dependencies</a>.</p>
+            </li>
+            <li>
+              <p><strong>Triggers</strong>
+                Workflows can be triggered by events on the GitHub repository, ranging from opening pull requests or issues, making commits to scheduled events, or even from an external event by calling GitHub's REST API endpoint.</p>
+            </li>
           </ul>
-          <h2 id="why-should-we-use-a-design-system">Why Should We Use a Design System?<a class="fa fa-anchor" href="#why-should-we-use-a-design-system" onclick="event.stopPropagation()"></a></h2>
-          <center>
-            <img src="https://cdn-images-1.medium.com/max/2600/1*wFOwLNi-xGBfyGnssynQaQ.png" alt="Typical Design and Development process" width="95%">
-            <p><em>Figure 2. Typical Design and Development process</em> (<a href="https://uxdesign.cc/can-design-systems-fix-the-relationship-between-designers-developers-eb12fc9329ab">source</a>)</p>
-          </center>
-          <p>Consider the typical design and development process. Designers come up with sketches, wireframes and hand them over to the developers to implement them through code. Here's the problem:</p>
-          <p>Designers are looking at multiple directions and solutions, constantly comparing and tweaking their design. On the other hand, developers are ultimately accountable for shipping code. They focus on making sure that the correct architecture is in place, thinking about security and the performance of the product, hoping that the designers already have all the design details thought out.</p>
-          <p>Over time, it is likely that many teams working on different parts of the product will create UI/UX design inconsistencies in the product. For example, HubSpot <a href="https://product.hubspot.com/blog/how-building-a-design-system-empowers-your-team-to-focus-on-people-not-pixels">explained how they found UI/UX design inconsistencies</a> in their interface after auditing their User Interface (UI) components.</p>
-          <p>Here is another example of a conversation held at <a href="https://moduscreate.com/">Modus Create</a>, a digital product agency, highlighting a similar problem.</p>
-          <center>
-            <img src="https://3lhowb48prep40031529g5yj-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/chat.jpg" alt="Conversation at Modus Create" width="75%">
-            <p><em>Figure 3. Conversation at Modus Create</em> (<a href="https://moduscreate.com/blog/design-systems-and-how-your-company-benefits-from-them/">source</a>)</p>
-          </center>
-          <h2 id="why-not-front-end-frameworks-or-style-guides">Why Not Front-End Frameworks or Style Guides?<a class="fa fa-anchor" href="#why-not-front-end-frameworks-or-style-guides" onclick="event.stopPropagation()"></a></h2>
-          <p>Front-end frameworks such as <a href="https://getbootstrap.com/">Bootstrap</a> have reusable components that save a lot of time and effort. However, there are a few disadvantages:</p>
+          <hr>
+          <h2 id="set-up-a-simple-workflow-for-a-node-js-app">Set Up a Simple Workflow for a Node.js App<a class="fa fa-anchor" href="#set-up-a-simple-workflow-for-a-node-js-app" onclick="event.stopPropagation()"></a></h2>
+
+          <p>GitHub has made it extremely easy to set up a simple workflow without even leaving the browser.</p>
+          <p><a href="/learningresources/contents/projectManagement/images/actions-tab.png" target="_self"><img src="/learningresources/contents/projectManagement/images/actions-tab.png" alt class="img-fluid"></a></p>
           <ol>
-            <li><strong>Not suitable for designers</strong>: <a href="https://www.sketch.com/">Sketch</a> is an industry standard tool used by designers for UI design. Most front-end frameworks do not have relevant <em>.sketch</em> or source files that allow them to change the design of components in the framework.</li>
-            <li><strong>Not suitable for extensive customization</strong>: Products with a distinctive level of identity require additional development effort, which defeats the point of using a framework.</li>
-            <li><strong>Not suitable for apps that emphasize on performance</strong>: Front-end frameworks come with elements that the team may not need. The unused code could reduce overall performance.</li>
+            <li>Head to the Actions tab on your repository</li>
+            <li>You can choose to set up a workflow from a template or from scratch. We will use the Node.js template in this example</li>
+            <li>The online editor is powerful and easy to use, boasting features such as inline documentation and autocomplete
+              <a href="/learningresources/contents/projectManagement/images/editor.png" target="_self"><img src="/learningresources/contents/projectManagement/images/editor.png" alt class="img-fluid"></a></li>
+            <li>The template workflow will
+              <ol>
+                <li>Begin when a commit is pushed or a pull request is opened to <code>master</code></li>
+                <li>Checkout the current repo (using <code>actions/checkout</code>)</li>
+                <li>Install dependencies <code>npm ci</code></li>
+                <li>Build <code>npm run build --if-present</code></li>
+                <li>Run tests <code>npm run test</code></li>
+                <li>Report the status of the workflow via a status badge
+                  <a href="/learningresources/contents/projectManagement/images/status.png" target="_self"><img src="/learningresources/contents/projectManagement/images/status.png" alt class="img-fluid"></a></li>
+              </ol>
+            </li>
+            <li>Since we set the workflow up on the <code>master</code> branch, when we commit the newly-created workflow file, we can see GitHub Actions in action by navigating to the Actions tab
+              <a href="/learningresources/contents/projectManagement/images/progress.png" target="_self"><img src="/learningresources/contents/projectManagement/images/progress.png" alt class="img-fluid"></a></li>
           </ol>
-          <box type="info">
-            Note that the style guide mentioned here is a term used in the past when Design Systems had not been explored yet. The Style Guide of a Design System is more focused and emphasizes on graphic styles only.
-          </box>
-          <p>Style guides present components that can be used quickly in mockups. This is an example of Tor's <a href="https://styleguide.torproject.org/components/">style guide</a>. However, there are a few disadvantages:</p>
-          <ol>
-            <li><strong>Not easily traceable</strong>: It is hard to trace where the components came from as different types of components may be built over time by different teams.</li>
-            <li><strong>Not easily documented</strong>: Most of the time, style guides lack documentation on what each component does. Also, too much documentation may decrease reusability of components because it is infeasible for designers/developers to go through a lot of pages to find a component they wish to use.</li>
-          </ol>
-          <h2 id="benefits-of-a-design-system">Benefits of a Design System<a class="fa fa-anchor" href="#benefits-of-a-design-system" onclick="event.stopPropagation()"></a></h2>
-          <p>Design Systems combine the good parts of front-end frameworks and style guides.</p>
-          <p><strong>Benefit 1: Shared Common Language</strong></p>
-          <p>Design Systems act as a <a href="https://en.wikipedia.org/wiki/Single_source_of_truth">Single Source of Truth</a>. This allows the whole organization to access changes and updates. Any member of a team would have complete documentation of design mock-ups at their fingertips. This results in fewer misunderstandings and much better implementation of designs.</p>
-          <p>Design Systems also <a href="https://moduscreate.com/blog/design-systems-and-how-your-company-benefits-from-them/">elimate knowledge silos</a>. There is a lesser risk of context gaps being formed because information is shared across teams.</p>
-          <p><strong>Benefit 2: Reusability</strong></p>
-          <p>Design Systems provides a shared library of reusable components. When every component in a design system is reusable, teams can use these reusable components to quickly assemble and implement new pages.</p>
-          <p>As a result, this process substantially decreases the possibility of teams having to duplicate components, which means extra resources for focusing on more valuable things such as customer experience.</p>
-          <p><strong>Benefit 3: Faster Development</strong></p>
-          <p>When products are integrated with a Design System, updates are only required to be carried out in one place. This <a href="https://moduscreate.com/blog/design-systems-and-how-your-company-benefits-from-them/">blog post</a> from Modus Create explains how Design Systems helped them to achieve faster development speed.</p>
-          <p>In a <a href="https://airbnb.design/building-a-visual-language/">blog post</a> from Airbnb, the team explained how they were able to create nearly 50 screens within just a few hours by using their Design System. It was also mentioned by the team that they build and release features on all native platforms at roughly the same time now. Development is faster for them now since product engineers can focus more on writing the feature logic rather than code that is responsible for the presentation layer of the application.</p>
-          <h2 id="how-to-build-a-design-system">How to Build a Design System?<a class="fa fa-anchor" href="#how-to-build-a-design-system" onclick="event.stopPropagation()"></a></h2>
-          <p>There are paid solutions out there to help organizations build Design Systems. However, there are open source tools to assist you in building your own Design System.</p>
-          <p>They are <a href="https://github.com/storybooks/storybook">Storybook</a> and <a href="https://github.com/styleguidist/react-styleguidist">React Styleguidist</a>. Here is a good <a href="https://blog.hichroma.com/storybook-vs-styleguidist-2bd93d6dcc06">blog post</a> describing the difference between these tools and how they complement each other in setting up a Design System.</p>
-          <p><strong>Storybook</strong></p>
-          <center>
-            <img src="https://raw.githubusercontent.com/storybooks/storybook/next/media/storybook-intro.gif" alt="Storybook" width="95%">
-            <p><em>Figure 4. Storybook</em> (<a href="https://github.com/storybooks/storybook">source</a>)</p>
-          </center>
-          <p><a href="https://github.com/storybooks/storybook">Storybook</a> is a development environment for UI components. It helps you build UI components in isolation and offers handy features to visualize any mock data you supply. It helps in setting up the pattern library of a Design System.</p>
-          <p><strong>React Styleguidist</strong></p>
-          <center>
-            <img src="https://camo.githubusercontent.com/0ded3b0835a4ace4664a6833985affbde783ed47/68747470733a2f2f64337676366c703535716a6171632e636c6f756466726f6e742e6e65742f6974656d732f303631663041326e3142304833703054317031662f72656163742d7374796c65677569646973742d6c6f676f2e706e67" alt="React Styleguidist" width="60%">
-            <p><em>Figure 5. React Styleguidist</em> (<a href="https://github.com/styleguidist/react-styleguidist">source</a>)</p>
-          </center>
-          <p><a href="https://github.com/styleguidist/react-styleguidist">React Styleguidist</a> simplifies creating and maintaining a UI documentation site. It allows you to create pages in Markdown and import UI components. It helps in setting up the style guide of a Design System.</p>
-          <h2 id="examples-of-existing-design-systems">Examples of Existing Design Systems<a class="fa fa-anchor" href="#examples-of-existing-design-systems" onclick="event.stopPropagation()"></a></h2>
-          <p>This <a href="https://designsystemsrepo.com/design-systems/">website</a> presents a comprehensive and curated list of design systems.</p>
-          <p>Out of the list, there are some noteworthy open-source Design Systems that you can use, contribute or take reference from:</p>
-          <ol>
-            <li><a href="https://material.io/design/">Material Design</a>: Created by Google. Components implemented from Material Design are found <a href="https://github.com/material-components">here</a>.</li>
-            <li><a href="https://design.firefox.com/photon/">Photon Design System</a>: Used to build Firefox products. Components found <a href="https://github.com/firefoxux">here</a>.</li>
-            <li><a href="https://www.lightningdesignsystem.com/">Lightning Design System</a>: Used to build products/apps related to Salesforce. The component library can be found <a href="https://github.com/salesforce/design-system-react">here</a>. Note that they use Storybook in setting up the pattern library.</li>
-            <li><a href="https://polaris.shopify.com/">Shopify Polaris</a>: Used to build products/apps related to Shopify. The component library can be found <a href="https://github.com/Shopify/polaris-react">here</a>. Note that they use Storybook in setting up the pattern library.</li>
-          </ol>
-          <h2 id="summary">Summary<a class="fa fa-anchor" href="#summary" onclick="event.stopPropagation()"></a></h2>
-          <p>Design Systems keep things in order by acting as a Single Source of Truth, providing a common shared language across the organization. It encourages reusability of components, resulting in faster development time.</p>
+          <hr>
+          <h2 id="where-to-go-from-here">Where to Go From Here<a class="fa fa-anchor" href="#where-to-go-from-here" onclick="event.stopPropagation()"></a></h2>
+
+          <p>The official <a href="https://help.github.com/en/actions">documentation</a> is a good resource to learn more about GitHub Actions.
+            The <a href="https://github.com/actions/starter-workflows">starter workflows</a> repository contains good examples of
+            CI workflows for popular languages as well as automation workflows for GitHub.
+            Here is a list of <a href="https://github.com/sdras/awesome-actions">awesome actions</a> that you can use when writing your workflow.</p>
+          <p>A powerful extension to GitHub Actions is to use the <a href="https://github.com/actions/github-script">github-script</a> action
+            to run JavaScript within the workflow using GitHub's <a href="https://octokit.github.io/rest.js/v17/">Octokit</a> API.
+            The Octokit API allows you to create workflows that span across GitHub's ecosystem of services.</p>
+          <p>Here is a compiled list of popular repositories that use GitHub Actions that you can use as a reference. Do note that this is far from a comprehensive list and is more of a sample of how organizations are leveraging GitHub Actions in their development and production workflow.</p>
+          <panel><template slot="_header">
+              <p>Examples of different ways GitHub Actions can be used</p>
+            </template>
+            <div class="table-responsive">
+              <table class="markbind-table table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Org/Project</th>
+                    <th>Workflows</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bootstrap</td>
+                    <td><a href="https://github.com/twbs/bootstrap/blob/master/.github/workflows/test.yml">test</a></td>
+                    <td>Comprehensive set of tests including custom tests and coveralls</td>
+                  </tr>
+                  <tr>
+                    <td>Oh My Zsh</td>
+                    <td><a href="https://github.com/ohmyzsh/ohmyzsh/blob/master/.github/workflows/main.yml">test</a></td>
+                    <td>Workflow uses mainly shell commands</td>
+                  </tr>
+                  <tr>
+                    <td>React Native</td>
+                    <td><a href="https://github.com/facebook/react-native/blob/master/.github/workflows/needs-attention.yml">needs-attention</a>, <a href="https://github.com/facebook/react-native/blob/master/.github/workflows/process-label-actions.yml">process-label-actions</a></td>
+                    <td>Automatically apply labels to newly created issues and adds comments to issues based on labels</td>
+                  </tr>
+                  <tr>
+                    <td>Node.js</td>
+                    <td><a href="https://github.com/nodejs/node/tree/master/.github/workflows">workflows</a></td>
+                    <td>Linters, tests and build jobs</td>
+                  </tr>
+                  <tr>
+                    <td>Chart.js</td>
+                    <td><a href="https://github.com/chartjs/Chart.js/blob/master/.github/workflows/ci.yml">CI</a></td>
+                    <td>Conditional workflow for windows and ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>Next.js</td>
+                    <td><a href="https://github.com/zeit/next.js/tree/canary/.github/workflows">workflows</a></td>
+                    <td>Complex yet well structured build/test/deploy workflow. Automatically reports bundle size statistics in pull requests and on releases. Scheduled tests that run every 12 hours.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </panel>
         </div>
       </div>
 
@@ -426,15 +478,21 @@
         <div class="border-left-grey nav-inner position-sticky slim-scroll">
 
           <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#design-systems">Design Systems&#x200E;</a>
+            <a class="nav-link py-1" href="#github-actions">GitHub Actions&#x200E;</a>
             <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-a-design-system">What is a Design System?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-should-we-use-a-design-system">Why Should We Use a Design System?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-not-front-end-frameworks-or-style-guides">Why Not Front-End Frameworks or Style Guides?&#x200E;</a>
-              <a class="nav-link py-1" href="#benefits-of-a-design-system">Benefits of a Design System&#x200E;</a>
-              <a class="nav-link py-1" href="#how-to-build-a-design-system">How to Build a Design System?&#x200E;</a>
-              <a class="nav-link py-1" href="#examples-of-existing-design-systems">Examples of Existing Design Systems&#x200E;</a>
-              <a class="nav-link py-1" href="#summary">Summary&#x200E;</a>
+              <a class="nav-link py-1" href="#what-is-github-actions">What is GitHub Actions&#x200E;</a>
+              <a class="nav-link py-1" href="#why-github-actions">Why GitHub Actions&#x200E;</a>
+              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
+                <a class="nav-link py-1" href="#1-easy-to-use">1. Easy to Use&#x200E;</a>
+                <a class="nav-link py-1" href="#2-reusable-actions">2. Reusable Actions&#x200E;</a>
+                <a class="nav-link py-1" href="#3-cross-os-support">3. Cross OS Support&#x200E;</a>
+                <a class="nav-link py-1" href="#4-docker-support">4. Docker Support&#x200E;</a>
+                <a class="nav-link py-1" href="#5-powerful">5. Powerful&#x200E;</a>
+                <a class="nav-link py-1" href="#6-affordable">6. Affordable&#x200E;</a>
+              </nav>
+              <a class="nav-link py-1" href="#concepts">Concepts&#x200E;</a>
+              <a class="nav-link py-1" href="#set-up-a-simple-workflow-for-a-node-js-app">Set Up a Simple Workflow for a Node.js App&#x200E;</a>
+              <a class="nav-link py-1" href="#where-to-go-from-here">Where to Go From Here&#x200E;</a>
             </nav>
 
           </nav>

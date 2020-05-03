@@ -1152,6 +1152,31 @@
       "headingKeywords": {}
     },
     {
+      "title": "Workflow Automation with GitHub Actions",
+      "header": "pagetop.md",
+      "footer": "footer.md",
+      "head": "head.md",
+      "siteNav": "mainNav.md",
+      "pageNav": 3,
+      "src": "contents/projectManagement/githubActions.md",
+      "layout": "default",
+      "headings": {
+        "github-actions": "GitHub Actions",
+        "what-is-github-actions": "What is GitHub Actions",
+        "why-github-actions": "Why GitHub Actions",
+        "1-easy-to-use": "1. Easy to Use",
+        "2-reusable-actions": "2. Reusable Actions",
+        "3-cross-os-support": "3. Cross OS Support",
+        "4-docker-support": "4. Docker Support",
+        "5-powerful": "5. Powerful",
+        "6-affordable": "6. Affordable",
+        "concepts": "Concepts",
+        "set-up-a-simple-workflow-for-a-node-js-app": "Set Up a Simple Workflow for a Node.js App",
+        "where-to-go-from-here": "Where to Go From Here"
+      },
+      "headingKeywords": {}
+    },
+    {
       "title": "An Introduction to Python",
       "header": "pagetop.md",
       "footer": "footer.md",
