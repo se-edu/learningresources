@@ -128,7 +128,7 @@ The Octokit API allows you to create workflows that span across GitHub's ecosyst
 
 I have also compiled a list of popular repositories that use GitHub Actions that you can use as a reference. Do note that this is far from a comprehensive list and is more of a sample of how organizations are leveraging GitHub Actions in their development and production workflow.
 
-<panel header="Repositories that use GitHub Actions">
+<panel header="Examples of different ways GitHub Actions can be used">
 
 Org/Project | Workflows | Notes
 --- | --- | ---
