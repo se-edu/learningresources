@@ -18,9 +18,9 @@ Author: [Tan Jun Kiat](https://github.com/junkiattan)
 <box id="article-toc">
 
 * [Overview](#overview)
-* [Building a relationship with a UX mentor](#building-a-relationship-with-a-ux-mentor)
-* [Becoming a UX apprentice](#becoming-a-ux-apprentice)
-* [Engaging in individual UX projects](#engaging-in-individual-ux-projects)
+* [Building a Relationship With a UX Mentor](#building-a-relationship-with-a-ux-mentor)
+* [Becoming a UX Apprentice](#becoming-a-ux-apprentice)
+* [Engaging in Individual UX Projects](#engaging-in-individual-ux-projects)
 * [Summary](#summary)
 * [Additional Resource(s)](#additional-resource-s)
 </box>

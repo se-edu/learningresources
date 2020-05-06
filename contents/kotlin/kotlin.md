@@ -26,7 +26,7 @@ Author: [Shradheya Thakre](https://github.com/tshradheya)
 * [Kotlin for Android Apps‎](#kotlin-for-android-apps)
     * [Advantages of Shifting to Kotlin‎](#advantages-of-shifting-to-kotlin)
     * [Drawbacks of Shifting to Kotlin‎](#drawbacks-of-shifting-to-kotlin)
-* [Resources to learn Kotlin‎](#resources-to-learn-kotlin)
+* [Resources to Learn Kotlin‎](#resources-to-learn-kotlin)
 </box>
 
 # Overview

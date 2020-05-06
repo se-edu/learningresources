@@ -19,11 +19,11 @@
 
 * [§ 1. GPGPU‎](#1-gpgpu)
   * [§ 1.1 What is GPGPU?‎](#1-1-what-is-gpgpu)
-  * [§ 1.2 Why bother with parallel processing?‎](#1-2-why-bother-with-parallel-processing)
-  * [§ 1.3 Aren't multicore CPUs enough?‎](#1-3-aren-t-multicore-cpus-enough)
-  * [§ 1.4 What are the challenges with GPGPU?‎](#1-4-what-are-the-challenges-with-gpgpu)
+  * [§ 1.2 Why Bother With Parallel Processing?‎](#1-2-why-bother-with-parallel-processing)
+  * [§ 1.3 Aren't Multicore CPUs Enough?‎](#1-3-aren-t-multicore-cpus-enough)
+  * [§ 1.4 What are the Challenges With GPGPU?‎](#1-4-what-are-the-challenges-with-gpgpu)
   * [§ 1.5 Implementations‎](#1-5-implementations)
-  * [§ 1.6 GPGPU in action‎](#1-6-gpgpu-in-action)
+  * [§ 1.6 GPGPU in Action‎](#1-6-gpgpu-in-action)
 * [§ 2. Further Readings‎](#2-further-readings)
 * [§ 3. References‎](#3-references)
 </box>
@@ -65,7 +65,7 @@ The SIMT (Single Instruction, Multiple Threads) architecture of GPUs means that 
 - CUDA: [Official website](https://www.nvidia.com/object/cuda_home_new.html)
 - OpenCL: [Official website](https://www.khronos.org/opencl/)
 
-### § 1.6 GPGPU in action
+### § 1.6 GPGPU in Action
 The benefits of GPGPU are even more pronounced when it comes to embedded systems and Internet of Things (IoT) applications, where computing power is often compromised for physical space, weight, and power consumption. For instance, NVIDIA's Jetson TX2, a computation processor board that delivers the processing capability of the Pascal GPU architecture in a package the size of a business card<sup>[[6]](#footnote6)</sup>. The Pascal architecture is used in many desktop computers, data centres, and supercomputers<sup>[[7]](#footnote7)</sup>. Along with its small form factor, this makes the Jetson ideal for embedded systems that require intensive processing power.
 
 ![NVIDIA's Jetson TX2](jetson_tx2.jpg "NVIDIA's Jetson TX2")

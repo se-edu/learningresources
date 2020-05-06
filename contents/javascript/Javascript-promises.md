@@ -22,8 +22,8 @@ Reviewers: Chelsey Ong, Damith C, Gilbert Emerson, Tan Heng Yeow
 * [What is a Promise?‎](#what-is-a-promise)
 * [How Promises Work‎](#how-promises-work)
 * [Imperative Style Promises: async-await‎](#imperative-style-promises-async-await)
-* [Where Promises can be used‎](#where-promises-can-be-used)
-* [Doing more with Promises‎](#doing-more-with-promises)
+* [Where Promises Can Be Used‎](#where-promises-can-be-used)
+* [Doing More With Promises‎](#doing-more-with-promises)
 * [Further Reading‎](#further-reading)
 </box>
 

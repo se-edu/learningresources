@@ -20,10 +20,10 @@ Reviewers: [Ronak Lakhotia](https://github.com/RonakLakhotia), [Rahul Rajesh](ht
 <box id="article-toc">
 
 * [What is SQL?‎](#what-is-sql)
-  * [How does SQL work?‎](#how-does-sql-work)
-* [Why learn SQL?‎](#why-learn-sql)
+  * [How Does SQL Work?‎](#how-does-sql-work)
+* [Why Learn SQL?‎](#why-learn-sql)
 * [Disadvantage‎](#disadvantage)
-* [How to get started with SQL?‎](#how-to-get-started-with-sql)
+* [How to Get Started With SQL?‎](#how-to-get-started-with-sql)
 </box>
 
 ## What is SQL?

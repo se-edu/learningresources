@@ -19,11 +19,11 @@ Authors: Loh Jia Shun Kenneth, Vivek Lakshmanan
 
 * [Scalable Development‎](#scalable-development)
 * [Scalability‎](#scalability)
-* [Ways to scale‎](#ways-to-scale)
+* [Ways to Scale‎](#ways-to-scale)
   * [Horizontal vs Vertical Scaling‎](#horizontal-vs-vertical-scaling)
   * [Faster Algorithms‎](#faster-algorithms)
   * [Avoid Bottlenecks‎](#avoid-bottlenecks)
-* [But wait!‎](#but-wait)
+* [But Wait!‎](#but-wait)
 * [Conclusion‎](#conclusion)
 </box>
 

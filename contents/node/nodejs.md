@@ -25,11 +25,11 @@ Reviewers: [Shradheya Thakre](https://github.com/tshradheya), [Nicholas Chua](ht
   * [Benefit 3: Fast for I/O Intensive Programs‎](#benefit-3-fast-for-i-o-intensive-programs)
   * [Benefit 4: Use JavaScript for Both Front and Back-end Development‎](#benefit-4-use-javascript-for-both-front-and-back-end-development)
   * [Benefit 5: Easy Dependency Management With npm‎](#benefit-5-easy-dependency-management-with-npm)
-  * [Benefit 6: Versatile npm scripts‎](#benefit-6-versatile-npm-scripts)
+  * [Benefit 6: Versatile npm Scripts‎](#benefit-6-versatile-npm-scripts)
   * [Benefit 7: Easy to Reuse Code From Others‎](#benefit-7-easy-to-reuse-code-from-others)
   * [Benefit 8: Relatively Large Developer Community‎](#benefit-8-relatively-large-developer-community)
   * [Benefit 9: Support for Better Code Organization‎](#benefit-9-support-for-better-code-organization)
-* [Use cases‎](#use-cases)
+* [Use Cases‎](#use-cases)
 * [Resources‎](#resources)
 </box>
 

@@ -24,7 +24,7 @@ Author: [Xiao Pu](https://nus-oss.github.io/cs3281-website/students/AY1617S2/xia
 	* [Enforce a Standard in Project‎](#enforce-a-standard-in-project)
 	* [Improve Code Quality‎](#improve-code-quality)
 * [Limitation of Static Analysis‎](#limitation-of-static-analysis)
-	* [False positives‎](#false-positives)
+	* [False Positives‎](#false-positives)
 	* [Cannot Catch Error Introduced in Runtime Environment‎](#cannot-catch-error-introduced-in-runtime-environment)
 * [How to Do Static Analysis (Static Analysis Tools)‎](#how-to-do-static-analysis-static-analysis-tools)
 * [References‎](#references)

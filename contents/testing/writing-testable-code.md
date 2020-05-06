@@ -15,20 +15,20 @@
 
 <box id="article-toc">
 
-* [Flaw #1: No seams for isolating the class under test](#flaw-1-no-seams-for-isolating-the-class-under-test)
-  * [Rule #1: Don't do actual work in constructors](#rule-1-don-t-do-actual-work-in-constructors)
-  * [Rule #2: Don't mix object construction with application logic](#rule-2-don-t-mix-object-construction-with-application-logic)
-  * [Rule #3: Don't mix Service Objects with Value Objects](#rule-3-don-t-mix-service-objects-with-value-objects)
+* [Flaw #1: No Seams for Isolating the Class Under Test](#flaw-1-no-seams-for-isolating-the-class-under-test)
+  * [Rule #1: Don't do Actual Work in Constructors](#rule-1-don-t-do-actual-work-in-constructors)
+  * [Rule #2: Don't Mix Object Construction With Application Logic](#rule-2-don-t-mix-object-construction-with-application-logic)
+  * [Rule #3: Don't Mix Service Objects With Value Objects](#rule-3-don-t-mix-service-objects-with-value-objects)
   * [Rule #4: Avoid Static Methods](#rule-4-avoid-static-methods)
-  * [Rule #5: Favor composition over inheritance](#rule-5-favor-composition-over-inheritance)
+  * [Rule #5: Favor Composition Over Inheritance](#rule-5-favor-composition-over-inheritance)
 * [Flaw #2: Brittle Global State & Singleton](#flaw-2-brittle-global-state-and-amp-singleton)
   * [Rule #1: Avoid Global States](#rule-1-avoid-global-states)
   * [Rule #2: Avoid Singleton Pattern](#rule-2-avoid-singleton-pattern)
 * [Flaw #3: Dig Into Collaborators](#flaw-3-dig-into-collaborators)
-  * [Rule #1: Don't look for things. Ask for things.](#rule-1-don-t-look-for-things-ask-for-things)
-* [Flaw #4: Class does too much](#flaw-4-class-does-too-much)
-  * [Rule #1: Avoid mixing of concerns](#rule-1-avoid-mixing-of-concerns)
-  * [Rule #2: Favor polymorphism over conditionals](#rule-2-favor-polymorphism-over-conditionals)
+  * [Rule #1: Don't Look for Things. Ask for Things.](#rule-1-don-t-look-for-things-ask-for-things)
+* [Flaw #4: Class Does Too Much](#flaw-4-class-does-too-much)
+  * [Rule #1: Avoid Mixing of Concerns](#rule-1-avoid-mixing-of-concerns)
+  * [Rule #2: Favor Polymorphism Over Conditionals](#rule-2-favor-polymorphism-over-conditionals)
 * [Concluding Notes](#concluding-notes)
 </box>
 

@@ -22,7 +22,7 @@ Reviewers: [Lu Yang Kenneth](https://github.com/luyangkenneth), [Marvin Chin](ht
 * [Ruby on Rails Overview‎](#ruby-on-rails-overview)
   * [The Rails Way‎](#the-rails-way)
 * [Why Rails‎](#why-rails)
-  * [Fast iteration speed for product developement‎](#fast-iteration-speed-for-product-developement)
+  * [Fast Iteration Speed for Product Developement‎](#fast-iteration-speed-for-product-developement)
   * [Optimized for Programmer Happiness‎](#optimized-for-programmer-happiness)
   * [Large and Active Community of Developers‎](#large-and-active-community-of-developers)
 * [Drawbacks‎](#drawbacks)

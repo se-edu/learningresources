@@ -18,9 +18,9 @@ Author: [Boxin][1]
 <box id="article-toc">
 
 * [Overview‎](#overview)
-  * [Why do we need HTTPS‎](#why-do-we-need-https)
-  * [Why HTTPS is secure‎](#why-https-is-secure)
-  * [How to set up HTTPS‎](#how-to-set-up-https)
+  * [Why Do We Need HTTPS‎](#why-do-we-need-https)
+  * [Why Is HTTPS Secure‎](#why-is-https-secure)
+  * [How to Set up HTTPS‎](#how-to-set-up-https)
 * [Misuse of HTTPS‎](#misuse-of-https)
 * [Conclusion‎](#conclusion)
 </box>
@@ -30,7 +30,7 @@ Author: [Boxin][1]
 HTTPS is the end-to-end encryption on data on top of HTTP to prevent network sniffing (eavesdropping data packets). In this tutorial, we will cover four questions to have a better understanding of https. The questions are:
 
 - [Why do we need HTTPS](#why-do-we-need-https)
-- [Why HTTPS is secure](#why-https-is-secure)
+- [Why HTTPS is secure](#why-is-https-secure)
 - [How to set up HTTPS](#how-to-set-up-https)
 - [Misuse of HTTPS](#misuse-of-https)
 

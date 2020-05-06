@@ -18,11 +18,11 @@ Author: [Tran Tien Dat](https://github.com/tran-tien-dat)
 <box id="article-toc">
 
 * [Flow of a CSRF attack‎](#flow-of-a-csrf-attack)
-  * [Step 1: The victim logs in to a vulnerable web service‎](#step-1-the-victim-logs-in-to-a-vulnerable-web-service)
-  * [Step 2: The victim visits an untrusted website controlled by the attacker‎](#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker)
-  * [Step 3: The untrusted website makes requests to the vulnerable web service on the victim's behalf‎](#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf)
-* [Conditions for a successful CSRF attack‎](#conditions-for-a-successful-csrf-attack)
-* [Defense against CSRF attacks‎](#defense-against-csrf-attacks)
+  * [Step 1: The Victim Logs in to a Vulnerable Web Service‎](#step-1-the-victim-logs-in-to-a-vulnerable-web-service)
+  * [Step 2: The Victim Visits an Untrusted Website Controlled by the Attacker‎](#step-2-the-victim-visits-an-untrusted-website-controlled-by-the-attacker)
+  * [Step 3: The Untrusted Website Makes Requests to the Vulnerable Web Service on the Victim's Behalf‎](#step-3-the-untrusted-website-makes-requests-to-the-vulnerable-web-service-on-the-victim-s-behalf)
+* [Conditions for a Successful CSRF Attack‎](#conditions-for-a-successful-csrf-attack)
+* [Defense Against CSRF Attacks‎](#defense-against-csrf-attacks)
 * [References‎](#references)
 </box>
 

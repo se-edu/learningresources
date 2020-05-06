@@ -26,7 +26,7 @@ Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng]
   * [Benefit 2: Cross-Platform Development‎](#benefit-2-cross-platform-development)
   * [Benefit 3: Two-way Data Binding‎](#benefit-3-two-way-data-binding)
 * [Disadvantages of Angular‎](#disadvantages-of-angular)
-* [Comparison with Other Popular Frontend Frameworks‎](#comparison-with-other-popular-frontend-frameworks)
+* [Comparison With Other Popular Frontend Frameworks‎](#comparison-with-other-popular-frontend-frameworks)
 * [Getting Started With Angular‎](#getting-started-with-angular)
 </box>
 

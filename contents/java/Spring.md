@@ -27,12 +27,12 @@ This chapter assumes that the reader has a basic knowledge of Java enterprise.
   * [The IOC Container](#the-ioc-container)
   * [Spring JdbcTemplate](#spring-jdbctemplate)
   * [Spring AOP](#spring-aop)
-* [Why use Spring‎](#why-use-spring)
+* [Why Use Spring‎](#why-use-spring)
   * [Benefit 1: Modularity](#benefit-1-modularity)
   * [Benefit 2: Easy Integration](#benefit-2-easy-integration)
   * [Benefit 3: Strong Community Support](#benefit-3-strong-community-support)
   * [Benefit 4: Usability](#benefit-4-usability)
-* [How to get started‎](#how-to-get-started)
+* [Getting Started‎](#getting-started)
 </box>
 
 ## What is Spring Framework?

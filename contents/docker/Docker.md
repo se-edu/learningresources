@@ -20,7 +20,7 @@
 * [What is Docker?‎](#what-is-docker)
 * [Why Docker?‎](#why-docker)
 * [How to use Docker?‎](#how-to-use-docker)
-* [Additional tools - Docker Swarm and Kubernetes‎](#additional-tools-docker-swarm-and-kubernetes)
+* [Additional Tools - Docker Swarm and Kubernetes‎](#additional-tools-docker-swarm-and-kubernetes)
 * [Conclusion / Further Readings‎](#conclusion-further-readings)
 </box>
 

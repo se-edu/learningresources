@@ -21,11 +21,11 @@ Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https:
 * [Overview‎](#overview)
 * [Encryption‎](#encryption)
 * [Hashing‎](#hashing)
-  * [Why isn't hashing enough?‎](#why-isn-t-hashing-enough)
+  * [Why Isn't Hashing Enough?‎](#why-isn-t-hashing-enough)
 * [Salting‎](#salting)
-  * [What if there is a server breach?‎](#what-if-there-is-a-server-breach)
-* [Getting started‎](#getting-started)
-* [Other resources‎](#other-resources)
+  * [What if There Is a Server Breach?‎](#what-if-there-is-a-server-breach)
+* [Getting Started‎](#getting-started)
+* [Other Resources‎](#other-resources)
 </box>
 
 ## Overview

@@ -23,10 +23,10 @@
         * [Benefit: Fast Compiles and Small Bundles](#benefit-fast-compiles-and-small-bundles)
         * [Benefit: The Elm Way](#benefit-the-elm-way)
     * [The Elm Architecture](#the-elm-architecture)
-    * [Why not Elm?](#why-not-elm)
+    * [Why Not Elm?](#why-not-elm)
         * [Interacting With JavasScript](#interacting-with-javascript)
         * [Accessing the DOM](#accessing-the-dom)
-    * [How to Get Started With Elm?‎](#how-to-get-started-with-elm
+    * [How to Get Started With Elm?‎](#how-to-get-started-with-elm)
         * [Migrating From Other Frameworks](#migrating-from-other-frameworks)
         * [Starting a New Project](#starting-a-new-project)
 </box>

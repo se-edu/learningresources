@@ -19,12 +19,12 @@ Reviewers: [Bryan Lew](https://github.com/blewjy), [Jeremy Choo](https://github.
 <box id="article-toc">
 
 * [What is XSS?‎](#what-is-xss)
-* [Why do you need to know about XSS?‎](#why-do-you-need-to-know-about-xss)
-* [How does XSS work?‎](#how-does-xss-work)
+* [Why Do You Need to Know About XSS?‎](#why-do-you-need-to-know-about-xss)
+* [How Does XSS work?‎](#how-does-xss-work)
 * [Types of XSS‎](#types-of-xss)
 * [Well-Known XSS Incidents‎](#well-known-xss-incidents)
-* [How to prevent XSS?‎](#how-to-prevent-xss)
-* [Where to go from here?‎](#where-to-go-from-here)
+* [How to Prevent XSS?‎](#how-to-prevent-xss)
+* [Where to Go From Here?‎](#where-to-go-from-here)
 * [Resources‎](#resources)
 </box>
 
