@@ -22,7 +22,7 @@ This chapter assumes that the reader has a basic knowledge of Java enterprise.
 
 <box id="article-toc">
 
-* [What is Spring Framework‎](#what-is-spring-framework)
+* [What is Spring Framework‎?](#what-is-spring-framework)
 * [Core Features](#core-features)
   * [The IOC Container](#the-ioc-container)
   * [Spring JdbcTemplate](#spring-jdbctemplate)
