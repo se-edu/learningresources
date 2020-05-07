@@ -22,7 +22,7 @@ Author: [Joanne Ong](https://github.com/joanneong)
 * [Why Adopt Agile Development?‎](#why-adopt-agile-development)
 * [How to Adopt Agile Development?‎](#how-to-adopt-agile-development)
 * [Caveats: What can Possibly go Wrong?‎](#caveats-what-can-possibly-go-wrong)
-* [Putting it all Together: The Spotify Success Story‎](#putting-it-all-together-the-spotify-success-story)
+* [Putting it All Together: The Spotify Success Story‎](#putting-it-all-together-the-spotify-success-story)
 * [Other Related Resources‎](#other-related-resources)
 </box>
 

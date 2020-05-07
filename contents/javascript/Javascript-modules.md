@@ -18,7 +18,7 @@ Reviewers: Chelsey Ong, Ong Shu Peng, Amrut Prabhu
 
 <box id="article-toc">
 
-* [What Is a Module?‎](#what-is-a-module)
+* [What is a Module?‎](#what-is-a-module)
 * [How to Modularize JavaScript Code?‎](#how-to-modularize-javascript-code)
     * [ES6 Modules‎](#es6-modules)
     * [CommonJS‎](#commonjs)

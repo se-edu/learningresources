@@ -24,7 +24,7 @@ Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://gi
     * [Closures‎](#closures)
     * [Nullable Type‎](#nullable-type)
     * [Other Features](#other-features)
-* [Why Learn C#‎](#why-learn-c)
+* [Why Learn C#?‎](#why-learn-c)
 * [How to Get Started‎](#how-to-get-started)
 </box>
 

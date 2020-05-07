@@ -18,8 +18,8 @@ Author: [Boxin][1]
 <box id="article-toc">
 
 * [Overview‎](#overview)
-  * [Why Do We Need HTTPS‎](#why-do-we-need-https)
-  * [Why Is HTTPS Secure‎](#why-is-https-secure)
+  * [Why do We Need HTTPS?‎](#why-do-we-need-https)
+  * [Why is HTTPS Secure‎?](#why-is-https-secure)
   * [How to Set up HTTPS‎](#how-to-set-up-https)
 * [Misuse of HTTPS‎](#misuse-of-https)
 * [Conclusion‎](#conclusion)

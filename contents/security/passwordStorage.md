@@ -23,7 +23,7 @@ Reviewers: [Amrut Prabhu](https://github.com/amrut-prabhu), [Marvin Chin](https:
 * [Hashing‎](#hashing)
   * [Why Isn't Hashing Enough?‎](#why-isn-t-hashing-enough)
 * [Salting‎](#salting)
-  * [What if There Is a Server Breach?‎](#what-if-there-is-a-server-breach)
+  * [What if There is a Server Breach?‎](#what-if-there-is-a-server-breach)
 * [Getting Started‎](#getting-started)
 * [Other Resources‎](#other-resources)
 </box>
