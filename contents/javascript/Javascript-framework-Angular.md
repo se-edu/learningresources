@@ -24,7 +24,7 @@ Reviewers: [Tan Heng Yeow](https://github.com/tanhengyeow), [Jacob Li PengCheng]
 * [Why use Angular?‎](#why-use-angular)
   * [Benefit 1: Good Tooling Services‎](#benefit-1-good-tooling-services)
   * [Benefit 2: Cross-Platform Development‎](#benefit-2-cross-platform-development)
-  * [Benefit 3: Two-way Data Binding‎](#benefit-3-two-way-data-binding)
+  * [Benefit 3: Two-Way Data Binding‎](#benefit-3-two-way-data-binding)
 * [Disadvantages of Angular‎](#disadvantages-of-angular)
 * [Comparison With Other Popular Frontend Frameworks‎](#comparison-with-other-popular-frontend-frameworks)
 * [Getting Started With Angular‎](#getting-started-with-angular)
