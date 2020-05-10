@@ -43,16 +43,29 @@ In **synchronous programming**, code is executed one step at a time, waiting for
 
 Then a synchronous execution of this code will start executing Task 1 and wait for it to finish before starting Task 2. Then it will wait for Task 2 to finish before starting Task 3, and so on.
 
-In general, this would be fine. However, if Task 1 happens to take a long time to finish, then a lot of time is spent in the execution simply waiting. We can make better use of our time by executing the code like this:
+In general, this would be fine. However, if Tasks 1, 2 and 3 happen to be independent of each other, and we have a few additional threads available, we can do better:
 
-1. Start running Task 1.
-2. Start running Task 2 _(While waiting for Task 1 to finish)_.
-3. Start running Task 3 _(While waiting for Task 1 to finish)_.
+- Since tasks 1, 2 and 3 are independent of each other, we can start all three tasks in their own separate threads without needing to wait for any individual task to finish before starting another.
+- Task 4 only needs the result from Task 1 to run. So as long as Task 1 has completed, even if Tasks 2 and 3 are still running, we can start the execution of Task 4.
+
+Our modified code can look something like this:
+
+1. Start running Task 1 on Thread A.
+2. Start running Task 2 on Thread B.
+3. Start running Task 3 on Thread C.
 4. Wait for Task 1 to finish.
-5. Use the result from Task 1 to start Task 4.
+5. Use the result from Task 1 to start Task 4 on Thread A.
 6. Wait for Tasks 2, 3 and 4 to finish.
 
-This is the main idea behind asynchronous programming: while waiting for tasks to complete in the background, perform other tasks instead of just waiting there and doing nothing. This can result in better utilization of resources at hand.
+<box type="info">
+
+Note that Tasks 1, 2 and 3 may not necessarily finish in that order (e.g. It is perfectly possible for Task 3 to finish before Tasks 1 and 2). 
+
+</box>
+
+This is the main idea behind **asynchronous programming**: allowing multiple processes to occur at the same time. When we start a task, the program keeps running. When the tasks finish, the program can access the results.
+
+When used correctly, this can result in better utilization of resources at hand, allowing for better performance or program responsiveness.
 
 There are many in-depth tutorials online about asynchronous programming, such as [Microsoft's tutorial on MSDN](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/) and [Stephen Cleary's blog post](https://blog.stephencleary.com/2012/02/async-and-await.html). Therefore, this chapter will only provide an overview.
 
@@ -269,12 +282,13 @@ While the use of `async` and `await` can provide the wonderful benefits of respo
 
 ### Potential Pitfall: Deadlock
 
-It takes some time to understand the correct usage of `async` and `await`. If you're not careful, you could end up with a deadlock situation. Consider the following example:
+It takes some time to understand the correct usage of `async` and `await`. If you're not careful, you could end up with a deadlock situation. Consider the following _seemingly innocent_ example:
 
-```csharp {highlight-lines="3, 8"}
+```csharp {highlight-lines="4, 9"}
 private void Button_Click(object sender, RoutedEventArgs e)
 {
-    GetAnswerAsync().Wait();
+    Task<int> answerTask = GetAnswerAsync()
+    answerTask.Wait();
 }
 
 private async Task<int> GetAnswerAsync()
@@ -284,15 +298,27 @@ private async Task<int> GetAnswerAsync()
 }
 ```
 
-When the user clicks the button, 
-- The `Button_Click()` event handler is called by the UI Thread.
-- The `GetAnswerAsync()` method will start running asynchronously, returning an incomplete `Task<int>` object at Line 8. 
-- Line 3 will synchronously wait for the task to complete, thus blocking the UI Thread.
-- After 1 second, the delay at Line 8 will have completed, and the remainder of the method is ready to run. Because the `await` statement was made by the UI Thread, the remainder of the method will be executed by the UI thread as well. So, it waits for the UI thread to be available.
+The button's event handler will synchronously wait for the `GetAnswerAsync()` task to complete. Since the task takes 1 second to complete, you might think that when the user clicks the button, the application will freeze for 1 second before continuing as per normal.
 
-And we have a deadlock: `Button_Click()` is blocking the UI thread, waiting for the task to finish, and the task is waiting for the UI thread to be available to execute the rest of the method.
+However, this isn't what happens.
 
-Stephen Cleary explains this problem in greater detail in [his blog post](https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html).
+- When the user clicks on the button, the event handler, `Button_Click()`, will be called by the UI Thread.
+- Without going into too much detail, since the `await` statement is called from the UI Thread, the remainder of the `GetAnswerAsync()` method will be executed by the same UI Thread.
+- When the awaited `Task.Delay()` task at line 9 completes, execution of the remainder of the method will resume _at the first opportunity_ that the UI Thread is available.
+
+As a result, the control flow of the button click event goes like this:
+
+![](async-await-deadlock.png)
+
+1. `GetAnswerAsync()` is called by the UI Thread.
+2. `Task.Delay()` is called and returns a `Task` object.
+3. Since the delaying task has yet to finish, the UI thread suspends the method and returns to the `Button_Click()` method.
+4. This line synchronously waits for the task to complete, thus **blocking the UI Thread**.
+5. After 1 second, the delay task is completed. The `await` statement **waits for the UI Thread to be available** so that the remainder of the method can be executed.
+
+And we have a deadlock! `Button_Click()` is blocking the UI Thread while waiting for the task to finish, and the task is waiting for the UI Thread to be available to execute the rest of the method. This causes the application to appear frozen forever.
+
+Stephen Cleary explains this problem, as well as how to avoid it, in greater detail in [his blog post](https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html).
 
 ### Additional Overhead
 
