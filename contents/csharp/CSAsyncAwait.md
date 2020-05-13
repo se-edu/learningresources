@@ -14,7 +14,7 @@
 # Asynchronous Programming In C# Using Async/Await
 
 **Author: [Muhammad Irham Rasyidi Bin Zainal](https://github.com/xantho09)**<br>
-Reviewers: [Jeffry Lum](https://github.com/j-lum), [Damith C. Rajapakse](https://github.com/damithc)
+Reviewers: [Jeffry Lum](https://github.com/j-lum)
 
 <box id="article-toc">
 
