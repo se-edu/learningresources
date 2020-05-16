@@ -22,9 +22,9 @@ Reviewers: [Chester Sng](https://github.com/ChesterSng), [Lin Si Jie](https://gi
 * [C# Syntax Features‎](#c-syntax-features)
     * [Object/Array/Collection Initializers‎](#object-array-collection-initializers)
     * [Closures‎](#closures)
-    * [Nullable type‎](#nullable-type)
-    * [Other features](#other-features)
-* [Why Learn C#‎](#why-learn-c)
+    * [Nullable Type‎](#nullable-type)
+    * [Other Features](#other-features)
+* [Why Learn C#?‎](#why-learn-c)
 * [How to Get Started‎](#how-to-get-started)
 </box>
 

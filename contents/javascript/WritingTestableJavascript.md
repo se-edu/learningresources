@@ -17,14 +17,14 @@ Authors: Li Kai
 
 <box id="article-toc">
 
-* [Writing testable JavaScript‎](#writing-testable-javascript-2)
-    * [Avoid coupling with selectors‎](#avoid-coupling-with-selectors)
-    * [Split business logic and presentation code‎](#split-business-logic-and-presentation-code)
-    * [Avoid big anonymous functions‎](#avoid-big-anonymous-functions)
-    * [Purity is worth pursuing‎](#purity-is-worth-pursuing)
-* [Writing reusable javascript‎](#writing-reusable-javascript)
-    * [Optional parameters‎](#optional-parameters)
-    * [Understand method chaining‎](#understand-method-chaining)
+* [Writing Testable JavaScript‎](#writing-testable-javascript-2)
+    * [Avoid Coupling With Selectors‎](#avoid-coupling-with-selectors)
+    * [Split Business Logic and Presentation Code‎](#split-business-logic-and-presentation-code)
+    * [Avoid Big Anonymous Functions‎](#avoid-big-anonymous-functions)
+    * [Purity is Worth Pursuing‎](#purity-is-worth-pursuing)
+* [Writing Reusable Javascript‎](#writing-reusable-javascript)
+    * [Optional Parameters‎](#optional-parameters)
+    * [Understand Method Chaining‎](#understand-method-chaining)
     * [Addendum‎](#addendum)
 * [Resources‎](#resources)
 * [References‎](#references)

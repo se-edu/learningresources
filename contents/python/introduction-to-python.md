@@ -17,7 +17,7 @@ Authors: [Samson Tan Min Rong](https://www.linkedin.com/in/samsontmr/), [Phang C
 
 <box id="article-toc">
 
-* [Getting started with Python‎](#getting-started-with-python)
+* [Getting Started With Python‎](#getting-started-with-python)
 * [Virtual Environment‎](#virtual-environment)
 * [Common Data Structures‎](#common-data-structures)
 * [Indexing and Slicing‎](#indexing-and-slicing)

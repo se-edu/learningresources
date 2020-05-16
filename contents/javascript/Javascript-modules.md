@@ -18,13 +18,13 @@ Reviewers: Chelsey Ong, Ong Shu Peng, Amrut Prabhu
 
 <box id="article-toc">
 
-* [What Is a Module?‎](#what-is-a-module)
+* [What is a Module?‎](#what-is-a-module)
 * [How to Modularize JavaScript Code?‎](#how-to-modularize-javascript-code)
-    * [ES6 modules‎](#es6-modules)
+    * [ES6 Modules‎](#es6-modules)
     * [CommonJS‎](#commonjs)
     * [Module Pattern‎](#module-pattern)
-* [Which to use?‎](#which-to-use)
-* [How to start?‎](#how-to-start)
+* [Which to Use?‎](#which-to-use)
+* [How to Start?‎](#how-to-start)
 * [Further Reading‎](#further-reading)
 </box>
 

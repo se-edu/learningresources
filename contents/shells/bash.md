@@ -21,10 +21,10 @@ Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Ong Shu Peng](https
 <box id="article-toc">
 
 * [What is the shell?‎](#what-is-the-shell)
-  * [Bash scripts‎](#bash-scripts)
-  * [Combining of scripts via stream redirection‎](#combining-of-scripts-via-stream-redirection)
-* [Why use the shell?‎](#why-use-the-shell)
-* [How to get started?‎](#how-to-get-started)
+  * [Bash Scripts‎](#bash-scripts)
+  * [Combining of Scripts via Stream Redirection‎](#combining-of-scripts-via-stream-redirection)
+* [Why Use the Shell?‎](#why-use-the-shell)
+* [How to Get Started?‎](#how-to-get-started)
 </box>
 
 ## What is the Shell?

@@ -15,11 +15,12 @@
 Authors: [Lum Ka Fai Jeffry](https://github.com/j-lum)
 
 <box id="article-toc">
+
 * [What is NLP?](#what-is-nlp)
 * [Themes in NLP](#themes-in-nlp)
-   * [Syntax](#syntax)
-   * [Semantics](#semantics)
-   * [Relations](#relations)
+  * [Syntax](#syntax)
+  * [Semantics](#semantics)
+  * [Relations](#relations)
 * [Applications of NLP](#applications-of-nlp)
 * [What's Next](#whats-next)
 * [References](#references)

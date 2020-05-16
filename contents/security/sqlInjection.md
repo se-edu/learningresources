@@ -20,10 +20,10 @@ Reviewers: [Chattoraj Ayush](https://github.com/AyushChatto), [Monika Manuela He
 <box id="article-toc">
 
 * [SQL‎](#sql)
-* [How does SQL Injection Work?‎](#how-does-sql-injection-work)
+* [How Does SQL Injection Work?‎](#how-does-sql-injection-work)
 * [Why is it Important to Prevent SQL Injection?‎](#why-is-it-important-to-prevent-sql-injection)
 * [Preventing SQL Injection‎](#preventing-sql-injection)
-  * [Solution 1: Prepared Statements using Parameterized Queries‎](#solution-1-prepared-statements-using-parameterized-queries)
+  * [Solution 1: Prepared Statements Using Parameterized Queries‎](#solution-1-prepared-statements-using-parameterized-queries)
   * [Solution 2: Whitelist Input Validation‎](#solution-2-whitelist-input-validation)
 * [Resources‎](#resources)
 </box>

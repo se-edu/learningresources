@@ -21,8 +21,8 @@ Reviewers: [Chester Sng](https://github.com/ChesterSng), [Jiang Chunhui](https:/
 
 * [What is iOS?‎](#what-is-ios)
 * [Why iOS?‎](#why-ios)
-* [Native iOS applications vs. cross-platform applications‎](#native-ios-applications-vs-cross-platform-applications)
-* [Getting started with native iOS development‎](#getting-started-with-native-ios-development)
+* [Native iOS Applications vs. Cross-Platform Applications‎](#native-ios-applications-vs-cross-platform-applications)
+* [Getting Started With Native iOS Development‎](#getting-started-with-native-ios-development)
 </box>
 
 ## What is iOS?

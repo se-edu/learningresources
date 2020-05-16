@@ -16,16 +16,16 @@ Authors: [Nguyen Quoc Bao](https://github.com/bqnguyen94)
 
 <box id="article-toc">
 
-* [What is Computer Vision‎](#what-is-computer-vision)
+* [What is Computer Vision?‎](#what-is-computer-vision)
   * [Applications of Computer Vision‎](#applications-of-computer-vision)
-  * [Typical Computer Vision tasks‎](#typical-computer-vision-tasks)
-* [Core problems in Computer Vision‎](#core-problems-in-computer-vision)
+  * [Typical Computer Vision Tasks‎](#typical-computer-vision-tasks)
+* [Core Problems in Computer Vision‎](#core-problems-in-computer-vision)
   * [Image Transformations‎](#image-transformations)
   * [Image Classification‎](#image-classification)
   * [Object Detection‎](#object-detection)
   * [Object Tracking‎](#object-tracking)
-* [GPU-accelerated Computer Vision‎](#gpu-accelerated-computer-vision)
-* [What's next‎](#what-s-next)
+* [GPU-Accelerated Computer Vision‎](#gpu-accelerated-computer-vision)
+* [What's Next?‎](#what-s-next)
 * [References‎](#references)
 </box>
 

@@ -19,9 +19,9 @@ Reviewers: [Rahul Rajesh](https://github.com/rrtheonlyone), [Jacob Li Pengcheng]
 
 <box id="article-toc">
 
-* [What is accessibility?](#what-is-accessibility)
-* [Why is accessibility important?](#why-is-accessibility-important)
-* [How can I improve the accessibility of my website?](#how-can-i-improve-the-accessibility-of-my-website)
+* [What is Accessibility?](#what-is-accessibility)
+* [Why is Accessibility Important?](#why-is-accessibility-important)
+* [How can I Improve the Accessibility of My Website?](#how-can-i-improve-the-accessibility-of-my-website)
   * [Visual](#visual)
   * [Auditory](#auditory)
   * [Cognitive](#cognitive)

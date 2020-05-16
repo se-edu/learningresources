@@ -16,6 +16,22 @@
 
 Reviewers: [Daryl Tan](https://github.com/openorclose), [Ang Ze Yu](https://github.com/ang-zeyu), [Tejas Bhuwania](https://github.com/Tejas2805)
 
+<box id="article-toc">
+
+* [What is Dart?‎](#what-is-dart)
+* [Why Learn Dart?‎](#why-learn-dart)
+  * [Optimized for Declarative UI‎](#optimized-for-declarative-ui)
+  * [Fast Development and Native Performance‎](#fast-development-and-native-performance)
+* [Notable Characteristics‎](#notable-characteristics)
+  * [Built-In Asynchrony Support‎](#built-in-asynchrony-support)
+  * [Extension Methods‎](#extension-methods)
+  * [Named Parameters‎](#named-parameters)
+* [Current State‎](#current-state)
+  * [Limitations‎](#limitations)
+* [How to Get Started With Dart?‎](#how-to-get-started-with-dart)
+  * [Getting Started‎](#getting-started)
+</box>
+
 ## What is Dart?
 Dart (previously also known as `dartlang`) is an object-oriented, <tooltip content="a style of Object-oriented programming (OOP) in which inheritance occurs via defining classes of objects, instead of inheritance occurring via the objects alone (compare prototype-based programming)">class defined</tooltip>, garbage-collected language using a C-style syntax that <tooltip content="also known as source-to-source compilation">transcompiles</tooltip> optionally into JavaScript. It's rumored that Dart was invented out of Google engineers' frustration with JavaScript (they even built [a version of Chromium browser](https://dartdoc.takyam.com/tools/dartium/) with Dart VM so that Dart code can be run on the web without transcompiling to JavaScript). However, as most developers still stick to JavaScript and it turned out that TypeScript is a much more widely-accepted solution for statically typed JavaScript transcompilation, Dart is then, with the emergence of <tooltip content="a cross-platform mobile UI framework developed by Google">Flutter</tooltip>, re-purposed as a **client-optimized** language that's optimized for **UI creation** and **cross-platform execution**.
 

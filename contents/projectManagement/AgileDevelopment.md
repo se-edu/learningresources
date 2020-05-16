@@ -18,12 +18,12 @@ Author: [Joanne Ong](https://github.com/joanneong)
 <box id="article-toc">
 
 * [Overview‎](#overview)
-* [What is agile development?‎](#what-is-agile-development)
-* [Why adopt agile development?‎](#why-adopt-agile-development)
-* [How to adopt agile development?‎](#how-to-adopt-agile-development)
-* [Caveats: What can possibly go wrong?‎](#caveats-what-can-possibly-go-wrong)
-* [Putting it all together: The Spotify success story‎](#putting-it-all-together-the-spotify-success-story)
-* [Other related resources‎](#other-related-resources)
+* [What is Agile Development?‎](#what-is-agile-development)
+* [Why Adopt Agile Development?‎](#why-adopt-agile-development)
+* [How to Adopt Agile Development?‎](#how-to-adopt-agile-development)
+* [Caveats: What can Possibly go Wrong?‎](#caveats-what-can-possibly-go-wrong)
+* [Putting it All Together: The Spotify Success Story‎](#putting-it-all-together-the-spotify-success-story)
+* [Other Related Resources‎](#other-related-resources)
 </box>
 
 ## Overview
