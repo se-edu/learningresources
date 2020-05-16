@@ -21,7 +21,7 @@ Authors: [Ang Shi Ya](https://github.com/AngShiYa), [Tan Jun Kiat](https://githu
 * [User Interface vs User Experience](#user-interface-vs-user-experience)
 * [UI Design](#ui-design)
 * [UX Design](#ux-design)
-* [Which is More important?](#which-is-more-important)
+* [Which is More Important?](#which-is-more-important)
 * [The Process of UX Design](#the-process-of-ux-design)
   * [Preliminary Research](#preliminary-research)
   * [Prototyping](#prototyping)
