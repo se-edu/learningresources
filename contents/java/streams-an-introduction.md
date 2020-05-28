@@ -1,15 +1,9 @@
 <frontmatter>
   title: Java 8 Streams - An Introduction
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 4
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # Java 8 Streams - An Introduction
 

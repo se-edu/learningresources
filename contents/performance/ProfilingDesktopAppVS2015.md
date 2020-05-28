@@ -1,15 +1,9 @@
 <frontmatter>
   title: Profiling a Desktop Application In Visual Studio 2015
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # Profiling a Desktop Application in Visual Studio 2015
 

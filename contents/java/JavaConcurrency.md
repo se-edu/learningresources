@@ -1,15 +1,9 @@
 <frontmatter>
   title: Java Concurrency
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # Java Concurrency
 

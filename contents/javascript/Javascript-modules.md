@@ -1,15 +1,9 @@
 <frontmatter>
   title: "Javascript: Modules"
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # Javascript: Modules
 

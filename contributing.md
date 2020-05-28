@@ -1,13 +1,8 @@
 <frontmatter>
   title: "Contributing to this Project"
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # Contributing to this Project
 

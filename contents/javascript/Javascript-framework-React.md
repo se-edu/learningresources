@@ -1,16 +1,10 @@
 <frontmatter>
   title: Introduction to React
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
 <div class="website-content">
   
-{{ booktitle | safe }}
-
 # Introduction to React
 
 **Author: [Aadyaa Maddi](https://github.com/amad-person)** <br>

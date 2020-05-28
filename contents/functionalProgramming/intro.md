@@ -1,15 +1,9 @@
 <frontmatter>
   title: An Introduction to Functional Programming
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 4
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # An Introduction to Functional Programming
 

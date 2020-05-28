@@ -1,15 +1,9 @@
 <frontmatter>
   title: "Advanced Java: Reflections"
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 4
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # Advanced Java: Reflections
 

@@ -1,15 +1,9 @@
 <frontmatter>
   title: Asynchronous Programming In C# Using Async/Await
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 3
 </frontmatter>
 
 <div class="website-content">
-
-{{ booktitle | safe }}
 
 # Asynchronous Programming In C# Using Async/Await
 

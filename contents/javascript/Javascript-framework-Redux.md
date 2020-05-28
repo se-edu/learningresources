@@ -1,16 +1,10 @@
 <frontmatter>
   title: Redux
-  header: pagetop.md
-  footer: footer.md
-  head: head.md
-  siteNav: mainNav.md
   pageNav: 2
 </frontmatter>
 
 <div class="website-content">
   
-{{ booktitle | safe }}
-
 # Introduction to Redux
 
 **Author: [Labayna Neil Brian Narido](https://github.com/nbriannl)** <br>
