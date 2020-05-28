@@ -90,7 +90,7 @@ Additionally, developers work on units of code that can be written and tested in
 
 The tests aim to cover all possible branches and paths that the production code can take because no more code is written than is necessary. This potentially indicates that the software will high code coverage. Detecting bugs at early stages is easier when you're working with code that has high coverage [^6]. 
 
-<modal title="Mock Objects and Frameworks" id="modal:index-mock">
+<modal header="Mock Objects and Frameworks" id="modal:index-mock">
 Mock objects are simulated objects whose sole purpose is to act as a black box that mimics the behaviour of real-world objects during testing. They are especially useful in writing unit tests, which are meant to test the functionality of a portion of production code assuming that the rest of the code behaves as it should. 
 </modal>
 
@@ -119,7 +119,7 @@ Even with some of the attractive benefits of adopting TDD, there is no one-size-
 
 <trigger trigger="click" for="modal:index-legacy">Legacy projects</trigger> [^7] are hard to maintain even without having to incorporate TDD into them. As these projects have a history of design and implementation choices made based on the requirements and/or the resources at the time, investing man hours in revamping or "modernizing" them is not always deemed as top priority. 
 
-<modal title="Legacy Code" id="modal:index-legacy">
+<modal header="Legacy Code" id="modal:index-legacy">
 Legacy code refers to an application system source code type that is no longer supported. Legacy code can also refer to unsupported operating systems, hardware and formats. In most cases, legacy code is converted to a modern software language and platform. However, to retain familiar user functionality, legacy code is sometimes carried into new environments. 
 </modal>
 
