@@ -1,3 +1,3 @@
 <variable id="booktitle">
-<p class="lead"><big><md>%%**Learning Resources for Software Engineering Students** »%%</md></big></p>
+<p class="lead"><big><md>%%**A Student's Guide to Software Engineering Tools & Techniques** »%%</md></big></p>
 </variable>

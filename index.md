@@ -1,5 +1,5 @@
 <frontmatter>
-  title: "Learning Resources for Software Engineering Students"
+  title: "A Student's guide to Software Engineering Tools & Techniques"
   header: pagetop.md
   footer: footer.md
   head: head.md
@@ -10,7 +10,7 @@
 
 {{ booktitle | safe }}
 
-<span class="lead">This [SE-EDU](https://se-edu.github.io) sub-project is **a collection of Software Engineering learning resources especially suitable for SE students**. </span>
+<span class="lead">This [SE-EDU](https://se-edu.github.io) sub-project is **a collection of articles that introduce various tools and techniques that may be useful for Software Engineering students**. </span>
 
 Here is the list of articles:
 
