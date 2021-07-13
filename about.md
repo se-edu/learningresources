@@ -1,5 +1,6 @@
 <frontmatter>
   title: "About Us"
+  layout: "landing.md"
 </frontmatter>
 
 <div class="website-content">

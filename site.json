@@ -1,6 +1,9 @@
 {
   "baseUrl": "/learningresources",
   "titlePrefix": "SE-EDU/LearningResources",
+  "style": {
+    "codeTheme": "light"
+  },
   "ignore": [
     "_markbind/logs/*",
     "_site/*",

@@ -1,7 +1,3 @@
-
-<span id="toc">
-<navigation>
-
 * ****Programming Languages****
   * C++
     * [Rvalue References and Move Semantics]({{baseUrl}}/contents/c++/rvalue.html)
@@ -33,7 +29,6 @@
   * [Rust]({{baseUrl}}/contents/rust/Rust.html)
   * [Scala]({{baseUrl}}/contents/scala/Scala.html)
   * [Swift]({{baseUrl}}/contents/swift/welcome-to-swift.html)
-
 * ****SE Topics****
   * Architecture
     * [REST]({{baseUrl}}/contents/architecture/RESTArchitecturalStyle.html)
@@ -68,7 +63,6 @@
     * [Design Systems]({{baseUrl}}/contents/uix/design-systems.html)
     * [Introduction to UI/UX]({{baseUrl}}/contents/uix/uix.html)
     * [Refining UX Design Skills]({{baseUrl}}/contents/uix/refining-ux-skills.html)
-
 * ****App Frameworks****
   * [Android]({{baseUrl}}/contents/android/IntroToAndroid.html)
   * [Angular]({{baseUrl}}/contents/javascript/Javascript-framework-Angular.html)
@@ -80,13 +74,11 @@
   * [Spring]({{baseUrl}}/contents/java/Spring.html)
   * [Vue]({{baseUrl}}/contents/javascript/Javascript-framework-VueJs.html)
   * [Xamarin]({{baseUrl}}/contents/csharp/Xamarin.html)
-
 * ****Tools Useful for Software Engineers****
   * [Regular Expressions]({{baseUrl}}/contents/regex/Regex.html)
   * [Docker]({{baseUrl}}/contents/docker/Docker.html)
   * [ZeroMQ]({{baseUrl}}/contents/zeromq/zeromq.html)
   * [Dotfiles]({{baseUrl}}/contents/dotfiles/Dotfiles.html)
-
 * ****Other Topics****
   * [Computer Vision]({{baseUrl}}/contents/computerVision/cv.html)
   * Databases
@@ -107,6 +99,3 @@
     * [SQL Injection]({{baseUrl}}/contents/security/sqlInjection.html)
   * Shell
     * [bash]({{baseUrl}}/contents/shells/bash.html)
-
-</navigation>
-</span>

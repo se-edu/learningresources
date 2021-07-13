@@ -1,5 +1,6 @@
 <frontmatter>
   title: "A Student's guide to Software Engineering Tools & Techniques"
+  layout: "landing.md"
 </frontmatter>
 
 <div class="website-content">
@@ -10,7 +11,7 @@ Here is the list of articles:
 
 <box>
 
-<include src="_markbind/layouts/default/navigation.md" />
+{% include "_markbind/layouts/toc.md" %}
 </box>
 
 </div>

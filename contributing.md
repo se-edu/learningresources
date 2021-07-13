@@ -1,5 +1,6 @@
 <frontmatter>
   title: "Contributing to this Project"
+  layout: "landing.md"
 </frontmatter>
 
 <div class="website-content">
