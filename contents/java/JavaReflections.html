@@ -1,488 +1,173 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Advanced Java: Reflections</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Java
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a current">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="advanced-java-reflections">Advanced Java: Reflections<a class="fa fa-anchor" href="#advanced-java-reflections" onclick="event.stopPropagation()"></a></h1>
-          <p>Authors: <a href="https://github.com/MightyCupcakes">Jeremy Goh</a>, <a href="https://github.com/Zhiyuan-Amos">Yong Zhi Yuan</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#reflection">Reflection‎</a>
-                <ul>
-                  <li><a href="#what-is-java-reflections">What is Java reflections‎</a></li>
-                  <li><a href="#the-basics-of-reflections">The Basics of Reflections‎</a></li>
-                  <li><a href="#getting-started">Getting Started‎</a></li>
-                  <li><a href="#applications">Applications‎</a>
-                    <ul>
-                      <li><a href="#accessing-private-fields">Accessing Private Fields</a></li>
-                      <li><a href="#updating-private-fields">Updating Private Fields</a></li>
-                      <li><a href="#testing-private-methods">Testing Private Methods</a></li>
-                      <li><a href="#a-more-advanced-application">A More Advanced Application</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#disadvantages-of-reflections">Disadvantages of Reflections‎</a></li>
-                  <li><a href="#further-resources-for-reflections">Further Resources for Reflections‎</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-          <h2 id="reflection">Reflection<a class="fa fa-anchor" href="#reflection" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="what-is-java-reflections">What is Java Reflections?<a class="fa fa-anchor" href="#what-is-java-reflections" onclick="event.stopPropagation()"></a></h3>
-          <p>Reflection is the ability of a computer program to examine, inspect and modify its own behaviour at runtime. In particular, reflections in Java allows the inspection of classes, methods and fields during runtime, without having any knowledge of it during compile time.</p>
-          <p>With Java reflections, you can:</p>
-          <ol>
-            <li>Access private fields and methods of a class without having to modify the visibility modifier of the class itself. This is very useful if you are interested to implement test cases for private methods.</li>
-            <li>Create new instance of existing objects, invoke methods and change values of fields of existing objects.</li>
-          </ol>
-          <h3 id="the-basics-of-reflections">The Basics of Reflections<a class="fa fa-anchor" href="#the-basics-of-reflections" onclick="event.stopPropagation()"></a></h3>
-          <p>Before getting started with reflections in Java, it is important to realize that a class is also an object. From the <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Class.html">Java Class API</a>, we see that <code>Class</code> is a subclass of <code>Object</code>. Every unique <code>Object</code> is assigned an immutable <code>Class</code> object by the JVM. This immutable <code>Class</code> object is fundamentally different from <em>instances</em> of a class. The class object itself holds information such as its name and the package it resides in while an instance of a class holds the instanced values and methods as defined in the class.</p>
-          <p>Take for example the following class:</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{<br></span><span><br></span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;<br></span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String gender;<br></span><span><br></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">(String name, String gender)</span> </span>{<br></span><span>    <span class="hljs-keyword">this</span>.name = name;<br></span><span>    <span class="hljs-keyword">this</span>.gender = gender;<br></span><span>  }<br></span><span><br></span><span>  <span class="hljs-comment">// Other methods here...</span><br></span><span>}<br></span></code></pre>
-          <p>An instance of <code>Student</code> class can be created as usual using the <code>new</code> keyword:</p>
-          <pre><code class="hljs java"><span>Student john = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">"John Doe"</span>, <span class="hljs-string">"Male"</span>);<br></span></code></pre>
-          <p>However, it is also possible to get information about the <code>Student</code> class itself because the class itself is an <code>Object</code>:</p>
-          <pre><code class="hljs java"><span>Class&lt;Student&gt; studentClass = Student<span class="hljs-class">.<span class="hljs-keyword">class</span></span>;<br></span></code></pre>
-          <p>This means that you can store any <code>Class</code> object in any data structure for future retrieval. This is the main entry point for Java's reflections. You can now get the name of the class, create new instances of the class, observe its public/private fields - the possibilities are endless!</p>
-          <h3 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started" onclick="event.stopPropagation()"></a></h3>
-          <p>There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is this <a href="https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">article by JavaWorld</a>.</p>
-          <p>One important point is that while Java reflections are powerful, its implementations are not very straightforward. There are however some libraries out there such as the <a href="https://github.com/google/guava/wiki/ReflectionExplained">Google's Guava library</a> which contains many utility methods and classes that makes our life easier.</p>
-          <h3 id="applications">Applications<a class="fa fa-anchor" href="#applications" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="accessing-private-fields">Accessing Private Fields<a class="fa fa-anchor" href="#accessing-private-fields" onclick="event.stopPropagation()"></a></h4>
-          <p>A good example of reflections is to get a private field of another class. While this should optimally be solved by modifying the field visibility to <code>protected</code> or <code>public</code>, sometimes it is not possible to do so because you might not have any access to the code (for example codes in libraries or frameworks).</p>
-          <p>For the sake of simplicity, let us use a example of a simple <code>Animal</code> class. The class definition can look like this.</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{<br></span><span><br></span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;<br></span><span><br></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Animal</span><span class="hljs-params">()</span> </span>{<br></span><span>    age = <span class="hljs-number">0</span>;<br></span><span>  }<br></span><span>}<br></span></code></pre>
-          <p>And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class <code>Sheep</code> that extends <code>Animal</code> and do something when his age reaches certain threshold. But the annoying thing is that somebody decided that it is a good idea to make the age value <code>private</code> (and without a getter method!) instead of <code>protected</code> in a top-level class such as this! So you cannot access the age of your <code>Sheep</code> even though it is an <code>Animal</code>.</p>
-          <p>This of course can be solved by Reflection as follows:</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{<br></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{<br></span><span>    <span class="hljs-keyword">super</span>();<br></span><span>  }<br></span><span><br></span><span>  <span class="hljs-comment">/**</span><br></span><span><span class="hljs-comment">   * A sheep begins to produce wool after it's a year old!</span><br></span><span><span class="hljs-comment">   */</span><br></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isProducingWool</span><span class="hljs-params">()</span> </span>{<br></span><span>    <span class="hljs-keyword">return</span> getAge() &gt; <span class="hljs-number">1</span>;<br></span><span>  }<br></span><span><br></span><span>  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{<br></span><span>    <span class="hljs-comment">// Since class is a reserved keyword, we use clazz in variable names</span><br></span><span>    Class&lt;Animal&gt; animalClazz = Animal<span class="hljs-class">.<span class="hljs-keyword">class</span></span>;<br></span><span><br></span><span>    <span class="hljs-keyword">try</span> {<br></span><span>      Field f = animalClazz.getDeclaredField(<span class="hljs-string">"age"</span>);<br></span><span>      f.setAccessible(<span class="hljs-keyword">true</span>);<br></span><span>      <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>) f.get(<span class="hljs-keyword">this</span>);<br></span><span>    } <span class="hljs-keyword">catch</span> (IllegalAccessException | NoSuchFieldException e) {<br></span><span>      <span class="hljs-comment">// perform error handling</span><br></span><span>    }<br></span><span>  }<br></span><span>}<br></span></code></pre>
-          <p>And there you have it! What <code>Sheep</code> is really doing is to examine itself at runtime in order to obtain the <code>age</code> field inherited from <code>Animal</code>. This technique can be used in test cases to access private fields and methods in the class under test without modifying the visibility modifiers of the fields and methods in the class itself.</p>
-          <p>You may notice that the <code>Sheep#getAge()</code> method sets the age <code>Field</code> object to be accessible and might wonder the implications. Fret not! The <code>Field#getDeclaredField()</code> actually returns a new <code>Field</code> instance - so you're just setting that particular local <code>Field</code> instance to be accessible, not the actual <code>age</code> field itself. You can read more about it in this <a href="https://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue">StackOverflow question</a>.</p>
-          <p>Do take note that two exceptions need to be handled when accessing fields:</p>
-          <ol>
-            <li><code>IllegalAccessException</code>, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. <code>f.setAccessible(true)</code>).</li>
-            <li><code>NoSuchFieldException</code>, which occurs if the field with the specified name (e.g. <code>age</code>) does not exist.</li>
-          </ol>
-          <h4 id="updating-private-fields">Updating Private Fields<a class="fa fa-anchor" href="#updating-private-fields" onclick="event.stopPropagation()"></a></h4>
-          <p>Suppose that you need to write tests for <code>Sheep</code>. As part of setting up the test, you need to create a sheep with age = 20. Suppose that the age of the sheep is updated automatically as time passes, whereby the age increases by 1 after every minute. A naive way of creating a sheep with age = 20 is to simply wait for 20 minutes before performing the test:</p>
-          <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span><br></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{<br></span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();<br></span><span>  TimeUnit.MINUTES.sleep(<span class="hljs-number">20</span>);<br></span><span>  <span class="hljs-comment">// perform test</span><br></span><span>}<br></span></code></pre>
-          <p>Alternatively, a much simpler and efficient way to perform this test is to set a value to the private field using Reflection:</p>
-          <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span><br></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{<br></span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();<br></span><span>  Field field = Animal<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getDeclaredField</span>("<span class="hljs-title">age</span>")</span>;<br></span><span>  field.setAccessible(<span class="hljs-keyword">true</span>);<br></span><span>  field.set(sheep, <span class="hljs-number">20</span>);<br></span><span>  <span class="hljs-comment">// perform test</span><br></span><span>}<br></span></code></pre>
-          <h4 id="testing-private-methods">Testing Private Methods<a class="fa fa-anchor" href="#testing-private-methods" onclick="event.stopPropagation()"></a></h4>
-          <p>Suppose you want to perform a unit test for the method <code>getAge()</code>. However, you are only able to indirectly do so by testing <code>isProducingWool()</code>. This is not good as we are not able to directly verify the age of a sheep. However, with the help of Reflection, we can now test private methods.</p>
-          <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span><br></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{<br></span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();<br></span><span>  Method method = Sheep<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getDeclaredMethod</span>("<span class="hljs-title">getAge</span>")</span>;<br></span><span>  method.setAccessible(<span class="hljs-keyword">true</span>);<br></span><span>  <span class="hljs-keyword">int</span> age = (<span class="hljs-keyword">int</span>) method.invoke(sheep);<br></span><span>  <span class="hljs-comment">// verify age</span><br></span><span>}<br></span></code></pre>
-          <h4 id="a-more-advanced-application">A More Advanced Application<a class="fa fa-anchor" href="#a-more-advanced-application" onclick="event.stopPropagation()"></a></h4>
-          <p>You might have learnt from your Software Engineering module that the Observer pattern can be used for objects that are interested to get notified if the state of another object is changed. The Observer pattern is useful because you can avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other while allowing the objects to be notified of any changes in another object.</p>
-          <p>One prime example of the implementation of the Observer pattern is the Google Events bus used in <a href="https://github.com/se-edu/addressbook-level4/">AddressBook Level 4</a>. The event bus uses reflections to observe all registered objects via <code>register</code> method for methods annotated with the <code>Subscribe</code> annotation.</p>
-          <p>An example implementation (not the actual) of the <code>Subscribe</code> annotation might be:</p>
-          <pre><code class="hljs java"><span><span class="hljs-meta">@Retention</span>(RetentionPolicy.RUNTIME) <span class="hljs-comment">// Retain this annotation at runtime!</span><br></span><span><span class="hljs-meta">@Target</span>(ElementType.METHOD) <span class="hljs-comment">// Only can be applied to methods!</span><br></span><span><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Subscribe { }<br></span></code></pre>
-          <p>And that is it! Important parts of the code to note are the first two lines before the declaration. The first line tells Java that this annotation must not be discarded during compile time so it will be available during runtime. The retention policy is there because some annotation do not mean anything after compilation (such as <code>Override</code> and <code>SuppressWarnings</code>), so it does not make sense to keep the annotation after compiling.</p>
-          <p>The second line just means that this annotation can be applied to methods only.</p>
-          <p>And the more important part is how the subscriber registry finds all its subscribing methods. The first step is to register a class as an event handler and an example of the code is like so:</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{<br></span><span><br></span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> EventsCenter EVENTS_BUS = EventsCenter.getInstance();<br></span><span>  <br></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{<br></span><span>    <span class="hljs-keyword">super</span>();<br></span><span>    EVENTS_BUS.register(<span class="hljs-keyword">this</span>.getClass());<br></span><span>  }<br></span><span><br></span><span>  <span class="hljs-meta">@Subscribe</span><br></span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleWeatherChangeEvent</span><span class="hljs-params">(WeatherChangeEvent event)</span> </span>{<br></span><span>    <span class="hljs-keyword">if</span> (event.weather == Weather.RAIN) {<br></span><span>      hide();<br></span><span>    }<br></span><span>  }<br></span><span>  ...<br></span><span>}<br></span></code></pre>
-          <p>An example implementation of the <code>EventsCenter</code> (with a lot of details left out for simplicity) is like so:</p>
-          <pre><code class="hljs java"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">register</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{<br></span><span>  findAllEventHandlersInClass(clazz);<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">findAllEventHandlersInClass</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{<br></span><span>  <span class="hljs-comment">// TypeToken class is provided by Google Guava reflection library</span><br></span><span>  Set&lt;? extends Class&lt;?&gt;&gt; supertypes = TypeToken.of(clazz).getTypes().rawTypes();<br></span><span><br></span><span>  <span class="hljs-keyword">for</span> (Class&lt;?&gt; supertype : supertypes) {<br></span><span>    <span class="hljs-keyword">for</span> (Method method : supertype.getDeclaredMethods()) {<br></span><span>      <span class="hljs-keyword">if</span> (method.isAnnotationPresent(Subscribe<span class="hljs-class">.<span class="hljs-keyword">class</span>) </span>{<br></span><span>        registerSubscriber(method);<br></span><span>      }<br></span><span>    }<br></span><span>  }<br></span><span>}<br></span><span><br></span></code></pre>
-          <p>The first line of the <code>findAllEventHandlersInClass</code> method finds all classes and its parent classes of the registered class and converts it to a set. That is if you registered <code>Sheep extends Animal</code> as an event handler to the method, both <code>Sheep</code> and <code>Animal</code> will be captured by the first line. The following lines will then examine all their methods (during runtime!) for the <code>Subscribe</code> annotation and register the method so that it will receive the specified event when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how Java reflections works.</p>
-          <h3 id="disadvantages-of-reflections">Disadvantages of Reflections<a class="fa fa-anchor" href="#disadvantages-of-reflections" onclick="event.stopPropagation()"></a></h3>
-          <p>While Java reflections are powerful, you should not immediately jump on the reflections ship. This is because there are some drawbacks whenever you use reflections in your project. The following are some points you should consider before using Java reflections:</p>
-          <ul>
-            <li>
-              <p>Reflections convert a compile-time error to a potentially destructive run-time error.</p>
-              <p>Compile time errors are easy to catch. Whenever you compile your code, the compiler cleverly spots any error you missed and points it out (along with line number and other useful information) to you before quitting. But by using reflections, you are bypassing these checks because there is no way to check such errors during compile time. These uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.</p>
-              <p>For example you might have come across this problem where your program crashed and you get a <code>NullPointerException</code> error in your crash log. As you might have experienced already, runtime errors are more troublesome in that they are harder to catch and debug. They might even bring your whole software under the water with it by crashing the whole thing.</p>
-            </li>
-            <li>
-              <p>Reflections are harder to understand and harder to debug</p>
-              <p>There is a reason why the topic of reflections is placed under the advanced section. Codes using reflections are fundamentally harder to understand. As mentioned above, it is also harder to debug when the classes might not even be there during compile time. This makes your code very hard to maintain.</p>
-            </li>
-            <li>
-              <p>Poor performance</p>
-              <p>Since reflections resolve types dynamically, performance suffers. This is usually not an issue with small software but you might want to keep it in mind if you want to scale up.</p>
-            </li>
-            <li>
-              <p>Bad Security</p>
-              <p>The second example demostrated a way to access the private fields of a class using reflections. This should be very concerning if your software deals with sensitive information because other classes can access fields that they are not supposed to.</p>
-            </li>
-            <li>
-              <p>Indication of bad class design</p>
-              <p>Having to use reflection in order to bypass a class' encapsulation is usually indicative of an API design problem. We can remove the usage of Reflection in the examples given <a href="#accessing-private-fields">above</a> by adding a getter and setter method for <code>age</code>. See this <a href="https://stackoverflow.com/questions/34571/how-do-i-test-a-private-function-or-a-class-that-has-private-methods-fields-or/34658#34658">post</a> for further discussion. In this scenario whereby we cannot add a getter and setter method for <code>age</code>, we should create our own implementation of <code>Animal</code> class with the getter and setter methods.</p>
-            </li>
-          </ul>
-          <h3 id="further-resources-for-reflections">Further Resources for Reflections<a class="fa fa-anchor" href="#further-resources-for-reflections" onclick="event.stopPropagation()"></a></h3>
-          <ul>
-            <li>
-              <p>Introductions to Java reflections with some explanation</p>
-              <p><a href="https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html</a>
-                <a href="https://www.journaldev.com/1789/java-reflection-example-tutorial">https://www.journaldev.com/1789/java-reflection-example-tutorial</a></p>
-            </li>
-            <li>
-              <p>A short but precise overview of Java reflections</p>
-              <p><a href="https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html">https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html</a></p>
-            </li>
-            <li>
-              <p>Google's Guava reflection library provides some utility methods and classes</p>
-              <p><a href="https://github.com/google/guava/wiki/ReflectionExplained">https://github.com/google/guava/wiki/ReflectionExplained</a></p>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#advanced-java-reflections">Advanced Java: Reflections&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#reflection">Reflection&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#what-is-java-reflections">What is Java Reflections?&#x200E;</a>
-                <a class="nav-link py-1" href="#the-basics-of-reflections">The Basics of Reflections&#x200E;</a>
-                <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
-                <a class="nav-link py-1" href="#applications">Applications&#x200E;</a>
-                <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                  <a class="nav-link py-1" href="#accessing-private-fields">Accessing Private Fields&#x200E;</a>
-                  <a class="nav-link py-1" href="#updating-private-fields">Updating Private Fields&#x200E;</a>
-                  <a class="nav-link py-1" href="#testing-private-methods">Testing Private Methods&#x200E;</a>
-                  <a class="nav-link py-1" href="#a-more-advanced-application">A More Advanced Application&#x200E;</a>
-                </nav>
-                <a class="nav-link py-1" href="#disadvantages-of-reflections">Disadvantages of Reflections&#x200E;</a>
-                <a class="nav-link py-1" href="#further-resources-for-reflections">Further Resources for Reflections&#x200E;</a>
-              </nav>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Advanced Java: Reflections</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="JavaReflections.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="advanced-java-reflections"><span id="advanced-java-reflections" class="anchor"></span>Advanced Java: Reflections<a href="#advanced-java-reflections" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Authors: <a href="https://github.com/MightyCupcakes">Jeremy Goh</a>, <a href="https://github.com/Zhiyuan-Amos">Yong Zhi Yuan</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#reflection" data-v-7d17494f>Reflection‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-java-reflections" data-v-7d17494f>What is Java reflections‎</a></li> <li data-v-7d17494f><a href="#the-basics-of-reflections" data-v-7d17494f>The Basics of Reflections‎</a></li> <li data-v-7d17494f><a href="#getting-started" data-v-7d17494f>Getting Started‎</a></li> <li data-v-7d17494f><a href="#applications" data-v-7d17494f>Applications‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#accessing-private-fields" data-v-7d17494f>Accessing Private Fields</a></li> <li data-v-7d17494f><a href="#updating-private-fields" data-v-7d17494f>Updating Private Fields</a></li> <li data-v-7d17494f><a href="#testing-private-methods" data-v-7d17494f>Testing Private Methods</a></li> <li data-v-7d17494f><a href="#a-more-advanced-application" data-v-7d17494f>A More Advanced Application</a></li></ul></li> <li data-v-7d17494f><a href="#disadvantages-of-reflections" data-v-7d17494f>Disadvantages of Reflections‎</a></li> <li data-v-7d17494f><a href="#further-resources-for-reflections" data-v-7d17494f>Further Resources for Reflections‎</a></li></ul></li></ul></div> <!----></div></div></div> <h2 id="reflection"><span id="reflection" class="anchor"></span>Reflection<a href="#reflection" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="what-is-java-reflections"><span id="what-is-java-reflections" class="anchor"></span>What is Java Reflections?<a href="#what-is-java-reflections" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Reflection is the ability of a computer program to examine, inspect and modify its own behaviour at runtime. In particular, reflections in Java allows the inspection of classes, methods and fields during runtime, without having any knowledge of it during compile time.</p> <p>With Java reflections, you can:</p> <ol><li>Access private fields and methods of a class without having to modify the visibility modifier of the class itself. This is very useful if you are interested to implement test cases for private methods.</li> <li>Create new instance of existing objects, invoke methods and change values of fields of existing objects.</li></ol> <h3 id="the-basics-of-reflections"><span id="the-basics-of-reflections" class="anchor"></span>The Basics of Reflections<a href="#the-basics-of-reflections" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Before getting started with reflections in Java, it is important to realize that a class is also an object. From the <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Class.html">Java Class API</a>, we see that <code class="hljs inline no-lang">Class</code> is a subclass of <code class="hljs inline no-lang">Object</code>. Every unique <code class="hljs inline no-lang">Object</code> is assigned an immutable <code class="hljs inline no-lang">Class</code> object by the JVM. This immutable <code class="hljs inline no-lang">Class</code> object is fundamentally different from <em>instances</em> of a class. The class object itself holds information such as its name and the package it resides in while an instance of a class holds the instanced values and methods as defined in the class.</p> <p>Take for example the following class:</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+</span><span>
+</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;
+</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String gender;
+</span><span>
+</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">(String name, String gender)</span> </span>{
+</span><span>    <span class="hljs-keyword">this</span>.name = name;
+</span><span>    <span class="hljs-keyword">this</span>.gender = gender;
+</span><span>  }
+</span><span>
+</span><span>  <span class="hljs-comment">// Other methods here...</span>
+</span><span>}
+</span></code></pre><p>An instance of <code class="hljs inline no-lang">Student</code> class can be created as usual using the <code class="hljs inline no-lang">new</code> keyword:</p> <pre><code class="hljs java"><span>Student john = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;John Doe&quot;</span>, <span class="hljs-string">&quot;Male&quot;</span>);
+</span></code></pre><p>However, it is also possible to get information about the <code class="hljs inline no-lang">Student</code> class itself because the class itself is an <code class="hljs inline no-lang">Object</code>:</p> <pre><code class="hljs java"><span>Class&lt;Student&gt; studentClass = Student.class;
+</span></code></pre><p>This means that you can store any <code class="hljs inline no-lang">Class</code> object in any data structure for future retrieval. This is the main entry point for Java's reflections. You can now get the name of the class, create new instances of the class, observe its public/private fields - the possibilities are endless!</p> <h3 id="getting-started"><span id="getting-started" class="anchor"></span>Getting Started<a href="#getting-started" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>There are many webpages dedicated to explaining the details of reflections in Java; so this will not repeat what is being made readily available on the web. One good place to start is this <a href="https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">article by JavaWorld</a>.</p> <p>One important point is that while Java reflections are powerful, its implementations are not very straightforward. There are however some libraries out there such as the <a href="https://github.com/google/guava/wiki/ReflectionExplained">Google's Guava library</a> which contains many utility methods and classes that makes our life easier.</p> <h3 id="applications"><span id="applications" class="anchor"></span>Applications<a href="#applications" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="accessing-private-fields"><span id="accessing-private-fields" class="anchor"></span>Accessing Private Fields<a href="#accessing-private-fields" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>A good example of reflections is to get a private field of another class. While this should optimally be solved by modifying the field visibility to <code class="hljs inline no-lang">protected</code> or <code class="hljs inline no-lang">public</code>, sometimes it is not possible to do so because you might not have any access to the code (for example codes in libraries or frameworks).</p> <p>For the sake of simplicity, let us use a example of a simple <code class="hljs inline no-lang">Animal</code> class. The class definition can look like this.</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
+</span><span>
+</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
+</span><span>
+</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Animal</span><span class="hljs-params">()</span> </span>{
+</span><span>    age = <span class="hljs-number">0</span>;
+</span><span>  }
+</span><span>}
+</span></code></pre><p>And let us assume that you, for some reason, cannot modify this code. But you are interested in making a new class <code class="hljs inline no-lang">Sheep</code> that extends <code class="hljs inline no-lang">Animal</code> and do something when his age reaches certain threshold. But the annoying thing is that somebody decided that it is a good idea to make the age value <code class="hljs inline no-lang">private</code> (and without a getter method!) instead of <code class="hljs inline no-lang">protected</code> in a top-level class such as this! So you cannot access the age of your <code class="hljs inline no-lang">Sheep</code> even though it is an <code class="hljs inline no-lang">Animal</code>.</p> <p>This of course can be solved by Reflection as follows:</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{
+</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{
+</span><span>    <span class="hljs-keyword">super</span>();
+</span><span>  }
+</span><span>
+</span><span>  <span class="hljs-comment">/**</span>
+</span><span><span class="hljs-comment">   * A sheep begins to produce wool after it's a year old!</span>
+</span><span><span class="hljs-comment">   */</span>
+</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isProducingWool</span><span class="hljs-params">()</span> </span>{
+</span><span>    <span class="hljs-keyword">return</span> getAge() &gt; <span class="hljs-number">1</span>;
+</span><span>  }
+</span><span>
+</span><span>  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{
+</span><span>    <span class="hljs-comment">// Since class is a reserved keyword, we use clazz in variable names</span>
+</span><span>    Class&lt;Animal&gt; animalClazz = Animal.class;
+</span><span>
+</span><span>    <span class="hljs-keyword">try</span> {
+</span><span>      Field f = animalClazz.getDeclaredField(<span class="hljs-string">&quot;age&quot;</span>);
+</span><span>      f.setAccessible(<span class="hljs-keyword">true</span>);
+</span><span>      <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>) f.get(<span class="hljs-keyword">this</span>);
+</span><span>    } <span class="hljs-keyword">catch</span> (IllegalAccessException | NoSuchFieldException e) {
+</span><span>      <span class="hljs-comment">// perform error handling</span>
+</span><span>    }
+</span><span>  }
+</span><span>}
+</span></code></pre><p>And there you have it! What <code class="hljs inline no-lang">Sheep</code> is really doing is to examine itself at runtime in order to obtain the <code class="hljs inline no-lang">age</code> field inherited from <code class="hljs inline no-lang">Animal</code>. This technique can be used in test cases to access private fields and methods in the class under test without modifying the visibility modifiers of the fields and methods in the class itself.</p> <p>You may notice that the <code class="hljs inline no-lang">Sheep#getAge()</code> method sets the age <code class="hljs inline no-lang">Field</code> object to be accessible and might wonder the implications. Fret not! The <code class="hljs inline no-lang">Field#getDeclaredField()</code> actually returns a new <code class="hljs inline no-lang">Field</code> instance - so you're just setting that particular local <code class="hljs inline no-lang">Field</code> instance to be accessible, not the actual <code class="hljs inline no-lang">age</code> field itself. You can read more about it in this <a href="https://stackoverflow.com/questions/10638826/java-reflection-impact-of-setaccessibletrue">StackOverflow question</a>.</p> <p>Do take note that two exceptions need to be handled when accessing fields:</p> <ol><li><code class="hljs inline no-lang">IllegalAccessException</code>, which occurs if the field is private and you did not set the accessibility modifier to be true (e.g. <code class="hljs inline no-lang">f.setAccessible(true)</code>).</li> <li><code class="hljs inline no-lang">NoSuchFieldException</code>, which occurs if the field with the specified name (e.g. <code class="hljs inline no-lang">age</code>) does not exist.</li></ol> <h4 id="updating-private-fields"><span id="updating-private-fields" class="anchor"></span>Updating Private Fields<a href="#updating-private-fields" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Suppose that you need to write tests for <code class="hljs inline no-lang">Sheep</code>. As part of setting up the test, you need to create a sheep with age = 20. Suppose that the age of the sheep is updated automatically as time passes, whereby the age increases by 1 after every minute. A naive way of creating a sheep with age = 20 is to simply wait for 20 minutes before performing the test:</p> <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+</span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();
+</span><span>  TimeUnit.MINUTES.sleep(<span class="hljs-number">20</span>);
+</span><span>  <span class="hljs-comment">// perform test</span>
+</span><span>}
+</span></code></pre><p>Alternatively, a much simpler and efficient way to perform this test is to set a value to the private field using Reflection:</p> <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+</span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();
+</span><span>  Field field = Animal.class.getDeclaredField(<span class="hljs-string">&quot;age&quot;</span>);
+</span><span>  field.setAccessible(<span class="hljs-keyword">true</span>);
+</span><span>  field.set(sheep, <span class="hljs-number">20</span>);
+</span><span>  <span class="hljs-comment">// perform test</span>
+</span><span>}
+</span></code></pre><h4 id="testing-private-methods"><span id="testing-private-methods" class="anchor"></span>Testing Private Methods<a href="#testing-private-methods" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Suppose you want to perform a unit test for the method <code class="hljs inline no-lang">getAge()</code>. However, you are only able to indirectly do so by testing <code class="hljs inline no-lang">isProducingWool()</code>. This is not good as we are not able to directly verify the age of a sheep. However, with the help of Reflection, we can now test private methods.</p> <pre><code class="hljs java"><span><span class="hljs-meta">@Test</span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+</span><span>  Sheep sheep = <span class="hljs-keyword">new</span> Sheep();
+</span><span>  Method method = Sheep.class.getDeclaredMethod(<span class="hljs-string">&quot;getAge&quot;</span>);
+</span><span>  method.setAccessible(<span class="hljs-keyword">true</span>);
+</span><span>  <span class="hljs-keyword">int</span> age = (<span class="hljs-keyword">int</span>) method.invoke(sheep);
+</span><span>  <span class="hljs-comment">// verify age</span>
+</span><span>}
+</span></code></pre><h4 id="a-more-advanced-application"><span id="a-more-advanced-application" class="anchor"></span>A More Advanced Application<a href="#a-more-advanced-application" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>You might have learnt from your Software Engineering module that the Observer pattern can be used for objects that are interested to get notified if the state of another object is changed. The Observer pattern is useful because you can avoid creating bidirectional dependencies between two unrelated objects that have no business talking to each other while allowing the objects to be notified of any changes in another object.</p> <p>One prime example of the implementation of the Observer pattern is the Google Events bus used in <a href="https://github.com/se-edu/addressbook-level4/">AddressBook Level 4</a>. The event bus uses reflections to observe all registered objects via <code class="hljs inline no-lang">register</code> method for methods annotated with the <code class="hljs inline no-lang">Subscribe</code> annotation.</p> <p>An example implementation (not the actual) of the <code class="hljs inline no-lang">Subscribe</code> annotation might be:</p> <pre><code class="hljs java"><span><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span> <span class="hljs-comment">// Retain this annotation at runtime!</span>
+</span><span><span class="hljs-meta">@Target(ElementType.METHOD)</span> <span class="hljs-comment">// Only can be applied to methods!</span>
+</span><span><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Subscribe { }
+</span></code></pre><p>And that is it! Important parts of the code to note are the first two lines before the declaration. The first line tells Java that this annotation must not be discarded during compile time so it will be available during runtime. The retention policy is there because some annotation do not mean anything after compilation (such as <code class="hljs inline no-lang">Override</code> and <code class="hljs inline no-lang">SuppressWarnings</code>), so it does not make sense to keep the annotation after compiling.</p> <p>The second line just means that this annotation can be applied to methods only.</p> <p>And the more important part is how the subscriber registry finds all its subscribing methods. The first step is to register a class as an event handler and an example of the code is like so:</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sheep</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{
+</span><span>
+</span><span>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> EventsCenter EVENTS_BUS = EventsCenter.getInstance();
+</span><span>  
+</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Sheep</span><span class="hljs-params">()</span> </span>{
+</span><span>    <span class="hljs-keyword">super</span>();
+</span><span>    EVENTS_BUS.register(<span class="hljs-keyword">this</span>.getClass());
+</span><span>  }
+</span><span>
+</span><span>  <span class="hljs-meta">@Subscribe</span>
+</span><span>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleWeatherChangeEvent</span><span class="hljs-params">(WeatherChangeEvent event)</span> </span>{
+</span><span>    <span class="hljs-keyword">if</span> (event.weather == Weather.RAIN) {
+</span><span>      hide();
+</span><span>    }
+</span><span>  }
+</span><span>  ...
+</span><span>}
+</span></code></pre><p>An example implementation of the <code class="hljs inline no-lang">EventsCenter</code> (with a lot of details left out for simplicity) is like so:</p> <pre><code class="hljs java"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">register</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{
+</span><span>  findAllEventHandlersInClass(clazz);
+</span><span>}
+</span><span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">findAllEventHandlersInClass</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> </span>{
+</span><span>  <span class="hljs-comment">// TypeToken class is provided by Google Guava reflection library</span>
+</span><span>  Set&lt;? extends Class&lt;?&gt;&gt; supertypes = TypeToken.of(clazz).getTypes().rawTypes();
+</span><span>
+</span><span>  <span class="hljs-keyword">for</span> (Class&lt;?&gt; supertype : supertypes) {
+</span><span>    <span class="hljs-keyword">for</span> (Method method : supertype.getDeclaredMethods()) {
+</span><span>      <span class="hljs-keyword">if</span> (method.isAnnotationPresent(Subscribe.class) {
+</span><span>        registerSubscriber(method);
+</span><span>      }
+</span><span>    }
+</span><span>  }
+</span><span>}
+</span><span>
+</span></code></pre><p>The first line of the <code class="hljs inline no-lang">findAllEventHandlersInClass</code> method finds all classes and its parent classes of the registered class and converts it to a set. That is if you registered <code class="hljs inline no-lang">Sheep extends Animal</code> as an event handler to the method, both <code class="hljs inline no-lang">Sheep</code> and <code class="hljs inline no-lang">Animal</code> will be captured by the first line. The following lines will then examine all their methods (during runtime!) for the <code class="hljs inline no-lang">Subscribe</code> annotation and register the method so that it will receive the specified event when it is fired. Of course this implementation leaves out a lot of details but you get the idea of how Java reflections works.</p> <h3 id="disadvantages-of-reflections"><span id="disadvantages-of-reflections" class="anchor"></span>Disadvantages of Reflections<a href="#disadvantages-of-reflections" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>While Java reflections are powerful, you should not immediately jump on the reflections ship. This is because there are some drawbacks whenever you use reflections in your project. The following are some points you should consider before using Java reflections:</p> <ul><li><p>Reflections convert a compile-time error to a potentially destructive run-time error.</p> <p>Compile time errors are easy to catch. Whenever you compile your code, the compiler cleverly spots any error you missed and points it out (along with line number and other useful information) to you before quitting. But by using reflections, you are bypassing these checks because there is no way to check such errors during compile time. These uncaught errors may cause your program to fail during runtime instead, turning into runtime errors.</p> <p>For example you might have come across this problem where your program crashed and you get a <code class="hljs inline no-lang">NullPointerException</code> error in your crash log. As you might have experienced already, runtime errors are more troublesome in that they are harder to catch and debug. They might even bring your whole software under the water with it by crashing the whole thing.</p></li> <li><p>Reflections are harder to understand and harder to debug</p> <p>There is a reason why the topic of reflections is placed under the advanced section. Codes using reflections are fundamentally harder to understand. As mentioned above, it is also harder to debug when the classes might not even be there during compile time. This makes your code very hard to maintain.</p></li> <li><p>Poor performance</p> <p>Since reflections resolve types dynamically, performance suffers. This is usually not an issue with small software but you might want to keep it in mind if you want to scale up.</p></li> <li><p>Bad Security</p> <p>The second example demostrated a way to access the private fields of a class using reflections. This should be very concerning if your software deals with sensitive information because other classes can access fields that they are not supposed to.</p></li> <li><p>Indication of bad class design</p> <p>Having to use reflection in order to bypass a class' encapsulation is usually indicative of an API design problem. We can remove the usage of Reflection in the examples given <a href="#accessing-private-fields">above</a> by adding a getter and setter method for <code class="hljs inline no-lang">age</code>. See this <a href="https://stackoverflow.com/questions/34571/how-do-i-test-a-private-function-or-a-class-that-has-private-methods-fields-or/34658#34658">post</a> for further discussion. In this scenario whereby we cannot add a getter and setter method for <code class="hljs inline no-lang">age</code>, we should create our own implementation of <code class="hljs inline no-lang">Animal</code> class with the getter and setter methods.</p></li></ul> <h3 id="further-resources-for-reflections"><span id="further-resources-for-reflections" class="anchor"></span>Further Resources for Reflections<a href="#further-resources-for-reflections" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li><p>Introductions to Java reflections with some explanation</p> <p><a href="https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html">https://www.javaworld.com/article/2077015/java-se/take-an-in-depth-look-at-the-java-reflection-api.html</a> <a href="https://www.journaldev.com/1789/java-reflection-example-tutorial">https://www.journaldev.com/1789/java-reflection-example-tutorial</a></p></li> <li><p>A short but precise overview of Java reflections</p> <p><a href="https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html">https://www.oracle.com/technetwork/articles/java/javareflection-1536171.html</a></p></li> <li><p>Google's Guava reflection library provides some utility methods and classes</p> <p><a href="https://github.com/google/guava/wiki/ReflectionExplained">https://github.com/google/guava/wiki/ReflectionExplained</a></p></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#advanced-java-reflections" class="nav-link py-1" data-v-e8c82f88>Advanced Java: Reflections‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#reflection" class="nav-link py-1" data-v-e8c82f88>Reflection‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-java-reflections" class="nav-link py-1" data-v-e8c82f88>What is Java Reflections?‎</a> <a href="#the-basics-of-reflections" class="nav-link py-1" data-v-e8c82f88>The Basics of Reflections‎</a> <a href="#getting-started" class="nav-link py-1" data-v-e8c82f88>Getting Started‎</a> <a href="#applications" class="nav-link py-1" data-v-e8c82f88>Applications‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#accessing-private-fields" class="nav-link py-1" data-v-e8c82f88>Accessing Private Fields‎</a> <a href="#updating-private-fields" class="nav-link py-1" data-v-e8c82f88>Updating Private Fields‎</a> <a href="#testing-private-methods" class="nav-link py-1" data-v-e8c82f88>Testing Private Methods‎</a> <a href="#a-more-advanced-application" class="nav-link py-1" data-v-e8c82f88>A More Advanced Application‎</a></nav> <a href="#disadvantages-of-reflections" class="nav-link py-1" data-v-e8c82f88>Disadvantages of Reflections‎</a> <a href="#further-resources-for-reflections" class="nav-link py-1" data-v-e8c82f88>Further Resources for Reflections‎</a></nav></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

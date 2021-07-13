@@ -1,553 +1,67 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Test-Driven Development</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Testing
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a current">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="test-driven-development">Test-Driven Development<a class="fa fa-anchor" href="#test-driven-development" onclick="event.stopPropagation()"></a></h1>
-          <p>Author: <a href="https://github.com/yash-chowdhary">Yash Chowdhary</a></p>
-          <p>Reviewers: <a href="https://github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://github.com/nbriannl">Neil Brian</a>, <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/Tejas2805">Tejas Bhuwania</a></p>
-          <box id="article-toc">
-            <ul class="px-3">
-              <li><a href="#test-driven-development">Test-Driven Development</a>
-                <ul>
-                  <li><a href="#what-is-test-driven-development">What is Test-Driven Development</a></li>
-                  <li><a href="#benefits-of-test-driven-development">Benefits of Test-Driven Development</a>
-                    <ul>
-                      <li><a href="#benefit-1-improves-code-quality">Benefit 1: Improves Code Quality</a></li>
-                      <li><a href="#benefit-2-focuses-on-understanding-product-requirements">Benefit 2: Focuses on Understanding Product Requirements</a></li>
-                      <li><a href="#benefit-3-increases-productivity">Benefit 3: Increases Productivity</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#limitations">Limitations</a>
-                    <ul>
-                      <li><a href="#limitation-1-tough-to-incorporate-into-legacy-projects">Limitation 1: Tough to Incorporate into Legacy Projects</a></li>
-                      <li><a href="#limitation-2-high-maintenance">Limitation 2: High Maintenance</a></li>
-                      <li><a href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests">Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#getting-started-with-test-driven-development">Getting Started with Test-Driven Development</a></li>
-                  <li><a href="#references">References</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-          <h2 id="what-is-test-driven-development">What is Test-Driven Development?<a class="fa fa-anchor" href="#what-is-test-driven-development" onclick="event.stopPropagation()"></a></h2>
-          <p>Typically, you write tests for production code you've <em>already written</em>. Test-driven development (a.k.a TDD) is a software development technique that emphasizes writing tests <em>before</em> writing production code.</p>
-          <p>Robert Martin describes the &quot;Three Laws of TDD&quot; as -</p>
-          <blockquote>
-            <p>&quot;First Law: You may not write production code until you have written a failing unit test.</p>
-            <p>Second Law: You may not write more of a unit test than is sufficient to fail, and not compiling is failing.</p>
-            <p>Third Law: You may not write more production code than is sufficient to pass the currently failing test.”</p>
-          </blockquote>
-          <p>These 3 laws help to formulate a step-by-step process of practising test-driven development. Figure 1 below highlights one iteration of this general TDD process. In practice, several such iterations are required - sometimes even to get the same test or portion of the test to pass.</p>
-          <center>
-            <pic src="/learningresources/contents/testing/images/tddSteps.jpg" alt="tddSteps" height="650">
-              <p><em>Figure 1. General TDD process.</em><span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1">[1]</a></sup></span></p>
-            </pic>
-          </center>
-          <p>Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the general development process of TDD is as follows <span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2">[2]</a></sup></span>:</p>
-          <ol>
-            <li>
-              <p><strong>Add a test</strong></p>
-              <p>In this phase of the cycle, all you need to focus on is writing tests. Understanding the product's/feature's requirements and specifications is crucial at this stage of the development cycle.</p>
-            </li>
-            <li>
-              <p><strong>Run the test</strong></p>
-              <p>In this phase, you check if the new test added fails. This is an important step as it shows that the new test does not pass without requiring new code, and also rules out false positives (i.e. the test passes when it shouldn't). Furthermore, the reason for its failure must be clear.</p>
-            </li>
-            <li>
-              <p><strong>Write production code</strong></p>
-              <p>Here is when you write code to pass the test. The sole aim at this point is to pass the test and to write production code restricted to the scope of the test. It is possible that the code may not be in its best form (style- and syntax-wise), but that's something you need not worry about at this stage.</p>
-            </li>
-            <li>
-              <p><strong>Re-run test(s)</strong></p>
-              <p>Re-running the test suite and ensuring the test passes not only helps in keeping the cycle running, but also in increasing your confidence in the code that you have just written. This is because it shows that the new code meets the test requirements and does not break any existing features/requirements.</p>
-            </li>
-            <li>
-              <p><strong>Refactor the code</strong></p>
-              <p>As and when you write more production code and test to make sure it meets all your business, product, and/or feature requirements, it's important that the code itself meets a certain standard. Improving code style and readability, employing design patterns, and reducing duplication of code are some of the <a href="https://refactoring.com/catalog/">many things</a> you can work on.</p>
-            </li>
-          </ol>
-          <p>Steps 1-5 outline one iteration of the TDD process. When you combine multiple iterations of this process, it can be thought of as a TDD cycle.</p>
-          <h2 id="benefits-of-test-driven-development">Benefits of Test-Driven Development<a class="fa fa-anchor" href="#benefits-of-test-driven-development" onclick="event.stopPropagation()"></a></h2>
-          <p>Some reasons why teams can choose to adopt the approach of test-driven development are:</p>
-          <h3 id="benefit-1-improves-code-quality">Benefit 1: Improves Code Quality<a class="fa fa-anchor" href="#benefit-1-improves-code-quality" onclick="event.stopPropagation()"></a></h3>
-          <p>TDD can lead to well-written code. This is a direct consequence of the cycle that was explained above. One of the best practices while following TDD is to focus on small units of code (methods, classes, modules, etc). This can lead to more modular, flexible code with looser coupling that can be scaled. In this way, the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new comer to understand it <span for="pop:footnote3" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote3'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote3" id="footnoteref3">[3]</a></sup></span>.</p>
-          <p>Additionally, developers work on units of code that can be written and tested independently and integrated later. This can be achieved through <span trigger="click" for="modal:index-mock" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:index-mock'].show()" class="trigger-click">mock frameworks</span>, which help drive home the rationale of writing unit tests.</p>
-          <p>The tests aim to cover all possible branches and paths that the production code can take because no more code is written than is necessary. This potentially indicates that the software will high code coverage. Detecting bugs at early stages is easier when you're working with code that has high coverage <span for="pop:footnote4" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote4'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote4" id="footnoteref4">[4]</a></sup></span>.</p>
-          <b-modal id="modal:index-mock" hide-footer size modal-class="mb-zoom" ref="modal:index-mock"><template slot="modal-title">Mock Objects and Frameworks</template>
-            Mock objects are simulated objects whose sole purpose is to act as a black box that mimics the behaviour of real-world objects during testing. They are especially useful in writing unit tests, which are meant to test the functionality of a portion of production code assuming that the rest of the code behaves as it should.
-          </b-modal>
-          <h3 id="benefit-2-focuses-on-understanding-product-requirements">Benefit 2: Focuses on Understanding Product Requirements<a class="fa fa-anchor" href="#benefit-2-focuses-on-understanding-product-requirements" onclick="event.stopPropagation()"></a></h3>
-          <p>Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is writing tests. Coming up with tests without a clear picture of the requirements or specifications can be dangerous as:</p>
-          <ol>
-            <li>you could end up testing something that doesn't need to be tested, or</li>
-            <li>you could end up overlooking some requirements that <em>must</em> be tested, thus giving you a false sense of accomplishment when you write production code to pass the test</li>
-          </ol>
-          <p>TDD thus helps in preventing teams from rushing into development and pushes them to prioritize the requirements-gathering step, forcing them to understand the requirement of whatever small thing which will be implemented, whether it is a user story, a method, class, etc.</p>
-          <h3 id="benefit-3-increases-productivity">Benefit 3: Increases Productivity<a class="fa fa-anchor" href="#benefit-3-increases-productivity" onclick="event.stopPropagation()"></a></h3>
-          <p>A study done by researchers in CMU found that programmers who wrote more tests tended to be more productive<span for="pop:footnote5" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote5'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote5" id="footnoteref5">[5]</a></sup></span>, and since employing TDD meant writing more tests, there is a correlation between productivity and TDD.</p>
-          <p>Test-driven development makes programmers think about the desired outcome of certain processes, features, and how other code can be integrated. Programmers will then think about coming up with failing tests and working their way up to writing code that passes the test. Employing test-driven development thus helps to get a better understanding of the design of a program <span for="pop:footnote3" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote3'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote3" id="footnoteref3:1">[3]</a></sup></span>.</p>
-          <p>As mentioned before, test-driven development can potentially result in software with high code coverage. This, in turn, can boost individual and team morale, confidence in the code, and productivity as a consequence.</p>
-          <h2 id="limitations">Limitations<a class="fa fa-anchor" href="#limitations" onclick="event.stopPropagation()"></a></h2>
-          <p>Even with some of the attractive benefits of adopting TDD, there is no one-size-fits-all solution for project design management. Some of the limitations of TDD are:</p>
-          <h3 id="limitation-1-tough-to-incorporate-into-legacy-projects">Limitation 1: Tough to Incorporate into Legacy Projects<a class="fa fa-anchor" href="#limitation-1-tough-to-incorporate-into-legacy-projects" onclick="event.stopPropagation()"></a></h3>
-          <p><span trigger="click" for="modal:index-legacy" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:index-legacy'].show()" class="trigger-click">Legacy projects</span> <span for="pop:footnote6" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote6'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote6" id="footnoteref6">[6]</a></sup></span> are hard to maintain even without having to incorporate TDD into them. As these projects have a history of design and implementation choices made based on the requirements and/or the resources at the time, investing man hours in revamping or &quot;modernizing&quot; them is not always deemed as top priority.</p>
-          <b-modal id="modal:index-legacy" hide-footer size modal-class="mb-zoom" ref="modal:index-legacy"><template slot="modal-title">Legacy Code</template>
-            Legacy code refers to an application system source code type that is no longer supported. Legacy code can also refer to unsupported operating systems, hardware and formats. In most cases, legacy code is converted to a modern software language and platform. However, to retain familiar user functionality, legacy code is sometimes carried into new environments.
-          </b-modal>
-          <p>When you bring TDD into the picture, things get more complex as failing tests are written at first with the assumption that production code will be written to ensure they pass.</p>
-          <p>Writing production code in legacy systems with the goal of passing a specific test is harder than it seems. For instance, there may be dependencies between components that need to be &quot;broken&quot; for them to be testable, which could result in several workarounds. This could potentially add on to the complexity of the project, making it counter-productive as the entire point of the refactoring step is to make the code more readable <span for="pop:footnote7" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote7'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote7" id="footnoteref7">[7]</a></sup></span>.</p>
-          <h3 id="limitation-2-high-maintenance">Limitation 2: High Maintenance<a class="fa fa-anchor" href="#limitation-2-high-maintenance" onclick="event.stopPropagation()"></a></h3>
-          <p>Maintaining test-suites becomes a part of the overall overhead of the project. Since TDD-style approaches rely heavily on tests, there is a need for the tests to be in proper shape in order to prevent a false sense of correctness.</p>
-          <p>TDD also has a steep learning curve. The entire process takes time to get accustomed to. Refactoring of code by using good design patterns comes with time, experience, and a lot of practice.</p>
-          <h3 id="limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests">Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests<a class="fa fa-anchor" href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests" onclick="event.stopPropagation()"></a></h3>
-          <p>Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests <span for="pop:footnote8" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote8'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote8" id="footnoteref8">[8]</a></sup></span>.</p>
-          <h2 id="getting-started-with-test-driven-development">Getting Started with Test-Driven Development<a class="fa fa-anchor" href="#getting-started-with-test-driven-development" onclick="event.stopPropagation()"></a></h2>
-          <p>As explained above, test-driven development is a software design technique. While it does have an established and unelaborate framework, there are elements of the development cycle that -</p>
-          <ol>
-            <li>could be new to you (such as testing and mock frameworks), or</li>
-            <li>you require practice in (such as refactoring code)</li>
-          </ol>
-          <p>For those of you who'd like to get your hands dirty, here are a couple of tutorials on getting started with unit testing with Java - one using the <a href="https://dev.to/chrisvasqm/introduction-to-unit-testing-with-java-2544">TestNG framework</a>, and another using the <a href="https://www.guru99.com/junit-tutorial.html">JUnit framework</a>. They are both comprehensive tutorials, covering topics from setting up your environment for testing and writing basic tests to annotations.</p>
-          <p><a href="https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&amp;s=books&amp;ie=UTF8&amp;qid=1495080564&amp;sr=1-1&amp;keywords=tdd+by+example">'Test-Driven Development: By Example'</a> by Kent Beck is a worthwhile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.</p>
-          <p>For those interested in diving deeper, Scott W. Ambler's <a href="http://agiledata.org/essays/tdd.html">'Introduction to Test-Driven Development (TDD)'</a> gives an in-depth understanding of the topic.</p>
-          <h2 id="references">References<a class="fa fa-anchor" href="#references" onclick="event.stopPropagation()"></a></h2>
-        </div>
-        <hr class="footnotes-sep">
-        <section class="footnotes">
-          <ol class="footnotes-list">
-            <li id="footnote1" class="footnote-item">
-              <p><a href="http://agiledata.org/essays/tdd.html">Agile Data, Scott W. Ambler</a></p>
-            </li>
-            <li id="footnote2" class="footnote-item">
-              <p>Beck, K. 2000. <a href="https://dl.acm.org/doi/book/10.5555/318762">&quot;Extreme Programming Explained&quot;</a></p>
-            </li>
-            <li id="footnote3" class="footnote-item">
-              <p><a href="http://www.pathfindersolns.com/wp-content/uploads/2012/05/Effective-TDD-Executive-Summary.pdf">Effective TDD for Complex, Embedded Systems Whitepaper</a></p>
-            </li>
-            <li id="footnote4" class="footnote-item">
-              <p>P. S. Kochhar, F. Thung and D. Lo, 2015. <a href="/learningresources/contents/testing/(https:/doi.org/10.1109/SANER.2015.7081877)">&quot;Code coverage and test suite effectiveness: Empirical study with real bugs in large systems&quot;</a></p>
-            </li>
-            <li id="footnote5" class="footnote-item">
-              <p>Erdogmus, 2005. <a href="https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en">&quot;On the Effectiveness of Test-first Approach to Programming&quot;</a></p>
-            </li>
-            <li id="footnote6" class="footnote-item">
-              <p><a href="https://www.techopedia.com/definition/25326/legacy-code">Legacy Code</a></p>
-            </li>
-            <li id="footnote7" class="footnote-item">
-              <p>Smart, J.F. 2009. <a href="https://dzone.com/articles/introduction-test-driven">&quot;An Introduction to Test-Driven Development with Legacy code&quot;</a></p>
-            </li>
-            <li id="footnote8" class="footnote-item">
-              <p><a href="http://dalkescientific.com/writings/diary/archive/2009/12/29/problems_with_tdd.html">Problems with TDD</a></p>
-            </li>
-          </ol>
-          <span id="pop:footnote1" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="http://agiledata.org/essays/tdd.html">Agile Data, Scott W. Ambler</a></p>
-            </div>
-          </span>
-
-          <span id="pop:footnote2" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p>Beck, K. 2000. <a href="https://dl.acm.org/doi/book/10.5555/318762">&quot;Extreme Programming Explained&quot;</a></p>
-            </div>
-          </span>
-
-          <span id="pop:footnote3" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="http://www.pathfindersolns.com/wp-content/uploads/2012/05/Effective-TDD-Executive-Summary.pdf">Effective TDD for Complex, Embedded Systems Whitepaper</a></p>
-            </div>
-          </span>
-
-          <span id="pop:footnote4" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p>P. S. Kochhar, F. Thung and D. Lo, 2015. <a href="/learningresources/contents/testing/(https:/doi.org/10.1109/SANER.2015.7081877)">&quot;Code coverage and test suite effectiveness: Empirical study with real bugs in large systems&quot;</a></p>
-            </div>
-          </span>
-
-          <span id="pop:footnote5" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p>Erdogmus, 2005. <a href="https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en">&quot;On the Effectiveness of Test-first Approach to Programming&quot;</a></p>
-            </div>
-          </span>
-
-          <span id="pop:footnote6" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://www.techopedia.com/definition/25326/legacy-code">Legacy Code</a></p>
-            </div>
-          </span>
-
-          <span id="pop:footnote7" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p>Smart, J.F. 2009. <a href="https://dzone.com/articles/introduction-test-driven">&quot;An Introduction to Test-Driven Development with Legacy code&quot;</a></p>
-            </div>
-          </span>
-
-          <span id="pop:footnote8" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="http://dalkescientific.com/writings/diary/archive/2009/12/29/problems_with_tdd.html">Problems with TDD</a></p>
-            </div>
-          </span>
-        </section>
-      </div>
-
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#test-driven-development">Test-Driven Development&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-test-driven-development">What is Test-Driven Development?&#x200E;</a>
-              <a class="nav-link py-1" href="#benefits-of-test-driven-development">Benefits of Test-Driven Development&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#benefit-1-improves-code-quality">Benefit 1: Improves Code Quality&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-2-focuses-on-understanding-product-requirements">Benefit 2: Focuses on Understanding Product Requirements&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-3-increases-productivity">Benefit 3: Increases Productivity&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#limitations">Limitations&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#limitation-1-tough-to-incorporate-into-legacy-projects">Limitation 1: Tough to Incorporate into Legacy Projects&#x200E;</a>
-                <a class="nav-link py-1" href="#limitation-2-high-maintenance">Limitation 2: High Maintenance&#x200E;</a>
-                <a class="nav-link py-1" href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests">Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#getting-started-with-test-driven-development">Getting Started with Test-Driven Development&#x200E;</a>
-              <a class="nav-link py-1" href="#references">References&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Test-Driven Development</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="testDrivenDevelopment.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="test-driven-development"><span id="test-driven-development" class="anchor"></span>Test-Driven Development<a href="#test-driven-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Author: <a href="https://github.com/yash-chowdhary">Yash Chowdhary</a></p> <p>Reviewers: <a href="https://github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://github.com/nbriannl">Neil Brian</a>, <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/Tejas2805">Tejas Bhuwania</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul class="px-3" data-v-7d17494f><li data-v-7d17494f><a href="#test-driven-development" data-v-7d17494f>Test-Driven Development</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-test-driven-development" data-v-7d17494f>What is Test-Driven Development</a></li> <li data-v-7d17494f><a href="#benefits-of-test-driven-development" data-v-7d17494f>Benefits of Test-Driven Development</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#benefit-1-improves-code-quality" data-v-7d17494f>Benefit 1: Improves Code Quality</a></li> <li data-v-7d17494f><a href="#benefit-2-focuses-on-understanding-product-requirements" data-v-7d17494f>Benefit 2: Focuses on Understanding Product Requirements</a></li> <li data-v-7d17494f><a href="#benefit-3-increases-productivity" data-v-7d17494f>Benefit 3: Increases Productivity</a></li></ul></li> <li data-v-7d17494f><a href="#limitations" data-v-7d17494f>Limitations</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#limitation-1-tough-to-incorporate-into-legacy-projects" data-v-7d17494f>Limitation 1: Tough to Incorporate into Legacy Projects</a></li> <li data-v-7d17494f><a href="#limitation-2-high-maintenance" data-v-7d17494f>Limitation 2: High Maintenance</a></li> <li data-v-7d17494f><a href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests" data-v-7d17494f>Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests</a></li></ul></li> <li data-v-7d17494f><a href="#getting-started-with-test-driven-development" data-v-7d17494f>Getting Started with Test-Driven Development</a></li> <li data-v-7d17494f><a href="#references" data-v-7d17494f>References</a></li></ul></li></ul></div> <!----></div></div></div> <h2 id="what-is-test-driven-development"><span id="what-is-test-driven-development" class="anchor"></span>What is Test-Driven Development?<a href="#what-is-test-driven-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Typically, you write tests for production code you've <em>already written</em>. Test-driven development (a.k.a TDD) is a software development technique that emphasizes writing tests <em>before</em> writing production code.</p> <p>Robert Martin describes the &quot;Three Laws of TDD&quot; as -</p> <blockquote><p>&quot;First Law: You may not write production code until you have written a failing unit test.</p> <p>Second Law: You may not write more of a unit test than is sufficient to fail, and not compiling is failing.</p> <p>Third Law: You may not write more production code than is sufficient to pass the currently failing test.”</p></blockquote> <p>These 3 laws help to formulate a step-by-step process of practising test-driven development. Figure 1 below highlights one iteration of this general TDD process. In practice, several such iterations are required - sometimes even to get the same test or portion of the test to pass.</p> <center><span class="image-wrapper"><img src="/learningresources/contents/testing/images/tddSteps.jpg" alt="tddSteps" width="" class="img-fluid rounded"> <span class="image-caption"><p><em>Figure 1. General TDD process.</em><span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--1">[1]</a></sup></span></p></span></span><p></p></center> <p>Kent Beck, creator of Xtreme Programming and advocate of TDD, states that the general development process of TDD is as follows <span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--2">[2]</a></sup></span>:</p> <ol><li><p><strong>Add a test</strong></p> <p>In this phase of the cycle, all you need to focus on is writing tests. Understanding the product's/feature's requirements and specifications is crucial at this stage of the development cycle.</p></li> <li><p><strong>Run the test</strong></p> <p>In this phase, you check if the new test added fails. This is an important step as it shows that the new test does not pass without requiring new code, and also rules out false positives (i.e. the test passes when it shouldn't). Furthermore, the reason for its failure must be clear.</p></li> <li><p><strong>Write production code</strong></p> <p>Here is when you write code to pass the test. The sole aim at this point is to pass the test and to write production code restricted to the scope of the test. It is possible that the code may not be in its best form (style- and syntax-wise), but that's something you need not worry about at this stage.</p></li> <li><p><strong>Re-run test(s)</strong></p> <p>Re-running the test suite and ensuring the test passes not only helps in keeping the cycle running, but also in increasing your confidence in the code that you have just written. This is because it shows that the new code meets the test requirements and does not break any existing features/requirements.</p></li> <li><p><strong>Refactor the code</strong></p> <p>As and when you write more production code and test to make sure it meets all your business, product, and/or feature requirements, it's important that the code itself meets a certain standard. Improving code style and readability, employing design patterns, and reducing duplication of code are some of the <a href="https://refactoring.com/catalog/">many things</a> you can work on.</p></li></ol> <p>Steps 1-5 outline one iteration of the TDD process. When you combine multiple iterations of this process, it can be thought of as a TDD cycle.</p> <h2 id="benefits-of-test-driven-development"><span id="benefits-of-test-driven-development" class="anchor"></span>Benefits of Test-Driven Development<a href="#benefits-of-test-driven-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Some reasons why teams can choose to adopt the approach of test-driven development are:</p> <h3 id="benefit-1-improves-code-quality"><span id="benefit-1-improves-code-quality" class="anchor"></span>Benefit 1: Improves Code Quality<a href="#benefit-1-improves-code-quality" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>TDD can lead to well-written code. This is a direct consequence of the cycle that was explained above. One of the best practices while following TDD is to focus on small units of code (methods, classes, modules, etc). This can lead to more modular, flexible code with looser coupling that can be scaled. In this way, the code unit targets a specific requirement or feature with just enough code to fail, and descriptive enough for a new comer to understand it <span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--3">[3]</a></sup></span>.</p> <p>Additionally, developers work on units of code that can be written and tested independently and integrated later. This can be achieved through <span tabindex="0" class="trigger-click"><!----> mock frameworks</span>, which help drive home the rationale of writing unit tests.</p> <p>The tests aim to cover all possible branches and paths that the production code can take because no more code is written than is necessary. This potentially indicates that the software will high code coverage. Detecting bugs at early stages is easier when you're working with code that has high coverage <span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--4">[4]</a></sup></span>.</p> <!----> <h3 id="benefit-2-focuses-on-understanding-product-requirements"><span id="benefit-2-focuses-on-understanding-product-requirements" class="anchor"></span>Benefit 2: Focuses on Understanding Product Requirements<a href="#benefit-2-focuses-on-understanding-product-requirements" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Test-driven development requires the developers to have a good understanding of the product or feature requirements before any sort of development can begin. As mentioned earlier, the first step in development is writing tests. Coming up with tests without a clear picture of the requirements or specifications  can be dangerous as:</p> <ol><li>you could end up testing something that doesn't need to be tested, or</li> <li>you could end up overlooking some requirements that <em>must</em> be tested, thus giving you a false sense of accomplishment when you write production code to pass the test</li></ol> <p>TDD thus helps in preventing teams from rushing into development and pushes them to prioritize the requirements-gathering step, forcing them to understand the requirement of whatever small thing which will be implemented, whether it is a user story, a method, class, etc.</p> <h3 id="benefit-3-increases-productivity"><span id="benefit-3-increases-productivity" class="anchor"></span>Benefit 3: Increases Productivity<a href="#benefit-3-increases-productivity" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>A study done by researchers in CMU found that programmers who wrote more tests tended to be more productive<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--5">[5]</a></sup></span>, and since employing TDD meant writing more tests, there is a correlation between productivity and TDD.</p> <p>Test-driven development makes programmers think about the desired outcome of certain processes, features, and how other code can be integrated. Programmers will then think about coming up with failing tests and working their way up to writing code that passes the test. Employing test-driven development thus helps to get a better understanding of the design of a program <span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--3">[3:1]</a></sup></span>.</p> <p>As mentioned before, test-driven development can potentially result in software with high code coverage. This, in turn, can boost individual and team morale, confidence in the code, and productivity as a consequence.</p> <h2 id="limitations"><span id="limitations" class="anchor"></span>Limitations<a href="#limitations" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Even with some of the attractive benefits of adopting TDD, there is no one-size-fits-all solution for project design management. Some of the limitations of TDD are:</p> <h3 id="limitation-1-tough-to-incorporate-into-legacy-projects"><span id="limitation-1-tough-to-incorporate-into-legacy-projects" class="anchor"></span>Limitation 1: Tough to Incorporate into Legacy Projects<a href="#limitation-1-tough-to-incorporate-into-legacy-projects" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p><span tabindex="0" class="trigger-click"><!----> Legacy projects</span> <span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--6">[6]</a></sup></span> are hard to maintain even without having to incorporate TDD into them. As these projects have a history of design and implementation choices made based on the requirements and/or the resources at the time, investing man hours in revamping or &quot;modernizing&quot; them is not always deemed as top priority.</p> <!----> <p>When you bring TDD into the picture, things get more complex as failing tests are written at first with the assumption that production code will be written to ensure they pass.</p> <p>Writing production code in legacy systems with the goal of passing a specific test is harder than it seems. For instance, there may be dependencies between components that need to be &quot;broken&quot; for them to be testable, which could result in  several workarounds. This could potentially add on to the complexity of the project, making it counter-productive as the entire point of the refactoring step is to make the code more readable <span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--7">[7]</a></sup></span>.</p> <h3 id="limitation-2-high-maintenance"><span id="limitation-2-high-maintenance" class="anchor"></span>Limitation 2: High Maintenance<a href="#limitation-2-high-maintenance" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Maintaining test-suites becomes a part of the overall overhead of the project. Since TDD-style approaches rely heavily on tests, there is a need for the tests to be in proper shape in order to prevent a false sense of correctness.</p> <p>TDD also has a steep learning curve. The entire process takes time to get accustomed to. Refactoring of code by using good design patterns comes with time, experience, and a lot of practice.</p> <h3 id="limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests"><span id="limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests" class="anchor"></span>Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests<a href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Unit tests are generally much more in number than other sort of tests like integration, system, or interface tests. Developers run the risk of giving less importance to these classes of tests if there are a high number of passing unit tests <span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--8">[8]</a></sup></span>.</p> <h2 id="getting-started-with-test-driven-development"><span id="getting-started-with-test-driven-development" class="anchor"></span>Getting Started with Test-Driven Development<a href="#getting-started-with-test-driven-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>As explained above, test-driven development is a software design technique. While it does have an established and unelaborate framework, there are elements of the development cycle that -</p> <ol><li>could be new to you (such as testing and mock frameworks), or</li> <li>you require practice in (such as refactoring code)</li></ol> <p>For those of you who'd like to get your hands dirty, here are a couple of tutorials on getting started with unit testing with Java - one using the <a href="https://dev.to/chrisvasqm/introduction-to-unit-testing-with-java-2544">TestNG framework</a>, and another using the <a href="https://www.guru99.com/junit-tutorial.html">JUnit framework</a>. They are both comprehensive tutorials, covering topics from setting up your environment for testing and writing basic tests to annotations.</p> <p><a href="https://www.amazon.sg/Test-Driven-Development-Kent-Beck/dp/0321146530/ref=sr_1_1?tag=pbourgau-20&amp;s=books&amp;ie=UTF8&amp;qid=1495080564&amp;sr=1-1&amp;keywords=tdd+by+example">'Test-Driven Development: By Example'</a> by Kent Beck is a worthwhile read. Meant to inspire developers to embrace TDD, this book discusses the crux of the approach along with best practices, techniques and sample projects.</p> <p>For those interested in diving deeper, Scott W. Ambler's <a href="http://agiledata.org/essays/tdd.html">'Introduction to Test-Driven Development (TDD)'</a> gives an in-depth understanding of the topic.</p> <h2 id="references"><span id="references" class="anchor"></span>References<a href="#references" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2></div><hr class="footnotes-sep"> <section class="footnotes"><ol class="footnotes-list"><span id="pop:footnotefn--1" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="http://agiledata.org/essays/tdd.html">Agile Data, Scott W. Ambler</a></p></div></span></span><span id="pop:footnotefn--2" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p>Beck, K. 2000. <a href="https://dl.acm.org/doi/book/10.5555/318762">&quot;Extreme Programming Explained&quot;</a></p></div></span></span><span id="pop:footnotefn--3" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="http://www.pathfindersolns.com/wp-content/uploads/2012/05/Effective-TDD-Executive-Summary.pdf">Effective TDD for Complex, Embedded Systems Whitepaper</a></p></div></span></span><span id="pop:footnotefn--4" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p>P. S. Kochhar, F. Thung and D. Lo, 2015. <a href="(https://doi.org/10.1109/SANER.2015.7081877)">&quot;Code coverage and test suite effectiveness: Empirical study with real bugs in large systems&quot;</a></p></div></span></span><span id="pop:footnotefn--5" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p>Erdogmus, 2005. <a href="https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en">&quot;On the Effectiveness of Test-first Approach to Programming&quot;</a></p></div></span></span><span id="pop:footnotefn--6" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://www.techopedia.com/definition/25326/legacy-code">Legacy Code</a></p></div></span></span><span id="pop:footnotefn--7" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p>Smart, J.F. 2009. <a href="https://dzone.com/articles/introduction-test-driven">&quot;An Introduction to Test-Driven Development with Legacy code&quot;</a></p></div></span></span><span id="pop:footnotefn--8" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="http://dalkescientific.com/writings/diary/archive/2009/12/29/problems_with_tdd.html">Problems with TDD</a></p></div></span></span> <li id="fn--1" class="footnote-item"><p><a href="http://agiledata.org/essays/tdd.html">Agile Data, Scott W. Ambler</a></p></li> <li id="fn--2" class="footnote-item"><p>Beck, K. 2000. <a href="https://dl.acm.org/doi/book/10.5555/318762">&quot;Extreme Programming Explained&quot;</a></p></li> <li id="fn--3" class="footnote-item"><p><a href="http://www.pathfindersolns.com/wp-content/uploads/2012/05/Effective-TDD-Executive-Summary.pdf">Effective TDD for Complex, Embedded Systems Whitepaper</a></p></li> <li id="fn--4" class="footnote-item"><p>P. S. Kochhar, F. Thung and D. Lo, 2015. <a href="(https://doi.org/10.1109/SANER.2015.7081877)">&quot;Code coverage and test suite effectiveness: Empirical study with real bugs in large systems&quot;</a></p></li> <li id="fn--5" class="footnote-item"><p>Erdogmus, 2005. <a href="https://web.archive.org/web/20141222180731/http://nparc.cisti-icist.nrc-cnrc.gc.ca/npsi/ctrl?action=shwart&amp;index=an&amp;req=5763742&amp;lang=en">&quot;On the Effectiveness of Test-first Approach to Programming&quot;</a></p></li> <li id="fn--6" class="footnote-item"><p><a href="https://www.techopedia.com/definition/25326/legacy-code">Legacy Code</a></p></li> <li id="fn--7" class="footnote-item"><p>Smart, J.F. 2009. <a href="https://dzone.com/articles/introduction-test-driven">&quot;An Introduction to Test-Driven Development with Legacy code&quot;</a></p></li> <li id="fn--8" class="footnote-item"><p><a href="http://dalkescientific.com/writings/diary/archive/2009/12/29/problems_with_tdd.html">Problems with TDD</a></p></li></ol></section> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#test-driven-development" class="nav-link py-1" data-v-e8c82f88>Test-Driven Development‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-test-driven-development" class="nav-link py-1" data-v-e8c82f88>What is Test-Driven Development?‎</a> <a href="#benefits-of-test-driven-development" class="nav-link py-1" data-v-e8c82f88>Benefits of Test-Driven Development‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#benefit-1-improves-code-quality" class="nav-link py-1" data-v-e8c82f88>Benefit 1: Improves Code Quality‎</a> <a href="#benefit-2-focuses-on-understanding-product-requirements" class="nav-link py-1" data-v-e8c82f88>Benefit 2: Focuses on Understanding Product Requirements‎</a> <a href="#benefit-3-increases-productivity" class="nav-link py-1" data-v-e8c82f88>Benefit 3: Increases Productivity‎</a></nav> <a href="#limitations" class="nav-link py-1" data-v-e8c82f88>Limitations‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#limitation-1-tough-to-incorporate-into-legacy-projects" class="nav-link py-1" data-v-e8c82f88>Limitation 1: Tough to Incorporate into Legacy Projects‎</a> <a href="#limitation-2-high-maintenance" class="nav-link py-1" data-v-e8c82f88>Limitation 2: High Maintenance‎</a> <a href="#limitation-3-possibility-of-over-emphasizing-unit-tests-at-the-expense-of-other-tests" class="nav-link py-1" data-v-e8c82f88>Limitation 3: Possibility of Over-Emphasizing Unit Tests at the Expense of Other Tests‎</a></nav> <a href="#getting-started-with-test-driven-development" class="nav-link py-1" data-v-e8c82f88>Getting Started with Test-Driven Development‎</a> <a href="#references" class="nav-link py-1" data-v-e8c82f88>References‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

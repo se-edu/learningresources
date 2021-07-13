@@ -1,448 +1,96 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Static Analysis</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Static Analysis
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a current">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-static-analysis">Introduction to Static Analysis<a class="fa fa-anchor" href="#introduction-to-static-analysis" onclick="event.stopPropagation()"></a></h1>
-          <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#overview">Overview‎</a></li>
-              <li><a href="#why-static-analysis">Why Static Analysis?‎</a>
-                <ul>
-                  <li><a href="#analyse-thoroughly">Analyse Thoroughly‎</a></li>
-                  <li><a href="#find-potential-bugs-early">Find Potential Bugs Early‎</a></li>
-                  <li><a href="#enforce-a-standard-in-project">Enforce a Standard in Project‎</a></li>
-                  <li><a href="#improve-code-quality">Improve Code Quality‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#limitation-of-static-analysis">Limitation of Static Analysis‎</a>
-                <ul>
-                  <li><a href="#false-positives">False Positives‎</a></li>
-                  <li><a href="#cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)‎</a></li>
-              <li><a href="#references">References‎</a></li>
-            </ul>
-          </box>
-
-          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview" onclick="event.stopPropagation()"></a></h2>
-          <p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p>
-          <p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p>
-          <h2 id="why-static-analysis">Why Static Analysis?<a class="fa fa-anchor" href="#why-static-analysis" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="analyse-thoroughly">Analyse Thoroughly<a class="fa fa-anchor" href="#analyse-thoroughly" onclick="event.stopPropagation()"></a></h3>
-          <p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.</p>
-          <h3 id="find-potential-bugs-early">Find Potential Bugs Early<a class="fa fa-anchor" href="#find-potential-bugs-early" onclick="event.stopPropagation()"></a></h3>
-          <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code>break</code> statement in <code>switch</code> statement.</p>
-          <pre><code class="hljs"><span>switch(colour) {<br></span><span>case 'blue':<br></span><span>	value = 1;<br></span><span>case 'green':<br></span><span>	value = 2;<br></span><span>}<br></span></code></pre>
-          <p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p>
-          <h3 id="enforce-a-standard-in-project">Enforce a Standard in Project<a class="fa fa-anchor" href="#enforce-a-standard-in-project" onclick="event.stopPropagation()"></a></h3>
-          <p>Many projects enforce certain coding standards. For example, some project require the following format for <code>if</code> statement.</p>
-          <pre><code class="hljs"><span>if (condition) {<br></span><span>	// true<br></span><span>} else {<br></span><span>	// false<br></span><span>}<br></span></code></pre>
-          <p>While others enforce the following standard:</p>
-          <pre><code class="hljs"><span>if (condition) {<br></span><span>	// true<br></span><span>}<br></span><span>else {<br></span><span>	// false<br></span><span>}<br></span></code></pre>
-          <p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p>
-          <h3 id="improve-code-quality">Improve Code Quality<a class="fa fa-anchor" href="#improve-code-quality" onclick="event.stopPropagation()"></a></h3>
-          <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p>
-          <pre><code class="hljs"><span>if (isConditionTrue()) {<br></span><span>	return true;<br></span><span>} else {<br></span><span>	return false;<br></span><span>}<br></span></code></pre>
-          <p>Majority of static analysis tools will point out that this can be simplified to:</p>
-          <pre><code class="hljs"><span>return isConditionTrue();<br></span></code></pre>
-          <h2 id="limitation-of-static-analysis">Limitation of Static Analysis<a class="fa fa-anchor" href="#limitation-of-static-analysis" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="false-positives">False Positives<a class="fa fa-anchor" href="#false-positives" onclick="event.stopPropagation()"></a></h3>
-          <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p>
-          <pre><code class="hljs"><span>try {<br></span><span>	// logic part<br></span><span>} catch (Throwable t) {<br></span><span>	// alert user<br></span><span>}<br></span></code></pre>
-          <p>For example, the above code will catch any <code>Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code>Throwable</code> is regarded as a bad practice and thus the tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code>Throwable</code> and thus the violation detected by static analysis tools is a false positive.</p>
-          <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a> (a static analysis tool), <code>@SuppressWarnings</code> annotation can be used. In this case,</p>
-          <pre><code class="hljs"><span>@SuppressWarnings(&quot;PMD.AvoidCatchingThrowable&quot;) // used as fallback<br></span></code></pre>
-          <p>is the correct way to suppress warnings.</p>
-          <h3 id="cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment<a class="fa fa-anchor" href="#cannot-catch-error-introduced-in-runtime-environment" onclick="event.stopPropagation()"></a></h3>
-          <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases are also needed to verify the functionalities in logic, UI and etc.</p>
-          <h2 id="how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)<a class="fa fa-anchor" href="#how-to-do-static-analysis-static-analysis-tools" onclick="event.stopPropagation()"></a></h2>
-          <p>There are several static analysis tools that can be used to assist the process.</p>
-          <ul>
-            <li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li>
-            <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each commit.</li>
-          </ul>
-          <p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p>
-          <ul>
-            <li>
-              <p>Java</p>
-              <ul>
-                <li><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li>
-                <li><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li>
-                <li><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>JavaScript</p>
-              <ul>
-                <li><a href="/learningresources/contents/staticAnalysis/ESLint.html">eslint</a></li>
-              </ul>
-            </li>
-          </ul>
-          <h2 id="references">References<a class="fa fa-anchor" href="#references" onclick="event.stopPropagation()"></a></h2>
-          <ul>
-            <li><a href="https://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-static-analysis">Introduction to Static Analysis&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-              <a class="nav-link py-1" href="#why-static-analysis">Why Static Analysis?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#analyse-thoroughly">Analyse Thoroughly&#x200E;</a>
-                <a class="nav-link py-1" href="#find-potential-bugs-early">Find Potential Bugs Early&#x200E;</a>
-                <a class="nav-link py-1" href="#enforce-a-standard-in-project">Enforce a Standard in Project&#x200E;</a>
-                <a class="nav-link py-1" href="#improve-code-quality">Improve Code Quality&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#limitation-of-static-analysis">Limitation of Static Analysis&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#false-positives">False Positives&#x200E;</a>
-                <a class="nav-link py-1" href="#cannot-catch-error-introduced-in-runtime-environment">Cannot Catch Error Introduced in Runtime Environment&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#how-to-do-static-analysis-static-analysis-tools">How to Do Static Analysis (Static Analysis Tools)&#x200E;</a>
-              <a class="nav-link py-1" href="#references">References&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Static Analysis</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="intro.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-static-analysis"><span id="introduction-to-static-analysis" class="anchor"></span>Introduction to Static Analysis<a href="#introduction-to-static-analysis" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Author: <a href="https://nus-oss.github.io/cs3281-website/students/AY1617S2/xiaoPu/xiaoPu-Resume.html">Xiao Pu</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#overview" data-v-7d17494f>Overview‎</a></li> <li data-v-7d17494f><a href="#why-static-analysis" data-v-7d17494f>Why Static Analysis?‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#analyse-thoroughly" data-v-7d17494f>Analyse Thoroughly‎</a></li> <li data-v-7d17494f><a href="#find-potential-bugs-early" data-v-7d17494f>Find Potential Bugs Early‎</a></li> <li data-v-7d17494f><a href="#enforce-a-standard-in-project" data-v-7d17494f>Enforce a Standard in Project‎</a></li> <li data-v-7d17494f><a href="#improve-code-quality" data-v-7d17494f>Improve Code Quality‎</a></li></ul></li> <li data-v-7d17494f><a href="#limitation-of-static-analysis" data-v-7d17494f>Limitation of Static Analysis‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#false-positives" data-v-7d17494f>False Positives‎</a></li> <li data-v-7d17494f><a href="#cannot-catch-error-introduced-in-runtime-environment" data-v-7d17494f>Cannot Catch Error Introduced in Runtime Environment‎</a></li></ul></li> <li data-v-7d17494f><a href="#how-to-do-static-analysis-static-analysis-tools" data-v-7d17494f>How to Do Static Analysis (Static Analysis Tools)‎</a></li> <li data-v-7d17494f><a href="#references" data-v-7d17494f>References‎</a></li></ul></div> <!----></div></div></div> <h2 id="overview"><span id="overview" class="anchor"></span>Overview<a href="#overview" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Static analysis is the process of analysing computer programme <strong>without</strong> executing the code. This practice is often used to ensure that codes follow certain structures or standards (e.g coding standards).</p> <p>It is possible to do static analysis manually, but there are automated tools(static analysers) that can assist developers in this process.</p> <h2 id="why-static-analysis"><span id="why-static-analysis" class="anchor"></span>Why Static Analysis?<a href="#why-static-analysis" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="analyse-thoroughly"><span id="analyse-thoroughly" class="anchor"></span>Analyse Thoroughly<a href="#analyse-thoroughly" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>In some situations, it is impossible to achieve 100% test coverage. There will be some sections in the code that are not covered by test cases, which may result in bugs (<a href="#find-potential-bugs-early">see</a> how static analysis will help you find bugs). In static analysis, all the related files/codes will be analysed.</p> <h3 id="find-potential-bugs-early"><span id="find-potential-bugs-early" class="anchor"></span>Find Potential Bugs Early<a href="#find-potential-bugs-early" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Static analysis can find bugs before the execution. For example, some programmers may forget to add <code class="hljs inline no-lang">break</code> statement in <code class="hljs inline no-lang">switch</code> statement.</p> <pre><code class="hljs"><span>switch(colour) {
+</span><span>case 'blue':
+</span><span>	value = 1;
+</span><span>case 'green':
+</span><span>	value = 2;
+</span><span>}
+</span></code></pre><p>Static analysis tools will automatically alert the programmers about the potential problems/bugs.</p> <h3 id="enforce-a-standard-in-project"><span id="enforce-a-standard-in-project" class="anchor"></span>Enforce a Standard in Project<a href="#enforce-a-standard-in-project" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Many projects enforce certain coding standards. For example, some project require the following format for <code class="hljs inline no-lang">if</code> statement.</p> <pre><code class="hljs"><span>if (condition) {
+</span><span>	// true
+</span><span>} else {
+</span><span>	// false
+</span><span>}
+</span></code></pre><p>While others enforce the following standard:</p> <pre><code class="hljs"><span>if (condition) {
+</span><span>	// true
+</span><span>}
+</span><span>else {
+</span><span>	// false
+</span><span>}
+</span></code></pre><p>Such standards can be configured in static analysis tools and the tools will help you enforce the standards.</p> <h3 id="improve-code-quality"><span id="improve-code-quality" class="anchor"></span>Improve Code Quality<a href="#improve-code-quality" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Static analysis will pick up common pitfalls in coding and suggest changes to help you improve your code quality. For example, for the following Java code:</p> <pre><code class="hljs"><span>if (isConditionTrue()) {
+</span><span>	return true;
+</span><span>} else {
+</span><span>	return false;
+</span><span>}
+</span></code></pre><p>Majority of static analysis tools will point out that this can be simplified to:</p> <pre><code class="hljs"><span>return isConditionTrue();
+</span></code></pre><h2 id="limitation-of-static-analysis"><span id="limitation-of-static-analysis" class="anchor"></span>Limitation of Static Analysis<a href="#limitation-of-static-analysis" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="false-positives"><span id="false-positives" class="anchor"></span>False Positives<a href="#false-positives" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Since static analysis tools only recognize patterns, there might be false positives introduced.</p> <pre><code class="hljs"><span>try {
+</span><span>	// logic part
+</span><span>} catch (Throwable t) {
+</span><span>	// alert user
+</span><span>}
+</span></code></pre><p>For example, the above code will catch any <code class="hljs inline no-lang">Throwable</code> object and alert users that a fatal error has occurred in the system. In many static analysis tools, catching <code class="hljs inline no-lang">Throwable</code> is regarded as a bad practice and thus the tools will prompt the error to developers. However, in this case, we want to provide a friendly alert for system crash instead of showing an ugly stack track. It is acceptable to catch <code class="hljs inline no-lang">Throwable</code> and thus the violation detected by static analysis tools is a false positive.</p> <p><strong>Solution</strong>: Many static analysis tools provide ways to suppress the warnings. For example, in <a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a> (a static analysis tool), <code class="hljs inline no-lang">@SuppressWarnings</code> annotation can be used. In this case,</p> <pre><code class="hljs"><span>@SuppressWarnings(&quot;PMD.AvoidCatchingThrowable&quot;) // used as fallback
+</span></code></pre><p>is the correct way to suppress warnings.</p> <h3 id="cannot-catch-error-introduced-in-runtime-environment"><span id="cannot-catch-error-introduced-in-runtime-environment" class="anchor"></span>Cannot Catch Error Introduced in Runtime Environment<a href="#cannot-catch-error-introduced-in-runtime-environment" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Since static analysis is done without executing the programme. Some vulnerabilities that are introduced in the runtime cannot be caught. Thus, you should <strong>not</strong> merely depend on static analysis tools to find bugs. Comprehensive test cases are also needed to verify the functionalities in logic, UI and etc.</p> <h2 id="how-to-do-static-analysis-static-analysis-tools"><span id="how-to-do-static-analysis-static-analysis-tools" class="anchor"></span>How to Do Static Analysis (Static Analysis Tools)<a href="#how-to-do-static-analysis-static-analysis-tools" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>There are several static analysis tools that can be used to assist the process.</p> <ul><li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis">List of tools for static code analysis - Wikipedia</a>: You can find static analysis tools that supports the language you use.</li> <li><a href="https://www.codacy.com/">Codacy - Automated code reviews &amp; code analytics</a>: A code reviews tool that has integrated different static analysis tools. It can show data or statistics reported by different static analysis tools for each commit.</li></ul> <p>Here, we will introduce several well-known ones in detail. You can click the hyperlinks to look through them. We organised them by languages.</p> <ul><li><p>Java</p> <ul><li><a href="/learningresources/contents/staticAnalysis/checkStyle.html">CheckStyle</a></li> <li><a href="/learningresources/contents/staticAnalysis/PMD.html">PMD</a></li> <li><a href="/learningresources/contents/staticAnalysis/FindBugs.html">FindBugs</a></li></ul></li> <li><p>JavaScript</p> <ul><li><a href="/learningresources/contents/staticAnalysis/ESLint.html">eslint</a></li></ul></li></ul> <h2 id="references"><span id="references" class="anchor"></span>References<a href="#references" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><a href="https://javarevisited.blogspot.sg/2014/02/why-static-code-analysis-is-important.html">Why Static Code Analysis is Important?</a></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-static-analysis" class="nav-link py-1" data-v-e8c82f88>Introduction to Static Analysis‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#overview" class="nav-link py-1" data-v-e8c82f88>Overview‎</a> <a href="#why-static-analysis" class="nav-link py-1" data-v-e8c82f88>Why Static Analysis?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#analyse-thoroughly" class="nav-link py-1" data-v-e8c82f88>Analyse Thoroughly‎</a> <a href="#find-potential-bugs-early" class="nav-link py-1" data-v-e8c82f88>Find Potential Bugs Early‎</a> <a href="#enforce-a-standard-in-project" class="nav-link py-1" data-v-e8c82f88>Enforce a Standard in Project‎</a> <a href="#improve-code-quality" class="nav-link py-1" data-v-e8c82f88>Improve Code Quality‎</a></nav> <a href="#limitation-of-static-analysis" class="nav-link py-1" data-v-e8c82f88>Limitation of Static Analysis‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#false-positives" class="nav-link py-1" data-v-e8c82f88>False Positives‎</a> <a href="#cannot-catch-error-introduced-in-runtime-environment" class="nav-link py-1" data-v-e8c82f88>Cannot Catch Error Introduced in Runtime Environment‎</a></nav> <a href="#how-to-do-static-analysis-static-analysis-tools" class="nav-link py-1" data-v-e8c82f88>How to Do Static Analysis (Static Analysis Tools)‎</a> <a href="#references" class="nav-link py-1" data-v-e8c82f88>References‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

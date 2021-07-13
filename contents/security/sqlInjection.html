@@ -1,542 +1,116 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - SQL Injection</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Security
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a current">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="sql-injection">SQL Injection<a class="fa fa-anchor" href="#sql-injection" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Authors: <a href="https://github.com/Adoby7">Jiang Chunhui</a>, <a href="https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md">Lewis Koh</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/AyushChatto">Chattoraj Ayush</a>, <a href="https://github.com/monmanuela">Monika Manuela Hengki</a>, <a href="https://github.com/nicholaschuayunzhi">Nicholas Chua</a>, <a href="https://github.com/rachx">Rachael Sim</a>, <a href="https://github.com/tran-tien-dat">Tran Tien Dat</a>, <a href="https://github.com/wenmogu">Wen Xin</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#sql">SQL‎</a></li>
-              <li><a href="#how-does-sql-injection-work">How Does SQL Injection Work?‎</a></li>
-              <li><a href="#why-is-it-important-to-prevent-sql-injection">Why is it Important to Prevent SQL Injection?‎</a></li>
-              <li><a href="#preventing-sql-injection">Preventing SQL Injection‎</a>
-                <ul>
-                  <li><a href="#solution-1-prepared-statements-using-parameterized-queries">Solution 1: Prepared Statements Using Parameterized Queries‎</a></li>
-                  <li><a href="#solution-2-whitelist-input-validation">Solution 2: Whitelist Input Validation‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#resources">Resources‎</a></li>
-            </ul>
-          </box>
-
-          <h2 id="sql">SQL<a class="fa fa-anchor" href="#sql" onclick="event.stopPropagation()"></a></h2>
-          <p>SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many &quot;tables&quot; organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:</p>
-          <div class="table-responsive">
-            <table class="markbind-table table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th style="text-align:center">UserId</th>
-                  <th style="text-align:center">Username</th>
-                  <th style="text-align:center">Password</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align:center">1</td>
-                  <td style="text-align:center">Admin</td>
-                  <td style="text-align:center">123456</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">2</td>
-                  <td style="text-align:center">Alice</td>
-                  <td style="text-align:center">pw1234</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">3</td>
-                  <td style="text-align:center">...</td>
-                  <td style="text-align:center">...</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p>SQL is used to interact with the database by sending &quot;queries&quot; which the database responds to. Some common SQL commands used include:</p>
-          <ul>
-            <li><code>SELECT</code> - retrieves information from a table</li>
-            <li><code>UPDATE</code> - changes information from a table</li>
-            <li><code>INSERT INTO</code> - adds a new entry into a table</li>
-            <li><code>DELETE FROM</code> - deletes information from a table</li>
-            <li><code>DROP</code> - deletes the whole table</li>
-          </ul>
-          <p>In addition, a query could use parameters to filter, reorder, and group the returned results. For example, the following query will only returns the records in table &quot;users&quot; whose user name is &quot;Admin&quot;. Here the parameter <code>Username = Admin</code> in the <code>WHERE clause</code> works as a filter.</p>
-          <pre><code class="hljs SQL"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'Admin'</span><br></span></code></pre>
-          <p>More information about SQL can be found <a href="https://www.w3schools.com/sql/">here</a>.</p>
-          <h2 id="how-does-sql-injection-work">How Does SQL Injection Work?<a class="fa fa-anchor" href="#how-does-sql-injection-work" onclick="event.stopPropagation()"></a></h2>
-          <blockquote>
-            <p><strong>SQL injection is the placement of malicious code in SQL statements, via web page input.</strong><br>--source: <a href="https://www.w3schools.com/sql/sql_injection.asp">w3schools</a></p>
-          </blockquote>
-          <p>To learn about SQL injection, let us suppose that a typical website connects to a database which stores user information like below:</p>
-          <div class="table-responsive">
-            <table class="markbind-table table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th style="text-align:center">UserId</th>
-                  <th style="text-align:center">Username</th>
-                  <th style="text-align:center">Password</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align:center">1</td>
-                  <td style="text-align:center">Admin</td>
-                  <td style="text-align:center">123456</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">2</td>
-                  <td style="text-align:center">Alice</td>
-                  <td style="text-align:center">pw1234</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">3</td>
-                  <td style="text-align:center">...</td>
-                  <td style="text-align:center">...</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p>Then the website prompts a login form to require the user to enter <code>username</code> and <code>password</code>. After receiving the data, it generates the following SQL query:</p>
-          <pre><code class="hljs sql"><span>String query = "<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘<span class="hljs-string">" + input_username +"</span>’ <br></span><span>                <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘<span class="hljs-string">" + input_password + "</span>’<span class="hljs-string">";</span><br></span></code></pre>
-          <p>Next, the website checks whether the query returns any record to verify whether the user enters the correct password.</p>
-          <p>As an example, if a user entered their username, <code>Alice</code>, and password, <code>pw1234</code> into the website to try to gain access:</p>
-          <pre><code class="hljs"><span>Username: Alice<br></span><span>Password: pw1234<br></span></code></pre>
-          <p>The constructed query would look like this:</p>
-          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘Alice’ <br></span><span><span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘pw1234’<br></span></code></pre>
-          <p>This query would find all entries in the <code>Users</code> table in the database, and return any entries where the <code>Username</code> is <code>Alice</code> and the <code>Password</code> is <code>pw1234</code>. If the previous table was searched, it would return the details of the second row as the result. Since there was a result returned, the website would be able to tell that a legitimate username and password combination was entered since the query requires that both are matched to retrieve the data. Thus, the website would know that the user is legitimate, and the user would be allowed to log into the site.
-            On the other hand, if no result was returned by the database, the website would know that the username and password combination does not match any of the users in the database, and would deny access to the person trying to log in.</p>
-          <p><strong>However, some websites may not check the syntax of user input rigorously, and therefore a malicious user can inject SQL query via the user input.</strong></p>
-          <p>In the example above, the website directly substitutes the information given by the user without any validation. In this case, an attacker can supply some malicious SQL code in the user input such that it changes the nature of the SQL statement executed.</p>
-          <p>For example, the attacker can add more parameters to the query:</p>
-          <pre><code class="hljs sql"><span>Username: Admin<br></span><span>Password: foo’ OR ‘1’=‘1<br></span></code></pre>
-          <p>The SQL command string built from this input would be as follows:</p>
-          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘<span class="hljs-keyword">Admin</span>’ <br></span><span><span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘foo’ <span class="hljs-keyword">OR</span> ‘<span class="hljs-number">1</span>’=‘<span class="hljs-number">1</span>’<br></span></code></pre>
-          <p>In SQL, <code>AND</code> operations are checked before <code>OR</code> operations.
-            This query will check the database for entries where:</p>
-          <pre><code class="hljs"><span>(Username = Admin AND Password = foo) OR (‘1’=‘1’)<br></span></code></pre>
-          <p>This <code>where</code> clause will always return true, as <code>‘1’=‘1’</code> is always true.
-            As such, the query can be simplified to this:</p>
-          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span><br></span></code></pre>
-          <p>This will return all the rows from the <code>Users</code> table in the database, regardless of username or password entered.</p>
-          <p>The above technique of injecting malicious SQL code via user input is called SQL injection. If used in user authentication, the attacker is able to gain access to anyone's account. Moreover, this attacker can also modify sensitive information if the account owner has the privilege (e.g. a lecturer who can modify students' marks).</p>
-          <p><strong>In addition to adding extra parameters to compromise the authentication, a malicious user may even add custom queries to view, modify the records in database, or even delete the whole database.</strong></p>
-          <p>An SQL query ends with a semicolon &quot;;&quot;. In the previous section the malicious user terminates one parameter by single quote &quot;'&quot;, and add more parameters behind it. Now, he can also terminate the query by semicolon, and adds another query at the back:</p>
-          <pre><code class="hljs sql"><span>Username: foo<br></span><span>Password: bar’; <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">Users</span>;<br></span></code></pre>
-          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = ‘foo’ <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = ‘bar’; <br></span><span><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">Users</span>;<br></span></code></pre>
-          <p>When the database executes these two queries, it will delete all user information. Then other users cannot access this website. In addition to the <code>DROP</code> query, the attacker may also inject <code>SELECT</code> and <code>INSERT</code> queries, which can either read sensitive data from database or add data to it.</p>
-          <h2 id="why-is-it-important-to-prevent-sql-injection">Why is it Important to Prevent SQL Injection?<a class="fa fa-anchor" href="#why-is-it-important-to-prevent-sql-injection" onclick="event.stopPropagation()"></a></h2>
-          <ol>
-            <li><strong>It is the most common type of attack.</strong> According to <a href="https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf">Open Web Application Security Project (OWASP) report</a>, the injection attack is always the annual top 1 application security risk from 2013 to 2017. In addition, <a href="https://www.akamai.com/uk/en/resources/our-thinking/state-of-the-internet-report/web-attack-visualization.jsp">Statistics from Akamai</a> shows that in one week, over 80% of attacks are SQL injection.</li>
-            <li><strong>It can have serious consequences.</strong> SQL injection can cause the loss of large amount of money. Based on the <a href="https://www.helpnetsecurity.com/2014/03/28/analysis-of-three-billion-attacks-reveals-sql-injections-cost-196000/">Global Threat Intelligence Report</a>, even a small SQL injection attack may cause hundreds of thousands dollars lost.
-              Furthermore, information disclosure is another serious consequence. <a href="https://coar.risc.anl.gov/consequences-of-sql-injection-attacks/">An SQL injection attack on the toymaker company, VTech</a>, caused millions of parents' and children's profiles to be stolen.
-              Thus, we need to pay attention to prevent this attack in our code.</li>
-            <li><strong>It is easy to prevent.</strong> Referring to the section below, you do not need to put too many efforts on preventing from SQL injection. As it can prevent such a common attack, why not do it now?</li>
-          </ol>
-          <h2 id="preventing-sql-injection">Preventing SQL Injection<a class="fa fa-anchor" href="#preventing-sql-injection" onclick="event.stopPropagation()"></a></h2>
-          <p>There are a couple of ways to protect your website against SQL injection attacks. The two most common ways are:</p>
-          <ol>
-            <li>Prepared Statements using Parameterized Queries</li>
-            <li>Whitelist Input Validation</li>
-          </ol>
-          <p>The sections below explain the two options in more detail.</p>
-          <h3 id="solution-1-prepared-statements-using-parameterized-queries">Solution 1: Prepared Statements Using Parameterized Queries<a class="fa fa-anchor" href="#solution-1-prepared-statements-using-parameterized-queries" onclick="event.stopPropagation()"></a></h3>
-          <p>By defining all the SQL code first and passing in the parameters afterwards, you can make the database distinguish the difference between code and data. It would treat the values entered by the user as a parameter, and would not allow it to alter the query being executed. The way to achieve this varies by language, but it is easy to implement and effective.</p>
-          <p>For example, instead of writing this in Java:</p>
-          <pre><code class="hljs java"><span>String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = "</span> + input_username +<span class="hljs-string">"’ </span><br></span><span><span class="hljs-string">                AND Password = ‘"</span> + input_password + <span class="hljs-string">"’"</span>;<br></span><span>Statement statement = connection.createStatement();<br></span><span>ResultSet results = statement.executeQuery( query );<br></span></code></pre>
-          <p>You can prepare the statement like this:</p>
-          <pre><code class="hljs java"><span> String query = <span class="hljs-string">"SELECT * FROM Users WHERE Username = ? </span><br></span><span><span class="hljs-string">                AND Password = ? "</span>;<br></span><span> PreparedStatement pstmt = connection.prepareStatement( query );<br></span><span> pstmt.setString( <span class="hljs-number">1</span>, input_username ); <br></span><span> pstmt.setString( <span class="hljs-number">2</span>, input_password );<br></span><span> ResultSet results = pstmt.executeQuery( );<br></span></code></pre>
-          <p>The <code>?</code> in the query string is a placeholder for a string value. In the example, the first <code>?</code> is substituted with the value of <code>input_username</code> using the call <code>pstmt.setString(1, input_username)</code>. If the earlier attack was attempted, The query being submitted to the database will look like this:</p>
-          <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Users</span> <span class="hljs-keyword">WHERE</span> Username = <span class="hljs-string">'foo'</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Password</span> = <span class="hljs-string">'bar'</span> <span class="hljs-keyword">OR</span> ‘’=’’<br></span></code></pre>
-          <p>However, since it is treated as a value to be used, the database will not allow it to modify the query, and it would not be able to affect the structure of the SQL statement. As such, the query will check the database for entries where:</p>
-          <pre><code class="hljs"><span>Username = foo<br></span><span>AND <br></span><span>Password = bar OR ‘’=’’<br></span></code></pre>
-          <p>As such, the query is safe from SQL code being injected by users.</p>
-          <h3 id="solution-2-whitelist-input-validation">Solution 2: Whitelist Input Validation<a class="fa fa-anchor" href="#solution-2-whitelist-input-validation" onclick="event.stopPropagation()"></a></h3>
-          <p>By applying a whitelist to the values a user is allowed to use, you can remove undesired symbols in the query being passed to the database
-            (e.g. whitelisting only alphanumeric characters for a username). This ensures that attackers won't be allowed to enter special characters
-            which may have unwanted effects when executed. (e.g. special characters in SQL such as <code>'</code>, <code>@</code>, <code>^</code> and <code>_</code>)</p>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources" onclick="event.stopPropagation()"></a></h2>
-          <p>References:</p>
-          <ol>
-            <li><a href="https://www.owasp.org/index.php/SQL_Injection">https://www.owasp.org/index.php/SQL_Injection</a>
-              (Basic description of SQL Injection attack taken from here)</li>
-            <li><a href="http://projects.webappsec.org/f/WASC-TC-v2_0.pdf">http://projects.webappsec.org/f/WASC-TC-v2_0.pdf</a> (page 105-110)
-              (Description of the two types of SQL injection attack taken from here)</li>
-          </ol>
-          <p>Additional Reading Resources:</p>
-          <ol>
-            <li><a href="https://www.sqlinjection.net/">https://www.sqlinjection.net/</a>
-              (Good starting point for diving deeper into SQL injection)</li>
-            <li><a href="https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)">https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)</a>
-              (How to test your website for SQL injection attacks)</li>
-            <li><a href="https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet">https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet</a>
-              (Parameterized query examples for some common languages)</li>
-            <li><a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet</a>
-              (A list of possible preventions, which contains even more ways to protect your site from SQL injection attacks).</li>
-            <li><a href="https://guides.rubyonrails.org/security.html#sql-injection">https://guides.rubyonrails.org/security.html#sql-injection</a>
-              (Discussion of how SQL injection attacks work, some possible scenarios of such attacks, and possible preventive measures using Ruby on Rails)</li>
-            <li><a href="https://www.owasp.org/index.php/Blind_SQL_Injection">https://www.owasp.org/index.php/Blind_SQL_Injection</a>
-              (Discussion about a type of SQL injection attack, when only generic messages are displayed by the website)</li>
-            <li><a href="https://cwe.mitre.org/data/definitions/89.html">https://cwe.mitre.org/data/definitions/89.html</a>
-              (Comprehensive coverage of the aspects of SQL injection)</li>
-          </ol>
-          <p>Additional Resources:</p>
-          <ol>
-            <li><a href="https://github.com/sqlmapproject/sqlmap">https://github.com/sqlmapproject/sqlmap</a>
-              (Penetration testing tool that detects and exploits SQL injection flaws)</li>
-            <li><a href="https://find-sec-bugs.github.io/">https://find-sec-bugs.github.io/</a>
-              (Plugin to detect security vulnerabilities in Java web applications, including SQL injection)</li>
-          </ol>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#sql-injection">SQL Injection&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#sql">SQL&#x200E;</a>
-              <a class="nav-link py-1" href="#how-does-sql-injection-work">How Does SQL Injection Work?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-is-it-important-to-prevent-sql-injection">Why is it Important to Prevent SQL Injection?&#x200E;</a>
-              <a class="nav-link py-1" href="#preventing-sql-injection">Preventing SQL Injection&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#solution-1-prepared-statements-using-parameterized-queries">Solution 1: Prepared Statements Using Parameterized Queries&#x200E;</a>
-                <a class="nav-link py-1" href="#solution-2-whitelist-input-validation">Solution 2: Whitelist Input Validation&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - SQL Injection</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="sqlInjection.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="sql-injection"><span id="sql-injection" class="anchor"></span>SQL Injection<a href="#sql-injection" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Authors: <a href="https://github.com/Adoby7">Jiang Chunhui</a>, <a href="https://github.com/nus-cs3281/2018/blob/master/students/lewisKoh/lewisKoh-Resume.md">Lewis Koh</a></strong></p> <p>Reviewers: <a href="https://github.com/AyushChatto">Chattoraj Ayush</a>, <a href="https://github.com/monmanuela">Monika Manuela Hengki</a>,  <a href="https://github.com/nicholaschuayunzhi">Nicholas Chua</a>, <a href="https://github.com/rachx">Rachael Sim</a>, <a href="https://github.com/tran-tien-dat">Tran Tien Dat</a>, <a href="https://github.com/wenmogu">Wen Xin</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#sql" data-v-7d17494f>SQL‎</a></li> <li data-v-7d17494f><a href="#how-does-sql-injection-work" data-v-7d17494f>How Does SQL Injection Work?‎</a></li> <li data-v-7d17494f><a href="#why-is-it-important-to-prevent-sql-injection" data-v-7d17494f>Why is it Important to Prevent SQL Injection?‎</a></li> <li data-v-7d17494f><a href="#preventing-sql-injection" data-v-7d17494f>Preventing SQL Injection‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#solution-1-prepared-statements-using-parameterized-queries" data-v-7d17494f>Solution 1: Prepared Statements Using Parameterized Queries‎</a></li> <li data-v-7d17494f><a href="#solution-2-whitelist-input-validation" data-v-7d17494f>Solution 2: Whitelist Input Validation‎</a></li></ul></li> <li data-v-7d17494f><a href="#resources" data-v-7d17494f>Resources‎</a></li></ul></div> <!----></div></div></div> <h2 id="sql"><span id="sql" class="anchor"></span>SQL<a href="#sql" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>SQL (Structured Query Language) is a common language which is used by websites to communicate with databases. Databases can be used to store persistent data, such as usernames and passwords, sensitive account data, or other important information used by the website. Typically, SQL works on relational databases, which are usually made of many &quot;tables&quot; organised in rows and columns. Each row is a separate entry in the table, and each column is a specific parameter which can be used by the entry. A sample table is shown below:</p> <div class="table-responsive"><table class="markbind-table table table-bordered table-striped"><thead><tr><th style="text-align:center;">UserId</th> <th style="text-align:center;">Username</th> <th style="text-align:center;">Password</th></tr></thead> <tbody><tr><td style="text-align:center;">1</td> <td style="text-align:center;">Admin</td> <td style="text-align:center;">123456</td></tr> <tr><td style="text-align:center;">2</td> <td style="text-align:center;">Alice</td> <td style="text-align:center;">pw1234</td></tr> <tr><td style="text-align:center;">3</td> <td style="text-align:center;">...</td> <td style="text-align:center;">...</td></tr></tbody></table></div><p>SQL is used to interact with the database by sending &quot;queries&quot; which the database responds to. Some common SQL commands used include:</p> <ul><li><code class="hljs inline no-lang">SELECT</code> - retrieves information from a table</li> <li><code class="hljs inline no-lang">UPDATE</code> - changes information from a table</li> <li><code class="hljs inline no-lang">INSERT INTO</code> - adds a new entry into a table</li> <li><code class="hljs inline no-lang">DELETE FROM</code> - deletes information from a table</li> <li><code class="hljs inline no-lang">DROP</code> - deletes the whole table</li></ul> <p>In addition, a query could use parameters to filter, reorder, and group the returned results. For example, the following query will only returns the records in table &quot;users&quot; whose user name is &quot;Admin&quot;. Here the parameter <code class="hljs inline no-lang">Username = Admin</code> in the <code class="hljs inline no-lang">WHERE clause</code> works as a filter.</p> <pre><code class="hljs SQL"><span><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> users <span class="hljs-keyword">WHERE</span> Username <span class="hljs-operator">=</span> <span class="hljs-string">'Admin'</span>
+</span></code></pre><p>More information about SQL can be found <a href="https://www.w3schools.com/sql/">here</a>.</p> <h2 id="how-does-sql-injection-work"><span id="how-does-sql-injection-work" class="anchor"></span>How Does SQL Injection Work?<a href="#how-does-sql-injection-work" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <blockquote><p><strong>SQL injection is the placement of malicious code in SQL statements, via web page input.</strong><br>--source: <a href="https://www.w3schools.com/sql/sql_injection.asp">w3schools</a></p></blockquote> <p>To learn about SQL injection, let us suppose that a typical website connects to a database which stores user information like below:</p> <div class="table-responsive"><table class="markbind-table table table-bordered table-striped"><thead><tr><th style="text-align:center;">UserId</th> <th style="text-align:center;">Username</th> <th style="text-align:center;">Password</th></tr></thead> <tbody><tr><td style="text-align:center;">1</td> <td style="text-align:center;">Admin</td> <td style="text-align:center;">123456</td></tr> <tr><td style="text-align:center;">2</td> <td style="text-align:center;">Alice</td> <td style="text-align:center;">pw1234</td></tr> <tr><td style="text-align:center;">3</td> <td style="text-align:center;">...</td> <td style="text-align:center;">...</td></tr></tbody></table></div><p>Then the website prompts a login form to require the user to enter <code class="hljs inline no-lang">username</code> and <code class="hljs inline no-lang">password</code>. After receiving the data, it generates the following SQL query:</p> <pre><code class="hljs sql"><span>String query <span class="hljs-operator">=</span> &quot;SELECT * FROM Users WHERE Username = ‘&quot; <span class="hljs-operator">+</span> input_username <span class="hljs-operator">+</span>&quot;’ 
+</span><span>                AND Password = ‘&quot; <span class="hljs-operator">+</span> input_password <span class="hljs-operator">+</span> &quot;’&quot;;
+</span></code></pre><p>Next, the website checks whether the query returns any record to verify whether the user enters the correct password.</p> <p>As an example, if a user entered their username, <code class="hljs inline no-lang">Alice</code>, and password, <code class="hljs inline no-lang">pw1234</code> into the website to try to gain access:</p> <pre><code class="hljs"><span>Username: Alice
+</span><span>Password: pw1234
+</span></code></pre><p>The constructed query would look like this:</p> <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Users <span class="hljs-keyword">WHERE</span> Username <span class="hljs-operator">=</span> ‘Alice’ 
+</span><span><span class="hljs-keyword">AND</span> Password <span class="hljs-operator">=</span> ‘pw1234’
+</span></code></pre><p>This query would find all entries in the <code class="hljs inline no-lang">Users</code> table in the database, and return any entries where the <code class="hljs inline no-lang">Username</code> is <code class="hljs inline no-lang">Alice</code> and the <code class="hljs inline no-lang">Password</code> is <code class="hljs inline no-lang">pw1234</code>. If the previous table was searched, it would return the details of the second row as the result. Since there was a result returned, the website would be able to tell that a legitimate username and password combination was entered since the query requires that both are matched to retrieve the data. Thus, the website would know that the user is legitimate, and the user would be allowed to log into the site.
+On the other hand, if no result was returned by the database, the website would know that the username and password combination does not match any of the users in the database, and would deny access to the person trying to log in.</p> <p><strong>However, some websites may not check the syntax of user input rigorously, and therefore a malicious user can inject SQL query via the user input.</strong></p> <p>In the example above, the website directly substitutes the information given by the user without any validation. In this case, an attacker can supply some malicious SQL code in the user input such that it changes the nature of the SQL statement executed.</p> <p>For example, the attacker can add more parameters to the query:</p> <pre><code class="hljs sql"><span>Username: Admin
+</span><span>Password: foo’ <span class="hljs-keyword">OR</span> ‘<span class="hljs-number">1</span>’<span class="hljs-operator">=</span>‘<span class="hljs-number">1</span>
+</span></code></pre><p>The SQL command string built from this input would be as follows:</p> <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Users <span class="hljs-keyword">WHERE</span> Username <span class="hljs-operator">=</span> ‘Admin’ 
+</span><span><span class="hljs-keyword">AND</span> Password <span class="hljs-operator">=</span> ‘foo’ <span class="hljs-keyword">OR</span> ‘<span class="hljs-number">1</span>’<span class="hljs-operator">=</span>‘<span class="hljs-number">1</span>’
+</span></code></pre><p>In SQL, <code class="hljs inline no-lang">AND</code> operations are checked before <code class="hljs inline no-lang">OR</code> operations.
+This query will check the database for entries where:</p> <pre><code class="hljs"><span>(Username = Admin AND Password = foo) OR (‘1’=‘1’)
+</span></code></pre><p>This <code class="hljs inline no-lang">where</code> clause will always return true, as <code class="hljs inline no-lang">‘1’=‘1’</code> is always true.
+As such, the query can be simplified to this:</p> <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Users
+</span></code></pre><p>This will return all the rows from the <code class="hljs inline no-lang">Users</code> table in the database, regardless of username or password entered.</p> <p>The above technique of injecting malicious SQL code via user input is called SQL injection. If used in user authentication, the attacker is able to gain access to anyone's account. Moreover, this attacker can also modify sensitive information if the account owner has the privilege (e.g. a lecturer who can modify students' marks).</p> <p><strong>In addition to adding extra parameters to compromise the authentication, a malicious user may even add custom queries to view, modify the records in database, or even delete the whole database.</strong></p> <p>An SQL query ends with a semicolon &quot;;&quot;. In the previous section the malicious user terminates one parameter by single quote &quot;'&quot;, and add more parameters behind it. Now, he can also terminate the query by semicolon, and adds another query at the back:</p> <pre><code class="hljs sql"><span>Username: foo
+</span><span>Password: bar’; <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> Users;
+</span></code></pre><pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Users <span class="hljs-keyword">WHERE</span> Username <span class="hljs-operator">=</span> ‘foo’ <span class="hljs-keyword">AND</span> Password <span class="hljs-operator">=</span> ‘bar’; 
+</span><span><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> Users;
+</span></code></pre><p>When the database executes these two queries, it will delete all user information. Then other users cannot access this website. In addition to the <code class="hljs inline no-lang">DROP</code> query, the attacker may also inject <code class="hljs inline no-lang">SELECT</code> and <code class="hljs inline no-lang">INSERT</code> queries, which can either read sensitive data from database or add data to it.</p> <h2 id="why-is-it-important-to-prevent-sql-injection"><span id="why-is-it-important-to-prevent-sql-injection" class="anchor"></span>Why is it Important to Prevent SQL Injection?<a href="#why-is-it-important-to-prevent-sql-injection" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ol><li><strong>It is the most common type of attack.</strong> According to <a href="https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf">Open Web Application Security Project (OWASP) report</a>, the injection attack is always the annual top 1 application security risk from 2013 to 2017. In addition, <a href="https://www.akamai.com/uk/en/resources/our-thinking/state-of-the-internet-report/web-attack-visualization.jsp">Statistics from Akamai</a> shows that in one week, over 80% of attacks are SQL injection.</li> <li><strong>It can have serious consequences.</strong> SQL injection can cause the loss of large amount of money. Based on the <a href="https://www.helpnetsecurity.com/2014/03/28/analysis-of-three-billion-attacks-reveals-sql-injections-cost-196000/">Global Threat Intelligence Report</a>, even a small SQL injection attack may cause hundreds of thousands dollars lost.
+Furthermore, information disclosure is another serious consequence. <a href="https://coar.risc.anl.gov/consequences-of-sql-injection-attacks/">An SQL injection attack on the toymaker company, VTech</a>, caused millions of parents' and children's profiles to be stolen.
+Thus, we need to pay attention to prevent this attack in our code.</li> <li><strong>It is easy to prevent.</strong> Referring to the section below, you do not need to put too many efforts on preventing from SQL injection. As it can prevent such a common attack, why not do it now?</li></ol> <h2 id="preventing-sql-injection"><span id="preventing-sql-injection" class="anchor"></span>Preventing SQL Injection<a href="#preventing-sql-injection" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>There are a couple of ways to protect your website against SQL injection attacks. The two most common ways are:</p> <ol><li>Prepared Statements using Parameterized Queries</li> <li>Whitelist Input Validation</li></ol> <p>The sections below explain the two options in more detail.</p> <h3 id="solution-1-prepared-statements-using-parameterized-queries"><span id="solution-1-prepared-statements-using-parameterized-queries" class="anchor"></span>Solution 1: Prepared Statements Using Parameterized Queries<a href="#solution-1-prepared-statements-using-parameterized-queries" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>By defining all the SQL code first and passing in the parameters afterwards, you can make the database distinguish the difference between code and data. It would treat the values entered by the user as a parameter, and would not allow it to alter the query being executed. The way to achieve this varies by language, but it is easy to implement and effective.</p> <p>For example, instead of writing this in Java:</p> <pre><code class="hljs java"><span>String query = <span class="hljs-string">&quot;SELECT * FROM Users WHERE Username = &quot;</span> + input_username +<span class="hljs-string">&quot;’ </span>
+</span><span><span class="hljs-string">                AND Password = ‘&quot;</span> + input_password + <span class="hljs-string">&quot;’&quot;</span>;
+</span><span>Statement statement = connection.createStatement();
+</span><span>ResultSet results = statement.executeQuery( query );
+</span></code></pre><p>You can prepare the statement like this:</p> <pre><code class="hljs java"><span> String query = <span class="hljs-string">&quot;SELECT * FROM Users WHERE Username = ? </span>
+</span><span><span class="hljs-string">                AND Password = ? &quot;</span>;
+</span><span> PreparedStatement pstmt = connection.prepareStatement( query );
+</span><span> pstmt.setString( <span class="hljs-number">1</span>, input_username ); 
+</span><span> pstmt.setString( <span class="hljs-number">2</span>, input_password );
+</span><span> ResultSet results = pstmt.executeQuery( );
+</span></code></pre><p>The <code class="hljs inline no-lang">?</code> in the query string is a placeholder for a string value. In the example, the first <code class="hljs inline no-lang">?</code> is substituted with the value of <code class="hljs inline no-lang">input_username</code> using the call <code class="hljs inline no-lang">pstmt.setString(1, input_username)</code>. If the earlier attack was attempted, The query being submitted to the database will look like this:</p> <pre><code class="hljs sql"><span><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Users <span class="hljs-keyword">WHERE</span> Username <span class="hljs-operator">=</span> <span class="hljs-string">'foo'</span> <span class="hljs-keyword">AND</span> Password <span class="hljs-operator">=</span> <span class="hljs-string">'bar'</span> <span class="hljs-keyword">OR</span> ‘’<span class="hljs-operator">=</span>’’
+</span></code></pre><p>However, since it is treated as a value to be used, the database will not allow it to modify the query, and it would not be able to affect the structure of the SQL statement. As such, the query will check the database for entries where:</p> <pre><code class="hljs"><span>Username = foo
+</span><span>AND 
+</span><span>Password = bar OR ‘’=’’
+</span></code></pre><p>As such, the query is safe from SQL code being injected by users.</p> <h3 id="solution-2-whitelist-input-validation"><span id="solution-2-whitelist-input-validation" class="anchor"></span>Solution 2: Whitelist Input Validation<a href="#solution-2-whitelist-input-validation" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>By applying a whitelist to the values a user is allowed to use, you can remove undesired symbols in the query being passed to the database
+(e.g. whitelisting only alphanumeric characters for a username). This ensures that attackers won't be allowed to enter special characters
+which may have unwanted effects when executed. (e.g. special characters in SQL such as <code class="hljs inline no-lang">'</code>, <code class="hljs inline no-lang">@</code>, <code class="hljs inline no-lang">^</code> and <code class="hljs inline no-lang">_</code>)</p> <h2 id="resources"><span id="resources" class="anchor"></span>Resources<a href="#resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>References:</p> <ol><li><a href="https://www.owasp.org/index.php/SQL_Injection">https://www.owasp.org/index.php/SQL_Injection</a>
+(Basic description of SQL Injection attack taken from here)</li> <li><a href="http://projects.webappsec.org/f/WASC-TC-v2_0.pdf">http://projects.webappsec.org/f/WASC-TC-v2_0.pdf</a> (page 105-110)
+(Description of the two types of SQL injection attack taken from here)</li></ol> <p>Additional Reading Resources:</p> <ol><li><a href="https://www.sqlinjection.net/">https://www.sqlinjection.net/</a>
+(Good starting point for diving deeper into SQL injection)</li> <li><a href="https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)">https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)</a>
+(How to test your website for SQL injection attacks)</li> <li><a href="https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet">https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet</a>
+(Parameterized query examples for some common languages)</li> <li><a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet">https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet</a>
+(A list of possible preventions, which contains even more ways to protect your site from SQL injection attacks).</li> <li><a href="https://guides.rubyonrails.org/security.html#sql-injection">https://guides.rubyonrails.org/security.html#sql-injection</a>
+(Discussion of how SQL injection attacks work, some possible scenarios of such attacks, and possible preventive measures using Ruby on Rails)</li> <li><a href="https://www.owasp.org/index.php/Blind_SQL_Injection">https://www.owasp.org/index.php/Blind_SQL_Injection</a>
+(Discussion about a type of SQL injection attack, when only generic messages are displayed by the website)</li> <li><a href="https://cwe.mitre.org/data/definitions/89.html">https://cwe.mitre.org/data/definitions/89.html</a>
+(Comprehensive coverage of the aspects of SQL injection)</li></ol> <p>Additional Resources:</p> <ol><li><a href="https://github.com/sqlmapproject/sqlmap">https://github.com/sqlmapproject/sqlmap</a>
+(Penetration testing tool that detects and exploits SQL injection flaws)</li> <li><a href="https://find-sec-bugs.github.io/">https://find-sec-bugs.github.io/</a>
+(Plugin to detect security vulnerabilities in Java web applications, including SQL injection)</li></ol></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#sql-injection" class="nav-link py-1" data-v-e8c82f88>SQL Injection‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#sql" class="nav-link py-1" data-v-e8c82f88>SQL‎</a> <a href="#how-does-sql-injection-work" class="nav-link py-1" data-v-e8c82f88>How Does SQL Injection Work?‎</a> <a href="#why-is-it-important-to-prevent-sql-injection" class="nav-link py-1" data-v-e8c82f88>Why is it Important to Prevent SQL Injection?‎</a> <a href="#preventing-sql-injection" class="nav-link py-1" data-v-e8c82f88>Preventing SQL Injection‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#solution-1-prepared-statements-using-parameterized-queries" class="nav-link py-1" data-v-e8c82f88>Solution 1: Prepared Statements Using Parameterized Queries‎</a> <a href="#solution-2-whitelist-input-validation" class="nav-link py-1" data-v-e8c82f88>Solution 2: Whitelist Input Validation‎</a></nav> <a href="#resources" class="nav-link py-1" data-v-e8c82f88>Resources‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

@@ -4,19 +4,15 @@
     {
       "src": "README.md",
       "title": "",
-      "layout": "default",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "learning-resources-for-software-engineering-students": "Learning Resources for Software Engineering Students"
       },
       "headingKeywords": {}
     },
     {
-      "title": "About Us",
       "src": "about.md",
-      "layout": "default",
+      "title": "About Us",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "about-us": "About Us",
         "contact": "Contact",
         "license": "License",
@@ -27,19 +23,13 @@
     {
       "src": "contents/ToC.md",
       "title": "",
-      "layout": "default",
-      "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »"
-      },
+      "headings": {},
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Machine Learning (ML)",
-      "pageNav": 4,
       "src": "contents/ai/ml.md",
-      "layout": "default",
+      "title": "Introduction to Machine Learning (ML)",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-machine-learning-ml": "Introduction to Machine Learning (ML)",
         "what-is-machine-learning": "What is Machine Learning?",
         "types-of-machine-learning-tasks": "Types of Machine Learning Tasks",
@@ -59,12 +49,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Android App Development",
-      "pageNav": 3,
       "src": "contents/android/IntroToAndroid.md",
-      "layout": "default",
+      "title": "Introduction to Android App Development",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-android-app-development": "Introduction to Android App Development",
         "1-getting-started": "1. Getting Started",
         "1-1-what-is-android": "1.1 What is Android?",
@@ -83,12 +70,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "REST Architectural Style",
-      "pageNav": 3,
       "src": "contents/architecture/RESTArchitecturalStyle.md",
-      "layout": "default",
+      "title": "REST Architectural Style",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "rest-architectural-style": "REST Architectural Style",
         "overview": "Overview",
         "what-does-rest-mean": "What Does REST Mean?",
@@ -108,12 +92,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Rvalue References and Move Semantics",
-      "pageNav": 3,
       "src": "contents/c++/rvalue.md",
-      "layout": "default",
+      "title": "Rvalue References and Move Semantics",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "rvalue-references-and-move-semantics": "Rvalue References and Move Semantics",
         "background": "Background",
         "value-semantics": "Value Semantics",
@@ -128,12 +109,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Code Quality Metrics",
-      "pageNav": 3,
       "src": "contents/codeQuality/CodeQualityMetrics.md",
-      "layout": "default",
+      "title": "Code Quality Metrics",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "code-quality-metrics": "Code Quality Metrics",
         "overview": "Overview",
         "examples-of-metrics": "Examples of Metrics",
@@ -148,12 +126,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to computer vision (CV)",
-      "pageNav": 3,
       "src": "contents/computerVision/cv.md",
-      "layout": "default",
+      "title": "Introduction to computer vision (CV)",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-computer-vision-cv": "Introduction to Computer Vision (CV)",
         "what-is-computer-vision": "What is Computer Vision?",
         "applications-of-computer-vision": "Applications of Computer Vision",
@@ -170,12 +145,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Asynchronous Programming In C# Using Async/Await",
-      "pageNav": 3,
       "src": "contents/csharp/CSAsyncAwait.md",
-      "layout": "default",
+      "title": "Asynchronous Programming In C# Using Async/Await",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "asynchronous-programming-in-c-using-async-await": "Asynchronous Programming In C# Using Async/Await",
         "what-is-asynchronous-programming": "What Is Asynchronous Programming?",
         "example-of-asynchronous-programming": "Example Of Asynchronous Programming",
@@ -193,12 +165,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to C#",
-      "pageNav": 3,
       "src": "contents/csharp/IntroductionToCSharp.md",
-      "layout": "default",
+      "title": "Introduction to C#",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-c": "Introduction to C#",
         "what-is-c": "What is C#",
         "c-syntax-features": "C# Syntax Features",
@@ -212,12 +181,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Xamarin",
-      "pageNav": 3,
       "src": "contents/csharp/Xamarin.md",
-      "layout": "default",
+      "title": "Xamarin",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-xamarin": "Introduction to Xamarin",
         "what-is-xamarin": "What is Xamarin?",
         "how-xamarin-works": "How Xamarin Works?",
@@ -235,12 +201,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Dart",
-      "pageNav": 3,
       "src": "contents/dart/Dart.md",
-      "layout": "default",
+      "title": "Introduction to Dart",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-dart": "Introduction to Dart",
         "what-is-dart": "What is Dart?",
         "why-learn-dart": "Why Learn Dart?",
@@ -258,12 +221,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Databases & Database Management Systems (DBMS)",
-      "pageNav": 3,
       "src": "contents/data/databases/databases.md",
-      "layout": "default",
+      "title": "Introduction to Databases & Database Management Systems (DBMS)",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-databases-and-amp-database-management-systems-dbms": "Introduction to Databases &amp; Database Management Systems (DBMS)",
         "why-learn-databases-and-dbmses": "Why Learn Databases and DBMSes?",
         "introduction": "Introduction",
@@ -281,12 +241,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to NoSQL",
-      "pageNav": 3,
       "src": "contents/data/nosql/NoSQL.md",
-      "layout": "default",
+      "title": "Introduction to NoSQL",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-nosql": "Introduction to NoSQL",
         "what-is-nosql": "What is NoSQL?",
         "key-characteristics-of-nosql-databases": "Key Characteristics of NoSQL Databases",
@@ -303,12 +260,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to SQL",
-      "pageNav": 3,
       "src": "contents/data/sql/SQL.md",
-      "layout": "default",
+      "title": "Introduction to SQL",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-sql": "Introduction to SQL",
         "what-is-sql": "What is SQL?",
         "how-does-sql-work": "How Does SQL Work?",
@@ -319,12 +273,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "DevOps",
-      "pageNav": 3,
       "src": "contents/devops/DevOps.md",
-      "layout": "default",
+      "title": "DevOps",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "devops": "DevOps",
         "what-is-devops": "What is DevOps?",
         "aspects-of-devops": "Aspects of DevOps",
@@ -340,12 +291,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Docker",
-      "pageNav": 3,
       "src": "contents/docker/Docker.md",
-      "layout": "default",
+      "title": "Docker",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "docker": "Docker",
         "what-is-docker": "What is Docker?",
         "why-docker": "Why Docker?",
@@ -356,12 +304,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Dotfiles",
-      "pageNav": 4,
       "src": "contents/dotfiles/Dotfiles.md",
-      "layout": "default",
+      "title": "Introduction to Dotfiles",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-dotfiles": "Introduction to Dotfiles",
         "what-are-dotfiles": "What are Dotfiles?",
         "why-dotfiles": "Why Dotfiles?",
@@ -372,12 +317,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Elm",
-      "pageNav": 3,
       "src": "contents/elm/Elm.md",
-      "layout": "default",
+      "title": "Introduction to Elm",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-elm": "Introduction to Elm",
         "what-is-elm": "What is Elm?",
         "why-learn-elm": "Why Learn Elm?",
@@ -398,12 +340,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "An Introduction to Functional Programming",
-      "pageNav": 4,
       "src": "contents/functionalProgramming/intro.md",
-      "layout": "default",
+      "title": "An Introduction to Functional Programming",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "an-introduction-to-functional-programming": "An Introduction to Functional Programming",
         "what-is-functional-programming": "What is Functional Programming",
         "functional-programming-languages": "Functional Programming Languages",
@@ -416,12 +355,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Go",
-      "pageNav": 3,
       "src": "contents/go/Go.md",
-      "layout": "default",
+      "title": "Introduction to Go",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-go": "Introduction to Go",
         "what-is-go": "What Is Go?",
         "why-learn-go": "Why Learn Go?",
@@ -437,12 +373,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "An Introduction to CUDA",
-      "pageNav": 3,
       "src": "contents/gpgpu/cuda.md",
-      "layout": "default",
+      "title": "An Introduction to CUDA",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "an-introduction-to-cuda": "An Introduction to CUDA",
         "0-disclaimer": "§ 0. Disclaimer",
         "1-cuda": "§ 1. CUDA",
@@ -466,12 +399,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "An Introduction to GPGPU",
-      "pageNav": 3,
       "src": "contents/gpgpu/gpgpu.md",
-      "layout": "default",
+      "title": "An Introduction to GPGPU",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "an-introduction-to-gpgpu": "An Introduction to GPGPU",
         "1-gpgpu": "§ 1. GPGPU",
         "1-1-what-is-gpgpu": "§ 1.1 What is GPGPU?",
@@ -486,12 +416,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Haskell",
-      "pageNav": 3,
       "src": "contents/haskell/Haskell.md",
-      "layout": "default",
+      "title": "Introduction to Haskell",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-haskell": "Introduction to Haskell",
         "overview": "Overview",
         "getting-started": "Getting Started",
@@ -529,12 +456,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to iOS App Development",
-      "pageNav": 3,
       "src": "contents/ios/IntroToIos.md",
-      "layout": "default",
+      "title": "Introduction to iOS App Development",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-ios-development": "Introduction to iOS Development",
         "what-is-ios": "What is iOS?",
         "why-ios": "Why iOS?",
@@ -544,12 +468,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "JUnit",
-      "pageNav": 3,
       "src": "contents/java/JUnit.md",
-      "layout": "default",
+      "title": "JUnit",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "junit": "JUnit",
         "what-is-junit": "What is JUnit?",
         "why-junit": "Why JUnit?",
@@ -562,12 +483,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Java Concurrency",
-      "pageNav": 3,
       "src": "contents/java/JavaConcurrency.md",
-      "layout": "default",
+      "title": "Java Concurrency",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "java-concurrency": "Java Concurrency",
         "what-is-java-concurrency": "What is Java Concurrency",
         "getting-started": "Getting Started",
@@ -583,12 +501,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Advanced Java: Reflections",
-      "pageNav": 4,
       "src": "contents/java/JavaReflections.md",
-      "layout": "default",
+      "title": "Advanced Java: Reflections",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "advanced-java-reflections": "Advanced Java: Reflections",
         "reflection": "Reflection",
         "what-is-java-reflections": "What is Java Reflections?",
@@ -601,12 +516,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Java Synchronization",
-      "pageNav": 3,
       "src": "contents/java/JavaSynchronization.md",
-      "layout": "default",
+      "title": "Java Synchronization",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "java-synchronization": "Java Synchronization",
         "introduction": "Introduction",
         "basic-syntax": "Basic Syntax",
@@ -623,12 +535,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Spring Framework",
-      "pageNav": 3,
       "src": "contents/java/Spring.md",
-      "layout": "default",
+      "title": "Introduction to Spring Framework",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-spring-framework": "Introduction to Spring Framework",
         "what-is-spring-framework": "What is Spring Framework?",
         "core-features": "Core Features",
@@ -645,12 +554,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Java 8 Streams - An Introduction",
-      "pageNav": 4,
       "src": "contents/java/streams-an-introduction.md",
-      "layout": "default",
+      "title": "Java 8 Streams - An Introduction",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "java-8-streams-an-introduction": "Java 8 Streams - An Introduction",
         "overview": "Overview",
         "getting-started": "Getting Started",
@@ -670,12 +576,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Angular",
-      "pageNav": 3,
       "src": "contents/javascript/Javascript-framework-Angular.md",
-      "layout": "default",
+      "title": "Introduction to Angular",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-angular": "Introduction to Angular",
         "what-is-angular": "What is Angular?",
         "declarative-templates-and-components": "Declarative Templates and Components",
@@ -691,12 +594,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to React",
-      "pageNav": 3,
       "src": "contents/javascript/Javascript-framework-React.md",
-      "layout": "default",
+      "title": "Introduction to React",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-react": "Introduction to React",
         "what-is-react": "What is React?",
         "react-features": "React Features",
@@ -716,12 +616,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Redux",
-      "pageNav": 2,
       "src": "contents/javascript/Javascript-framework-Redux.md",
-      "layout": "default",
+      "title": "Redux",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-redux": "Introduction to Redux",
         "what-is-redux": "What is Redux?",
         "how-does-redux-work": "How Does Redux Work?",
@@ -733,12 +630,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Vue",
-      "pageNav": 3,
       "src": "contents/javascript/Javascript-framework-VueJs.md",
-      "layout": "default",
+      "title": "Introduction to Vue",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-vue": "Introduction to Vue",
         "what-is-vue": "What is Vue?",
         "hello-world": "Hello World",
@@ -754,12 +648,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Libraries",
-      "pageNav": 3,
       "src": "contents/javascript/Javascript-libraries.md",
-      "layout": "default",
+      "title": "Libraries",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "libraries": "Libraries",
         "utility-libraries": "Utility Libraries",
         "testing-libraries": "Testing Libraries"
@@ -767,12 +658,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Javascript: Modules",
-      "pageNav": 3,
       "src": "contents/javascript/Javascript-modules.md",
-      "layout": "default",
+      "title": "Javascript: Modules",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "javascript-modules": "Javascript: Modules",
         "what-is-a-module": "What is a Module?",
         "how-to-modularize-javascript-code": "How to Modularize JavaScript Code?",
@@ -786,12 +674,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Javascript: Promises",
-      "pageNav": 3,
       "src": "contents/javascript/Javascript-promises.md",
-      "layout": "default",
+      "title": "Javascript: Promises",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "javascript-promises": "Javascript: Promises",
         "why-promises": "Why Promises?",
         "what-is-a-promise": "What is a Promise?",
@@ -804,12 +689,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Writing Testable Javascript",
-      "pageNav": 3,
       "src": "contents/javascript/WritingTestableJavascript.md",
-      "layout": "default",
+      "title": "Writing Testable Javascript",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "writing-testable-javascript": "Writing Testable Javascript",
         "writing-testable-javascript-2": "Writing Testable JavaScript",
         "avoid-coupling-with-selectors": "Avoid Coupling With Selectors",
@@ -826,12 +708,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Static Typing in JavaScript",
-      "pageNav": 3,
       "src": "contents/javascript/staticTypingInJavascript.md",
-      "layout": "default",
+      "title": "Static Typing in JavaScript",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "static-typing-in-javascript": "Static Typing in JavaScript",
         "what-is-static-typing": "What is Static Typing?",
         "adding-static-typing-to-javascript": "Adding Static Typing to JavaScript",
@@ -847,12 +726,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Null Safety in Kotlin",
-      "pageNav": 3,
       "src": "contents/kotlin/NullSafety.md",
-      "layout": "default",
+      "title": "Null Safety in Kotlin",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "null-safety-in-kotlin": "Null Safety in Kotlin",
         "what-is-null-safety": "What is Null Safety?",
         "nullpointerexception": "NullPointerException",
@@ -868,12 +744,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Kotlin",
-      "pageNav": 3,
       "src": "contents/kotlin/kotlin.md",
-      "layout": "default",
+      "title": "Introduction to Kotlin",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-kotlin": "Introduction to Kotlin",
         "overview": "Overview",
         "why-kotlin": "Why Kotlin?",
@@ -889,12 +762,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Natural Language Processing (NLP)",
-      "pageNav": 3,
       "src": "contents/naturalLanguage/nl.md",
-      "layout": "default",
+      "title": "Introduction to Natural Language Processing (NLP)",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-natural-language-processing-nlp": "Introduction to Natural Language Processing (NLP)",
         "what-is-nlp": "What is NLP?",
         "themes-in-nlp": "Themes in NLP",
@@ -908,12 +778,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Node",
-      "pageNav": 3,
       "src": "contents/node/nodejs.md",
-      "layout": "default",
+      "title": "Introduction to Node",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-node": "Introduction to Node",
         "what-is-node": "What is Node?",
         "why-use-node": "Why use Node?",
@@ -931,12 +798,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Performance Optimization",
-      "pageNav": 3,
       "src": "contents/performance/Performance.md",
-      "layout": "default",
+      "title": "Introduction to Performance Optimization",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-performance-optimization": "Introduction to Performance Optimization",
         "overview": "Overview",
         "using-appropriate-data-structures-and-algorithms": "Using Appropriate Data Structures and Algorithms",
@@ -947,12 +811,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Performance Profiling",
-      "pageNav": 3,
       "src": "contents/performance/PerformanceProfiling.md",
-      "layout": "default",
+      "title": "Performance Profiling",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "performance-profiling": "Performance Profiling",
         "overview": "Overview",
         "performance-profiling-for-the-first-time": "Performance Profiling for the First Time",
@@ -965,12 +826,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Profiling a Desktop Application In Visual Studio 2015",
-      "pageNav": 3,
       "src": "contents/performance/ProfilingDesktopAppVS2015.md",
-      "layout": "default",
+      "title": "Profiling a Desktop Application In Visual Studio 2015",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "profiling-a-desktop-application-in-visual-studio-2015": "Profiling a Desktop Application in Visual Studio 2015",
         "overview": "Overview",
         "1-run-a-performance-profiling-session": "1. Run a Performance Profiling Session",
@@ -982,12 +840,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Web Performance",
-      "pageNav": 3,
       "src": "contents/performance/WebPerformance.md",
-      "layout": "default",
+      "title": "Web Performance",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "web-performance": "Web Performance",
         "what-is-web-performance": "What is Web Performance?",
         "why-web-performance-matters": "Why Web Performance Matters?",
@@ -998,12 +853,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Agile Development",
-      "pageNav": 3,
       "src": "contents/projectManagement/AgileDevelopment.md",
-      "layout": "default",
+      "title": "Agile Development",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "agile-development": "Agile Development",
         "overview": "Overview",
         "what-is-agile-development": "What is Agile Development?",
@@ -1016,12 +868,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Documentation",
-      "pageNav": 3,
       "src": "contents/projectManagement/documentation.md",
-      "layout": "default",
+      "title": "Documentation",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "documentation": "Documentation",
         "introduction": "Introduction",
         "why-write-documentation": "Why Write Documentation",
@@ -1035,12 +884,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Workflow Automation with GitHub Actions",
-      "pageNav": 3,
       "src": "contents/projectManagement/githubActions.md",
-      "layout": "default",
+      "title": "Workflow Automation with GitHub Actions",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "github-actions": "GitHub Actions",
         "what-is-github-actions": "What is GitHub Actions",
         "why-github-actions": "Why GitHub Actions",
@@ -1057,12 +903,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "An Introduction to Python",
-      "pageNav": 3,
       "src": "contents/python/introduction-to-python.md",
-      "layout": "default",
+      "title": "An Introduction to Python",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "an-introduction-to-python": "An Introduction to Python",
         "getting-started-with-python": "Getting Started With Python",
         "virtual-environment": "Virtual Environment",
@@ -1078,12 +921,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "NumPy",
-      "pageNav": 3,
       "src": "contents/python/numpy.md",
-      "layout": "default",
+      "title": "NumPy",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "numpy": "NumPy",
         "numpy-s-purpose": "NumPy's Purpose",
         "numpy-s-benefits-and-drawbacks": "NumPy's Benefits and Drawbacks",
@@ -1095,12 +935,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Regular Expressions",
-      "pageNav": 3,
       "src": "contents/regex/Regex.md",
-      "layout": "default",
+      "title": "Introduction to Regular Expressions",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-regular-expressions": "Introduction to Regular Expressions",
         "overview": "Overview",
         "what-are-regular-expressions": "What are Regular Expressions?",
@@ -1130,12 +967,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Best Practices with `git`",
-      "pageNav": 3,
       "src": "contents/revisionControl/bestPracticesGit.md",
-      "layout": "default",
+      "title": "Best Practices with `git`",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "best-practices-with-git": "Best Practices With git",
         "introduction": "Introduction",
         "best-practices": "Best Practices",
@@ -1157,12 +991,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Ruby on Rails",
-      "pageNav": 3,
       "src": "contents/ruby/Rails.md",
-      "layout": "default",
+      "title": "Ruby on Rails",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "ruby-on-rails": "Ruby on Rails",
         "ruby-on-rails-overview": "Ruby on Rails Overview",
         "the-rails-way": "The Rails Way",
@@ -1179,12 +1010,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Ruby",
-      "pageNav": 3,
       "src": "contents/ruby/Ruby.md",
-      "layout": "default",
+      "title": "Introduction to Ruby",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-ruby": "Introduction to Ruby",
         "ruby-overview": "Ruby Overview",
         "getting-started": "Getting Started",
@@ -1198,12 +1026,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Rust",
-      "pageNav": 3,
       "src": "contents/rust/Rust.md",
-      "layout": "default",
+      "title": "Rust",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "rust": "Rust",
         "why-rust": "Why Rust",
         "safety": "Safety",
@@ -1216,12 +1041,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Scala",
-      "pageNav": 3,
       "src": "contents/scala/Scala.md",
-      "layout": "default",
+      "title": "Introduction to Scala",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-scala": "Introduction to Scala",
         "overview": "Overview",
         "noteworthy-scala-features": "Noteworthy Scala Features",
@@ -1235,12 +1057,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Scalable Development - An Introduction",
-      "pageNav": 3,
       "src": "contents/scalability/scalable-development.md",
-      "layout": "default",
+      "title": "Scalable Development - An Introduction",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "scalable-development-an-introduction": "Scalable Development - An Introduction",
         "scalable-development": "Scalable Development",
         "scalability": "Scalability",
@@ -1254,12 +1073,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Security - https",
-      "pageNav": 3,
       "src": "contents/security/Https.md",
-      "layout": "default",
+      "title": "Security - https",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "security-https": "Security - https",
         "overview": "Overview",
         "why-do-we-need-https": "Why Do We Need HTTPS?",
@@ -1271,12 +1087,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Cross Site Request Forgery (CSRF)",
-      "pageNav": 3,
       "src": "contents/security/crossSiteRequestForgery/crossSiteRequestForgery.md",
-      "layout": "default",
+      "title": "Cross Site Request Forgery (CSRF)",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "cross-site-request-forgery-csrf": "Cross Site Request Forgery (CSRF)",
         "flow-of-a-csrf-attack": "Flow of a CSRF Attack",
         "step-1-the-victim-logs-in-to-a-vulnerable-web-service": "Step 1: The Victim Logs in to a Vulnerable Web Service",
@@ -1289,12 +1102,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Cross Site Scripting",
-      "pageNav": 3,
       "src": "contents/security/crossSiteScripting/crossSiteScripting.md",
-      "layout": "default",
+      "title": "Cross Site Scripting",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "cross-site-scripting-xss": "Cross Site Scripting (XSS)",
         "what-is-xss": "What is XSS?",
         "why-do-you-need-to-know-about-xss": "Why Do You Need to Know About XSS?",
@@ -1308,12 +1118,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Cryptography",
-      "pageNav": 3,
       "src": "contents/security/cryptography.md",
-      "layout": "default",
+      "title": "Introduction to Cryptography",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-cryptography": "Introduction to Cryptography",
         "overview": "Overview",
         "encryption": "Encryption",
@@ -1324,12 +1131,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Password Storage",
-      "pageNav": 3,
       "src": "contents/security/passwordStorage.md",
-      "layout": "default",
+      "title": "Introduction to Password Storage",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-password-storage": "Introduction to Password Storage",
         "overview": "Overview",
         "encryption": "Encryption",
@@ -1343,12 +1147,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "SQL Injection",
-      "pageNav": 3,
       "src": "contents/security/sqlInjection.md",
-      "layout": "default",
+      "title": "SQL Injection",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "sql-injection": "SQL Injection",
         "sql": "SQL",
         "how-does-sql-injection-work": "How Does SQL Injection Work?",
@@ -1361,12 +1162,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to bash shell",
-      "pageNav": 3,
       "src": "contents/shells/bash.md",
-      "layout": "default",
+      "title": "Introduction to bash shell",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-linux-bash-shell": "Introduction to Linux Bash Shell",
         "what-is-the-shell": "What is the Shell?",
         "bash-scripts": "Bash Scripts",
@@ -1377,12 +1175,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "ESLint",
-      "pageNav": 3,
       "src": "contents/staticAnalysis/ESLint.md",
-      "layout": "default",
+      "title": "ESLint",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "eslint": "ESLint",
         "overview": "Overview",
         "rules": "Rules",
@@ -1394,12 +1189,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "FindBugs",
-      "pageNav": 3,
       "src": "contents/staticAnalysis/FindBugs.md",
-      "layout": "default",
+      "title": "FindBugs",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "findbugs": "FindBugs",
         "overview": "Overview",
         "features": "Features",
@@ -1419,12 +1211,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "PMD",
-      "pageNav": 3,
       "src": "contents/staticAnalysis/PMD.md",
-      "layout": "default",
+      "title": "PMD",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "pmd": "PMD",
         "overview": "Overview",
         "features": "Features",
@@ -1444,12 +1233,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "CheckStyle",
-      "pageNav": 3,
       "src": "contents/staticAnalysis/checkStyle.md",
-      "layout": "default",
+      "title": "CheckStyle",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "checkstyle": "CheckStyle",
         "overview": "Overview",
         "features": "Features",
@@ -1466,12 +1252,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Static Analysis",
-      "pageNav": 3,
       "src": "contents/staticAnalysis/intro.md",
-      "layout": "default",
+      "title": "Static Analysis",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-static-analysis": "Introduction to Static Analysis",
         "overview": "Overview",
         "why-static-analysis": "Why Static Analysis?",
@@ -1488,12 +1271,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Swift",
-      "pageNav": 3,
       "src": "contents/swift/welcome-to-swift.md",
-      "layout": "default",
+      "title": "Swift",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "swift": "Swift",
         "swift-overview": "Swift Overview",
         "noteworthy-swift-features": "Noteworthy Swift Features",
@@ -1510,12 +1290,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Integration Testing",
-      "pageNav": 3,
       "src": "contents/testing/integration-testing.md",
-      "layout": "default",
+      "title": "Integration Testing",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "integration-testing": "Integration Testing",
         "what-is-integration-testing": "What is Integration Testing?",
         "why-is-integration-testing-important": "Why is Integration Testing Important?",
@@ -1530,12 +1307,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to Security Testing",
-      "pageNav": 3,
       "src": "contents/testing/security-testing.md",
-      "layout": "default",
+      "title": "Introduction to Security Testing",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-security-testing": "Introduction to Security Testing",
         "what-is-security-testing": "What Is Security Testing?",
         "types-of-security-testing": "Types of Security Testing",
@@ -1551,12 +1325,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Test-Driven Development",
-      "pageNav": 3,
       "src": "contents/testing/testDrivenDevelopment.md",
-      "layout": "default",
+      "title": "Test-Driven Development",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "test-driven-development": "Test-Driven Development",
         "what-is-test-driven-development": "What is Test-Driven Development?",
         "benefits-of-test-driven-development": "Benefits of Test-Driven Development",
@@ -1573,12 +1344,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Writing Testable Code",
-      "pageNav": 3,
       "src": "contents/testing/writing-testable-code.md",
-      "layout": "default",
+      "title": "Writing Testable Code",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "writing-testable-code": "Writing Testable Code",
         "flaw-1-no-seams-for-isolating-the-class-under-test": "Flaw #1: No Seams for Isolating the Class Under Test",
         "rule-1-don-t-do-actual-work-in-constructors": "Rule #1: Don't do Actual Work in Constructors",
@@ -1599,12 +1367,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Accessibility",
-      "pageNav": 3,
       "src": "contents/uix/accessibility.md",
-      "layout": "default",
+      "title": "Accessibility",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "accessibility": "Accessibility",
         "what-is-accessibility": "What is Accessibility?",
         "why-is-accessibility-important": "Why is Accessibility Important?",
@@ -1620,12 +1385,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Accessibility",
-      "pageNav": 3,
       "src": "contents/uix/design-systems.md",
-      "layout": "default",
+      "title": "Accessibility",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "design-systems": "Design Systems",
         "what-is-a-design-system": "What is a Design System?",
         "why-should-we-use-a-design-system": "Why Should We Use a Design System?",
@@ -1638,12 +1400,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Refining UX Design Skills",
-      "pageNav": 3,
       "src": "contents/uix/refining-ux-skills.md",
-      "layout": "default",
+      "title": "Refining UX Design Skills",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "refining-ux-design-skills": "Refining UX Design Skills",
         "overview": "Overview",
         "building-a-relationship-with-a-ux-mentor": "Building a Relationship With a UX Mentor",
@@ -1655,12 +1414,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "UI/UX",
-      "pageNav": 3,
       "src": "contents/uix/uix.md",
-      "layout": "default",
+      "title": "UI/UX",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-ui-ux": "Introduction to UI/UX",
         "overview": "Overview",
         "user-interface-vs-user-experience": "User Interface vs User Experience",
@@ -1677,12 +1433,9 @@
       "headingKeywords": {}
     },
     {
-      "title": "Introduction to ZeroMQ",
-      "pageNav": 3,
       "src": "contents/zeromq/zeromq.md",
-      "layout": "default",
+      "title": "Introduction to ZeroMQ",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "introduction-to-zeromq": "Introduction to ZeroMQ",
         "what-is-zeromq": "What is ZeroMQ?",
         "what-is-asynchronous-communication-and-message-queue": "What is Asynchronous Communication and Message Queue?",
@@ -1696,25 +1449,19 @@
       "headingKeywords": {}
     },
     {
-      "title": "Contributing to this Project",
       "src": "contributing.md",
-      "layout": "default",
+      "title": "Contributing to this Project",
       "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »",
         "contributing-to-this-project": "Contributing to this Project",
         "how-to-contribute": "How to Contribute",
-        "contact": "Contact",
         "guidelines-for-writing-content": "Guidelines for Writing Content"
       },
       "headingKeywords": {}
     },
     {
-      "title": "A Student's guide to Software Engineering Tools & Techniques",
       "src": "index.md",
-      "layout": "default",
-      "headings": {
-        "a-student-s-guide-to-software-engineering-tools-and-amp-techniques": "A Student's Guide to Software Engineering Tools &amp; Techniques »"
-      },
+      "title": "A Student's guide to Software Engineering Tools & Techniques",
+      "headings": {},
       "headingKeywords": {}
     }
   ]

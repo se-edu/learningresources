@@ -1,716 +1,143 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Best Practices with `git`</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Revision Control
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a current">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="best-practices-with-git">Best Practices With <code>git</code><a class="fa fa-anchor" href="#best-practices-with-git" onclick="event.stopPropagation()"></a></h1>
-          <p>Author(s): <a href="https://github.com/darrenwee">Darren Wee</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#introduction">Introduction‎</a></li>
-              <li><a href="#best-practices">Best Practices‎</a>
-                <ul>
-                  <li><a href="#write-good-commit-messages">Write Good Commit Messages‎</a>
-                    <ul>
-                      <li><a href="#what-constitutes-a-good-commit-message">What Constitutes a Good Commit Message‎</a></li>
-                      <li><a href="#set-up-your-editor-for-commit-messages">Set Up Your Editor for Commit Messages‎</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#always-commit-functional-code">Always Commit Functional Code‎</a>
-                    <ul>
-                      <li><a href="#stashing">Stashing‎</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#one-logical-change-per-commit">One Logical Change per Commit‎</a></li>
-                  <li><a href="#hide-the-sausage-making">Hide the Sausage Making‎</a>
-                    <ul>
-                      <li><a href="#how-to-hide-the-sausage-making">How to Hide the Sausage Making‎</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#respect-published-history">Respect Published History‎</a></li>
-                  <li><a href="#keep-up-to-date">Keep Up To Date‎</a>
-                    <ul>
-                      <li><a href="#working-with-remotes">Working with Remotes‎</a></li>
-                      <li><a href="#rebase-versus-merging">Rebase versus Merging‎</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#resources">Resources‎</a>
-                <ul>
-                  <li><a href="#further-reading">Further Reading‎</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-          <h1 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction" onclick="event.stopPropagation()"></a></h1>
-          <p><a href="https://git-scm.com/"><code>git</code></a> is a popular source code management tool and commonly used in many open-source projects, especially those on <a href="https://github.com">GitHub</a>.</p>
-          <h1 id="best-practices">Best Practices<a class="fa fa-anchor" href="#best-practices" onclick="event.stopPropagation()"></a></h1>
-          <p><code>git</code> can be an incredibly useful tool for collaboration or it can be a terrible headache. Best practices exist in order to create a common understanding between users so that the latter does not happen.</p>
-          <p>Best practices are guidelines that are mostly sensible, but are still guidelines. You can always choose to ignore them although best if you have a compelling reason to do so.</p>
-          <hr>
-          <h2 id="write-good-commit-messages">Write Good Commit Messages<a class="fa fa-anchor" href="#write-good-commit-messages" onclick="event.stopPropagation()"></a></h2>
-          <p>Good commit messages can help reviewers or other contributors to understand:</p>
-          <ul>
-            <li>the high-level changes made by your pull request/patch</li>
-            <li>the reasoning behind the changes made by that commit while
-              <ul>
-                <li>reviewing your code</li>
-                <li>figuring out why a piece of code that is five years old is that way</li>
-              </ul>
-            </li>
-          </ul>
-          <p>They also assist you in the development process if you forget what has been done, or if you need to cherry-pick commits for elsewhere.</p>
-          <h3 id="what-constitutes-a-good-commit-message">What Constitutes a Good Commit Message<a class="fa fa-anchor" href="#what-constitutes-a-good-commit-message" onclick="event.stopPropagation()"></a></h3>
-          <p>The easiest way to attain commit message discipline is to stop putting in one-liner descriptions using <code>git commit -m &quot;Add some things to that.&quot;</code>. Instead, write a proper commit message in an editor:</p>
-          <pre><code class="hljs bash"><span><span class="hljs-comment"># opens your editor to write a commit message properly</span><br></span><span>git add files-to-stage<br></span><span>git commit<br></span><span><br></span><span><span class="hljs-comment"># like above, but shows the diff of the currently staged files</span><br></span><span>git add files-to-stage<br></span><span>git commit --verbose<br></span><span><br></span><span><span class="hljs-comment"># amend the most recent commit message</span><br></span><span>git commit --amend HEAD^<br></span></code></pre>
-          <p>Every commit must have a well written commit message <em>subject line</em>.</p>
-          <ol>
-            <li>
-              <p>Try to limit the subject line to 50 characters (hard limit: 72 chars)</p>
-              <ul>
-                <li>Usually, only the subject line is shown in the log, conflict resolution, interactive rebase, etc.</li>
-              </ul>
-            </li>
-            <li>
-              <p>Capitalize the subject line e.g. <code>Move index.html file to root</code></p>
-              <ul>
-                <li>Do not end the subject line with a period.</li>
-              </ul>
-            </li>
-            <li>
-              <p>Use the imperative mood in the subject line</p>
-              <ul>
-                <li>e.g. <code>Add README.md</code> rather than <code>Added README.md</code> or <code>Adding README.md</code> or <code>Adds README.md</code>.</li>
-              </ul>
-            </li>
-            <li>
-              <p>Use <code>{scope}: {change}</code> format when applicable</p>
-              <ul>
-                <li>e.g. <code>Person class: remove static imports</code>, or <code>Unit tests: remove blank lines</code></li>
-              </ul>
-            </li>
-            <li>
-              <p>Commit messages for non-trivial commits should have a <em>body</em> giving details of the commit.</p>
-              <ol>
-                <li>Separate subject from body with a blank line</li>
-                <li>Wrap the body at 72 characters</li>
-                <li>Use the body to explain:
-                  <ul>
-                    <li><em>what</em> the commit does, and</li>
-                    <li><em>why</em> it was done that way, such that</li>
-                    <li>the reader can refer to the diff to understand <em>how</em> the change was done.</li>
-                  </ul>
-                </li>
-                <li>Avoid including information that can be included in the code as comments.</li>
-              </ol>
-            </li>
-          </ol>
-          <p>Give an explanation for the change(s) that is detailed enough so that the reader can judge if it is a good thing to do, without reading the actual diff to determine how well the code does what the explanation promises to do. If your description starts to get too long, that’s a sign that you probably need to split up your commit to finer grained pieces.</p>
-          <p>Commit messages need to be wrapped to 72 characters or less so that the entire message can be shown without overflow on a standard, 80-column terminal while leaving room for indents/nested reply indicators if you pass <code>.patch</code> or <code>.diff</code> files via traditional mailing list (<a href="https://stackoverflow.com/a/2120040/5399892">source</a>).</p>
-          <p>Read more: <a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p>
-          <p>As a litmus test, you can try to read your commit message summary in the following manner:</p>
-          <blockquote>
-            <p>If applied, this commit will <code>your commit message summary here</code></p>
-          </blockquote>
-          <p>For example:</p>
-          <blockquote>
-            <p>If applied, this commit will <code>implement getHash() functionality in HashHelper</code>.</p>
-          </blockquote>
-          <h4 id="examples-of-good-commit-messages">Examples of Good Commit Messages<a class="fa fa-anchor" href="#examples-of-good-commit-messages" onclick="event.stopPropagation()"></a></h4>
-          <p>Adapted from <a href="https://github.com/se-edu/addressbook-level4/commits/master">se-edu/addressbook-level4</a> (<a href="https://github.com/se-edu/addressbook-level4/commit/2f4405c75cd21111952565a9706a9793b475c41e.patch">patch</a>).
-            This commit message follows the guidelines above and also includes the context of the change (how it worked before this patch) as it is necessary to understand <em>why</em> it needed to change.</p>
-          <pre><code class="hljs"><span>UniquePersonList#remove(Person): update return type<br></span><span><br></span><span>UniquePersonList#remove(Person) returns true if the person passed into<br></span><span>this method can be found in the internal list, and false otherwise. It<br></span><span>also throws PersonNotFoundException if a person is not found.<br></span><span><br></span><span>Returning a boolean is not required as the exception is thrown before<br></span><span>the value is returned.<br></span><span><br></span><span>Let's update the return type for UniquePersonList#remove(Person) to<br></span><span>void.<br></span></code></pre>
-          <p>Adapted from <a href="https://github.com/torvalds/linux/commits/master">torvalds/linux</a> (<a href="https://github.com/torvalds/linux/commit/9fe8f03bc0227fb573cc3e5b99eb34e19e405ab6.patch">patch</a>).</p>
-          <pre><code class="hljs"><span>drm/amd/display: Fix memleaks when atomic check fails<br></span><span><br></span><span>While checking plane states for updates during atomic check, we create<br></span><span>dc_plane_states in preparation. These dc states should be freed if<br></span><span>something errors.<br></span><span><br></span><span>Although the input transfer function is also freed by<br></span><span>dc_plane_state_release(), we should free it (on error) under the same<br></span><span>scope as where it is created.<br></span></code></pre>
-          <p>More examples can be found here: <a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p>
-          <h3 id="set-up-your-editor-for-commit-messages">Set up Your Editor for Commit Messages<a class="fa fa-anchor" href="#set-up-your-editor-for-commit-messages" onclick="event.stopPropagation()"></a></h3>
-          <ol>
-            <li>To use your editor of choice for <code>git</code>-related functionality, e.g. <code>vim</code>, do one of either in your terminal:</li>
-          </ol>
-          <pre><code class="hljs bash"><span>git config --global core.editor <span class="hljs-string">"vim"</span> <span class="hljs-comment"># or you can do the following</span><br></span><span><span class="hljs-built_in">export</span> GIT_EDITOR=vim <span class="hljs-comment"># add to your .bashrc or equivalent</span><br></span></code></pre>
-          <ol start="2">
-            <li>Set your editor to wrap after 72 characters. In <code>vim</code>, you can do this by adding this to your <code>.vimrc</code>:</li>
-          </ol>
-          <pre><code class="hljs bash"><span>autocmd Filetype gitcommit spell textwidth=72<br></span></code></pre>
-          <hr>
-          <h2 id="always-commit-functional-code">Always Commit Functional Code<a class="fa fa-anchor" href="#always-commit-functional-code" onclick="event.stopPropagation()"></a></h2>
-          <p>Merges to the following must always leave the project in a working state, i.e. it can be built and run on:</p>
-          <ul>
-            <li><code>master</code> branch, or equivalent,</li>
-            <li><code>staging</code> branch, <code>development</code> branch or equivalent, if any.</li>
-          </ul>
-          <p>Changes to your own branches <em>that no one else is using</em> can have non-functioning commits. However, you may wish to <a href="#hide-the-sausage-making">hide the sausage making</a> to squash non-functioning commits into a single, functioning commit before you make a pull request.</p>
-          <p>Changes to your own branches that is used by others should obey always-functioning-commits rule to minimize surprise. This is especially important if you expect your branch to be cherry-picked by another collaborator because they require a specific bit of code that you wrote.</p>
-          <h3 id="stashing">Stashing<a class="fa fa-anchor" href="#stashing" onclick="event.stopPropagation()"></a></h3>
-          <p>If you need to switch between branches while in the middle of developing a commit, you can use the <code>git stash</code> command. Stashing saves the uncommitted changes made in your current working directly. This allows you to save your progress without having to commit non-functioning code.</p>
-          <pre><code class="hljs bash"><span><span class="hljs-comment"># stash your work not committed to HEAD yet by pushing it onto the stash stack</span><br></span><span>git stash<br></span><span>git stash push <span class="hljs-comment"># equivalent to git stash</span><br></span><span><br></span><span><span class="hljs-comment"># restore your most recently stashed work to your current working copy</span><br></span><span>git stash pop<br></span><span><br></span><span><span class="hljs-comment"># acts like git stash pop, but keeps a copy of the stash in the current stash stack</span><br></span><span>git stash apply<br></span><span><br></span><span><span class="hljs-comment"># list all stashes in the stack</span><br></span><span>git stash list<br></span></code></pre>
-          <p>Stashes are a purely local construct and cannot be pushed to a remote repository.</p>
-          <p>Read more:</p>
-          <ul>
-            <li><a href="https://www.atlassian.com/git/tutorials/git-stash">git stash - Saving Changes | Atlassian Git Tutorial</a></li>
-          </ul>
-          <hr>
-          <h2 id="one-logical-change-per-commit">One Logical Change per Commit<a class="fa fa-anchor" href="#one-logical-change-per-commit" onclick="event.stopPropagation()"></a></h2>
-          <p>Commits are the building blocks of a codebase; each building block should contribute exactly one useful thing, like:</p>
-          <ul>
-            <li>adding a new function or piece of data</li>
-            <li>fixing a bug</li>
-            <li>refactoring code or data
-              <ul>
-                <li>reorganizing code</li>
-                <li>removing typos</li>
-                <li>formatting code</li>
-                <li>changing representation of data to a different format</li>
-              </ul>
-            </li>
-          </ul>
-          <p>Each <em>logical change in code</em> should translate to exactly one commit, nothing more or less. Doing so allows you to:</p>
-          <ul>
-            <li>revert a particular logical change with little to no side effects</li>
-            <li>easily identify bad commits that caused change in behavior</li>
-            <li>collaborate with others easily, e.g. by cherry-picking a single logical change instead of finding a bit of this commit and a bit of that commit</li>
-            <li>package that logical change <a href="#write-good-commit-messages">with a useful commit message to explain why/how you did something</a></li>
-          </ul>
-          <p>It may also become necessary to scope down what you may deem as a single logical change if it results in a very large commit, as that can also <a href="https://softwareengineering.stackexchange.com/a/10796">introduce other problems</a>. For example, implementing a single, new feature can be thought of as one logical change to the codebase, but making a pull request for a single, large commit also makes the above benefits disappear.</p>
-          <p>If you are concerned about appearances, you can always opt to <a href="#hide-the-sausage-making">hide the sausage making</a> to clean up your commit history.</p>
-          <p>If you have made several overlapping changes on your working directory (e.g. forgot to commit, etc), you can always <a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">perform a patch-wise stage using <code>git add -p</code></a>.</p>
-          <p>Read more:</p>
-          <ul>
-            <li><a href="https://sethrobertson.github.io/GitBestPractices/#commit">Do commit early and often</a> - an auxiliary best practice of frequency of making commits</li>
-            <li><a href="https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code">programming practices - When to commit code?</a></li>
-            <li><a href="https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large">When is a version control commit too large?</a> - a discussion on judging the suitable size of a commit in different settings</li>
-            <li><a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">Commit only part of a file in Git</a> - this is useful to use as a cheatsheet during interactive staging</li>
-          </ul>
-          <hr>
-          <h2 id="hide-the-sausage-making">Hide the Sausage Making<a class="fa fa-anchor" href="#hide-the-sausage-making" onclick="event.stopPropagation()"></a></h2>
-          <p><em>Sausage making</em> refers to the process by which code is incrementally worked on, where a series of commits (like links in a sausage) make up a branch. It is often desirable to <em>hide the sausage making</em> where the commit history is cleaned up so that it looks neater and is easier to follow.</p>
-          <p>When working on a <code>feature</code>/<code>fix</code> branch, you may:</p>
-          <ul>
-            <li><a href="#always-commit-functional-code">commit non-functioning code</a>, or</li>
-            <li>may need <a href="#one-logical-change-to-one-commit">multiple commits to implement one logical change in code</a>, or</li>
-            <li>cherry-pick a lot of commits from other branches</li>
-          </ul>
-          <p>This may clutter your history with low-level details or make it convoluted to follow for a maintainer or reviewer. Like sausage, you may enjoy eating it but not the process of making it.</p>
-          <h3 id="how-to-hide-the-sausage-making">How to Hide the Sausage Making<a class="fa fa-anchor" href="#how-to-hide-the-sausage-making" onclick="event.stopPropagation()"></a></h3>
-          <p>Hiding the sausage is typically achieved by either/both:</p>
-          <ul>
-            <li>performing an interactive rebase, i.e. <code>git rebase -i</code></li>
-            <li>patch-wise reset and stage, i.e. <code>git reset -p</code> and <code>git add -p</code></li>
-          </ul>
-          <p>Ensure that you do this <em>before</em>:</p>
-          <ul>
-            <li>pushing to a remote repository <a href="#respect-published-history">to respect the published history</a> and</li>
-            <li>performing any merges from other branches.</li>
-          </ul>
-          <p>Read more:</p>
-          <ul>
-            <li><a href="https://sethrobertson.github.io/GitBestPractices/#sausage">On Sausage Making</a></li>
-            <li><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Git Tools - Rewriting History</a> (great reference for how to actually do this, under <em>Changing Multiple Commit Messages</em>)</li>
-          </ul>
-          <hr>
-          <h2 id="respect-published-history">Respect Published History<a class="fa fa-anchor" href="#respect-published-history" onclick="event.stopPropagation()"></a></h2>
-          <p>Always avoid rewriting the published history unless you are very sure of what you are doing, like:</p>
-          <ul>
-            <li>You are working on your own branch that <em>no one else is using</em>, and
-              <ul>
-                <li>you want to revert a commit without introducing another commit</li>
-                <li>you are rebasing the branch</li>
-                <li>you are <a href="#hide-the-sausage-making">cleaning up the history of your branch</a></li>
-              </ul>
-            </li>
-          </ul>
-          <p>A failed <code>git push</code> usually means that your local branch is behind its remote counterpart, indicating that the local and remote branches have diverged.</p>
-          <pre><code class="hljs bash"><span>$ git push origin my-branch<br></span><span>To git@github.com:foo/foo.git<br></span><span> ! [rejected]        my-branch -&gt; my-branch (non-fast-forward)<br></span><span>error: failed to push some refs to <span class="hljs-string">'git@github.com:foo/foo.git'</span><br></span><span>hint: Updates were rejected because the tip of your current branch is behind<br></span><span>hint: its remote counterpart. Integrate the remote changes (e.g.<br></span><span>hint: <span class="hljs-string">'git pull ...'</span>) before pushing again.<br></span><span>hint: See the <span class="hljs-string">'Note about fast-forwards'</span> <span class="hljs-keyword">in</span> <span class="hljs-string">'git push --help'</span> <span class="hljs-keyword">for</span> details.<br></span></code></pre>
-          <p>Alternatively, you may also see this when a branch diversion has occurred when you run <code>git status</code>.</p>
-          <pre><code class="hljs bash"><span>$ git status<br></span><span>Your branch and <span class="hljs-string">'origin/my-branch'</span> have diverged,<br></span><span>and have 3 and 5 different commit(s) each, respectively.<br></span></code></pre>
-          <p>You can override this by <a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">making a force push</a>, i.e. <code>git push --force</code> but that would result in rewriting the published history or overwrite changes in the divergent remote commits. Observe the guidelines and ensure that the force push can be made in good faith with respect to your collaborators.</p>
-          <p>Read more:</p>
-          <ul>
-            <li><a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting History - Atlassian</a></li>
-            <li><a href="https://sethrobertson.github.io/GitBestPractices/#pubonce">Don't change public history.</a></li>
-            <li><a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">Force &quot;git push&quot; to overwrite remote files - StackOverflow</a></li>
-          </ul>
-          <hr>
-          <h2 id="keep-up-to-date">Keep up to Date<a class="fa fa-anchor" href="#keep-up-to-date" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="working-with-remotes">Working With Remotes<a class="fa fa-anchor" href="#working-with-remotes" onclick="event.stopPropagation()"></a></h3>
-          <p><em>Remotes</em> refer to versions of the project you are working on that are hosted elsewhere, usually on the Internet. Remotes are very handy for managing collaboration, e.g. if you have to keep your code in sync with the <code>upstream</code> branch of the project, or if you need to pull code from someone else which may not be merged yet.</p>
-          <p>You can have as many remotes as you want, each possibly being read-only or with read/write privileges.</p>
-          <p>Remotes are managed using the <code>git remote</code> command.</p>
-          <pre><code class="hljs bash"><span><span class="hljs-comment"># view all remotes</span><br></span><span>git remote -v<br></span><span><br></span><span><span class="hljs-comment"># add a remote called "upstream" that points to https://github.com/TEAMMATES/teammates</span><br></span><span>git remote add upstream https://github.com/TEAMMATES/teammates<br></span><span><br></span><span><span class="hljs-comment"># branch off from the master branch of the upstream repository</span><br></span><span>git fetch upstream <span class="hljs-comment"># get data from upstream repo</span><br></span><span>git checkout -b your-fancy-branch upstream/master <span class="hljs-comment"># makes a new branch off the head of upstream/master</span><br></span><span><br></span><span><span class="hljs-comment"># change the URL for the upstream remote from HTTPS to SSH</span><br></span><span>git remote <span class="hljs-built_in">set</span>-url upstream git@github.com:TEAMMATES/teammates.git<br></span><span><br></span><span><span class="hljs-comment"># remove a remote named "upstream"</span><br></span><span>git remote remove upstream<br></span></code></pre>
-          <p>Read more:</p>
-          <ul>
-            <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Git Basics - Working with Remotes</a></li>
-          </ul>
-          <h3 id="rebase-versus-merging">Rebase Versus Merging<a class="fa fa-anchor" href="#rebase-versus-merging" onclick="event.stopPropagation()"></a></h3>
-          <div class="table-responsive">
-            <table class="markbind-table table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>You should...</th>
-                  <th>When ...</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>merge</td>
-                  <td>you created a branch to develop a feature, and now you want these changes to be inside <code>master</code></td>
-                </tr>
-                <tr>
-                  <td>rebase</td>
-                  <td>you created a branch from <code>master</code> to develop a feature, and someone else pushed a change to <code>master</code> before you finished</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p>It is generally considered good practice to rebase your feature branch onto whatever branch you're trying to patch <em>before</em> you make the pull request, resolving any conflicts that arise. This:</p>
-          <ul>
-            <li><a href="https://www.bitsnbites.eu/a-tidy-linear-git-history/">keeps the history clear and linear</a>
-              <ul>
-                <li>makes backtracking easier</li>
-                <li>easy to follow history</li>
-                <li>reverting/rolling back is much simpler</li>
-                <li>you can use <code>git bisect</code> to find regressions on your branch easily without involving unrelated changes from <code>master</code></li>
-              </ul>
-            </li>
-            <li>ensures your changes are compatible with the head of the branch you're patching</li>
-            <li>makes reviewing/testing easier by <a href="https://lwn.net/Articles/328436/">not including irrelevant code by merging</a></li>
-          </ul>
-          <p>Read more:</p>
-          <ul>
-            <li><a href="https://www.bitsnbites.eu/a-tidy-linear-git-history/">A Tidy, Linear Git History</a> - this is an excellent article which has formed my opinion on rebase vs. merge</li>
-            <li><a href="https://lwn.net/Articles/328436/">Rebasing and merging: some git best practices</a> - the merging/rebase issue involving wisdom from the creator of <code>git</code>, Linus Torvalds</li>
-            <li><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing - Atlassian</a></li>
-            <li><a href="https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178">When do you use git rebase instead of git merge - StackOverflow</a> - a discussion on when to rebase and when to merge</li>
-          </ul>
-          <hr>
-          <h1 id="resources">Resources<a class="fa fa-anchor" href="#resources" onclick="event.stopPropagation()"></a></h1>
-          <p>These are the resources used in the writing of this chapter, as well as any additional, interesting readings.</p>
-          <ul>
-            <li>
-              <p><a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages by Tim Pope</a></p>
-            </li>
-            <li>
-              <p><a href="https://sethrobertson.github.io/GitBestPractices/">Git Best Practices by Seth Robertson</a></p>
-            </li>
-            <li>
-              <p><a href="https://www.bitsnbites.eu/a-tidy-linear-git-history/">A Tidy, Linear Git History</a></p>
-            </li>
-            <li>
-              <p><a href="https://lwn.net/Articles/328436/">Rebasing and merging: some git best practices</a> involves wisdom from Linus Torvalds</p>
-            </li>
-            <li>
-              <p><a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p>
-            </li>
-            <li>
-              <p><a href="https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code">programming practices - When to commit code?</a></p>
-            </li>
-            <li>
-              <p><a href="https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large">When is a version control commit too large?</a></p>
-            </li>
-            <li>
-              <p><a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">Commit only part of a file in Git</a> this is useful to use as a cheatsheet during interactive staging</p>
-            </li>
-            <li>
-              <p><a href="https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178">When do you use git rebase instead of git merge - StackOverflow</a></p>
-            </li>
-            <li>
-              <p><a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">Force &quot;git push&quot; to overwrite remote files - StackOverflow</a></p>
-            </li>
-            <li>
-              <p><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Git Tools - Rewriting History</a></p>
-            </li>
-            <li>
-              <p><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Git Basics - Working with Remotes</a></p>
-            </li>
-            <li>
-              <p><a href="https://www.atlassian.com/git/tutorials/git-stash">git stash - Saving Changes | Atlassian Git Tutorial</a></p>
-            </li>
-            <li>
-              <p><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing - Atlassian</a></p>
-            </li>
-            <li>
-              <p><a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting History - Atlassian</a></p>
-            </li>
-          </ul>
-          <h2 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading" onclick="event.stopPropagation()"></a></h2>
-          <ul>
-            <li><a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> - discusses the underlying implementation of <code>git</code> (merkle tree)</li>
-            <li><a href="https://git-scm.com/book/en/v2">Pro Git</a></li>
-            <li><a href="https://orga.cat/posts/most-useful-git-commands">The most useful git commands</a> - a reference sheet of some handy command macros</li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#best-practices-with-git">Best Practices With git&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction">Introduction&#x200E;</a>
-            <a class="nav-link py-1" href="#best-practices">Best Practices&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#write-good-commit-messages">Write Good Commit Messages&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#what-constitutes-a-good-commit-message">What Constitutes a Good Commit Message&#x200E;</a>
-                <a class="nav-link py-1" href="#set-up-your-editor-for-commit-messages">Set up Your Editor for Commit Messages&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#always-commit-functional-code">Always Commit Functional Code&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#stashing">Stashing&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#one-logical-change-per-commit">One Logical Change per Commit&#x200E;</a>
-              <a class="nav-link py-1" href="#hide-the-sausage-making">Hide the Sausage Making&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#how-to-hide-the-sausage-making">How to Hide the Sausage Making&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#respect-published-history">Respect Published History&#x200E;</a>
-              <a class="nav-link py-1" href="#keep-up-to-date">Keep up to Date&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#working-with-remotes">Working With Remotes&#x200E;</a>
-                <a class="nav-link py-1" href="#rebase-versus-merging">Rebase Versus Merging&#x200E;</a>
-              </nav>
-            </nav>
-            <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#further-reading">Further Reading&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Best Practices with `git`</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="bestPracticesGit.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="best-practices-with-git"><span id="best-practices-with-git" class="anchor"></span>Best Practices With <code class="hljs inline no-lang">git</code><a href="#best-practices-with-git" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Author(s): <a href="https://github.com/darrenwee">Darren Wee</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#introduction" data-v-7d17494f>Introduction‎</a></li> <li data-v-7d17494f><a href="#best-practices" data-v-7d17494f>Best Practices‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#write-good-commit-messages" data-v-7d17494f>Write Good Commit Messages‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#what-constitutes-a-good-commit-message" data-v-7d17494f>What Constitutes a Good Commit Message‎</a></li> <li data-v-7d17494f><a href="#set-up-your-editor-for-commit-messages" data-v-7d17494f>Set Up Your Editor for Commit Messages‎</a></li></ul></li> <li data-v-7d17494f><a href="#always-commit-functional-code" data-v-7d17494f>Always Commit Functional Code‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#stashing" data-v-7d17494f>Stashing‎</a></li></ul></li> <li data-v-7d17494f><a href="#one-logical-change-per-commit" data-v-7d17494f>One Logical Change per Commit‎</a></li> <li data-v-7d17494f><a href="#hide-the-sausage-making" data-v-7d17494f>Hide the Sausage Making‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#how-to-hide-the-sausage-making" data-v-7d17494f>How to Hide the Sausage Making‎</a></li></ul></li> <li data-v-7d17494f><a href="#respect-published-history" data-v-7d17494f>Respect Published History‎</a></li> <li data-v-7d17494f><a href="#keep-up-to-date" data-v-7d17494f>Keep Up To Date‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#working-with-remotes" data-v-7d17494f>Working with Remotes‎</a></li> <li data-v-7d17494f><a href="#rebase-versus-merging" data-v-7d17494f>Rebase versus Merging‎</a></li></ul></li></ul></li> <li data-v-7d17494f><a href="#resources" data-v-7d17494f>Resources‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#further-reading" data-v-7d17494f>Further Reading‎</a></li></ul></li></ul></div> <!----></div></div></div> <h1 id="introduction"><span id="introduction" class="anchor"></span>Introduction<a href="#introduction" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><a href="https://git-scm.com/"><code class="hljs inline no-lang">git</code></a> is a popular source code management tool and commonly used in many open-source projects, especially those on <a href="https://github.com">GitHub</a>.</p> <h1 id="best-practices"><span id="best-practices" class="anchor"></span>Best Practices<a href="#best-practices" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><code class="hljs inline no-lang">git</code> can be an incredibly useful tool for collaboration or it can be a terrible headache. Best practices exist in order to create a common understanding between users so that the latter does not happen.</p> <p>Best practices are guidelines that are mostly sensible, but are still guidelines. You can always choose to ignore them although best if you have a compelling reason to do so.</p> <hr> <h2 id="write-good-commit-messages"><span id="write-good-commit-messages" class="anchor"></span>Write Good Commit Messages<a href="#write-good-commit-messages" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Good commit messages can help reviewers or other contributors to understand:</p> <ul><li>the high-level changes made by your pull request/patch</li> <li>the reasoning behind the changes made by that commit while
+<ul><li>reviewing your code</li> <li>figuring out why a piece of code that is five years old is that way</li></ul></li></ul> <p>They also assist you in the development process if you forget what has been done, or if you need to cherry-pick commits for elsewhere.</p> <h3 id="what-constitutes-a-good-commit-message"><span id="what-constitutes-a-good-commit-message" class="anchor"></span>What Constitutes a Good Commit Message<a href="#what-constitutes-a-good-commit-message" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The easiest way to attain commit message discipline is to stop putting in one-liner descriptions using <code class="hljs inline no-lang">git commit -m &quot;Add some things to that.&quot;</code>. Instead, write a proper commit message in an editor:</p> <pre><code class="hljs bash"><span><span class="hljs-comment"># opens your editor to write a commit message properly</span>
+</span><span>git add files-to-stage
+</span><span>git commit
+</span><span>
+</span><span><span class="hljs-comment"># like above, but shows the diff of the currently staged files</span>
+</span><span>git add files-to-stage
+</span><span>git commit --verbose
+</span><span>
+</span><span><span class="hljs-comment"># amend the most recent commit message</span>
+</span><span>git commit --amend HEAD^
+</span></code></pre><p>Every commit must have a well written commit message <em>subject line</em>.</p> <ol><li><p>Try to limit the subject line to 50 characters (hard limit: 72 chars)</p> <ul><li>Usually, only the subject line is shown in the log, conflict resolution, interactive rebase, etc.</li></ul></li> <li><p>Capitalize the subject line e.g. <code class="hljs inline no-lang">Move index.html file to root</code></p> <ul><li>Do not end the subject line with a period.</li></ul></li> <li><p>Use the imperative mood in the subject line</p> <ul><li>e.g. <code class="hljs inline no-lang">Add README.md</code> rather than <code class="hljs inline no-lang">Added README.md</code> or <code class="hljs inline no-lang">Adding README.md</code> or <code class="hljs inline no-lang">Adds README.md</code>.</li></ul></li> <li><p>Use <code class="hljs inline no-lang">{scope}: {change}</code> format when applicable</p> <ul><li>e.g. <code class="hljs inline no-lang">Person class: remove static imports</code>, or <code class="hljs inline no-lang">Unit tests: remove blank lines</code></li></ul></li> <li><p>Commit messages for non-trivial commits should have a <em>body</em> giving details of the commit.</p> <ol><li>Separate subject from body with a blank line</li> <li>Wrap the body at 72 characters</li> <li>Use the body to explain:
+<ul><li><em>what</em> the commit does, and</li> <li><em>why</em> it was done that way, such that</li> <li>the reader can refer to the diff to understand <em>how</em> the change was done.</li></ul></li> <li>Avoid including information that can be included in the code as comments.</li></ol></li></ol> <p>Give an explanation for the change(s) that is detailed enough so that the reader can judge if it is a good thing to do, without reading the actual diff to determine how well the code does what the explanation promises to do. If your description starts to get too long, that’s a sign that you probably need to split up your commit to finer grained pieces.</p> <p>Commit messages need to be wrapped to 72 characters or less so that the entire message can be shown without overflow on a standard, 80-column terminal while leaving room for indents/nested reply indicators if you pass <code class="hljs inline no-lang">.patch</code> or <code class="hljs inline no-lang">.diff</code> files via traditional mailing list (<a href="https://stackoverflow.com/a/2120040/5399892">source</a>).</p> <p>Read more: <a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p> <p>As a litmus test, you can try to read your commit message summary in the following manner:</p> <blockquote><p>If applied, this commit will <code class="hljs inline no-lang">your commit message summary here</code></p></blockquote> <p>For example:</p> <blockquote><p>If applied, this commit will <code class="hljs inline no-lang">implement getHash() functionality in HashHelper</code>.</p></blockquote> <h4 id="examples-of-good-commit-messages"><span id="examples-of-good-commit-messages" class="anchor"></span>Examples of Good Commit Messages<a href="#examples-of-good-commit-messages" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Adapted from <a href="https://github.com/se-edu/addressbook-level4/commits/master">se-edu/addressbook-level4</a> (<a href="https://github.com/se-edu/addressbook-level4/commit/2f4405c75cd21111952565a9706a9793b475c41e.patch">patch</a>).
+This commit message follows the guidelines above and also includes the context of the change (how it worked before this patch) as it is necessary to understand <em>why</em> it needed to change.</p> <pre><code class="hljs"><span>UniquePersonList#remove(Person): update return type
+</span><span>
+</span><span>UniquePersonList#remove(Person) returns true if the person passed into
+</span><span>this method can be found in the internal list, and false otherwise. It
+</span><span>also throws PersonNotFoundException if a person is not found.
+</span><span>
+</span><span>Returning a boolean is not required as the exception is thrown before
+</span><span>the value is returned.
+</span><span>
+</span><span>Let's update the return type for UniquePersonList#remove(Person) to
+</span><span>void.
+</span></code></pre><p>Adapted from <a href="https://github.com/torvalds/linux/commits/master">torvalds/linux</a> (<a href="https://github.com/torvalds/linux/commit/9fe8f03bc0227fb573cc3e5b99eb34e19e405ab6.patch">patch</a>).</p> <pre><code class="hljs"><span>drm/amd/display: Fix memleaks when atomic check fails
+</span><span>
+</span><span>While checking plane states for updates during atomic check, we create
+</span><span>dc_plane_states in preparation. These dc states should be freed if
+</span><span>something errors.
+</span><span>
+</span><span>Although the input transfer function is also freed by
+</span><span>dc_plane_state_release(), we should free it (on error) under the same
+</span><span>scope as where it is created.
+</span></code></pre><p>More examples can be found here: <a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p> <h3 id="set-up-your-editor-for-commit-messages"><span id="set-up-your-editor-for-commit-messages" class="anchor"></span>Set up Your Editor for Commit Messages<a href="#set-up-your-editor-for-commit-messages" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ol><li>To use your editor of choice for <code class="hljs inline no-lang">git</code>-related functionality, e.g. <code class="hljs inline no-lang">vim</code>, do one of either in your terminal:</li></ol> <pre><code class="hljs bash"><span>git config --global core.editor <span class="hljs-string">&quot;vim&quot;</span> <span class="hljs-comment"># or you can do the following</span>
+</span><span><span class="hljs-built_in">export</span> GIT_EDITOR=vim <span class="hljs-comment"># add to your .bashrc or equivalent</span>
+</span></code></pre><ol start="2"><li>Set your editor to wrap after 72 characters. In <code class="hljs inline no-lang">vim</code>, you can do this by adding this to your <code class="hljs inline no-lang">.vimrc</code>:</li></ol> <pre><code class="hljs bash"><span>autocmd Filetype gitcommit spell textwidth=72
+</span></code></pre><hr> <h2 id="always-commit-functional-code"><span id="always-commit-functional-code" class="anchor"></span>Always Commit Functional Code<a href="#always-commit-functional-code" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Merges to the following must always leave the project in a working state, i.e. it can be built and run on:</p> <ul><li><code class="hljs inline no-lang">master</code> branch, or equivalent,</li> <li><code class="hljs inline no-lang">staging</code> branch, <code class="hljs inline no-lang">development</code> branch or equivalent, if any.</li></ul> <p>Changes to your own branches <em>that no one else is using</em> can have non-functioning commits. However, you may wish to <a href="#hide-the-sausage-making">hide the sausage making</a> to squash non-functioning commits into a single, functioning commit before you make a pull request.</p> <p>Changes to your own branches that is used by others should obey always-functioning-commits rule to minimize surprise. This is especially important if you expect your branch to be cherry-picked by another collaborator because they require a specific bit of code that you wrote.</p> <h3 id="stashing"><span id="stashing" class="anchor"></span>Stashing<a href="#stashing" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>If you need to switch between branches while in the middle of developing a commit, you can use the <code class="hljs inline no-lang">git stash</code> command. Stashing saves the uncommitted changes made in your current working directly. This allows you to save your progress without having to commit non-functioning code.</p> <pre><code class="hljs bash"><span><span class="hljs-comment"># stash your work not committed to HEAD yet by pushing it onto the stash stack</span>
+</span><span>git stash
+</span><span>git stash push <span class="hljs-comment"># equivalent to git stash</span>
+</span><span>
+</span><span><span class="hljs-comment"># restore your most recently stashed work to your current working copy</span>
+</span><span>git stash pop
+</span><span>
+</span><span><span class="hljs-comment"># acts like git stash pop, but keeps a copy of the stash in the current stash stack</span>
+</span><span>git stash apply
+</span><span>
+</span><span><span class="hljs-comment"># list all stashes in the stack</span>
+</span><span>git stash list
+</span></code></pre><p>Stashes are a purely local construct and cannot be pushed to a remote repository.</p> <p>Read more:</p> <ul><li><a href="https://www.atlassian.com/git/tutorials/git-stash">git stash - Saving Changes | Atlassian Git Tutorial</a></li></ul> <hr> <h2 id="one-logical-change-per-commit"><span id="one-logical-change-per-commit" class="anchor"></span>One Logical Change per Commit<a href="#one-logical-change-per-commit" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Commits are the building blocks of a codebase; each building block should contribute exactly one useful thing, like:</p> <ul><li>adding a new function or piece of data</li> <li>fixing a bug</li> <li>refactoring code or data
+<ul><li>reorganizing code</li> <li>removing typos</li> <li>formatting code</li> <li>changing representation of data to a different format</li></ul></li></ul> <p>Each <em>logical change in code</em> should translate to exactly one commit, nothing more or less. Doing so allows you to:</p> <ul><li>revert a particular logical change with little to no side effects</li> <li>easily identify bad commits that caused change in behavior</li> <li>collaborate with others easily, e.g. by cherry-picking a single logical change instead of finding a bit of this commit and a bit of that commit</li> <li>package that logical change <a href="#write-good-commit-messages">with a useful commit message to explain why/how you did something</a></li></ul> <p>It may also become necessary to scope down what you may deem as a single logical change if it results in a very large commit, as that can also <a href="https://softwareengineering.stackexchange.com/a/10796">introduce other problems</a>. For example, implementing a single, new feature can be thought of as one logical change to the codebase, but making a pull request for a single, large commit also makes the above benefits disappear.</p> <p>If you are concerned about appearances, you can always opt to <a href="#hide-the-sausage-making">hide the sausage making</a> to clean up your commit history.</p> <p>If you have made several overlapping changes on your working directory (e.g. forgot to commit, etc), you can always <a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">perform a patch-wise stage using <code class="hljs inline no-lang">git add -p</code></a>.</p> <p>Read more:</p> <ul><li><a href="https://sethrobertson.github.io/GitBestPractices/#commit">Do commit early and often</a> - an auxiliary best practice of frequency of making commits</li> <li><a href="https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code">programming practices - When to commit code?</a></li> <li><a href="https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large">When is a version control commit too large?</a> - a discussion on judging the suitable size of a commit in different settings</li> <li><a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">Commit only part of a file in Git</a> - this is useful to use as a cheatsheet during interactive staging</li></ul> <hr> <h2 id="hide-the-sausage-making"><span id="hide-the-sausage-making" class="anchor"></span>Hide the Sausage Making<a href="#hide-the-sausage-making" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p><em>Sausage making</em> refers to the process by which code is incrementally worked on, where a series of commits (like links in a sausage) make up a branch. It is often desirable to <em>hide the sausage making</em> where the commit history is cleaned up so that it looks neater and is easier to follow.</p> <p>When working on a <code class="hljs inline no-lang">feature</code>/<code class="hljs inline no-lang">fix</code> branch, you may:</p> <ul><li><a href="#always-commit-functional-code">commit non-functioning code</a>, or</li> <li>may need <a href="#one-logical-change-to-one-commit">multiple commits to implement one logical change in code</a>, or</li> <li>cherry-pick a lot of commits from other branches</li></ul> <p>This may clutter your history with low-level details or make it convoluted to follow for a maintainer or reviewer. Like sausage, you may enjoy eating it but not the process of making it.</p> <h3 id="how-to-hide-the-sausage-making"><span id="how-to-hide-the-sausage-making" class="anchor"></span>How to Hide the Sausage Making<a href="#how-to-hide-the-sausage-making" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Hiding the sausage is typically achieved by either/both:</p> <ul><li>performing an interactive rebase, i.e. <code class="hljs inline no-lang">git rebase -i</code></li> <li>patch-wise reset and stage, i.e. <code class="hljs inline no-lang">git reset -p</code> and <code class="hljs inline no-lang">git add -p</code></li></ul> <p>Ensure that you do this <em>before</em>:</p> <ul><li>pushing to a remote repository <a href="#respect-published-history">to respect the published history</a> and</li> <li>performing any merges from other branches.</li></ul> <p>Read more:</p> <ul><li><a href="https://sethrobertson.github.io/GitBestPractices/#sausage">On Sausage Making</a></li> <li><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Git Tools - Rewriting History</a> (great reference for how to actually do this, under <em>Changing Multiple Commit Messages</em>)</li></ul> <hr> <h2 id="respect-published-history"><span id="respect-published-history" class="anchor"></span>Respect Published History<a href="#respect-published-history" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Always avoid rewriting the published history unless you are very sure of what you are doing, like:</p> <ul><li>You are working on your own branch that <em>no one else is using</em>, and
+<ul><li>you want to revert a commit without introducing another commit</li> <li>you are rebasing the branch</li> <li>you are <a href="#hide-the-sausage-making">cleaning up the history of your branch</a></li></ul></li></ul> <p>A failed <code class="hljs inline no-lang">git push</code> usually means that your local branch is behind its remote counterpart, indicating that the local and remote branches have diverged.</p> <pre><code class="hljs bash"><span>$ git push origin my-branch
+</span><span>To git@github.com:foo/foo.git
+</span><span> ! [rejected]        my-branch -&gt; my-branch (non-fast-forward)
+</span><span>error: failed to push some refs to <span class="hljs-string">'git@github.com:foo/foo.git'</span>
+</span><span>hint: Updates were rejected because the tip of your current branch is behind
+</span><span>hint: its remote counterpart. Integrate the remote changes (e.g.
+</span><span>hint: <span class="hljs-string">'git pull ...'</span>) before pushing again.
+</span><span>hint: See the <span class="hljs-string">'Note about fast-forwards'</span> <span class="hljs-keyword">in</span> <span class="hljs-string">'git push --help'</span> <span class="hljs-keyword">for</span> details.
+</span></code></pre><p>Alternatively, you may also see this when a branch diversion has occurred when you run <code class="hljs inline no-lang">git status</code>.</p> <pre><code class="hljs bash"><span>$ git status
+</span><span>Your branch and <span class="hljs-string">'origin/my-branch'</span> have diverged,
+</span><span>and have 3 and 5 different commit(s) each, respectively.
+</span></code></pre><p>You can override this by <a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">making a force push</a>, i.e. <code class="hljs inline no-lang">git push --force</code> but that would result in rewriting the published history or overwrite changes in the divergent remote commits. Observe the guidelines and ensure that the force push can be made in good faith with respect to your collaborators.</p> <p>Read more:</p> <ul><li><a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting History - Atlassian</a></li> <li><a href="https://sethrobertson.github.io/GitBestPractices/#pubonce">Don't change public history.</a></li> <li><a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">Force &quot;git push&quot; to overwrite remote files - StackOverflow</a></li></ul> <hr> <h2 id="keep-up-to-date"><span id="keep-up-to-date" class="anchor"></span>Keep up to Date<a href="#keep-up-to-date" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="working-with-remotes"><span id="working-with-remotes" class="anchor"></span>Working With Remotes<a href="#working-with-remotes" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p><em>Remotes</em> refer to versions of the project you are working on that are hosted elsewhere, usually on the Internet. Remotes are very handy for managing collaboration, e.g. if you have to keep your code in sync with the <code class="hljs inline no-lang">upstream</code> branch of the project, or if you need to pull code from someone else which may not be merged yet.</p> <p>You can have as many remotes as you want, each possibly being read-only or with read/write privileges.</p> <p>Remotes are managed using the <code class="hljs inline no-lang">git remote</code> command.</p> <pre><code class="hljs bash"><span><span class="hljs-comment"># view all remotes</span>
+</span><span>git remote -v
+</span><span>
+</span><span><span class="hljs-comment"># add a remote called &quot;upstream&quot; that points to https://github.com/TEAMMATES/teammates</span>
+</span><span>git remote add upstream https://github.com/TEAMMATES/teammates
+</span><span>
+</span><span><span class="hljs-comment"># branch off from the master branch of the upstream repository</span>
+</span><span>git fetch upstream <span class="hljs-comment"># get data from upstream repo</span>
+</span><span>git checkout -b your-fancy-branch upstream/master <span class="hljs-comment"># makes a new branch off the head of upstream/master</span>
+</span><span>
+</span><span><span class="hljs-comment"># change the URL for the upstream remote from HTTPS to SSH</span>
+</span><span>git remote set-url upstream git@github.com:TEAMMATES/teammates.git
+</span><span>
+</span><span><span class="hljs-comment"># remove a remote named &quot;upstream&quot;</span>
+</span><span>git remote remove upstream
+</span></code></pre><p>Read more:</p> <ul><li><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Git Basics - Working with Remotes</a></li></ul> <h3 id="rebase-versus-merging"><span id="rebase-versus-merging" class="anchor"></span>Rebase Versus Merging<a href="#rebase-versus-merging" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <div class="table-responsive"><table class="markbind-table table table-bordered table-striped"><thead><tr><th>You should...</th> <th>When ...</th></tr></thead> <tbody><tr><td>merge</td> <td>you created a branch to develop a feature, and now you want these changes to be inside <code class="hljs inline no-lang">master</code></td></tr> <tr><td>rebase</td> <td>you created a branch from <code class="hljs inline no-lang">master</code> to develop a feature, and someone else pushed a change to <code class="hljs inline no-lang">master</code> before you finished</td></tr></tbody></table></div><p>It is generally considered good practice to rebase your feature branch onto whatever branch you're trying to patch <em>before</em> you make the pull request, resolving any conflicts that arise. This:</p> <ul><li><a href="https://www.bitsnbites.eu/a-tidy-linear-git-history/">keeps the history clear and linear</a> <ul><li>makes backtracking easier</li> <li>easy to follow history</li> <li>reverting/rolling back is much simpler</li> <li>you can use <code class="hljs inline no-lang">git bisect</code> to find regressions on your branch easily without involving unrelated changes from <code class="hljs inline no-lang">master</code></li></ul></li> <li>ensures your changes are compatible with the head of the branch you're patching</li> <li>makes reviewing/testing easier by <a href="https://lwn.net/Articles/328436/">not including irrelevant code by merging</a></li></ul> <p>Read more:</p> <ul><li><a href="https://www.bitsnbites.eu/a-tidy-linear-git-history/">A Tidy, Linear Git History</a> - this is an excellent article which has formed my opinion on rebase vs. merge</li> <li><a href="https://lwn.net/Articles/328436/">Rebasing and merging: some git best practices</a> - the merging/rebase issue involving wisdom from the creator of <code class="hljs inline no-lang">git</code>, Linus Torvalds</li> <li><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing - Atlassian</a></li> <li><a href="https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178">When do you use git rebase instead of git merge - StackOverflow</a> - a discussion on when to rebase and when to merge</li></ul> <hr> <h1 id="resources"><span id="resources" class="anchor"></span>Resources<a href="#resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>These are the resources used in the writing of this chapter, as well as any additional, interesting readings.</p> <ul><li><p><a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages by Tim Pope</a></p></li> <li><p><a href="https://sethrobertson.github.io/GitBestPractices/">Git Best Practices by Seth Robertson</a></p></li> <li><p><a href="https://www.bitsnbites.eu/a-tidy-linear-git-history/">A Tidy, Linear Git History</a></p></li> <li><p><a href="https://lwn.net/Articles/328436/">Rebasing and merging: some git best practices</a> involves wisdom from Linus Torvalds</p></li> <li><p><a href="https://oss-generic.github.io/process/docs/FormatsAndConventions.html#commit-message">Formats and Conventions: Commit Messages</a></p></li> <li><p><a href="https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code">programming practices - When to commit code?</a></p></li> <li><p><a href="https://softwareengineering.stackexchange.com/questions/10793/when-is-a-version-control-commit-too-large">When is a version control commit too large?</a></p></li> <li><p><a href="https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git">Commit only part of a file in Git</a> this is useful to use as a cheatsheet during interactive staging</p></li> <li><p><a href="https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge/804178#804178">When do you use git rebase instead of git merge - StackOverflow</a></p></li> <li><p><a href="https://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">Force &quot;git push&quot; to overwrite remote files - StackOverflow</a></p></li> <li><p><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Git Tools - Rewriting History</a></p></li> <li><p><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Git Basics - Working with Remotes</a></p></li> <li><p><a href="https://www.atlassian.com/git/tutorials/git-stash">git stash - Saving Changes | Atlassian Git Tutorial</a></p></li> <li><p><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing - Atlassian</a></p></li> <li><p><a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting History - Atlassian</a></p></li></ul> <h2 id="further-reading"><span id="further-reading" class="anchor"></span>Further Reading<a href="#further-reading" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> - discusses the underlying implementation of <code class="hljs inline no-lang">git</code> (merkle tree)</li> <li><a href="https://git-scm.com/book/en/v2">Pro Git</a></li> <li><a href="https://orga.cat/posts/most-useful-git-commands">The most useful git commands</a> - a reference sheet of some handy command macros</li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#best-practices-with-git" class="nav-link py-1" data-v-e8c82f88>Best Practices With git‎</a> <a href="#introduction" class="nav-link py-1" data-v-e8c82f88>Introduction‎</a> <a href="#best-practices" class="nav-link py-1" data-v-e8c82f88>Best Practices‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#write-good-commit-messages" class="nav-link py-1" data-v-e8c82f88>Write Good Commit Messages‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-constitutes-a-good-commit-message" class="nav-link py-1" data-v-e8c82f88>What Constitutes a Good Commit Message‎</a> <a href="#set-up-your-editor-for-commit-messages" class="nav-link py-1" data-v-e8c82f88>Set up Your Editor for Commit Messages‎</a></nav> <a href="#always-commit-functional-code" class="nav-link py-1" data-v-e8c82f88>Always Commit Functional Code‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#stashing" class="nav-link py-1" data-v-e8c82f88>Stashing‎</a></nav> <a href="#one-logical-change-per-commit" class="nav-link py-1" data-v-e8c82f88>One Logical Change per Commit‎</a> <a href="#hide-the-sausage-making" class="nav-link py-1" data-v-e8c82f88>Hide the Sausage Making‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#how-to-hide-the-sausage-making" class="nav-link py-1" data-v-e8c82f88>How to Hide the Sausage Making‎</a></nav> <a href="#respect-published-history" class="nav-link py-1" data-v-e8c82f88>Respect Published History‎</a> <a href="#keep-up-to-date" class="nav-link py-1" data-v-e8c82f88>Keep up to Date‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#working-with-remotes" class="nav-link py-1" data-v-e8c82f88>Working With Remotes‎</a> <a href="#rebase-versus-merging" class="nav-link py-1" data-v-e8c82f88>Rebase Versus Merging‎</a></nav></nav> <a href="#resources" class="nav-link py-1" data-v-e8c82f88>Resources‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#further-reading" class="nav-link py-1" data-v-e8c82f88>Further Reading‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

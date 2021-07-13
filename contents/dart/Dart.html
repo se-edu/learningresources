@@ -1,556 +1,120 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Dart</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a current">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-dart">Introduction to Dart<a class="fa fa-anchor" href="#introduction-to-dart" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author: <a href="https://github.com/le0tan">Tan Yuanhong</a></strong></p>
-          <p>Reviewers: <a href="https://github.com/openorclose">Daryl Tan</a>, <a href="https://github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://github.com/Tejas2805">Tejas Bhuwania</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#what-is-dart">What is Dart?‎</a></li>
-              <li><a href="#why-learn-dart">Why Learn Dart?‎</a>
-                <ul>
-                  <li><a href="#optimized-for-declarative-ui">Optimized for Declarative UI‎</a></li>
-                  <li><a href="#fast-development-and-native-performance">Fast Development and Native Performance‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#notable-characteristics">Notable Characteristics‎</a>
-                <ul>
-                  <li><a href="#built-in-asynchrony-support">Built-In Asynchrony Support‎</a></li>
-                  <li><a href="#extension-methods">Extension Methods‎</a></li>
-                  <li><a href="#named-parameters">Named Parameters‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#current-state">Current State‎</a>
-                <ul>
-                  <li><a href="#limitations">Limitations‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#how-to-get-started-with-dart">How to Get Started With Dart?‎</a>
-                <ul>
-                  <li><a href="#getting-started">Getting Started‎</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-          <h2 id="what-is-dart">What is Dart?<a class="fa fa-anchor" href="#what-is-dart" onclick="event.stopPropagation()"></a></h2>
-          <p>Dart (previously also known as <code>dartlang</code>) is an object-oriented, <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">a style of Object-oriented programming (OOP) in which inheritance occurs via defining classes of objects, instead of inheritance occurring via the objects alone (compare prototype-based programming)</span>class defined</span>, garbage-collected language using a C-style syntax that <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">also known as source-to-source compilation</span>transcompiles</span> optionally into JavaScript. It's rumored that Dart was invented out of Google engineers' frustration with JavaScript (they even built <a href="https://dartdoc.takyam.com/tools/dartium/">a version of Chromium browser</a> with Dart VM so that Dart code can be run on the web without transcompiling to JavaScript). However, as most developers still stick to JavaScript and it turned out that TypeScript is a much more widely-accepted solution for statically typed JavaScript transcompilation, Dart is then, with the emergence of <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">a cross-platform mobile UI framework developed by Google</span>Flutter</span>, re-purposed as a <strong>client-optimized</strong> language that's optimized for <strong>UI creation</strong> and <strong>cross-platform execution</strong>.</p>
-          <h2 id="why-learn-dart">Why Learn Dart?<a class="fa fa-anchor" href="#why-learn-dart" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="optimized-for-declarative-ui">Optimized for Declarative UI<a class="fa fa-anchor" href="#optimized-for-declarative-ui" onclick="event.stopPropagation()"></a></h3>
-          <panel minimized><template slot="_header">
-              <p>If you don't know what <strong>declarative UI</strong> is...</p>
-            </template>
-            <p>To be more specific, why is reactive programming, a declarative programming paradigm, important for UI development?</p>
-            <p><strong>What is reactive programming?</strong> Consider the expression <code>a = b + c</code>, in the world of <em>imperative programming</em>, it simply means &quot;calculate the value of <code>b + c</code>, assign the result to <code>a</code>&quot; - changing the value of <code>b</code> or <code>c</code> later would not change <code>a</code>. However, with reactive programming, you can consider <code>a</code> will always evaluate to the result of <code>b+c</code> even without you explicitly calling <code>a=b+c</code>. Such behavior is especially useful for writing UI - you no longer need to manually update the information displayed with a setter of some kind. Simply <em>declare</em> that variable <code>x</code> is related to UI element <code>y</code>, the runtime will update <code>y</code> whenever it detects a change in <code>x</code>. In short, reactive programming saves you from the headache of maintaining the consistency between the UI and internal states.</p>
-            <p>From above, you can see that <em>reactive programming</em> is by nature <em>declarative</em> as you don't write code to tell computers what to do at each step, you describe what's the expected behavior (e.g. a box should be centered at the screen, a button should turn grey when clicked, etc.).</p>
-            <p>In fact, <strong>declarative (and reactive) UI</strong> is an industry trend on all platforms - Android has <a href="https://developer.android.com/jetpack/compose">Jetpack Compose</a>, iOS has <a href="https://developer.apple.com/xcode/swiftui/">Swift UI</a>, Web has <a href="https://reactjs.org/">React</a> and <a href="https://vuejs.org/">Vue.js</a>, mobile cross-platform has <a href="https://reactnative.dev/">React Native</a> and <a href="https://flutter.dev/">Flutter</a>.
-            </p>
-          </panel>
-          <p><strong>Dart is optimized for declarative UI.</strong> Dart's syntax allows you to write statically typed code in a JSON-like way, and writing asynchronous code is a breeze in Dart, both of which makes Dart an ideal choice for developing declarative UI.</p>
-          <p>For the reasons above, Dart is adopted by Flutter, a cross-platform mobile UI framework. <span trigger="click" for="modal:flutter_info" v-b-popover.click.top.html="popoverGenerator" v-b-tooltip.click.top.html="tooltipContentGetter" v-on:click="$refs['modal:flutter_info'].show()" class="trigger-click">(Why Flutter?)</span> Not only you shall build Flutter apps using Dart, the Flutter framework itself is written in <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">platform-dependent channel methods excluded, of course...</span>pure Dart</span>. In short, Dart is suitable for writing declarative UI, and Dart is a pre-requisite for Flutter.</p>
-          <b-modal id="modal:flutter_info" centered hide-footer size="lg" modal-class="mb-zoom" ref="modal:flutter_info"><template slot="modal-title"><strong>What's nice (or unique) about Flutter?</strong></template>
-            Flutter is open-source, fast-growing and easy-to-learn.
-            <ul>
-              <li>Apps written in Flutter runs as a single page application as it renders everything with its own rendering engine - just like most of the mobile games. This approach makes UI consistency a breeze - you can be confident that what you see on Android emulator will be exactly the same when it's published to iOS.</li>
-              <li>Flutter supports stateful hot reload - your changes to both UI and logic code can be reflected to the running emulator within a second, and the states will be preserved.</li>
-              <li>Flutter (in release mode) compiles everything to native machine code - unlike some other cross-platform frameworks that makes use of some kind of middleware (e.g. JS Bridge in React Native) to communicate with the native APIs.</li>
-            </ul>
-          </b-modal>
-          <h3 id="fast-development-and-native-performance">Fast Development and Native Performance<a class="fa fa-anchor" href="#fast-development-and-native-performance" onclick="event.stopPropagation()"></a></h3>
-          <p>A programming language usually needs to balance between development speed and performance. Dart is ambitious: it wants to <strong>run fast</strong> on all platforms (which requires compilation to native machine code) while allowing the developers to <strong>live reload code changes</strong> without re-compiling the entire file (which requires a VM of some kind). Thus, Dart has three execution modes for the best of all words:</p>
-          <ul>
-            <li>for fast development, <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Just-in-time</span>JIT</span> + Dart VM;</li>
-            <li>for native performance: <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Ahead-of-time</span>AOT</span> compilation to platform-specific instructions;</li>
-            <li>for browser support: source-to-source compiler to JavaScript</li>
-          </ul>
-          <p>The flexibility provided by the three execution modes of Dart makes Dart unique in the world of programming languages - there are few languages that maintains three components (i.e. VM, compiler and transpiler). It's a lot of work for the Dart maintainers, but saves a lot of work for Dart developers.</p>
-          <h2 id="notable-characteristics">Notable Characteristics<a class="fa fa-anchor" href="#notable-characteristics" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="built-in-asynchrony-support">Built-In Asynchrony Support<a class="fa fa-anchor" href="#built-in-asynchrony-support" onclick="event.stopPropagation()"></a></h3>
-          <p>Asynchronous programming is important for UI development because you don't want your UI to freeze when some time-consuming operation (e.g. network request, computationally heavy subroutines) is happening.</p>
-          <p>There are three major ways Dart supports asynchronous programming</p>
-          <ul>
-            <li><a href="https://api.dart.dev/stable/2.7.1/dart-async/Future-class.html"><code>Future</code></a> object, which is very similar to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">JavaScript promise</a></li>
-            <li><a href="https://api.dart.dev/stable/2.7.1/dart-async/Stream-class.html"><code>Stream</code></a> object, which can be &quot;subscribed&quot; to</li>
-            <li><code>async</code> and <code>await</code> syntax</li>
-          </ul>
-          <p>Asynchronous programming is commonly used in UI because certain operations are not instant, most common of which is HTTP requests:</p>
-          <pre><code class="hljs dart"><span><span class="hljs-keyword">import</span> <span class="hljs-string">'dart:html'</span>;<br></span><span><br></span><span>main(<span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; args) {<br></span><span>  Future&lt;<span class="hljs-built_in">String</span>&gt; respFuture = HttpRequest.getString(<span class="hljs-string">'https://jsonplaceholder.typicode.com/todos/1'</span>);<br></span><span>  respFuture.then((result) =&gt; <span class="hljs-built_in">print</span>(result));<br></span><span>  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hello world"</span>);<br></span><span>}<br></span></code></pre>
-          <p>
-            <panel minimized><template slot="_header">
-                <p>DartPad example</p>
-              </template><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=9dfa68887ae9b57f87d2eccfd061c675&split=50"></iframe></panel>
-          </p>
-          <p>You should expect &quot;Hello world&quot; to be printed before the HTTP request's result because <code>Future</code> object makes sure that the progress of <code>main</code> will not be hindered by the HTTP request. Instead, <em>callback function</em> <code>(result) =&gt; print(result)</code> is called whenever the result is ready - thus <strong>asynchronous</strong>.</p>
-          <p>However it's possible to enforce the &quot;line-by-line&quot; execution order by using <code>await</code> in an <code>async</code> function:</p>
-          <pre><code class="hljs dart"><span><span class="hljs-keyword">import</span> <span class="hljs-string">'dart:html'</span>;<br></span><span><br></span><span>main(<span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; args) <span class="hljs-keyword">async</span> {<br></span><span>  <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> HttpRequest.getString(<span class="hljs-string">'https://jsonplaceholder.typicode.com/todos/1'</span>);<br></span><span>  <span class="hljs-built_in">print</span>(result);<br></span><span>  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hello world"</span>);<br></span><span>}<br></span></code></pre>
-          <p>
-            <panel minimized><template slot="_header">
-                <p>DartPad example</p>
-              </template><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=1aa4acd76e7a874844564913d26a72b3&split=50"></iframe></panel>
-          </p>
-          <p>You may understand <code>await</code> as &quot;waiting for the result, do not proceed until it's ready&quot;. <code>.then</code> and <code>await</code> are two different ways of consuming the result of a <code>Future</code>. To help you better understand the difference between <code>async-await</code> and <code>then</code>, here is an example:</p>
-          <panel><template slot="_header">
-              <p>Example</p>
-            </template>
-            <p>If you are to write callback functions for futures <code>f1</code> and <code>f2</code> separately, they will execute &quot;in parallel&quot;. You should expect to see &quot;String from the future&quot; before &quot;Must come second&quot;.</p>
-            <pre><code class="hljs dart"><span>main() {<br></span><span>  <span class="hljs-keyword">var</span> f1 = Future.delayed(<span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">1</span>), () =&gt; <span class="hljs-string">'String from the future'</span>);<br></span><span>  <span class="hljs-keyword">var</span> f2 = Future.delayed(<span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">2</span>), () =&gt; <span class="hljs-string">'Must come second'</span>);<br></span><span>  f1.then((res1) =&gt; <span class="hljs-built_in">print</span>(res1));<br></span><span>  f2.then((res2) =&gt; <span class="hljs-built_in">print</span>(res2));<br></span><span>}<br></span></code></pre>
-            <p>
-              <panel minimized><template slot="_header">
-                  <p>DartPad example</p>
-                </template><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=ebdcc9d8de89c26ceed7b1255bf40395&split=50"></iframe></panel>
-            </p>
-            <p>However, if you only want to request the content of <code>f2</code> after <code>f1</code> is ready, you may nest callback functions like below:</p>
-            <pre><code class="hljs dart"><span>main() {<br></span><span>  <span class="hljs-keyword">var</span> f1 = Future.delayed(<span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">1</span>), () =&gt; <span class="hljs-string">'String from the future'</span>);<br></span><span>  <span class="hljs-keyword">var</span> f2 = Future.delayed(<span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">2</span>), () =&gt; <span class="hljs-string">'Must come second'</span>);<br></span><span>  f1.then((res1) {<br></span><span>    f2.then((res2) {<br></span><span>      <span class="hljs-built_in">print</span>(res1 + <span class="hljs-string">" "</span> + res2);<br></span><span>    });<br></span><span>  });<br></span><span>}<br></span></code></pre>
-            <p>
-              <panel minimized><template slot="_header">
-                  <p>DartPad example</p>
-                </template><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=ff4a94d26a59c373b7cd94cd8df7094a&split=50"></iframe></panel>
-            </p>
-            <p>This time, after 2 seconds, two strings should be printed out at the same time. However, using <code>async-await</code>, there's a more elegant way to do the same thing:</p>
-            <pre><code class="hljs dart"><span>main() {<br></span><span>  <span class="hljs-keyword">var</span> f1 = Future.delayed(<span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">1</span>), () =&gt; <span class="hljs-string">'String from the future'</span>);<br></span><span>  <span class="hljs-keyword">var</span> f2 = Future.delayed(<span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">2</span>), () =&gt; <span class="hljs-string">'Must come second'</span>);<br></span><span>  f1.then((res1) <span class="hljs-keyword">async</span> {<br></span><span>    <span class="hljs-built_in">print</span>(res1 + <span class="hljs-string">" "</span> + <span class="hljs-keyword">await</span> f2);<br></span><span>  });<br></span><span>}<br></span></code></pre>
-            <p>
-              <panel minimized><template slot="_header">
-                  <p>DartPad example</p>
-                </template><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=077d288e4a705324c4aa268810904305&split=50"></iframe></panel>
-            </p>
-          </panel>
-          <h3 id="extension-methods">Extension Methods<a class="fa fa-anchor" href="#extension-methods" onclick="event.stopPropagation()"></a></h3>
-          <p>Extension methods aim to solve one problem: when using an external library, you may want to extend or even change some of the methods for your own needs. For example, instead of using <code>int.parse(42)</code>, you want to extend the <code>String</code> class so that it has a method <code>parseInt()</code> to parse a string to int. You can easily do so by extending <code>String</code> class in Dart:</p>
-          <pre><code class="hljs dart"><span><span class="hljs-keyword">extension</span> NumberParsing <span class="hljs-keyword">on</span> <span class="hljs-built_in">String</span> {<br></span><span>  <span class="hljs-built_in">int</span> parseInt() {<br></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>.parse(<span class="hljs-keyword">this</span>);<br></span><span>  }<br></span><span>}<br></span><span><br></span><span>main(<span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; args) {<br></span><span>  <span class="hljs-built_in">print</span>(<span class="hljs-string">'42'</span>.parseInt());<br></span><span>}<br></span></code></pre>
-          <p>
-            <panel minimized><template slot="_header">
-                <p>DartPad example</p>
-              </template><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-inline.html?id=c162704838776bb7da6568c3c1589f69&split=50"></iframe></panel>
-          </p>
-          <p>Extending classes, especially core classes like <code>String</code>, could be quite tricky if not impossible without extension methods. However, in Dart, you can easily customize the behavior of built-in classes like so. Extension methods in Dart have even more interesting stuff like <a href="https://dart.dev/guides/language/extension-methods#implementing-generic-extensions">generic support</a>.</p>
-          <h3 id="named-parameters">Named Parameters<a class="fa fa-anchor" href="#named-parameters" onclick="event.stopPropagation()"></a></h3>
-          <p>This is what makes declarative UI code written in Dart look surprisingly similar to JSON. In a language where the order of a function's parameters is specified by the function's definition, if you only look at the function call, it might be difficult for you to figure out what those parameters mean. One classic example is the <code>put(key, value)</code> of a Map data structure - if you only see <code>m.put(1, 2)</code>, can you tell which one is key without prior knowledge?</p>
-          <p>That's when named parameters become handy:</p>
-          <p>When calling a function, you can specify named parameters using <code>paramName: value</code>. For example:</p>
-          <pre><code class="hljs dart"><span>enableFlags(bold: <span class="hljs-keyword">true</span>, hidden: <span class="hljs-keyword">false</span>);<br></span></code></pre>
-          <p>When defining a function, use <code>{param1, param2, ...}</code> to specify named parameters:</p>
-          <pre><code class="hljs dart"><span><span class="hljs-comment">/// <span class="markdown">Sets the [bold] and [hidden] flags ...</span></span><br></span><span><span class="hljs-keyword">void</span> enableFlags({<span class="hljs-built_in">bool</span> bold, <span class="hljs-built_in">bool</span> hidden}) {...}<br></span></code></pre>
-          <p>Note that if named parameters are used, the order no longer matters, you can write <code>enableFlags(hidden: false, bold: true);</code> as well. This feature is especially useful for declarative UI as the properties of a widget are, most of the time, parameters passed to the constructor of the object. Below is a concrete example in Flutter. Imagine how messy and frustrating the code would look like if the parameters are not named and we have to refer to the documentation for the exact order of them!</p>
-          <pre><code class="hljs dart"><span><span class="hljs-comment">// Copyright 2018 The Flutter team. All rights reserved.</span><br></span><span><span class="hljs-comment">// Use of this source code is governed by a BSD-style license that can be</span><br></span><span><span class="hljs-comment">// found in the LICENSE file.</span><br></span><span><br></span><span><span class="hljs-keyword">import</span> <span class="hljs-string">'package:flutter/material.dart'</span>;<br></span><span><br></span><span><span class="hljs-keyword">void</span> main() =&gt; runApp(MyApp());<br></span><span><br></span><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{<br></span><span>  <span class="hljs-meta">@override</span><br></span><span>  Widget build(BuildContext context) {<br></span><span>    <span class="hljs-keyword">return</span> MaterialApp(<br></span><span>      title: <span class="hljs-string">'Welcome to Flutter'</span>,<br></span><span>      home: Scaffold(<br></span><span>        appBar: AppBar(<br></span><span>          title: Text(<span class="hljs-string">'Welcome to Flutter'</span>),<br></span><span>        ),<br></span><span>        body: Center(<br></span><span>          child: Text(<span class="hljs-string">'Hello World'</span>),<br></span><span>        ),<br></span><span>      ),<br></span><span>    );<br></span><span>  }<br></span><span>}<br></span></code></pre>
-          <p>
-            <panel minimized><template slot="_header">
-                <p>DartPad example</p>
-              </template><iframe style="width: 100%; height: 400px;" src="https://dartpad.dev/embed-flutter.html?id=719143b1a625dbdefb853c96de0ddbc2&split=50"></iframe></panel>
-          </p>
-          <panel minimized><template slot="_header">
-              <p>Optional reading: underlying implementation of <em>named parameters</em> in Dart</p>
-            </template>
-            <p>Actually, <strong>named</strong> parameters are a type of <a href="https://dart.dev/guides/language/language-tour#optional-parameters"><strong>optional</strong> parameters</a> (i.e. you can omit those parameters and they will be assigned <code>null</code> or the default value upon entry of the function). You can also make use of <a href="https://pub.dev/documentation/meta/latest/meta/required-constant.html"><code>@required</code></a> annotation to make certain named parameters compulsory.</p>
-          </panel>
-          <h2 id="current-state">Current State<a class="fa fa-anchor" href="#current-state" onclick="event.stopPropagation()"></a></h2>
-          <p><strong>Tooling support</strong>: Dart has out-of-the-box dependency management (<a href="https://pub.dev/">pub.dev</a>), linting solution (<a href="https://dart.dev/tools/dartfmt">dartfmt</a>), documentation generator (<a href="https://dart.dev/tools/dartdoc">dartdoc</a>) and <a href="https://pub.dev/packages/test">official testing framework</a>. After installing Dart SDK, you're ready to go 99% of the time.</p>
-          <p><strong>Popularity</strong>: Dart is a relatively new (first appeared in 2011), but quickly gained popularity in recent years: it's ranked 16th the first time it entered the <a href="https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019">IEEE Spectrum programming language ranking</a>, and 23rd on <a href="https://www.tiobe.com/tiobe-index/">TIOBE</a> as of April 2020. And Dart is being actively maintained by a team at Google: check out the <a href="https://github.com/dart-lang/sdk">GitHub repo of Dart SDK</a>.</p>
-          <h3 id="limitations">Limitations<a class="fa fa-anchor" href="#limitations" onclick="event.stopPropagation()"></a></h3>
-          <p>Of course, like any other language, Dart is <a href="https://news.ycombinator.com/item?id=16475074">not perfect</a>.</p>
-          <ul>
-            <li>Even if Dart appears to be open-sourced, it has been pretty <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">meaning the community contribution is more limited to bug fixes instead of adding new features</span>internally focused</span>.</li>
-            <li>And unlike Java, C++ or Python, although technically you can write most types of application using Dart, it may not be your safest choice a lot of the times (i.e. you may find yourself writing Dart in a Flutter project most of the time).</li>
-          </ul>
-          <h2 id="how-to-get-started-with-dart">How to Get Started With Dart?<a class="fa fa-anchor" href="#how-to-get-started-with-dart" onclick="event.stopPropagation()"></a></h2>
-          <p>Dart is well-documented and you should find solutions to most of your Dart problems on <a href="https://dart.dev/guides">their website</a>.</p>
-          <p>Like many devs who tried Dart says, you might already know Dart. If you already have <em>any</em> prior programming experience in any language (say, C, C++, Java, JavaScript, Python, Kotlin, Swift), you're pretty likely to master Dart within weeks for the following reasons:</p>
-          <ul>
-            <li>Dart is using a C-style syntax: it won't be a surprise if a function written in Java can be compiled and run in Dart with minor (or no) changes.</li>
-            <li>Dart is a <strong>strongly-typed</strong> language with type-inference support: static typing makes IDE much more helpful and if your program compiles, it most likely works just fine.</li>
-            <li>You may find your favorite syntax (sugar) in Dart, for example
-              <ul>
-                <li>Similar to JavaScript: arrow functions</li>
-                <li>Similar to Kotlin: <code>get</code> and <code>set</code> keywords for OOP, null safety syntax</li>
-              </ul>
-            </li>
-          </ul>
-          <h3 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started" onclick="event.stopPropagation()"></a></h3>
-          <ul>
-            <li>Installation: You may get the Dart SDK <a href="https://dart.dev/get-dart">here</a>. Actually you don't even need to install the Dart SDK to play around with Dart (remember the interactive Dartpad example above?). You can have a guided tour within your browser to explore Dart <a href="https://dart.dev/codelabs/dart-cheatsheet">here</a>.</li>
-            <li>Get familiar with Dart with short examples <a href="https://dart.dev/samples">here</a>.</li>
-            <li>Syntax tour: <a href="https://dart.dev/guides/language/language-tour">A tour of the Dart language</a></li>
-            <li>Essential concepts in Dart:
-              <ul>
-                <li><a href="https://dart.dev/codelabs/async-await">Asynchronous programming using <code>futures</code>, <code>async</code>, <code>await</code></a></li>
-                <li><a href="https://dart.dev/tutorials/language/streams">Asynchronous programming using streams</a></li>
-                <li><a href="https://dart.dev/guides/language/sound-dart">Dart type system</a></li>
-              </ul>
-            </li>
-            <li>Useful resources
-              <ul>
-                <li><a href="https://dart.dev/guides/libraries/library-tour">Core library tour of Dart</a></li>
-                <li><a href="https://dart.dev/guides/language/effective-dart">Effective Dart</a></li>
-                <li><a href="https://dart.academy/">Dart Academy</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-dart">Introduction to Dart&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-dart">What is Dart?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-learn-dart">Why Learn Dart?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#optimized-for-declarative-ui">Optimized for Declarative UI&#x200E;</a>
-                <a class="nav-link py-1" href="#fast-development-and-native-performance">Fast Development and Native Performance&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#notable-characteristics">Notable Characteristics&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#built-in-asynchrony-support">Built-In Asynchrony Support&#x200E;</a>
-                <a class="nav-link py-1" href="#extension-methods">Extension Methods&#x200E;</a>
-                <a class="nav-link py-1" href="#named-parameters">Named Parameters&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#current-state">Current State&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#limitations">Limitations&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#how-to-get-started-with-dart">How to Get Started With Dart?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
-              </nav>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to Dart</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="Dart.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-dart"><span id="introduction-to-dart" class="anchor"></span>Introduction to Dart<a href="#introduction-to-dart" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Author: <a href="https://github.com/le0tan">Tan Yuanhong</a></strong></p> <p>Reviewers: <a href="https://github.com/openorclose">Daryl Tan</a>, <a href="https://github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://github.com/Tejas2805">Tejas Bhuwania</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-dart" data-v-7d17494f>What is Dart?‎</a></li> <li data-v-7d17494f><a href="#why-learn-dart" data-v-7d17494f>Why Learn Dart?‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#optimized-for-declarative-ui" data-v-7d17494f>Optimized for Declarative UI‎</a></li> <li data-v-7d17494f><a href="#fast-development-and-native-performance" data-v-7d17494f>Fast Development and Native Performance‎</a></li></ul></li> <li data-v-7d17494f><a href="#notable-characteristics" data-v-7d17494f>Notable Characteristics‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#built-in-asynchrony-support" data-v-7d17494f>Built-In Asynchrony Support‎</a></li> <li data-v-7d17494f><a href="#extension-methods" data-v-7d17494f>Extension Methods‎</a></li> <li data-v-7d17494f><a href="#named-parameters" data-v-7d17494f>Named Parameters‎</a></li></ul></li> <li data-v-7d17494f><a href="#current-state" data-v-7d17494f>Current State‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#limitations" data-v-7d17494f>Limitations‎</a></li></ul></li> <li data-v-7d17494f><a href="#how-to-get-started-with-dart" data-v-7d17494f>How to Get Started With Dart?‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#getting-started" data-v-7d17494f>Getting Started‎</a></li></ul></li></ul></div> <!----></div></div></div> <h2 id="what-is-dart"><span id="what-is-dart" class="anchor"></span>What is Dart?<a href="#what-is-dart" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Dart (previously also known as <code class="hljs inline no-lang">dartlang</code>) is an object-oriented, <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">a style of Object-oriented programming (OOP) in which inheritance occurs via defining classes of objects, instead of inheritance occurring via the objects alone (compare prototype-based programming)</span>class defined</span>, garbage-collected language using a C-style syntax that <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">also known as source-to-source compilation</span>transcompiles</span> optionally into JavaScript. It's rumored that Dart was invented out of Google engineers' frustration with JavaScript (they even built <a href="https://dartdoc.takyam.com/tools/dartium/">a version of Chromium browser</a> with Dart VM so that Dart code can be run on the web without transcompiling to JavaScript). However, as most developers still stick to JavaScript and it turned out that TypeScript is a much more widely-accepted solution for statically typed JavaScript transcompilation, Dart is then, with the emergence of <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">a cross-platform mobile UI framework developed by Google</span>Flutter</span>, re-purposed as a <strong>client-optimized</strong> language that's optimized for <strong>UI creation</strong> and <strong>cross-platform execution</strong>.</p> <h2 id="why-learn-dart"><span id="why-learn-dart" class="anchor"></span>Why Learn Dart?<a href="#why-learn-dart" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="optimized-for-declarative-ui"><span id="optimized-for-declarative-ui" class="anchor"></span>Optimized for Declarative UI<a href="#optimized-for-declarative-ui" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <span minimized="" class="card-container" data-v-5681bde8><span class="morph" data-v-5681bde8><button class="morph-display-wrapper btn btn-outline-secondary card-title" data-v-5681bde8><p data-v-5681bde8>If you don't know what <strong data-v-5681bde8>declarative UI</strong> is...</p></button></span></span> <p><strong>Dart is optimized for declarative UI.</strong> Dart's syntax allows you to write statically typed code in a JSON-like way, and writing asynchronous code is a breeze in Dart, both of which makes Dart an ideal choice for developing declarative UI.</p> <p>For the reasons above, Dart is adopted by Flutter, a cross-platform mobile UI framework. <span tabindex="0" class="trigger-click"><!----> (Why Flutter?)</span> Not only you shall build Flutter apps using Dart, the Flutter framework itself is written in <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">platform-dependent channel methods excluded, of course...</span>pure Dart</span>. In short, Dart is suitable for writing declarative UI, and Dart is a pre-requisite for Flutter.</p> <!----> <h3 id="fast-development-and-native-performance"><span id="fast-development-and-native-performance" class="anchor"></span>Fast Development and Native Performance<a href="#fast-development-and-native-performance" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>A programming language usually needs to balance between development speed and performance. Dart is ambitious: it wants to <strong>run fast</strong> on all platforms (which requires compilation to native machine code) while allowing the developers to <strong>live reload code changes</strong> without re-compiling the entire file (which requires a VM of some kind). Thus, Dart has three execution modes for the best of all words:</p> <ul><li>for fast development, <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Just-in-time</span>JIT</span> + Dart VM;</li> <li>for native performance: <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Ahead-of-time</span>AOT</span> compilation to platform-specific instructions;</li> <li>for browser support: source-to-source compiler to JavaScript</li></ul> <p>The flexibility provided by the three execution modes of Dart makes Dart unique in the world of programming languages - there are few languages that maintains three components (i.e. VM, compiler and transpiler). It's a lot of work for the Dart maintainers, but saves a lot of work for Dart developers.</p> <h2 id="notable-characteristics"><span id="notable-characteristics" class="anchor"></span>Notable Characteristics<a href="#notable-characteristics" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="built-in-asynchrony-support"><span id="built-in-asynchrony-support" class="anchor"></span>Built-In Asynchrony Support<a href="#built-in-asynchrony-support" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Asynchronous programming is important for UI development because you don't want your UI to freeze when some time-consuming operation (e.g. network request, computationally heavy subroutines) is happening.</p> <p>There are three major ways Dart supports asynchronous programming</p> <ul><li><a href="https://api.dart.dev/stable/2.7.1/dart-async/Future-class.html"><code class="hljs inline no-lang">Future</code></a> object, which is very similar to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">JavaScript promise</a></li> <li><a href="https://api.dart.dev/stable/2.7.1/dart-async/Stream-class.html"><code class="hljs inline no-lang">Stream</code></a> object, which can be &quot;subscribed&quot; to</li> <li><code class="hljs inline no-lang">async</code> and <code class="hljs inline no-lang">await</code> syntax</li></ul> <p>Asynchronous programming is commonly used in UI because certain operations are not instant, most common of which is HTTP requests:</p> <pre><code class="hljs dart"><span><span class="hljs-keyword">import</span> <span class="hljs-string">'dart:html'</span>;
+</span><span>
+</span><span>main(<span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; args) {
+</span><span>  Future&lt;<span class="hljs-built_in">String</span>&gt; respFuture = HttpRequest.getString(<span class="hljs-string">'https://jsonplaceholder.typicode.com/todos/1'</span>);
+</span><span>  respFuture.then((result) =&gt; <span class="hljs-built_in">print</span>(result));
+</span><span>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello world&quot;</span>);
+</span><span>}
+</span></code></pre><p><span minimized="" class="card-container" data-v-5681bde8><span class="morph" data-v-5681bde8><button class="morph-display-wrapper btn btn-outline-secondary card-title" data-v-5681bde8><p data-v-5681bde8>DartPad example</p></button></span></span></p> <p>You should expect &quot;Hello world&quot; to be printed before the HTTP request's result because <code class="hljs inline no-lang">Future</code> object makes sure that the progress of <code class="hljs inline no-lang">main</code> will not be hindered by the HTTP request. Instead, <em>callback function</em> <code class="hljs inline no-lang">(result) =&gt; print(result)</code> is called whenever the result is ready - thus <strong>asynchronous</strong>.</p> <p>However it's possible to enforce the &quot;line-by-line&quot; execution order by using <code class="hljs inline no-lang">await</code> in an <code class="hljs inline no-lang">async</code> function:</p> <pre><code class="hljs dart"><span><span class="hljs-keyword">import</span> <span class="hljs-string">'dart:html'</span>;
+</span><span>
+</span><span>main(<span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; args) <span class="hljs-keyword">async</span> {
+</span><span>  <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> HttpRequest.getString(<span class="hljs-string">'https://jsonplaceholder.typicode.com/todos/1'</span>);
+</span><span>  <span class="hljs-built_in">print</span>(result);
+</span><span>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello world&quot;</span>);
+</span><span>}
+</span></code></pre><p><span minimized="" class="card-container" data-v-5681bde8><span class="morph" data-v-5681bde8><button class="morph-display-wrapper btn btn-outline-secondary card-title" data-v-5681bde8><p data-v-5681bde8>DartPad example</p></button></span></span></p> <p>You may understand <code class="hljs inline no-lang">await</code> as &quot;waiting for the result, do not proceed until it's ready&quot;. <code class="hljs inline no-lang">.then</code> and <code class="hljs inline no-lang">await</code> are two different ways of consuming the result of a <code class="hljs inline no-lang">Future</code>. To help you better understand the difference between <code class="hljs inline no-lang">async-await</code> and <code class="hljs inline no-lang">then</code>, here is an example:</p> <div class="card-container" data-v-5681bde8><div class="card expandable-card" data-v-5681bde8><div class="card-header header-toggle bg-light" data-v-5681bde8><div class="caret-wrapper" data-v-5681bde8><!----></div> <div class="header-wrapper card-title bg-light" data-v-5681bde8><p data-v-5681bde8>Example</p></div> <div class="button-wrapper" data-v-5681bde8><button type="button" class="collapse-button btn btn-outline-secondary" data-v-5681bde8><span aria-hidden="true" class="collapse-icon glyphicon glyphicon-menu-down"></span></button> <button type="button" class="close-button btn btn-outline-secondary" data-v-5681bde8><span aria-hidden="true" class="glyphicon glyphicon-remove" data-v-5681bde8></span></button> <button type="button" class="popup-button btn btn-outline-secondary" style="display:none;" data-v-5681bde8><span aria-hidden="true" class="glyphicon glyphicon-new-window" data-v-5681bde8></span></button></div></div> <div class="card-collapse" data-v-5681bde8><!----> <hr style="display:none;" data-v-5681bde8></div> <!----></div></div> <h3 id="extension-methods"><span id="extension-methods" class="anchor"></span>Extension Methods<a href="#extension-methods" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Extension methods aim to solve one problem: when using an external library, you may want to extend or even change some of the methods for your own needs. For example, instead of using <code class="hljs inline no-lang">int.parse(42)</code>, you want to extend the <code class="hljs inline no-lang">String</code> class so that it has a method <code class="hljs inline no-lang">parseInt()</code> to parse a string to int. You can easily do so by extending <code class="hljs inline no-lang">String</code> class in Dart:</p> <pre><code class="hljs dart"><span><span class="hljs-keyword">extension</span> NumberParsing <span class="hljs-keyword">on</span> <span class="hljs-built_in">String</span> {
+</span><span>  <span class="hljs-built_in">int</span> parseInt() {
+</span><span>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>.parse(<span class="hljs-keyword">this</span>);
+</span><span>  }
+</span><span>}
+</span><span>
+</span><span>main(<span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; args) {
+</span><span>  <span class="hljs-built_in">print</span>(<span class="hljs-string">'42'</span>.parseInt());
+</span><span>}
+</span></code></pre><p><span minimized="" class="card-container" data-v-5681bde8><span class="morph" data-v-5681bde8><button class="morph-display-wrapper btn btn-outline-secondary card-title" data-v-5681bde8><p data-v-5681bde8>DartPad example</p></button></span></span></p> <p>Extending classes, especially core classes like <code class="hljs inline no-lang">String</code>, could be quite tricky if not impossible without extension methods. However, in Dart, you can easily customize the behavior of built-in classes like so. Extension methods in Dart have even more interesting stuff like <a href="https://dart.dev/guides/language/extension-methods#implementing-generic-extensions">generic support</a>.</p> <h3 id="named-parameters"><span id="named-parameters" class="anchor"></span>Named Parameters<a href="#named-parameters" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>This is what makes declarative UI code written in Dart look surprisingly similar to JSON. In a language where the order of a function's parameters is specified by the function's definition, if you only look at the function call, it might be difficult for you to figure out what those parameters mean. One classic example is the <code class="hljs inline no-lang">put(key, value)</code> of a Map data structure - if you only see <code class="hljs inline no-lang">m.put(1, 2)</code>, can you tell which one is key without prior knowledge?</p> <p>That's when named parameters become handy:</p> <p>When calling a function, you can specify named parameters using <code class="hljs inline no-lang">paramName: value</code>. For example:</p> <pre><code class="hljs dart"><span>enableFlags(bold: <span class="hljs-keyword">true</span>, hidden: <span class="hljs-keyword">false</span>);
+</span></code></pre><p>When defining a function, use <code class="hljs inline no-lang">{param1, param2, ...}</code> to specify named parameters:</p> <pre><code class="hljs dart"><span><span class="hljs-comment">/// <span class="markdown">Sets the [bold] and [hidden] flags ...</span></span>
+</span><span><span class="hljs-keyword">void</span> enableFlags({<span class="hljs-built_in">bool</span> bold, <span class="hljs-built_in">bool</span> hidden}) {...}
+</span></code></pre><p>Note that if named parameters are used, the order no longer matters, you can write <code class="hljs inline no-lang">enableFlags(hidden: false, bold: true);</code> as well. This feature is especially useful for declarative UI as the properties of a widget are, most of the time, parameters passed to the constructor of the object. Below is a concrete example in Flutter. Imagine how messy and frustrating the code would look like if the parameters are not named and we have to refer to the documentation for the exact order of them!</p> <pre><code class="hljs dart"><span><span class="hljs-comment">// Copyright 2018 The Flutter team. All rights reserved.</span>
+</span><span><span class="hljs-comment">// Use of this source code is governed by a BSD-style license that can be</span>
+</span><span><span class="hljs-comment">// found in the LICENSE file.</span>
+</span><span>
+</span><span><span class="hljs-keyword">import</span> <span class="hljs-string">'package:flutter/material.dart'</span>;
+</span><span>
+</span><span><span class="hljs-keyword">void</span> main() =&gt; runApp(MyApp());
+</span><span>
+</span><span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{
+</span><span>  <span class="hljs-meta">@override</span>
+</span><span>  Widget build(BuildContext context) {
+</span><span>    <span class="hljs-keyword">return</span> MaterialApp(
+</span><span>      title: <span class="hljs-string">'Welcome to Flutter'</span>,
+</span><span>      home: Scaffold(
+</span><span>        appBar: AppBar(
+</span><span>          title: Text(<span class="hljs-string">'Welcome to Flutter'</span>),
+</span><span>        ),
+</span><span>        body: Center(
+</span><span>          child: Text(<span class="hljs-string">'Hello World'</span>),
+</span><span>        ),
+</span><span>      ),
+</span><span>    );
+</span><span>  }
+</span><span>}
+</span></code></pre><p><span minimized="" class="card-container" data-v-5681bde8><span class="morph" data-v-5681bde8><button class="morph-display-wrapper btn btn-outline-secondary card-title" data-v-5681bde8><p data-v-5681bde8>DartPad example</p></button></span></span></p> <span minimized="" class="card-container" data-v-5681bde8><span class="morph" data-v-5681bde8><button class="morph-display-wrapper btn btn-outline-secondary card-title" data-v-5681bde8><p data-v-5681bde8>Optional reading: underlying implementation of <em data-v-5681bde8>named parameters</em> in Dart</p></button></span></span> <h2 id="current-state"><span id="current-state" class="anchor"></span>Current State<a href="#current-state" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p><strong>Tooling support</strong>: Dart has out-of-the-box dependency management (<a href="https://pub.dev/">pub.dev</a>), linting solution (<a href="https://dart.dev/tools/dartfmt">dartfmt</a>), documentation generator (<a href="https://dart.dev/tools/dartdoc">dartdoc</a>) and <a href="https://pub.dev/packages/test">official testing framework</a>. After installing Dart SDK, you're ready to go 99% of the time.</p> <p><strong>Popularity</strong>: Dart is a relatively new (first appeared in 2011), but quickly gained popularity in recent years: it's ranked 16th the first time it entered the <a href="https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019">IEEE Spectrum programming language ranking</a>, and 23rd on <a href="https://www.tiobe.com/tiobe-index/">TIOBE</a> as of April 2020. And Dart is being actively maintained by a team at Google: check out the <a href="https://github.com/dart-lang/sdk">GitHub repo of Dart SDK</a>.</p> <h3 id="limitations"><span id="limitations" class="anchor"></span>Limitations<a href="#limitations" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Of course, like any other language, Dart is <a href="https://news.ycombinator.com/item?id=16475074">not perfect</a>.</p> <ul><li>Even if Dart appears to be open-sourced, it has been pretty <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">meaning the community contribution is more limited to bug fixes instead of adding new features</span>internally focused</span>.</li> <li>And unlike Java, C++ or Python, although technically you can write most types of application using Dart, it may not be your safest choice a lot of the times (i.e. you may find yourself writing Dart in a Flutter project most of the time).</li></ul> <h2 id="how-to-get-started-with-dart"><span id="how-to-get-started-with-dart" class="anchor"></span>How to Get Started With Dart?<a href="#how-to-get-started-with-dart" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Dart is well-documented and you should find solutions to most of your Dart problems on <a href="https://dart.dev/guides">their website</a>.</p> <p>Like many devs who tried Dart says, you might already know Dart. If you already have <em>any</em> prior programming experience in any language (say, C, C++, Java, JavaScript, Python, Kotlin, Swift), you're pretty likely to master Dart within weeks for the following reasons:</p> <ul><li>Dart is using a C-style syntax: it won't be a surprise if a function written in Java can be compiled and run in Dart with minor (or no) changes.</li> <li>Dart is a <strong>strongly-typed</strong> language with type-inference support: static typing makes IDE much more helpful and if your program compiles, it most likely works just fine.</li> <li>You may find your favorite syntax (sugar) in Dart, for example
+<ul><li>Similar to JavaScript: arrow functions</li> <li>Similar to Kotlin: <code class="hljs inline no-lang">get</code> and <code class="hljs inline no-lang">set</code> keywords for OOP, null safety syntax</li></ul></li></ul> <h3 id="getting-started"><span id="getting-started" class="anchor"></span>Getting Started<a href="#getting-started" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li>Installation: You may get the Dart SDK <a href="https://dart.dev/get-dart">here</a>. Actually you don't even need to install the Dart SDK to play around with Dart (remember the interactive Dartpad example above?). You can have a guided tour within your browser to explore Dart <a href="https://dart.dev/codelabs/dart-cheatsheet">here</a>.</li> <li>Get familiar with Dart with short examples <a href="https://dart.dev/samples">here</a>.</li> <li>Syntax tour: <a href="https://dart.dev/guides/language/language-tour">A tour of the Dart language</a></li> <li>Essential concepts in Dart:
+<ul><li><a href="https://dart.dev/codelabs/async-await">Asynchronous programming using <code class="hljs inline no-lang">futures</code>, <code class="hljs inline no-lang">async</code>, <code class="hljs inline no-lang">await</code></a></li> <li><a href="https://dart.dev/tutorials/language/streams">Asynchronous programming using streams</a></li> <li><a href="https://dart.dev/guides/language/sound-dart">Dart type system</a></li></ul></li> <li>Useful resources
+<ul><li><a href="https://dart.dev/guides/libraries/library-tour">Core library tour of Dart</a></li> <li><a href="https://dart.dev/guides/language/effective-dart">Effective Dart</a></li> <li><a href="https://dart.academy/">Dart Academy</a></li></ul></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-dart" class="nav-link py-1" data-v-e8c82f88>Introduction to Dart‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-dart" class="nav-link py-1" data-v-e8c82f88>What is Dart?‎</a> <a href="#why-learn-dart" class="nav-link py-1" data-v-e8c82f88>Why Learn Dart?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#optimized-for-declarative-ui" class="nav-link py-1" data-v-e8c82f88>Optimized for Declarative UI‎</a> <a href="#fast-development-and-native-performance" class="nav-link py-1" data-v-e8c82f88>Fast Development and Native Performance‎</a></nav> <a href="#notable-characteristics" class="nav-link py-1" data-v-e8c82f88>Notable Characteristics‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#built-in-asynchrony-support" class="nav-link py-1" data-v-e8c82f88>Built-In Asynchrony Support‎</a> <a href="#extension-methods" class="nav-link py-1" data-v-e8c82f88>Extension Methods‎</a> <a href="#named-parameters" class="nav-link py-1" data-v-e8c82f88>Named Parameters‎</a></nav> <a href="#current-state" class="nav-link py-1" data-v-e8c82f88>Current State‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#limitations" class="nav-link py-1" data-v-e8c82f88>Limitations‎</a></nav> <a href="#how-to-get-started-with-dart" class="nav-link py-1" data-v-e8c82f88>How to Get Started With Dart?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#getting-started" class="nav-link py-1" data-v-e8c82f88>Getting Started‎</a></nav></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

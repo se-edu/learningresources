@@ -1,724 +1,121 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Regular Expressions</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a current">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-regular-expressions">Introduction to Regular Expressions<a class="fa fa-anchor" href="#introduction-to-regular-expressions" onclick="event.stopPropagation()"></a></h1>
-          <p>Authors: Jamos Tay</p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#overview">Overview‎</a>
-                <ul>
-                  <li><a href="#what-are-regular-expressions">What are Regular Expressions?‎</a></li>
-                  <li><a href="#why-should-i-learn-regex">Why Should I Learn Regex?‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#getting-started">Getting Started‎</a>
-                <ul>
-                  <li><a href="#introduction">Introduction‎</a></li>
-                  <li><a href="#search-text">Search Text‎</a>
-                    <ul>
-                      <li><a href="#example">Example‎</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#search-and-replace">Search and Replace‎</a>
-                    <ul>
-                      <li><a href="#result">Result‎</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#capturing-groups">Capturing Groups‎</a>
-                    <ul>
-                      <li><a href="#result">Result‎</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#further-exploration">Further Exploration‎</a></li>
-                  <li><a href="#quick-reference">Quick Reference‎</a></li>
-                  <li><a href="#helpful-links">Helpful Links‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#advanced-topics">Advanced Topics‎</a>
-                <ul>
-                  <li><a href="#the-regex-engine">The Regex Engine‎</a></li>
-                  <li><a href="#greedy-operators">Greedy Operators‎</a>
-                    <ul>
-                      <li><a href="#effect-on-performance">Effect on Performance‎</a></li>
-                      <li><a href="#catastrophic-backtracking">Catastrophic Backtracking‎</a></li>
-                      <li><a href="#matching-delimiters">Matching Delimiters‎</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#related-links">Related Links‎</a></li>
-                  <li><a href="#learning-resources">Learning Resources‎</a>
-                    <ul>
-                      <li><a href="#fun-stuff">Fun Stuff‎</a></li>
-                      <li><a href="#further-reading">Further Reading‎</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-
-
-          <h1 id="overview">Overview<a class="fa fa-anchor" href="#overview" onclick="event.stopPropagation()"></a></h1>
-          <h2 id="what-are-regular-expressions">What are Regular Expressions?<a class="fa fa-anchor" href="#what-are-regular-expressions" onclick="event.stopPropagation()"></a></h2>
-          <p>A Regular Expression (or Regex for short) is a string of characters that define a search pattern. You can think of a regular expression as a list of descriptions that describe a string. These strings can be tested against other text formatted data to find, match, and extract data.</p>
-          <p>Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with <code>C</code>, ends with a <code>S</code>, and only consists of letters: <code>C[A-z]+S</code>) and the section of text is searched, finding all the possible matches.</p>
-          <h2 id="why-should-i-learn-regex">Why Should I Learn Regex?<a class="fa fa-anchor" href="#why-should-i-learn-regex" onclick="event.stopPropagation()"></a></h2>
-          <ul>
-            <li><strong>Regex is everywhere</strong> - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion (A full list is available <a href="https://www.regular-expressions.info/tools.html">here</a>). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers to benefit from Regex.</li>
-            <li><strong>Regex is portable</strong> - People often complain that switching to a new language usually means having to learn a new API and syntax. Regex however is implemented almost the same way on every single language, so you can just learn it once and use it everywhere.</li>
-            <li><strong>Regex is useful</strong> - Although Regex doesn't have a specific use, it is a general use library with many different applications. It can be used automate many different common programming tasks such as validating user input, parsing data from text, and string manipulation, all of which are commonly done in any programming project.</li>
-            <li><strong>Regex is convenient</strong> - &quot;Regex offers a simple and painless way of dealing some with them&quot; because not all string processing are regex-related.</li>
-          </ul>
-          <h1 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started" onclick="event.stopPropagation()"></a></h1>
-          <h2 id="introduction">Introduction<a class="fa fa-anchor" href="#introduction" onclick="event.stopPropagation()"></a></h2>
-          <p>The power of regex revolves around the idea that most data comes in a regular, predictable format. Some everyday examples are as follows:</p>
-          <ul>
-            <li>Phone numbers: +65 65162727</li>
-            <li>Passwords: Contains lower/upper case, symbol…</li>
-            <li>IP Addresses: 127.0.0.1:8080</li>
-            <li>Date time: DD/MM/YY HH:MM</li>
-          </ul>
-          <p>Regex exploits these simlarities and provides a way of specifying patterns that can fit almost any use case. Some of the basic functionalities are as follows:</p>
-          <p>Let's take a look at some simple examples without code. For this article, you can use any text editor that supports Regex functionality (e.g. <a href="https://notepad-plus-plus.org/download/v7.3.1.html">Notepad++</a>, <a href="https://www.sublimetext.com/">Sublimetext</a>).</p>
-          <h2 id="search-text">Search Text<a class="fa fa-anchor" href="#search-text" onclick="event.stopPropagation()"></a></h2>
-          <p>The most basic use of Regex is searching a section of text. Say you want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example, if you're looking for phone numbers (represented simply as an 8 digit number) in a chat log, you don't want a specific 8 digit number, you want to find all possible 8 digit numbers. This can't be done with your traditional Ctrl-F search.</p>
-          <p>Rather, what you're looking for is a <strong>pattern</strong> - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular <strong>Regular Expression</strong>. These patterns encapsulate properties about the string you're looking for.</p>
-          <h3 id="example">Example<a class="fa fa-anchor" href="#example" onclick="event.stopPropagation()"></a></h3>
-          <p>Let's go back to our example of finding phone numbers in a text. You know that a string representing a phone number must satisfy two criteria: It consists of 8 digits, and may have a country code <code>65</code> in front of it. This is what the equivalent pattern for such a string might look like:</p>
-          <p><code>(65)?[\d]{8}</code></p>
-          <p>Firstly, the phone number may start with a country code 65. This criterion is embedded in <code>(65)?</code>. The first part, <code>(65)</code>, matches the country code. The question mark <code>?</code> means that the <code>(65)</code> that comes before it is optional.</p>
-          <p>Secondly, a phone number must have 8 digits. This is specified by <code>[\d]{8}</code>. <code>[\d]</code> matches a single digit from 0-9, and <code>{8}</code> means that <code>[\d]</code> is repeated 8 times. Putting them together, <code>[\d]{8}</code> matches a string of 8 digits.</p>
-          <p>As we can see, the pattern <code>(65)?[\d]{8}</code> when translated to simple English, means 'Look for a string of 8 numerical digits, that may have an extra <code>65</code> in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:</p>
-          <pre><code class="hljs"><span>6591234567<br></span><span>87775555<br></span><span>67777188<br></span></code></pre>
-          <h2 id="search-and-replace">Search and Replace<a class="fa fa-anchor" href="#search-and-replace" onclick="event.stopPropagation()"></a></h2>
-          <p>Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.</p>
-          <p>Regex can also be used to search and replace strings.</p>
-          <p>Say you have a passage of text which contains NRICs to be censored.</p>
-          <blockquote>
-            <ul>
-              <li>John - S1234567A</li>
-              <li>Mary - S8192853B</li>
-              <li>David - S1235326C</li>
-            </ul>
-          </blockquote>
-          <p>This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct a Regex:</p>
-          <ul>
-            <li>Find: <code>S[\d]{7}[A-Z]</code></li>
-            <li>Replace: <code>SXXXXXXXX</code></li>
-          </ul>
-          <p>As we can see, the <code>S</code> matches the very first S, [\d]{7} matches a string of 7 digits, and [A-Z] matches a single capital letter. We then replace all the critical information with a string of Xs.</p>
-          <h3 id="result">Result<a class="fa fa-anchor" href="#result" onclick="event.stopPropagation()"></a></h3>
-          <blockquote>
-            <ul>
-              <li>John - SXXXXXXXX</li>
-              <li>Mary - SXXXXXXXX</li>
-              <li>David - SXXXXXXXX</li>
-            </ul>
-          </blockquote>
-          <h2 id="capturing-groups">Capturing Groups<a class="fa fa-anchor" href="#capturing-groups" onclick="event.stopPropagation()"></a></h2>
-          <p>Now, imagine you have a section of text with many dates written in the US Date Format (MM-DD-YYYY).</p>
-          <blockquote>
-            <p>Calendar</p>
-            <ul>
-              <li>02-20-2017 Paul's Birthday</li>
-              <li>02-24-2017 Presentation at work</li>
-              <li>02-25-2017 Workshop</li>
-            </ul>
-          </blockquote>
-          <p>However, you want them to be written in (DD-MM-YYYY) instead. As we can see, this isn't as simple as just finding and replacing text, we must also maintain the data in the search string (e.g. <code>02-20</code> becomes <code>20-02</code>). This can be done using a <strong>capturing group</strong>. A capturing group is a part of a Regex surrounded by brackets <code>()</code>. They are numbered <code>1</code>, <code>2</code>, <code>3</code>, from left to right and are used to hold captured data. For example:</p>
-          <p><code>(\d\d)-(\d\d)-(\d\d\d\d)</code> against <code>02/20/2017</code> will result in group 1 : <code>02</code>, group 2 : <code>20</code>, and group 3 : <code>2017</code>.</p>
-          <p>Using this, we can construct our regex as follows:</p>
-          <ul>
-            <li>Find: <code>(\d\d)-(\d\d)-(\d\d\d\d)</code></li>
-            <li>Replace: <code>\2-\1-\3</code></li>
-          </ul>
-          <p>In the replace field, <code>\1</code> represents the group matched in the string. For example, <code>\1</code> corresponds to <code>02</code>, <code>\2</code> corresponds to <code>20</code> and so on. As you can see, we are swapping group 1 (the month) and group 2 (the day) to get the desired result.</p>
-          <h3 id="result-2">Result<a class="fa fa-anchor" href="#result-2" onclick="event.stopPropagation()"></a></h3>
-          <blockquote>
-            <p>Calendar <br></p>
-            <ul>
-              <li>20-02-2017 Paul's Birthday <br></li>
-              <li>24-02-2017 Presentation at work <br></li>
-              <li>25-02-2017 Workshop</li>
-            </ul>
-          </blockquote>
-          <h2 id="further-exploration">Further Exploration<a class="fa fa-anchor" href="#further-exploration" onclick="event.stopPropagation()"></a></h2>
-          <p>These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language (for example, Python uses the <a href="https://docs.python.org/2/library/re.html"><code>re</code></a> library, Java uses <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html"><code>Pattern</code></a> and Javascript has regex built into the language using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions"><code>/</code> notation</a>), but the functionality is consistent so it's not difficult to port Regex from one language to another. You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.</p>
-          <p>For more examples of what Regex can do, you can refer to the tutorial links in the appendix.</p>
-          <h2 id="quick-reference">Quick Reference<a class="fa fa-anchor" href="#quick-reference" onclick="event.stopPropagation()"></a></h2>
-          <div class="table-responsive">
-            <table class="markbind-table table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Regex</th>
-                  <th>Use</th>
-                  <th>Example</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Literal characters</td>
-                  <td>Any character(s)</td>
-                  <td>Matches any substring</td>
-                  <td><code>cat</code> matches <code>category</code></td>
-                </tr>
-                <tr>
-                  <td>Escape characters</td>
-                  <td><code>\t</code>, <code>\n</code>, <code>\d</code>...</td>
-                  <td>Matches <a href="https://www.regular-expressions.info/refcharacters.html">special characters</a>.</td>
-                  <td><code>\t</code> matches a tab character</td>
-                </tr>
-                <tr>
-                  <td>Anchors</td>
-                  <td><code>^</code>, <code>$</code></td>
-                  <td>Matches start and end of string</td>
-                  <td><code>^ant</code> matches <code>antics</code> but not <code>pant</code></td>
-                </tr>
-                <tr>
-                  <td>Character classes</td>
-                  <td><code>[abc]</code></td>
-                  <td>Matches any character in the character class</td>
-                  <td><code>l[ai]st</code> matches <code>last</code> and <code>list</code></td>
-                </tr>
-                <tr>
-                  <td>Quantifiers</td>
-                  <td><code>+</code></td>
-                  <td>Matches one or more of the previous character</td>
-                  <td><code>no+</code> matches <code>nooooooo</code> but not <code>n</code></td>
-                </tr>
-                <tr>
-                  <td><code>?</code></td>
-                  <td>Matches zero or one of the previous character</td>
-                  <td><code>colou?r</code> matches <code>color</code> and <code>colour</code></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><code>*</code></td>
-                  <td>Matches zero or more of the previous character</td>
-                  <td><code>ba*</code> matches <code>b</code>, <code>ba</code> and <code>baaa</code></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><code>{1, 3}</code> or <code>{2}</code></td>
-                  <td>Matches the previous character a specified number of times</td>
-                  <td><code>a{1, 3}</code> matches <code>a</code>, <code>aa</code> and <code>aaa</code>, <code>a{2}</code> matches <code>aa</code></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Groups</td>
-                  <td><code>(...)</code></td>
-                  <td>Groups a pattern of data</td>
-                  <td><code>Used for extracting data, see above</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p>For a full list of possible operators, refer to this cheat sheet:
-            <a href="https://www.rexegg.com/regex-quickstart.html">Regex cheat sheet</a><br></p>
-          <h2 id="helpful-links">Helpful Links<a class="fa fa-anchor" href="#helpful-links" onclick="event.stopPropagation()"></a></h2>
-          <ul>
-            <li><a href="https://regex101.com/">Regex101</a> - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.</li>
-            <li><a href="https://www.regular-expressions.info/examples.html">Regular-Expressions</a> - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.</li>
-            <li><a href="https://regexone.com/">Regexone</a> - A free online course that teaches the many features of Regex interactively.</li>
-            <li><a href="https://www.rexegg.com">Rexegg</a> - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.</li>
-          </ul>
-          <h1 id="advanced-topics">Advanced Topics<a class="fa fa-anchor" href="#advanced-topics" onclick="event.stopPropagation()"></a></h1>
-          <h2 id="the-regex-engine">The Regex Engine<a class="fa fa-anchor" href="#the-regex-engine" onclick="event.stopPropagation()"></a></h2>
-          <p>So, how exactly does Regex work?</p>
-          <p>Regex works similarly to most brute force searches. A simplified Regex engine would look something like this:</p>
-          <ol>
-            <li>Start from the start of the text and the start of the regex.</li>
-            <li>Check if the first character matches.</li>
-            <li>If it does, check the second character of both strings.</li>
-            <li>If it does, check the third character of both strings, and so on.</li>
-            <li>If any character doesn't match, start from the second character of the text.</li>
-            <li>Return when a match is found, or if no match is found.</li>
-          </ol>
-          <p>For example, for the regex <code>light</code> against the sentence <code>He likes light lightbulbs.</code>:</p>
-          <pre><code class="hljs"><span>He likes light lightbulbs.<br></span><span>^<br></span><span>light<br></span></code></pre>
-          <p>First, the engine checks against the start of the string, <code>H</code> against <code>l</code>. This doesn't match, so the engine moves on to <code>e</code>, then <code></code>, and so on.</p>
-          <pre><code class="hljs"><span>He likes light lightbulbs.<br></span><span>   ^<br></span><span>   light<br></span></code></pre>
-          <p>Once it reaches the first <code>l</code>, it sees a match, consumes the <code>l</code> and starts comparing the rest of the string.</p>
-          <pre><code class="hljs"><span>He likes light lightbulbs.<br></span><span>     ^<br></span><span>   light<br></span></code></pre>
-          <p>However, when it reaches <code>k</code>, it finds a different character so it knows it's not a match. It then starts again from <code>i</code> (the letter after <code>l</code>).</p>
-          <pre><code class="hljs"><span>He likes light lightbulbs.<br></span><span>         ^<br></span><span>         light<br></span></code></pre>
-          <p>Finally, when it finds a match, it returns the match and terminates. Note that the second <code>light</code> in <code>lightbulbs</code> is ignored.</p>
-          <p>Of course, more complex Regex functions will require more steps, but this will give you a rough understanding of the engine for now.</p>
-          <h2 id="greedy-operators">Greedy Operators<a class="fa fa-anchor" href="#greedy-operators" onclick="event.stopPropagation()"></a></h2>
-          <p>The operators <code>{}</code>, <code>*</code> and <code>+</code> are called greedy operators because they try to match as many characters as possible. For example, for the regex <code>b.*</code> against the string <code>baaaaaa</code>:</p>
-          <pre><code class="hljs"><span>baaaaaaaaa<br></span><span> ^<br></span><span>ba<br></span></code></pre>
-          <p>Although a suitable match (<code>ba</code>) has already been found, the engine sees that it can match against a longer string of <code>a</code>s. It will instead return the match <code>baaaaaaaaa</code>, matching the entire string.</p>
-          <p>But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex <code>c.*ed</code> against the string <code>contested</code> (Let <code>.....</code> represent <code>.+</code>).</p>
-          <pre><code class="hljs"><span>contested<br></span><span>        ^<br></span><span>c........ed<br></span></code></pre>
-          <p>Remember that <code>.*</code> matches any number of characters, and this includes the <code>ed</code> at the back! The entire string is matched by <code>c.*</code>, leaving no characters left for <code>ed</code>. This obviously doesn't match, so the engine backtracks one step:</p>
-          <pre><code class="hljs"><span>contested<br></span><span>        ^<br></span><span>c.......ed<br></span></code></pre>
-          <p>As we can see, <code>e</code> still doesn't match <code>d</code>, so we take another step back:</p>
-          <pre><code class="hljs"><span>contested<br></span><span>       ^<br></span><span>c......ed<br></span></code></pre>
-          <p>Finally, we get a match and see that both strings match.</p>
-          <h3 id="effect-on-performance">Effect on Performance<a class="fa fa-anchor" href="#effect-on-performance" onclick="event.stopPropagation()"></a></h3>
-          <p>Bad use of greedy operators (<code>.*</code>, <code>.+</code>) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:</p>
-          <p>Match a person's full name: <code>(Anderson.*Cooper)</code> <br>
-            Text: <code>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</code></p>
-          <p>This looks like a simple matching at first glance, but look at what happens:</p>
-          <pre><code class="hljs"><span>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)<br></span><span>               ^<br></span><span>               Anderson..............................................<br></span></code></pre>
-          <p>Every character after <code>Anderson</code> matches <code>.*</code>, resulting in scanning the entire string! And not only that, the Regex also has to backtrack one character at a time, until it reaches <code>Anderson Pearson</code> and <code>Cooper</code> can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.</p>
-          <h3 id="catastrophic-backtracking">Catastrophic Backtracking<a class="fa fa-anchor" href="#catastrophic-backtracking" onclick="event.stopPropagation()"></a></h3>
-          <p>This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when multiple greedy operators are chained. If a match can't be found, each operator will be backtracked individually, which results in a lot of computation, even up to O(2<sup>n</sup>) in some cases! Let's look at one case in detail.</p>
-          <h3 id="matching-delimiters">Matching Delimiters<a class="fa fa-anchor" href="#matching-delimiters" onclick="event.stopPropagation()"></a></h3>
-          <p>One common reason this happens is when delimited data is carelessly matched. This is when the Regex group you are using to match the data also matches the delimiter. Consider the following example:</p>
-          <p>Match 10 comma separated values in an array: <code>\[(.+,){9}(.+)\]</code><br>
-            E.g.: <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></p>
-          <p>This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?</p>
-          <p>The problem occurs because <code>.</code> matches any character. This also includes the comma separating the group. This is what happens when the first set of <code>(.+,)</code> is parsed:</p>
-          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br></span><span>^<br></span><span>[.........................,<br></span><span>[.+                       ,<br></span></code></pre>
-          <p>The first group keeps everything as its data group. Now, it tries to find the second <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks:</p>
-          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br></span><span>^<br></span><span>[......................,..,<br></span><span>[.+                    ,.+,<br></span></code></pre>
-          <p>This time the first and second groups are matched. Now, it tries to find the <strong>third</strong> <code>(.+,)</code> in <code>10]</code>, but fails, so it backtracks yet again. So we move the first <code>(.+,)</code> back:</p>
-          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br></span><span>^<br></span><span>[...................,<br></span><span>[.+                 ,<br></span></code></pre>
-          <p>Now, what happens? Well, the second <code>(.+,)</code> is greedy, so it actually matches the last comma instead!</p>
-          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br></span><span>^<br></span><span>[...................,.....,<br></span><span>[.+                 ,.+   ,<br></span></code></pre>
-          <p>As we can see, by chaining repeated groups, it actually causes cascading levels of backtracking, which leads to very poor performance, even with short strings. For this case, we can observe that each comma is either included in the regex or not included in the match, and every possible combination of included and not included combinations will appear at least once. That means the complexity is equal to the number of possible ways n commas can be either included or not included, or O(2<sup>n</sup>). This is a Very Bad Thing™!</p>
-          <p>This problem can be exacerbated by the one mentioned previously. Imagine if your text looked like this:</p>
-          <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)<br></span><span>[...................................................,<br></span></code></pre>
-          <p>The extra parts of the string will be matched each time, and we can only imagine how long that will take.</p>
-          <p>So, how do we prevent this?</p>
-          <ul>
-            <li>Explicitly exclude the delimter.</li>
-          </ul>
-          <blockquote>
-            <p>Match 10 comma separated values in an array: <code>\[([^,]+,){9}([^,]+)\]</code> instead of <code>\[(.+,){9}(.+)\]</code><br></p>
-          </blockquote>
-          <p>Here, instead of matching all characters (<code>.</code>), we match all characters except a certain character (<code>[^,]</code>). This allows the regex to capture in one parse successfully. Some other common examples are HTML/XML tags (<code>&lt;[^&gt;]*&gt;</code> instead of <code>&lt;.+&gt;</code>) and bracketed expressions (<code>\([^\)]+\)</code> instead of <code>\(.+\)</code>).</p>
-          <ul>
-            <li>Always narrow the scope as much as possible.</li>
-          </ul>
-          <blockquote>
-            <p>Matching a name: <code>[A-z]+ [A-z]+</code> instead of <code>.+ .+</code><br></p>
-          </blockquote>
-          <p>A great tip for improving Regex performance is to specify your match as clearly as possible. This reduces the potential of unwanted matchings and unnecessary backtracking.</p>
-          <ul>
-            <li>Avoid greedy operators if possible.</li>
-          </ul>
-          <blockquote>
-            <p>Matching a date: <code>\d{1,2}-\d{1,2}-\d{2,4}</code> instead of <code>.*-.*-.*</code><br></p>
-          </blockquote>
-          <p>If you know your data will only be a few characters long, try your best to avoid using <code>*</code> or <code>+</code>. Limiting to a number of characters would reduce the amount of backtracking if any.</p>
-          <ul>
-            <li>Use Lazy Quantifiers</li>
-          </ul>
-          <blockquote>
-            <p>Use <code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code></p>
-          </blockquote>
-          <p>A greedy quantifier <code>+</code> or <code>*</code> can be turned into a lazy quantifier by adding an extra <code>?</code> behind it, i.e. (<code>.+?</code> or <code>.*?</code> instead of <code>.+</code> and <code>.*</code>). A lazy quantifier works similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our <code>contested</code> example, if we replaced <code>c.+d</code> with <code>c.+?d</code>, the engine would stop matching the <code>.+</code> here:</p>
-          <pre><code class="hljs"><span>contested<br></span><span>  ^<br></span><span>c.ed<br></span></code></pre>
-          <p>Since <code>o</code> is a suitable match for <code>.+</code>, the engine accepts it and tries to match the <code>ed</code>. If no match is found, the engine would bactrack and match <code>c..ed</code>, and so on. We can see a clear advantage here for matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.</p>
-          <h2 id="related-links">Related Links<a class="fa fa-anchor" href="#related-links" onclick="event.stopPropagation()"></a></h2>
-          <ul>
-            <li><a href="https://www.regular-expressions.info/engine.html">The Regex Engine</a></li>
-            <li><a href="https://www.regular-expressions.info/catastrophic.html">Catastrophic Backtracking</a></li>
-          </ul>
-          <h2 id="learning-resources">Learning Resources<a class="fa fa-anchor" href="#learning-resources" onclick="event.stopPropagation()"></a></h2>
-          <ul>
-            <li><a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/">Printable cheat sheet for quick reference</a></li>
-            <li><a href="https://www.regular-expressions.info/">Comprehensive Regex Knowledge Base</a></li>
-          </ul>
-          <h3 id="fun-stuff">Fun Stuff<a class="fa fa-anchor" href="#fun-stuff" onclick="event.stopPropagation()"></a></h3>
-          <ul>
-            <li><a href="https://alf.nu/RegexGolf">Regex Golf - Test your Regex skills!</a></li>
-            <li><a href="https://regexcrossword.com/">Regex Crossword - Crosswords, but with Regex</a></li>
-          </ul>
-          <h3 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading" onclick="event.stopPropagation()"></a></h3>
-          <ul>
-            <li><a href="https://www.amazon.com/Regular-Expressions-Cookbook-Solutions-Programming/dp/1449319432">Regular Expressions Cookbook</a> - <em>Jan Goyvaerts, Steven Levithan</em></li>
-            <li><a href="https://www.amazon.com/exec/obidos/ASIN/0672325667/jgsbookselection">Teach Yourself Regular Expressions in 10 Minutes</a> - <em>Ben Forta</em></li>
-            <li><a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124">Mastering Regular Expressions</a> - <em>Jeffrey Friedl</em></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-regular-expressions">Introduction to Regular Expressions&#x200E;</a>
-            <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-are-regular-expressions">What are Regular Expressions?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-should-i-learn-regex">Why Should I Learn Regex?&#x200E;</a>
-            </nav>
-            <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#introduction">Introduction&#x200E;</a>
-              <a class="nav-link py-1" href="#search-text">Search Text&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#example">Example&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#search-and-replace">Search and Replace&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#result">Result&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#capturing-groups">Capturing Groups&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#result-2">Result&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#further-exploration">Further Exploration&#x200E;</a>
-              <a class="nav-link py-1" href="#quick-reference">Quick Reference&#x200E;</a>
-              <a class="nav-link py-1" href="#helpful-links">Helpful Links&#x200E;</a>
-            </nav>
-            <a class="nav-link py-1" href="#advanced-topics">Advanced Topics&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#the-regex-engine">The Regex Engine&#x200E;</a>
-              <a class="nav-link py-1" href="#greedy-operators">Greedy Operators&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#effect-on-performance">Effect on Performance&#x200E;</a>
-                <a class="nav-link py-1" href="#catastrophic-backtracking">Catastrophic Backtracking&#x200E;</a>
-                <a class="nav-link py-1" href="#matching-delimiters">Matching Delimiters&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#related-links">Related Links&#x200E;</a>
-              <a class="nav-link py-1" href="#learning-resources">Learning Resources&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#fun-stuff">Fun Stuff&#x200E;</a>
-                <a class="nav-link py-1" href="#further-reading">Further Reading&#x200E;</a>
-              </nav>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to Regular Expressions</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="Regex.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-regular-expressions"><span id="introduction-to-regular-expressions" class="anchor"></span>Introduction to Regular Expressions<a href="#introduction-to-regular-expressions" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Authors: Jamos Tay</p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#overview" data-v-7d17494f>Overview‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#what-are-regular-expressions" data-v-7d17494f>What are Regular Expressions?‎</a></li> <li data-v-7d17494f><a href="#why-should-i-learn-regex" data-v-7d17494f>Why Should I Learn Regex?‎</a></li></ul></li> <li data-v-7d17494f><a href="#getting-started" data-v-7d17494f>Getting Started‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#introduction" data-v-7d17494f>Introduction‎</a></li> <li data-v-7d17494f><a href="#search-text" data-v-7d17494f>Search Text‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#example" data-v-7d17494f>Example‎</a></li></ul></li> <li data-v-7d17494f><a href="#search-and-replace" data-v-7d17494f>Search and Replace‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#result" data-v-7d17494f>Result‎</a></li></ul></li> <li data-v-7d17494f><a href="#capturing-groups" data-v-7d17494f>Capturing Groups‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#result" data-v-7d17494f>Result‎</a></li></ul></li> <li data-v-7d17494f><a href="#further-exploration" data-v-7d17494f>Further Exploration‎</a></li> <li data-v-7d17494f><a href="#quick-reference" data-v-7d17494f>Quick Reference‎</a></li> <li data-v-7d17494f><a href="#helpful-links" data-v-7d17494f>Helpful Links‎</a></li></ul></li> <li data-v-7d17494f><a href="#advanced-topics" data-v-7d17494f>Advanced Topics‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#the-regex-engine" data-v-7d17494f>The Regex Engine‎</a></li> <li data-v-7d17494f><a href="#greedy-operators" data-v-7d17494f>Greedy Operators‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#effect-on-performance" data-v-7d17494f>Effect on Performance‎</a></li> <li data-v-7d17494f><a href="#catastrophic-backtracking" data-v-7d17494f>Catastrophic Backtracking‎</a></li> <li data-v-7d17494f><a href="#matching-delimiters" data-v-7d17494f>Matching Delimiters‎</a></li></ul></li> <li data-v-7d17494f><a href="#related-links" data-v-7d17494f>Related Links‎</a></li> <li data-v-7d17494f><a href="#learning-resources" data-v-7d17494f>Learning Resources‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#fun-stuff" data-v-7d17494f>Fun Stuff‎</a></li> <li data-v-7d17494f><a href="#further-reading" data-v-7d17494f>Further Reading‎</a></li></ul></li></ul></li></ul></div> <!----></div></div></div> <h1 id="overview"><span id="overview" class="anchor"></span>Overview<a href="#overview" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <h2 id="what-are-regular-expressions"><span id="what-are-regular-expressions" class="anchor"></span>What are Regular Expressions?<a href="#what-are-regular-expressions" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>A Regular Expression (or Regex for short) is a string of characters that define a search pattern. You can think of a regular expression as a list of descriptions that describe a string. These strings can be tested against other text formatted data to find, match, and extract data.</p> <p>Imagine you're a witness of a robbery. How might you describe the robber to the police? You might say that the robber has a beard, brown hair and a facial scar. With this information, the police can round up everyone with beards, brown hair and scars as possible suspects. This is similar to how Regex works. You specify a search pattern using a string (e.g. It starts with <code class="hljs inline no-lang">C</code>, ends with a <code class="hljs inline no-lang">S</code>, and only consists of letters: <code class="hljs inline no-lang">C[A-z]+S</code>) and the section of text is searched, finding all the possible matches.</p> <h2 id="why-should-i-learn-regex"><span id="why-should-i-learn-regex" class="anchor"></span>Why Should I Learn Regex?<a href="#why-should-i-learn-regex" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><strong>Regex is everywhere</strong> - Regular Expressions are technically a language by themselves, but they are usually implemented within other languages. Almost all commonly used languages, like Java, C++ or Python supports Regex is some fashion (A full list is available <a href="https://www.regular-expressions.info/tools.html">here</a>). In addition, many IDEs or text editors support Regex in 'Find and replace' operations, such as Eclipse, Visual Studio or Notepad++, allowing non-programmers to benefit from Regex.</li> <li><strong>Regex is portable</strong> - People often complain that switching to a new language usually means having to learn a new API and syntax. Regex however is implemented almost the same way on every single language, so you can just learn it once and use it everywhere.</li> <li><strong>Regex is useful</strong> - Although Regex doesn't have a specific use, it is a general use library with many different applications. It can be used automate many different common programming tasks such as validating user input, parsing data from text, and string manipulation, all of which are commonly done in any programming project.</li> <li><strong>Regex is convenient</strong> - &quot;Regex offers a simple and painless way of dealing some with them&quot; because not all string processing are regex-related.</li></ul> <h1 id="getting-started"><span id="getting-started" class="anchor"></span>Getting Started<a href="#getting-started" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <h2 id="introduction"><span id="introduction" class="anchor"></span>Introduction<a href="#introduction" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The power of regex revolves around the idea that most data comes in a regular, predictable format. Some everyday examples are as follows:</p> <ul><li>Phone numbers: +65 65162727</li> <li>Passwords: Contains lower/upper case, symbol…</li> <li>IP Addresses: 127.0.0.1:8080</li> <li>Date time: DD/MM/YY HH:MM</li></ul> <p>Regex exploits these simlarities and provides a way of specifying patterns that can fit almost any use case. Some of the basic functionalities are as follows:</p> <p>Let's take a look at some simple examples without code. For this article, you can use any text editor that supports Regex functionality (e.g. <a href="https://notepad-plus-plus.org/download/v7.3.1.html">Notepad++</a>, <a href="https://www.sublimetext.com/">Sublimetext</a>).</p> <h2 id="search-text"><span id="search-text" class="anchor"></span>Search Text<a href="#search-text" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The most basic use of Regex is searching a section of text. Say you want to find all occurences of a word in a text. Simple, right? Just use the search function. However, what if you aren't looking for a specific string? For example, if you're looking for phone numbers (represented simply as an 8 digit number) in a chat log, you don't want a specific 8 digit number, you want to find all possible 8 digit numbers. This can't be done with your traditional Ctrl-F search.</p> <p>Rather, what you're looking for is a <strong>pattern</strong> - a string that satisfies certain properties. Regex allows you to specify these properties using a pattern string, also known as the titular <strong>Regular Expression</strong>. These patterns encapsulate properties about the string you're looking for.</p> <h3 id="example"><span id="example" class="anchor"></span>Example<a href="#example" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Let's go back to our example of finding phone numbers in a text. You know that a string representing a phone number must satisfy two criteria: It consists of 8 digits, and may have a country code <code class="hljs inline no-lang">65</code> in front of it. This is what the equivalent pattern for such a string might look like:</p> <p><code class="hljs inline no-lang">(65)?[\d]{8}</code></p> <p>Firstly, the phone number may start with a country code 65. This criterion is embedded in <code class="hljs inline no-lang">(65)?</code>. The first part, <code class="hljs inline no-lang">(65)</code>, matches the country code. The question mark <code class="hljs inline no-lang">?</code> means that the <code class="hljs inline no-lang">(65)</code> that comes before it is optional.</p> <p>Secondly, a phone number must have 8 digits. This is specified by <code class="hljs inline no-lang">[\d]{8}</code>. <code class="hljs inline no-lang">[\d]</code> matches a single digit from 0-9, and <code class="hljs inline no-lang">{8}</code> means that <code class="hljs inline no-lang">[\d]</code> is repeated 8 times. Putting them together, <code class="hljs inline no-lang">[\d]{8}</code> matches a string of 8 digits.</p> <p>As we can see, the pattern <code class="hljs inline no-lang">(65)?[\d]{8}</code> when translated to simple English, means 'Look for a string of 8 numerical digits, that may have an extra <code class="hljs inline no-lang">65</code> in front of it'. This satisfies our criteria for matching a phone number, so we can use it to search our text. Here are some examples of matching strings:</p> <pre><code class="hljs"><span>6591234567
+</span><span>87775555
+</span><span>67777188
+</span></code></pre><h2 id="search-and-replace"><span id="search-and-replace" class="anchor"></span>Search and Replace<a href="#search-and-replace" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Note: If you're using one of the recommended text editors to search and replace, please ensure that the search mode is set to 'Regular Expression'. This is usually an option in the 'Find and Replace' (i.e. Ctrl+F) window.</p> <p>Regex can also be used to search and replace strings.</p> <p>Say you have a passage of text which contains NRICs to be censored.</p> <blockquote><ul><li>John - S1234567A</li> <li>Mary - S8192853B</li> <li>David - S1235326C</li></ul></blockquote> <p>This can't be done with a simple search and replace, since NRICs have different digits, and we can't specify which ones to look for. However, we know that an NRIC consists of an S, 7 digits from 0-9 and ends with a letter. Knowing this we can construct a Regex:</p> <ul><li>Find: <code class="hljs inline no-lang">S[\d]{7}[A-Z]</code></li> <li>Replace: <code class="hljs inline no-lang">SXXXXXXXX</code></li></ul> <p>As we can see, the <code class="hljs inline no-lang">S</code> matches the very first S, [\d]{7} matches a string of 7 digits, and [A-Z] matches a single capital letter. We then replace all the critical information with a string of Xs.</p> <h3 id="result"><span id="result" class="anchor"></span>Result<a href="#result" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <blockquote><ul><li>John - SXXXXXXXX</li> <li>Mary - SXXXXXXXX</li> <li>David - SXXXXXXXX</li></ul></blockquote> <h2 id="capturing-groups"><span id="capturing-groups" class="anchor"></span>Capturing Groups<a href="#capturing-groups" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Now, imagine you have a section of text with many dates written in the US Date Format (MM-DD-YYYY).</p> <blockquote><p>Calendar</p> <ul><li>02-20-2017 Paul's Birthday</li> <li>02-24-2017 Presentation at work</li> <li>02-25-2017 Workshop</li></ul></blockquote> <p>However, you want them to be written in (DD-MM-YYYY) instead. As we can see, this isn't as simple as just finding and replacing text, we must also maintain the data in the search string (e.g. <code class="hljs inline no-lang">02-20</code> becomes <code class="hljs inline no-lang">20-02</code>). This can be done using a <strong>capturing group</strong>. A capturing group is a part of a Regex surrounded by brackets <code class="hljs inline no-lang">()</code>. They are numbered <code class="hljs inline no-lang">1</code>, <code class="hljs inline no-lang">2</code>, <code class="hljs inline no-lang">3</code>, from left to right and are used to hold captured data. For example:</p> <p><code class="hljs inline no-lang">(\d\d)-(\d\d)-(\d\d\d\d)</code> against <code class="hljs inline no-lang">02/20/2017</code> will result in group 1 : <code class="hljs inline no-lang">02</code>, group 2 : <code class="hljs inline no-lang">20</code>, and group 3 : <code class="hljs inline no-lang">2017</code>.</p> <p>Using this, we can construct our regex as follows:</p> <ul><li>Find: <code class="hljs inline no-lang">(\d\d)-(\d\d)-(\d\d\d\d)</code></li> <li>Replace: <code class="hljs inline no-lang">\2-\1-\3</code></li></ul> <p>In the replace field, <code class="hljs inline no-lang">\1</code> represents the group matched in the string. For example, <code class="hljs inline no-lang">\1</code> corresponds to <code class="hljs inline no-lang">02</code>, <code class="hljs inline no-lang">\2</code> corresponds to <code class="hljs inline no-lang">20</code> and so on. As you can see, we are swapping group 1 (the month) and group 2 (the day) to get the desired result.</p> <h3 id="result-2"><span id="result-2" class="anchor"></span>Result<a href="#result-2" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <blockquote><p>Calendar <br></p> <ul><li>20-02-2017 Paul's Birthday <br></li> <li>24-02-2017 Presentation at work <br></li> <li>25-02-2017 Workshop</li></ul></blockquote> <h2 id="further-exploration"><span id="further-exploration" class="anchor"></span>Further Exploration<a href="#further-exploration" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>These examples provide a quick look as to what Regex can be used for, without code. You can also use Regex as part of many different programming languages, to search strings within the code. The implementation of Regex varies from language to language (for example, Python uses the <a href="https://docs.python.org/2/library/re.html"><code class="hljs inline no-lang">re</code></a> library, Java uses <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html"><code class="hljs inline no-lang">Pattern</code></a> and Javascript has regex built into the language using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions"><code class="hljs inline no-lang">/</code> notation</a>), but the functionality is consistent so it's not difficult to port Regex from one language to another. You can search the respective language documentation for a more comprehensive view of how to use Regex in the language of your choice.</p> <p>For more examples of what Regex can do, you can refer to the tutorial links in the appendix.</p> <h2 id="quick-reference"><span id="quick-reference" class="anchor"></span>Quick Reference<a href="#quick-reference" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <div class="table-responsive"><table class="markbind-table table table-bordered table-striped"><thead><tr><th>Name</th> <th>Regex</th> <th>Use</th> <th>Example</th></tr></thead> <tbody><tr><td>Literal characters</td> <td>Any character(s)</td> <td>Matches any substring</td> <td><code class="hljs inline no-lang">cat</code> matches <code class="hljs inline no-lang">category</code></td></tr> <tr><td>Escape characters</td> <td><code class="hljs inline no-lang">\t</code>, <code class="hljs inline no-lang">\n</code>, <code class="hljs inline no-lang">\d</code>...</td> <td>Matches <a href="https://www.regular-expressions.info/refcharacters.html">special characters</a>.</td> <td><code class="hljs inline no-lang">\t</code> matches a tab character</td></tr> <tr><td>Anchors</td> <td><code class="hljs inline no-lang">^</code>, <code class="hljs inline no-lang">$</code></td> <td>Matches start and end of string</td> <td><code class="hljs inline no-lang">^ant</code> matches <code class="hljs inline no-lang">antics</code> but not <code class="hljs inline no-lang">pant</code></td></tr> <tr><td>Character classes</td> <td><code class="hljs inline no-lang">[abc]</code></td> <td>Matches any character in the character class</td> <td><code class="hljs inline no-lang">l[ai]st</code> matches <code class="hljs inline no-lang">last</code> and <code class="hljs inline no-lang">list</code></td></tr> <tr><td>Quantifiers</td> <td><code class="hljs inline no-lang">+</code></td> <td>Matches one or more of the previous character</td> <td><code class="hljs inline no-lang">no+</code> matches <code class="hljs inline no-lang">nooooooo</code> but not <code class="hljs inline no-lang">n</code></td></tr> <tr><td><code class="hljs inline no-lang">?</code></td> <td>Matches zero or one of the previous character</td> <td><code class="hljs inline no-lang">colou?r</code> matches <code class="hljs inline no-lang">color</code> and <code class="hljs inline no-lang">colour</code></td> <td></td></tr> <tr><td><code class="hljs inline no-lang">*</code></td> <td>Matches zero or more of the previous character</td> <td><code class="hljs inline no-lang">ba*</code> matches <code class="hljs inline no-lang">b</code>, <code class="hljs inline no-lang">ba</code> and <code class="hljs inline no-lang">baaa</code></td> <td></td></tr> <tr><td><code class="hljs inline no-lang">{1, 3}</code> or <code class="hljs inline no-lang">{2}</code></td> <td>Matches the previous character a specified number of times</td> <td><code class="hljs inline no-lang">a{1, 3}</code> matches <code class="hljs inline no-lang">a</code>, <code class="hljs inline no-lang">aa</code> and <code class="hljs inline no-lang">aaa</code>, <code class="hljs inline no-lang">a{2}</code> matches <code class="hljs inline no-lang">aa</code></td> <td></td></tr> <tr><td>Groups</td> <td><code class="hljs inline no-lang">(...)</code></td> <td>Groups a pattern of data</td> <td><code class="hljs inline no-lang">Used for extracting data, see above</code></td></tr></tbody></table></div><p>For a full list of possible operators, refer to this cheat sheet:
+<a href="https://www.rexegg.com/regex-quickstart.html">Regex cheat sheet</a><br></p> <h2 id="helpful-links"><span id="helpful-links" class="anchor"></span>Helpful Links<a href="#helpful-links" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><a href="https://regex101.com/">Regex101</a> - An online Regex engine that allows the user to test Regexes against text and walks the user through their execution.</li> <li><a href="https://www.regular-expressions.info/examples.html">Regular-Expressions</a> - Some common examples of where Regex can be used, along with pre-compiled Regexes that can be useful.</li> <li><a href="https://regexone.com/">Regexone</a> - A free online course that teaches the many features of Regex interactively.</li> <li><a href="https://www.rexegg.com">Rexegg</a> - A comprehensive online tutorial for Regex that documents many advanced functionalities of Regex.</li></ul> <h1 id="advanced-topics"><span id="advanced-topics" class="anchor"></span>Advanced Topics<a href="#advanced-topics" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <h2 id="the-regex-engine"><span id="the-regex-engine" class="anchor"></span>The Regex Engine<a href="#the-regex-engine" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>So, how exactly does Regex work?</p> <p>Regex works similarly to most brute force searches. A simplified Regex engine would look something like this:</p> <ol><li>Start from the start of the text and the start of the regex.</li> <li>Check if the first character matches.</li> <li>If it does, check the second character of both strings.</li> <li>If it does, check the third character of both strings, and so on.</li> <li>If any character doesn't match, start from the second character of the text.</li> <li>Return when a match is found, or if no match is found.</li></ol> <p>For example, for the regex <code class="hljs inline no-lang">light</code> against the sentence <code class="hljs inline no-lang">He likes light lightbulbs.</code>:</p> <pre><code class="hljs"><span>He likes light lightbulbs.
+</span><span>^
+</span><span>light
+</span></code></pre><p>First, the engine checks against the start of the string, <code class="hljs inline no-lang">H</code> against <code class="hljs inline no-lang">l</code>. This doesn't match, so the engine moves on to <code class="hljs inline no-lang">e</code>, then <code class="hljs inline no-lang"></code>, and so on.</p> <pre><code class="hljs"><span>He likes light lightbulbs.
+</span><span>   ^
+</span><span>   light
+</span></code></pre><p>Once it reaches the first <code class="hljs inline no-lang">l</code>, it sees a match, consumes the <code class="hljs inline no-lang">l</code> and starts comparing the rest of the string.</p> <pre><code class="hljs"><span>He likes light lightbulbs.
+</span><span>     ^
+</span><span>   light
+</span></code></pre><p>However, when it reaches <code class="hljs inline no-lang">k</code>, it finds a different character so it knows it's not a match. It then starts again from <code class="hljs inline no-lang">i</code> (the letter after <code class="hljs inline no-lang">l</code>).</p> <pre><code class="hljs"><span>He likes light lightbulbs.
+</span><span>         ^
+</span><span>         light
+</span></code></pre><p>Finally, when it finds a match, it returns the match and terminates. Note that the second <code class="hljs inline no-lang">light</code> in <code class="hljs inline no-lang">lightbulbs</code> is ignored.</p> <p>Of course, more complex Regex functions will require more steps, but this will give you a rough understanding of the engine for now.</p> <h2 id="greedy-operators"><span id="greedy-operators" class="anchor"></span>Greedy Operators<a href="#greedy-operators" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The operators <code class="hljs inline no-lang">{}</code>, <code class="hljs inline no-lang">*</code> and <code class="hljs inline no-lang">+</code> are called greedy operators because they try to match as many characters as possible. For example, for the regex <code class="hljs inline no-lang">b.*</code> against the string <code class="hljs inline no-lang">baaaaaa</code>:</p> <pre><code class="hljs"><span>baaaaaaaaa
+</span><span> ^
+</span><span>ba
+</span></code></pre><p>Although a suitable match (<code class="hljs inline no-lang">ba</code>) has already been found, the engine sees that it can match against a longer string of <code class="hljs inline no-lang">a</code>s. It will instead return the match <code class="hljs inline no-lang">baaaaaaaaa</code>, matching the entire string.</p> <p>But what if a greedy operator can't find a match? A greedy operator will always consume as many characters as possible, but if the string that follows fails to match, the engine releases one character at a time until a match is found. This is called 'backtracking'. For example, consider the regex <code class="hljs inline no-lang">c.*ed</code> against the string <code class="hljs inline no-lang">contested</code> (Let <code class="hljs inline no-lang">.....</code> represent <code class="hljs inline no-lang">.+</code>).</p> <pre><code class="hljs"><span>contested
+</span><span>        ^
+</span><span>c........ed
+</span></code></pre><p>Remember that <code class="hljs inline no-lang">.*</code> matches any number of characters, and this includes the <code class="hljs inline no-lang">ed</code> at the back! The entire string is matched by <code class="hljs inline no-lang">c.*</code>, leaving no characters left for <code class="hljs inline no-lang">ed</code>. This obviously doesn't match, so the engine backtracks one step:</p> <pre><code class="hljs"><span>contested
+</span><span>        ^
+</span><span>c.......ed
+</span></code></pre><p>As we can see, <code class="hljs inline no-lang">e</code> still doesn't match <code class="hljs inline no-lang">d</code>, so we take another step back:</p> <pre><code class="hljs"><span>contested
+</span><span>       ^
+</span><span>c......ed
+</span></code></pre><p>Finally, we get a match and see that both strings match.</p> <h3 id="effect-on-performance"><span id="effect-on-performance" class="anchor"></span>Effect on Performance<a href="#effect-on-performance" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Bad use of greedy operators (<code class="hljs inline no-lang">.*</code>, <code class="hljs inline no-lang">.+</code>) can actually lead to an unwanted increase in performance time. Because they scan the entire string, you may end up processing more text than necessary. Consider the following scenario:</p> <p>Match a person's full name: <code class="hljs inline no-lang">(Anderson.*Cooper)</code> <br>
+Text: <code class="hljs inline no-lang">Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)</code></p> <p>This looks like a simple matching at first glance, but look at what happens:</p> <pre><code class="hljs"><span>Hi, my name is Anderson Pearson Cooper and I am a programmer from ... (3000 words redacted)
+</span><span>               ^
+</span><span>               Anderson..............................................
+</span></code></pre><p>Every character after <code class="hljs inline no-lang">Anderson</code> matches <code class="hljs inline no-lang">.*</code>, resulting in scanning the entire string! And not only that, the Regex also has to backtrack one character at a time, until it reaches <code class="hljs inline no-lang">Anderson Pearson </code> and <code class="hljs inline no-lang">Cooper</code> can be matched. This results in an O(String length) complexity even for the best case, which is bad considering we can write a brute force search that terminates after O(Regex length) in the best case.</p> <h3 id="catastrophic-backtracking"><span id="catastrophic-backtracking" class="anchor"></span>Catastrophic Backtracking<a href="#catastrophic-backtracking" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>This is a famous pitfall in Regular Expressions, so much so it deserves its own name and book section. Catastrophic backtracking usually occurs when multiple greedy operators are chained. If a match can't be found, each operator will be backtracked individually, which results in a lot of computation, even up to O(2<sup>n</sup>) in some cases! Let's look at one case in detail.</p> <h3 id="matching-delimiters"><span id="matching-delimiters" class="anchor"></span>Matching Delimiters<a href="#matching-delimiters" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>One common reason this happens is when delimited data is carelessly matched. This is when the Regex group you are using to match the data also matches the delimiter. Consider the following example:</p> <p>Match 10 comma separated values in an array: <code class="hljs inline no-lang">\[(.+,){9}(.+)\]</code><br>
+E.g.: <code class="hljs inline no-lang">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></p> <p>This regex looks innocent enough. It matches 9 groups of data with a comma, followed by one group without, so what's wrong?</p> <p>The problem occurs because <code class="hljs inline no-lang">.</code> matches any character. This also includes the comma separating the group. This is what happens when the first set of <code class="hljs inline no-lang">(.+,)</code> is parsed:</p> <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</span><span>^
+</span><span>[.........................,
+</span><span>[.+                       ,
+</span></code></pre><p>The first group keeps everything as its data group. Now, it tries to find the second <code class="hljs inline no-lang">(.+,)</code> in <code class="hljs inline no-lang"> 10]</code>, but fails, so it backtracks:</p> <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</span><span>^
+</span><span>[......................,..,
+</span><span>[.+                    ,.+,
+</span></code></pre><p>This time the first and second groups are matched. Now, it tries to find the <strong>third</strong> <code class="hljs inline no-lang">(.+,)</code> in <code class="hljs inline no-lang"> 10]</code>, but fails, so it backtracks yet again. So we move the first <code class="hljs inline no-lang">(.+,)</code> back:</p> <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</span><span>^
+</span><span>[...................,
+</span><span>[.+                 ,
+</span></code></pre><p>Now, what happens? Well, the second <code class="hljs inline no-lang">(.+,)</code> is greedy, so it actually matches the last comma instead!</p> <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</span><span>^
+</span><span>[...................,.....,
+</span><span>[.+                 ,.+   ,
+</span></code></pre><p>As we can see, by chaining repeated groups, it actually causes cascading levels of backtracking, which leads to very poor performance, even with short strings. For this case, we can observe that each comma is either included in the regex or not included in the match, and every possible combination of included and not included combinations will appear at least once. That means the complexity is equal to the number of possible ways n commas can be either included or not included, or O(2<sup>n</sup>). This is a Very Bad Thing™!</p> <p>This problem can be exacerbated by the one mentioned previously. Imagine if your text looked like this:</p> <pre><code class="hljs"><span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] some unrelated words, blah blah (200 more redacted)
+</span><span>[...................................................,
+</span></code></pre><p>The extra parts of the string will be matched each time, and we can only imagine how long that will take.</p> <p>So, how do we prevent this?</p> <ul><li>Explicitly exclude the delimter.</li></ul> <blockquote><p>Match 10 comma separated values in an array: <code class="hljs inline no-lang">\[([^,]+,){9}([^,]+)\]</code> instead of <code class="hljs inline no-lang">\[(.+,){9}(.+)\]</code><br></p></blockquote> <p>Here, instead of matching all characters (<code class="hljs inline no-lang">.</code>), we match all characters except a certain character (<code class="hljs inline no-lang">[^,]</code>). This allows the regex to capture in one parse successfully. Some other common examples are HTML/XML tags (<code class="hljs inline no-lang">&lt;[^&gt;]*&gt;</code> instead of <code class="hljs inline no-lang">&lt;.+&gt;</code>) and bracketed expressions (<code class="hljs inline no-lang">\([^\)]+\)</code> instead of <code class="hljs inline no-lang">\(.+\)</code>).</p> <ul><li>Always narrow the scope as much as possible.</li></ul> <blockquote><p>Matching a name: <code class="hljs inline no-lang">[A-z]+ [A-z]+</code> instead of <code class="hljs inline no-lang">.+ .+</code><br></p></blockquote> <p>A great tip for improving Regex performance is to specify your match as clearly as possible. This reduces the potential of unwanted matchings and unnecessary backtracking.</p> <ul><li>Avoid greedy operators if possible.</li></ul> <blockquote><p>Matching a date: <code class="hljs inline no-lang">\d{1,2}-\d{1,2}-\d{2,4}</code> instead of <code class="hljs inline no-lang">.*-.*-.*</code><br></p></blockquote> <p>If you know your data will only be a few characters long, try your best to avoid using <code class="hljs inline no-lang">*</code> or <code class="hljs inline no-lang">+</code>. Limiting to a number of characters would reduce the amount of backtracking if any.</p> <ul><li>Use Lazy Quantifiers</li></ul> <blockquote><p>Use <code class="hljs inline no-lang">.+?</code> or <code class="hljs inline no-lang">.*?</code> instead of <code class="hljs inline no-lang">.+</code> and <code class="hljs inline no-lang">.*</code></p></blockquote> <p>A greedy quantifier <code class="hljs inline no-lang">+</code> or <code class="hljs inline no-lang">*</code> can be turned into a lazy quantifier by adding an extra <code class="hljs inline no-lang">?</code> behind it, i.e. (<code class="hljs inline no-lang">.+?</code> or <code class="hljs inline no-lang">.*?</code> instead of <code class="hljs inline no-lang">.+</code> and <code class="hljs inline no-lang">.*</code>). A lazy quantifier works similarly to a greedy quantifier, but it stops as soon as it finds a match rather than matching as much as possible. For instance, in our <code class="hljs inline no-lang">contested</code> example, if we replaced <code class="hljs inline no-lang">c.+d</code> with <code class="hljs inline no-lang">c.+?d</code>, the engine would stop matching the <code class="hljs inline no-lang">.+</code> here:</p> <pre><code class="hljs"><span>contested
+</span><span>  ^
+</span><span>c.ed
+</span></code></pre><p>Since <code class="hljs inline no-lang">o</code> is a suitable match for <code class="hljs inline no-lang">.+</code>, the engine accepts it and tries to match the <code class="hljs inline no-lang">ed</code>. If no match is found, the engine would bactrack and match <code class="hljs inline no-lang">c..ed</code>, and so on. We can see a clear advantage here for matching short strings, as we can guarantee that we'll never iterate further than the length of the pattern.</p> <h2 id="related-links"><span id="related-links" class="anchor"></span>Related Links<a href="#related-links" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><a href="https://www.regular-expressions.info/engine.html">The Regex Engine</a></li> <li><a href="https://www.regular-expressions.info/catastrophic.html">Catastrophic Backtracking</a></li></ul> <h2 id="learning-resources"><span id="learning-resources" class="anchor"></span>Learning Resources<a href="#learning-resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/">Printable cheat sheet for quick reference</a></li> <li><a href="https://www.regular-expressions.info/">Comprehensive Regex Knowledge Base</a></li></ul> <h3 id="fun-stuff"><span id="fun-stuff" class="anchor"></span>Fun Stuff<a href="#fun-stuff" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li><a href="https://alf.nu/RegexGolf">Regex Golf - Test your Regex skills!</a></li> <li><a href="https://regexcrossword.com/">Regex Crossword - Crosswords, but with Regex</a></li></ul> <h3 id="further-reading"><span id="further-reading" class="anchor"></span>Further Reading<a href="#further-reading" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li><a href="https://www.amazon.com/Regular-Expressions-Cookbook-Solutions-Programming/dp/1449319432">Regular Expressions Cookbook</a> - <em>Jan Goyvaerts, Steven Levithan</em></li> <li><a href="https://www.amazon.com/exec/obidos/ASIN/0672325667/jgsbookselection">Teach Yourself Regular Expressions in 10 Minutes</a> - <em>Ben Forta</em></li> <li><a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124">Mastering Regular Expressions</a> - <em>Jeffrey Friedl</em></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-regular-expressions" class="nav-link py-1" data-v-e8c82f88>Introduction to Regular Expressions‎</a> <a href="#overview" class="nav-link py-1" data-v-e8c82f88>Overview‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-are-regular-expressions" class="nav-link py-1" data-v-e8c82f88>What are Regular Expressions?‎</a> <a href="#why-should-i-learn-regex" class="nav-link py-1" data-v-e8c82f88>Why Should I Learn Regex?‎</a></nav> <a href="#getting-started" class="nav-link py-1" data-v-e8c82f88>Getting Started‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#introduction" class="nav-link py-1" data-v-e8c82f88>Introduction‎</a> <a href="#search-text" class="nav-link py-1" data-v-e8c82f88>Search Text‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#example" class="nav-link py-1" data-v-e8c82f88>Example‎</a></nav> <a href="#search-and-replace" class="nav-link py-1" data-v-e8c82f88>Search and Replace‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#result" class="nav-link py-1" data-v-e8c82f88>Result‎</a></nav> <a href="#capturing-groups" class="nav-link py-1" data-v-e8c82f88>Capturing Groups‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#result-2" class="nav-link py-1" data-v-e8c82f88>Result‎</a></nav> <a href="#further-exploration" class="nav-link py-1" data-v-e8c82f88>Further Exploration‎</a> <a href="#quick-reference" class="nav-link py-1" data-v-e8c82f88>Quick Reference‎</a> <a href="#helpful-links" class="nav-link py-1" data-v-e8c82f88>Helpful Links‎</a></nav> <a href="#advanced-topics" class="nav-link py-1" data-v-e8c82f88>Advanced Topics‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#the-regex-engine" class="nav-link py-1" data-v-e8c82f88>The Regex Engine‎</a> <a href="#greedy-operators" class="nav-link py-1" data-v-e8c82f88>Greedy Operators‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#effect-on-performance" class="nav-link py-1" data-v-e8c82f88>Effect on Performance‎</a> <a href="#catastrophic-backtracking" class="nav-link py-1" data-v-e8c82f88>Catastrophic Backtracking‎</a> <a href="#matching-delimiters" class="nav-link py-1" data-v-e8c82f88>Matching Delimiters‎</a></nav> <a href="#related-links" class="nav-link py-1" data-v-e8c82f88>Related Links‎</a> <a href="#learning-resources" class="nav-link py-1" data-v-e8c82f88>Learning Resources‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#fun-stuff" class="nav-link py-1" data-v-e8c82f88>Fun Stuff‎</a> <a href="#further-reading" class="nav-link py-1" data-v-e8c82f88>Further Reading‎</a></nav></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

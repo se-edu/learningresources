@@ -1,488 +1,139 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Dotfiles</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a current">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-dotfiles">Introduction to Dotfiles<a class="fa fa-anchor" href="#introduction-to-dotfiles" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/tiuweehan">Tiu Wee Han</a></strong><br>
-            Reviewers: <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/0blivious">Liu Yiwen</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#introduction-to-dotfiles">Introduction to Dotfiles</a>
-                <ul>
-                  <li><a href="#what-are-dotfiles">What are Dotfiles?‎</a></li>
-                  <li><a href="#why-dotfiles">Why Dotfiles?</a>
-                    <ul>
-                      <li><a href="#benefit-save-and-reuse-configurations">Benefit: Save and Reuse Configurations</a></li>
-                      <li><a href="#benefit-personalised-shortcuts-and-commands%E2%80%8E">Benefit: Personalised Shortcuts and Commands‎</a></li>
-                      <li><a href="#benefit-shell-utility-and-styling">Benefit: Shell Utility and Styling</a>‎</li>
-                    </ul>
-                  </li>
-                  <li><a href="#management-strategies">Management Strategies‎</a></li>
-                  <li><a href="#getting-started">Getting Started</a></li>
-                  <li><a href="#conclusion">Conclusion</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-          <h3 id="what-are-dotfiles">What are Dotfiles?<a class="fa fa-anchor" href="#what-are-dotfiles" onclick="event.stopPropagation()"></a></h3>
-          <p>Dotfiles are plain text configuration files on Unix like systems (e.g. MacOS, Linux, BSD). Dotfiles store settings of almost every application, service and tool running on your system. These files control the behavior of applications from boot to termination and everything in between.</p>
-          <p>Some common uses of dotfiles include:</p>
-          <ul>
-            <li>Scripts that run when a Shell is started: <code>.profile</code>, <code>.bashrc</code>, <code>.zshrc</code></li>
-            <li>Customising text editors: <code>.nanorc</code>, <code>.vimrc</code>, <code>.emacs.d</code></li>
-            <li>Storing settings for commonly used tools (e.g. <code>git</code>, <code>ssh</code>): <code>.gitconfig</code>, <code>.gitignore</code>, <code>.ssh/config</code></li>
-          </ul>
-          <h3 id="why-dotfiles">Why Dotfiles?<a class="fa fa-anchor" href="#why-dotfiles" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="benefit-1-easy-and-centralised-way-to-configure-applications">Benefit 1: Easy and Centralised Way to Configure Applications<a class="fa fa-anchor" href="#benefit-1-easy-and-centralised-way-to-configure-applications" onclick="event.stopPropagation()"></a></h4>
-          <p>With dotfiles, users have an easy and centralised way to configure their environment and applications. The usage of a file to store configurations also makes it easily shareable and reuseable by other people, as opposed to having to change settings within the application. Dotfiles can be used to configure almost all popular command line tools. In this section, we will explore dotfiles related to <code>git</code> and <code>ssh</code> - tools frequently used by developers.</p>
-          <h5 id="feature-1-1-git-dotfiles">Feature 1.1: Git Dotfiles<a class="fa fa-anchor" href="#feature-1-1-git-dotfiles" onclick="event.stopPropagation()"></a></h5>
-          <p><code>git</code> is an indispensible tool for many developers and projects, and it is undoubtedly the most popular version control software. Hence, it is highly beneficial to learn how to configure <code>git</code> dotfiles.</p>
-          <p>Global settings for <code>git</code>, such as the user's name, email and GitHub username can be specified in the <code>~/.gitconfig</code> file. The code below is a bare-bones <code>~/.gitconfig</code> file.</p>
-          <pre><code class="hljs"><span>[user]<br></span><span>  name = John Doe<br></span><span>  email = johndoe@gmail.com.<br></span><span><br></span><span>[github]<br></span><span>  user = johndoe123<br></span></code></pre>
-          <p>Apart from just storing basic details, it can also contain other <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config">information</a> such as merge tools, git color scheme and aliases. This provides a centralised location for a developer to view and edit their git configurations.</p>
-          <p>Another commonly used <code>git</code> related dotfile is the <code>.gitignore</code> file, which contains a list of files and directories that a developer wants to exclude from git's version control, such as packages, binaries or secret information. Some files commonly included in <code>.gitgnore</code> include:</p>
-          <pre><code class="hljs"><span>node_modules/ # Project specific packages for node projects<br></span><span>.DS_Store     # MacOS file to store folder layout information in the GUI<br></span><span>.vs_code      # Project specific VS code text editor configuration<br></span><span>bin/          # Binary executables<br></span></code></pre>
-          <p>This example also illustrates how using dotfiles can add project specific configurations that all developers working on a project will adhere to universally, as opposed to system level settings which may vary from developer to developer.</p>
-          <h5 id="feature-1-2-ssh-dotfiles">Feature 1.2: SSH Dotfiles<a class="fa fa-anchor" href="#feature-1-2-ssh-dotfiles" onclick="event.stopPropagation()"></a></h5>
-          <p>For developers and engineers working with remote servers, <code>ssh</code> is arguably the most essential tool for connecting and running commands on remote servers. However, for many beginners, working with <code>ssh</code> can be a daunting prospect. Configuring dotfiles is a good way to both simplify the usage of <code>ssh</code> and learn how to master it effectively.</p>
-          <p>Say a user John wants to connect to a remote server called <code>remoteA</code>. Typically, he will run the following command to connect to the server</p>
-          <pre><code class="hljs bash"><span>ssh -i ~/.ssh/id_rsa john@remoteAServer.com<br></span></code></pre>
-          <p>However, this is a relatively long command, and can be tedious to type especially if John accesses <code>remoteA</code> frequently. Thankfully for John, he can configure the different hosts by adding the following lines in the <code>~/.ssh/config</code> file:</p>
-          <pre><code class="hljs"><span>Host remoteA<br></span><span>    Hostname remoteAserver.com<br></span><span>    User john<br></span><span>    IdentityFile ~/.ssh/id_rsa<br></span></code></pre>
-          <p>With the configurations above, John is now able to simply just run the following to connect to <code>remoteA</code>:</p>
-          <pre><code class="hljs bash"><span>ssh remoteA<br></span></code></pre>
-          <p>This evidently saves time and effort needed to connect to a server. Aside from just connecting to servers, <code>ssh</code> can also be used for other purposes, all of which are easily <a href="https://www.ssh.com/ssh/config">configurable</a> using dotfiles. These include <a href="https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/">SSH proxies</a>, <a href="https://www.nics.tennessee.edu/x11_forwarding">launching GUI applications remotely</a> and <a href="https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/">SSH forwarding</a>.</p>
-          <box type="warning">
-            Please ensure that your RSA private keys such as `~/.ssh/id_rsa` are kept safe at all times.
-          </box>
-          <h4 id="benefit-2-personalised-shortcuts-and-commands">Benefit 2: Personalised Shortcuts and Commands<a class="fa fa-anchor" href="#benefit-2-personalised-shortcuts-and-commands" onclick="event.stopPropagation()"></a></h4>
-          <p>Dotfiles allow users to create custom shortcuts and commands, including aliases, functions and key-bindings, that can tremendously improve productivity. These can be both system level and project specific. In this section, we will look into aliases and functions.</p>
-          <h5 id="feature-2-1-aliases">Feature 2.1: Aliases<a class="fa fa-anchor" href="#feature-2-1-aliases" onclick="event.stopPropagation()"></a></h5>
-          <p>An alias is a shortcut command to a longer and more complex command. A new alias is defined by assigning a string with the command to a name in the format <code>alias &lt;name&gt;=&lt;command&gt;</code>. Aliases are often set in the <code>~/.bashrc</code> or <code>~/.zshrc</code> file. The examples below illustrate the use of aliasing.</p>
-          <pre><code class="hljs bash"><span><span class="hljs-built_in">alias</span> c=<span class="hljs-string">'clear'</span><br></span><span><span class="hljs-built_in">alias</span> lf=<span class="hljs-string">'/bin/ls --color -CF'</span><br></span><span><span class="hljs-built_in">alias</span> ll=<span class="hljs-string">'ls -l --color=auto'</span><br></span><span><span class="hljs-built_in">alias</span> ls=<span class="hljs-string">'ls --color=auto'</span><br></span><span><span class="hljs-built_in">alias</span> r=<span class="hljs-string">'fc -s'</span><br></span><span><span class="hljs-built_in">alias</span> vi=<span class="hljs-string">'vim'</span><br></span></code></pre>
-          <p>In this case, a user is able to type <code>c</code> instead of typing out <code>clear</code> in order to clear the terminal screen, a very commonly used command. Aliases are especially useful for abstracting long commands that are used often, and when compounded can save the user a lot of time and effort.</p>
-          <h5 id="feature-2-2-functions">Feature 2.2: Functions<a class="fa fa-anchor" href="#feature-2-2-functions" onclick="event.stopPropagation()"></a></h5>
-          <p>Much like aliases, functions allows a user to abstract longer commands into short commands. However, there is additional functionality such as being able to pass command line <a href="https://tecadmin.net/tutorial/bash-scripting/bash-command-arguments/">arguments</a> and <a href="https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash">flags</a>. This makes the commands more extensible and reuseable for a wide array of functionality.</p>
-          <p>The example function <code>mcd</code> below takes in a single argument represented by <code>$1</code>, creates a directory with the same name and enters it in a single command.</p>
-          <pre><code class="hljs bash"><span><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">mcd</span></span>() {<br></span><span>  mkdir -p <span class="hljs-variable">$1</span>;<br></span><span>  <span class="hljs-built_in">cd</span> <span class="hljs-variable">$1</span>;<br></span><span>}<br></span></code></pre>
-          <p>So if the user were to type the following into the terminal:</p>
-          <pre><code class="hljs bash"><span>mcd my_folder<br></span></code></pre>
-          <p>it would create a folder called <code>my_folder</code> and enter into it in a single step.</p>
-          <p>A highly useful and commonly used function is the <code>extract</code> function. This combines a lot of utilities to allow you to decompress just about any compressed file format, such as <code>tar</code>, <code>rar</code> and <code>zip</code>:</p>
-          <pre><code class="hljs bash"><span><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">extract</span></span>() {<br></span><span> <span class="hljs-keyword">if</span> [ -z <span class="hljs-string">"<span class="hljs-variable">$1</span>"</span> ]; <span class="hljs-keyword">then</span><br></span><span>    <span class="hljs-comment"># display usage if no parameters given</span><br></span><span>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Usage: extract &lt;path/file_name&gt;.&lt;zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz&gt;"</span><br></span><span>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"       extract &lt;path/file_name_1.ext&gt; [path/file_name_2.ext] [path/file_name_3.ext]"</span><br></span><span>    <span class="hljs-built_in">return</span> 1<br></span><span> <span class="hljs-keyword">else</span><br></span><span>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-variable">$@</span><br></span><span>    <span class="hljs-keyword">do</span><br></span><span>      <span class="hljs-keyword">if</span> [ -f <span class="hljs-string">"<span class="hljs-variable">$n</span>"</span> ] ; <span class="hljs-keyword">then</span><br></span><span>          <span class="hljs-keyword">case</span> <span class="hljs-string">"<span class="hljs-variable">${n%,}</span>"</span> <span class="hljs-keyword">in</span><br></span><span>            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) <br></span><span>                         tar xvf <span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>       ;;<br></span><span>            *.lzma)      unlzma ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>      ;;<br></span><span>            *.bz2)       bunzip2 ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>     ;;<br></span><span>            *.rar)       unrar x -ad ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span> ;;<br></span><span>            *.gz)        gunzip ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>      ;;<br></span><span>            *.zip)       unzip ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>       ;;<br></span><span>            *.z)         uncompress ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>  ;;<br></span><span>            *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)<br></span><span>                         7z x ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>        ;;<br></span><span>            *.xz)        unxz ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>        ;;<br></span><span>            *.exe)       cabextract ./<span class="hljs-string">"<span class="hljs-variable">$n</span>"</span>  ;;<br></span><span>            *)<br></span><span>                         <span class="hljs-built_in">echo</span> <span class="hljs-string">"extract: '<span class="hljs-variable">$n</span>' - unknown archive method"</span><br></span><span>                         <span class="hljs-built_in">return</span> 1<br></span><span>                         ;;<br></span><span>          <span class="hljs-keyword">esac</span><br></span><span>      <span class="hljs-keyword">else</span><br></span><span>          <span class="hljs-built_in">echo</span> <span class="hljs-string">"'<span class="hljs-variable">$n</span>' - file does not exist"</span><br></span><span>          <span class="hljs-built_in">return</span> 1<br></span><span>      <span class="hljs-keyword">fi</span><br></span><span>    <span class="hljs-keyword">done</span><br></span><span><span class="hljs-keyword">fi</span><br></span><span>}<br></span></code></pre>
-          <p>The use of functions essentially allows a user to create custom command-line tools to suit their needs.
-            Defining the function above in <code>~/.bashrc</code> or <code>./.zshrc</code> will load it whenever a new shell is created.</p>
-          <h4 id="benefit-3-shell-styling-and-utility">Benefit 3: Shell Styling and Utility<a class="fa fa-anchor" href="#benefit-3-shell-styling-and-utility" onclick="event.stopPropagation()"></a></h4>
-          <p>Dotfiles are also used to style shells (e.g. <code>bash</code>, <code>zsh</code>, <code>fish</code>) and enhance or add features to them. The styling of shells not only improves the overall aesthetic, it also makes them more readable (shell output can be tedious to read and digest). Features such as adding system information to the prompt, tab completion and syntax highlighting also improves the overall utility and feedback of the shell, contributing to a better developer experience.</p>
-          <h5 id="feature-3-1-prompt">Feature 3.1: Prompt<a class="fa fa-anchor" href="#feature-3-1-prompt" onclick="event.stopPropagation()"></a></h5>
-          <p>The <code>PS1</code> environment variable provides information for configuring and styling the Shell prompt.
-            By default, <code>PS1</code> is set to display only the username, host name and current working directory in the prompt.</p>
-          <pic src="/learningresources/contents/dotfiles/default-prompt.png" alt="Default prompt" width="55%">
-            <p><sub> <em>Figure 2. Default prompt</em></sub></p>
-          </pic>
-          <p><code>PS1</code> can be <a href="https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">configured</a> to add (or remove) features, such as status code of the previous command, git branch, git status, dates, etc. In Figure 3 below, the prompt is able to detect and show the git branch and status when it is inside a git repository, a useful and convenient feature for developers.</p>
-          <pic src="/learningresources/contents/dotfiles/enhanced-prompt.png" alt="Enhanced prompt" width="55%">
-            <p><sub> <em>Figure 3. Enhanced prompt</em></sub></p>
-          </pic>
-          <h5 id="feature-3-2-tab-completion">Feature 3.2: Tab Completion<a class="fa fa-anchor" href="#feature-3-2-tab-completion" onclick="event.stopPropagation()"></a></h5>
-          <p>Tab completion is a feature that allows the user to select options from a drop down menu. This is a default feature when using <code>zsh</code>, but can be configured using dotfiles when using other shells like <code>bash</code>.</p>
-          <pic src="/learningresources/contents/dotfiles/cd-autocomplete.gif" alt="Git flag autocomplete" width="60%">
-            <p><sub> <em>Figure 4. <code>cd</code> tab completion <a href="https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/">(Tutorial)</a></em></sub></p>
-          </pic>
-          <p>Tab completion can also be used for other purposes, such as selecting flags from a drop down menu, complete with an accompanying description.</p>
-          <pic src="/learningresources/contents/dotfiles/git-flag-autocomplete.gif" alt="Git flag autocomplete" width="60%">
-            <p><sub> <em>Figure 5. Flag autocomplete</em></sub></p>
-          </pic>
-          <h5 id="feature-3-3-syntax-highlighting">Feature 3.3: Syntax Highlighting<a class="fa fa-anchor" href="#feature-3-3-syntax-highlighting" onclick="event.stopPropagation()"></a></h5>
-          <p>Dotfiles are also often used to style and colorise the terminal. This is not just for aesthetic reasons - the use of color enhances readability of programs and makes it easier to debug. One such example would be the use of <strong>syntax highlighting</strong> as seen in Figure 6 below. It is especially useful for long shell commands, escape sequences or string interpolation.</p>
-          <pic src="/learningresources/contents/dotfiles/syntax-highlighting.gif" alt="Git flag autocomplete" width="60%">
-            <p><sub> <em>Figure 6. Syntax Highlighting <a href="https://github.com/zsh-users/zsh-syntax-highlighting">(Tutorial)</a></em></sub></p>
-          </pic>
-          <h3 id="management-strategies">Management Strategies<a class="fa fa-anchor" href="#management-strategies" onclick="event.stopPropagation()"></a></h3>
-          <p>There are many stratgies for managing dotfiles, but virtually all of them revolve around storing them in <code>git</code> repositories. The nature of dotfiles make <code>git</code> and ideal management tool - they continously evolve over time as the user adds more configurations, and it may be useful to track old dotfiles for future reference.</p>
-          <p>Another major benefit of managing dotfiles with <code>git</code> is that they can then be pushed to online repositories like GitHub or GitLab. These dotfiles can then be easily reused on other systems by simply pulling from these online repositories, allowing users to port their painstakingly created dotfiles anywhere. Since certain dotfiles may also vary across different systems (e.g. bash configurations may be different), users can use different branches to differentiate between these systems. It almost seems as though <code>git</code> was created for managing dotfiles!</p>
-          <p>The main difference between different strategies are how these dotfiles should be linked from the git repository into the system, since dotfiles can exist in different directories. The 3 most commonly used strategies are detailed below:</p>
-          <ol>
-            <li>
-              <p><strong>Use a <a href="https://www.atlassian.com/git/tutorials/dotfiles">git worktree</a>:</strong><br>
-                The strategy uses a lesser-known Git functionality of storing the Git worktree separately from the Git directory. This consists of a Git bare repository in a &quot;side&quot; folder (like <code>$HOME/.cfg</code> or <code>$HOME/.myconfig</code>) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.</p>
-            </li>
-            <li>
-              <p><strong>Use <a href="https://opensource.com/article/19/3/move-your-dotfiles-version-control">symlinking</a>:</strong><br>
-                This strategy involves using symlinks (The <code>ln</code> command) to create a shortcut linking to the dotfiles repository. The <code>ln</code> command is used to create links in your (unix-based) system. The syntax is <code>ln -s &lt;actual location of the file&gt; &lt;name and location you want to see that file under&gt;</code>. For example, the command below will result in the gitconfig in the dotfiles directory to be accessible from the <code>~/.gitconfig</code> location, which is where Git is expecting to see all the Git preferences set.</p>
-              <pre><code class="hljs"><span>ln -s ~/dotfiles/gitconfig ~/.gitconfig<br></span></code></pre>
-            </li>
-            <li>
-              <p><strong>Use an existing dotfiles management tool such as <a href="https://yadm.io/">yadm</a>:</strong>
-                <code>yadm</code> is a command-line tool for managing dotfiles. It provides many features out of the box, which saves the user the time needed to manually configure his/her own dotfiles. It also supplies additional features, such as the ability to manage a subset of secure files, which are encrypted before they are included in the repository. However, the caveat of this strategy is that it requires new systems to have <code>yadm</code> installed, which significantly reduces the portability.</p>
-            </li>
-          </ol>
-          <box type="warning">
-            Before copying dotfiles over to a system, ensure that there is a backup of the local dotfiles so they are not overwritten.
-          </box>
-          <h3 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started" onclick="event.stopPropagation()"></a></h3>
-          <p>It is easy to get started with dotfiles - a simple way to start is just by adding aliases for commonly used commands! For developers looking to optimise their productivity even further with dotfiles beyond the examples in this article, here are some useful readings/resources to get started with dotfiles:</p>
-          <ul>
-            <li><a href="https://dotfiles.github.io/">Unofficial Guide to Dotfiles on GitHub</a></li>
-            <li><a href="https://thoughtbot.com/upcase/videos/intro-to-dotfiles">Introduction to Dotfiles</a></li>
-            <li><a href="https://github.com/webpro/awesome-dotfiles">Awesome dotfiles: A curated list of dotfiles resources.</a></li>
-          </ul>
-          <h3 id="conclusion">Conclusion<a class="fa fa-anchor" href="#conclusion" onclick="event.stopPropagation()"></a></h3>
-          <p>In a nutshell, dotfiles are highly useful tools that can provide virtually unlimited customisability, and can tremendously improve the productivity of a developer. For junior developers that are keen on improve their linux or shell scripting knowledge, dotfiles are a good way to get started.</p>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-dotfiles">Introduction to Dotfiles&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-are-dotfiles">What are Dotfiles?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-dotfiles">Why Dotfiles?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#benefit-1-easy-and-centralised-way-to-configure-applications">Benefit 1: Easy and Centralised Way to Configure Applications&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-2-personalised-shortcuts-and-commands">Benefit 2: Personalised Shortcuts and Commands&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-3-shell-styling-and-utility">Benefit 3: Shell Styling and Utility&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#management-strategies">Management Strategies&#x200E;</a>
-              <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
-              <a class="nav-link py-1" href="#conclusion">Conclusion&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to Dotfiles</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="Dotfiles.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-dotfiles"><span id="introduction-to-dotfiles" class="anchor"></span>Introduction to Dotfiles<a href="#introduction-to-dotfiles" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Author(s): <a href="https://github.com/tiuweehan">Tiu Wee Han</a></strong><br>
+Reviewers: <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/0blivious">Liu Yiwen</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#introduction-to-dotfiles" data-v-7d17494f>Introduction to Dotfiles</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#what-are-dotfiles" data-v-7d17494f>What are Dotfiles?‎</a></li> <li data-v-7d17494f><a href="#why-dotfiles" data-v-7d17494f>Why Dotfiles?</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#benefit-save-and-reuse-configurations" data-v-7d17494f>Benefit: Save and Reuse Configurations</a></li> <li data-v-7d17494f><a href="#benefit-personalised-shortcuts-and-commands%E2%80%8E" data-v-7d17494f>Benefit: Personalised Shortcuts and Commands‎</a></li> <li data-v-7d17494f><a href="#benefit-shell-utility-and-styling" data-v-7d17494f>Benefit: Shell Utility and Styling</a>‎</li></ul></li> <li data-v-7d17494f><a href="#management-strategies" data-v-7d17494f>Management Strategies‎</a></li> <li data-v-7d17494f><a href="#getting-started" data-v-7d17494f>Getting Started</a></li> <li data-v-7d17494f><a href="#conclusion" data-v-7d17494f>Conclusion</a></li></ul></li></ul></div> <!----></div></div></div> <h3 id="what-are-dotfiles"><span id="what-are-dotfiles" class="anchor"></span>What are Dotfiles?<a href="#what-are-dotfiles" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Dotfiles are plain text configuration files on Unix like systems (e.g. MacOS, Linux, BSD). Dotfiles store settings of almost every application, service and tool running on your system. These files control the behavior of applications from boot to termination and everything in between.</p> <p>Some common uses of dotfiles include:</p> <ul><li>Scripts that run when a Shell is started: <code class="hljs inline no-lang">.profile</code>, <code class="hljs inline no-lang">.bashrc</code>, <code class="hljs inline no-lang">.zshrc</code></li> <li>Customising text editors: <code class="hljs inline no-lang">.nanorc</code>, <code class="hljs inline no-lang">.vimrc</code>, <code class="hljs inline no-lang">.emacs.d</code></li> <li>Storing settings for commonly used tools (e.g. <code class="hljs inline no-lang">git</code>, <code class="hljs inline no-lang">ssh</code>): <code class="hljs inline no-lang">.gitconfig</code>, <code class="hljs inline no-lang">.gitignore</code>, <code class="hljs inline no-lang">.ssh/config</code></li></ul> <h3 id="why-dotfiles"><span id="why-dotfiles" class="anchor"></span>Why Dotfiles?<a href="#why-dotfiles" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="benefit-1-easy-and-centralised-way-to-configure-applications"><span id="benefit-1-easy-and-centralised-way-to-configure-applications" class="anchor"></span>Benefit 1: Easy and Centralised Way to Configure Applications<a href="#benefit-1-easy-and-centralised-way-to-configure-applications" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>With dotfiles, users have an easy and centralised way to configure their environment and applications. The usage of a file to store configurations also makes it easily shareable and reuseable by other people, as opposed to having to change settings within the application. Dotfiles can be used to configure almost all popular command line tools. In this section, we will explore dotfiles related to <code class="hljs inline no-lang">git</code> and <code class="hljs inline no-lang">ssh</code> - tools frequently used by developers.</p> <h5 id="feature-1-1-git-dotfiles"><span id="feature-1-1-git-dotfiles" class="anchor"></span>Feature 1.1: Git Dotfiles<a href="#feature-1-1-git-dotfiles" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p><code class="hljs inline no-lang">git</code> is an indispensible tool for many developers and projects, and it is undoubtedly the most popular version control software. Hence, it is highly beneficial to learn how to configure <code class="hljs inline no-lang">git</code> dotfiles.</p> <p>Global settings for <code class="hljs inline no-lang">git</code>, such as the user's name, email and GitHub username can be specified in the <code class="hljs inline no-lang">~/.gitconfig</code> file. The code below is a bare-bones <code class="hljs inline no-lang">~/.gitconfig</code> file.</p> <pre><code class="hljs"><span>[user]
+</span><span>  name = John Doe
+</span><span>  email = johndoe@gmail.com.
+</span><span>
+</span><span>[github]
+</span><span>  user = johndoe123
+</span></code></pre><p>Apart from just storing basic details, it can also contain other <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config">information</a> such as merge tools, git color scheme and aliases. This provides a centralised location for a developer to view and edit their git configurations.</p> <p>Another commonly used <code class="hljs inline no-lang">git</code> related dotfile is the <code class="hljs inline no-lang">.gitignore</code> file, which contains a list of files and directories that a developer wants to exclude from git's version control, such as packages, binaries or secret information. Some files commonly included in <code class="hljs inline no-lang">.gitgnore</code> include:</p> <pre><code class="hljs"><span>node_modules/ # Project specific packages for node projects
+</span><span>.DS_Store     # MacOS file to store folder layout information in the GUI
+</span><span>.vs_code      # Project specific VS code text editor configuration
+</span><span>bin/          # Binary executables
+</span></code></pre><p>This example also illustrates how using dotfiles can add project specific configurations that all developers working on a project will adhere to universally, as opposed to system level settings which may vary from developer to developer.</p> <h5 id="feature-1-2-ssh-dotfiles"><span id="feature-1-2-ssh-dotfiles" class="anchor"></span>Feature 1.2: SSH Dotfiles<a href="#feature-1-2-ssh-dotfiles" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>For developers and engineers working with remote servers, <code class="hljs inline no-lang">ssh</code> is arguably the most essential tool for connecting and running commands on remote servers. However, for many beginners, working with <code class="hljs inline no-lang">ssh</code> can be a daunting prospect. Configuring dotfiles is a good way to both simplify the usage of <code class="hljs inline no-lang">ssh</code> and learn how to master it effectively.</p> <p>Say a user John wants to connect to a remote server called <code class="hljs inline no-lang">remoteA</code>. Typically, he will run the following command to connect to the server</p> <pre><code class="hljs bash"><span>ssh -i ~/.ssh/id_rsa john@remoteAServer.com
+</span></code></pre><p>However, this is a relatively long command, and can be tedious to type especially if John accesses <code class="hljs inline no-lang">remoteA</code> frequently. Thankfully for John, he can configure the different hosts by adding the following lines in the <code class="hljs inline no-lang">~/.ssh/config</code> file:</p> <pre><code class="hljs"><span>Host remoteA
+</span><span>    Hostname remoteAserver.com
+</span><span>    User john
+</span><span>    IdentityFile ~/.ssh/id_rsa
+</span></code></pre><p>With the configurations above, John is now able to simply just run the following to connect to <code class="hljs inline no-lang">remoteA</code>:</p> <pre><code class="hljs bash"><span>ssh remoteA
+</span></code></pre><p>This evidently saves time and effort needed to connect to a server. Aside from just connecting to servers, <code class="hljs inline no-lang">ssh</code> can also be used for other purposes, all of which are easily <a href="https://www.ssh.com/ssh/config">configurable</a> using dotfiles. These include <a href="https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/">SSH proxies</a>, <a href="https://www.nics.tennessee.edu/x11_forwarding">launching GUI applications remotely</a> and <a href="https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/">SSH forwarding</a>.</p> <div class="alert box-container alert-warning" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-exclamation" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>
+Please ensure that your RSA private keys such as `~/.ssh/id_rsa` are kept safe at all times.
+</div> <!----></div></div></div> <h4 id="benefit-2-personalised-shortcuts-and-commands"><span id="benefit-2-personalised-shortcuts-and-commands" class="anchor"></span>Benefit 2: Personalised Shortcuts and Commands<a href="#benefit-2-personalised-shortcuts-and-commands" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Dotfiles allow users to create custom shortcuts and commands, including aliases, functions and key-bindings, that can tremendously improve productivity. These can be both system level and project specific. In this section, we will look into aliases and functions.</p> <h5 id="feature-2-1-aliases"><span id="feature-2-1-aliases" class="anchor"></span>Feature 2.1: Aliases<a href="#feature-2-1-aliases" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>An alias is a shortcut command to a longer and more complex command. A new alias is defined by assigning a string with the command to a name in the format <code class="hljs inline no-lang">alias &lt;name&gt;=&lt;command&gt;</code>. Aliases are often set in the <code class="hljs inline no-lang">~/.bashrc</code> or <code class="hljs inline no-lang">~/.zshrc</code> file. The examples below illustrate the use of aliasing.</p> <pre><code class="hljs bash"><span><span class="hljs-built_in">alias</span> c=<span class="hljs-string">'clear'</span>
+</span><span><span class="hljs-built_in">alias</span> lf=<span class="hljs-string">'/bin/ls --color -CF'</span>
+</span><span><span class="hljs-built_in">alias</span> ll=<span class="hljs-string">'ls -l --color=auto'</span>
+</span><span><span class="hljs-built_in">alias</span> ls=<span class="hljs-string">'ls --color=auto'</span>
+</span><span><span class="hljs-built_in">alias</span> r=<span class="hljs-string">'fc -s'</span>
+</span><span><span class="hljs-built_in">alias</span> vi=<span class="hljs-string">'vim'</span>
+</span></code></pre><p>In this case, a user is able to type <code class="hljs inline no-lang">c</code> instead of typing out <code class="hljs inline no-lang">clear</code> in order to clear the terminal screen, a very commonly used command. Aliases are especially useful for abstracting long commands that are used often, and when compounded can save the user a lot of time and effort.</p> <h5 id="feature-2-2-functions"><span id="feature-2-2-functions" class="anchor"></span>Feature 2.2: Functions<a href="#feature-2-2-functions" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>Much like aliases, functions allows a user to abstract longer commands into short commands. However, there is additional functionality such as being able to pass command line <a href="https://tecadmin.net/tutorial/bash-scripting/bash-command-arguments/">arguments</a> and <a href="https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash">flags</a>. This makes the commands more extensible and reuseable for a wide array of functionality.</p> <p>The example function <code class="hljs inline no-lang">mcd</code> below takes in a single argument represented by <code class="hljs inline no-lang">$1</code>, creates a directory with the same name and enters it in a single command.</p> <pre><code class="hljs bash"><span><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">mcd</span></span>() {
+</span><span>  mkdir -p <span class="hljs-variable">$1</span>;
+</span><span>  <span class="hljs-built_in">cd</span> <span class="hljs-variable">$1</span>;
+</span><span>}
+</span></code></pre><p>So if the user were to type the following into the terminal:</p> <pre><code class="hljs bash"><span>mcd my_folder
+</span></code></pre><p>it would create a folder called <code class="hljs inline no-lang">my_folder</code> and enter into it in a single step.</p> <p>A highly useful and commonly used function is the <code class="hljs inline no-lang">extract</code> function. This combines a lot of utilities to allow you to decompress just about any compressed file format, such as <code class="hljs inline no-lang">tar</code>, <code class="hljs inline no-lang">rar</code> and <code class="hljs inline no-lang">zip</code>:</p> <pre><code class="hljs bash"><span><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">extract</span></span>() {
+</span><span> <span class="hljs-keyword">if</span> [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ]; <span class="hljs-keyword">then</span>
+</span><span>    <span class="hljs-comment"># display usage if no parameters given</span>
+</span><span>    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Usage: extract &lt;path/file_name&gt;.&lt;zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz&gt;&quot;</span>
+</span><span>    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;       extract &lt;path/file_name_1.ext&gt; [path/file_name_2.ext] [path/file_name_3.ext]&quot;</span>
+</span><span>    <span class="hljs-built_in">return</span> 1
+</span><span> <span class="hljs-keyword">else</span>
+</span><span>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-variable">$@</span>
+</span><span>    <span class="hljs-keyword">do</span>
+</span><span>      <span class="hljs-keyword">if</span> [ -f <span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span> ] ; <span class="hljs-keyword">then</span>
+</span><span>          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">${n%,}</span>&quot;</span> <span class="hljs-keyword">in</span>
+</span><span>            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
+</span><span>                         tar xvf <span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>       ;;
+</span><span>            *.lzma)      unlzma ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>      ;;
+</span><span>            *.bz2)       bunzip2 ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>     ;;
+</span><span>            *.rar)       unrar x -ad ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span> ;;
+</span><span>            *.gz)        gunzip ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>      ;;
+</span><span>            *.zip)       unzip ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>       ;;
+</span><span>            *.z)         uncompress ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>  ;;
+</span><span>            *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)
+</span><span>                         7z x ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>        ;;
+</span><span>            *.xz)        unxz ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>        ;;
+</span><span>            *.exe)       cabextract ./<span class="hljs-string">&quot;<span class="hljs-variable">$n</span>&quot;</span>  ;;
+</span><span>            *)
+</span><span>                         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;extract: '<span class="hljs-variable">$n</span>' - unknown archive method&quot;</span>
+</span><span>                         <span class="hljs-built_in">return</span> 1
+</span><span>                         ;;
+</span><span>          <span class="hljs-keyword">esac</span>
+</span><span>      <span class="hljs-keyword">else</span>
+</span><span>          <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;'<span class="hljs-variable">$n</span>' - file does not exist&quot;</span>
+</span><span>          <span class="hljs-built_in">return</span> 1
+</span><span>      <span class="hljs-keyword">fi</span>
+</span><span>    <span class="hljs-keyword">done</span>
+</span><span><span class="hljs-keyword">fi</span>
+</span><span>}
+</span></code></pre><p>The use of functions essentially allows a user to create custom command-line tools to suit their needs.
+Defining the function above in <code class="hljs inline no-lang">~/.bashrc</code> or <code class="hljs inline no-lang">./.zshrc</code> will load it whenever a new shell is created.</p> <h4 id="benefit-3-shell-styling-and-utility"><span id="benefit-3-shell-styling-and-utility" class="anchor"></span>Benefit 3: Shell Styling and Utility<a href="#benefit-3-shell-styling-and-utility" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Dotfiles are also used to style shells (e.g. <code class="hljs inline no-lang">bash</code>, <code class="hljs inline no-lang">zsh</code>, <code class="hljs inline no-lang">fish</code>) and enhance or add features to them. The styling of shells not only improves the overall aesthetic, it also makes them more readable (shell output can be tedious to read and digest). Features such as adding system information to the prompt, tab completion and syntax highlighting also improves the overall utility and feedback of the shell, contributing to a better developer experience.</p> <h5 id="feature-3-1-prompt"><span id="feature-3-1-prompt" class="anchor"></span>Feature 3.1: Prompt<a href="#feature-3-1-prompt" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>The <code class="hljs inline no-lang">PS1</code> environment variable provides information for configuring and styling the Shell prompt.
+By default, <code class="hljs inline no-lang">PS1</code> is set to display only the username, host name and current working directory in the prompt.</p> <span class="image-wrapper"><img src="/learningresources/contents/dotfiles/default-prompt.png" alt="Default prompt" width="55%" class="img-fluid rounded"> <span class="image-caption"><p><sub><em>Figure 2. Default prompt</em></sub></p></span></span> <p><code class="hljs inline no-lang">PS1</code> can be <a href="https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">configured</a> to add (or remove) features, such as status code of the previous command, git branch, git status, dates, etc. In Figure 3 below, the prompt is able to detect and show the git branch and status when it is inside a git repository, a useful and convenient feature for developers.</p> <span class="image-wrapper"><img src="/learningresources/contents/dotfiles/enhanced-prompt.png" alt="Enhanced prompt" width="55%" class="img-fluid rounded"> <span class="image-caption"><p><sub><em>Figure 3. Enhanced prompt</em></sub></p></span></span> <h5 id="feature-3-2-tab-completion"><span id="feature-3-2-tab-completion" class="anchor"></span>Feature 3.2: Tab Completion<a href="#feature-3-2-tab-completion" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>Tab completion is a feature that allows the user to select options from a drop down menu. This is a default feature when using <code class="hljs inline no-lang">zsh</code>, but can be configured using dotfiles when using other shells like <code class="hljs inline no-lang">bash</code>.</p> <span class="image-wrapper"><img src="/learningresources/contents/dotfiles/cd-autocomplete.gif" alt="Git flag autocomplete" width="60%" class="img-fluid rounded"> <span class="image-caption"><p><sub><em>Figure 4. <code class="hljs inline no-lang">cd</code> tab completion <a href="https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/">(Tutorial)</a></em></sub></p></span></span> <p>Tab completion can also be used for other purposes, such as selecting flags from a drop down menu, complete with an accompanying description.</p> <span class="image-wrapper"><img src="/learningresources/contents/dotfiles/git-flag-autocomplete.gif" alt="Git flag autocomplete" width="60%" class="img-fluid rounded"> <span class="image-caption"><p><sub><em>Figure 5. Flag autocomplete</em></sub></p></span></span> <h5 id="feature-3-3-syntax-highlighting"><span id="feature-3-3-syntax-highlighting" class="anchor"></span>Feature 3.3: Syntax Highlighting<a href="#feature-3-3-syntax-highlighting" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>Dotfiles are also often used to style and colorise the terminal. This is not just for aesthetic reasons - the use of color enhances readability of programs and makes it easier to debug. One such example would be the use of <strong>syntax highlighting</strong> as seen in Figure 6 below. It is especially useful for long shell commands, escape sequences or string interpolation.</p> <span class="image-wrapper"><img src="/learningresources/contents/dotfiles/syntax-highlighting.gif" alt="Git flag autocomplete" width="60%" class="img-fluid rounded"> <span class="image-caption"><p><sub><em>Figure 6. Syntax Highlighting <a href="https://github.com/zsh-users/zsh-syntax-highlighting">(Tutorial)</a></em></sub></p></span></span> <h3 id="management-strategies"><span id="management-strategies" class="anchor"></span>Management Strategies<a href="#management-strategies" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>There are many stratgies for managing dotfiles, but virtually all of them revolve around storing them in <code class="hljs inline no-lang">git</code> repositories. The nature of dotfiles make <code class="hljs inline no-lang">git</code> and ideal management tool - they continously evolve over time as the user adds more configurations, and it may be useful to track old dotfiles for future reference.</p> <p>Another major benefit of managing dotfiles with <code class="hljs inline no-lang">git</code> is that they can then be pushed to online repositories like GitHub or GitLab. These dotfiles can then be easily reused on other systems by simply pulling from these online repositories, allowing users to port their painstakingly created dotfiles anywhere. Since certain dotfiles may also vary across different systems (e.g. bash configurations may be different), users can use different branches to differentiate between these systems. It almost seems as though <code class="hljs inline no-lang">git</code> was created for managing dotfiles!</p> <p>The main difference between different strategies are how these dotfiles should be linked from the git repository into the system, since dotfiles can exist in different directories. The 3 most commonly used strategies are detailed below:</p> <ol><li><p><strong>Use a <a href="https://www.atlassian.com/git/tutorials/dotfiles">git worktree</a>:</strong><br>
+The strategy uses a lesser-known Git functionality of storing the Git worktree separately from the Git directory. This consists of a Git bare repository in a &quot;side&quot; folder (like <code class="hljs inline no-lang">$HOME/.cfg</code> or <code class="hljs inline no-lang">$HOME/.myconfig</code>) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.</p></li> <li><p><strong>Use <a href="https://opensource.com/article/19/3/move-your-dotfiles-version-control">symlinking</a>:</strong><br>
+This strategy involves using symlinks (The <code class="hljs inline no-lang">ln</code> command) to create a shortcut linking to the dotfiles repository. The <code class="hljs inline no-lang">ln</code> command is used to create links in your (unix-based) system. The syntax is <code class="hljs inline no-lang">ln -s &lt;actual location of the file&gt; &lt;name and location you want to see that file under&gt;</code>. For example, the command below will result in the gitconfig in the dotfiles directory to be accessible from the <code class="hljs inline no-lang">~/.gitconfig</code> location, which is where Git is expecting to see all the Git preferences set.</p> <pre><code class="hljs"><span>ln -s ~/dotfiles/gitconfig ~/.gitconfig
+</span></code></pre></li> <li><p><strong>Use an existing dotfiles management tool such as <a href="https://yadm.io/">yadm</a>:</strong> <code class="hljs inline no-lang">yadm</code> is a command-line tool for managing dotfiles. It provides many features out of the box, which saves the user the time needed to manually configure his/her own dotfiles. It also supplies additional features, such as the ability to manage a subset of secure files, which are encrypted before they are included in the repository. However, the caveat of this strategy is that it requires new systems to have <code class="hljs inline no-lang">yadm</code> installed, which significantly reduces the portability.</p></li></ol> <div class="alert box-container alert-warning" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-exclamation" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>
+Before copying dotfiles over to a system, ensure that there is a backup of the local dotfiles so they are not overwritten.
+</div> <!----></div></div></div> <h3 id="getting-started"><span id="getting-started" class="anchor"></span>Getting Started<a href="#getting-started" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>It is easy to get started with dotfiles - a simple way to start is just by adding aliases for commonly used commands! For developers looking to optimise their productivity even further with dotfiles beyond the examples in this article, here are some useful readings/resources to get started with dotfiles:</p> <ul><li><a href="https://dotfiles.github.io/">Unofficial Guide to Dotfiles on GitHub</a></li> <li><a href="https://thoughtbot.com/upcase/videos/intro-to-dotfiles">Introduction to Dotfiles</a></li> <li><a href="https://github.com/webpro/awesome-dotfiles">Awesome dotfiles: A curated list of dotfiles resources.</a></li></ul> <h3 id="conclusion"><span id="conclusion" class="anchor"></span>Conclusion<a href="#conclusion" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>In a nutshell, dotfiles are highly useful tools that can provide virtually unlimited customisability, and can tremendously improve the productivity of a developer. For junior developers that are keen on improve their linux or shell scripting knowledge, dotfiles are a good way to get started.</p></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-dotfiles" class="nav-link py-1" data-v-e8c82f88>Introduction to Dotfiles‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-are-dotfiles" class="nav-link py-1" data-v-e8c82f88>What are Dotfiles?‎</a> <a href="#why-dotfiles" class="nav-link py-1" data-v-e8c82f88>Why Dotfiles?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#benefit-1-easy-and-centralised-way-to-configure-applications" class="nav-link py-1" data-v-e8c82f88>Benefit 1: Easy and Centralised Way to Configure Applications‎</a> <a href="#benefit-2-personalised-shortcuts-and-commands" class="nav-link py-1" data-v-e8c82f88>Benefit 2: Personalised Shortcuts and Commands‎</a> <a href="#benefit-3-shell-styling-and-utility" class="nav-link py-1" data-v-e8c82f88>Benefit 3: Shell Styling and Utility‎</a></nav> <a href="#management-strategies" class="nav-link py-1" data-v-e8c82f88>Management Strategies‎</a> <a href="#getting-started" class="nav-link py-1" data-v-e8c82f88>Getting Started‎</a> <a href="#conclusion" class="nav-link py-1" data-v-e8c82f88>Conclusion‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

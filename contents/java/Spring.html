@@ -1,557 +1,182 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Spring Framework</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a current">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-spring-framework">Introduction to Spring Framework<a class="fa fa-anchor" href="#introduction-to-spring-framework" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Authors: <a href="https://github.com/0blivious">Liu Yiwen</a></strong> <br>
-            Reviewers: <a href="https://github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://github.com/j-lum">Lum Ka Fai Jeffry</a>, <a href="https://github.com/niqiukun">Ni Tianzhen</a></p>
-          <box type="info">
-            This chapter assumes that the reader has a basic knowledge of Java enterprise.
-          </box>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#what-is-spring-framework">What is Spring Framework‎?</a></li>
-              <li><a href="#core-features">Core Features</a>
-                <ul>
-                  <li><a href="#the-ioc-container">The IOC Container</a></li>
-                  <li><a href="#spring-jdbctemplate">Spring JdbcTemplate</a></li>
-                  <li><a href="#spring-aop">Spring AOP</a></li>
-                </ul>
-              </li>
-              <li><a href="#why-use-spring">Why Use Spring?‎</a>
-                <ul>
-                  <li><a href="#benefit-1-modularity">Benefit 1: Modularity</a></li>
-                  <li><a href="#benefit-2-easy-integration">Benefit 2: Easy Integration</a></li>
-                  <li><a href="#benefit-3-strong-community-support">Benefit 3: Strong Community Support</a></li>
-                  <li><a href="#benefit-4-usability">Benefit 4: Usability</a></li>
-                </ul>
-              </li>
-              <li><a href="#getting-started">Getting Started‎</a></li>
-            </ul>
-          </box>
-
-          <h2 id="what-is-spring-framework">What is Spring Framework?<a class="fa fa-anchor" href="#what-is-spring-framework" onclick="event.stopPropagation()"></a></h2>
-          <p>The <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html">official website</a> describes Spring Framework as follows:</p>
-          <blockquote>
-            <p><em>Spring Framework</em> is an open-source framework to create Java enterprise applications.
-              It provides foundational support for different application architectures, including messaging, transactional data and persistence, and web.</p>
-          </blockquote>
-          <h2 id="core-features">Core Features<a class="fa fa-anchor" href="#core-features" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="the-ioc-container">The IoC Container<a class="fa fa-anchor" href="#the-ioc-container" onclick="event.stopPropagation()"></a></h3>
-          <p>Normally, objects in a Java application often have to take on additional responsibilities such as creating other objects,
-            wiring them together, configuring them, and managing their life cycle. When using the Spring framework for an application,
-            the framework takes care of many of those responsibilities. This design approach is called inversion of control (IoC)
-            and Spring achieves it using something called the IoC container. The Spring IoC container manage the
-            <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.</span>
-              <i>beans </i></span>in Spring Framework. These beans are created with the configuration metadata that you supply to the container,
-            which can be in the form of XML configuration or annotations.</p>
-          <p>To better understand how the IoC Container works, we will create an Employee class like so:</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">package</span> com.company;  <br></span><span>  <br></span><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Employee</span> </span>{  <br></span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;  <br></span><span>    <span class="hljs-keyword">private</span> String name;  <br></span><span>    <span class="hljs-keyword">private</span> String city;  <br></span><span>  <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>{  <br></span><span>        <span class="hljs-keyword">return</span> id;  <br></span><span>    }  <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span> </span>{  <br></span><span>        <span class="hljs-keyword">this</span>.id = id;  <br></span><span>    }  <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{  <br></span><span>        <span class="hljs-keyword">return</span> name;  <br></span><span>    }  <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{  <br></span><span>        <span class="hljs-keyword">this</span>.name = name;  <br></span><span>    }  <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span></span>{  <br></span><span>        System.out.println(id+<span class="hljs-string">" "</span>+name);  <br></span><span>    }<br></span><span>}        <br></span></code></pre>
-          <p>We can then populate an Employee bean with the data provided in the following <code>applicationContext.xml</code> file:</p>
-          <pre><code class="hljs xml"><span><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"employeeAmy"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.company.Employee"</span>&gt;</span>  <br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"id"</span>&gt;</span>  <br></span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>20<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>  <br></span><span>    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>  <br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>&gt;</span>  <br></span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>Amy<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>  <br></span><span>    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>  <br></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>  <br></span></code></pre>
-          <p>We then manually instantiate a container using the <code>applicationContext.xml</code> file we just created:</p>
-          <pre><code class="hljs java"><span>ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">"applicationContext.xml"</span>);<br></span></code></pre>
-          <p>To prove we managed to instantiate the bean correctly, we can have a <code>Test.java</code> looks like the following:</p>
-          <pre><code class="hljs java"><span>Resource r = <span class="hljs-keyword">new</span> ClassPathResource(<span class="hljs-string">"applicationContext.xml"</span>);  <br></span><span>BeanFactory factory = <span class="hljs-keyword">new</span> XmlBeanFactory(r);  <br></span><span>          <br></span><span>Employee e = (Employee)factory.getBean(<span class="hljs-string">"obj"</span>);  <br></span><span>e.display();<br></span></code></pre>
-          <p>The output of the above code would be <code>20 Amy</code>. Notice that the use of IoC container makes our code loosely coupled and easier for testing.</p>
-          <h3 id="spring-jdbctemplate">Spring JdbcTemplate<a class="fa fa-anchor" href="#spring-jdbctemplate" onclick="event.stopPropagation()"></a></h3>
-          <p>The Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. Traditionally, we
-            need to use Java Database Connectivity (JDBC) API to access tabular data stored in any relational database.
-            It is a part of JavaSE (Java Standard Edition).</p>
-          <p>In a traditional JDBC API:</p>
-          <ul>
-            <li>a typical SQL query would involve quite some amount of boilerplate code, such as creating connection,
-              statement, closing resultset, connection etc.</li>
-            <li>exception handling has to be manually written out.</li>
-            <li>transactions need to be manually created.</li>
-          </ul>
-          <p>The Spring JdbcTemplate provides methods to write the queries directly, hence, saving time in writing such boilerplate code.</p>
-          <div class="table-responsive">
-            <table class="markbind-table table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th style="text-align:center">Task</th>
-                  <th style="text-align:center">Spring</th>
-                  <th style="text-align:center">You</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align:center">Connection Management</td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                  <td style="text-align:center"></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Writing SQL Queries</td>
-                  <td style="text-align:center"></td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Statement Management</td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                  <td style="text-align:center"></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">ResultSet Management</td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                  <td style="text-align:center"></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Row Data Retrieval</td>
-                  <td style="text-align:center"></td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Parameter Declaration</td>
-                  <td style="text-align:center"></td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Parameter Setting</td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                  <td style="text-align:center"></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Transaction Management</td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                  <td style="text-align:center"></td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Exception Handling</td>
-                  <td style="text-align:center"><span aria-hidden="true" class="far fa-check-circle"></span></td>
-                  <td style="text-align:center"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <h3 id="spring-aop">Spring AOP<a class="fa fa-anchor" href="#spring-aop" onclick="event.stopPropagation()"></a></h3>
-          <p>Spring Framework addresses
-            <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Concerns that can affect the whole application and should be centralized in one location in code as much as possible. Examples of these concerns include transaction management, authentication, logging, security etc.</span>
-              <i>cross-cutting concerns</i></span> by supporting <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect Oriented Programming</a> (AOP).
-            It provides ways to dynamically add the cross-cutting concerns before, after or around the actual logic using simple
-            pluggable configurations.</p>
-          <p>For example, say we wish to log something into the console everytime before we call the method <code>getEmployeeById</code>.
-            We can then write aspect class annotated with <code>@Aspect</code> annotation and write point-cut expressions to log program information from
-            <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Join point is a point of execution of the program, such as the execution of a method or the handling of an exception.</span>
-              <i>joint-point</i></span> methods.</p>
-          <pre><code class="hljs java"><span><span class="hljs-meta">@Aspect</span><br></span><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeCRUDAspect</span> </span>{<br></span><span>    <span class="hljs-meta">@Before</span>(<span class="hljs-string">"execution(* EmployeeManager.getEmployeeById(..))"</span>) <span class="hljs-comment">// point-cut expressions</span><br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">logBefore</span><span class="hljs-params">(JoinPoint joinPoint)</span> </span>{<br></span><span>        System.out.println(<span class="hljs-string">"EmployeeCRUDAspect.logBefore() : "</span><br></span><span>                + joinPoint.getSignature().getName());<br></span><span>    }<br></span><span>    <br></span><span>    <span class="hljs-meta">@After</span>(<span class="hljs-string">"execution(* EmployeeManager.getEmployeeById(..))"</span>) <span class="hljs-comment">// point-cut expressions</span><br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">logAfter</span><span class="hljs-params">(JoinPoint joinPoint)</span> </span>{<br></span><span>        System.out.println(<span class="hljs-string">"EmployeeCRUDAspect.logAfter() : "</span><br></span><span>                + joinPoint.getSignature().getName());<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <p>And the corresponding <code>EmployeeManager.java</code> file could be:</p>
-          <pre><code class="hljs java"><span><span class="hljs-meta">@Component</span><br></span><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeManager</span> </span>{<br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> EmployeeDTO <span class="hljs-title">getEmployeeById</span><span class="hljs-params">(Integer employeeId)</span> </span>{<br></span><span>        System.out.println(<span class="hljs-string">"Method getEmployeeById() called"</span>);<br></span><span>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EmployeeDTO();<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <p>In the above example, <code>logBefore()</code> will be executed before the <code>getEmployeeById()</code> method because it matches the join point specified earlier.
-            Similarly, <code>logAfter()</code> will be executed after <code>getEmployeeById()</code>.
-            The output of the above code will be:</p>
-          <pre><code class="hljs"><span>EmployeeCRUDAspect.logBefore() : getEmployeeById<br></span><span>Method getEmployeeById() called<br></span><span>EmployeeCRUDAspect.logAfter() : getEmployeeById<br></span></code></pre>
-          <p>The declaration of aspects and
-            <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Advice is an action taken by an aspect at a particular join point.</span>
-              <i>advices </i></span>could also be written directly in the XML templates. This makes the code more readable and
-            also allows for easier maintainance as we can add/remove concerns
-            by changing XML configuration file without recompiling source code.</p>
-          <p>For example, the above configuration could be written in a XML file as:</p>
-          <pre><code class="hljs xml"><span> <span class="hljs-tag">&lt;<span class="hljs-name">aop:config</span>&gt;</span><br></span><span>    <span class="hljs-comment">&lt;!-- Spring AOP Pointcut definitions --&gt;</span><br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">aop:pointcut</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"CRUDOperation"</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"execution(* EmployeeManager.*(..))"</span> /&gt;</span><br></span><span> <br></span><span>    <span class="hljs-comment">&lt;!-- Spring AOP aspect 1 --&gt;</span><br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">aop:aspect</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EmployeeCRUD"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"crudAspectBean"</span>&gt;</span><br></span><span>             <br></span><span>        <span class="hljs-comment">&lt;!-- Spring AOP advises --&gt;</span><br></span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">aop:before</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">"CRUDOperation"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"logBefore"</span> /&gt;</span><br></span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">aop:after</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">"CRUDOperation"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"logAfter"</span> /&gt;</span><br></span><span>             <br></span><span>    <span class="hljs-tag">&lt;/<span class="hljs-name">aop:aspect</span>&gt;</span><br></span><span><br></span><span>    <span class="hljs-comment">&lt;!-- Spring AOP aspect instances --&gt;</span><br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"crudAspectBean"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.aop.EmployeeCRUDAspect"</span> /&gt;</span><br></span><span>     <br></span><span>    <span class="hljs-comment">&lt;!-- Target Object --&gt;</span><br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"employeeManager"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.aop.EmployeeManagerImpl"</span> /&gt;</span><br></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">aop:config</span>&gt;</span><br></span></code></pre>
-          <p>Code sections above are adapted from <a href="https://howtodoinjava.com/spring-aop-tutorial/">Spring AOP Tutorial Example</a> with slight modification.</p>
-          <h2 id="why-use-spring">Why Use Spring?<a class="fa fa-anchor" href="#why-use-spring" onclick="event.stopPropagation()"></a></h2>
-          <p>Spring makes programming Java quicker, easier, and safer. It enables you to
-            build applications from “plain old Java objects” (POJOs) and to apply enterprise services non-invasively to POJOs.
-            Similar to other general Java frameworks (e.g. <a href="https://grails.org/">Grails</a>, <a href="https://www.playframework.com/">Play</a>), Spring helps us focus on the core task rather than the boilerplate associated with it.
-            Apart from that, Spring has several other advantages, described in the sections below:</p>
-          <h3 id="benefit-1-modularity">Benefit 1: Modularity<a class="fa fa-anchor" href="#benefit-1-modularity" onclick="event.stopPropagation()"></a></h3>
-          <p>Spring provides different modules to achieve different services and functionality for application development.
-            These modules are designed in such a way that no module is dependent on the others, except the Spring core module.
-            Thus, we can optionally include one or more Spring projects depending on the need. This makes Spring lightweight
-            and require less configuration.</p>
-          <p><a href="/learningresources/contents/java/spring-overview.png" target="_self"><img src="/learningresources/contents/java/spring-overview.png" alt class="img-fluid" title="Overview of the Spring Framework"></a></p>
-          <p><em>Figure 1. Overview of the Spring Framework</em></p>
-          <h3 id="benefit-2-easy-integration">Benefit 2: Easy Integration<a class="fa fa-anchor" href="#benefit-2-easy-integration" onclick="event.stopPropagation()"></a></h3>
-          <p>Spring is designed to be compatible with many other frameworks of Java, for example
-            <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Struts is an open source framework that extends the Java Servlet API and employs a Model, View, Controller (MVC) architecture.</span>
-              <i>Struts </i></span>and
-            <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Hibernate is an object-relational mapping tool for the Java programming language. It provides a framework for mapping an object-oriented domain model to a relational database.</span>
-              <i>Hibernate</i></span>. It does not impose any restriction on the frameworks to be used together.</p>
-          <h3 id="benefit-3-strong-community-support">Benefit 3: Strong Community Support<a class="fa fa-anchor" href="#benefit-3-strong-community-support" onclick="event.stopPropagation()"></a></h3>
-          <p>Spring is an open source framework led by <a href="https://tanzu.vmware.com/">Pivotal</a> Software and backed by a large consortium of organizations and individual
-            developers. This means that it remains relevant,
-            as evident by the ever increasing number of projects under its umbrella.</p>
-          <h3 id="benefit-4-usability">Benefit 4: Usability<a class="fa fa-anchor" href="#benefit-4-usability" onclick="event.stopPropagation()"></a></h3>
-          <p>One of the key aspects of any framework's popularity is how easy it is for developers to use it.
-            Projects like <a href="https://spring.io/projects/spring-boot">Spring Boot</a> have made bootstrapping a complex Spring project almost trivial.
-            Spring thus is very easy to start but also powerful to extend to what programmers exactly need by providing multiple configuration options.
-            Not to mention, it has excellent documentation and tutorials to help anyone get on-boarded.</p>
-          <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started" onclick="event.stopPropagation()"></a></h2>
-          <p>The official website is a great place to get started. It includes:</p>
-          <ul>
-            <li><a href="https://spring.io/quickstart">Spring Quickstart Guide</a></li>
-            <li><a href="https://spring.io/projects">Spring Projects Overview</a></li>
-          </ul>
-          <p>Here are some external resources that can be useful:</p>
-          <ul>
-            <li><a href="https://www.baeldung.com/">Baeldung</a></li>
-            <li><a href="https://www.tutorialspoint.com/spring/index.htm">Spring Tutorial</a></li>
-          </ul>
-          <p>If you need help with Spring, you can get support from Spring's community of millions of developers:</p>
-          <ul>
-            <li><a href="https://spring.io/community">Spring Community</a></li>
-            <li><a href="https://stackoverflow.com/questions/tagged/spring">Stack Overflow</a></li>
-            <li><a href="https://gitter.im/spring-projects/home">Gitter</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-spring-framework">Introduction to Spring Framework&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-spring-framework">What is Spring Framework?&#x200E;</a>
-              <a class="nav-link py-1" href="#core-features">Core Features&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#the-ioc-container">The IoC Container&#x200E;</a>
-                <a class="nav-link py-1" href="#spring-jdbctemplate">Spring JdbcTemplate&#x200E;</a>
-                <a class="nav-link py-1" href="#spring-aop">Spring AOP&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#why-use-spring">Why Use Spring?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#benefit-1-modularity">Benefit 1: Modularity&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-2-easy-integration">Benefit 2: Easy Integration&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-3-strong-community-support">Benefit 3: Strong Community Support&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-4-usability">Benefit 4: Usability&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to Spring Framework</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="Spring.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-spring-framework"><span id="introduction-to-spring-framework" class="anchor"></span>Introduction to Spring Framework<a href="#introduction-to-spring-framework" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Authors: <a href="https://github.com/0blivious">Liu Yiwen</a></strong> <br>
+Reviewers: <a href="https://github.com/ang-zeyu">Ang Ze Yu</a>, <a href="https://github.com/j-lum">Lum Ka Fai Jeffry</a>, <a href="https://github.com/niqiukun">Ni Tianzhen</a></p> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>
+This chapter assumes that the reader has a basic knowledge of Java enterprise.
+</div> <!----></div></div></div> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-spring-framework" data-v-7d17494f>What is Spring Framework‎?</a></li> <li data-v-7d17494f><a href="#core-features" data-v-7d17494f>Core Features</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#the-ioc-container" data-v-7d17494f>The IOC Container</a></li> <li data-v-7d17494f><a href="#spring-jdbctemplate" data-v-7d17494f>Spring JdbcTemplate</a></li> <li data-v-7d17494f><a href="#spring-aop" data-v-7d17494f>Spring AOP</a></li></ul></li> <li data-v-7d17494f><a href="#why-use-spring" data-v-7d17494f>Why Use Spring?‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#benefit-1-modularity" data-v-7d17494f>Benefit 1: Modularity</a></li> <li data-v-7d17494f><a href="#benefit-2-easy-integration" data-v-7d17494f>Benefit 2: Easy Integration</a></li> <li data-v-7d17494f><a href="#benefit-3-strong-community-support" data-v-7d17494f>Benefit 3: Strong Community Support</a></li> <li data-v-7d17494f><a href="#benefit-4-usability" data-v-7d17494f>Benefit 4: Usability</a></li></ul></li> <li data-v-7d17494f><a href="#getting-started" data-v-7d17494f>Getting Started‎</a></li></ul></div> <!----></div></div></div> <h2 id="what-is-spring-framework"><span id="what-is-spring-framework" class="anchor"></span>What is Spring Framework?<a href="#what-is-spring-framework" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html">official website</a> describes Spring Framework as follows:</p> <blockquote><p><em>Spring Framework</em> is an open-source framework to create Java enterprise applications.
+It provides foundational support for different application architectures, including messaging, transactional data and persistence, and web.</p></blockquote> <h2 id="core-features"><span id="core-features" class="anchor"></span>Core Features<a href="#core-features" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="the-ioc-container"><span id="the-ioc-container" class="anchor"></span>The IoC Container<a href="#the-ioc-container" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Normally, objects in a Java application often have to take on additional responsibilities such as creating other objects,
+wiring them together, configuring them, and managing their life cycle. When using the Spring framework for an application,
+the framework takes care of many of those responsibilities. This design approach is called inversion of control (IoC)
+and Spring achieves it using something called the IoC container. The Spring IoC container manage the
+<span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.</span> <i>beans </i></span>in Spring Framework. These beans are created with the configuration metadata that you supply to the container,
+which can be in the form of XML configuration or annotations.</p> <p>To better understand how the IoC Container works, we will create an Employee class like so:</p> <pre><code class="hljs java"><span><span class="hljs-keyword">package</span> com.company;  
+</span><span>  
+</span><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Employee</span> </span>{  
+</span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;  
+</span><span>    <span class="hljs-keyword">private</span> String name;  
+</span><span>    <span class="hljs-keyword">private</span> String city;  
+</span><span>  
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>{  
+</span><span>        <span class="hljs-keyword">return</span> id;  
+</span><span>    }  
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span> </span>{  
+</span><span>        <span class="hljs-keyword">this</span>.id = id;  
+</span><span>    }  
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{  
+</span><span>        <span class="hljs-keyword">return</span> name;  
+</span><span>    }  
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{  
+</span><span>        <span class="hljs-keyword">this</span>.name = name;  
+</span><span>    }  
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span></span>{  
+</span><span>        System.out.println(id+<span class="hljs-string">&quot; &quot;</span>+name);  
+</span><span>    }
+</span><span>}        
+</span></code></pre><p>We can then populate an Employee bean with the data provided in the following <code class="hljs inline no-lang">applicationContext.xml</code> file:</p> <pre><code class="hljs xml"><span><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;employeeAmy&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.company.Employee&quot;</span>&gt;</span>  
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span>&gt;</span>  
+</span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>20<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>  
+</span><span>    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>  
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>  
+</span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>Amy<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>  
+</span><span>    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>  
+</span><span><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>  
+</span></code></pre><p>We then manually instantiate a container using the <code class="hljs inline no-lang">applicationContext.xml</code> file we just created:</p> <pre><code class="hljs java"><span>ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);
+</span></code></pre><p>To prove we managed to instantiate the bean correctly, we can have a <code class="hljs inline no-lang">Test.java</code> looks like the following:</p> <pre><code class="hljs java"><span>Resource r = <span class="hljs-keyword">new</span> ClassPathResource(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);  
+</span><span>BeanFactory factory = <span class="hljs-keyword">new</span> XmlBeanFactory(r);  
+</span><span>          
+</span><span>Employee e = (Employee)factory.getBean(<span class="hljs-string">&quot;obj&quot;</span>);  
+</span><span>e.display();
+</span></code></pre><p>The output of the above code would be <code class="hljs inline no-lang">20 Amy</code>. Notice that the use of IoC container makes our code loosely coupled and easier for testing.</p> <h3 id="spring-jdbctemplate"><span id="spring-jdbctemplate" class="anchor"></span>Spring JdbcTemplate<a href="#spring-jdbctemplate" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. Traditionally, we
+need to use Java Database Connectivity (JDBC) API to access tabular data stored in any relational database.
+It is a part of JavaSE (Java Standard Edition).</p> <p>In a traditional JDBC API:</p> <ul><li>a typical SQL query would involve quite some amount of boilerplate code, such as creating connection,
+statement, closing resultset, connection etc.</li> <li>exception handling has to be manually written out.</li> <li>transactions need to be manually created.</li></ul> <p>The Spring JdbcTemplate provides methods to write the queries directly, hence, saving time in writing such boilerplate code.</p> <div class="table-responsive"><table class="markbind-table table table-bordered table-striped"><thead><tr><th style="text-align:center;">Task</th> <th style="text-align:center;">Spring</th> <th style="text-align:center;">You</th></tr></thead> <tbody><tr><td style="text-align:center;">Connection Management</td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td> <td style="text-align:center;"></td></tr> <tr><td style="text-align:center;">Writing SQL Queries</td> <td style="text-align:center;"></td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td></tr> <tr><td style="text-align:center;">Statement Management</td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td> <td style="text-align:center;"></td></tr> <tr><td style="text-align:center;">ResultSet Management</td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td> <td style="text-align:center;"></td></tr> <tr><td style="text-align:center;">Row Data Retrieval</td> <td style="text-align:center;"></td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td></tr> <tr><td style="text-align:center;">Parameter Declaration</td> <td style="text-align:center;"></td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td></tr> <tr><td style="text-align:center;">Parameter Setting</td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td> <td style="text-align:center;"></td></tr> <tr><td style="text-align:center;">Transaction Management</td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td> <td style="text-align:center;"></td></tr> <tr><td style="text-align:center;">Exception Handling</td> <td style="text-align:center;"><span aria-hidden="true" class="far fa-check-circle"></span></td> <td style="text-align:center;"></td></tr></tbody></table></div><h3 id="spring-aop"><span id="spring-aop" class="anchor"></span>Spring AOP<a href="#spring-aop" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Spring Framework addresses
+<span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Concerns that can affect the whole application and should be centralized in one location in code as much as possible. Examples of these concerns include transaction management, authentication, logging, security etc.</span> <i>cross-cutting concerns</i></span> by supporting <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect Oriented Programming</a> (AOP).
+It provides ways to dynamically add the cross-cutting concerns before, after or around the actual logic using simple
+pluggable configurations.</p> <p>For example, say we wish to log something into the console everytime before we call the method <code class="hljs inline no-lang">getEmployeeById</code>.
+We can then write aspect class annotated with <code class="hljs inline no-lang">@Aspect</code> annotation and write point-cut expressions to log program information from
+<span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Join point is a point of execution of the program, such as the execution of a method or the handling of an exception.</span> <i>joint-point</i></span> methods.</p> <pre><code class="hljs java"><span><span class="hljs-meta">@Aspect</span>
+</span><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeCRUDAspect</span> </span>{
+</span><span>    <span class="hljs-meta">@Before(&quot;execution(* EmployeeManager.getEmployeeById(..))&quot;)</span> <span class="hljs-comment">// point-cut expressions</span>
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">logBefore</span><span class="hljs-params">(JoinPoint joinPoint)</span> </span>{
+</span><span>        System.out.println(<span class="hljs-string">&quot;EmployeeCRUDAspect.logBefore() : &quot;</span>
+</span><span>                + joinPoint.getSignature().getName());
+</span><span>    }
+</span><span>    
+</span><span>    <span class="hljs-meta">@After(&quot;execution(* EmployeeManager.getEmployeeById(..))&quot;)</span> <span class="hljs-comment">// point-cut expressions</span>
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">logAfter</span><span class="hljs-params">(JoinPoint joinPoint)</span> </span>{
+</span><span>        System.out.println(<span class="hljs-string">&quot;EmployeeCRUDAspect.logAfter() : &quot;</span>
+</span><span>                + joinPoint.getSignature().getName());
+</span><span>    }
+</span><span>}
+</span></code></pre><p>And the corresponding <code class="hljs inline no-lang">EmployeeManager.java</code> file could be:</p> <pre><code class="hljs java"><span><span class="hljs-meta">@Component</span>
+</span><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeManager</span> </span>{
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> EmployeeDTO <span class="hljs-title">getEmployeeById</span><span class="hljs-params">(Integer employeeId)</span> </span>{
+</span><span>        System.out.println(<span class="hljs-string">&quot;Method getEmployeeById() called&quot;</span>);
+</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EmployeeDTO();
+</span><span>    }
+</span><span>}
+</span></code></pre><p>In the above example, <code class="hljs inline no-lang">logBefore()</code> will be executed before the <code class="hljs inline no-lang">getEmployeeById()</code> method because it matches the join point specified earlier.
+Similarly, <code class="hljs inline no-lang">logAfter()</code> will be executed after <code class="hljs inline no-lang">getEmployeeById()</code>.
+The output of the above code will be:</p> <pre><code class="hljs"><span>EmployeeCRUDAspect.logBefore() : getEmployeeById
+</span><span>Method getEmployeeById() called
+</span><span>EmployeeCRUDAspect.logAfter() : getEmployeeById
+</span></code></pre><p>The declaration of aspects and
+<span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Advice is an action taken by an aspect at a particular join point.</span> <i>advices </i></span>could also be written directly in the XML templates. This makes the code more readable and
+also allows for easier maintainance as we can add/remove concerns
+by changing XML configuration file without recompiling source code.</p> <p>For example, the above configuration could be written in a XML file as:</p> <pre><code class="hljs xml"><span> <span class="hljs-tag">&lt;<span class="hljs-name">aop:config</span>&gt;</span>
+</span><span>    <span class="hljs-comment">&lt;!-- Spring AOP Pointcut definitions --&gt;</span>
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">aop:pointcut</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;CRUDOperation&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;execution(* EmployeeManager.*(..))&quot;</span> /&gt;</span>
+</span><span> 
+</span><span>    <span class="hljs-comment">&lt;!-- Spring AOP aspect 1 --&gt;</span>
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">aop:aspect</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;EmployeeCRUD&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;crudAspectBean&quot;</span>&gt;</span>
+</span><span>             
+</span><span>        <span class="hljs-comment">&lt;!-- Spring AOP advises --&gt;</span>
+</span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">aop:before</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">&quot;CRUDOperation&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;logBefore&quot;</span> /&gt;</span>
+</span><span>        <span class="hljs-tag">&lt;<span class="hljs-name">aop:after</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">&quot;CRUDOperation&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;logAfter&quot;</span> /&gt;</span>
+</span><span>             
+</span><span>    <span class="hljs-tag">&lt;/<span class="hljs-name">aop:aspect</span>&gt;</span>
+</span><span>
+</span><span>    <span class="hljs-comment">&lt;!-- Spring AOP aspect instances --&gt;</span>
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;crudAspectBean&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.aop.EmployeeCRUDAspect&quot;</span> /&gt;</span>
+</span><span>     
+</span><span>    <span class="hljs-comment">&lt;!-- Target Object --&gt;</span>
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;employeeManager&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.aop.EmployeeManagerImpl&quot;</span> /&gt;</span>
+</span><span><span class="hljs-tag">&lt;/<span class="hljs-name">aop:config</span>&gt;</span>
+</span></code></pre><p>Code sections above are adapted from <a href="https://howtodoinjava.com/spring-aop-tutorial/">Spring AOP Tutorial Example</a> with slight modification.</p> <h2 id="why-use-spring"><span id="why-use-spring" class="anchor"></span>Why Use Spring?<a href="#why-use-spring" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Spring makes programming Java quicker, easier, and safer. It enables you to
+build applications from “plain old Java objects” (POJOs) and to apply enterprise services non-invasively to POJOs.
+Similar to other general Java frameworks (e.g. <a href="https://grails.org/">Grails</a>, <a href="https://www.playframework.com/">Play</a>), Spring helps us focus on the core task rather than the boilerplate associated with it.
+Apart from that, Spring has several other advantages, described in the sections below:</p> <h3 id="benefit-1-modularity"><span id="benefit-1-modularity" class="anchor"></span>Benefit 1: Modularity<a href="#benefit-1-modularity" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Spring provides different modules to achieve different services and functionality for application development.
+These modules are designed in such a way that no module is dependent on the others, except the Spring core module.
+Thus, we can optionally include one or more Spring projects depending on the need. This makes Spring lightweight
+and require less configuration.</p> <p><a href="/learningresources/contents/java/spring-overview.png" target="_self"><img src="/learningresources/contents/java/spring-overview.png" alt="" title="Overview of the Spring Framework" class="img-fluid"></a></p> <p><em>Figure 1. Overview of the Spring Framework</em></p> <h3 id="benefit-2-easy-integration"><span id="benefit-2-easy-integration" class="anchor"></span>Benefit 2: Easy Integration<a href="#benefit-2-easy-integration" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Spring is designed to be compatible with many other frameworks of Java, for example
+<span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Struts is an open source framework that extends the Java Servlet API and employs a Model, View, Controller (MVC) architecture.</span> <i>Struts </i></span>and
+<span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Hibernate is an object-relational mapping tool for the Java programming language. It provides a framework for mapping an object-oriented domain model to a relational database.</span> <i>Hibernate</i></span>. It does not impose any restriction on the frameworks to be used together.</p> <h3 id="benefit-3-strong-community-support"><span id="benefit-3-strong-community-support" class="anchor"></span>Benefit 3: Strong Community Support<a href="#benefit-3-strong-community-support" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Spring is an open source framework led by <a href="https://tanzu.vmware.com/">Pivotal</a> Software and backed by a large consortium of organizations and individual
+developers. This means that it remains relevant,
+as evident by the ever increasing number of projects under its umbrella.</p> <h3 id="benefit-4-usability"><span id="benefit-4-usability" class="anchor"></span>Benefit 4: Usability<a href="#benefit-4-usability" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>One of the key aspects of any framework's popularity is how easy it is for developers to use it.
+Projects like <a href="https://spring.io/projects/spring-boot">Spring Boot</a> have made bootstrapping a complex Spring project almost trivial.
+Spring thus is very easy to start but also powerful to extend to what programmers exactly need by providing multiple configuration options.
+Not to mention, it has excellent documentation and tutorials to help anyone get on-boarded.</p> <h2 id="getting-started"><span id="getting-started" class="anchor"></span>Getting Started<a href="#getting-started" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The official website is a great place to get started. It includes:</p> <ul><li><a href="https://spring.io/quickstart">Spring Quickstart Guide</a></li> <li><a href="https://spring.io/projects">Spring Projects Overview</a></li></ul> <p>Here are some external resources that can be useful:</p> <ul><li><a href="https://www.baeldung.com/">Baeldung</a></li> <li><a href="https://www.tutorialspoint.com/spring/index.htm">Spring Tutorial</a></li></ul> <p>If you need help with Spring, you can get support from Spring's community of millions of developers:</p> <ul><li><a href="https://spring.io/community">Spring Community</a></li> <li><a href="https://stackoverflow.com/questions/tagged/spring">Stack Overflow</a></li> <li><a href="https://gitter.im/spring-projects/home">Gitter</a></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-spring-framework" class="nav-link py-1" data-v-e8c82f88>Introduction to Spring Framework‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-spring-framework" class="nav-link py-1" data-v-e8c82f88>What is Spring Framework?‎</a> <a href="#core-features" class="nav-link py-1" data-v-e8c82f88>Core Features‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#the-ioc-container" class="nav-link py-1" data-v-e8c82f88>The IoC Container‎</a> <a href="#spring-jdbctemplate" class="nav-link py-1" data-v-e8c82f88>Spring JdbcTemplate‎</a> <a href="#spring-aop" class="nav-link py-1" data-v-e8c82f88>Spring AOP‎</a></nav> <a href="#why-use-spring" class="nav-link py-1" data-v-e8c82f88>Why Use Spring?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#benefit-1-modularity" class="nav-link py-1" data-v-e8c82f88>Benefit 1: Modularity‎</a> <a href="#benefit-2-easy-integration" class="nav-link py-1" data-v-e8c82f88>Benefit 2: Easy Integration‎</a> <a href="#benefit-3-strong-community-support" class="nav-link py-1" data-v-e8c82f88>Benefit 3: Strong Community Support‎</a> <a href="#benefit-4-usability" class="nav-link py-1" data-v-e8c82f88>Benefit 4: Usability‎</a></nav> <a href="#getting-started" class="nav-link py-1" data-v-e8c82f88>Getting Started‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

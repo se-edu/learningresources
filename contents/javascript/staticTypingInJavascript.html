@@ -1,468 +1,115 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Static Typing in JavaScript</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">JavaScript
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a current">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="static-typing-in-javascript">Static Typing in JavaScript<a class="fa fa-anchor" href="#static-typing-in-javascript" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/luyangkenneth">Lu Yang Kenneth</a></strong></p>
-          <p>Reviewer(s): <a href="https://github.com/marvinchin">Marvin Chin</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#what-is-static-typing">What is Static Typing?‎</a></li>
-              <li><a href="#adding-static-typing-to-javascript">Adding Static Typing to JavaScript‎</a></li>
-              <li><a href="#typescript-basics">TypeScript Basics‎</a>
-                <ul>
-                  <li><a href="#compilation-to-javascript">Compilation to JavaScript‎</a></li>
-                  <li><a href="#type-annotations-and-type-inference">Type Annotations and Type Inference‎</a></li>
-                  <li><a href="#custom-types">Custom Types‎</a></li>
-                  <li><a href="#optionals">Optionals‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#getting-started-with-typescript">Getting Started with TypeScript‎</a>
-                <ul>
-                  <li><a href="#installation">Installation‎</a></li>
-                  <li><a href="#additional-resources">Additional Resources‎</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-          <h2 id="what-is-static-typing">What is Static Typing?<a class="fa fa-anchor" href="#what-is-static-typing" onclick="event.stopPropagation()"></a></h2>
-          <p>Statically typed languages like Java, Go, and C++ are able to catch type-related errors at compile time. However, in dynamically typed languages like Python, Ruby, and JavaScript, such errors are not as easily discoverable because the types of variables are only known at runtime.</p>
-          <p>To help identify these problems without having to run any code, many developers have adopted technologies to enable static type checking for codebases written in dynamically typed languages. The decision to move towards a statically typed codebase is usually motivated by the following benefits:</p>
-          <ul>
-            <li>
-              <p>Static type checking <strong>catches type errors earlier in the development cycle</strong>. These errors can cause downtime in your application if undetected, and they are often expensive to triage and fix. Static type checking provides an automatic way to verify the type safety and correctness of your application during the development stage, ensuring that type errors are eliminated before your code is deployed to production. While the correctness of your application logic can also be determined via test suites and manual testing during development, those are often costlier and less reliable than static type checking when it comes to catching type errors.</p>
-            </li>
-            <li>
-              <p>Static type checking can <strong>make developers more productive</strong>. With the additional type information made available to IDEs, features such as auto-completion, code hinting, incremental error checking, and automatic refactoring become more powerful.</p>
-            </li>
-            <li>
-              <p>Static type checking <strong>improves collaboration on a large codebase</strong>. Statically typed code allows developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change the signature of a method, you can quickly discover the other parts of the codebase that need to be changed, as they would be surfaced as errors by the type checker. Explicitly declared types are also a form of documentation, which makes it easier to understand code written by other developers.</p>
-            </li>
-          </ul>
-          <h2 id="adding-static-typing-to-javascript">Adding Static Typing to JavaScript<a class="fa fa-anchor" href="#adding-static-typing-to-javascript" onclick="event.stopPropagation()"></a></h2>
-          <p>In the JavaScript community, Flow and TypeScript have emerged as the two main options for enabling static type checking:</p>
-          <ul>
-            <li>
-              <p><strong><a href="https://flow.org/">Flow</a></strong> is a static type checker for JavaScript. It is an open-source tool developed by Facebook.</p>
-            </li>
-            <li>
-              <p><strong><a href="https://www.typescriptlang.org/">TypeScript</a></strong> is a statically typed superset of JavaScript that compiles to plain JavaScript. It is an open-source programming language developed by Microsoft.</p>
-            </li>
-          </ul>
-          <p>While Flow and TypeScript integrate into your development workflow in slightly different ways, they have the same goals and share many similarities in terms of syntax. As the industry seems to be shifting towards TypeScript as the top choice <sup><a href="https://dev.to/nickytonline/is-2019-the-year-of-typescript-18p2">source</a></sup>, this article will introduce how TypeScript works and how you can get started with TypeScript.</p>
-          <h2 id="typescript-basics">TypeScript Basics<a class="fa fa-anchor" href="#typescript-basics" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="compilation-to-javascript">Compilation to JavaScript<a class="fa fa-anchor" href="#compilation-to-javascript" onclick="event.stopPropagation()"></a></h3>
-          <p>As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. TypeScript can be configured to target different flavors of JavaScript while offering support for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.</p>
-          <p>Because TypeScript is <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Transpilation is the process of translating source code into a different language or into a different flavor of the same language.</span>transpiled</span> down to ES3 by default, it maintains compatibility with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.</p>
-          <h3 id="type-annotations-and-type-inference">Type Annotations and Type Inference<a class="fa fa-anchor" href="#type-annotations-and-type-inference" onclick="event.stopPropagation()"></a></h3>
-          <p>TypeScript enables static type checking by giving you the ability to add <strong>type annotations</strong> to your JavaScript variables and functions. Here's an example of declaring a variable with the <code>string</code> type and assigning it a <code>string</code> value:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-keyword">let</span> myString: <span class="hljs-built_in">string</span> = <span class="hljs-string">"abc"</span>;<br></span></code></pre>
-          <p>If we try to assign it a <code>number</code> value later on, the TypeScript compiler will raise an error:</p>
-          <pre><code class="hljs typescript"><span>myString = <span class="hljs-number">123</span>; <span class="hljs-comment">// error: 123 is not assignable to type 'string'</span><br></span></code></pre>
-          <p>The same type annotation syntax is used for function arguments and return types:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertNumberToString</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span> </span>{<br></span><span>    <span class="hljs-keyword">return</span> value.toString();<br></span><span>}<br></span></code></pre>
-          <p>It isn't always necessary to add type annotations because TypeScript performs <strong>type inference</strong>, where the compiler infers the types of your variables or functions automatically. This helps to cut down on excess verbosity in your code. In this next example, <code>myBoolean</code> is inferred as a <code>boolean</code> variable, so reassigning it to any <code>boolean</code> value is allowed:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-keyword">let</span> myBoolean = <span class="hljs-literal">true</span>;<br></span><span><br></span><span><span class="hljs-comment">// valid</span><br></span><span>myBoolean = <span class="hljs-literal">false</span>;<br></span><span><br></span><span><span class="hljs-comment">// error: "hello world" is not assignable to type 'boolean'</span><br></span><span>myBoolean = <span class="hljs-string">"hello world"</span>;<br></span></code></pre>
-          <p>Sometimes, we don't know what the type of a variable might be. In those cases, we would use the <code>any</code> type to opt out of compile-time type checking. For example, <code>myList</code> is an array that contains elements with a mix of different types:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printItemsToConsole</span>(<span class="hljs-params">list: <span class="hljs-built_in">any</span>[]</span>): <span class="hljs-title">void</span> </span>{<br></span><span>    list.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item));<br></span><span>}<br></span><span><br></span><span><span class="hljs-keyword">const</span> myList = [<span class="hljs-number">1</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-literal">false</span>];<br></span><span>printItemsToConsole(myList);<br></span></code></pre>
-          <p>TypeScript also supports other variable types such as arrays and <code>void</code>, as seen in the example above. Check out <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">this article</a> from the official TypeScript website for more details on those other types.</p>
-          <h3 id="custom-types">Custom Types<a class="fa fa-anchor" href="#custom-types" onclick="event.stopPropagation()"></a></h3>
-          <p>In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">The shape of an JavaScript object refers to its set of property keys.</span>shape</span> of these objects. Let's use the <code>type</code> keyword to define our own <code>Person</code> type to describe an object that has the <code>firstName</code> and <code>lastName</code> properties:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-keyword">type</span> Person = {<br></span><span>    firstName: <span class="hljs-built_in">string</span>;<br></span><span>    lastName: <span class="hljs-built_in">string</span>;<br></span><span>}<br></span></code></pre>
-          <p>By using <code>Person</code> as a type annotation, TypeScript will now verify that any object we pass into the <code>greet</code> function has a compatible structure:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">person: Person</span>) </span>{<br></span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Nice to meet you, <span class="hljs-subst">${person.firstName}</span> <span class="hljs-subst">${person.lastName}</span>!`</span>);<br></span><span>}<br></span><span><br></span><span><span class="hljs-comment">// valid</span><br></span><span>greet({ firstName: <span class="hljs-string">"John"</span>, lastName: <span class="hljs-string">"Doe"</span> });<br></span><span><br></span><span><span class="hljs-comment">// error: property 'lastName' is required in type 'Person'</span><br></span><span>greet({ firstName: <span class="hljs-string">"John"</span> });<br></span></code></pre>
-          <p>This also helps to catch implementation mistakes such as:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">askAboutColor</span>(<span class="hljs-params">person: Person</span>) </span>{<br></span><span>    <span class="hljs-comment">// error: property 'favoriteColor' does not exist on type 'Person'.</span><br></span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hey <span class="hljs-subst">${person.firstName}</span>, is it true that you like <span class="hljs-subst">${person.favoriteColor}</span>?`</span>);<br></span><span>}<br></span></code></pre>
-          <h3 id="optionals">Optionals<a class="fa fa-anchor" href="#optionals" onclick="event.stopPropagation()"></a></h3>
-          <p>You can specify optional object properties and function arguments, which are denoted by a <code>?</code> at the end of the property or argument name:</p>
-          <pre><code class="hljs typescript"><span><span class="hljs-keyword">type</span> Student = {<br></span><span>    name: <span class="hljs-built_in">string</span>;<br></span><span>    major?: <span class="hljs-built_in">string</span>;<br></span><span>}<br></span></code></pre>
-          <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, favoriteColor?: <span class="hljs-built_in">string</span></span>) </span>{<br></span><span>    <span class="hljs-keyword">if</span> (favoriteColor) {<br></span><span>        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span> and my favorite color is <span class="hljs-subst">${favoriteColor}</span>!`</span>;<br></span><span>    } <span class="hljs-keyword">else</span> {<br></span><span>        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span>!`</span>;<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <h2 id="getting-started-with-typescript">Getting Started with TypeScript<a class="fa fa-anchor" href="#getting-started-with-typescript" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="installation">Installation<a class="fa fa-anchor" href="#installation" onclick="event.stopPropagation()"></a></h3>
-          <p>The command-line TypeScript compiler can be installed as a Node.js package via <code>npm</code>:</p>
-          <pre><code class="hljs bash"><span>npm install -g typescript<br></span></code></pre>
-          <p>After installing TypeScript, you will have access to the <code>tsc</code> command for compiling TypeScript files:</p>
-          <pre><code class="hljs bash"><span>tsc my_file.ts<br></span></code></pre>
-          <p>This gets compiled into a <code>my_file.js</code> file, which you can execute in a browser or on Node.js.</p>
-          <h3 id="additional-resources">Additional Resources<a class="fa fa-anchor" href="#additional-resources" onclick="event.stopPropagation()"></a></h3>
-          <ul>
-            <li>
-              <p>The <a href="https://www.typescriptlang.org/play/">TypeScript Playground</a> is a convenient way to experiment with different scenarios in TypeScript (such as the examples in this article) without any setup required.</p>
-            </li>
-            <li>
-              <p><a href="https://code.visualstudio.com/">Visual Studio Code</a> is probably the code editor with the best TypeScript support. This is unsurprising given that VS Code is another open-source project by Microsoft, and is itself written in TypeScript. That being said, TypeScript is widely supported by other code editors, either natively or via the appropriate package/extension.</p>
-            </li>
-            <li>
-              <p><a href="https://basarat.gitbooks.io/typescript/">TypeScript Deep Dive</a> is the definitive online textbook on TypeScript which covers many practical topics.</p>
-            </li>
-            <li>
-              <p>The official TypeScript guide on <a href="https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html">Migrating from JavaScript</a> contains best practices for incrementally converting your codebase to TypeScript.</p>
-            </li>
-            <li>
-              <p>For a more interactive demo of what it feels like to work with TypeScript, check out this YouTube video called <a href="https://www.youtube.com/watch?v=vxvQPHFJDRo">0-60 with TypeScript and Node.js</a>.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#static-typing-in-javascript">Static Typing in JavaScript&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-static-typing">What is Static Typing?&#x200E;</a>
-              <a class="nav-link py-1" href="#adding-static-typing-to-javascript">Adding Static Typing to JavaScript&#x200E;</a>
-              <a class="nav-link py-1" href="#typescript-basics">TypeScript Basics&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#compilation-to-javascript">Compilation to JavaScript&#x200E;</a>
-                <a class="nav-link py-1" href="#type-annotations-and-type-inference">Type Annotations and Type Inference&#x200E;</a>
-                <a class="nav-link py-1" href="#custom-types">Custom Types&#x200E;</a>
-                <a class="nav-link py-1" href="#optionals">Optionals&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#getting-started-with-typescript">Getting Started with TypeScript&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#installation">Installation&#x200E;</a>
-                <a class="nav-link py-1" href="#additional-resources">Additional Resources&#x200E;</a>
-              </nav>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Static Typing in JavaScript</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="staticTypingInJavascript.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="static-typing-in-javascript"><span id="static-typing-in-javascript" class="anchor"></span>Static Typing in JavaScript<a href="#static-typing-in-javascript" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Author(s): <a href="https://github.com/luyangkenneth">Lu Yang Kenneth</a></strong></p> <p>Reviewer(s): <a href="https://github.com/marvinchin">Marvin Chin</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-static-typing" data-v-7d17494f>What is Static Typing?‎</a></li> <li data-v-7d17494f><a href="#adding-static-typing-to-javascript" data-v-7d17494f>Adding Static Typing to JavaScript‎</a></li> <li data-v-7d17494f><a href="#typescript-basics" data-v-7d17494f>TypeScript Basics‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#compilation-to-javascript" data-v-7d17494f>Compilation to JavaScript‎</a></li> <li data-v-7d17494f><a href="#type-annotations-and-type-inference" data-v-7d17494f>Type Annotations and Type Inference‎</a></li> <li data-v-7d17494f><a href="#custom-types" data-v-7d17494f>Custom Types‎</a></li> <li data-v-7d17494f><a href="#optionals" data-v-7d17494f>Optionals‎</a></li></ul></li> <li data-v-7d17494f><a href="#getting-started-with-typescript" data-v-7d17494f>Getting Started with TypeScript‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#installation" data-v-7d17494f>Installation‎</a></li> <li data-v-7d17494f><a href="#additional-resources" data-v-7d17494f>Additional Resources‎</a></li></ul></li></ul></div> <!----></div></div></div> <h2 id="what-is-static-typing"><span id="what-is-static-typing" class="anchor"></span>What is Static Typing?<a href="#what-is-static-typing" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Statically typed languages like Java, Go, and C++ are able to catch type-related errors at compile time. However, in dynamically typed languages like Python, Ruby, and JavaScript, such errors are not as easily discoverable because the types of variables are only known at runtime.</p> <p>To help identify these problems without having to run any code, many developers have adopted technologies to enable static type checking for codebases written in dynamically typed languages. The decision to move towards a statically typed codebase is usually motivated by the following benefits:</p> <ul><li><p>Static type checking <strong>catches type errors earlier in the development cycle</strong>. These errors can cause downtime in your application if undetected, and they are often expensive to triage and fix. Static type checking provides an automatic way to verify the type safety and correctness of your application during the development stage, ensuring that type errors are eliminated before your code is deployed to production. While the correctness of your application logic can also be determined via test suites and manual testing during development, those are often costlier and less reliable than static type checking when it comes to catching type errors.</p></li> <li><p>Static type checking can <strong>make developers more productive</strong>. With the additional type information made available to IDEs, features such as auto-completion, code hinting, incremental error checking, and automatic refactoring become more powerful.</p></li> <li><p>Static type checking <strong>improves collaboration on a large codebase</strong>. Statically typed code allows developers to refactor with greater confidence, knowing that API boundaries are enforced by the type checker. If you change the signature of a method, you can quickly discover the other parts of the codebase that need to be changed, as they would be surfaced as errors by the type checker. Explicitly declared types are also a form of documentation, which makes it easier to understand code written by other developers.</p></li></ul> <h2 id="adding-static-typing-to-javascript"><span id="adding-static-typing-to-javascript" class="anchor"></span>Adding Static Typing to JavaScript<a href="#adding-static-typing-to-javascript" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>In the JavaScript community, Flow and TypeScript have emerged as the two main options for enabling static type checking:</p> <ul><li><p><strong><a href="https://flow.org/">Flow</a></strong> is a static type checker for JavaScript. It is an open-source tool developed by Facebook.</p></li> <li><p><strong><a href="https://www.typescriptlang.org/">TypeScript</a></strong> is a statically typed superset of JavaScript that compiles to plain JavaScript. It is an open-source programming language developed by Microsoft.</p></li></ul> <p>While Flow and TypeScript integrate into your development workflow in slightly different ways, they have the same goals and share many similarities in terms of syntax. As the industry seems to be shifting towards TypeScript as the top choice <sup><a href="https://dev.to/nickytonline/is-2019-the-year-of-typescript-18p2">source</a></sup>, this article will introduce how TypeScript works and how you can get started with TypeScript.</p> <h2 id="typescript-basics"><span id="typescript-basics" class="anchor"></span>TypeScript Basics<a href="#typescript-basics" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="compilation-to-javascript"><span id="compilation-to-javascript" class="anchor"></span>Compilation to JavaScript<a href="#compilation-to-javascript" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>As a superset of JavaScript, TypeScript is based on the same programming syntax as JavaScript, and valid JavaScript code is also valid TypeScript code. TypeScript can be configured to target different flavors of JavaScript while offering support for the latest JavaScript features, including those from ECMAScript 2015 (ES6) and beyond.</p> <p>Because TypeScript is <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Transpilation is the process of translating source code into a different language or into a different flavor of the same language.</span>transpiled</span> down to ES3 by default, it maintains compatibility with all JavaScript engines, and you can use features like classes, generators, and async functions without worrying about whether your code is supported by a particular web browser or version of Node.js.</p> <h3 id="type-annotations-and-type-inference"><span id="type-annotations-and-type-inference" class="anchor"></span>Type Annotations and Type Inference<a href="#type-annotations-and-type-inference" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>TypeScript enables static type checking by giving you the ability to add <strong>type annotations</strong> to your JavaScript variables and functions. Here's an example of declaring a variable with the <code class="hljs inline no-lang">string</code> type and assigning it a <code class="hljs inline no-lang">string</code> value:</p> <pre><code class="hljs typescript"><span><span class="hljs-keyword">let</span> myString: <span class="hljs-built_in">string</span> = <span class="hljs-string">&quot;abc&quot;</span>;
+</span></code></pre><p>If we try to assign it a <code class="hljs inline no-lang">number</code> value later on, the TypeScript compiler will raise an error:</p> <pre><code class="hljs typescript"><span>myString = <span class="hljs-number">123</span>; <span class="hljs-comment">// error: 123 is not assignable to type 'string'</span>
+</span></code></pre><p>The same type annotation syntax is used for function arguments and return types:</p> <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertNumberToString</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span> </span>{
+</span><span>    <span class="hljs-keyword">return</span> value.toString();
+</span><span>}
+</span></code></pre><p>It isn't always necessary to add type annotations because TypeScript performs <strong>type inference</strong>, where the compiler infers the types of your variables or functions automatically. This helps to cut down on excess verbosity in your code. In this next example, <code class="hljs inline no-lang">myBoolean</code> is inferred as a <code class="hljs inline no-lang">boolean</code> variable, so reassigning it to any <code class="hljs inline no-lang">boolean</code> value is allowed:</p> <pre><code class="hljs typescript"><span><span class="hljs-keyword">let</span> myBoolean = <span class="hljs-literal">true</span>;
+</span><span>
+</span><span><span class="hljs-comment">// valid</span>
+</span><span>myBoolean = <span class="hljs-literal">false</span>;
+</span><span>
+</span><span><span class="hljs-comment">// error: &quot;hello world&quot; is not assignable to type 'boolean'</span>
+</span><span>myBoolean = <span class="hljs-string">&quot;hello world&quot;</span>;
+</span></code></pre><p>Sometimes, we don't know what the type of a variable might be. In those cases, we would use the <code class="hljs inline no-lang">any</code> type to opt out of compile-time type checking. For example, <code class="hljs inline no-lang">myList</code> is an array that contains elements with a mix of different types:</p> <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printItemsToConsole</span>(<span class="hljs-params">list: <span class="hljs-built_in">any</span>[]</span>): <span class="hljs-title">void</span> </span>{
+</span><span>    list.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item));
+</span><span>}
+</span><span>
+</span><span><span class="hljs-keyword">const</span> myList = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-literal">false</span>];
+</span><span>printItemsToConsole(myList);
+</span></code></pre><p>TypeScript also supports other variable types such as arrays and <code class="hljs inline no-lang">void</code>, as seen in the example above. Check out <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">this article</a> from the official TypeScript website for more details on those other types.</p> <h3 id="custom-types"><span id="custom-types" class="anchor"></span>Custom Types<a href="#custom-types" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>In JavaScript, values are often passed around in the form of objects. Using TypeScript can help enforce the <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">The shape of an JavaScript object refers to its set of property keys.</span>shape</span> of these objects. Let's use the <code class="hljs inline no-lang">type</code> keyword to define our own <code class="hljs inline no-lang">Person</code> type to describe an object that has the <code class="hljs inline no-lang">firstName</code> and <code class="hljs inline no-lang">lastName</code> properties:</p> <pre><code class="hljs typescript"><span><span class="hljs-keyword">type</span> Person = {
+</span><span>    <span class="hljs-attr">firstName</span>: <span class="hljs-built_in">string</span>;
+</span><span>    lastName: <span class="hljs-built_in">string</span>;
+</span><span>}
+</span></code></pre><p>By using <code class="hljs inline no-lang">Person</code> as a type annotation, TypeScript will now verify that any object we pass into the <code class="hljs inline no-lang">greet</code> function has a compatible structure:</p> <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">person: Person</span>) </span>{
+</span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Nice to meet you, <span class="hljs-subst">${person.firstName}</span> <span class="hljs-subst">${person.lastName}</span>!`</span>);
+</span><span>}
+</span><span>
+</span><span><span class="hljs-comment">// valid</span>
+</span><span>greet({ <span class="hljs-attr">firstName</span>: <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-attr">lastName</span>: <span class="hljs-string">&quot;Doe&quot;</span> });
+</span><span>
+</span><span><span class="hljs-comment">// error: property 'lastName' is required in type 'Person'</span>
+</span><span>greet({ <span class="hljs-attr">firstName</span>: <span class="hljs-string">&quot;John&quot;</span> });
+</span></code></pre><p>This also helps to catch implementation mistakes such as:</p> <pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">askAboutColor</span>(<span class="hljs-params">person: Person</span>) </span>{
+</span><span>    <span class="hljs-comment">// error: property 'favoriteColor' does not exist on type 'Person'.</span>
+</span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hey <span class="hljs-subst">${person.firstName}</span>, is it true that you like <span class="hljs-subst">${person.favoriteColor}</span>?`</span>);
+</span><span>}
+</span></code></pre><h3 id="optionals"><span id="optionals" class="anchor"></span>Optionals<a href="#optionals" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>You can specify optional object properties and function arguments, which are denoted by a <code class="hljs inline no-lang">?</code> at the end of the property or argument name:</p> <pre><code class="hljs typescript"><span><span class="hljs-keyword">type</span> Student = {
+</span><span>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+</span><span>    major?: <span class="hljs-built_in">string</span>;
+</span><span>}
+</span></code></pre><pre><code class="hljs typescript"><span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, favoriteColor?: <span class="hljs-built_in">string</span></span>) </span>{
+</span><span>    <span class="hljs-keyword">if</span> (favoriteColor) {
+</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span> and my favorite color is <span class="hljs-subst">${favoriteColor}</span>!`</span>;
+</span><span>    } <span class="hljs-keyword">else</span> {
+</span><span>        <span class="hljs-keyword">return</span> <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span>!`</span>;
+</span><span>    }
+</span><span>}
+</span></code></pre><h2 id="getting-started-with-typescript"><span id="getting-started-with-typescript" class="anchor"></span>Getting Started with TypeScript<a href="#getting-started-with-typescript" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="installation"><span id="installation" class="anchor"></span>Installation<a href="#installation" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The command-line TypeScript compiler can be installed as a Node.js package via <code class="hljs inline no-lang">npm</code>:</p> <pre><code class="hljs bash"><span>npm install -g typescript
+</span></code></pre><p>After installing TypeScript, you will have access to the <code class="hljs inline no-lang">tsc</code> command for compiling TypeScript files:</p> <pre><code class="hljs bash"><span>tsc my_file.ts
+</span></code></pre><p>This gets compiled into a <code class="hljs inline no-lang">my_file.js</code> file, which you can execute in a browser or on Node.js.</p> <h3 id="additional-resources"><span id="additional-resources" class="anchor"></span>Additional Resources<a href="#additional-resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li><p>The <a href="https://www.typescriptlang.org/play/">TypeScript Playground</a> is a convenient way to experiment with different scenarios in TypeScript (such as the examples in this article) without any setup required.</p></li> <li><p><a href="https://code.visualstudio.com/">Visual Studio Code</a> is probably the code editor with the best TypeScript support. This is unsurprising given that VS Code is another open-source project by Microsoft, and is itself written in TypeScript. That being said, TypeScript is widely supported by other code editors, either natively or via the appropriate package/extension.</p></li> <li><p><a href="https://basarat.gitbooks.io/typescript/">TypeScript Deep Dive</a> is the definitive online textbook on TypeScript which covers many practical topics.</p></li> <li><p>The official TypeScript guide on <a href="https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html">Migrating from JavaScript</a> contains best practices for incrementally converting your codebase to TypeScript.</p></li> <li><p>For a more interactive demo of what it feels like to work with TypeScript, check out this YouTube video called <a href="https://www.youtube.com/watch?v=vxvQPHFJDRo">0-60 with TypeScript and Node.js</a>.</p></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#static-typing-in-javascript" class="nav-link py-1" data-v-e8c82f88>Static Typing in JavaScript‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-static-typing" class="nav-link py-1" data-v-e8c82f88>What is Static Typing?‎</a> <a href="#adding-static-typing-to-javascript" class="nav-link py-1" data-v-e8c82f88>Adding Static Typing to JavaScript‎</a> <a href="#typescript-basics" class="nav-link py-1" data-v-e8c82f88>TypeScript Basics‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#compilation-to-javascript" class="nav-link py-1" data-v-e8c82f88>Compilation to JavaScript‎</a> <a href="#type-annotations-and-type-inference" class="nav-link py-1" data-v-e8c82f88>Type Annotations and Type Inference‎</a> <a href="#custom-types" class="nav-link py-1" data-v-e8c82f88>Custom Types‎</a> <a href="#optionals" class="nav-link py-1" data-v-e8c82f88>Optionals‎</a></nav> <a href="#getting-started-with-typescript" class="nav-link py-1" data-v-e8c82f88>Getting Started with TypeScript‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#installation" class="nav-link py-1" data-v-e8c82f88>Installation‎</a> <a href="#additional-resources" class="nav-link py-1" data-v-e8c82f88>Additional Resources‎</a></nav></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

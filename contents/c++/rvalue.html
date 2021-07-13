@@ -1,457 +1,129 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Rvalue References and Move Semantics</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">C++
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a current">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="rvalue-references-and-move-semantics">Rvalue References and Move Semantics<a class="fa fa-anchor" href="#rvalue-references-and-move-semantics" onclick="event.stopPropagation()"></a></h1>
-          <p>Authors: <a href="https://github.com/yamidark">Tan Jun An</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#background">Background</a>
-                <ul>
-                  <li><a href="#value-semantics">Value Semantics</a></li>
-                  <li><a href="#reference-semantics">Reference Semantics</a></li>
-                </ul>
-              </li>
-              <li><a href="#move-semantics">Move Semantics</a>
-                <ul>
-                  <li><a href="#rvalue-and-lvalue-references">Rvalue and Lvalue References</a></li>
-                  <li><a href="#using-rvalue-references">Using Rvalue References</a></li>
-                  <li><a href="#move-semantics">Move Semantics</a></li>
-                </ul>
-              </li>
-              <li><a href="#rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern</a></li>
-              <li><a href="#resources">Resources</a></li>
-            </ul>
-          </box>
-
-          <h2 id="background">Background<a class="fa fa-anchor" href="#background" onclick="event.stopPropagation()"></a></h2>
-          <p><em>C++</em> is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released periodically. One such standard, the <code>C++11</code> standard, improved the performance of the language with features such as <strong><em>Rvalue References</em></strong> and <strong><em>Move Semantics</em></strong>.</p>
-          <p>In order to better understand the benefits of using Move Semantics, it is important to first understand the two other modes already available in C++, <strong><em>Value Semantics</em></strong> and <strong><em>References Semantics</em></strong>.</p>
-          <h3 id="value-semantics">Value Semantics<a class="fa fa-anchor" href="#value-semantics" onclick="event.stopPropagation()"></a></h3>
-          <p>Value (or copy) semantics is the programming style where users are only concerned about the values stored in the objects, rather than the object itself. As such, an extra copy of the object will always be created whenever it is passed to a function, (also known as <a href="https://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/">pass-by-value</a>) or when constructing or assigning a new object. This ensures that each object declared (or function) will have their own copied value to use, without having to concern themselves with their originator. By default, C++ uses this mode if variables are declared with only the data type.</p>
-          <p>Some advantages of Value Semantics include:</p>
-          <ul>
-            <li>Lesser memory management issues, as there won't be any <a href="https://www.quora.com/What-is-dangling-reference">dangling references</a> to objects that may not exist, nor any <a href="https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/">memory leaks</a>.</li>
-            <li><a href="https://en.wikipedia.org/wiki/Referential_transparency">Referential transparency</a>. Having our own copy of the object ensures that changing the values inside the copied object will not affect the original object. This is especially useful in a <a href="https://stackoverflow.com/questions/1313062/what-is-a-multithreaded-application">multi-threaded</a> environment, as it removes the need to synchronise the object's values, allowing the program to run faster.</li>
-            <li>Better performance. If the function requires accessing of the object's value many times, having a local copy of the object may be faster than having a pointer to the object and dereferencing it each time. This is especially true in C++ which encourages Value Semantics, with optimization techniques such as <a href="https://en.cppreference.com/w/cpp/language/copy_elision">copy elision</a> in the compiler which speeds up the process of passing-by-value.</li>
-          </ul>
-          <p>However, Value Semantics has <a href="https://www.quora.com/What-are-the-drawbacks-of-pass-by-value-result">one major flaw</a>:</p>
-          <ul>
-            <li>Poor performance and scalability. If the function called is a read-only function, creating an additional copy will be an unnecessary consumption of memory and runtime. This is especially true when scaling up to pass around objects of larger size, as more memory and runtime is needed to create each copy.</li>
-          </ul>
-          <h3 id="reference-semantics">Reference Semantics<a class="fa fa-anchor" href="#reference-semantics" onclick="event.stopPropagation()"></a></h3>
-          <p>Reference (or pointer) semantics is another choice available for use in C++, which allows users to declare <a href="https://www.cplusplus.com/doc/tutorial/pointers/">pointers</a> and <a href="https://www.geeksforgeeks.org/references-in-c/">references</a> that point to the address of the object. As such, we can pass these reference address to functions and declaration of other pointers, and all of them will refer to and use the same object and address.</p>
-          <p>Some advantages of Reference Semantics include:</p>
-          <ul>
-            <li>Improved performance and scalability. By passing around pointers and references to the same object, functions can just use the values in that object directly without having to create an extra copy, thus overcoming the major flaw of Value Semantics.</li>
-            <li>Interactions between objects and functions. Since the same object can be referred to by different pointers, its value can be modified in different areas of the program.</li>
-          </ul>
-          <p>However, Reference Semantics also comes with its own problems, such as:</p>
-          <ul>
-            <li>Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary <a href="https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html">data races</a> and indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources <a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a> and <a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a>.</li>
-            <li>Harder to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may not know where and why the values are changing. A good example of this problem can be found in this <a href="https://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151">article</a>.</li>
-          </ul>
-          <h2 id="move-semantics">Move Semantics<a class="fa fa-anchor" href="#move-semantics" onclick="event.stopPropagation()"></a></h2>
-          <p>From the summary above, there are many benefits for using Value Semantics. However, its one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, <code>C++11</code> introduced a new mode to users, Move Semantics.</p>
-          <h3 id="rvalue-and-lvalue-references">Rvalue and Lvalue References<a class="fa fa-anchor" href="#rvalue-and-lvalue-references" onclick="event.stopPropagation()"></a></h3>
-          <p>To understand how Move Semantics work in C++, it is important to distinguish between an rvalue and an lvalue.</p>
-          <pre><code class="hljs"><span>lvalue = rvalue<br></span></code></pre>
-          <p>From the line above, lvalue (left value) basically refers to values that are addressable, while rvalue (right value) are temporary objects or values which are used only on the right side of an assignment expression. More details and classification of these 2 values can be found <a href="https://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">here</a>.</p>
-          <h3 id="using-rvalue-references">Using Rvalue References<a class="fa fa-anchor" href="#using-rvalue-references" onclick="event.stopPropagation()"></a></h3>
-          <p>Rvalue References allows us to distinguish an lvalue from an rvalue. In <code>C++11</code>, we can declare an Rvalue Reference using the <code>&amp;&amp;</code> operator:</p>
-          <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue = <span class="hljs-number">55</span>;<br></span></code></pre>
-          <p>We can also convert an lvalue to a rvalue using the <code>std::move</code> function:</p>
-          <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> lvalue = <span class="hljs-number">99</span>;<br></span><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue2 = <span class="hljs-built_in">std</span>::move(lvalue);<br></span></code></pre>
-          <p>We can also do <a href="https://en.wikibooks.org/wiki/Computer_Programming/Function_overloading">function overloading</a>
-            in order to determine whether the parameters given are lvalues or rvalues:</p>
-          <pre><code class="hljs cpp"><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; lvalue)</span> </span>{ <span class="hljs-comment">// takes an lvalue</span><br></span><span>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"lvalue method used"</span>;<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp;&amp; rvalue)</span> </span>{ <span class="hljs-comment">// takes a rvalue</span><br></span><span>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"rvalue method used"</span>;<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{<br></span><span>    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;<br></span><span>    print(x); <span class="hljs-comment">// lvalue method used</span><br></span><span>    print(<span class="hljs-number">10</span>); <span class="hljs-comment">// rvalue method used.</span><br></span><span>}<br></span></code></pre>
-          <p>Usage of function overloading with Rvalue Reference parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!</p>
-          <h3 id="move-semantics-2">Move Semantics<a class="fa fa-anchor" href="#move-semantics-2" onclick="event.stopPropagation()"></a></h3>
-          <p>The main usage of Rvalue References is that it allows us to create <em>move</em> constructor and <em>move</em> assignments, instead of <em>copy</em> constructor and <em>copy</em> assignments by default. Since rvalues are typically temporary objects, we can just <em>move</em> the value instead of <em>copying</em> it, thus reducing memory consumption and improving performance!</p>
-          <p>One example implementation of a move constructor and move assignment is shown below:</p>
-          <pre><code class="hljs cpp"><span>Foo(Foo&amp;&amp; other) { <span class="hljs-comment">// move constructor</span><br></span><span>    x = other.x;<br></span><span>    y = other.y;<br></span><span>    z = other.z;<br></span><span>}<br></span><span><br></span><span>Foo&amp; <span class="hljs-keyword">operator</span>=(Foo&amp;&amp; other) { <span class="hljs-comment">// move assignment</span><br></span><span>    x = <span class="hljs-built_in">std</span>::move(other.x);<br></span><span>    y = <span class="hljs-built_in">std</span>::move(other.y);<br></span><span>    z = <span class="hljs-built_in">std</span>::move(other.z);<br></span><span>    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br></span><span>}<br></span></code></pre>
-          <p>In this move constructor and assignment, the contents of the <code>other</code> parameter is <em>moved</em> into the object, and the contents in <code>other</code> is destroyed afterwards. No additional memory allocation is required, and the <em>move</em> operation is done quickly by a few assignment of address operations, leading to a faster and more memory efficient program.</p>
-          <p>Along with Move Semantics in <code>C++11</code>, the <a href="https://www.geeksforgeeks.org/the-c-standard-template-library-stl/">STL library</a> provides the overloaded <em>move</em> functions for its container classes (e.g. <code>vector</code>, <code>list</code>, <code>set</code>), thus we can take advantage of these Move Semantics by simply supplying rvalues, without the need to redefine the classes ourselves.</p>
-          <h2 id="rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern<a class="fa fa-anchor" href="#rvalue-reference-anti-pattern" onclick="event.stopPropagation()"></a></h2>
-          <p>After learning about the new Rvalue References and Move Semantics in <code>C++11</code>, many programmers from the older C++ eras may fall into a trap of the Rvalue Reference <a href="https://en.wikipedia.org/wiki/Anti-pattern">Anti-Pattern</a>.</p>
-          <p>Consider these 2 class constructors:</p>
-          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span><br></span><span>    _x = x;<br></span><span>    _y = y;<br></span><span>}<br></span><span><br></span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor</span><br></span><span>    _x = x;<br></span><span>    _y = y;<br></span><span>}<br></span></code></pre>
-          <p>As shown above, the <em>move</em> constructor defines each of its parameter to be Rvalue References. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for <code>x</code> and rvalue for <code>y</code>, the copy constructor instead will be called! This is because the <em>copy</em> constructor is able to accept both lvalues and rvalues, while the <em>move</em> constructor is only able to accept rvalues. As such, we may think we have made use of Move Semantics to optimize our program, but that may not be the case!</p>
-          <p>One solution to this problem would be to overload the constructor for each combination of Rvalue Reference parameters possible, like this:</p>
-          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// copy constructor</span><br></span><span>    _x = x;<br></span><span>    _y = y;<br></span><span>}<br></span><span><br></span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; y) { <span class="hljs-comment">// move constructor 1</span><br></span><span>    _x = x;<br></span><span>    _y = y;<br></span><span>}<br></span><span><br></span><span>Foo(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 2</span><br></span><span>    _x = x;<br></span><span>    _y = y;<br></span><span>}<br></span><span><br></span><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp;&amp; y) { <span class="hljs-comment">// move constructor 3</span><br></span><span>    _x = x;<br></span><span>    _y = y;<br></span><span>}<br></span></code></pre>
-          <p>However, this is not feasible as we would require <code>2^n</code> overload functions, where <code>n</code> is the number of parameters. This results increased <a href="https://www.quora.com/What-is-boilerplate-code">boilerplate code</a>, which in turn reduces code quality, increases memory consumption and compilation time.</p>
-          <p>Rather, what should be provided here is:</p>
-          <pre><code class="hljs cpp"><span>Foo(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> x, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> y) { <span class="hljs-comment">// move constructor</span><br></span><span>    _x = <span class="hljs-built_in">std</span>::move(x);<br></span><span>    _y = <span class="hljs-built_in">std</span>::move(y);<br></span><span>}<br></span></code></pre>
-          <p>Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with <code>Foo(x,y)</code>, or to prevent the additional copy by calling <code>Foo(std::move(x), std::move(y))</code>, depending on which value is no longer needed.</p>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources" onclick="event.stopPropagation()"></a></h2>
-          <p>The following resources gives more readings on what was discussed, and a more in-depth tutorial on Rvalue References and Move Semantics:</p>
-          <ul>
-            <li><a href="https://blog.smartbear.com/development/the-biggest-changes-in-c11-and-why-you-should-care/">Biggest and important changes in C++11</a></li>
-            <li><a href="https://akrzemi1.wordpress.com/2012/02/03/value-semantics/">Why Value Semantics is good to use</a></li>
-            <li><a href="https://www.informit.com/articles/article.aspx?p=2731935&amp;seqNum=18">Comparison on pass-by-value or pass-by-reference</a></li>
-            <li><a href="https://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">Tutorial on what is a rvalue and what is a lvalue</a></li>
-            <li><a href="https://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php">Tutorial on using Rvalue References and Move Semantics</a></li>
-            <li><a href="http://thbecker.net/articles/rvalue_references/section_01.html">C++ Rvalue References Explained in 11 Sections</a></li>
-            <li><a href="https://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php">Sample examples of using Rvalue References and Move Semantics</a></li>
-            <li><a href="https://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html">The Rvalue Reference Anti-Pattern</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#rvalue-references-and-move-semantics">Rvalue References and Move Semantics&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#background">Background&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#value-semantics">Value Semantics&#x200E;</a>
-                <a class="nav-link py-1" href="#reference-semantics">Reference Semantics&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#move-semantics">Move Semantics&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rvalue-and-lvalue-references">Rvalue and Lvalue References&#x200E;</a>
-                <a class="nav-link py-1" href="#using-rvalue-references">Using Rvalue References&#x200E;</a>
-                <a class="nav-link py-1" href="#move-semantics-2">Move Semantics&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#rvalue-reference-anti-pattern">Rvalue Reference Anti-Pattern&#x200E;</a>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Rvalue References and Move Semantics</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="rvalue.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="rvalue-references-and-move-semantics"><span id="rvalue-references-and-move-semantics" class="anchor"></span>Rvalue References and Move Semantics<a href="#rvalue-references-and-move-semantics" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Authors: <a href="https://github.com/yamidark">Tan Jun An</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#background" data-v-7d17494f>Background</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#value-semantics" data-v-7d17494f>Value Semantics</a></li> <li data-v-7d17494f><a href="#reference-semantics" data-v-7d17494f>Reference Semantics</a></li></ul></li> <li data-v-7d17494f><a href="#move-semantics" data-v-7d17494f>Move Semantics</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#rvalue-and-lvalue-references" data-v-7d17494f>Rvalue and Lvalue References</a></li> <li data-v-7d17494f><a href="#using-rvalue-references" data-v-7d17494f>Using Rvalue References</a></li> <li data-v-7d17494f><a href="#move-semantics" data-v-7d17494f>Move Semantics</a></li></ul></li> <li data-v-7d17494f><a href="#rvalue-reference-anti-pattern" data-v-7d17494f>Rvalue Reference Anti-Pattern</a></li> <li data-v-7d17494f><a href="#resources" data-v-7d17494f>Resources</a></li></ul></div> <!----></div></div></div> <h2 id="background"><span id="background" class="anchor"></span>Background<a href="#background" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p><em>C++</em> is a general-purpose programming language designed to provide high performance and efficiency for resource-constrained and large systems. The language has since been extended and improved upon, with new standards being released periodically. One such standard, the <code class="hljs inline no-lang">C++11</code> standard, improved the performance of the language with features such as <strong><em>Rvalue References</em></strong> and <strong><em>Move Semantics</em></strong>.</p> <p>In order to better understand the benefits of using Move Semantics, it is important to first understand the two other modes already available in C++, <strong><em>Value Semantics</em></strong> and <strong><em>References Semantics</em></strong>.</p> <h3 id="value-semantics"><span id="value-semantics" class="anchor"></span>Value Semantics<a href="#value-semantics" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Value (or copy) semantics is the programming style where users are only concerned about the values stored in the objects, rather than the object itself. As such, an extra copy of the object will always be created whenever it is passed to a function, (also known as <a href="https://www.learncpp.com/cpp-tutorial/72-passing-arguments-by-value/">pass-by-value</a>) or when constructing or assigning a new object. This ensures that each object declared (or function) will have their own copied value to use, without having to concern themselves with their originator. By default, C++ uses this mode if variables are declared with only the data type.</p> <p>Some advantages of Value Semantics include:</p> <ul><li>Lesser memory management issues, as there won't be any <a href="https://www.quora.com/What-is-dangling-reference">dangling references</a> to objects that may not exist, nor any <a href="https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/">memory leaks</a>.</li> <li><a href="https://en.wikipedia.org/wiki/Referential_transparency">Referential transparency</a>. Having our own copy of the object ensures that changing the values inside the copied object will not affect the original object. This is especially useful in a <a href="https://stackoverflow.com/questions/1313062/what-is-a-multithreaded-application">multi-threaded</a> environment, as it removes the need to synchronise the object's values, allowing the program to run faster.</li> <li>Better performance. If the function requires accessing of the object's value many times, having a local copy of the object may be faster than having a pointer to the object and dereferencing it each time. This is especially true in C++ which encourages Value Semantics, with optimization techniques such as <a href="https://en.cppreference.com/w/cpp/language/copy_elision">copy elision</a> in the compiler which speeds up the process of passing-by-value.</li></ul> <p>However, Value Semantics has <a href="https://www.quora.com/What-are-the-drawbacks-of-pass-by-value-result">one major flaw</a>:</p> <ul><li>Poor performance and scalability. If the function called is a read-only function, creating an additional copy will be an unnecessary consumption of memory and runtime. This is especially true when scaling up to pass around objects of larger size, as more memory and runtime is needed to create each copy.</li></ul> <h3 id="reference-semantics"><span id="reference-semantics" class="anchor"></span>Reference Semantics<a href="#reference-semantics" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Reference (or pointer) semantics is another choice available for use in C++, which allows users to declare <a href="https://www.cplusplus.com/doc/tutorial/pointers/">pointers</a> and <a href="https://www.geeksforgeeks.org/references-in-c/">references</a> that point to the address of the object. As such, we can pass these reference address to functions and declaration of other pointers, and all of them will refer to and use the same object and address.</p> <p>Some advantages of Reference Semantics include:</p> <ul><li>Improved performance and scalability. By passing around pointers and references to the same object, functions can just use the values in that object directly without having to create an extra copy, thus overcoming the major flaw of Value Semantics.</li> <li>Interactions between objects and functions. Since the same object can be referred to by different pointers, its value can be modified in different areas of the program.</li></ul> <p>However, Reference Semantics also comes with its own problems, such as:</p> <ul><li>Indeterminant behaviour. In a multi-threaded environment, since each thread will all be pointing to the same object, this will lead to unnecessary <a href="https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html">data races</a> and indeterminant behaviour as they are modified concurrently in each thread. This in turn requires extra work to synchronize the values between objects, which also slows down the program. More details of this can be found in the resources <a href="/learningresources/contents/java/JavaConcurrency.html">Java Concurrency</a> and <a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronization</a>.</li> <li>Harder to debug. If users are not careful, they may modify the values in the object using one pointer, which will then be reflected by another pointer to the same object in a different part of the program, which can confuse users as they may not know where and why the values are changing. A good example of this problem can be found in this <a href="https://www.drdobbs.com/cpp/optimization-calling-by-value-or-by-refe/232400151">article</a>.</li></ul> <h2 id="move-semantics"><span id="move-semantics" class="anchor"></span>Move Semantics<a href="#move-semantics" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>From the summary above, there are many benefits for using Value Semantics. However, its one major flaw is that a copy of the object will always be created, which can be computationally expensive if this object is of a large size. Reference Semantics may also not be preferred due to its different problems as discussed above. As such, in order to continue gaining the benefits Value Semantics have over Reference Semantics while overcoming it's major flaw, <code class="hljs inline no-lang">C++11</code> introduced a new mode to users, Move Semantics.</p> <h3 id="rvalue-and-lvalue-references"><span id="rvalue-and-lvalue-references" class="anchor"></span>Rvalue and Lvalue References<a href="#rvalue-and-lvalue-references" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>To understand how Move Semantics work in C++, it is important to distinguish between an rvalue and an lvalue.</p> <pre><code class="hljs"><span>lvalue = rvalue
+</span></code></pre><p>From the line above, lvalue (left value) basically refers to values that are addressable, while rvalue (right value) are temporary objects or values which are used only on the right side of an assignment expression. More details and classification of these 2 values can be found <a href="https://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">here</a>.</p> <h3 id="using-rvalue-references"><span id="using-rvalue-references" class="anchor"></span>Using Rvalue References<a href="#using-rvalue-references" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Rvalue References allows us to distinguish an lvalue from an rvalue. In <code class="hljs inline no-lang">C++11</code>, we can declare an Rvalue Reference using the <code class="hljs inline no-lang">&amp;&amp;</code> operator:</p> <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue = <span class="hljs-number">55</span>;
+</span></code></pre><p>We can also convert an lvalue to a rvalue using the <code class="hljs inline no-lang">std::move</code> function:</p> <pre><code class="hljs cpp"><span><span class="hljs-keyword">int</span> lvalue = <span class="hljs-number">99</span>;
+</span><span><span class="hljs-keyword">int</span> &amp;&amp;rvalue2 = std::<span class="hljs-built_in">move</span>(lvalue);
+</span></code></pre><p>We can also do <a href="https://en.wikibooks.org/wiki/Computer_Programming/Function_overloading">function overloading</a>
+in order to determine whether the parameters given are lvalues or rvalues:</p> <pre><code class="hljs cpp"><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; lvalue)</span> </span>{ <span class="hljs-comment">// takes an lvalue</span>
+</span><span>    std::cout &lt;&lt; <span class="hljs-string">&quot;lvalue method used&quot;</span>;
+</span><span>}
+</span><span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp;&amp; rvalue)</span> </span>{ <span class="hljs-comment">// takes a rvalue</span>
+</span><span>    std::cout &lt;&lt; <span class="hljs-string">&quot;rvalue method used&quot;</span>;
+</span><span>}
+</span><span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+</span><span>    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+</span><span>    <span class="hljs-built_in">print</span>(x); <span class="hljs-comment">// lvalue method used</span>
+</span><span>    <span class="hljs-built_in">print</span>(<span class="hljs-number">10</span>); <span class="hljs-comment">// rvalue method used.</span>
+</span><span>}
+</span></code></pre><p>Usage of function overloading with Rvalue Reference parameters, which take on temporary objects, helps in writing more efficient programs using Move Semantics!</p> <h3 id="move-semantics-2"><span id="move-semantics-2" class="anchor"></span>Move Semantics<a href="#move-semantics-2" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The main usage of Rvalue References is that it allows us to create <em>move</em> constructor and <em>move</em> assignments, instead of <em>copy</em> constructor and <em>copy</em> assignments by default. Since rvalues are typically temporary objects, we can just <em>move</em> the value instead of <em>copying</em> it, thus reducing  memory consumption and improving performance!</p> <p>One example implementation of a move constructor and move assignment is shown below:</p> <pre><code class="hljs cpp"><span><span class="hljs-built_in">Foo</span>(Foo&amp;&amp; other) { <span class="hljs-comment">// move constructor</span>
+</span><span>    x = other.x;
+</span><span>    y = other.y;
+</span><span>    z = other.z;
+</span><span>}
+</span><span>
+</span><span>Foo&amp; <span class="hljs-keyword">operator</span>=(Foo&amp;&amp; other) { <span class="hljs-comment">// move assignment</span>
+</span><span>    x = std::<span class="hljs-built_in">move</span>(other.x);
+</span><span>    y = std::<span class="hljs-built_in">move</span>(other.y);
+</span><span>    z = std::<span class="hljs-built_in">move</span>(other.z);
+</span><span>    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+</span><span>}
+</span></code></pre><p>In this move constructor and assignment, the contents of the <code class="hljs inline no-lang">other</code> parameter is <em>moved</em> into the object, and the contents in <code class="hljs inline no-lang">other</code> is destroyed afterwards. No additional memory allocation is required, and the <em>move</em> operation is done quickly by a few assignment of address operations, leading to a faster and more memory efficient program.</p> <p>Along with Move Semantics in <code class="hljs inline no-lang">C++11</code>, the <a href="https://www.geeksforgeeks.org/the-c-standard-template-library-stl/">STL library</a> provides the overloaded <em>move</em> functions for its container classes (e.g. <code class="hljs inline no-lang">vector</code>, <code class="hljs inline no-lang">list</code>, <code class="hljs inline no-lang">set</code>), thus we can take advantage of these Move Semantics by simply supplying rvalues, without the need to redefine the classes ourselves.</p> <h2 id="rvalue-reference-anti-pattern"><span id="rvalue-reference-anti-pattern" class="anchor"></span>Rvalue Reference Anti-Pattern<a href="#rvalue-reference-anti-pattern" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>After learning about the new Rvalue References and Move Semantics in <code class="hljs inline no-lang">C++11</code>, many programmers from the older C++ eras may fall into a trap of the Rvalue Reference <a href="https://en.wikipedia.org/wiki/Anti-pattern">Anti-Pattern</a>.</p> <p>Consider these 2 class constructors:</p> <pre><code class="hljs cpp"><span><span class="hljs-built_in">Foo</span>(<span class="hljs-keyword">const</span> std::string&amp; x, <span class="hljs-keyword">const</span> std::string&amp; y) { <span class="hljs-comment">// copy constructor</span>
+</span><span>    _x = x;
+</span><span>    _y = y;
+</span><span>}
+</span><span>
+</span><span><span class="hljs-built_in">Foo</span>(std::string&amp;&amp; x, std::string&amp;&amp; y) { <span class="hljs-comment">// move constructor</span>
+</span><span>    _x = x;
+</span><span>    _y = y;
+</span><span>}
+</span></code></pre><p>As shown above, the <em>move</em> constructor defines each of its parameter to be Rvalue References. In this case, if the constructor is called using a mixture of both lvalues and rvalues, such as lvalue for <code class="hljs inline no-lang">x</code> and rvalue for <code class="hljs inline no-lang">y</code>, the copy constructor instead will be called! This is because the <em>copy</em> constructor is able to accept both lvalues and rvalues, while the <em>move</em> constructor is only able to accept rvalues. As such, we may think we have made use of Move Semantics to optimize our program, but that may not be the case!</p> <p>One solution to this problem would be to overload the constructor for each combination of Rvalue Reference parameters possible, like this:</p> <pre><code class="hljs cpp"><span><span class="hljs-built_in">Foo</span>(<span class="hljs-keyword">const</span> std::string&amp; x, <span class="hljs-keyword">const</span> std::string&amp; y) { <span class="hljs-comment">// copy constructor</span>
+</span><span>    _x = x;
+</span><span>    _y = y;
+</span><span>}
+</span><span>
+</span><span><span class="hljs-built_in">Foo</span>(std::string&amp;&amp; x, <span class="hljs-keyword">const</span> std::string&amp; y) { <span class="hljs-comment">// move constructor 1</span>
+</span><span>    _x = x;
+</span><span>    _y = y;
+</span><span>}
+</span><span>
+</span><span><span class="hljs-built_in">Foo</span>(<span class="hljs-keyword">const</span> std::string&amp; x, std::string&amp;&amp; y) { <span class="hljs-comment">// move constructor 2</span>
+</span><span>    _x = x;
+</span><span>    _y = y;
+</span><span>}
+</span><span>
+</span><span><span class="hljs-built_in">Foo</span>(std::string&amp;&amp; x, std::string&amp;&amp; y) { <span class="hljs-comment">// move constructor 3</span>
+</span><span>    _x = x;
+</span><span>    _y = y;
+</span><span>}
+</span></code></pre><p>However, this is not feasible as we would require <code class="hljs inline no-lang">2^n</code> overload functions, where <code class="hljs inline no-lang">n</code> is the number of parameters. This results increased <a href="https://www.quora.com/What-is-boilerplate-code">boilerplate code</a>, which in turn reduces code quality, increases memory consumption and compilation time.</p> <p>Rather, what should be provided here is:</p> <pre><code class="hljs cpp"><span><span class="hljs-built_in">Foo</span>(std::string x, std::string y) { <span class="hljs-comment">// move constructor</span>
+</span><span>    _x = std::<span class="hljs-built_in">move</span>(x);
+</span><span>    _y = std::<span class="hljs-built_in">move</span>(y);
+</span><span>}
+</span></code></pre><p>Yes, revert back to using the old Value Semantics type constructor instead! By doing so, it is now up to the caller to decide whether they want to have an additional copy by calling this constructor with <code class="hljs inline no-lang">Foo(x,y)</code>, or to prevent the additional copy by calling <code class="hljs inline no-lang">Foo(std::move(x), std::move(y))</code>, depending on which value is no longer needed.</p> <h2 id="resources"><span id="resources" class="anchor"></span>Resources<a href="#resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The following resources gives more readings on what was discussed, and a more in-depth tutorial on Rvalue References and Move Semantics:</p> <ul><li><a href="https://blog.smartbear.com/development/the-biggest-changes-in-c11-and-why-you-should-care/">Biggest and important changes in C++11</a></li> <li><a href="https://akrzemi1.wordpress.com/2012/02/03/value-semantics/">Why Value Semantics is good to use</a></li> <li><a href="https://www.informit.com/articles/article.aspx?p=2731935&amp;seqNum=18">Comparison on pass-by-value or pass-by-reference</a></li> <li><a href="https://www.bogotobogo.com/cplusplus/C11/4_C11_Rvalue_Lvalue.php">Tutorial on what is a rvalue and what is a lvalue</a></li> <li><a href="https://www.bogotobogo.com/cplusplus/C11/5_C11_Move_Semantics_Rvalue_Reference.php">Tutorial on using Rvalue References and Move Semantics</a></li> <li><a href="http://thbecker.net/articles/rvalue_references/section_01.html">C++ Rvalue References Explained in 11 Sections</a></li> <li><a href="https://www.bogotobogo.com/cplusplus/C11/5B_C11_Move_Semantics_Rvalue_Reference.php">Sample examples of using Rvalue References and Move Semantics</a></li> <li><a href="https://cpptruths.blogspot.sg/2012/03/rvalue-references-in-constructor-when.html">The Rvalue Reference Anti-Pattern</a></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#rvalue-references-and-move-semantics" class="nav-link py-1" data-v-e8c82f88>Rvalue References and Move Semantics‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#background" class="nav-link py-1" data-v-e8c82f88>Background‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#value-semantics" class="nav-link py-1" data-v-e8c82f88>Value Semantics‎</a> <a href="#reference-semantics" class="nav-link py-1" data-v-e8c82f88>Reference Semantics‎</a></nav> <a href="#move-semantics" class="nav-link py-1" data-v-e8c82f88>Move Semantics‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#rvalue-and-lvalue-references" class="nav-link py-1" data-v-e8c82f88>Rvalue and Lvalue References‎</a> <a href="#using-rvalue-references" class="nav-link py-1" data-v-e8c82f88>Using Rvalue References‎</a> <a href="#move-semantics-2" class="nav-link py-1" data-v-e8c82f88>Move Semantics‎</a></nav> <a href="#rvalue-reference-anti-pattern" class="nav-link py-1" data-v-e8c82f88>Rvalue Reference Anti-Pattern‎</a> <a href="#resources" class="nav-link py-1" data-v-e8c82f88>Resources‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

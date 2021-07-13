@@ -1,521 +1,138 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Java Concurrency</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Java
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a current">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="java-concurrency">Java Concurrency<a class="fa fa-anchor" href="#java-concurrency" onclick="event.stopPropagation()"></a></h1>
-          <p>Authors: Vivek Lakshmanan</p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#what-is-java-concurrency">What is Java Concurrency</a></li>
-              <li><a href="#getting-started">Getting started</a>
-                <ul>
-                  <li><a href="#understanding-threads">Understanding Threads</a></li>
-                  <li><a href="#creating-and-starting-threads">Creating and Starting Threads</a></li>
-                  <li><a href="#operations-on-threads">Operations on Threads</a></li>
-                  <li><a href="#thread-interference">Thread Interference</a></li>
-                  <li><a href="#executors">Executors</a></li>
-                </ul>
-              </li>
-              <li><a href="#disadvantages-of-java-concurrency">Disadvantages of Java Concurrency</a></li>
-              <li><a href="#resources">Resources</a>
-                <ul>
-                  <li><a href="#further-reading">Further Reading</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-          <h2 id="what-is-java-concurrency">What is Java Concurrency<a class="fa fa-anchor" href="#what-is-java-concurrency" onclick="event.stopPropagation()"></a></h2>
-          <p><em>Concurrency</em> is the ability to run several programs or several parts of a program <strong>out-of-order</strong>, in an <strong>interleaved fashion</strong>. Simply put, if a program is running concurrently, the processor will execute one part of the program, pause it, execute another part and repeat.</p>
-          <p>As such, Java Concurrency enables you to perform tasks using multi-threading in your code and therefore:</p>
-          <ol>
-            <li>improving responsiveness</li>
-            <li>allowing you to better utilize resources</li>
-          </ol>
-          <p>Do note that <em>Concurrency</em> often gets confused with <em>Parallelism</em> which is <strong>a different property altogether</strong>. <em>Parallelism</em> is where parts of the program are executed at the <strong>same time</strong>, for example, on a multi-core processor. This <a href="https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/36604522#36604522">StackOverflow post</a> explains this in much greater detail.</p>
-          <h2 id="getting-started">Getting Started<a class="fa fa-anchor" href="#getting-started" onclick="event.stopPropagation()"></a></h2>
-          <p>There are many tutorials that cover Java Concurrency in-depth, such as the <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/">Java tutorial by Oracle</a>. Instead, this chapter will provide an overview and things to take note of.</p>
-          <h3 id="understanding-threads">Understanding Threads<a class="fa fa-anchor" href="#understanding-threads" onclick="event.stopPropagation()"></a></h3>
-          <p>First off, a process is simply a program in execution. It contains at least one thread and has it's own memory space.</p>
-          <p>A thread:</p>
-          <ul>
-            <li>is a lightweight process that exists within a process</li>
-            <li>is an independent path of execution through program code</li>
-            <li>has its own call stack and can access shared data of other threads in the same process.</li>
-          </ul>
-          <h3 id="creating-and-starting-threads">Creating and Starting Threads<a class="fa fa-anchor" href="#creating-and-starting-threads" onclick="event.stopPropagation()"></a></h3>
-          <p>There are two ways to create a thread in Java:</p>
-          <ol>
-            <li>Extend the <code>Thread</code> class</li>
-            <li>Implement the <code>Runnable</code> interface</li>
-          </ol>
-          <p>After which, override the <code>run()</code> method which contains the code that will be executed when the thread starts.</p>
-          <p>Depending on how you created the <code>Thread</code> you can either create the class that extends the <code>Thread</code> class or pass the class that implements the <code>Runnable</code> interface into the <code>Thread</code> constructor and then start it.</p>
-          <p>When deciding which method to use to create a <code>Thread</code>, it is always advisable to implement the <code>Runnable</code> interface as this results in composition which will allow your code to be more loosely coupled as compared to inheritance. Furthermore, you can extend another class if need be. Shown below are the two ways to create a <code>Thread</code>.</p>
-          <p>Extending the <code>Thread</code> class:</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnotherThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{<br></span><span>    <span class="hljs-meta">@Override</span><br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{<br></span><span>        System.out.println(<span class="hljs-string">"This class extends the Thread class"</span>);<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <p>Implemeting the <code>Runnable</code> interface:</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{<br></span><span>    <span class="hljs-meta">@Override</span><br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{<br></span><span>        System.out.println(<span class="hljs-string">"This class implements the Runnable interface"</span>);<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <p>Do note that this is only for illustration and can be simplified using lambdas.</p>
-          <h3 id="operations-on-threads">Operations on Threads<a class="fa fa-anchor" href="#operations-on-threads" onclick="event.stopPropagation()"></a></h3>
-          <p>After creating and starting threads, you can carry out operations on them. There are several such operations you can use to manipulate threads:</p>
-          <ul>
-            <li>Making a thread sleep for a given amount of time. This is useful for pausing the execution of a thread for a certain amount of time to free up resources for other threads or delaying the execution of the thread.</li>
-          </ul>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">try</span> {<br></span><span>    Thread.sleep(<span class="hljs-number">1000</span>);<br></span><span>} <span class="hljs-keyword">catch</span> (InterruptedException e){<br></span><span>    <span class="hljs-comment">// handle interruption</span><br></span><span>}<br></span></code></pre>
-          <ul>
-            <li>Joining one thread to the current thread. This will pause the execution of the current thread and cause it to wait until the newly joined thread has finished it's execution. This is useful in cases where there is a need for the results of another thread before moving on.</li>
-          </ul>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">try</span> {<br></span><span>    thread2.join();<br></span><span>} <span class="hljs-keyword">catch</span> (InterruptedException e) {<br></span><span>    <span class="hljs-comment">// handle interruption</span><br></span><span>}<br></span></code></pre>
-          <h3 id="thread-interference">Thread Interference<a class="fa fa-anchor" href="#thread-interference" onclick="event.stopPropagation()"></a></h3>
-          <p>Since threads share the resources of the process they exist in, there will inevitably be conflicts when using shared resources due to the unpredictable nature of threads. When threads try to write to the same resource, thread interference occurs. To illustrate this problem, here's a sequence of execution for two threads, A and B, that increment and decrement a counter variable respectively:</p>
-          <ol>
-            <li>Thread A retrieves the value of counter and increments it to a value of 1</li>
-            <li>Thread B then retrieves the values of counter, which is still 0, and decrements it to a value of -1</li>
-            <li>Thread A stores the value of 1 to the counter variable</li>
-            <li>Thread B stores the value of -1 to the counter variable and overwrites the previous value stored by Thread A</li>
-          </ol>
-          <p><a href="/learningresources/contents/java/thread_interference.png" target="_self"><img src="/learningresources/contents/java/thread_interference.png" alt class="img-fluid"></a></p>
-          <p>Without thread interference, the expected value of the counter variable would be 0, since one thread increments it while the other decrements it. But with thread interference, the value of counter is simply the value written by the last thread. This is due to the unpredictable nature of threads as there is no way to know when the operating system switches between the two threads.</p>
-          <p>To solve this issue of interference, the keyword <code>synchronized</code> is used to ensure that method or block of code can only be accessed by one thread at a time. This is done through the use of the intrinsic lock system, a mechanism put in place by Java to control access to a shared resource. Simply put, each object has it's own intrinsic lock which:</p>
-          <ul>
-            <li>is acquired by the thread that works on it</li>
-            <li>prevents any other thread from working on it while it's lock has been acquired</li>
-          </ul>
-          <p>This can be illustrated by the following image where once Thread 2 (T2) acquires the lock for the synchronized block of code, the other two threads (T1 and T3) must wait for the synchronized block of code to release it's lock once T2 to complete its execution:</p>
-          <p><a href="https://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" target="_self"><img src="https://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" alt class="img-fluid"></a></p>
-          <p>For a deeper look, see the <a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronisation</a> section.</p>
-          <h3 id="executors">Executors<a class="fa fa-anchor" href="#executors" onclick="event.stopPropagation()"></a></h3>
-          <p>While it is easy to create one or two threads and run them, it becomes a problem when your application requires creating 20 or 30 threads for running tasks concurrently. This is where the <code>Executors</code> class comes in. It helps you with:</p>
-          <ol>
-            <li>
-              <p><strong>Thread Creation</strong><br>
-                It provides various methods for creating threads, more specifically a pool of threads, to run tasks concurrently.</p>
-            </li>
-            <li>
-              <p><strong>Thread Management</strong><br>
-                It manages the life cycle of the threads in the thread pool. You don’t need to worry about whether the threads in the thread pool are active, busy or dead before submitting a task for execution.</p>
-            </li>
-            <li>
-              <p><strong>Task submission and execution</strong><br>
-                It provides methods for submitting tasks for execution in the thread pool, and also allows you to decide when the tasks will be executed. For example, a task can be submitted to be executed instantly, scheduled to be executed later or even executed periodically. Tasks are submitted to a thread pool via an internal queue called the <code>Blocking Queue</code>. If there are more tasks than the number of active threads, they are queued until a thread becomes available. New tasks are rejected if the blocking queue is full.</p>
-            </li>
-          </ol>
-          <p>The <code>Executors</code> class provides convenient factory methods for creating the <code>ExecutorService</code> class. This class manages the lifecycle of tasks in various ways by assigning a <code>ThreadPool</code> to it. Different thread pools manage tasks in different ways along with their own advantages and disadvantages. Some of these include:</p>
-          <ul>
-            <li>
-              <p><code>CachedThreadPool</code> - Creates new threads as they are needed. This would prove useful for short-lived tasks but otherwise would be resource intensive as it would create too many threads.</p>
-            </li>
-            <li>
-              <p><code>FixedThreadPool</code> - A thread pool with a fixed number of threads. If all threads are active when a new task is submitted, they will be queued until a thread becomes available. This can come in handy when you know exactly how many threads you need, though that may be tricky by itself.</p>
-            </li>
-            <li>
-              <p><code>ThreadPoolExecutor</code> - This thread pool implementation adds the ability to configure parameters such as the maximum number of threads it can hold and how long to keep extra threads alive.</p>
-            </li>
-          </ul>
-          <p>Shown below is an image to illustrate how <code>ExecutorService</code> and <code>ThreadPools</code> are connected (Do note that the <code>Executor</code> is not in the image as it creates the <code>ExecutorService</code>):
-            <a href="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" target="_self"><img src="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" alt class="img-fluid"></a></p>
-          <p>A simple example of using the <code>Executors</code> class is shown below where after passing in the task to be executed, it is automatically managed by the <code>ExecutorService</code>. For a more detailed look at the workflow of the <code>ExecutorService</code>, see this <a href="https://www.callicoder.com/java-executor-service-and-thread-pool-tutorial/">in-depth tutorial</a>.</p>
-          <pre><code class="hljs java"><span>ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">10</span>); <br></span><span>executor.execute(() -&gt; {  <br></span><span>    System.out.println(<span class="hljs-string">"Hello from: "</span> + Thread.currentThread().getName());<br></span><span>});<br></span><span>executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thread.</span><br></span></code></pre>
-          <p>And the corresponding output would be <code>Hello from: pool-1-thread-1</code>.</p>
-          <h2 id="disadvantages-of-java-concurrency">Disadvantages of Java Concurrency<a class="fa fa-anchor" href="#disadvantages-of-java-concurrency" onclick="event.stopPropagation()"></a></h2>
-          <p>As the saying goes, <em>there is no free lunch</em>. While concurrency provides great benefits as mentioned above, it does come with several issues such as:</p>
-          <ul>
-            <li><strong>A more complex design</strong><br>
-              Due to the creation of multiple threads and the problem of thread interference, the design becomes more complex as much more work is done to manage these threads such that no problem occurs when the application runs. For instance, take a look at these two implementations of the <code>Singleton</code> design pattern:</li>
-          </ul>
-          <p>Concurrent implementation where you have to ensure that thread interference does not happen</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>{<br></span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;<br></span><span>    <span class="hljs-comment">// Create a lock so only one thread can access this object at a time.</span><br></span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();  <br></span><span>    <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{<br></span><span>        <span class="hljs-comment">//...</span><br></span><span>    }<br></span><span>     <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{<br></span><span>        <span class="hljs-comment">// This thread has acquired this object, so lock to ensure other threads don't interfere.</span><br></span><span>        lock.lock();  <br></span><span>        <span class="hljs-keyword">try</span> {<br></span><span>            <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) {<br></span><span>                singleton = <span class="hljs-keyword">new</span> Singleton();<br></span><span>            }<br></span><span>        } <span class="hljs-keyword">finally</span> {<br></span><span>            <span class="hljs-comment">// Release lock once you're done so others can access this object.</span><br></span><span>            lock.unlock();  <br></span><span>        }<br></span><span>        <span class="hljs-keyword">return</span> singleton;<br></span><span>     }<br></span><span>}<br></span></code></pre>
-          <p>Vs the usual implementation</p>
-          <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>{<br></span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;<br></span><span>    <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{<br></span><span>        <span class="hljs-comment">//...</span><br></span><span>    }<br></span><span>     <br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{<br></span><span>        <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) { <br></span><span>            singleton = <span class="hljs-keyword">new</span> Singleton();<br></span><span>        }<br></span><span>        <span class="hljs-keyword">return</span> singleton;<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <ul>
-            <li>
-              <p><strong>Harder debugging and testing process</strong><br>
-                The unpredictable nature of threads result in errors that can be hard to detect, reproduce and fix as these errors don't crop up consistently like normal errors do.</p>
-            </li>
-            <li>
-              <p><strong>Context switching overhead</strong><br>
-                When a CPU switches from executing one thread to executing another, the CPU needs to save the state of the current thread, and load the state of the next thread to execute, making this process of context switching very expensive.</p>
-            </li>
-          </ul>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources" onclick="event.stopPropagation()"></a></h2>
-          <p>The following resources are the many in-depth tutorials that will help you get a better grasp of concurrency in Java.</p>
-          <ul>
-            <li><a href="https://baptiste-wicht.com/posts/2010/05/java-concurrency-part-1-threads.html">Seven part series on the basics of Concurrency in Java</a></li>
-            <li><a href="https://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency">High-level overview of Concurrency in Java by Vogella</a></li>
-            <li><a href="https://www.javacodegeeks.com/2015/09/concurrency-best-practices.html">Concurrency best practices</a></li>
-            <li><a href="https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html">Java 101: Understanding Java threads</a></li>
-            <li><a href="http://tutorials.jenkov.com/java-concurrency/index.html">Java Concurrency / Multithreading Tutorial by Jenkov</a></li>
-            <li><a href="https://www.tutorialspoint.com/java_concurrency/concurrency_overview.htm">Java Concurrency Tutorial by tutorialspoint</a></li>
-          </ul>
-          <h3 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading" onclick="event.stopPropagation()"></a></h3>
-          <p>The following resources are interesting reads for a deeper understanding.</p>
-          <ul>
-            <li><a href="https://beginnersbook.com/2015/01/what-is-the-difference-between-a-process-and-a-thread-in-java/">What is the difference between a process and a thread in Java?</a></li>
-            <li><a href="https://cs.stackexchange.com/questions/19987/difference-between-parallel-and-concurrent-programming">Computer Science Stack Exchange Post on the difference between Concurrency and Parallelism</a></li>
-            <li><a href="https://www.callicoder.com/java-locks-and-atomic-variables-tutorial/">Java Locks and Atomic Variables Tutorial</a></li>
-            <li><a href="https://www.quora.com/What-is-the-advantage-of-Googles-Golang-over-Java-and-Scala">A comparison between concurrency in Golang and Java</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#java-concurrency">Java Concurrency&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-java-concurrency">What is Java Concurrency&#x200E;</a>
-              <a class="nav-link py-1" href="#getting-started">Getting Started&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#understanding-threads">Understanding Threads&#x200E;</a>
-                <a class="nav-link py-1" href="#creating-and-starting-threads">Creating and Starting Threads&#x200E;</a>
-                <a class="nav-link py-1" href="#operations-on-threads">Operations on Threads&#x200E;</a>
-                <a class="nav-link py-1" href="#thread-interference">Thread Interference&#x200E;</a>
-                <a class="nav-link py-1" href="#executors">Executors&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#disadvantages-of-java-concurrency">Disadvantages of Java Concurrency&#x200E;</a>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#further-reading">Further Reading&#x200E;</a>
-              </nav>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Java Concurrency</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="JavaConcurrency.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="java-concurrency"><span id="java-concurrency" class="anchor"></span>Java Concurrency<a href="#java-concurrency" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Authors: Vivek Lakshmanan</p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-java-concurrency" data-v-7d17494f>What is Java Concurrency</a></li> <li data-v-7d17494f><a href="#getting-started" data-v-7d17494f>Getting started</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#understanding-threads" data-v-7d17494f>Understanding Threads</a></li> <li data-v-7d17494f><a href="#creating-and-starting-threads" data-v-7d17494f>Creating and Starting Threads</a></li> <li data-v-7d17494f><a href="#operations-on-threads" data-v-7d17494f>Operations on Threads</a></li> <li data-v-7d17494f><a href="#thread-interference" data-v-7d17494f>Thread Interference</a></li> <li data-v-7d17494f><a href="#executors" data-v-7d17494f>Executors</a></li></ul></li> <li data-v-7d17494f><a href="#disadvantages-of-java-concurrency" data-v-7d17494f>Disadvantages of Java Concurrency</a></li> <li data-v-7d17494f><a href="#resources" data-v-7d17494f>Resources</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#further-reading" data-v-7d17494f>Further Reading</a></li></ul></li></ul></div> <!----></div></div></div> <h2 id="what-is-java-concurrency"><span id="what-is-java-concurrency" class="anchor"></span>What is Java Concurrency<a href="#what-is-java-concurrency" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p><em>Concurrency</em> is the ability to run several programs or several parts of a program <strong>out-of-order</strong>, in an <strong>interleaved fashion</strong>. Simply put, if a program is running concurrently, the processor will execute one part of the program, pause it, execute another part and repeat.</p> <p>As such, Java Concurrency enables you to perform tasks using multi-threading in your code and therefore:</p> <ol><li>improving responsiveness</li> <li>allowing you to better utilize resources</li></ol> <p>Do note that <em>Concurrency</em> often gets confused with <em>Parallelism</em> which is <strong>a different property altogether</strong>. <em>Parallelism</em> is where parts of the program are executed at the <strong>same time</strong>, for example, on a multi-core processor. This <a href="https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/36604522#36604522">StackOverflow post</a> explains this in much greater detail.</p> <h2 id="getting-started"><span id="getting-started" class="anchor"></span>Getting Started<a href="#getting-started" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>There are many tutorials that cover Java Concurrency in-depth, such as the <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/">Java tutorial by Oracle</a>. Instead, this chapter will provide an overview and things to take note of.</p> <h3 id="understanding-threads"><span id="understanding-threads" class="anchor"></span>Understanding Threads<a href="#understanding-threads" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>First off, a process is simply a program in execution. It contains at least one thread and has it's own memory space.</p> <p>A thread:</p> <ul><li>is a lightweight process that exists within a process</li> <li>is an independent path of execution through program code</li> <li>has its own call stack and can access shared data of other threads in the same process.</li></ul> <h3 id="creating-and-starting-threads"><span id="creating-and-starting-threads" class="anchor"></span>Creating and Starting Threads<a href="#creating-and-starting-threads" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>There are two ways to create a thread in Java:</p> <ol><li>Extend the <code class="hljs inline no-lang">Thread</code> class</li> <li>Implement the <code class="hljs inline no-lang">Runnable</code> interface</li></ol> <p>After which, override the <code class="hljs inline no-lang">run()</code> method which contains the code that will be executed when the thread starts.</p> <p>Depending on how you created the <code class="hljs inline no-lang">Thread</code> you can either create the class that extends the <code class="hljs inline no-lang">Thread</code> class or pass the class that implements the <code class="hljs inline no-lang">Runnable</code> interface into the <code class="hljs inline no-lang">Thread</code> constructor and then start it.</p> <p>When deciding which method to use to create a <code class="hljs inline no-lang">Thread</code>, it is always advisable to implement the <code class="hljs inline no-lang">Runnable</code> interface as this results in composition which will allow your code to be more loosely coupled as compared to inheritance. Furthermore, you can extend another class if need be. Shown below are the two ways to create a <code class="hljs inline no-lang">Thread</code>.</p> <p>Extending the <code class="hljs inline no-lang">Thread</code> class:</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnotherThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{
+</span><span>    <span class="hljs-meta">@Override</span>
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+</span><span>        System.out.println(<span class="hljs-string">&quot;This class extends the Thread class&quot;</span>);
+</span><span>    }
+</span><span>}
+</span></code></pre><p>Implemeting the <code class="hljs inline no-lang">Runnable</code> interface:</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
+</span><span>    <span class="hljs-meta">@Override</span>
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+</span><span>        System.out.println(<span class="hljs-string">&quot;This class implements the Runnable interface&quot;</span>);
+</span><span>    }
+</span><span>}
+</span></code></pre><p>Do note that this is only for illustration and can be simplified using lambdas.</p> <h3 id="operations-on-threads"><span id="operations-on-threads" class="anchor"></span>Operations on Threads<a href="#operations-on-threads" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>After creating and starting threads, you can carry out operations on them. There are several such operations you can use to manipulate threads:</p> <ul><li>Making a thread sleep for a given amount of time. This is useful for pausing the execution of a thread for a certain amount of time to free up resources for other threads or delaying the execution of the thread.</li></ul> <pre><code class="hljs java"><span><span class="hljs-keyword">try</span> {
+</span><span>    Thread.sleep(<span class="hljs-number">1000</span>);
+</span><span>} <span class="hljs-keyword">catch</span> (InterruptedException e){
+</span><span>    <span class="hljs-comment">// handle interruption</span>
+</span><span>}
+</span></code></pre><ul><li>Joining one thread to the current thread. This will pause the execution of the current thread and cause it to wait until the newly joined thread has finished it's execution. This is useful in cases where there is a need for the results of another thread before moving on.</li></ul> <pre><code class="hljs java"><span><span class="hljs-keyword">try</span> {
+</span><span>    thread2.join();
+</span><span>} <span class="hljs-keyword">catch</span> (InterruptedException e) {
+</span><span>    <span class="hljs-comment">// handle interruption</span>
+</span><span>}
+</span></code></pre><h3 id="thread-interference"><span id="thread-interference" class="anchor"></span>Thread Interference<a href="#thread-interference" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Since threads share the resources of the process they exist in, there will inevitably be conflicts when using shared resources due to the unpredictable nature of threads. When threads try to write to the same resource, thread interference occurs. To illustrate this problem, here's a sequence of execution for two threads, A and B, that increment and decrement a counter variable respectively:</p> <ol><li>Thread A retrieves the value of counter and increments it to a value of 1</li> <li>Thread B then retrieves the values of counter, which is still 0, and decrements it to a value of -1</li> <li>Thread A stores the value of 1 to the counter variable</li> <li>Thread B stores the value of -1 to the counter variable and overwrites the previous value stored by Thread A</li></ol> <p><a href="/learningresources/contents/java/thread_interference.png" target="_self"><img src="/learningresources/contents/java/thread_interference.png" alt="" class="img-fluid"></a></p> <p>Without thread interference, the expected value of the counter variable would be 0, since one thread increments it while the other decrements it. But with thread interference, the value of counter is simply the value written by the last thread. This is due to the unpredictable nature of threads as there is no way to know when the operating system switches between the two threads.</p> <p>To solve this issue of interference, the keyword <code class="hljs inline no-lang">synchronized</code> is used to ensure that method or block of code can only be accessed by one thread at a time. This is done through the use of the intrinsic lock system, a mechanism put in place by Java to control access to a shared resource. Simply put, each object has it's own intrinsic lock which:</p> <ul><li>is acquired by the thread that works on it</li> <li>prevents any other thread from working on it while it's lock has been acquired</li></ul> <p>This can be illustrated by the following image where once Thread 2 (T2) acquires the lock for the synchronized block of code, the other two threads (T1 and T3) must wait for the synchronized block of code to release it's lock once T2 to complete its execution:</p> <p><a href="https://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" target="_self"><img src="https://www.javalearningacademy.com/wp-content/uploads/2015/10/Synchronized_Code_Block_And_Thread_Execution.jpg" alt="" class="img-fluid"></a></p> <p>For a deeper look, see the <a href="/learningresources/contents/java/JavaSynchronization.html">Java Synchronisation</a> section.</p> <h3 id="executors"><span id="executors" class="anchor"></span>Executors<a href="#executors" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>While it is easy to create one or two threads and run them, it becomes a problem when your application requires creating 20 or 30 threads for running tasks concurrently. This is where the <code class="hljs inline no-lang">Executors</code> class comes in. It helps you with:</p> <ol><li><p><strong>Thread Creation</strong><br>
+It provides various methods for creating threads, more specifically a pool of threads, to run tasks concurrently.</p></li> <li><p><strong>Thread Management</strong><br>
+It manages the life cycle of the threads in the thread pool. You don’t need to worry about whether the threads in the thread pool are active, busy or dead before submitting a task for execution.</p></li> <li><p><strong>Task submission and execution</strong><br>
+It provides methods for submitting tasks for execution in the thread pool, and also allows you to decide when the tasks will be executed. For example, a task can be submitted to be executed instantly, scheduled to be executed later or even executed periodically. Tasks are submitted to a thread pool via an internal queue called the <code class="hljs inline no-lang">Blocking Queue</code>. If there are more tasks than the number of active threads, they are queued until a thread becomes available. New tasks are rejected if the blocking queue is full.</p></li></ol> <p>The <code class="hljs inline no-lang">Executors</code> class provides convenient factory methods for creating the <code class="hljs inline no-lang">ExecutorService</code> class. This class manages the lifecycle of tasks in various ways by assigning a <code class="hljs inline no-lang">ThreadPool</code> to it. Different thread pools manage tasks in different ways along with their own advantages and disadvantages. Some of these include:</p> <ul><li><p><code class="hljs inline no-lang">CachedThreadPool</code> - Creates new threads as they are needed. This would prove useful for short-lived tasks but otherwise would be resource intensive as it would create too many threads.</p></li> <li><p><code class="hljs inline no-lang">FixedThreadPool</code> -  A thread pool with a fixed number of threads. If all threads are active when a new task is submitted, they will be queued until a thread becomes available. This can come in handy when you know exactly how many threads you need, though that may be tricky by itself.</p></li> <li><p><code class="hljs inline no-lang">ThreadPoolExecutor</code> - This thread pool implementation adds the ability to configure parameters such as the maximum number of threads it can hold and how long to keep extra threads alive.</p></li></ul> <p>Shown below is an image to illustrate how <code class="hljs inline no-lang">ExecutorService</code> and <code class="hljs inline no-lang">ThreadPools</code> are connected (Do note that the <code class="hljs inline no-lang">Executor</code> is not in the image as it creates the <code class="hljs inline no-lang">ExecutorService</code>):
+<a href="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" target="_self"><img src="https://www.callicoder.com/assets/images/post/large/executor-service-thread-pool-blocking-queue-example.jpg" alt="" class="img-fluid"></a></p> <p>A simple example of using the <code class="hljs inline no-lang">Executors</code> class is shown below where after passing in the task to be executed, it is automatically managed by the <code class="hljs inline no-lang">ExecutorService</code>. For a more detailed look at the workflow of the <code class="hljs inline no-lang">ExecutorService</code>, see this <a href="https://www.callicoder.com/java-executor-service-and-thread-pool-tutorial/">in-depth tutorial</a>.</p> <pre><code class="hljs java"><span>ExecutorService executor = Executors.newFixedThreadPool(<span class="hljs-number">10</span>); 
+</span><span>executor.execute(() -&gt; {  
+</span><span>    System.out.println(<span class="hljs-string">&quot;Hello from: &quot;</span> + Thread.currentThread().getName());
+</span><span>});
+</span><span>executor.shutdown(); <span class="hljs-comment">// Remember to shutdown the thread.</span>
+</span></code></pre><p>And the corresponding output would be <code class="hljs inline no-lang">Hello from: pool-1-thread-1</code>.</p> <h2 id="disadvantages-of-java-concurrency"><span id="disadvantages-of-java-concurrency" class="anchor"></span>Disadvantages of Java Concurrency<a href="#disadvantages-of-java-concurrency" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>As the saying goes, <em>there is no free lunch</em>. While concurrency provides great benefits as mentioned above, it does come with several issues such as:</p> <ul><li><strong>A more complex design</strong><br>
+Due to the creation of multiple threads and the problem of thread interference, the design becomes more complex as much more work is done to manage these threads such that no problem occurs when the application runs. For instance, take a look at these two implementations of the <code class="hljs inline no-lang">Singleton</code> design pattern:</li></ul> <p>Concurrent implementation where you have to ensure that thread interference does not happen</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>{
+</span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;
+</span><span>    <span class="hljs-comment">// Create a lock so only one thread can access this object at a time.</span>
+</span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();  
+</span><span>    
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{
+</span><span>        <span class="hljs-comment">//...</span>
+</span><span>    }
+</span><span>     
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{
+</span><span>        <span class="hljs-comment">// This thread has acquired this object, so lock to ensure other threads don't interfere.</span>
+</span><span>        lock.lock();  
+</span><span>        <span class="hljs-keyword">try</span> {
+</span><span>            <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) {
+</span><span>                singleton = <span class="hljs-keyword">new</span> Singleton();
+</span><span>            }
+</span><span>        } <span class="hljs-keyword">finally</span> {
+</span><span>            <span class="hljs-comment">// Release lock once you're done so others can access this object.</span>
+</span><span>            lock.unlock();  
+</span><span>        }
+</span><span>        <span class="hljs-keyword">return</span> singleton;
+</span><span>     }
+</span><span>}
+</span></code></pre><p>Vs the usual implementation</p> <pre><code class="hljs java"><span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>{
+</span><span>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton singleton;
+</span><span>    
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>{
+</span><span>        <span class="hljs-comment">//...</span>
+</span><span>    }
+</span><span>     
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getSingleton</span><span class="hljs-params">()</span> </span>{
+</span><span>        <span class="hljs-keyword">if</span> (singleton == <span class="hljs-keyword">null</span>) { 
+</span><span>            singleton = <span class="hljs-keyword">new</span> Singleton();
+</span><span>        }
+</span><span>        <span class="hljs-keyword">return</span> singleton;
+</span><span>    }
+</span><span>}
+</span></code></pre><ul><li><p><strong>Harder debugging and testing process</strong><br>
+The unpredictable nature of threads result in errors that can be hard to detect, reproduce and fix as these errors don't crop up consistently like normal errors do.</p></li> <li><p><strong>Context switching overhead</strong><br>
+When a CPU switches from executing one thread to executing another, the CPU needs to save the state of the current thread, and load the state of the next thread to execute, making this process of context switching very expensive.</p></li></ul> <h2 id="resources"><span id="resources" class="anchor"></span>Resources<a href="#resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The following resources are the many in-depth tutorials that will help you get a better grasp of concurrency in Java.</p> <ul><li><a href="https://baptiste-wicht.com/posts/2010/05/java-concurrency-part-1-threads.html">Seven part series on the basics of Concurrency in Java</a></li> <li><a href="https://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency">High-level overview of Concurrency in Java by Vogella</a></li> <li><a href="https://www.javacodegeeks.com/2015/09/concurrency-best-practices.html">Concurrency best practices</a></li> <li><a href="https://www.javaworld.com/article/2074217/java-concurrency/java-101--understanding-java-threads--part-1--introducing-threads-and-runnables.html">Java 101: Understanding Java threads</a></li> <li><a href="http://tutorials.jenkov.com/java-concurrency/index.html">Java Concurrency / Multithreading Tutorial by Jenkov</a></li> <li><a href="https://www.tutorialspoint.com/java_concurrency/concurrency_overview.htm">Java Concurrency Tutorial by tutorialspoint</a></li></ul> <h3 id="further-reading"><span id="further-reading" class="anchor"></span>Further Reading<a href="#further-reading" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The following resources are interesting reads for a deeper understanding.</p> <ul><li><a href="https://beginnersbook.com/2015/01/what-is-the-difference-between-a-process-and-a-thread-in-java/">What is the difference between a process and a thread in Java?</a></li> <li><a href="https://cs.stackexchange.com/questions/19987/difference-between-parallel-and-concurrent-programming">Computer Science Stack Exchange Post on the difference between Concurrency and Parallelism</a></li> <li><a href="https://www.callicoder.com/java-locks-and-atomic-variables-tutorial/">Java Locks and Atomic Variables Tutorial</a></li> <li><a href="https://www.quora.com/What-is-the-advantage-of-Googles-Golang-over-Java-and-Scala">A comparison between concurrency in Golang and Java</a></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#java-concurrency" class="nav-link py-1" data-v-e8c82f88>Java Concurrency‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-java-concurrency" class="nav-link py-1" data-v-e8c82f88>What is Java Concurrency‎</a> <a href="#getting-started" class="nav-link py-1" data-v-e8c82f88>Getting Started‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#understanding-threads" class="nav-link py-1" data-v-e8c82f88>Understanding Threads‎</a> <a href="#creating-and-starting-threads" class="nav-link py-1" data-v-e8c82f88>Creating and Starting Threads‎</a> <a href="#operations-on-threads" class="nav-link py-1" data-v-e8c82f88>Operations on Threads‎</a> <a href="#thread-interference" class="nav-link py-1" data-v-e8c82f88>Thread Interference‎</a> <a href="#executors" class="nav-link py-1" data-v-e8c82f88>Executors‎</a></nav> <a href="#disadvantages-of-java-concurrency" class="nav-link py-1" data-v-e8c82f88>Disadvantages of Java Concurrency‎</a> <a href="#resources" class="nav-link py-1" data-v-e8c82f88>Resources‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#further-reading" class="nav-link py-1" data-v-e8c82f88>Further Reading‎</a></nav></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

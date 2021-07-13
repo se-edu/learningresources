@@ -1,527 +1,159 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Asynchronous Programming In C# Using Async/Await</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">CSharp
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a current">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="asynchronous-programming-in-c-using-async-await">Asynchronous Programming In C# Using Async/Await<a class="fa fa-anchor" href="#asynchronous-programming-in-c-using-async-await" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author: <a href="https://github.com/xantho09">Muhammad Irham Rasyidi Bin Zainal</a></strong><br>
-            Reviewers: <a href="https://github.com/j-lum">Jeffry Lum</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#what-is-asynchronous-programming">What Is Asynchronous Programming</a></li>
-              <li><a href="#example-of-asynchronous-programming">Example Of Asynchronous Programming</a></li>
-              <li><a href="#basic-syntax">Basic Syntax‎</a>
-                <ul>
-                  <li><a href="#async">Async</a></li>
-                  <li><a href="#await">Await</a></li>
-                  <li><a href="#returning-values">Returning Values</a></li>
-                </ul>
-              </li>
-              <li><a href="#control-flow">Control Flow‎</a></li>
-              <li><a href="#disadvantages-of-asyncawait">Disadvantages Of Async/Await</a>
-                <ul>
-                  <li><a href="#potential-pitfall-deadlock">Potential Pitfall: Deadlock</a></li>
-                  <li><a href="#additional-overhead">Additional Overhead</a></li>
-                </ul>
-              </li>
-              <li><a href="#resources">Resources</a></li>
-              <li><a href="#further-reading">Further Reading</a></li>
-            </ul>
-          </box>
-          <h2 id="what-is-asynchronous-programming">What Is Asynchronous Programming?<a class="fa fa-anchor" href="#what-is-asynchronous-programming" onclick="event.stopPropagation()"></a></h2>
-          <p>In <strong>synchronous programming</strong>, code is executed one step at a time, waiting for each step to be finished before proceeding to the next step. For example, if the code looks something like this:</p>
-          <ol>
-            <li>Perform Task 1.</li>
-            <li>Perform Task 2.</li>
-            <li>Perform Task 3.</li>
-            <li>Use the result from Task 1 to perform Task 4.</li>
-          </ol>
-          <p>Then a synchronous execution of this code will start executing Task 1 and wait for it to finish before starting Task 2. Then it will wait for Task 2 to finish before starting Task 3, and so on.</p>
-          <p>In general, this would be fine. However, if Tasks 1, 2 and 3 happen to be independent of each other, and we have a few additional threads available, we can do better:</p>
-          <ul>
-            <li>Since tasks 1, 2 and 3 are independent of each other, we can start all three tasks in their own separate threads without needing to wait for any individual task to finish before starting another.</li>
-            <li>Task 4 only needs the result from Task 1 to run. So as long as Task 1 has completed, even if Tasks 2 and 3 are still running, we can start the execution of Task 4.</li>
-          </ul>
-          <p>Our modified code can look something like this:</p>
-          <ol>
-            <li>Start running Task 1 on Thread A.</li>
-            <li>Start running Task 2 on Thread B.</li>
-            <li>Start running Task 3 on Thread C.</li>
-            <li>Wait for Task 1 to finish.</li>
-            <li>Use the result from Task 1 to start Task 4 on Thread A.</li>
-            <li>Wait for Tasks 2, 3 and 4 to finish.</li>
-          </ol>
-          <box type="info">
-            <p>Note that Tasks 1, 2 and 3 may not necessarily finish in that order (e.g. It is perfectly possible for Task 3 to finish before Tasks 1 and 2).</p>
-          </box>
-          <p>This is the main idea behind <strong>asynchronous programming</strong>: allowing multiple processes to occur at the same time. When we start a task, the program keeps running. When the tasks finish, the program can access the results.</p>
-          <p>When used correctly, this can result in better utilization of resources at hand, allowing for better performance or program responsiveness.</p>
-          <p>There are many in-depth tutorials online about asynchronous programming, such as <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Microsoft's tutorial on MSDN</a> and <a href="https://blog.stephencleary.com/2012/02/async-and-await.html">Stephen Cleary's blog post</a>. Therefore, this chapter will only provide an overview.</p>
-          <h2 id="example-of-asynchronous-programming">Example Of Asynchronous Programming<a class="fa fa-anchor" href="#example-of-asynchronous-programming" onclick="event.stopPropagation()"></a></h2>
-          <p>To see why asynchronous programming can be useful, consider the following example:</p>
-          <p><a href="/learningresources/contents/csharp/async-await-app-example1.png" target="_self"><img src="/learningresources/contents/csharp/async-await-app-example1.png" alt class="img-fluid"></a></p>
-          <p>Here, we have a simple application where the user will type in the name of a file. When the button is pressed, the application will read the specified file and display its length.</p>
-          <p>The code for the Button's logic currently looks like this:</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, RoutedEventArgs e</span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    <span class="hljs-comment">// Get the name of the file to read.</span><br></span><span>    <span class="hljs-keyword">string</span> filename = FilenameTextBox.Text;<br></span><span><br></span><span>    <span class="hljs-comment">// Read the contents of the file.</span><br></span><span>    <span class="hljs-keyword">string</span> fileContents;<br></span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> reader = <span class="hljs-keyword">new</span> StreamReader(filename))<br></span><span>    {<br></span><span>        fileContents = reader.ReadToEnd();<br></span><span>    }<br></span><span><br></span><span>    <span class="hljs-comment">// Display the length of the file contents.</span><br></span><span>    OutputTextBlock.Text = fileContents.Length.ToString();<br></span><span>}<br></span></code></pre>
-          <p>Sure enough, when you test it out with a short text file with 16 characters, it works as expected:</p>
-          <p><a href="/learningresources/contents/csharp/async-await-app-example2.png" target="_self"><img src="/learningresources/contents/csharp/async-await-app-example2.png" alt class="img-fluid"></a></p>
-          <p>However, when you try out a significantly larger text file, over 700 MB large, you notice an issue: during the file-reading process, <strong>the application completely freezes</strong>. The user cannot interact with the text box, move or resize the window, or minimize it. Only after about 5 seconds does the operation complete, causing the application to become responsive again.</p>
-          <p><a href="/learningresources/contents/csharp/async-await-app-example3.png" target="_self"><img src="/learningresources/contents/csharp/async-await-app-example3.png" alt class="img-fluid"></a></p>
-          <p>The main reason this occurs is because the <code>Button_Click()</code> is run <em>synchronously</em> on the UI Thread. When the code execution reaches Line 10 in the above code snippet, the UI Thread needs to wait until the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.streamreader.readtoend?view=netcore-3.1"><code>reader.ReadToEnd()</code></a> method terminates before it can proceed to the next line, causing the UI thread to be blocked. This means it cannot respond to any other actions performed by the user, resulting in the application appearing frozen.</p>
-          <p>We can avoid this by making the operation asynchronous like so:</p>
-          <pre><code class="hljs csharp"><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, RoutedEventArgs e</span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    <span class="hljs-comment">// Get the name of the file to read.</span><br></span><span>    <span class="hljs-keyword">string</span> fileName = FilenameTextBox.Text;<br></span><span><br></span><span>    <span class="hljs-keyword">string</span> fileContents;<br></span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> reader = <span class="hljs-keyword">new</span> StreamReader(fileName))<br></span><span>    {<br></span><span>        <span class="hljs-comment">// Start reading the contents of the file.</span><br></span><span class="highlighted">        Task&lt;<span class="hljs-keyword">string</span>&gt; readingTask = reader.ReadToEndAsync();<br></span><span>        <span class="hljs-comment">// Asynchronously wait for the task to finish.</span><br></span><span class="highlighted">        fileContents = <span class="hljs-keyword">await</span> readingTask;<br></span><span>    }<br></span><span><br></span><span>    <span class="hljs-comment">// Display the length of the file contents.</span><br></span><span>    OutputTextBlock.Text = fileContents.Length.ToString();<br></span><span>}<br></span></code></pre>
-          <p>Here, we've replaced the <code>ReadToEnd()</code> method with its asynchronous counterpart, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.streamreader.readtoendasync?view=netcore-3.1"><code>ReadToEndAsync()</code></a>. This method will return a <code>Task&lt;string&gt;</code> object, denoting that the file reading operation has started, but may not have necessarily finished. The magic happens in the next line where we <code>await</code> that task. If the task has yet to complete, it will suspend the <code>Button_Click()</code> method and yield control to the method's caller. In other words, the execution will <code>return</code> from the <code>Button_Click()</code> method, giving control back to the UI thread while waiting for the task to complete, allowing the application to become responsive again.</p>
-          <p>When the task eventually completes, the UI thread will come back to execute the rest of the method, thus displaying the length of the file as desired.</p>
-          <box type="info">
-            <p>Lines 10 and 12 can actually be shortened to a single line:</p>
-            <pre><code style="counter-reset: line 9;" class="hljs csharp"><span>fileContents = <span class="hljs-keyword">await</span> reader.ReadToEndAsync();<br></span></code></pre>
-            <p>In the example, it was written as two lines for explanatory purposes.</p>
-          </box>
-          <h2 id="basic-syntax">Basic Syntax<a class="fa fa-anchor" href="#basic-syntax" onclick="event.stopPropagation()"></a></h2>
-          <p>Let's briefly look at the keywords and how to use them.</p>
-          <h3 id="async">Async<a class="fa fa-anchor" href="#async" onclick="event.stopPropagation()"></a></h3>
-          <p>The <code>async</code> keyword is in a method's signature to specify that it is asynchronous. It allows the use of the <code>await</code> keyword within the method and changes how the method's return values are handled.</p>
-          <pre><code class="hljs csharp"><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">GetAnswerToLifeAsync</span>(<span class="hljs-params"></span>) </span><br></span><span><span class="hljs-function"></span>{<br></span><span>    <span class="hljs-comment">// The answer shall come only after 42 seconds.</span><br></span><span>    <span class="hljs-keyword">await</span> Task.Delay(<span class="hljs-number">42000</span>);<br></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>;<br></span><span>}<br></span></code></pre>
-          <p>Note that while it's used to specify that a method is asynchronous, <em>the <code>async</code> keyword by itself does not provide any asynchronous functionality to the method</em>; that is the job of the <code>await</code> keyword.</p>
-          <h3 id="await">Await<a class="fa fa-anchor" href="#await" onclick="event.stopPropagation()"></a></h3>
-          <p>The <code>await</code> keyword is a unary operator that takes in an <strong>awaitable</strong> object. This is usually a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task?view=netcore-3.1"><code>Task</code></a>, representing an asynchronous operation, or a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1?view=netcore-3.1"><code>Task&lt;T&gt;</code></a>, representing an asynchronous opeartion that returns a value of type <code>T</code>. As mentioned previously, the <code>await</code> keyword can only be used in a method that has been marked as <code>async</code>.</p>
-          <p><code>await</code> will check if the specified awaitable has completed. If it has, then the method will continue as per usual. If it has not, the execution will <code>return</code> from the <code>async</code> method while asynchronously waiting for the task to complete. When the task eventually completes, the remainder of the method will be executed.</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CallingMethod</span>(<span class="hljs-params"></span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    Task jobTask = PerformJobAsync();<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">async</span> Task <span class="hljs-title">PerformJobAsync</span>(<span class="hljs-params"></span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    Task&lt;<span class="hljs-keyword">int</span>&gt; answerTask = GetAnswerToLifeAsync();<br></span><span>    PerformIndependentWork();<br></span><span><br></span><span>    <span class="hljs-comment">// If answerTask is not complete, return to CallingMethod().</span><br></span><span class="highlighted">    <span class="hljs-keyword">int</span> answer = <span class="hljs-keyword">await</span> answerTask;<br></span><span><br></span><span>    <span class="hljs-comment">// After answerTask completes, this line is executed.</span><br></span><span>    Console.WriteLine(<span class="hljs-string">"The answer is "</span> + answer + <span class="hljs-string">"!"</span>);<br></span><span>}<br></span></code></pre>
-          <box type="info">
-            <p>Which thread exactly executes the remainder of the method depends on the captured <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext?view=netcore-3.1"><code>SynchronizationContext</code></a> of the awaitable object. More information can be found on <a href="https://blog.stephencleary.com/2012/02/async-and-await.html">Stephen Cleary's blog post</a></p>
-          </box>
-          <box type="info">
-            <p>It is possible to create custom awaitable types aside from <code>Task</code> and <code>Task&lt;T&gt;</code>. Refer to <a href="https://devblogs.microsoft.com/pfxteam/await-anything/">this blog post</a> for more details.</p>
-          </box>
-          <h3 id="returning-values">Returning Values<a class="fa fa-anchor" href="#returning-values" onclick="event.stopPropagation()"></a></h3>
-          <p><code>async</code> methods can return <code>Task</code>, <code>Task&lt;T&gt;</code> or <code>void</code>, depending on the result of the asynchronous task, if any. If the task has a result of type <code>T</code> upon completion, then the return type of the <code>async</code> method is <code>Task&lt;T&gt;</code>. In this case, the method must return a value of type <code>T</code> <em>(Note: not <code>Task&lt;T&gt;</code>)</em>.</p>
-          <pre><code class="hljs csharp"><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ReadIntFromFileAsync</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> filename</span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> reader = <span class="hljs-keyword">new</span> StreamReader(filename))<br></span><span>    {<br></span><span>        <span class="hljs-keyword">string</span> fileContents = <span class="hljs-keyword">await</span> reader.ReadLineAsync();<br></span><span>        <span class="hljs-comment">// The return value is of type int instead of Task&lt;int&gt;.</span><br></span><span class="highlighted">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">int</span>.Parse(fileContents);<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <p>If the task does not have a result, then the return type of the <code>async</code> method can either be <code>Task</code> or <code>void</code>.</p>
-          <pre><code class="hljs csharp"><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">async</span> Task <span class="hljs-title">WriteIntToFileAsync</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> filename, <span class="hljs-keyword">int</span> integerToWrite</span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> writer = <span class="hljs-keyword">new</span> StreamWriter(filename))<br></span><span>    {<br></span><span>        <span class="hljs-keyword">await</span> writer.WriteLineAsync(integerToWrite.ToString());<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <box type="info">
-            <p>Returning a <code>Task</code> is usually favourable to returning <code>void</code>, since a <code>Task</code> is awaitable while <code>void</code> is not. However, there are situations where <code>void</code> is the preferred return type. The primary use case is event handlers, such as the Button Click event handler in the very first example.</p>
-          </box>
-          <p>There is a bit of a disconnect between the return type of the <code>async</code> method and the type of the value being returned, which takes some getting used to. More information on this design be found on <a href="https://blog.stephencleary.com/2011/09/async-ctp-why-do-keywords-work-that-way.html">Stephen Cleary's blog post.</a></p>
-          <h2 id="control-flow">Control Flow<a class="fa fa-anchor" href="#control-flow" onclick="event.stopPropagation()"></a></h2>
-          <p>Let's take a look at an example to see the control flow of an asynchronous method as a whole:</p>
-          <p><a href="/learningresources/contents/csharp/async-await-control-flow.png" target="_self"><img src="/learningresources/contents/csharp/async-await-control-flow.png" alt class="img-fluid"></a></p>
-          <ol>
-            <li>The <code>PerformTaskAsync()</code> method is called by an external method, which we'll call the <code>CallingMethod()</code>. Let the thread making this call be denoted as the <em>&quot;main thread&quot;</em>, drawn in blue lines.</li>
-            <li>The method makes a call to another <code>async</code> method, <code>GetAnswerAsync()</code>.</li>
-            <li><code>GetAnswerAsync()</code> will return a <code>Task&lt;int&gt;</code> object while it continues in the background.</li>
-            <li>The method continues its execution. This is performed <em>synchronously</em> on the main thread.</li>
-            <li>The execution hits an <code>await</code> statement. Since the <code>answerTask</code> has yet to finish, the main thread suspends the method and <code>return</code>s to the <code>CallingMethod</code>.</li>
-            <li>Eventually, the <code>GetAnswerAsync</code> method finishes. The execution of the remainder of the <code>PerformTaskAsync</code> method is invoked on some thread, let's call it the <em>&quot;secondary thread&quot;</em>, drawn in red lines.</li>
-            <li>The remainder of the method gets executed on the secondary thread.</li>
-          </ol>
-          <box type="info">
-            <p>As mentioned before, details on which thread executes the remainder of the method can be found on <a href="https://blog.stephencleary.com/2012/02/async-and-await.html">Stephen Cleary's blog post</a>.</p>
-          </box>
-          <box type="info">
-            <p>Notice how the execution of the method is synchronous until it reaches the <code>await</code> statement. This means that if the <code>async</code> method does not contain any <code>await</code> statements, the entire method will be executed synchronously. The compiler will provide a warning in such a case:</p>
-            <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">NoAwaitTask</span>(<span class="hljs-params"></span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    <span class="hljs-comment">// Compiler warning:</span><br></span><span>    <span class="hljs-comment">// This async method lacks 'await' operators and will run synchronously.</span><br></span><span>    <span class="hljs-comment">// Consider using the 'await' operator to await non-blocking API calls,</span><br></span><span>    <span class="hljs-comment">// or 'await Task.Run(...)' to do CPU-bound work on a background thread.</span><br></span><span><br></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>;<br></span><span>}<br></span></code></pre>
-          </box>
-          <h2 id="disadvantages-of-async-await">Disadvantages Of Async/Await<a class="fa fa-anchor" href="#disadvantages-of-async-await" onclick="event.stopPropagation()"></a></h2>
-          <p>While the use of <code>async</code> and <code>await</code> can provide the wonderful benefits of responsiveness while keeping the code readable, there are some disadvantages that come with their use.</p>
-          <h3 id="potential-pitfall-deadlock">Potential Pitfall: Deadlock<a class="fa fa-anchor" href="#potential-pitfall-deadlock" onclick="event.stopPropagation()"></a></h3>
-          <p>It takes some time to understand the correct usage of <code>async</code> and <code>await</code>. If you're not careful, you could end up with a deadlock situation. Consider the following <em>seemingly innocent</em> example:</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, RoutedEventArgs e</span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    Task&lt;<span class="hljs-keyword">int</span>&gt; answerTask = GetAnswerAsync()<br></span><span class="highlighted">    answerTask.Wait();<br></span><span>}<br></span><span><br></span><span><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">GetAnswerAsync</span>(<span class="hljs-params"></span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span class="highlighted">    <span class="hljs-keyword">await</span> Task.Delay(<span class="hljs-number">1000</span>);<br></span><span>    <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>;<br></span><span>}<br></span></code></pre>
-          <p>The button's event handler will synchronously wait for the <code>GetAnswerAsync()</code> task to complete. Since the task takes 1 second to complete, you might think that when the user clicks the button, the application will freeze for 1 second before continuing as per normal.</p>
-          <p>However, this isn't what happens.</p>
-          <ul>
-            <li>When the user clicks on the button, the event handler, <code>Button_Click()</code>, will be called by the UI Thread.</li>
-            <li>Without going into too much detail, since the <code>await</code> statement is called from the UI Thread, the remainder of the <code>GetAnswerAsync()</code> method will be executed by the same UI Thread.</li>
-            <li>When the awaited <code>Task.Delay()</code> task at line 9 completes, execution of the remainder of the method will resume <em>at the first opportunity</em> that the UI Thread is available.</li>
-          </ul>
-          <p>As a result, the control flow of the button click event goes like this:</p>
-          <p><a href="/learningresources/contents/csharp/async-await-deadlock.png" target="_self"><img src="/learningresources/contents/csharp/async-await-deadlock.png" alt class="img-fluid"></a></p>
-          <ol>
-            <li><code>GetAnswerAsync()</code> is called by the UI Thread.</li>
-            <li><code>Task.Delay()</code> is called and returns a <code>Task</code> object.</li>
-            <li>Since the delaying task has yet to finish, the UI thread suspends the method and returns to the <code>Button_Click()</code> method.</li>
-            <li>This line synchronously waits for the task to complete, thus <strong>blocking the UI Thread</strong>.</li>
-            <li>After 1 second, the delay task is completed. The <code>await</code> statement <strong>waits for the UI Thread to be available</strong> so that the remainder of the method can be executed.</li>
-          </ol>
-          <p>And we have a deadlock! <code>Button_Click()</code> is blocking the UI Thread while waiting for the task to finish, and the task is waiting for the UI Thread to be available to execute the rest of the method. This causes the application to appear frozen forever.</p>
-          <p>Stephen Cleary explains this problem, as well as how to avoid it, in greater detail in <a href="https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html">his blog post</a>.</p>
-          <h3 id="additional-overhead">Additional Overhead<a class="fa fa-anchor" href="#additional-overhead" onclick="event.stopPropagation()"></a></h3>
-          <p>When an <code>async</code> method is compiled, it gets translated into a State Machine to maintain the behaviour of the original <code>async</code> method. Without going into too much detail, there will be some additional CPU overhead whenever an <code>async</code> method is suspended from an <code>await</code> statement.</p>
-          <p>While this overhead is usually insignificant in most situations, it may become significant when very short methods are called asynchronously, or when performance of the application needs to be prioritized.</p>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources" onclick="event.stopPropagation()"></a></h2>
-          <p>The following resources are in-depth tutorials that serve as a good introduction to Async/Await.</p>
-          <ul>
-            <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Asynchronous Programming with async and await</a></li>
-            <li><a href="https://blog.stephencleary.com/2012/02/async-and-await.html">Async and Await</a></li>
-            <li><a href="https://arghya.xyz/articles/async-await/">How does Async-Await work</a></li>
-            <li><a href="https://ranjeet.dev/Getting-Started-With-Asynchronous-programming/">Getting Started With Asynchronous programming</a></li>
-          </ul>
-          <h2 id="further-reading">Further Reading<a class="fa fa-anchor" href="#further-reading" onclick="event.stopPropagation()"></a></h2>
-          <p>The following resources are interesting reads for a deeper understanding of Async/Await, as well as tips and best practices.</p>
-          <ul>
-            <li><a href="https://medium.com/@deep_blue_day/long-story-short-async-await-best-practices-in-net-1f39d7d84050">Long Story Short: Async/Await Best Practices in .NET</a></li>
-            <li><a href="https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html">Don't Block on Async Code</a></li>
-            <li><a href="https://stackoverflow.com/questions/37419572/if-async-await-doesnt-create-any-additional-threads-then-how-does-it-make-appl">There Is No Thread</a></li>
-            <li><a href="https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/">Dissecting the async methods in C#</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#asynchronous-programming-in-c-using-async-await">Asynchronous Programming In C# Using Async/Await&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-asynchronous-programming">What Is Asynchronous Programming?&#x200E;</a>
-              <a class="nav-link py-1" href="#example-of-asynchronous-programming">Example Of Asynchronous Programming&#x200E;</a>
-              <a class="nav-link py-1" href="#basic-syntax">Basic Syntax&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#async">Async&#x200E;</a>
-                <a class="nav-link py-1" href="#await">Await&#x200E;</a>
-                <a class="nav-link py-1" href="#returning-values">Returning Values&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#control-flow">Control Flow&#x200E;</a>
-              <a class="nav-link py-1" href="#disadvantages-of-async-await">Disadvantages Of Async/Await&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#potential-pitfall-deadlock">Potential Pitfall: Deadlock&#x200E;</a>
-                <a class="nav-link py-1" href="#additional-overhead">Additional Overhead&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
-              <a class="nav-link py-1" href="#further-reading">Further Reading&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Asynchronous Programming In C# Using Async/Await</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="CSAsyncAwait.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="asynchronous-programming-in-c-using-async-await"><span id="asynchronous-programming-in-c-using-async-await" class="anchor"></span>Asynchronous Programming In C# Using Async/Await<a href="#asynchronous-programming-in-c-using-async-await" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Author: <a href="https://github.com/xantho09">Muhammad Irham Rasyidi Bin Zainal</a></strong><br>
+Reviewers: <a href="https://github.com/j-lum">Jeffry Lum</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-asynchronous-programming" data-v-7d17494f>What Is Asynchronous Programming</a></li> <li data-v-7d17494f><a href="#example-of-asynchronous-programming" data-v-7d17494f>Example Of Asynchronous Programming</a></li> <li data-v-7d17494f><a href="#basic-syntax" data-v-7d17494f>Basic Syntax‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#async" data-v-7d17494f>Async</a></li> <li data-v-7d17494f><a href="#await" data-v-7d17494f>Await</a></li> <li data-v-7d17494f><a href="#returning-values" data-v-7d17494f>Returning Values</a></li></ul></li> <li data-v-7d17494f><a href="#control-flow" data-v-7d17494f>Control Flow‎</a></li> <li data-v-7d17494f><a href="#disadvantages-of-asyncawait" data-v-7d17494f>Disadvantages Of Async/Await</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#potential-pitfall-deadlock" data-v-7d17494f>Potential Pitfall: Deadlock</a></li> <li data-v-7d17494f><a href="#additional-overhead" data-v-7d17494f>Additional Overhead</a></li></ul></li> <li data-v-7d17494f><a href="#resources" data-v-7d17494f>Resources</a></li> <li data-v-7d17494f><a href="#further-reading" data-v-7d17494f>Further Reading</a></li></ul></div> <!----></div></div></div> <h2 id="what-is-asynchronous-programming"><span id="what-is-asynchronous-programming" class="anchor"></span>What Is Asynchronous Programming?<a href="#what-is-asynchronous-programming" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>In <strong>synchronous programming</strong>, code is executed one step at a time, waiting for each step to be finished before proceeding to the next step. For example, if the code looks something like this:</p> <ol><li>Perform Task 1.</li> <li>Perform Task 2.</li> <li>Perform Task 3.</li> <li>Use the result from Task 1 to perform Task 4.</li></ol> <p>Then a synchronous execution of this code will start executing Task 1 and wait for it to finish before starting Task 2. Then it will wait for Task 2 to finish before starting Task 3, and so on.</p> <p>In general, this would be fine. However, if Tasks 1, 2 and 3 happen to be independent of each other, and we have a few additional threads available, we can do better:</p> <ul><li>Since tasks 1, 2 and 3 are independent of each other, we can start all three tasks in their own separate threads without needing to wait for any individual task to finish before starting another.</li> <li>Task 4 only needs the result from Task 1 to run. So as long as Task 1 has completed, even if Tasks 2 and 3 are still running, we can start the execution of Task 4.</li></ul> <p>Our modified code can look something like this:</p> <ol><li>Start running Task 1 on Thread A.</li> <li>Start running Task 2 on Thread B.</li> <li>Start running Task 3 on Thread C.</li> <li>Wait for Task 1 to finish.</li> <li>Use the result from Task 1 to start Task 4 on Thread A.</li> <li>Wait for Tasks 2, 3 and 4 to finish.</li></ol> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>Note that Tasks 1, 2 and 3 may not necessarily finish in that order (e.g. It is perfectly possible for Task 3 to finish before Tasks 1 and 2).</p></div> <!----></div></div></div> <p>This is the main idea behind <strong>asynchronous programming</strong>: allowing multiple processes to occur at the same time. When we start a task, the program keeps running. When the tasks finish, the program can access the results.</p> <p>When used correctly, this can result in better utilization of resources at hand, allowing for better performance or program responsiveness.</p> <p>There are many in-depth tutorials online about asynchronous programming, such as <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Microsoft's tutorial on MSDN</a> and <a href="https://blog.stephencleary.com/2012/02/async-and-await.html">Stephen Cleary's blog post</a>. Therefore, this chapter will only provide an overview.</p> <h2 id="example-of-asynchronous-programming"><span id="example-of-asynchronous-programming" class="anchor"></span>Example Of Asynchronous Programming<a href="#example-of-asynchronous-programming" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>To see why asynchronous programming can be useful, consider the following example:</p> <p><a href="/learningresources/contents/csharp/async-await-app-example1.png" target="_self"><img src="/learningresources/contents/csharp/async-await-app-example1.png" alt="" class="img-fluid"></a></p> <p>Here, we have a simple application where the user will type in the name of a file. When the button is pressed, the application will read the specified file and display its length.</p> <p>The code for the Button's logic currently looks like this:</p> <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, RoutedEventArgs e</span>)</span>
+</span><span>{
+</span><span>    <span class="hljs-comment">// Get the name of the file to read.</span>
+</span><span>    <span class="hljs-built_in">string</span> filename = FilenameTextBox.Text;
+</span><span>
+</span><span>    <span class="hljs-comment">// Read the contents of the file.</span>
+</span><span>    <span class="hljs-built_in">string</span> fileContents;
+</span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> reader = <span class="hljs-keyword">new</span> StreamReader(filename))
+</span><span>    {
+</span><span>        fileContents = reader.ReadToEnd();
+</span><span>    }
+</span><span>
+</span><span>    <span class="hljs-comment">// Display the length of the file contents.</span>
+</span><span>    OutputTextBlock.Text = fileContents.Length.ToString();
+</span><span>}
+</span></code></pre><p>Sure enough, when you test it out with a short text file with 16 characters, it works as expected:</p> <p><a href="/learningresources/contents/csharp/async-await-app-example2.png" target="_self"><img src="/learningresources/contents/csharp/async-await-app-example2.png" alt="" class="img-fluid"></a></p> <p>However, when you try out a significantly larger text file, over 700 MB large, you notice an issue: during the file-reading process, <strong>the application completely freezes</strong>. The user cannot interact with the text box, move or resize the window, or minimize it. Only after about 5 seconds does the operation complete, causing the application to become responsive again.</p> <p><a href="/learningresources/contents/csharp/async-await-app-example3.png" target="_self"><img src="/learningresources/contents/csharp/async-await-app-example3.png" alt="" class="img-fluid"></a></p> <p>The main reason this occurs is because the <code class="hljs inline no-lang">Button_Click()</code> is run <em>synchronously</em> on the UI Thread. When the code execution reaches Line 10 in the above code snippet, the UI Thread needs to wait until the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.streamreader.readtoend?view=netcore-3.1"><code class="hljs inline no-lang">reader.ReadToEnd()</code></a> method terminates before it can proceed to the next line, causing the UI thread to be blocked. This means it cannot respond to any other actions performed by the user, resulting in the application appearing frozen.</p> <p>We can avoid this by making the operation asynchronous like so:</p> <pre><code class="hljs csharp"><span><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, RoutedEventArgs e</span>)</span></span>
+</span><span>{
+</span><span>    <span class="hljs-comment">// Get the name of the file to read.</span>
+</span><span>    <span class="hljs-built_in">string</span> fileName = FilenameTextBox.Text;
+</span><span>
+</span><span>    <span class="hljs-built_in">string</span> fileContents;
+</span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> reader = <span class="hljs-keyword">new</span> StreamReader(fileName))
+</span><span>    {
+</span><span>        <span class="hljs-comment">// Start reading the contents of the file.</span>
+</span><span>        <span class="highlighted">Task&lt;<span class="hljs-built_in">string</span>&gt; readingTask = reader.ReadToEndAsync();</span>
+</span><span>        <span class="hljs-comment">// Asynchronously wait for the task to finish.</span>
+</span><span>        <span class="highlighted">fileContents = <span class="hljs-keyword">await</span> readingTask;</span>
+</span><span>    }
+</span><span>
+</span><span>    <span class="hljs-comment">// Display the length of the file contents.</span>
+</span><span>    OutputTextBlock.Text = fileContents.Length.ToString();
+</span><span>}
+</span></code></pre><p>Here, we've replaced the <code class="hljs inline no-lang">ReadToEnd()</code> method with its asynchronous counterpart, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.streamreader.readtoendasync?view=netcore-3.1"><code class="hljs inline no-lang">ReadToEndAsync()</code></a>. This method will return a <code class="hljs inline no-lang">Task&lt;string&gt;</code> object, denoting that the file reading operation has started, but may not have necessarily finished. The magic happens in the next line where we <code class="hljs inline no-lang">await</code> that task. If the task has yet to complete, it will suspend the <code class="hljs inline no-lang">Button_Click()</code> method and yield control to the method's caller. In other words, the execution will <code class="hljs inline no-lang">return</code> from the <code class="hljs inline no-lang">Button_Click()</code> method, giving control back to the UI thread while waiting for the task to complete, allowing the application to become responsive again.</p> <p>When the task eventually completes, the UI thread will come back to execute the rest of the method, thus displaying the length of the file as desired.</p> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>Lines 10 and 12 can actually be shortened to a single line:</p> <pre data-v-7d17494f><code class="hljs csharp" data-v-7d17494f><span data-v-7d17494f>fileContents = <span class="hljs-keyword" data-v-7d17494f>await</span> reader.ReadToEndAsync();
+</span></code></pre><p data-v-7d17494f>In the example, it was written as two lines for explanatory purposes.</p></div> <!----></div></div></div> <h2 id="basic-syntax"><span id="basic-syntax" class="anchor"></span>Basic Syntax<a href="#basic-syntax" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Let's briefly look at the keywords and how to use them.</p> <h3 id="async"><span id="async" class="anchor"></span>Async<a href="#async" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The <code class="hljs inline no-lang">async</code> keyword is in a method's signature to specify that it is asynchronous. It allows the use of the <code class="hljs inline no-lang">await</code> keyword within the method and changes how the method's return values are handled.</p> <pre><code class="hljs csharp"><span><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">async</span> Task&lt;<span class="hljs-built_in">int</span>&gt; <span class="hljs-title">GetAnswerToLifeAsync</span>(<span class="hljs-params"></span>)</span> </span>
+</span><span>{
+</span><span>    <span class="hljs-comment">// The answer shall come only after 42 seconds.</span>
+</span><span>    <span class="hljs-keyword">await</span> Task.Delay(<span class="hljs-number">42000</span>);
+</span><span>    <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>;
+</span><span>}
+</span></code></pre><p>Note that while it's used to specify that a method is asynchronous, <em>the <code class="hljs inline no-lang">async</code> keyword by itself does not provide any asynchronous functionality to the method</em>; that is the job of the <code class="hljs inline no-lang">await</code> keyword.</p> <h3 id="await"><span id="await" class="anchor"></span>Await<a href="#await" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The <code class="hljs inline no-lang">await</code> keyword is a unary operator that takes in an <strong>awaitable</strong> object. This is usually a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task?view=netcore-3.1"><code class="hljs inline no-lang">Task</code></a>, representing an asynchronous operation, or a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1?view=netcore-3.1"><code class="hljs inline no-lang">Task&lt;T&gt;</code></a>, representing an asynchronous opeartion that returns a value of type <code class="hljs inline no-lang">T</code>. As mentioned previously, the <code class="hljs inline no-lang">await</code> keyword can only be used in a method that has been marked as <code class="hljs inline no-lang">async</code>.</p> <p><code class="hljs inline no-lang">await</code> will check if the specified awaitable has completed. If it has, then the method will continue as per usual. If it has not, the execution will <code class="hljs inline no-lang">return</code> from the <code class="hljs inline no-lang">async</code> method while asynchronously waiting for the task to complete. When the task eventually completes, the remainder of the method will be executed.</p> <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CallingMethod</span>(<span class="hljs-params"></span>)</span>
+</span><span>{
+</span><span>    Task jobTask = PerformJobAsync();
+</span><span>}
+</span><span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">async</span> Task <span class="hljs-title">PerformJobAsync</span>(<span class="hljs-params"></span>)</span>
+</span><span>{
+</span><span>    Task&lt;<span class="hljs-built_in">int</span>&gt; answerTask = GetAnswerToLifeAsync();
+</span><span>    PerformIndependentWork();
+</span><span>
+</span><span>    <span class="hljs-comment">// If answerTask is not complete, return to CallingMethod().</span>
+</span><span>    <span class="highlighted"><span class="hljs-built_in">int</span> answer = <span class="hljs-keyword">await</span> answerTask;</span>
+</span><span>
+</span><span>    <span class="hljs-comment">// After answerTask completes, this line is executed.</span>
+</span><span>    Console.WriteLine(<span class="hljs-string">&quot;The answer is &quot;</span> + answer + <span class="hljs-string">&quot;!&quot;</span>);
+</span><span>}
+</span></code></pre><div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>Which thread exactly executes the remainder of the method depends on the captured <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext?view=netcore-3.1" data-v-7d17494f><code class="hljs inline no-lang" data-v-7d17494f>SynchronizationContext</code></a> of the awaitable object. More information can be found on <a href="https://blog.stephencleary.com/2012/02/async-and-await.html" data-v-7d17494f>Stephen Cleary's blog post</a></p></div> <!----></div></div></div> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>It is possible to create custom awaitable types aside from <code class="hljs inline no-lang" data-v-7d17494f>Task</code> and <code class="hljs inline no-lang" data-v-7d17494f>Task&lt;T&gt;</code>. Refer to <a href="https://devblogs.microsoft.com/pfxteam/await-anything/" data-v-7d17494f>this blog post</a> for more details.</p></div> <!----></div></div></div> <h3 id="returning-values"><span id="returning-values" class="anchor"></span>Returning Values<a href="#returning-values" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p><code class="hljs inline no-lang">async</code> methods can return <code class="hljs inline no-lang">Task</code>, <code class="hljs inline no-lang">Task&lt;T&gt;</code> or <code class="hljs inline no-lang">void</code>, depending on the result of the asynchronous task, if any. If the task has a result of type <code class="hljs inline no-lang">T</code> upon completion, then the return type of the <code class="hljs inline no-lang">async</code> method is <code class="hljs inline no-lang">Task&lt;T&gt;</code>. In this case, the method must return a value of type <code class="hljs inline no-lang">T</code> <em>(Note: not <code class="hljs inline no-lang">Task&lt;T&gt;</code>)</em>.</p> <pre><code class="hljs csharp"><span><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">async</span> Task&lt;<span class="hljs-built_in">int</span>&gt; <span class="hljs-title">ReadIntFromFileAsync</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> filename</span>)</span></span>
+</span><span>{
+</span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> reader = <span class="hljs-keyword">new</span> StreamReader(filename))
+</span><span>    {
+</span><span>        <span class="hljs-built_in">string</span> fileContents = <span class="hljs-keyword">await</span> reader.ReadLineAsync();
+</span><span>        <span class="hljs-comment">// The return value is of type int instead of Task&lt;int&gt;.</span>
+</span><span>        <span class="highlighted"><span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>.Parse(fileContents);</span>
+</span><span>    }
+</span><span>}
+</span></code></pre><p>If the task does not have a result, then the return type of the <code class="hljs inline no-lang">async</code> method can either be <code class="hljs inline no-lang">Task</code> or <code class="hljs inline no-lang">void</code>.</p> <pre><code class="hljs csharp"><span><span class="highlighted"><span class="hljs-function"><span class="hljs-keyword">async</span> Task <span class="hljs-title">WriteIntToFileAsync</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> filename, <span class="hljs-built_in">int</span> integerToWrite</span>)</span></span>
+</span><span>{
+</span><span>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> writer = <span class="hljs-keyword">new</span> StreamWriter(filename))
+</span><span>    {
+</span><span>        <span class="hljs-keyword">await</span> writer.WriteLineAsync(integerToWrite.ToString());
+</span><span>    }
+</span><span>}
+</span></code></pre><div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>Returning a <code class="hljs inline no-lang" data-v-7d17494f>Task</code> is usually favourable to returning <code class="hljs inline no-lang" data-v-7d17494f>void</code>, since a <code class="hljs inline no-lang" data-v-7d17494f>Task</code> is awaitable while <code class="hljs inline no-lang" data-v-7d17494f>void</code> is not. However, there are situations where <code class="hljs inline no-lang" data-v-7d17494f>void</code> is the preferred return type. The primary use case is event handlers, such as the Button Click event handler in the very first example.</p></div> <!----></div></div></div> <p>There is a bit of a disconnect between the return type of the <code class="hljs inline no-lang">async</code> method and the type of the value being returned, which takes some getting used to. More information on this design be found on <a href="https://blog.stephencleary.com/2011/09/async-ctp-why-do-keywords-work-that-way.html">Stephen Cleary's blog post.</a></p> <h2 id="control-flow"><span id="control-flow" class="anchor"></span>Control Flow<a href="#control-flow" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Let's take a look at an example to see the control flow of an asynchronous method as a whole:</p> <p><a href="/learningresources/contents/csharp/async-await-control-flow.png" target="_self"><img src="/learningresources/contents/csharp/async-await-control-flow.png" alt="" class="img-fluid"></a></p> <ol><li>The <code class="hljs inline no-lang">PerformTaskAsync()</code> method is called by an external method, which we'll call the <code class="hljs inline no-lang">CallingMethod()</code>. Let the thread making this call be denoted as the <em>&quot;main thread&quot;</em>, drawn in blue lines.</li> <li>The method makes a call to another <code class="hljs inline no-lang">async</code> method, <code class="hljs inline no-lang">GetAnswerAsync()</code>.</li> <li><code class="hljs inline no-lang">GetAnswerAsync()</code> will return a <code class="hljs inline no-lang">Task&lt;int&gt;</code> object while it continues in the background.</li> <li>The method continues its execution. This is performed <em>synchronously</em> on the main thread.</li> <li>The execution hits an <code class="hljs inline no-lang">await</code> statement. Since the <code class="hljs inline no-lang">answerTask</code> has yet to finish, the main thread suspends the method and <code class="hljs inline no-lang">return</code>s to the <code class="hljs inline no-lang">CallingMethod</code>.</li> <li>Eventually, the <code class="hljs inline no-lang">GetAnswerAsync</code> method finishes. The execution of the remainder of the <code class="hljs inline no-lang">PerformTaskAsync</code> method is invoked on some thread, let's call it the <em>&quot;secondary thread&quot;</em>, drawn in red lines.</li> <li>The remainder of the method gets executed on the secondary thread.</li></ol> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>As mentioned before, details on which thread executes the remainder of the method can be found on <a href="https://blog.stephencleary.com/2012/02/async-and-await.html" data-v-7d17494f>Stephen Cleary's blog post</a>.</p></div> <!----></div></div></div> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>Notice how the execution of the method is synchronous until it reaches the <code class="hljs inline no-lang" data-v-7d17494f>await</code> statement. This means that if the <code class="hljs inline no-lang" data-v-7d17494f>async</code> method does not contain any <code class="hljs inline no-lang" data-v-7d17494f>await</code> statements, the entire method will be executed synchronously. The compiler will provide a warning in such a case:</p> <pre data-v-7d17494f><code class="hljs csharp" data-v-7d17494f><span data-v-7d17494f><span class="hljs-function" data-v-7d17494f><span class="hljs-keyword" data-v-7d17494f>async</span> Task&lt;<span class="hljs-built_in" data-v-7d17494f>int</span>&gt; <span class="hljs-title" data-v-7d17494f>NoAwaitTask</span>(<span class="hljs-params" data-v-7d17494f></span>)</span>
+</span><span data-v-7d17494f>{
+</span><span data-v-7d17494f>    <span class="hljs-comment" data-v-7d17494f>// Compiler warning:</span>
+</span><span data-v-7d17494f>    <span class="hljs-comment" data-v-7d17494f>// This async method lacks 'await' operators and will run synchronously.</span>
+</span><span data-v-7d17494f>    <span class="hljs-comment" data-v-7d17494f>// Consider using the 'await' operator to await non-blocking API calls,</span>
+</span><span data-v-7d17494f>    <span class="hljs-comment" data-v-7d17494f>// or 'await Task.Run(...)' to do CPU-bound work on a background thread.</span>
+</span><span data-v-7d17494f>
+</span><span data-v-7d17494f>    <span class="hljs-keyword" data-v-7d17494f>return</span> <span class="hljs-number" data-v-7d17494f>42</span>;
+</span><span data-v-7d17494f>}
+</span></code></pre></div> <!----></div></div></div> <h2 id="disadvantages-of-async-await"><span id="disadvantages-of-async-await" class="anchor"></span>Disadvantages Of Async/Await<a href="#disadvantages-of-async-await" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>While the use of <code class="hljs inline no-lang">async</code> and <code class="hljs inline no-lang">await</code> can provide the wonderful benefits of responsiveness while keeping the code readable, there are some disadvantages that come with their use.</p> <h3 id="potential-pitfall-deadlock"><span id="potential-pitfall-deadlock" class="anchor"></span>Potential Pitfall: Deadlock<a href="#potential-pitfall-deadlock" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>It takes some time to understand the correct usage of <code class="hljs inline no-lang">async</code> and <code class="hljs inline no-lang">await</code>. If you're not careful, you could end up with a deadlock situation. Consider the following <em>seemingly innocent</em> example:</p> <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, RoutedEventArgs e</span>)</span>
+</span><span>{
+</span><span>    Task&lt;<span class="hljs-built_in">int</span>&gt; answerTask = GetAnswerAsync()
+</span><span>    <span class="highlighted">answerTask.Wait();</span>
+</span><span>}
+</span><span>
+</span><span><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-built_in">int</span>&gt; <span class="hljs-title">GetAnswerAsync</span>(<span class="hljs-params"></span>)</span>
+</span><span>{
+</span><span>    <span class="highlighted"><span class="hljs-keyword">await</span> Task.Delay(<span class="hljs-number">1000</span>);</span>
+</span><span>    <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>;
+</span><span>}
+</span></code></pre><p>The button's event handler will synchronously wait for the <code class="hljs inline no-lang">GetAnswerAsync()</code> task to complete. Since the task takes 1 second to complete, you might think that when the user clicks the button, the application will freeze for 1 second before continuing as per normal.</p> <p>However, this isn't what happens.</p> <ul><li>When the user clicks on the button, the event handler, <code class="hljs inline no-lang">Button_Click()</code>, will be called by the UI Thread.</li> <li>Without going into too much detail, since the <code class="hljs inline no-lang">await</code> statement is called from the UI Thread, the remainder of the <code class="hljs inline no-lang">GetAnswerAsync()</code> method will be executed by the same UI Thread.</li> <li>When the awaited <code class="hljs inline no-lang">Task.Delay()</code> task at line 9 completes, execution of the remainder of the method will resume <em>at the first opportunity</em> that the UI Thread is available.</li></ul> <p>As a result, the control flow of the button click event goes like this:</p> <p><a href="/learningresources/contents/csharp/async-await-deadlock.png" target="_self"><img src="/learningresources/contents/csharp/async-await-deadlock.png" alt="" class="img-fluid"></a></p> <ol><li><code class="hljs inline no-lang">GetAnswerAsync()</code> is called by the UI Thread.</li> <li><code class="hljs inline no-lang">Task.Delay()</code> is called and returns a <code class="hljs inline no-lang">Task</code> object.</li> <li>Since the delaying task has yet to finish, the UI thread suspends the method and returns to the <code class="hljs inline no-lang">Button_Click()</code> method.</li> <li>This line synchronously waits for the task to complete, thus <strong>blocking the UI Thread</strong>.</li> <li>After 1 second, the delay task is completed. The <code class="hljs inline no-lang">await</code> statement <strong>waits for the UI Thread to be available</strong> so that the remainder of the method can be executed.</li></ol> <p>And we have a deadlock! <code class="hljs inline no-lang">Button_Click()</code> is blocking the UI Thread while waiting for the task to finish, and the task is waiting for the UI Thread to be available to execute the rest of the method. This causes the application to appear frozen forever.</p> <p>Stephen Cleary explains this problem, as well as how to avoid it, in greater detail in <a href="https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html">his blog post</a>.</p> <h3 id="additional-overhead"><span id="additional-overhead" class="anchor"></span>Additional Overhead<a href="#additional-overhead" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>When an <code class="hljs inline no-lang">async</code> method is compiled, it gets translated into a State Machine to maintain the behaviour of the original <code class="hljs inline no-lang">async</code> method. Without going into too much detail, there will be some additional CPU overhead whenever an <code class="hljs inline no-lang">async</code> method is suspended from an <code class="hljs inline no-lang">await</code> statement.</p> <p>While this overhead is usually insignificant in most situations, it may become significant when very short methods are called asynchronously, or when performance of the application needs to be prioritized.</p> <h2 id="resources"><span id="resources" class="anchor"></span>Resources<a href="#resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The following resources are in-depth tutorials that serve as a good introduction to Async/Await.</p> <ul><li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Asynchronous Programming with async and await</a></li> <li><a href="https://blog.stephencleary.com/2012/02/async-and-await.html">Async and Await</a></li> <li><a href="https://arghya.xyz/articles/async-await/">How does Async-Await work</a></li> <li><a href="https://ranjeet.dev/Getting-Started-With-Asynchronous-programming/">Getting Started With Asynchronous programming</a></li></ul> <h2 id="further-reading"><span id="further-reading" class="anchor"></span>Further Reading<a href="#further-reading" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The following resources are interesting reads for a deeper understanding of Async/Await, as well as tips and best practices.</p> <ul><li><a href="https://medium.com/@deep_blue_day/long-story-short-async-await-best-practices-in-net-1f39d7d84050">Long Story Short: Async/Await Best Practices in .NET</a></li> <li><a href="https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html">Don't Block on Async Code</a></li> <li><a href="https://stackoverflow.com/questions/37419572/if-async-await-doesnt-create-any-additional-threads-then-how-does-it-make-appl">There Is No Thread</a></li> <li><a href="https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/">Dissecting the async methods in C#</a></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#asynchronous-programming-in-c-using-async-await" class="nav-link py-1" data-v-e8c82f88>Asynchronous Programming In C# Using Async/Await‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-asynchronous-programming" class="nav-link py-1" data-v-e8c82f88>What Is Asynchronous Programming?‎</a> <a href="#example-of-asynchronous-programming" class="nav-link py-1" data-v-e8c82f88>Example Of Asynchronous Programming‎</a> <a href="#basic-syntax" class="nav-link py-1" data-v-e8c82f88>Basic Syntax‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#async" class="nav-link py-1" data-v-e8c82f88>Async‎</a> <a href="#await" class="nav-link py-1" data-v-e8c82f88>Await‎</a> <a href="#returning-values" class="nav-link py-1" data-v-e8c82f88>Returning Values‎</a></nav> <a href="#control-flow" class="nav-link py-1" data-v-e8c82f88>Control Flow‎</a> <a href="#disadvantages-of-async-await" class="nav-link py-1" data-v-e8c82f88>Disadvantages Of Async/Await‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#potential-pitfall-deadlock" class="nav-link py-1" data-v-e8c82f88>Potential Pitfall: Deadlock‎</a> <a href="#additional-overhead" class="nav-link py-1" data-v-e8c82f88>Additional Overhead‎</a></nav> <a href="#resources" class="nav-link py-1" data-v-e8c82f88>Resources‎</a> <a href="#further-reading" class="nav-link py-1" data-v-e8c82f88>Further Reading‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

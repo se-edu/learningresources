@@ -1,541 +1,72 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Security Testing</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Testing
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a current">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-security-testing">Introduction to Security Testing<a class="fa fa-anchor" href="#introduction-to-security-testing" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author: <a href="https://github.com/madanalogy">Ahmed Bahajjaj</a></strong><br>
-            Reviewers: <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/j-lum">Jeffry Lum</a>, <a href="https://github.com/tiuweehan">Tiu Wee Han</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#introduction-to-security-testing">Introduction to Security Testing</a>
-                <ul>
-                  <li><a href="#what-is-security-testing">What Is Security Testing?‎</a></li>
-                  <li><a href="#why-have-security-testing">Why Have Security Testing?</a></li>
-                  <li><a href="#security-testing-in-action">Security Testing in Action</a></li>
-                  <li><a href="#where-to-go-from-here">Where to Go From Here?</a></li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-          <h2 id="what-is-security-testing">What Is Security Testing?<a class="fa fa-anchor" href="#what-is-security-testing" onclick="event.stopPropagation()"></a></h2>
-          <p>Testing is defined by the Open Web Application Security Project (<span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">OWASP is a worldwide non-profit organization focused on improving the security of software.</span><strong>OWASP</strong></span>) as a process of comparing the state of a system or application against a set of criteria<span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1">[1]</a></sup></span>. Security testing then is a type of software testing where the criteria to be compared against comprise of security requirements.</p>
-          <p>The OWASP Zed-Attack-Proxy (ZAP) Project defines software security testing as the process of assessing and testing a system to discover security risks and <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">A vulnerability is a hole or a weakness in a system that allows an attacker to cause harm to the stakeholders of the system.</span><strong>vulnerabilities</strong></span> of the system and its data<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2">[2]</a></sup></span>. Assessments are defined as the analysis and discovery of vulnerabilities without attempting to actually exploit those vulnerabilities, and testing as the discovery and attempted exploitation of vulnerabilities.</p>
-          <h3 id="types-of-security-testing">Types of Security Testing<a class="fa fa-anchor" href="#types-of-security-testing" onclick="event.stopPropagation()"></a></h3>
-          <p>Security testing is often categorised, somewhat arbitrarily, according to either the type of vulnerability being tested or the type of testing being done. A common categorisation as defined by OWASP ZAP is as follows<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2:1">[2]</a></sup></span>:</p>
-          <ul>
-            <li><strong>Vulnerability Assessment</strong>: The system is scanned and analyzed for security vulnerabilities.</li>
-            <li><strong>Penetration Testing</strong>: The system undergoes analysis and attack from simulated malicious attackers.</li>
-            <li><strong>Runtime Testing</strong>: The system undergoes analysis and security testing from an end-user.</li>
-            <li><strong>Code Review</strong>: The system code undergoes a detailed review and analysis looking specifically for security vulnerabilities.</li>
-          </ul>
-          <p>
-            <box type="info">Note that risk assessment, which is commonly listed as part of security testing, is not included in this list. That is because a risk assessment is not actually a test but rather the analysis of the perceived severity of different risks (software security, personnel security, hardware security, etc.) and any mitigation steps for those risks.</box>
-          </p>
-          <h2 id="why-have-security-testing">Why Have Security Testing?<a class="fa fa-anchor" href="#why-have-security-testing" onclick="event.stopPropagation()"></a></h2>
-          <p>Security testing ensures that a system is secure. Since security requirements differ depending on the goals of the project, it is often hard to define the concept of what it means to be secure. One definition is as follows<span for="pop:footnote3" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote3'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote3" id="footnoteref3">[3]</a></sup></span>:</p>
-          <p>
-            <box type="definition">Security means that authorized access is granted to protected data and unauthorized access is restricted.</box>
-          </p>
-          <p>This definition encompasses two major aspects; first is the protection of data and the second is access to that data. Whether the system is desktop or web-based, we will loosely define security as revolving around the two aforementioned aspects.</p>
-          <p>Due to the logical limitations of security testing however, passing security testing is not an indication that no flaws exist or that the system adequately satisfies the security requirements<span for="pop:footnote4" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote4'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote4" id="footnoteref4">[4]</a></sup></span>. Why have security testing then? In brief, unauthorised access to data is a very expensive problem<span for="pop:footnote5" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote5'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote5" id="footnoteref5">[5]</a></sup></span> and since a system would be more secure with security testing than without<span for="pop:footnote6" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote6'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote6" id="footnoteref6">[6]</a></sup></span>, an effort should be made to have security testing.</p>
-          <p>
-            <box type="warning">There is more to the concept of security than the working definition used here.</box>
-          </p>
-          <h2 id="security-testing-in-action">Security Testing in Action<a class="fa fa-anchor" href="#security-testing-in-action" onclick="event.stopPropagation()"></a></h2>
-          <p>Security testing can be integrated into every stage of the Software Development Life Cycle <a href="https://se-education.org/se-book/processModels/">(SDLC)</a>. A conceptual example of such an integration is as follows<span for="pop:footnote7" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote7'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote7" id="footnoteref7">[7]</a></sup></span>:</p>
-          <center>
-            <pic src="/learningresources/contents/testing/security-testing/Sec-Test-Fig-1.png" width="800" alt="Example">
-              Figure 1 - Example of Security Testing during a SDLC.
-            </pic>
-          </center>
-          <br>
-          <p>To understand this in more detail, we can deconstruct the application of security testing into its manifestation in different stages of software development.</p>
-          <h3 id="at-a-glance">At a Glance<a class="fa fa-anchor" href="#at-a-glance" onclick="event.stopPropagation()"></a></h3>
-          <p>The following series of steps adapted from the OWASP Testing Guide<span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1:1">[1]</a></sup></span> provide general applications of security testing in a generic SDLC process.</p>
-          <center>
-            <pic src="/learningresources/contents/testing/security-testing/Sec-Test-Fig-2.png" width="650" alt="Workflow">
-              Figure 2 - Testing Framework Workflow from the OWASP Testing Guide.
-            </pic>
-          </center>
-          <br>
-          <h3 id="step-1-before-development">Step 1: Before Development<a class="fa fa-anchor" href="#step-1-before-development" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="1-1-define-an-sdlc">1.1 Define an SDLC<a class="fa fa-anchor" href="#1-1-define-an-sdlc" onclick="event.stopPropagation()"></a></h4>
-          <p>Before application development starts, an adequate SDLC must be defined where security is inherent at each stage.</p>
-          <h4 id="1-2-review-policies-and-standards">1.2 Review Policies and Standards<a class="fa fa-anchor" href="#1-2-review-policies-and-standards" onclick="event.stopPropagation()"></a></h4>
-          <p>Ensure that there are appropriate policies, standards, and documentation in place. Documentation is extremely important as it gives development teams guidelines and policies that they can follow. An example of one such documentation is the OWASP Secure Coding Practices Quick Reference Guide<span for="pop:footnote8" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote8'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote8" id="footnoteref8">[8]</a></sup></span>.</p>
-          <p>
-            <box type="important">People can only do the right thing if they know what the right thing is.</box>
-          </p>
-          <p>If the application is to be developed in Java, it is essential that there is a Java secure coding standard. If the application is to use cryptography, it is essential that there is a cryptography standard. No policies or standards can cover every situation that the development team will face. By documenting common and predictable issues, there will be fewer decisions that need to be made during the development process.</p>
-          <h3 id="step-2-during-definition-and-design">Step 2: During Definition and Design<a class="fa fa-anchor" href="#step-2-during-definition-and-design" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="2-1-review-security-requirements">2.1 Review Security Requirements<a class="fa fa-anchor" href="#2-1-review-security-requirements" onclick="event.stopPropagation()"></a></h4>
-          <p>Security requirements define how an application works from a security perspective. It is essential that the security requirements are tested. In particular, assumptions that are made in the requirements are tested while checking if there are any gaps in the requirement definitions.</p>
-          <p>For example, if there is a security requirement that states that users must be registered before they can get access to a particular section of a website, does this mean that the user must be registered with the system or should the user be authenticated? Ensure that requirements are as unambiguous as possible.</p>
-          <h4 id="2-2-review-design-and-amp-architecture">2.2 Review Design &amp; Architecture<a class="fa fa-anchor" href="#2-2-review-design-and-amp-architecture" onclick="event.stopPropagation()"></a></h4>
-          <p>Applications should have a documented design and architecture. This documentation can include models, textual documents, and other similar artifacts. It is essential to test these artifacts to ensure that the design and architecture enforce the appropriate level of security as defined in the requirements.</p>
-          <p>Identifying security flaws in the design phase is not only one of the most cost-efficient places to identify flaws, but can be one of the most effective places to make changes. For example, if it is identified that the design calls for authorization decisions to be made in multiple places, it may be appropriate to consider having a central component responsible for authorization. If the application is performing data validation at multiple places, it may be appropriate to develop a central validation framework (i.e. fixing input validation in one place, rather than in hundreds of places).</p>
-          <h3 id="step-3-during-development">Step 3: During Development<a class="fa fa-anchor" href="#step-3-during-development" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="3-1-unit-and-amp-system-tests">3.1 Unit &amp; System Tests<a class="fa fa-anchor" href="#3-1-unit-and-amp-system-tests" onclick="event.stopPropagation()"></a></h4>
-          <p><a href="https://se-education.org/se-book/testing/#unit-testing">Unit tests</a> and <a href="https://se-education.org/se-book/testing/#system-testing">system tests</a> should be written to explicitly ensure adherence to functional security requirements. For example, an application with an access control feature should include unit tests to ensure that unauthorised access credentials are not accepted.</p>
-          <h4 id="3-2-code-walk-through">3.2 Code Walk Through<a class="fa fa-anchor" href="#3-2-code-walk-through" onclick="event.stopPropagation()"></a></h4>
-          <p>The security team should perform a code walk through with the developers, and in some cases, the system architects. A code walk through is a high-level walk through of the code where the developers can explain the logic and flow of the implemented code. It allows the code review team to obtain a general understanding of the code, and allows the developers to explain why certain things were developed the way they were.</p>
-          <p>
-            <box type="tip">The purpose is not to perform a code review, but to understand at a high level: the flow, the layout, and the structure of the code that makes up the application.</box>
-          </p>
-          <h4 id="3-3-code-reviews">3.3 Code Reviews<a class="fa fa-anchor" href="#3-3-code-reviews" onclick="event.stopPropagation()"></a></h4>
-          <p>Armed with a good understanding of how the code is structured and why certain things were coded the way they were, the tester can now examine the actual code for security defects.</p>
-          <h3 id="step-4-during-deployment">Step 4: During Deployment‎<a class="fa fa-anchor" href="#step-4-during-deployment" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="4-1-penetration-testing">4.1 Penetration Testing<a class="fa fa-anchor" href="#4-1-penetration-testing" onclick="event.stopPropagation()"></a></h4>
-          <p>Having tested the requirements, analyzed the design, and performed code review, it might be assumed that all issues have been caught. Hopefully this is the case, but penetration testing (a.k.a. pentesting) the application after it has been deployed provides a last check to ensure that nothing has been missed.</p>
-          <p>
-            <box type="info">Penetration testing is carried out as if the tester was a malicious external attacker.</box>
-          </p>
-          <p>The ultimate goal of pentesting is to search for vulnerabilities so that these vulnerabilities can be addressed. It can also verify that a system is not vulnerable to a known class or specific defect; or, in the case of vulnerabilities that have been reported as fixed, verify that the system is no longer vulnerable to that defect.<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2:2">[2]</a></sup></span></p>
-          <h2 id="where-to-go-from-here">Where to Go From Here?<a class="fa fa-anchor" href="#where-to-go-from-here" onclick="event.stopPropagation()"></a></h2>
-          <p>Now that you know conceptually what security testing is about and how it's generally applied, you can afford to focus on topics depending on your role and interests:</p>
-          <ul>
-            <li><strong>Developer</strong>: Focus on how you can translate security requirements into actual code. Additionally, it would be worth your while as well to go through the OWASP Secure Coding Practices Quick Reference Guide<span for="pop:footnote8" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote8'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote8" id="footnoteref8:1">[8]</a></sup></span>.</li>
-            <li><strong>Project Manager</strong>: Your role is crucial before deployment (in selecting an SDLC and setting out project policies) as well as during requirements definition. It is recommended to read entirely the OWASP Testing Guide<span for="pop:footnote1" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote1'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote1" id="footnoteref1:2">[1]</a></sup></span> to have a complete understanding of what is required.</li>
-            <li><strong>Security Specialist</strong>: Your duties often come in the requirements definition stage and system deployment stage, maybe during code walk through as well depending on organisational decisions. Start with the Wikipedia Article on Security Testing<span for="pop:footnote4" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote4'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote4" id="footnoteref4:1">[4]</a></sup></span> to learn more about security concepts and OWASP ZAP<span for="pop:footnote2" v-b-popover.hover.top.html="popoverGenerator" v-b-tooltip.hover.top.html="tooltipContentGetter" v-on:mouseover="$refs['pop:footnote2'].show()" class="trigger"><sup class="footnote-ref"><a aria-describedby="footnote-label" href="#footnote2" id="footnoteref2:3">[2]</a></sup></span> to learn basic penetration testing.</li>
-          </ul>
-        </div>
-        <hr class="footnotes-sep">
-        <section class="footnotes">
-          <ol class="footnotes-list">
-            <li id="footnote1" class="footnote-item">
-              <p><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a>: An extremely comprehensive guide on security testing with in-depth coverage of web-application security testing.</p>
-            </li>
-            <li id="footnote2" class="footnote-item">
-              <p><a href="https://www.zaproxy.org/getting-started/">OWASP Zed-Attack-Proxy</a>: A tool for conducting vulnerability assessments and penetration testing.</p>
-            </li>
-            <li id="footnote3" class="footnote-item">
-              <p><a href="https://www.softwaretestinghelp.com/how-to-test-application-security-web-and-desktop-application-security-testing-techniques/">Breakdown by SoftwareTestingHelp.com</a>: A breakdown of security testing into common attack vectors and recommended tools.</p>
-            </li>
-            <li id="footnote4" class="footnote-item">
-              <p><a href="https://en.wikipedia.org/wiki/Security_testing">Wikipedia Article on Security Testing</a>: Coverage on the abstract concepts of security testing and the taxonomy involved.</p>
-            </li>
-            <li id="footnote5" class="footnote-item">
-              <p><a href="https://www.ibm.com/downloads/cas/ZYKLN2E3">2017 Cost of Data Breach Study</a>: IBM sponsored report for a study on the cost of data breaches in 2017.</p>
-            </li>
-            <li id="footnote6" class="footnote-item">
-              <p><a href="https://medium.com/@cxosmo/owasp-top-10-real-world-examples-part-1-a540c4ea2df5">OWASP Top 10 Examples</a>: Real examples of what might happen if Security Testing is overlooked.</p>
-            </li>
-            <li id="footnote7" class="footnote-item">
-              <p><a href="https://www.guru99.com/what-is-security-testing.html">Overview by Guru99.com</a>: A brief summary of Security Testing and it's role in Software Testing.</p>
-            </li>
-            <li id="footnote8" class="footnote-item">
-              <p><a href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf">OWASP Secure Coding Practices</a>: A quick reference guide for secure coding practices.</p>
-            </li>
-          </ol>
-          <span id="pop:footnote1" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a>: An extremely comprehensive guide on security testing with in-depth coverage of web-application security testing.</p>
-            </div>
-          </span>
-
-          <span id="pop:footnote2" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://www.zaproxy.org/getting-started/">OWASP Zed-Attack-Proxy</a>: A tool for conducting vulnerability assessments and penetration testing.</p>
-            </div>
-          </span>
-
-          <span id="pop:footnote3" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://www.softwaretestinghelp.com/how-to-test-application-security-web-and-desktop-application-security-testing-techniques/">Breakdown by SoftwareTestingHelp.com</a>: A breakdown of security testing into common attack vectors and recommended tools.</p>
-            </div>
-          </span>
-
-          <span id="pop:footnote4" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://en.wikipedia.org/wiki/Security_testing">Wikipedia Article on Security Testing</a>: Coverage on the abstract concepts of security testing and the taxonomy involved.</p>
-            </div>
-          </span>
-
-          <span id="pop:footnote5" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://www.ibm.com/downloads/cas/ZYKLN2E3">2017 Cost of Data Breach Study</a>: IBM sponsored report for a study on the cost of data breaches in 2017.</p>
-            </div>
-          </span>
-
-          <span id="pop:footnote6" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://medium.com/@cxosmo/owasp-top-10-real-world-examples-part-1-a540c4ea2df5">OWASP Top 10 Examples</a>: Real examples of what might happen if Security Testing is overlooked.</p>
-            </div>
-          </span>
-
-          <span id="pop:footnote7" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://www.guru99.com/what-is-security-testing.html">Overview by Guru99.com</a>: A brief summary of Security Testing and it's role in Software Testing.</p>
-            </div>
-          </span>
-
-          <span id="pop:footnote8" data-mb-component-type="popover" v-b-popover.hover.top.html="popoverInnerGenerator" class="trigger">
-            <div data-mb-html-for="content">
-              <p><a href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf">OWASP Secure Coding Practices</a>: A quick reference guide for secure coding practices.</p>
-            </div>
-          </span>
-        </section>
-      </div>
-
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-security-testing">Introduction to Security Testing&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-security-testing">What Is Security Testing?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#types-of-security-testing">Types of Security Testing&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#why-have-security-testing">Why Have Security Testing?&#x200E;</a>
-              <a class="nav-link py-1" href="#security-testing-in-action">Security Testing in Action&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#at-a-glance">At a Glance&#x200E;</a>
-                <a class="nav-link py-1" href="#step-1-before-development">Step 1: Before Development&#x200E;</a>
-                <a class="nav-link py-1" href="#step-2-during-definition-and-design">Step 2: During Definition and Design&#x200E;</a>
-                <a class="nav-link py-1" href="#step-3-during-development">Step 3: During Development&#x200E;</a>
-                <a class="nav-link py-1" href="#step-4-during-deployment">Step 4: During Deployment‎&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#where-to-go-from-here">Where to Go From Here?&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to Security Testing</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="security-testing.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-security-testing"><span id="introduction-to-security-testing" class="anchor"></span>Introduction to Security Testing<a href="#introduction-to-security-testing" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Author: <a href="https://github.com/madanalogy">Ahmed Bahajjaj</a></strong><br>
+Reviewers: <a href="https://github.com/jamessspanggg">James Pang</a>, <a href="https://github.com/j-lum">Jeffry Lum</a>, <a href="https://github.com/tiuweehan">Tiu Wee Han</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#introduction-to-security-testing" data-v-7d17494f>Introduction to Security Testing</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-security-testing" data-v-7d17494f>What Is Security Testing?‎</a></li> <li data-v-7d17494f><a href="#why-have-security-testing" data-v-7d17494f>Why Have Security Testing?</a></li> <li data-v-7d17494f><a href="#security-testing-in-action" data-v-7d17494f>Security Testing in Action</a></li> <li data-v-7d17494f><a href="#where-to-go-from-here" data-v-7d17494f>Where to Go From Here?</a></li></ul></li></ul></div> <!----></div></div></div> <h2 id="what-is-security-testing"><span id="what-is-security-testing" class="anchor"></span>What Is Security Testing?<a href="#what-is-security-testing" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Testing is defined by the Open Web Application Security Project (<span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">OWASP is a worldwide non-profit organization focused on improving the security of software.</span><strong>OWASP</strong></span>) as a process of comparing the state of a system or application against a set of criteria<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--1">[1]</a></sup></span>. Security testing then is a type of software testing where the criteria to be compared against comprise of security requirements.</p> <p>The OWASP Zed-Attack-Proxy (ZAP) Project defines software security testing as the process of assessing and testing a system to discover security risks and <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">A vulnerability is a hole or a weakness in a system that allows an attacker to cause harm to the stakeholders of the system.</span><strong>vulnerabilities</strong></span> of the system and its data<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--2">[2]</a></sup></span>. Assessments are defined as the analysis and discovery of vulnerabilities without attempting to actually exploit those vulnerabilities, and testing as the discovery and attempted exploitation of vulnerabilities.</p> <h3 id="types-of-security-testing"><span id="types-of-security-testing" class="anchor"></span>Types of Security Testing<a href="#types-of-security-testing" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Security testing is often categorised, somewhat arbitrarily, according to either the type of vulnerability being tested or the type of testing being done. A common categorisation as defined by OWASP ZAP is as follows<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--2">[2:1]</a></sup></span>:</p> <ul><li><strong>Vulnerability Assessment</strong>: The system is scanned and analyzed for security vulnerabilities.</li> <li><strong>Penetration Testing</strong>: The system undergoes analysis and attack from simulated malicious attackers.</li> <li><strong>Runtime Testing</strong>: The system undergoes analysis and security testing from an end-user.</li> <li><strong>Code Review</strong>: The system code undergoes a detailed review and analysis looking specifically for security vulnerabilities.</li></ul> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>Note that risk assessment, which is commonly listed as part of security testing, is not included in this list. That is because a risk assessment is not actually a test but rather the analysis of the perceived severity of different risks (software security, personnel security, hardware security, etc.) and any mitigation steps for those risks.</div> <!----></div></div></div> <h2 id="why-have-security-testing"><span id="why-have-security-testing" class="anchor"></span>Why Have Security Testing?<a href="#why-have-security-testing" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Security testing ensures that a system is secure. Since security requirements differ depending on the goals of the project, it is often hard to define the concept of what it means to be secure. One definition is as follows<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--3">[3]</a></sup></span>:</p> <div class="alert box-container alert-primary" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-atlas" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>Security means that authorized access is granted to protected data and unauthorized access is restricted.</div> <!----></div></div></div> <p>This definition encompasses two major aspects; first is the protection of data and the second is access to that data. Whether the system is desktop or web-based, we will loosely define security as revolving around the two aforementioned aspects.</p> <p>Due to the logical limitations of security testing however, passing security testing is not an indication that no flaws exist or that the system adequately satisfies the security requirements<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--4">[4]</a></sup></span>. Why have security testing then? In brief, unauthorised access to data is a very expensive problem<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--5">[5]</a></sup></span> and since a system would be more secure with security testing than without<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--6">[6]</a></sup></span>, an effort should be made to have security testing.</p> <div class="alert box-container alert-warning" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-exclamation" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>There is more to the concept of security than the working definition used here.</div> <!----></div></div></div> <h2 id="security-testing-in-action"><span id="security-testing-in-action" class="anchor"></span>Security Testing in Action<a href="#security-testing-in-action" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Security testing can be integrated into every stage of the Software Development Life Cycle <a href="https://se-education.org/se-book/processModels/">(SDLC)</a>. A conceptual example of such an integration is as follows<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--7">[7]</a></sup></span>:</p> <center><span class="image-wrapper"><img src="/learningresources/contents/testing/security-testing/Sec-Test-Fig-1.png" alt="Example" width="800" class="img-fluid rounded"> <span class="image-caption">
+Figure 1 - Example of Security Testing during a SDLC.
+</span></span></center> <br> <p>To understand this in more detail, we can deconstruct the application of security testing into its manifestation in different stages of software development.</p> <h3 id="at-a-glance"><span id="at-a-glance" class="anchor"></span>At a Glance<a href="#at-a-glance" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The following series of steps adapted from the OWASP Testing Guide<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--1">[1:1]</a></sup></span> provide general applications of security testing in a generic SDLC process.</p> <center><span class="image-wrapper"><img src="/learningresources/contents/testing/security-testing/Sec-Test-Fig-2.png" alt="Workflow" width="650" class="img-fluid rounded"> <span class="image-caption">
+Figure 2 - Testing Framework Workflow from the OWASP Testing Guide.
+</span></span></center> <br> <h3 id="step-1-before-development"><span id="step-1-before-development" class="anchor"></span>Step 1: Before Development<a href="#step-1-before-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="1-1-define-an-sdlc"><span id="1-1-define-an-sdlc" class="anchor"></span>1.1 Define an SDLC<a href="#1-1-define-an-sdlc" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Before application development starts, an adequate SDLC must be defined where security is inherent at each stage.</p> <h4 id="1-2-review-policies-and-standards"><span id="1-2-review-policies-and-standards" class="anchor"></span>1.2 Review Policies and Standards<a href="#1-2-review-policies-and-standards" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Ensure that there are appropriate policies, standards, and documentation in place. Documentation is extremely important as it gives development teams guidelines and policies that they can follow. An example of one such documentation is the OWASP Secure Coding Practices Quick Reference Guide<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--8">[8]</a></sup></span>.</p> <div class="alert box-container alert-danger" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-flag" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>People can only do the right thing if they know what the right thing is.</div> <!----></div></div></div> <p>If the application is to be developed in Java, it is essential that there is a Java secure coding standard. If the application is to use cryptography, it is essential that there is a cryptography standard. No policies or standards can cover every situation that the development team will face. By documenting common and predictable issues, there will be fewer decisions that need to be made during the development process.</p> <h3 id="step-2-during-definition-and-design"><span id="step-2-during-definition-and-design" class="anchor"></span>Step 2: During Definition and Design<a href="#step-2-during-definition-and-design" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="2-1-review-security-requirements"><span id="2-1-review-security-requirements" class="anchor"></span>2.1 Review Security Requirements<a href="#2-1-review-security-requirements" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Security requirements define how an application works from a security perspective. It is essential that the security requirements are tested. In particular, assumptions that are made in the requirements are tested while checking if there are any gaps in the requirement definitions.</p> <p>For example, if there is a security requirement that states that users must be registered before they can get access to a particular section of a website, does this mean that the user must be registered with the system or should the user be authenticated? Ensure that requirements are as unambiguous as possible.</p> <h4 id="2-2-review-design-and-amp-architecture"><span id="2-2-review-design-and-amp-architecture" class="anchor"></span>2.2 Review Design &amp; Architecture<a href="#2-2-review-design-and-amp-architecture" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Applications should have a documented design and architecture. This documentation can include models, textual documents, and other similar artifacts. It is essential to test these artifacts to ensure that the design and architecture enforce the appropriate level of security as defined in the requirements.</p> <p>Identifying security flaws in the design phase is not only one of the most cost-efficient places to identify flaws, but can be one of the most effective places to make changes. For example, if it is identified that the design calls for authorization decisions to be made in multiple places, it may be appropriate to consider having a central component responsible for authorization. If the application is performing data validation at multiple places, it may be appropriate to develop a central validation framework (i.e. fixing input validation in one place, rather than in hundreds of places).</p> <h3 id="step-3-during-development"><span id="step-3-during-development" class="anchor"></span>Step 3: During Development<a href="#step-3-during-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="3-1-unit-and-amp-system-tests"><span id="3-1-unit-and-amp-system-tests" class="anchor"></span>3.1 Unit &amp; System Tests<a href="#3-1-unit-and-amp-system-tests" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p><a href="https://se-education.org/se-book/testing/#unit-testing">Unit tests</a> and <a href="https://se-education.org/se-book/testing/#system-testing">system tests</a> should be written to explicitly ensure adherence to functional security requirements. For example, an application with an access control feature should include unit tests to ensure that unauthorised access credentials are not accepted.</p> <h4 id="3-2-code-walk-through"><span id="3-2-code-walk-through" class="anchor"></span>3.2 Code Walk Through<a href="#3-2-code-walk-through" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>The security team should perform a code walk through with the developers, and in some cases, the system architects. A code walk through is a high-level walk through of the code where the developers can explain the logic and flow of the implemented code. It allows the code review team to obtain a general understanding of the code, and allows the developers to explain why certain things were developed the way they were.</p> <div class="alert box-container alert-success" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-lightbulb" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>The purpose is not to perform a code review, but to understand at a high level: the flow, the layout, and the structure of the code that makes up the application.</div> <!----></div></div></div> <h4 id="3-3-code-reviews"><span id="3-3-code-reviews" class="anchor"></span>3.3 Code Reviews<a href="#3-3-code-reviews" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Armed with a good understanding of how the code is structured and why certain things were coded the way they were, the tester can now examine the actual code for security defects.</p> <h3 id="step-4-during-deployment"><span id="step-4-during-deployment" class="anchor"></span>Step 4: During Deployment‎<a href="#step-4-during-deployment" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="4-1-penetration-testing"><span id="4-1-penetration-testing" class="anchor"></span>4.1 Penetration Testing<a href="#4-1-penetration-testing" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Having tested the requirements, analyzed the design, and performed code review, it might be assumed that all issues have been caught. Hopefully this is the case, but penetration testing (a.k.a. pentesting) the application after it has been deployed provides a last check to ensure that nothing has been missed.</p> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>Penetration testing is carried out as if the tester was a malicious external attacker.</div> <!----></div></div></div> <p>The ultimate goal of pentesting is to search for vulnerabilities so that these vulnerabilities can be addressed. It can also verify that a system is not vulnerable to a known class or specific defect; or, in the case of vulnerabilities that have been reported as fixed, verify that the system is no longer vulnerable to that defect.<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--2">[2:2]</a></sup></span></p> <h2 id="where-to-go-from-here"><span id="where-to-go-from-here" class="anchor"></span>Where to Go From Here?<a href="#where-to-go-from-here" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Now that you know conceptually what security testing is about and how it's generally applied, you can afford to focus on topics depending on your role and interests:</p> <ul><li><strong>Developer</strong>: Focus on how you can translate security requirements into actual code. Additionally, it would be worth your while as well to go through the OWASP Secure Coding Practices Quick Reference Guide<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--8">[8:1]</a></sup></span>.</li> <li><strong>Project Manager</strong>: Your role is crucial before deployment (in selecting an SDLC and setting out project policies) as well as during requirements definition. It is recommended to read entirely the OWASP Testing Guide<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--1">[1:2]</a></sup></span> to have a complete understanding of what is required.</li> <li><strong>Security Specialist</strong>: Your duties often come in the requirements definition stage and system deployment stage, maybe during code walk through as well depending on organisational decisions. Start with the Wikipedia Article on Security Testing<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--4">[4:1]</a></sup></span> to learn more about security concepts and OWASP ZAP<span tabindex="0" class="trigger"><!----> <sup class="footnote-ref"><a aria-describedby="footnote-label" href="#fn--2">[2:3]</a></sup></span> to learn basic penetration testing.</li></ul></div> <hr class="footnotes-sep"> <section class="footnotes"><ol class="footnotes-list"><span id="pop:footnotefn--1" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a>: An extremely comprehensive guide on security testing with in-depth coverage of web-application security testing.</p></div></span></span><span id="pop:footnotefn--2" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://www.zaproxy.org/getting-started/">OWASP Zed-Attack-Proxy</a>: A tool for conducting vulnerability assessments and penetration testing.</p></div></span></span><span id="pop:footnotefn--3" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://www.softwaretestinghelp.com/how-to-test-application-security-web-and-desktop-application-security-testing-techniques/">Breakdown by SoftwareTestingHelp.com</a>: A breakdown of security testing into common attack vectors and recommended tools.</p></div></span></span><span id="pop:footnotefn--4" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://en.wikipedia.org/wiki/Security_testing">Wikipedia Article on Security Testing</a>: Coverage on the abstract concepts of security testing and the taxonomy involved.</p></div></span></span><span id="pop:footnotefn--5" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://www.ibm.com/downloads/cas/ZYKLN2E3">2017 Cost of Data Breach Study</a>: IBM sponsored report for a study on the cost of data breaches in 2017.</p></div></span></span><span id="pop:footnotefn--6" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://medium.com/@cxosmo/owasp-top-10-real-world-examples-part-1-a540c4ea2df5">OWASP Top 10 Examples</a>: Real examples of what might happen if Security Testing is overlooked.</p></div></span></span><span id="pop:footnotefn--7" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://www.guru99.com/what-is-security-testing.html">Overview by Guru99.com</a>: A brief summary of Security Testing and it's role in Software Testing.</p></div></span></span><span id="pop:footnotefn--8" data-mb-component-type="popover" class="trigger"><span data-mb-slot-name="content"><div><p><a href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf">OWASP Secure Coding Practices</a>: A quick reference guide for secure coding practices.</p></div></span></span> <li id="fn--1" class="footnote-item"><p><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a>: An extremely comprehensive guide on security testing with in-depth coverage of web-application security testing.</p></li> <li id="fn--2" class="footnote-item"><p><a href="https://www.zaproxy.org/getting-started/">OWASP Zed-Attack-Proxy</a>: A tool for conducting vulnerability assessments and penetration testing.</p></li> <li id="fn--3" class="footnote-item"><p><a href="https://www.softwaretestinghelp.com/how-to-test-application-security-web-and-desktop-application-security-testing-techniques/">Breakdown by SoftwareTestingHelp.com</a>: A breakdown of security testing into common attack vectors and recommended tools.</p></li> <li id="fn--4" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Security_testing">Wikipedia Article on Security Testing</a>: Coverage on the abstract concepts of security testing and the taxonomy involved.</p></li> <li id="fn--5" class="footnote-item"><p><a href="https://www.ibm.com/downloads/cas/ZYKLN2E3">2017 Cost of Data Breach Study</a>: IBM sponsored report for a study on the cost of data breaches in 2017.</p></li> <li id="fn--6" class="footnote-item"><p><a href="https://medium.com/@cxosmo/owasp-top-10-real-world-examples-part-1-a540c4ea2df5">OWASP Top 10 Examples</a>: Real examples of what might happen if Security Testing is overlooked.</p></li> <li id="fn--7" class="footnote-item"><p><a href="https://www.guru99.com/what-is-security-testing.html">Overview by Guru99.com</a>: A brief summary of Security Testing and it's role in Software Testing.</p></li> <li id="fn--8" class="footnote-item"><p><a href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf">OWASP Secure Coding Practices</a>: A quick reference guide for secure coding practices.</p></li></ol></section> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-security-testing" class="nav-link py-1" data-v-e8c82f88>Introduction to Security Testing‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-security-testing" class="nav-link py-1" data-v-e8c82f88>What Is Security Testing?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#types-of-security-testing" class="nav-link py-1" data-v-e8c82f88>Types of Security Testing‎</a></nav> <a href="#why-have-security-testing" class="nav-link py-1" data-v-e8c82f88>Why Have Security Testing?‎</a> <a href="#security-testing-in-action" class="nav-link py-1" data-v-e8c82f88>Security Testing in Action‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#at-a-glance" class="nav-link py-1" data-v-e8c82f88>At a Glance‎</a> <a href="#step-1-before-development" class="nav-link py-1" data-v-e8c82f88>Step 1: Before Development‎</a> <a href="#step-2-during-definition-and-design" class="nav-link py-1" data-v-e8c82f88>Step 2: During Definition and Design‎</a> <a href="#step-3-during-development" class="nav-link py-1" data-v-e8c82f88>Step 3: During Development‎</a> <a href="#step-4-during-deployment" class="nav-link py-1" data-v-e8c82f88>Step 4: During Deployment‎‎</a></nav> <a href="#where-to-go-from-here" class="nav-link py-1" data-v-e8c82f88>Where to Go From Here?‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

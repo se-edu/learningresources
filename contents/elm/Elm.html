@@ -1,512 +1,151 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Elm</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a current">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <box id="article-toc">
-            <ul>
-              <li><a href="#introduction-to-elm">Introduction to Elm‎</a>
-                <ul>
-                  <li><a href="#what-is-elm">What Is Elm?‎</a></li>
-                  <li><a href="#why-learn-elm">Why Learn Elm?</a>
-                    <ul>
-                      <li><a href="#benefit-handling-all-cases">Benefit: Handling All Cases</a></li>
-                      <li><a href="#benefit-friendly-compiler">Benefit: Friendly Compiler</a></li>
-                      <li><a href="#benefit-canonical-coding-style">Benefit: Canonical Coding Style‎</a></li>
-                      <li><a href="#benefit-package-ecosystem">Benefit: Package Ecosystem</a></li>
-                      <li><a href="#benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles</a></li>
-                      <li><a href="#benefit-the-elm-way">Benefit: The Elm Way</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#the-elm-architecture">The Elm Architecture</a></li>
-                  <li><a href="#why-not-elm">Why Not Elm?</a>
-                    <ul>
-                      <li><a href="#interacting-with-javascript">Interacting With JavasScript</a></li>
-                      <li><a href="#accessing-the-dom">Accessing the DOM</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#how-to-get-started-with-elm">How to Get Started With Elm?‎</a>
-                    <ul>
-                      <li><a href="#migrating-from-other-frameworks">Migrating From Other Frameworks</a></li>
-                      <li><a href="#starting-a-new-project">Starting a New Project</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </box>
-
-
-
-
-
-          <h1 id="introduction-to-elm">Introduction to Elm<a class="fa fa-anchor" href="#introduction-to-elm" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author(s): <a href="https://github.com/openorclose">Daryl Tan</a></strong> <br>
-            <strong>Reviewer(s): <a href="https://github.com/alyip98">Alfred Yip</a>, <a href="https://github.com/jamessspanggg">James Pang</a></strong> <br></p>
-          <h2 id="what-is-elm">What is Elm?<a class="fa fa-anchor" href="#what-is-elm" onclick="event.stopPropagation()"></a></h2>
-          <p><a href="https://elm-lang.org/">Elm</a> is a statically typed, functional programming language that compiles to JavaScript and promises no runtime exceptions. You can use it to build reliable and maintainable applications for the web.</p>
-          <h2 id="why-learn-elm">Why Learn Elm?<a class="fa fa-anchor" href="#why-learn-elm" onclick="event.stopPropagation()"></a></h2>
-          <p>Languages like Haskell and OCaml from the <a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML family</a> have been well known to be maintainable and mostly error-free in practice. Their compilers catch bugs well before they can make it into production. However, these functional programming languages are also well known to have a steep learning curve.</p>
-          <p>JavaScript, the standard language for web development, has a rather low learning curve but is considerably more difficult to maintain. To solve this, people write tests, add type annotations to JavaScript, and even try to adopt functional programming patterns like immutability to increase maintanability.</p>
-          <p>Elm tries to be the best of both worlds. Its functional core provides maintainability, and it tries to greatly reduce the barriers to learning functional programming by simplifying concepts and having a really pleasant compiler.</p>
-          <h3 id="benefit-handling-all-cases">Benefit: Handling All Cases<a class="fa fa-anchor" href="#benefit-handling-all-cases" onclick="event.stopPropagation()"></a></h3>
-          <p>Like many functional programming languages, you get the &quot;if it compiles it works&quot; feeling in Elm.</p>
-          <p>If your code can produce more than one result (e.g. converting a string to an integer can either fail or succeed), Elm's compiler forces you to account for all cases in order to compile.</p>
-          <hr>
-          <p>Let's say you have an array, and you try to access its 10th element. What happens if there is no such element?</p>
-          <p>Some languages like JavaScript will give you <code>undefined</code>, and your code might very well continue to execute and only error out in a completely separate function, making it a pain to debug.</p>
-          <p>Other languages, like Java and Haskell, will throw a form of <code>IndexOutOfBoundsException</code>. That's ideal for you as a developer since you know exactly at which line this error occurs.</p>
-          <p>However, this doesn't make for a good user experience. What if you forget to test an edge case?</p>
-          <hr>
-          <p>In Elm, you will <strong>never</strong> run into these errors.</p>
-          <p>Elm forces you to handle both cases of the array access in your code:</p>
-          <ul>
-            <li>the element exists</li>
-            <li>the element doesn't exist.</li>
-          </ul>
-          <p>If you don't handle them, your code won't compile!</p>
-          <h3 id="benefit-friendly-compiler">Benefit: Friendly Compiler<a class="fa fa-anchor" href="#benefit-friendly-compiler" onclick="event.stopPropagation()"></a></h3>
-          <p>Elm's compiler strives to be as friendly as possible, and offers as many hints as it can to help you fix errors. If nothing else, you should try Elm just to see how great error messages can be.</p>
-          <p>Here's a quick look at some of them:</p>
-          <ul>
-            <li>Cyclic dependencies:</li>
-          </ul>
-          <pre><code class="no-line-numbers hljs"><span>-- IMPORT CYCLE ----------------------------------------------------------------<br></span><span><br></span><span>Your module imports form a cycle:<br></span><span><br></span><span>    ┌─────┐<br></span><span>    │    Bar<br></span><span>    │     ↓<br></span><span>    │    Foo<br></span><span>    └─────┘<br></span><span><br></span><span>Learn more about why this is disallowed and how to break cycles<br></span><span>here:&lt;https://elm-lang.org/0.19.0/import-cycles&gt;<br></span></code></pre>
-          <ul>
-            <li>Wrong argument types:</li>
-          </ul>
-          <pre><code class="no-line-numbers hljs"><span>&gt; String.join 4 [&quot;Hello&quot;, &quot;World&quot;]<br></span><span>-- TYPE MISMATCH ---------------------------------------------------------- REPL<br></span><span><br></span><span>The 1st argument to `join` is not what I expect:<br></span><span><br></span><span>3|   String.join 4 [&quot;Hello&quot;, &quot;World&quot;]<br></span><span>                 ^<br></span><span>This argument is a number of type:<br></span><span><br></span><span>    number<br></span><span><br></span><span>But `join` needs the 1st argument to be:<br></span><span><br></span><span>    String<br></span><span><br></span><span>Hint: Try using String.fromInt to convert it to a string?<br></span></code></pre>
-          <ul>
-            <li>Syntax errors, e.g. if you try to import modules with the JavaScript syntax:</li>
-          </ul>
-          <pre><code class="no-line-numbers hljs"><span>&gt; import * from 'Util'<br></span><span>-- EXPECTING IMPORT NAME -------------------------------------------------- REPL<br></span><span><br></span><span>I was parsing an `import` until I got stuck here:<br></span><span><br></span><span>2| import * from 'Util'<br></span><span>          ^<br></span><span>I was expecting to see a module name next, like in these examples:<br></span><span><br></span><span>    import Dict<br></span><span>    import Maybe<br></span><span>    import Html.Attributes as A<br></span><span>    import Json.Decode exposing (..)<br></span><span><br></span><span>Notice that the module names all start with capital letters. That is required!<br></span><span><br></span><span>Read &lt;https://elm-lang.org/0.19.1/imports&gt; to learn more.<br></span></code></pre>
-          <h3 id="benefit-canonical-coding-style">Benefit: Canonical Coding Style<a class="fa fa-anchor" href="#benefit-canonical-coding-style" onclick="event.stopPropagation()"></a></h3>
-          <p>Like in Go, Elm has largely managed to avoid the style wars of older languages by having introduced a recommended style guide and code formatter (<code>elm-format</code>) early on.</p>
-          <p><code>elm-format</code> has no configuration, eliminating code style discussions with your team, and increasing the consistency of Elm code you see out in the wild.</p>
-          <p>In particular, the style guide aims to reduce version control diffs. Here's an example of the recommended style for a <code>Record</code> in Elm (a <code>Record</code> is like a JavaScript object):</p>
-          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =<br></span><span>    { age = <span class="hljs-number">18</span><br></span><span>    , firstName = <span class="hljs-string">"John"</span><br></span><span>    , lastName = <span class="hljs-string">"Doe"</span><br></span><span>    }<br></span></code></pre>
-          <p>Note how if you were to add a new field <code>favoriteLanguage</code> to <code>person</code>, there would only be a one line diff:</p>
-          <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =<br></span><span>    { age = <span class="hljs-number">18</span><br></span><span>    , firstName = <span class="hljs-string">"John"</span><br></span><span>    , lastName = <span class="hljs-string">"Doe"</span><br></span><span>    , favoriteLanguage = <span class="hljs-string">"PHP"</span><br></span><span>    }<br></span></code></pre>
-          <p>If you're not used to this style (JavaScript achieves this reduced code diff via <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas">trailing commas</a> for example), don't worry. You can code however you're used to and then run <code>elm-format</code> to format your code automatically!</p>
-          <p>That's the benefit of having one recommended style guide and using <code>elm-format</code>.</p>
-          <p>Further reading:</p>
-          <ul>
-            <li><a href="https://elm-lang.org/docs/style-guide">Official style guide</a></li>
-            <li><a href="https://github.com/avh4/elm-format">elm-format</a></li>
-          </ul>
-          <h3 id="benefit-package-ecosystem">Benefit: Package Ecosystem<a class="fa fa-anchor" href="#benefit-package-ecosystem" onclick="event.stopPropagation()"></a></h3>
-          <p>You can share your package, or use any of the packages available at <a href="https://package.elm-lang.org/">https://package.elm-lang.org/</a>.</p>
-          <p>All packages there are written in Elm only and therefore cannot perform any side effects. This is unlike the package system in JavaScript, where packages can reassign global functions like <code>parseInt</code> and cause bugs whenever <code>parseInt</code> is used elsewhere!</p>
-          <p>Furthermore, Elm has automatic enforced semantic versioning. Whenever you push an update to your package, Elm analyses your code, and depending on whether you have any breaking changes, updates the patch, minor, or major version accordingly. This makes both package maintainers and users happy: maintainers don't have to worry about choosing new versions, and users can know that as long as the major version doesn't change, there won't be any breaking changes.</p>
-          <h3 id="benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles<a class="fa fa-anchor" href="#benefit-fast-compiles-and-small-bundles" onclick="event.stopPropagation()"></a></h3>
-          <p>Elm's compiler is really fast. Its creator focused on compile times in versions 0.19 and 0.19.1, which brought compile times for 100k LOC projects down to only 10s. If your project has less than 10k LOC, compilation should take no more than 1s.</p>
-          <p>Examples of LOC vs compile times <a href="https://discourse.elm-lang.org/t/how-are-0-19-compile-times-for-50k-loc-projects/3680">here</a>.</p>
-          <p>Lastly, Elm bundle size is small. Since Elm's functions cannot perform side effects, unused functions can be automatically removed. You can safely import a 1kLOC package only to use a one-liner function, and Elm can help you remove the 999 lines during compilation.</p>
-          <h3 id="benefit-the-elm-way">Benefit: The Elm Way<a class="fa fa-anchor" href="#benefit-the-elm-way" onclick="event.stopPropagation()"></a></h3>
-          <p>You may have noticed that Elm really likes the &quot;only one way to do it&quot; philosophy. You don't get to choose your package versions, and you don't get to configure <code>elm-format</code>. This is all done on purpose: to simplify developers' lives.</p>
-          <p>In fact, when other languages have gone on and added more features in newer versions, Elm has gone the other direction and removed many language features for the sake of simplicity.</p>
-          <h2 id="the-elm-architecture">The Elm Architecture<a class="fa fa-anchor" href="#the-elm-architecture" onclick="event.stopPropagation()"></a></h2>
-          <p>
-            <pic src="/learningresources/contents/elm/images/TEA.png" height="100"></pic>
-          </p>
-          <p>Elm doesn't allow side effects, so to build web apps, you use The Elm Architecture. It's similar to the model-view-controller design pattern.</p>
-          <p>You provide Elm with three items:</p>
-          <ul>
-            <li>an initial state your app is in</li>
-            <li>a view function that takes in a state, and returns a HTML representation of that state</li>
-            <li>an update function that takes in a state and a message. The function then can use information provided in the message to returns a new state.</li>
-          </ul>
-          <p>Here's a minimal example:</p>
-          <pre><code class="hljs elm"><span><span class="hljs-keyword">module</span> Main <span class="hljs-keyword">exposing</span> (main)<br></span><span><br></span><span><span class="hljs-keyword">import</span> Browser<br></span><span><span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, button, text)<br></span><span><span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onClick)<br></span><span><br></span><span><span class="hljs-comment">-- our initial state is a single number 1</span><br></span><span><span class="hljs-title">initialModel</span> = <span class="hljs-number">1</span><br></span><span><br></span><span><span class="hljs-comment">-- if we get the message string "increment", we return a new number, model+1</span><br></span><span><span class="hljs-comment">-- else we don't update it, and return the same model</span><br></span><span><span class="hljs-title">update</span> msg model =<br></span><span>    <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span><br></span><span>        <span class="hljs-string">"increment"</span> -&gt; model + <span class="hljs-number">1</span><br></span><span>        _ -&gt; model<br></span><span><br></span><span><span class="hljs-comment">-- we take in a model, and display the number it represents on a button element.</span><br></span><span><span class="hljs-comment">-- when the button is clicked, it sends the message string "increment" to Elm.</span><br></span><span><span class="hljs-comment">-- which will get passed to our `update` function.</span><br></span><span><span class="hljs-title">view</span> model = button [ onClick <span class="hljs-string">"increment"</span> ] [ text (<span class="hljs-type">String</span>.fromInt model) ]<br></span><span><br></span><span><span class="hljs-comment">-- now we glue it all together!</span><br></span><span><span class="hljs-title">main</span> =<br></span><span>    <span class="hljs-type">Browser</span>.sandbox<br></span><span>        { init = initialModel<br></span><span>        , view = view<br></span><span>        , update = update<br></span><span>        }<br></span></code></pre>
-          <p>View it on the Elm playground <a href="https://ellie-app.com/88GSdxWWVFza1">here</a>.</p>
-          <p>Most Elm apps are written this way, you just keep adding stuff into your model, view, and update as you grow your app.</p>
-          <p>The main benefit of this is that your app becomes more maintainable. There is only ever one single source of truth.</p>
-          <h2 id="why-not-elm">Why Not Elm?<a class="fa fa-anchor" href="#why-not-elm" onclick="event.stopPropagation()"></a></h2>
-          <p>As much as Elm promotes the &quot;one way of doing things&quot; mantra, this means that some things that are easier to do in JavaScript become considerably more tedious in Elm.</p>
-          <h3 id="interacting-with-javascript">Interacting With JavaScript<a class="fa fa-anchor" href="#interacting-with-javascript" onclick="event.stopPropagation()"></a></h3>
-          <p>To interact with outside JavaScript, you use <a href="https://guide.elm-lang.org/interop/ports.html">ports</a>.</p>
-          <p>In essence, Elm treats outside JavaScript as a server that you send messages to and receive messages from. This preserves Elm's no side effects guarantee.</p>
-          <p>However, this makes using certain JavaScript libraries that have no efficient Elm counterpart (e.g. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">Typed Arrays</a>) harder, since what should be a simple function call becomes a tedious process of sending a request to the JavaScript &quot;server&quot;, listening for a response, and then finally processing the response.</p>
-          <h3 id="accessing-the-dom">Accessing the DOM<a class="fa fa-anchor" href="#accessing-the-dom" onclick="event.stopPropagation()"></a></h3>
-          <p>Let's say you want to get the width of an img element. This is really hard to do! Since all you do is tell Elm <em>how</em> to render your application, you don't have any way to retrieve that particular img element in Elm, and you have to resort to using ports and JavaScript. This <a href="https://stackoverflow.com/questions/48551782/elm-get-the-size-of-an-image">stackoverflow</a> post gives an example.</p>
-          <h2 id="how-to-get-started-with-elm">How to Get Started with Elm?<a class="fa fa-anchor" href="#how-to-get-started-with-elm" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="migrating-from-other-frameworks">Migrating From Other Frameworks<a class="fa fa-anchor" href="#migrating-from-other-frameworks" onclick="event.stopPropagation()"></a></h3>
-          <p>If your project is already written in React, Vue, or another framework, is it worth it to migrate?</p>
-          <p>The great news is that you don't have to spend weeks migrating only to figure out it wasn't worth the effort.</p>
-          <p>You can introduce Elm slowly, by letting it take over only a single element in your page. Preferably, choose a part of your page that doesn't need to interact with the other parts.</p>
-          <p>The increment/decrement demo above is a great choice, for example.</p>
-          <p>Then, while Elm coexists with your other framework, you can decide if you want to incrementally port over your other framework's code to Elm.</p>
-          <p>If you decide Elm isn't right for you, that's okay! You only tried it on a small sandboxed portion of your app, and you can choose to leave that Elm in or convert it back into your existing framework.</p>
-          <h3 id="starting-a-new-project">Starting a New Project<a class="fa fa-anchor" href="#starting-a-new-project" onclick="event.stopPropagation()"></a></h3>
-          <p>Play with Elm without installation, using the Elm playground <a href="https://ellie-app.com/">Ellie</a>.</p>
-          <p>After that, you can follow the official <a href="https://guide.elm-lang.org/">Elm guide</a>.</p>
-          <p>View the official documentation along with documentation for all available Elm packages <a href="https://package.elm-lang.org/">here</a>.</p>
-          <p>Elm has a small but very helpful community. Join the <a href="https://elmlang.herokuapp.com/">Elm Slack</a> or the <a href="https://discourse.elm-lang.org/">Elm Discourse</a>.</p>
-          <p>If you're interested, the <a href="https://elm-lang.org/news">official Elm blog</a> has really interesting posts on their design philosophies.</p>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-elm">Introduction to Elm&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-elm">What is Elm?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-learn-elm">Why Learn Elm?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#benefit-handling-all-cases">Benefit: Handling All Cases&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-friendly-compiler">Benefit: Friendly Compiler&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-canonical-coding-style">Benefit: Canonical Coding Style&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-package-ecosystem">Benefit: Package Ecosystem&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-fast-compiles-and-small-bundles">Benefit: Fast Compiles and Small Bundles&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-the-elm-way">Benefit: The Elm Way&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#the-elm-architecture">The Elm Architecture&#x200E;</a>
-              <a class="nav-link py-1" href="#why-not-elm">Why Not Elm?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#interacting-with-javascript">Interacting With JavaScript&#x200E;</a>
-                <a class="nav-link py-1" href="#accessing-the-dom">Accessing the DOM&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#how-to-get-started-with-elm">How to Get Started with Elm?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#migrating-from-other-frameworks">Migrating From Other Frameworks&#x200E;</a>
-                <a class="nav-link py-1" href="#starting-a-new-project">Starting a New Project&#x200E;</a>
-              </nav>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to Elm</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="Elm.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#introduction-to-elm" data-v-7d17494f>Introduction to Elm‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-elm" data-v-7d17494f>What Is Elm?‎</a></li> <li data-v-7d17494f><a href="#why-learn-elm" data-v-7d17494f>Why Learn Elm?</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#benefit-handling-all-cases" data-v-7d17494f>Benefit: Handling All Cases</a></li> <li data-v-7d17494f><a href="#benefit-friendly-compiler" data-v-7d17494f>Benefit: Friendly Compiler</a></li> <li data-v-7d17494f><a href="#benefit-canonical-coding-style" data-v-7d17494f>Benefit: Canonical Coding Style‎</a></li> <li data-v-7d17494f><a href="#benefit-package-ecosystem" data-v-7d17494f>Benefit: Package Ecosystem</a></li> <li data-v-7d17494f><a href="#benefit-fast-compiles-and-small-bundles" data-v-7d17494f>Benefit: Fast Compiles and Small Bundles</a></li> <li data-v-7d17494f><a href="#benefit-the-elm-way" data-v-7d17494f>Benefit: The Elm Way</a></li></ul></li> <li data-v-7d17494f><a href="#the-elm-architecture" data-v-7d17494f>The Elm Architecture</a></li> <li data-v-7d17494f><a href="#why-not-elm" data-v-7d17494f>Why Not Elm?</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#interacting-with-javascript" data-v-7d17494f>Interacting With JavasScript</a></li> <li data-v-7d17494f><a href="#accessing-the-dom" data-v-7d17494f>Accessing the DOM</a></li></ul></li> <li data-v-7d17494f><a href="#how-to-get-started-with-elm" data-v-7d17494f>How to Get Started With Elm?‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#migrating-from-other-frameworks" data-v-7d17494f>Migrating From Other Frameworks</a></li> <li data-v-7d17494f><a href="#starting-a-new-project" data-v-7d17494f>Starting a New Project</a></li></ul></li></ul></li></ul></div> <!----></div></div></div> <h1 id="introduction-to-elm"><span id="introduction-to-elm" class="anchor"></span>Introduction to Elm<a href="#introduction-to-elm" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Author(s): <a href="https://github.com/openorclose">Daryl Tan</a></strong> <br> <strong>Reviewer(s): <a href="https://github.com/alyip98">Alfred Yip</a>, <a href="https://github.com/jamessspanggg">James Pang</a></strong> <br></p> <h2 id="what-is-elm"><span id="what-is-elm" class="anchor"></span>What is Elm?<a href="#what-is-elm" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p><a href="https://elm-lang.org/">Elm</a> is a statically typed, functional programming language that compiles to JavaScript and promises no runtime exceptions. You can use it to build reliable and maintainable applications for the web.</p> <h2 id="why-learn-elm"><span id="why-learn-elm" class="anchor"></span>Why Learn Elm?<a href="#why-learn-elm" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Languages like Haskell and OCaml from the <a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML family</a> have been well known to be maintainable and mostly error-free in practice. Their compilers catch bugs well before they can make it into production. However, these functional programming languages are also well known to have a steep learning curve.</p> <p>JavaScript, the standard language for web development, has a rather low learning curve but is considerably more difficult to maintain. To solve this, people write tests, add type annotations to JavaScript, and even try to adopt functional programming patterns like immutability to increase maintanability.</p> <p>Elm tries to be the best of both worlds. Its functional core provides maintainability, and it tries to greatly reduce the barriers to learning functional programming by simplifying concepts and having a really pleasant compiler.</p> <h3 id="benefit-handling-all-cases"><span id="benefit-handling-all-cases" class="anchor"></span>Benefit: Handling All Cases<a href="#benefit-handling-all-cases" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Like many functional programming languages, you get the &quot;if it compiles it works&quot; feeling in Elm.</p> <p>If your code can produce more than one result (e.g. converting a string to an integer can either fail or succeed), Elm's compiler forces you to account for all cases in order to compile.</p> <hr> <p>Let's say you have an array, and you try to access its 10th element. What happens if there is no such element?</p> <p>Some languages like JavaScript will give you <code class="hljs inline no-lang">undefined</code>, and your code might very well continue to execute and only error out in a completely separate function, making it a pain to debug.</p> <p>Other languages, like Java and Haskell, will throw a form of <code class="hljs inline no-lang">IndexOutOfBoundsException</code>. That's ideal for you as a developer since you know exactly at which line this error occurs.</p> <p>However, this doesn't make for a good user experience. What if you forget to test an edge case?</p> <hr> <p>In Elm, you will <strong>never</strong> run into these errors.</p> <p>Elm forces you to handle both cases of the array access in your code:</p> <ul><li>the element exists</li> <li>the element doesn't exist.</li></ul> <p>If you don't handle them, your code won't compile!</p> <h3 id="benefit-friendly-compiler"><span id="benefit-friendly-compiler" class="anchor"></span>Benefit: Friendly Compiler<a href="#benefit-friendly-compiler" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Elm's compiler strives to be as friendly as possible, and offers as many hints as it can to help you fix errors. If nothing else, you should try Elm just to see how great error messages can be.</p> <p>Here's a quick look at some of them:</p> <ul><li>Cyclic dependencies:</li></ul> <pre><code class="no-line-numbers hljs"><span>-- IMPORT CYCLE ----------------------------------------------------------------
+</span><span>
+</span><span>Your module imports form a cycle:
+</span><span>
+</span><span>    ┌─────┐
+</span><span>    │    Bar
+</span><span>    │     ↓
+</span><span>    │    Foo
+</span><span>    └─────┘
+</span><span>
+</span><span>Learn more about why this is disallowed and how to break cycles
+</span><span>here:&lt;https://elm-lang.org/0.19.0/import-cycles&gt;
+</span></code></pre><ul><li>Wrong argument types:</li></ul> <pre><code class="no-line-numbers hljs"><span>&gt; String.join 4 [&quot;Hello&quot;, &quot;World&quot;]
+</span><span>-- TYPE MISMATCH ---------------------------------------------------------- REPL
+</span><span>
+</span><span>The 1st argument to `join` is not what I expect:
+</span><span>
+</span><span>3|   String.join 4 [&quot;Hello&quot;, &quot;World&quot;]
+</span><span>                 ^
+</span><span>This argument is a number of type:
+</span><span>
+</span><span>    number
+</span><span>
+</span><span>But `join` needs the 1st argument to be:
+</span><span>
+</span><span>    String
+</span><span>
+</span><span>Hint: Try using String.fromInt to convert it to a string?
+</span></code></pre><ul><li>Syntax errors, e.g. if you try to import modules with the JavaScript syntax:</li></ul> <pre><code class="no-line-numbers hljs"><span>&gt; import * from 'Util'
+</span><span>-- EXPECTING IMPORT NAME -------------------------------------------------- REPL
+</span><span>
+</span><span>I was parsing an `import` until I got stuck here:
+</span><span>
+</span><span>2| import * from 'Util'
+</span><span>          ^
+</span><span>I was expecting to see a module name next, like in these examples:
+</span><span>
+</span><span>    import Dict
+</span><span>    import Maybe
+</span><span>    import Html.Attributes as A
+</span><span>    import Json.Decode exposing (..)
+</span><span>
+</span><span>Notice that the module names all start with capital letters. That is required!
+</span><span>
+</span><span>Read &lt;https://elm-lang.org/0.19.1/imports&gt; to learn more.
+</span></code></pre><h3 id="benefit-canonical-coding-style"><span id="benefit-canonical-coding-style" class="anchor"></span>Benefit: Canonical Coding Style<a href="#benefit-canonical-coding-style" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Like in Go, Elm has largely managed to avoid the style wars of older languages by having introduced a recommended style guide and code formatter (<code class="hljs inline no-lang">elm-format</code>) early on.</p> <p><code class="hljs inline no-lang">elm-format</code> has no configuration, eliminating code style discussions with your team, and increasing the consistency of Elm code you see out in the wild.</p> <p>In particular, the style guide aims to reduce version control diffs. Here's an example of the recommended style for a <code class="hljs inline no-lang">Record</code> in Elm (a <code class="hljs inline no-lang">Record</code> is like a JavaScript object):</p> <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =
+</span><span>    { age = <span class="hljs-number">18</span>
+</span><span>    , firstName = <span class="hljs-string">&quot;John&quot;</span>
+</span><span>    , lastName = <span class="hljs-string">&quot;Doe&quot;</span>
+</span><span>    }
+</span></code></pre><p>Note how if you were to add a new field <code class="hljs inline no-lang">favoriteLanguage</code> to <code class="hljs inline no-lang">person</code>, there would only be a one line diff:</p> <pre><code class="hljs elm"><span><span class="hljs-title">person</span> =
+</span><span>    { age = <span class="hljs-number">18</span>
+</span><span>    , firstName = <span class="hljs-string">&quot;John&quot;</span>
+</span><span>    , lastName = <span class="hljs-string">&quot;Doe&quot;</span>
+</span><span>    , favoriteLanguage = <span class="hljs-string">&quot;PHP&quot;</span>
+</span><span>    }
+</span></code></pre><p>If you're not used to this style (JavaScript achieves this reduced code diff via <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas">trailing commas</a> for example), don't worry. You can code however you're used to and then run <code class="hljs inline no-lang">elm-format</code> to format your code automatically!</p> <p>That's the benefit of having one recommended style guide and using <code class="hljs inline no-lang">elm-format</code>.</p> <p>Further reading:</p> <ul><li><a href="https://elm-lang.org/docs/style-guide">Official style guide</a></li> <li><a href="https://github.com/avh4/elm-format">elm-format</a></li></ul> <h3 id="benefit-package-ecosystem"><span id="benefit-package-ecosystem" class="anchor"></span>Benefit: Package Ecosystem<a href="#benefit-package-ecosystem" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>You can share your package, or use any of the packages available at <a href="https://package.elm-lang.org/">https://package.elm-lang.org/</a>.</p> <p>All packages there are written in Elm only and therefore cannot perform any side effects. This is unlike the package system in JavaScript, where packages can reassign global functions like <code class="hljs inline no-lang">parseInt</code> and cause bugs whenever <code class="hljs inline no-lang">parseInt</code> is used elsewhere!</p> <p>Furthermore, Elm has automatic enforced semantic versioning. Whenever you push an update to your package, Elm analyses your code, and depending on whether you have any breaking changes, updates the patch, minor, or major version accordingly. This makes both package maintainers and users happy: maintainers don't have to worry about choosing new versions, and users can know that as long as the major version doesn't change, there won't be any breaking changes.</p> <h3 id="benefit-fast-compiles-and-small-bundles"><span id="benefit-fast-compiles-and-small-bundles" class="anchor"></span>Benefit: Fast Compiles and Small Bundles<a href="#benefit-fast-compiles-and-small-bundles" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Elm's compiler is really fast. Its creator focused on compile times in versions 0.19 and 0.19.1, which brought compile times for 100k LOC projects down to only 10s. If your project has less than 10k LOC, compilation should take no more than 1s.</p> <p>Examples of LOC vs compile times <a href="https://discourse.elm-lang.org/t/how-are-0-19-compile-times-for-50k-loc-projects/3680">here</a>.</p> <p>Lastly, Elm bundle size is small. Since Elm's functions cannot perform side effects, unused functions can be automatically removed. You can safely import a 1kLOC package only to use a one-liner function, and Elm can help you remove the 999 lines during compilation.</p> <h3 id="benefit-the-elm-way"><span id="benefit-the-elm-way" class="anchor"></span>Benefit: The Elm Way<a href="#benefit-the-elm-way" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>You may have noticed that Elm really likes the &quot;only one way to do it&quot; philosophy. You don't get to choose your package versions, and you don't get to configure <code class="hljs inline no-lang">elm-format</code>. This is all done on purpose: to simplify developers' lives.</p> <p>In fact, when other languages have gone on and added more features in newer versions, Elm has gone the other direction and removed many language features for the sake of simplicity.</p> <h2 id="the-elm-architecture"><span id="the-elm-architecture" class="anchor"></span>The Elm Architecture<a href="#the-elm-architecture" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <span class="image-wrapper"><img src="/learningresources/contents/elm/images/TEA.png" width="" class="img-fluid rounded"> <span class="image-caption"></span></span> <p>Elm doesn't allow side effects, so to build web apps, you use The Elm Architecture. It's similar to the model-view-controller design pattern.</p> <p>You provide Elm with three items:</p> <ul><li>an initial state your app is in</li> <li>a view function that takes in a state, and returns a HTML representation of that state</li> <li>an update function that takes in a state and a message. The function then can use information provided in the message to returns a new state.</li></ul> <p>Here's a minimal example:</p> <pre><code class="hljs elm"><span><span class="hljs-keyword">module</span> Main <span class="hljs-keyword">exposing</span> (main)
+</span><span>
+</span><span><span class="hljs-keyword">import</span> Browser
+</span><span><span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, button, text)
+</span><span><span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onClick)
+</span><span>
+</span><span><span class="hljs-comment">-- our initial state is a single number 1</span>
+</span><span><span class="hljs-title">initialModel</span> = <span class="hljs-number">1</span>
+</span><span>
+</span><span><span class="hljs-comment">-- if we get the message string &quot;increment&quot;, we return a new number, model+1</span>
+</span><span><span class="hljs-comment">-- else we don't update it, and return the same model</span>
+</span><span><span class="hljs-title">update</span> msg model =
+</span><span>    <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+</span><span>        <span class="hljs-string">&quot;increment&quot;</span> -&gt; model + <span class="hljs-number">1</span>
+</span><span>        _ -&gt; model
+</span><span>
+</span><span><span class="hljs-comment">-- we take in a model, and display the number it represents on a button element.</span>
+</span><span><span class="hljs-comment">-- when the button is clicked, it sends the message string &quot;increment&quot; to Elm.</span>
+</span><span><span class="hljs-comment">-- which will get passed to our `update` function.</span>
+</span><span><span class="hljs-title">view</span> model = button [ onClick <span class="hljs-string">&quot;increment&quot;</span> ] [ text (<span class="hljs-type">String</span>.fromInt model) ]
+</span><span>
+</span><span><span class="hljs-comment">-- now we glue it all together!</span>
+</span><span><span class="hljs-title">main</span> =
+</span><span>    <span class="hljs-type">Browser</span>.sandbox
+</span><span>        { init = initialModel
+</span><span>        , view = view
+</span><span>        , update = update
+</span><span>        }
+</span></code></pre><p>View it on the Elm playground <a href="https://ellie-app.com/88GSdxWWVFza1">here</a>.</p> <p>Most Elm apps are written this way, you just keep adding stuff into your model, view, and update as you grow your app.</p> <p>The main benefit of this is that your app becomes more maintainable. There is only ever one single source of truth.</p> <h2 id="why-not-elm"><span id="why-not-elm" class="anchor"></span>Why Not Elm?<a href="#why-not-elm" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>As much as Elm promotes the &quot;one way of doing things&quot; mantra, this means that some things that are easier to do in JavaScript become considerably more tedious in Elm.</p> <h3 id="interacting-with-javascript"><span id="interacting-with-javascript" class="anchor"></span>Interacting With JavaScript<a href="#interacting-with-javascript" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>To interact with outside JavaScript, you use <a href="https://guide.elm-lang.org/interop/ports.html">ports</a>.</p> <p>In essence, Elm treats outside JavaScript as a server that you send messages to and receive messages from. This preserves Elm's no side effects guarantee.</p> <p>However, this makes using certain JavaScript libraries that have no efficient Elm counterpart (e.g. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">Typed Arrays</a>) harder, since what should be a simple function call becomes a tedious process of sending a request to the JavaScript &quot;server&quot;, listening for a response, and then finally processing the response.</p> <h3 id="accessing-the-dom"><span id="accessing-the-dom" class="anchor"></span>Accessing the DOM<a href="#accessing-the-dom" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Let's say you want to get the width of an img element. This is really hard to do! Since all you do is tell Elm <em>how</em> to render your application, you don't have any way to retrieve that particular img element in Elm, and you have to resort to using ports and JavaScript. This <a href="https://stackoverflow.com/questions/48551782/elm-get-the-size-of-an-image">stackoverflow</a> post gives an example.</p> <h2 id="how-to-get-started-with-elm"><span id="how-to-get-started-with-elm" class="anchor"></span>How to Get Started with Elm?<a href="#how-to-get-started-with-elm" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="migrating-from-other-frameworks"><span id="migrating-from-other-frameworks" class="anchor"></span>Migrating From Other Frameworks<a href="#migrating-from-other-frameworks" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>If your project is already written in React, Vue, or another framework, is it worth it to migrate?</p> <p>The great news is that you don't have to spend weeks migrating only to figure out it wasn't worth the effort.</p> <p>You can introduce Elm slowly, by letting it take over only a single element in your page. Preferably, choose a part of your page that doesn't need to interact with the other parts.</p> <p>The increment/decrement demo above is a great choice, for example.</p> <p>Then, while Elm coexists with your other framework, you can decide if you want to incrementally port over your other framework's code to Elm.</p> <p>If you decide Elm isn't right for you, that's okay! You only tried it on a small sandboxed portion of your app, and you can choose to leave that Elm in or convert it back into your existing framework.</p> <h3 id="starting-a-new-project"><span id="starting-a-new-project" class="anchor"></span>Starting a New Project<a href="#starting-a-new-project" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Play with Elm without installation, using the Elm playground <a href="https://ellie-app.com/">Ellie</a>.</p> <p>After that, you can follow the official <a href="https://guide.elm-lang.org/">Elm guide</a>.</p> <p>View the official documentation along with documentation for all available Elm packages <a href="https://package.elm-lang.org/">here</a>.</p> <p>Elm has a small but very helpful community. Join the <a href="https://elmlang.herokuapp.com/">Elm Slack</a> or the <a href="https://discourse.elm-lang.org/">Elm Discourse</a>.</p> <p>If you're interested, the <a href="https://elm-lang.org/news">official Elm blog</a> has really interesting posts on their design philosophies.</p></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-elm" class="nav-link py-1" data-v-e8c82f88>Introduction to Elm‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-elm" class="nav-link py-1" data-v-e8c82f88>What is Elm?‎</a> <a href="#why-learn-elm" class="nav-link py-1" data-v-e8c82f88>Why Learn Elm?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#benefit-handling-all-cases" class="nav-link py-1" data-v-e8c82f88>Benefit: Handling All Cases‎</a> <a href="#benefit-friendly-compiler" class="nav-link py-1" data-v-e8c82f88>Benefit: Friendly Compiler‎</a> <a href="#benefit-canonical-coding-style" class="nav-link py-1" data-v-e8c82f88>Benefit: Canonical Coding Style‎</a> <a href="#benefit-package-ecosystem" class="nav-link py-1" data-v-e8c82f88>Benefit: Package Ecosystem‎</a> <a href="#benefit-fast-compiles-and-small-bundles" class="nav-link py-1" data-v-e8c82f88>Benefit: Fast Compiles and Small Bundles‎</a> <a href="#benefit-the-elm-way" class="nav-link py-1" data-v-e8c82f88>Benefit: The Elm Way‎</a></nav> <a href="#the-elm-architecture" class="nav-link py-1" data-v-e8c82f88>The Elm Architecture‎</a> <a href="#why-not-elm" class="nav-link py-1" data-v-e8c82f88>Why Not Elm?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#interacting-with-javascript" class="nav-link py-1" data-v-e8c82f88>Interacting With JavaScript‎</a> <a href="#accessing-the-dom" class="nav-link py-1" data-v-e8c82f88>Accessing the DOM‎</a></nav> <a href="#how-to-get-started-with-elm" class="nav-link py-1" data-v-e8c82f88>How to Get Started with Elm?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#migrating-from-other-frameworks" class="nav-link py-1" data-v-e8c82f88>Migrating From Other Frameworks‎</a> <a href="#starting-a-new-project" class="nav-link py-1" data-v-e8c82f88>Starting a New Project‎</a></nav></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

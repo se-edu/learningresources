@@ -1,538 +1,81 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - An Introduction to CUDA</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Multi-Threading
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a current">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="an-introduction-to-cuda">An Introduction to CUDA<a class="fa fa-anchor" href="#an-introduction-to-cuda" onclick="event.stopPropagation()"></a></h1>
-          <h6 id="author-pierce-anderson-fu">Author: <a href="https://github.com/PierceAndy">Pierce Anderson Fu</a><a class="fa fa-anchor" href="#author-pierce-anderson-fu" onclick="event.stopPropagation()"></a></h6>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#0-disclaimer">§ 0. Disclaimer‎</a></li>
-              <li><a href="#1-cuda">§ 1. CUDA‎</a>
-                <ul>
-                  <li><a href="#1-1-what-is-cuda">§ 1.1 What is CUDA?‎</a></li>
-                  <li><a href="#1-2-cuda-terminologies">§ 1.2 CUDA Terminologies‎</a></li>
-                  <li><a href="#1-3-kernel-implementations-in-c">§ 1.3 Kernel Implementations in C‎</a></li>
-                  <li><a href="#1-4-introductory-tutorial">§ 1.4 Introductory Tutorial‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#2-pycuda">§ 2. PyCUDA‎</a>
-                <ul>
-                  <li><a href="#2-1-what-is-pycuda">§ 2.1 What is PyCUDA?‎</a></li>
-                  <li><a href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python">§ 2.2 Does this mean not having to use C, and coding entirely in Python?‎</a></li>
-                  <li><a href="#2-3-so-why-bother-with-pycuda">§ 2.3 So Why bother with PyCUDA?‎</a></li>
-                  <li><a href="#2-4-installing-pycuda">§ 2.4 Installing PyCUDA‎</a></li>
-                  <li><a href="#2-5-minor-pycuda-terminologies">§ 2.5 Minor PyCUDA Terminologies‎</a></li>
-                  <li><a href="#2-6-introductory-tutorial">§ 2.6 Introductory Tutorial‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#3-cuda-vs-opencl">§ 3. CUDA vs OpenCL‎</a>
-                <ul>
-                  <li><a href="#3-1-what-is-opencl">§ 3.1 What is OpenCL?‎</a></li>
-                  <li><a href="#3-2-differences-between-cuda-and-opencl">§ 3.2 Differences between CUDA and OpenCL‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#4-further-readings">§ 4. Further Readings‎</a></li>
-              <li><a href="#5-references">§ 5. References‎</a></li>
-            </ul>
-          </box>
-
-          <h2 id="0-disclaimer">§ 0. Disclaimer<a class="fa fa-anchor" href="#0-disclaimer" onclick="event.stopPropagation()"></a></h2>
-          <p>This learning resource assumes that you understand what GPGPU is.</p>
-          <p>If not, find out more about GPGPU at <a href="/learningresources/contents/gpgpu/gpgpu.html">se-edu's learning resource on GPGPU</a>.</p>
-          <h2 id="1-cuda">§ 1. CUDA<a class="fa fa-anchor" href="#1-cuda" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="1-1-what-is-cuda">§ 1.1 What is CUDA?<a class="fa fa-anchor" href="#1-1-what-is-cuda" onclick="event.stopPropagation()"></a></h3>
-          <p>CUDA is a parallel computing platform and programming model from NVIDIA.<sup><a href="#footnote1">[1]</a></sup></p>
-          <p>It allows us to use a CUDA-enabled GPU for GPGPU. The list of GPUs that support CUDA can be found here: <a href="https://developer.nvidia.com/cuda-gpus">https://developer.nvidia.com/cuda-gpus</a>.</p>
-          <h3 id="1-2-cuda-terminologies">§ 1.2 CUDA Terminologies<a class="fa fa-anchor" href="#1-2-cuda-terminologies" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="host">Host<a class="fa fa-anchor" href="#host" onclick="event.stopPropagation()"></a></h4>
-          <p>Refers to CPU and its memory</p>
-          <h4 id="host-code">Host code<a class="fa fa-anchor" href="#host-code" onclick="event.stopPropagation()"></a></h4>
-          <p>Code that runs on CPU</p>
-          <h4 id="device">Device<a class="fa fa-anchor" href="#device" onclick="event.stopPropagation()"></a></h4>
-          <p>Refers to GPU and its memory</p>
-          <h4 id="device-code">Device code<a class="fa fa-anchor" href="#device-code" onclick="event.stopPropagation()"></a></h4>
-          <p>Code that runs on GPU</p>
-          <h4 id="streaming-multiprocessors-sms">Streaming Multiprocessors (SMs)<a class="fa fa-anchor" href="#streaming-multiprocessors-sms" onclick="event.stopPropagation()"></a></h4>
-          <p>CUDA GPUs have many parallel processors grouped into SMs</p>
-          <p>Each SM can run multiple concurrent thread blocks that execute independently from each other.</p>
-          <h4 id="kernels">Kernels<a class="fa fa-anchor" href="#kernels" onclick="event.stopPropagation()"></a></h4>
-          <p>CUDA C extends C by allowing the programmer to define C functions, called kernels, that are run by the GPU.</p>
-          <p>When called, kernels are executed <code>N</code> times in parallel by <code>N</code> different CUDA threads, as opposed to only once like regular C functions.<sup><a href="#footnote2">[2]</a></sup></p>
-          <p>CUDA executes kernels using a grid of blocks of threads.</p>
-          <h4 id="threads">Threads<a class="fa fa-anchor" href="#threads" onclick="event.stopPropagation()"></a></h4>
-          <p>An execution of a kernel with a given index.</p>
-          <p>Each thread uses its index to access elements in array such that the collection of all threads cooperatively processes the entire data set.<sup><a href="#footnote3">[3]</a></sup></p>
-          <h4 id="blocks">Blocks<a class="fa fa-anchor" href="#blocks" onclick="event.stopPropagation()"></a></h4>
-          <p>A logical group of threads.</p>
-          <p>The threads in a block can be arranged into 1D, 2D, or 3D arrays, and can be identified using 1D (<code>x</code>), 2D (<code>x</code>, <code>y</code>), or 3D (<code>x</code>, <code>y</code>, <code>z</code>) indexes, respectively.</p>
-          <p>Each block is atomically assigned to and run by a single SM. A single block will never be split up, and it will never be processed by more than one SM. However, note that it isn't a one-to-one relationship, and one SM can concurrently process more than one block. There is no synchronization between blocks, and they are executed independently from each other.<sup><a href="#footnote3">[3]</a></sup></p>
-          <h4 id="grids">Grids<a class="fa fa-anchor" href="#grids" onclick="event.stopPropagation()"></a></h4>
-          <p>A logical group of blocks.</p>
-          <p>The blocks in a grid can be arranged into 1D, or 2D arrays, and can be identified using 1D (<code>x</code>), or 2D (<code>x</code>, <code>y</code>) indexes, respectively.</p>
-          <h5 id="nvidia-s-official-word-on-kernels-threads-blocks-and-grids">NVIDIA's official word on Kernels, Threads, Blocks, and Grids<a class="fa fa-anchor" href="#nvidia-s-official-word-on-kernels-threads-blocks-and-grids" onclick="event.stopPropagation()"></a></h5>
-          <blockquote>
-            <p>When a CUDA program on the host CPU invokes a kernel grid, the blocks of the grid are enumerated and distributed to multiprocessors with available execution capacity. The threads of a thread block execute concurrently on one multiprocessor, and multiple thread blocks can execute concurrently on one multiprocessor. As thread blocks terminate, new blocks are launched on the vacated multiprocessors.<sup><a href="#footnote4">[4]</a></sup></p>
-          </blockquote>
-          <p><a href="/learningresources/contents/gpgpu/gpgpu_architecture.png" target="_self"><img src="/learningresources/contents/gpgpu/gpgpu_architecture.png" alt class="img-fluid" title="GPGPU architecture"></a></p>
-          <h3 id="1-3-kernel-implementations-in-c">§ 1.3 Kernel Implementations in C<a class="fa fa-anchor" href="#1-3-kernel-implementations-in-c" onclick="event.stopPropagation()"></a></h3>
-          <p>A kernel is defined using the <code>__global__</code> declaration specifier. This tells the CUDA C++ compiler that this is a function that runs on the GPU and can be called from CPU code.</p>
-          <p>The number of CUDA threads that execute that kernel for a given kernel call is specified using the <code>&lt;&lt;&lt;...&gt;&gt;&gt;</code> execution configuration.<sup><a href="#footnote2">[2]</a></sup> A kernel called <code>myKernel</code> can be launched with the following syntax in C:</p>
-          <p><code>myKernel&lt;&lt;&lt;numBlocks, numThreadsPerBlock&gt;&gt;&gt;(args)</code></p>
-          <blockquote>
-            <h5 id="definitions">Definitions:<a class="fa fa-anchor" href="#definitions" onclick="event.stopPropagation()"></a></h5>
-            <p><em><code>numBlocks</code></em> refers to the number of thread blocks in the grid.</p>
-            <p><em><code>numThreadsPerBlock</code></em> refers to the number of threads in each thread block.</p>
-          </blockquote>
-          <p>Note that different GPUs work optimally with different dimension parameters.<sup><a href="#footnote5">[5]</a></sup></p>
-          <p>Each thread that executes the kernel is given a unique thread ID that is accessible within the kernel through the built-in <code>threadIdx</code> variable.</p>
-          <p>As an illustration, the following sample code adds two vectors <code>A</code> and <code>B</code> of size <code>N</code> and stores the result into vector <code>results</code>:<sup><a href="#footnote2">[2]</a></sup></p>
-          <pre><code class="hljs"><span>// Kernel definition<br></span><span>__global__ void VecAdd(float* A, float* B, float* results)<br></span><span>{<br></span><span>    int i = threadIdx.x;<br></span><span>    results[i] = A[i] + B[i];<br></span><span>}<br></span><span><br></span><span>int main()<br></span><span>{<br></span><span>    ...<br></span><span>    // Kernel invocation of 1D block with N threads<br></span><span>    VecAdd&lt;&lt;&lt;1, N&gt;&gt;&gt;(A, B, results);<br></span><span>    ...<br></span><span>}<br></span></code></pre>
-          <h4 id="1-3-1-keywords-that-let-kernels-get-indexes-of-running-threads">§ 1.3.1 Keywords that let kernels get indexes of running threads<a class="fa fa-anchor" href="#1-3-1-keywords-that-let-kernels-get-indexes-of-running-threads" onclick="event.stopPropagation()"></a></h4>
-          <h5 id="griddim"><code>gridDim</code><a class="fa fa-anchor" href="#griddim" onclick="event.stopPropagation()"></a></h5>
-          <p>Dimensions of the grid in blocks.</p>
-          <p>First dimension of blocks is accessed with <code>gridDim.x</code>, and second dimension is accessed with <code>gridDim.y</code>. <code>gridDim.z</code> is unused as blocks can either be 1D or 2D only.</p>
-          <h5 id="blockdim"><code>blockDim</code><a class="fa fa-anchor" href="#blockdim" onclick="event.stopPropagation()"></a></h5>
-          <p>Dimensions of the block in threads.</p>
-          <p>First dimension of threads is accessed with <code>gridDim.x</code>, second dimension is accessed with <code>gridDim.y</code>, and third dimension is accessed with <code>gridDim.z</code>.</p>
-          <h5 id="blockidx"><code>blockIdx</code><a class="fa fa-anchor" href="#blockidx" onclick="event.stopPropagation()"></a></h5>
-          <p>Block index within the grid. Is grid-level unique.</p>
-          <h5 id="threadidx"><code>threadIdx</code><a class="fa fa-anchor" href="#threadidx" onclick="event.stopPropagation()"></a></h5>
-          <p>Thread index within the block. Is block-level unique.</p>
-          <p>For instance, the index of a thread in a 1D grid of a 1D block of threads can be determined using</p>
-          <p><code>blockIdx.x * blockDim.x + threadIdx.x</code></p>
-          <h3 id="1-4-introductory-tutorial">§ 1.4 Introductory Tutorial<a class="fa fa-anchor" href="#1-4-introductory-tutorial" onclick="event.stopPropagation()"></a></h3>
-          <p>Refer to the excellent tutorial by the Chief Technologist for GPU Computing Software at NVIDIA here: <a href="https://devblogs.nvidia.com/parallelforall/even-easier-introduction-cuda/">An Even Easier Introduction to CUDA</a>.</p>
-          <p>Should you have trouble understanding any terms, you can refer to <a href="#-12-cuda-terminologies">section 1.2 of this guide on CUDA terminologies</a>.</p>
-          <h2 id="2-pycuda">§ 2. PyCUDA<a class="fa fa-anchor" href="#2-pycuda" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="2-1-what-is-pycuda">§ 2.1 What is PyCUDA?<a class="fa fa-anchor" href="#2-1-what-is-pycuda" onclick="event.stopPropagation()"></a></h3>
-          <p>PyCUDA lets you access NVIDIA‘s CUDA parallel computation API from Python.<sup><a href="#footnote6">[6]</a></sup></p>
-          <h3 id="2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python">§ 2.2 Does this mean not having to use C, and coding entirely in Python?<a class="fa fa-anchor" href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python" onclick="event.stopPropagation()"></a></h3>
-          <p>Not entirely so.</p>
-          <p>While kernels will have to be written in CUDA C, PyCUDA has helper interfaces that make it easier to write CUDA code (e.g. with memory management and cleanup). However, with the right helpers, you can write CUDA code without needing to write any C code at all. For instance, <a href="https://wiki.tiker.net/PyCuda/Examples/2DFFT">see this example from the Wiki that performs a 2D fast Fourier transform (FFT) without any CUDA C code</a>.<sup><a href="#footnote7">[7]</a></sup></p>
-          <h3 id="2-3-so-why-bother-with-pycuda">§ 2.3 So Why bother with PyCUDA?<a class="fa fa-anchor" href="#2-3-so-why-bother-with-pycuda" onclick="event.stopPropagation()"></a></h3>
-          <ul>
-            <li>Object cleanup tied to lifetime of objects. This idiom, often called <a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a> in C++, makes it much easier to write correct, leak- and crash-free code. PyCUDA knows about dependencies, too, so (for example) it won’t detach from a context before all memory allocated in it is also freed.<sup><a href="#footnote6">[6]</a></sup></li>
-            <li>Convenience. Abstractions like pycuda.driver.SourceModule and pycuda.gpuarray.GPUArray make CUDA programming even more convenient than with NVIDIA’s C-based runtime.<sup><a href="#footnote6">[6]</a></sup></li>
-            <li>Completeness. PyCUDA puts the full power of CUDA’s driver API at your disposal, if you wish.<sup><a href="#footnote6">[6]</a></sup></li>
-            <li>Automatic Error Checking. All CUDA errors are automatically translated into Python exceptions.<sup><a href="#footnote6">[6]</a></sup></li>
-            <li>Speed. PyCUDA’s base layer is written in C++, so all the niceties above are virtually free.<sup><a href="#footnote6">[6]</a></sup></li>
-            <li>Helpful <a href="https://documen.tician.de/pycuda/">documentation</a> and <a href="https://wiki.tiker.net/PyCuda">Wiki</a>.<sup><a href="#footnote6">[6]</a></sup></li>
-            <li><a href="https://github.com/inducer/pycuda">Open sourced on GitHub</a>.</li>
-          </ul>
-          <p>Thus, if you're not familiar with C, it would be easier to learn about CUDA through PyCUDA, especially if you have prior experience with Python.</p>
-          <h3 id="2-4-installing-pycuda">§ 2.4 Installing PyCUDA<a class="fa fa-anchor" href="#2-4-installing-pycuda" onclick="event.stopPropagation()"></a></h3>
-          <p>Official installation instructions here: <a href="https://wiki.tiker.net/PyCuda/Installation">https://wiki.tiker.net/PyCuda/Installation</a></p>
-          <h3 id="2-5-minor-pycuda-terminologies">§ 2.5 Minor PyCUDA Terminologies<a class="fa fa-anchor" href="#2-5-minor-pycuda-terminologies" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="dtoh">dtoh<a class="fa fa-anchor" href="#dtoh" onclick="event.stopPropagation()"></a></h4>
-          <p>Device to host, <em>i.e.</em> GPU to CPU.</p>
-          <h4 id="htod">htod<a class="fa fa-anchor" href="#htod" onclick="event.stopPropagation()"></a></h4>
-          <p>Host to device, <em>i.e.</em> CPU to GPU.</p>
-          <h3 id="2-6-introductory-tutorial">§ 2.6 Introductory Tutorial<a class="fa fa-anchor" href="#2-6-introductory-tutorial" onclick="event.stopPropagation()"></a></h3>
-          <p>Official tutorial here: <a href="https://documen.tician.de/pycuda/tutorial.html">https://documen.tician.de/pycuda/tutorial.html</a></p>
-          <blockquote>
-            <h5 id="note">Note:<a class="fa fa-anchor" href="#note" onclick="event.stopPropagation()"></a></h5>
-            <p>While still useful and relevant, this tutorial was originally written in 2008, and contains some outdated information.</p>
-            <p>Specifically, the point about how &quot;most nVidia [<em>sic</em>] devices only support single precision&quot; is incorrect. All NVIDIA GPUs since GT200 (released in Sep 2008), with compute capability 1.3 or higher, provide hardware support for double precision floating point values and operations.<sup><a href="#footnote8">[8]</a></sup></p>
-            <p>You can find out the compute capability of your NVIDIA card from the <a href="https://developer.nvidia.com/cuda-gpus">official website</a> or <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">this table from Wikipedia</a>.</p>
-            <p>You can also find out more about the features and specifications of each compute capability version from the <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">official documentation</a> or <a href="https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications">these tables from Wikipedia</a>.</p>
-          </blockquote>
-          <h2 id="3-cuda-vs-opencl">§ 3. CUDA vs OpenCL<a class="fa fa-anchor" href="#3-cuda-vs-opencl" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="3-1-what-is-opencl">§ 3.1 What is OpenCL?<a class="fa fa-anchor" href="#3-1-what-is-opencl" onclick="event.stopPropagation()"></a></h3>
-          <p>OpenCL (Open Computing Language) is an open standard for cross-platform, parallel programming of diverse processors found in personal computers, servers, mobile devices and embedded platforms.<sup><a href="#footnote9">[9]</a></sup></p>
-          <h3 id="3-2-differences-between-cuda-and-opencl">§ 3.2 Differences between CUDA and OpenCL<a class="fa fa-anchor" href="#3-2-differences-between-cuda-and-opencl" onclick="event.stopPropagation()"></a></h3>
-          <p>First and foremost, the most distinctive difference is in how CUDA is proprietary to NVIDIA, whereas OpenCL, while owned by the Khronos Group, is open-sourced. The implications are that if you have an NVIDIA GPU, it supports both CUDA and OpenCL, but if not, and you're using an AMD GPU, it only supports OpenCL.</p>
-          <p>Additionally, they use different terms. For instance, what NIVIDIA refers to as a &quot;thread&quot;, OpenCL refers to as a &quot;work item&quot;.</p>
-          <p>This topic is widely covered. Here are some good references on what the differences are, and what the implications are when choosing one over the other:</p>
-          <ul>
-            <li><a href="https://wiki.tiker.net/CudaVsOpenCL">https://wiki.tiker.net/CudaVsOpenCL</a></li>
-            <li><a href="https://create.pro/blog/opencl-vs-cuda/">https://create.pro/blog/opencl-vs-cuda/</a></li>
-            <li><a href="https://streamcomputing.eu/blog/2010-04-22/difference-between-cuda-and-opencl/">https://streamcomputing.eu/blog/2010-04-22/difference-between-cuda-and-opencl/</a></li>
-          </ul>
-          <h2 id="4-further-readings">§ 4. Further Readings<a class="fa fa-anchor" href="#4-further-readings" onclick="event.stopPropagation()"></a></h2>
-          <ul>
-            <li><a href="https://developer.nvidia.com/cuda-zone">Official CUDA C developer resources</a></li>
-            <li><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide">Official CUDA C programming guide</a></li>
-            <li><a href="https://github.com/nus-oss/lightningtalks/issues/44">Lightning talk slides: GPU Programming Made Easy with Python</a></li>
-            <li><a href="/learningresources/contents/gpgpu/gpgpu.html">se-edu's learning resource on GPGPU</a></li>
-          </ul>
-          <h2 id="5-references">§ 5. References<a class="fa fa-anchor" href="#5-references" onclick="event.stopPropagation()"></a></h2>
-          <p><a name="footnote1">[1]</a>: <a href="https://www.nvidia.com/object/cuda_home_new.html">https://www.nvidia.com/object/cuda_home_new.html</a><br>
-            <a name="footnote2">[2]</a>: <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels">https://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels</a><br>
-            <a name="footnote3">[3]</a>: <a href="https://llpanorama.wordpress.com/2008/06/11/threads-and-blocks-and-grids-oh-my/">https://llpanorama.wordpress.com/2008/06/11/threads-and-blocks-and-grids-oh-my/</a><br>
-            <a name="footnote4">[4]</a>: <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/#hardware-implementation">https://docs.nvidia.com/cuda/cuda-c-programming-guide/#hardware-implementation</a><br>
-            <a name="footnote5">[5]</a>: <a href="https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm">https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm</a><br>
-            <a name="footnote6">[6]</a>: <a href="https://mathema.tician.de/software/pycuda/">https://mathema.tician.de/software/pycuda/</a><br>
-            <a name="footnote7">[7]</a>: <a href="https://stackoverflow.com/a/5957647">https://stackoverflow.com/a/5957647</a><br>
-            <a name="footnote8">[8]</a>: <a href="https://developer.nvidia.com/cuda-faq#Programming">https://developer.nvidia.com/cuda-faq#Programming</a><br>
-            <a name="footnote9">[9]</a>: <a href="https://www.khronos.org/opencl/">https://www.khronos.org/opencl/</a><br></p>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#an-introduction-to-cuda">An Introduction to CUDA&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#0-disclaimer">§ 0. Disclaimer&#x200E;</a>
-              <a class="nav-link py-1" href="#1-cuda">§ 1. CUDA&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#1-1-what-is-cuda">§ 1.1 What is CUDA?&#x200E;</a>
-                <a class="nav-link py-1" href="#1-2-cuda-terminologies">§ 1.2 CUDA Terminologies&#x200E;</a>
-                <a class="nav-link py-1" href="#1-3-kernel-implementations-in-c">§ 1.3 Kernel Implementations in C&#x200E;</a>
-                <a class="nav-link py-1" href="#1-4-introductory-tutorial">§ 1.4 Introductory Tutorial&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#2-pycuda">§ 2. PyCUDA&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#2-1-what-is-pycuda">§ 2.1 What is PyCUDA?&#x200E;</a>
-                <a class="nav-link py-1" href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python">§ 2.2 Does this mean not having to use C, and coding entirely in Python?&#x200E;</a>
-                <a class="nav-link py-1" href="#2-3-so-why-bother-with-pycuda">§ 2.3 So Why bother with PyCUDA?&#x200E;</a>
-                <a class="nav-link py-1" href="#2-4-installing-pycuda">§ 2.4 Installing PyCUDA&#x200E;</a>
-                <a class="nav-link py-1" href="#2-5-minor-pycuda-terminologies">§ 2.5 Minor PyCUDA Terminologies&#x200E;</a>
-                <a class="nav-link py-1" href="#2-6-introductory-tutorial">§ 2.6 Introductory Tutorial&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#3-cuda-vs-opencl">§ 3. CUDA vs OpenCL&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#3-1-what-is-opencl">§ 3.1 What is OpenCL?&#x200E;</a>
-                <a class="nav-link py-1" href="#3-2-differences-between-cuda-and-opencl">§ 3.2 Differences between CUDA and OpenCL&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#4-further-readings">§ 4. Further Readings&#x200E;</a>
-              <a class="nav-link py-1" href="#5-references">§ 5. References&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - An Introduction to CUDA</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="cuda.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="an-introduction-to-cuda"><span id="an-introduction-to-cuda" class="anchor"></span>An Introduction to CUDA<a href="#an-introduction-to-cuda" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <h6 id="author-pierce-anderson-fu"><span id="author-pierce-anderson-fu" class="anchor"></span>Author: <a href="https://github.com/PierceAndy">Pierce Anderson Fu</a><a href="#author-pierce-anderson-fu" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h6> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#0-disclaimer" data-v-7d17494f>§ 0. Disclaimer‎</a></li> <li data-v-7d17494f><a href="#1-cuda" data-v-7d17494f>§ 1. CUDA‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#1-1-what-is-cuda" data-v-7d17494f>§ 1.1 What is CUDA?‎</a></li> <li data-v-7d17494f><a href="#1-2-cuda-terminologies" data-v-7d17494f>§ 1.2 CUDA Terminologies‎</a></li> <li data-v-7d17494f><a href="#1-3-kernel-implementations-in-c" data-v-7d17494f>§ 1.3 Kernel Implementations in C‎</a></li> <li data-v-7d17494f><a href="#1-4-introductory-tutorial" data-v-7d17494f>§ 1.4 Introductory Tutorial‎</a></li></ul></li> <li data-v-7d17494f><a href="#2-pycuda" data-v-7d17494f>§ 2. PyCUDA‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#2-1-what-is-pycuda" data-v-7d17494f>§ 2.1 What is PyCUDA?‎</a></li> <li data-v-7d17494f><a href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python" data-v-7d17494f>§ 2.2 Does this mean not having to use C, and coding entirely in Python?‎</a></li> <li data-v-7d17494f><a href="#2-3-so-why-bother-with-pycuda" data-v-7d17494f>§ 2.3 So Why bother with PyCUDA?‎</a></li> <li data-v-7d17494f><a href="#2-4-installing-pycuda" data-v-7d17494f>§ 2.4 Installing PyCUDA‎</a></li> <li data-v-7d17494f><a href="#2-5-minor-pycuda-terminologies" data-v-7d17494f>§ 2.5 Minor PyCUDA Terminologies‎</a></li> <li data-v-7d17494f><a href="#2-6-introductory-tutorial" data-v-7d17494f>§ 2.6 Introductory Tutorial‎</a></li></ul></li> <li data-v-7d17494f><a href="#3-cuda-vs-opencl" data-v-7d17494f>§ 3. CUDA vs OpenCL‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#3-1-what-is-opencl" data-v-7d17494f>§ 3.1 What is OpenCL?‎</a></li> <li data-v-7d17494f><a href="#3-2-differences-between-cuda-and-opencl" data-v-7d17494f>§ 3.2 Differences between CUDA and OpenCL‎</a></li></ul></li> <li data-v-7d17494f><a href="#4-further-readings" data-v-7d17494f>§ 4. Further Readings‎</a></li> <li data-v-7d17494f><a href="#5-references" data-v-7d17494f>§ 5. References‎</a></li></ul></div> <!----></div></div></div> <h2 id="0-disclaimer"><span id="0-disclaimer" class="anchor"></span>§ 0. Disclaimer<a href="#0-disclaimer" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>This learning resource assumes that you understand what GPGPU is.</p> <p>If not, find out more about GPGPU at <a href="/learningresources/contents/gpgpu/gpgpu.html">se-edu's learning resource on GPGPU</a>.</p> <h2 id="1-cuda"><span id="1-cuda" class="anchor"></span>§ 1. CUDA<a href="#1-cuda" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="1-1-what-is-cuda"><span id="1-1-what-is-cuda" class="anchor"></span>§ 1.1 What is CUDA?<a href="#1-1-what-is-cuda" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>CUDA is a parallel computing platform and programming model from NVIDIA.<sup><a href="#footnote1">[1]</a></sup></p> <p>It allows us to use a CUDA-enabled GPU for GPGPU. The list of GPUs that support CUDA can be found here: <a href="https://developer.nvidia.com/cuda-gpus">https://developer.nvidia.com/cuda-gpus</a>.</p> <h3 id="1-2-cuda-terminologies"><span id="1-2-cuda-terminologies" class="anchor"></span>§ 1.2 CUDA Terminologies<a href="#1-2-cuda-terminologies" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="host"><span id="host" class="anchor"></span>Host<a href="#host" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Refers to CPU and its memory</p> <h4 id="host-code"><span id="host-code" class="anchor"></span>Host code<a href="#host-code" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Code that runs on CPU</p> <h4 id="device"><span id="device" class="anchor"></span>Device<a href="#device" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Refers to GPU and its memory</p> <h4 id="device-code"><span id="device-code" class="anchor"></span>Device code<a href="#device-code" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Code that runs on GPU</p> <h4 id="streaming-multiprocessors-sms"><span id="streaming-multiprocessors-sms" class="anchor"></span>Streaming Multiprocessors (SMs)<a href="#streaming-multiprocessors-sms" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>CUDA GPUs have many parallel processors grouped into SMs</p> <p>Each SM can run multiple concurrent thread blocks that execute independently from each other.</p> <h4 id="kernels"><span id="kernels" class="anchor"></span>Kernels<a href="#kernels" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>CUDA C extends C by allowing the programmer to define C functions, called kernels, that are run by the GPU.</p> <p>When called, kernels are executed <code class="hljs inline no-lang">N</code> times in parallel by <code class="hljs inline no-lang">N</code> different CUDA threads, as opposed to only once like regular C functions.<sup><a href="#footnote2">[2]</a></sup></p> <p>CUDA executes kernels using a grid of blocks of threads.</p> <h4 id="threads"><span id="threads" class="anchor"></span>Threads<a href="#threads" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>An execution of a kernel with a given index.</p> <p>Each thread uses its index to access elements in array such that the collection of all threads cooperatively processes the entire data set.<sup><a href="#footnote3">[3]</a></sup></p> <h4 id="blocks"><span id="blocks" class="anchor"></span>Blocks<a href="#blocks" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>A logical group of threads.</p> <p>The threads in a block can be arranged into 1D, 2D, or 3D arrays, and can be identified using 1D (<code class="hljs inline no-lang">x</code>), 2D (<code class="hljs inline no-lang">x</code>, <code class="hljs inline no-lang">y</code>), or 3D (<code class="hljs inline no-lang">x</code>, <code class="hljs inline no-lang">y</code>, <code class="hljs inline no-lang">z</code>) indexes, respectively.</p> <p>Each block is atomically assigned to and run by a single SM. A single block will never be split up, and it will never be processed by more than one SM. However, note that it isn't a one-to-one relationship, and one SM can concurrently process more than one block. There is no synchronization between blocks, and they are executed independently from each other.<sup><a href="#footnote3">[3]</a></sup></p> <h4 id="grids"><span id="grids" class="anchor"></span>Grids<a href="#grids" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>A logical group of blocks.</p> <p>The blocks in a grid can be arranged into 1D, or 2D arrays, and can be identified using 1D (<code class="hljs inline no-lang">x</code>), or 2D (<code class="hljs inline no-lang">x</code>, <code class="hljs inline no-lang">y</code>) indexes, respectively.</p> <h5 id="nvidia-s-official-word-on-kernels-threads-blocks-and-grids"><span id="nvidia-s-official-word-on-kernels-threads-blocks-and-grids" class="anchor"></span>NVIDIA's official word on Kernels, Threads, Blocks, and Grids<a href="#nvidia-s-official-word-on-kernels-threads-blocks-and-grids" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <blockquote><p>When a CUDA program on the host CPU invokes a kernel grid, the blocks of the grid are enumerated and distributed to multiprocessors with available execution capacity. The threads of a thread block execute concurrently on one multiprocessor, and multiple thread blocks can execute concurrently on one multiprocessor. As thread blocks terminate, new blocks are launched on the vacated multiprocessors.<sup><a href="#footnote4">[4]</a></sup></p></blockquote> <p><a href="/learningresources/contents/gpgpu/gpgpu_architecture.png" target="_self"><img src="/learningresources/contents/gpgpu/gpgpu_architecture.png" alt="" title="GPGPU architecture" class="img-fluid"></a></p> <h3 id="1-3-kernel-implementations-in-c"><span id="1-3-kernel-implementations-in-c" class="anchor"></span>§ 1.3 Kernel Implementations in C<a href="#1-3-kernel-implementations-in-c" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>A kernel is defined using the <code class="hljs inline no-lang">__global__</code> declaration specifier. This tells the CUDA C++ compiler that this is a function that runs on the GPU and can be called from CPU code.</p> <p>The number of CUDA threads that execute that kernel for a given kernel call is specified using the <code class="hljs inline no-lang">&lt;&lt;&lt;...&gt;&gt;&gt;</code> execution configuration.<sup><a href="#footnote2">[2]</a></sup> A kernel called <code class="hljs inline no-lang">myKernel</code> can be launched with the following syntax in C:</p> <p><code class="hljs inline no-lang">myKernel&lt;&lt;&lt;numBlocks, numThreadsPerBlock&gt;&gt;&gt;(args)</code></p> <blockquote><h5 id="definitions"><span id="definitions" class="anchor"></span>Definitions:<a href="#definitions" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p><em><code class="hljs inline no-lang">numBlocks</code></em> refers to the number of thread blocks in the grid.</p> <p><em><code class="hljs inline no-lang">numThreadsPerBlock</code></em> refers to the number of threads in each thread block.</p></blockquote> <p>Note that different GPUs work optimally with different dimension parameters.<sup><a href="#footnote5">[5]</a></sup></p> <p>Each thread that executes the kernel is given a unique thread ID that is accessible within the kernel through the built-in <code class="hljs inline no-lang">threadIdx</code> variable.</p> <p>As an illustration, the following sample code adds two vectors <code class="hljs inline no-lang">A</code> and <code class="hljs inline no-lang">B</code> of size <code class="hljs inline no-lang">N</code> and stores the result into vector <code class="hljs inline no-lang">results</code>:<sup><a href="#footnote2">[2]</a></sup></p> <pre><code class="hljs"><span>// Kernel definition
+</span><span>__global__ void VecAdd(float* A, float* B, float* results)
+</span><span>{
+</span><span>    int i = threadIdx.x;
+</span><span>    results[i] = A[i] + B[i];
+</span><span>}
+</span><span>
+</span><span>int main()
+</span><span>{
+</span><span>    ...
+</span><span>    // Kernel invocation of 1D block with N threads
+</span><span>    VecAdd&lt;&lt;&lt;1, N&gt;&gt;&gt;(A, B, results);
+</span><span>    ...
+</span><span>}
+</span></code></pre><h4 id="1-3-1-keywords-that-let-kernels-get-indexes-of-running-threads"><span id="1-3-1-keywords-that-let-kernels-get-indexes-of-running-threads" class="anchor"></span>§ 1.3.1 Keywords that let kernels get indexes of running threads<a href="#1-3-1-keywords-that-let-kernels-get-indexes-of-running-threads" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <h5 id="griddim"><span id="griddim" class="anchor"></span><code class="hljs inline no-lang">gridDim</code><a href="#griddim" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>Dimensions of the grid in blocks.</p> <p>First dimension of blocks is accessed with <code class="hljs inline no-lang">gridDim.x</code>, and second dimension is accessed with <code class="hljs inline no-lang">gridDim.y</code>. <code class="hljs inline no-lang">gridDim.z</code> is unused as blocks can either be 1D or 2D only.</p> <h5 id="blockdim"><span id="blockdim" class="anchor"></span><code class="hljs inline no-lang">blockDim</code><a href="#blockdim" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>Dimensions of the block in threads.</p> <p>First dimension of threads is accessed with <code class="hljs inline no-lang">gridDim.x</code>, second dimension is accessed with <code class="hljs inline no-lang">gridDim.y</code>, and third dimension is accessed with <code class="hljs inline no-lang">gridDim.z</code>.</p> <h5 id="blockidx"><span id="blockidx" class="anchor"></span><code class="hljs inline no-lang">blockIdx</code><a href="#blockidx" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>Block index within the grid. Is grid-level unique.</p> <h5 id="threadidx"><span id="threadidx" class="anchor"></span><code class="hljs inline no-lang">threadIdx</code><a href="#threadidx" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>Thread index within the block. Is block-level unique.</p> <p>For instance, the index of a thread in a 1D grid of a 1D block of threads can be determined using</p> <p><code class="hljs inline no-lang">blockIdx.x * blockDim.x + threadIdx.x</code></p> <h3 id="1-4-introductory-tutorial"><span id="1-4-introductory-tutorial" class="anchor"></span>§ 1.4 Introductory Tutorial<a href="#1-4-introductory-tutorial" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Refer to the excellent tutorial by the Chief Technologist for GPU Computing Software at NVIDIA here: <a href="https://devblogs.nvidia.com/parallelforall/even-easier-introduction-cuda/">An Even Easier Introduction to CUDA</a>.</p> <p>Should you have trouble understanding any terms, you can refer to <a href="#-12-cuda-terminologies">section 1.2 of this guide on CUDA terminologies</a>.</p> <h2 id="2-pycuda"><span id="2-pycuda" class="anchor"></span>§ 2. PyCUDA<a href="#2-pycuda" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="2-1-what-is-pycuda"><span id="2-1-what-is-pycuda" class="anchor"></span>§ 2.1 What is PyCUDA?<a href="#2-1-what-is-pycuda" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>PyCUDA lets you access NVIDIA‘s CUDA parallel computation API from Python.<sup><a href="#footnote6">[6]</a></sup></p> <h3 id="2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python"><span id="2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python" class="anchor"></span>§ 2.2 Does this mean not having to use C, and coding entirely in Python?<a href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Not entirely so.</p> <p>While kernels will have to be written in CUDA C, PyCUDA has helper interfaces that make it easier to write CUDA code (e.g. with memory management and cleanup). However, with the right helpers, you can write CUDA code without needing to write any C code at all. For instance, <a href="https://wiki.tiker.net/PyCuda/Examples/2DFFT">see this example from the Wiki that performs a 2D fast Fourier transform (FFT) without any CUDA C code</a>.<sup><a href="#footnote7">[7]</a></sup></p> <h3 id="2-3-so-why-bother-with-pycuda"><span id="2-3-so-why-bother-with-pycuda" class="anchor"></span>§ 2.3 So Why bother with PyCUDA?<a href="#2-3-so-why-bother-with-pycuda" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li>Object cleanup tied to lifetime of objects. This idiom, often called <a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a> in C++, makes it much easier to write correct, leak- and crash-free code. PyCUDA knows about dependencies, too, so (for example) it won’t detach from a context before all memory allocated in it is also freed.<sup><a href="#footnote6">[6]</a></sup></li> <li>Convenience. Abstractions like pycuda.driver.SourceModule and pycuda.gpuarray.GPUArray make CUDA programming even more convenient than with NVIDIA’s C-based runtime.<sup><a href="#footnote6">[6]</a></sup></li> <li>Completeness. PyCUDA puts the full power of CUDA’s driver API at your disposal, if you wish.<sup><a href="#footnote6">[6]</a></sup></li> <li>Automatic Error Checking. All CUDA errors are automatically translated into Python exceptions.<sup><a href="#footnote6">[6]</a></sup></li> <li>Speed. PyCUDA’s base layer is written in C++, so all the niceties above are virtually free.<sup><a href="#footnote6">[6]</a></sup></li> <li>Helpful <a href="https://documen.tician.de/pycuda/">documentation</a> and <a href="https://wiki.tiker.net/PyCuda">Wiki</a>.<sup><a href="#footnote6">[6]</a></sup></li> <li><a href="https://github.com/inducer/pycuda">Open sourced on GitHub</a>.</li></ul> <p>Thus, if you're not familiar with C, it would be easier to learn about CUDA through PyCUDA, especially if you have prior experience with Python.</p> <h3 id="2-4-installing-pycuda"><span id="2-4-installing-pycuda" class="anchor"></span>§ 2.4 Installing PyCUDA<a href="#2-4-installing-pycuda" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Official installation instructions here: <a href="https://wiki.tiker.net/PyCuda/Installation">https://wiki.tiker.net/PyCuda/Installation</a></p> <h3 id="2-5-minor-pycuda-terminologies"><span id="2-5-minor-pycuda-terminologies" class="anchor"></span>§ 2.5 Minor PyCUDA Terminologies<a href="#2-5-minor-pycuda-terminologies" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="dtoh"><span id="dtoh" class="anchor"></span>dtoh<a href="#dtoh" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Device to host, <em>i.e.</em> GPU to CPU.</p> <h4 id="htod"><span id="htod" class="anchor"></span>htod<a href="#htod" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Host to device, <em>i.e.</em> CPU to GPU.</p> <h3 id="2-6-introductory-tutorial"><span id="2-6-introductory-tutorial" class="anchor"></span>§ 2.6 Introductory Tutorial<a href="#2-6-introductory-tutorial" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Official tutorial here: <a href="https://documen.tician.de/pycuda/tutorial.html">https://documen.tician.de/pycuda/tutorial.html</a></p> <blockquote><h5 id="note"><span id="note" class="anchor"></span>Note:<a href="#note" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h5> <p>While still useful and relevant, this tutorial was originally written in 2008, and contains some outdated information.</p> <p>Specifically, the point about how &quot;most nVidia [<em>sic</em>] devices only support single precision&quot; is incorrect. All NVIDIA GPUs since GT200 (released in Sep 2008), with compute capability 1.3 or higher, provide hardware support for double precision floating point values and operations.<sup><a href="#footnote8">[8]</a></sup></p> <p>You can find out the compute capability of your NVIDIA card from the <a href="https://developer.nvidia.com/cuda-gpus">official website</a> or <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">this table from Wikipedia</a>.</p> <p>You can also find out more about the features and specifications of each compute capability version from the <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">official documentation</a> or <a href="https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications">these tables from Wikipedia</a>.</p></blockquote> <h2 id="3-cuda-vs-opencl"><span id="3-cuda-vs-opencl" class="anchor"></span>§ 3. CUDA vs OpenCL<a href="#3-cuda-vs-opencl" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="3-1-what-is-opencl"><span id="3-1-what-is-opencl" class="anchor"></span>§ 3.1 What is OpenCL?<a href="#3-1-what-is-opencl" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>OpenCL (Open Computing Language) is an open standard for cross-platform, parallel programming of diverse processors found in personal computers, servers, mobile devices and embedded platforms.<sup><a href="#footnote9">[9]</a></sup></p> <h3 id="3-2-differences-between-cuda-and-opencl"><span id="3-2-differences-between-cuda-and-opencl" class="anchor"></span>§ 3.2 Differences between CUDA and OpenCL<a href="#3-2-differences-between-cuda-and-opencl" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>First and foremost, the most distinctive difference is in how CUDA is proprietary to NVIDIA, whereas OpenCL, while owned by the Khronos Group, is open-sourced. The implications are that if you have an NVIDIA GPU, it supports both CUDA and OpenCL, but if not, and you're using an AMD GPU, it only supports OpenCL.</p> <p>Additionally, they use different terms. For instance, what NIVIDIA refers to as a &quot;thread&quot;, OpenCL refers to as a &quot;work item&quot;.</p> <p>This topic is widely covered. Here are some good references on what the differences are, and what the implications are when choosing one over the other:</p> <ul><li><a href="https://wiki.tiker.net/CudaVsOpenCL">https://wiki.tiker.net/CudaVsOpenCL</a></li> <li><a href="https://create.pro/blog/opencl-vs-cuda/">https://create.pro/blog/opencl-vs-cuda/</a></li> <li><a href="https://streamcomputing.eu/blog/2010-04-22/difference-between-cuda-and-opencl/">https://streamcomputing.eu/blog/2010-04-22/difference-between-cuda-and-opencl/</a></li></ul> <h2 id="4-further-readings"><span id="4-further-readings" class="anchor"></span>§ 4. Further Readings<a href="#4-further-readings" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><a href="https://developer.nvidia.com/cuda-zone">Official CUDA C developer resources</a></li> <li><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide">Official CUDA C programming guide</a></li> <li><a href="https://github.com/nus-oss/lightningtalks/issues/44">Lightning talk slides: GPU Programming Made Easy with Python</a></li> <li><a href="/learningresources/contents/gpgpu/gpgpu.html">se-edu's learning resource on GPGPU</a></li></ul> <h2 id="5-references"><span id="5-references" class="anchor"></span>§ 5. References<a href="#5-references" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p><a name="footnote1">[1]</a>: <a href="https://www.nvidia.com/object/cuda_home_new.html">https://www.nvidia.com/object/cuda_home_new.html</a><br> <a name="footnote2">[2]</a>: <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels">https://docs.nvidia.com/cuda/cuda-c-programming-guide/#kernels</a><br> <a name="footnote3">[3]</a>: <a href="https://llpanorama.wordpress.com/2008/06/11/threads-and-blocks-and-grids-oh-my/">https://llpanorama.wordpress.com/2008/06/11/threads-and-blocks-and-grids-oh-my/</a><br> <a name="footnote4">[4]</a>: <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/#hardware-implementation">https://docs.nvidia.com/cuda/cuda-c-programming-guide/#hardware-implementation</a><br> <a name="footnote5">[5]</a>: <a href="https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm">https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm</a><br> <a name="footnote6">[6]</a>: <a href="https://mathema.tician.de/software/pycuda/">https://mathema.tician.de/software/pycuda/</a><br> <a name="footnote7">[7]</a>: <a href="https://stackoverflow.com/a/5957647">https://stackoverflow.com/a/5957647</a><br> <a name="footnote8">[8]</a>: <a href="https://developer.nvidia.com/cuda-faq#Programming">https://developer.nvidia.com/cuda-faq#Programming</a><br> <a name="footnote9">[9]</a>: <a href="https://www.khronos.org/opencl/">https://www.khronos.org/opencl/</a><br></p></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#an-introduction-to-cuda" class="nav-link py-1" data-v-e8c82f88>An Introduction to CUDA‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#0-disclaimer" class="nav-link py-1" data-v-e8c82f88>§ 0. Disclaimer‎</a> <a href="#1-cuda" class="nav-link py-1" data-v-e8c82f88>§ 1. CUDA‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#1-1-what-is-cuda" class="nav-link py-1" data-v-e8c82f88>§ 1.1 What is CUDA?‎</a> <a href="#1-2-cuda-terminologies" class="nav-link py-1" data-v-e8c82f88>§ 1.2 CUDA Terminologies‎</a> <a href="#1-3-kernel-implementations-in-c" class="nav-link py-1" data-v-e8c82f88>§ 1.3 Kernel Implementations in C‎</a> <a href="#1-4-introductory-tutorial" class="nav-link py-1" data-v-e8c82f88>§ 1.4 Introductory Tutorial‎</a></nav> <a href="#2-pycuda" class="nav-link py-1" data-v-e8c82f88>§ 2. PyCUDA‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#2-1-what-is-pycuda" class="nav-link py-1" data-v-e8c82f88>§ 2.1 What is PyCUDA?‎</a> <a href="#2-2-does-this-mean-not-having-to-use-c-and-coding-entirely-in-python" class="nav-link py-1" data-v-e8c82f88>§ 2.2 Does this mean not having to use C, and coding entirely in Python?‎</a> <a href="#2-3-so-why-bother-with-pycuda" class="nav-link py-1" data-v-e8c82f88>§ 2.3 So Why bother with PyCUDA?‎</a> <a href="#2-4-installing-pycuda" class="nav-link py-1" data-v-e8c82f88>§ 2.4 Installing PyCUDA‎</a> <a href="#2-5-minor-pycuda-terminologies" class="nav-link py-1" data-v-e8c82f88>§ 2.5 Minor PyCUDA Terminologies‎</a> <a href="#2-6-introductory-tutorial" class="nav-link py-1" data-v-e8c82f88>§ 2.6 Introductory Tutorial‎</a></nav> <a href="#3-cuda-vs-opencl" class="nav-link py-1" data-v-e8c82f88>§ 3. CUDA vs OpenCL‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#3-1-what-is-opencl" class="nav-link py-1" data-v-e8c82f88>§ 3.1 What is OpenCL?‎</a> <a href="#3-2-differences-between-cuda-and-opencl" class="nav-link py-1" data-v-e8c82f88>§ 3.2 Differences between CUDA and OpenCL‎</a></nav> <a href="#4-further-readings" class="nav-link py-1" data-v-e8c82f88>§ 4. Further Readings‎</a> <a href="#5-references" class="nav-link py-1" data-v-e8c82f88>§ 5. References‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

@@ -1,593 +1,196 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to Vue</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a current">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-vue">Introduction to Vue<a class="fa fa-anchor" href="#introduction-to-vue" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Authors: <a href="https://github.com/chelseyong">Chelsey Ong</a>, <a href="https://github.com/LuLechuan">Lu Lechuan</a></strong> <br>
-            Reviewers: <a href="https://github.com/emer7">Gilbert Emerson</a>, <a href="https://github.com/ongspxm">Ong Shu Peng</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#what-is-vue">What is Vue?‎</a></li>
-              <li><a href="#vue-features">Vue Features‎</a></li>
-              <li><a href="#why-use-vue">Why use Vue?‎</a>
-                <ul>
-                  <li><a href="#benefit-1-approachable">Benefit 1: Approachable‎</a></li>
-                  <li><a href="#benefit-2-progressive">Benefit 2: Progressive‎</a></li>
-                  <li><a href="#benefit-3-versatile">Benefit 3: Versatile‎</a></li>
-                  <li><a href="#benefit-4-clean">Benefit 4: Clean‎</a></li>
-                </ul>
-              </li>
-              <li><a href="#disadvantages-of-vue">Disadvantages of Vue‎</a></li>
-              <li><a href="#resources">Resources‎</a></li>
-            </ul>
-          </box>
-
-          <box type="info">
-            This chapter assumes that the reader has a basic knowledge of HTML and JavaScript.
-          </box>
-          <h2 id="what-is-vue">What is Vue?<a class="fa fa-anchor" href="#what-is-vue" onclick="event.stopPropagation()"></a></h2>
-          <blockquote>
-            <p><em>Vue</em> is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainability.</p>
-          </blockquote>
-          <p>This is a simple example to show how easy it is to integrate VueJs into your web project:<br><br>
-            The main HTML file:</p>
-          <pre><code class="hljs HTML"><span><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{ message }\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></span></code></pre>
-          <p>This is inside the JavaScript file:</p>
-          <pre><code class="hljs js"><span><span class="hljs-keyword">new</span> Vue ({<br></span><span>  el: <span class="hljs-string">'#root'</span>,<br></span><span><br></span><span>  data: {<br></span><span>    message: <span class="hljs-string">"Hello World"</span><br></span><span>  }<br></span><span>});<br></span></code></pre>
-          <box type="warning">
-            <p>Note that <code>{\{</code> and <code>}\}</code> should be <code>{<span>{</span></code> and <code>}<span>}</span></code> respectively, due to the limitations of <a href="https://markbind.org">MarkBind</a>.
-            </p>
-          </box>
-          <p>Step-by-step explanation of the code:</p>
-          <p><b>Step 1:</b> Import Vue <span placement="top" data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">Content Delivery Network</span>CDN</span> and the JavaScript file in the main HTML file.</p>
-          <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"the_path_to_the_javacript_file.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></span></code></pre>
-          <p><b>Step 2:</b> Create an instance of Vue (Vue is an object) in the JavaScript file; bind the instance to one of the component in our html file (e.g. create a component with id <code>root</code> and bind it with the instance of Vue).<br>
-            In this case, only the <code>root</code> component can be accessed in Vue while the rest are unaffected. This is how we progressively plug in Vue into our projects.</p>
-          <pre><code class="hljs js"><span>  <span class="hljs-keyword">new</span> Vue ({<br></span><span>    el: <span class="hljs-string">'#root'</span>,<br></span><span>  });<br></span></code></pre>
-          <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></span></code></pre>
-          <p><b>Step 3:</b> Specify our data (message: &quot;Hello World&quot;) in the instance of Vue Class.</p>
-          <pre><code class="hljs js"><span>  data: {<br></span><span>    message: <span class="hljs-string">"Hello World"</span><br></span><span>  }<br></span></code></pre>
-          <p><b>Step 4:</b> Pass the message to the HTML file using double curly brackets.</p>
-          <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></span></code></pre>
-          <p><b>Step 5:</b> Open the browser and we will see &quot;Hello World&quot; being displayed:</p>
-          <blockquote>
-            <h2 id="hello-world">Hello World<a class="fa fa-anchor" href="#hello-world" onclick="event.stopPropagation()"></a></h2>
-          </blockquote>
-          <br>
-          <h2 id="vue-features">Vue Features<a class="fa fa-anchor" href="#vue-features" onclick="event.stopPropagation()"></a></h2>
-          <ol>
-            <li>
-              <p><strong>Mutating of Data in the DOM</strong><br>
-                In Vue, the state of the data can be directly modified.</p>
-              <p>Let's say, there is a variable called <code>message</code> in your app. To modify <code>message</code>, you can do the following:</p>
-              <pre><code class="hljs js"><span><span class="hljs-keyword">this</span>.message = <span class="hljs-string">'Hello Space'</span>;<br></span></code></pre>
-              <p>When <code>message</code> is changed, the view will be re-rendered to show the new message. So you can say, the DOM is &quot;reacting&quot; to the changes in <code>message</code>.</p>
-            </li>
-          </ol>
-          <br>
-          <ol start="2">
-            <li>
-              <p><strong>Two-way binding</strong><br>
-                <code>v-model</code> is a <a href="https://vuejs.org/v2/api/#v-model">Vue directive</a> used to bind the DOM input field to its data variable.</p>
-              <p>This allows the DOM variables and data to be &quot;in sync&quot;, regardless of which one is being updated first.
-                In other words, if you change the input value, the bound data will change, and vice versa.</p>
-              <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>, <span class="hljs-attr">v-model</span>=<span class="hljs-string">"isChecked"</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"checked"</span>&gt;</span>Select<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span><br></span></code></pre>
-              <p>When the checkbox is selected, <code>isChecked</code> is set to <code>true</code>. If the program sets <code>isChecked</code> to <code>false</code>, then checkbox will be unselected.
-                This reduces any extra step required to manually update the data.</p>
-              <p>2-way binding is useful for updating input form bindings such as checkboxes or drop-downs, where new data is entered by users and then updated in the view.</p>
-            </li>
-          </ol>
-          <br>
-          <ol start="3">
-            <li>
-              <p><strong>Conditionals and Loops</strong><br>
-                <code>v-if</code> allows you to conditionally insert/remove elements based on the truthfulness of the binding value.</p>
-              <p><code>v-for</code> allows you to loop through and render a list of items.</p>
-              <p>Following the previous checkbox example, if you want to display a list of messages when the checkbox is checked, you can do the following:</p>
-              <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"isChecked"</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"message in messages"</span>&gt;</span><br></span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></span></code></pre>
-            </li>
-          </ol>
-          <br>
-          <ol start="4">
-            <li>
-              <p><strong>Passing Data From Outer to Inner Components</strong><br>
-                When you have components that are nested within each other, data is passed from the outer component to the inner component via <code>props</code>, where <code>props</code> are just custom data shared between the components.</p>
-              <p>This follows the <a href="https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow">1-way data flow</a> encouraged by Vue, which
-                ensures that data can only be changed by the component itself and also allows bugs to be easily traced in the code.</p>
-              <p>To pass props to a Vue component, <code>v-bind:&lt;prop-name&gt;</code> is used. A demonstration of passing props is shown in the code segment below:</p>
-              <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'todo-list'</span>, {<br></span><span>  props: [<span class="hljs-string">'item'</span>],<br></span><span>  data: [<span class="hljs-string">'totalCount'</span>],<br></span><span>  template:<span class="hljs-string">`</span><br></span><span><span class="hljs-string">    &lt;div class="todo-list"&gt;</span><br></span><span><span class="hljs-string">      &lt;p&gt;Total:{\{this.totalCount}\}&lt;/p&gt;</span><br></span><span><span class="hljs-string">      &lt;p&gt;{\{item.name}\}: {\{item.count}\}&lt;/p&gt;</span><br></span><span><span class="hljs-string">    &lt;/div&gt;</span><br></span><span><span class="hljs-string">  `</span><br></span><span>})<br></span><span><br></span><span>&lt;todo-list<br></span><span>  v-<span class="hljs-keyword">for</span>=<span class="hljs-string">'item in items'</span><br></span><span>  v-bind:key=<span class="hljs-string">'item.id'</span><br></span><span>  v-bind:item=<span class="hljs-string">'item'</span><br></span><span>&gt;&lt;<span class="hljs-regexp">/todo-list&gt;</span><br></span></code></pre>
-              <p><code>to-do list</code> contains <code>item</code>, i.e. <code>to-do list</code> is the outer component and <code>item</code> is the inner component.</p>
-              <box type="tip">
-                <p>Note that <code>props</code> is passed from the outer component to the inner component while <code>data</code> is kept private within a component.
-                </p>
-              </box>
-            </li>
-          </ol>
-          <br>
-          <ol start="5">
-            <li>
-              <p><strong>Emitting Events</strong><br>
-                However, what if the user decides to update the <code>item.count</code>? The data for <code>item.count</code> has to be passed from <code>item</code> to <code>todo-list</code> so that <code>totalCount</code> can be updated inside <code>todo-list</code> .</p>
-              <p>How do we do that if we have to follow the 1-way data flow rule?</p>
-              <p>In situations where the inner component has to pass data back to the outer component, the inner component has to <a href="https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event">emit custom events</a>
-                and the outer component will update after listening to these events.</p>
-              <p>You can think of emitting events like putting out a flyer about an event. If someone is interested in this event, he or she can gather more information through reading the flyer.</p>
-              <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'item'</span>, {<br></span><span>  data: [<span class="hljs-string">'count'</span>, <span class="hljs-string">'name'</span>],<br></span><span>  template: <span class="hljs-string">`&lt;button v-on:click="$emit('increased-count', count+1)"&gt;Increment item count&lt;/button&gt;`</span><br></span><span>})<br></span><span><br></span><span><span class="hljs-comment">/* Inside todo-list component */</span><br></span><span>template: <span class="hljs-string">`&lt;item v-on:increased-count="updateCount" v-for="item in items"&gt;&lt;/item&gt;`</span><br></span></code></pre>
-              <box type="tip">
-                <p>When the button is clicked, the <code>item</code> component will emit a custom event named <code>increased-count</code> while the <code>todo-list</code> component listens for this event and executes its own <code>updateCount</code> method.
-                </p>
-              </box>
-            </li>
-          </ol>
-          <br>
-          <ol start="6">
-            <li>
-              <p><strong>Computed Properties</strong><br>
-                This is useful when you want to compose new data based on the data that has changed.
-                Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.</p>
-              <pre><code class="hljs js"><span>computed: totalCount() {<br></span><span>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);<br></span><span>}<br></span></code></pre>
-              <p>Unlike the use of methods, this updating of <code>totalCount</code> will only be triggered when the number of <code>items</code> in the list or any <code>item</code>'s <code>count</code> changed.</p>
-              <p>Since computed properties are cached and will not be processed every time the page refreshes, this can greatly improve the efficiency of your application.</p>
-              <box type="warning">
-                Note: computed properties must return the new data i.e. reactive properties.
-                It cannot perform other operations in response to the change in data.
-              </box>
-            </li>
-          </ol>
-          <br>
-          <ol start="7">
-            <li>
-              <p><strong>Watched Properties</strong><br>
-                Watched properties are used to call other functions when a particular data has been updated, such as <span data-mb-component-type="tooltip" v-b-tooltip.hover.top.html="tooltipInnerContentGetter" class="trigger"><span data-mb-html-for="_content">independent operations</span>asynchronous operations</span>.</p>
-              <p>For example, when a new <code>item</code> is added, we want to send a notification to our friend to alert him or her about the change.
-                A watched property on <code>items</code> can be added so that a notification can be sent whenever <code>items</code> has changed.</p>
-              <pre><code class="hljs js"><span>watch: {<br></span><span>  totalCount: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<br></span><span>    <span class="hljs-keyword">this</span>.totalCount = <span class="hljs-keyword">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);<br></span><span><br></span><span>    <span class="hljs-comment">// notify friend about the change</span><br></span><span>  }<br></span><span>}<br></span></code></pre>
-              <p>This may look quite similar to <code>Computed properties</code>.</p>
-              <p>To decide which is more suitable for your feature, here is a brief comparison:</p>
-              <div class="table-responsive">
-                <table class="markbind-table table table-bordered table-striped">
-                  <thead>
-                    <tr>
-                      <th style="text-align:left">Watched property</th>
-                      <th style="text-align:left">Computed property</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td style="text-align:left">used for running expensive operations</td>
-                      <td style="text-align:left">used for updating data for dependencies</td>
-                    </tr>
-                    <tr>
-                      <td style="text-align:left">executed every time page refreshes</td>
-                      <td style="text-align:left">uses cached data and executes only when changed</td>
-                    </tr>
-                    <tr>
-                      <td style="text-align:left"><strong>watches</strong> for change in 1 property</td>
-                      <td style="text-align:left"><strong>creates</strong> a new property that is updated when 1 or more dependencies change</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </li>
-          </ol>
-          <br>
-          <ol start="8">
-            <li>
-              <p><strong>Lifecycle Hooks</strong><br>
-                Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions in the background called lifecycle hooks, allowing users to add code at each stage that could improve its rendering speed.<br><br>
-                The following diagram shows all lifecycle hooks and their specific execution stages:<br>
-                <a href="/learningresources/contents/javascript/javascript-framework-vue-images/vue-lifecycle-diagram.png" target="_self"><img src="/learningresources/contents/javascript/javascript-framework-vue-images/vue-lifecycle-diagram.png" alt class="img-fluid" title="Vue's Lifecycle Diagram"></a>
-                <em>Figure 1. Vue's Lifecycle Diagram</em></p>
-              <p>To run code at a specific stage, you can just define the corresponding hook function and add your code within the function.
-                For example, the <code>created</code> hook can be used to run code right after the Vue instance is created:</p>
-              <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'todo-list'</span>, {<br></span><span>  ...<br></span><span>  created: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<br></span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"to-do list is created."</span>);<br></span><span>  }<br></span><span>})<br></span></code></pre>
-              <p>For more detailed information about Vue lifecycle hooks, visit <a href="https://vuejs.org/v2/api/#Options-Lifecycle-Hooks">here</a>.<br></p>
-            </li>
-          </ol>
-          <h2 id="why-use-vue">Why use Vue?<a class="fa fa-anchor" href="#why-use-vue" onclick="event.stopPropagation()"></a></h2>
-          <p>Now that we know what Vue is, let us look at some benefits it has to offer.</p>
-          <h3 id="benefit-1-approachable">Benefit 1: Approachable<a class="fa fa-anchor" href="#benefit-1-approachable" onclick="event.stopPropagation()"></a></h3>
-          <p>Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br><br>
-            Iteration in React:<br><br>
-            The JavaScript file in ReactJs</p>
-          <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> Iteration = React.createClass({<br></span><span>  getInitialState() {<br></span><span>    <span class="hljs-keyword">return</span> {<br></span><span>      array: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]<br></span><span>    }<br></span><span>  },<br></span><span>  render() {<br></span><span>    <span class="hljs-keyword">this</span>.state.array.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date</span>) </span>{<br></span><span>      <span class="hljs-keyword">return</span> (<br></span><span>        &lt;span&gt;{date}&lt;<span class="hljs-regexp">/span&gt;</span><br></span><span><span class="hljs-regexp">      )</span><br></span><span><span class="hljs-regexp">    });</span><br></span><span><span class="hljs-regexp">  }</span><br></span><span><span class="hljs-regexp">});</span><br></span><span><span class="hljs-regexp">ReactDOM.render(&lt;Iteration /</span>&gt;, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'array'</span>));<br></span></code></pre>
-          <p>The HTML file in ReactJs</p>
-          <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></span></code></pre>
-          <p>Iteration in Vue:<br><br>
-            The JavaScript file in Vue</p>
-          <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> Iteration = <span class="hljs-keyword">new</span> Vue({<br></span><span>  el: <span class="hljs-string">'#array'</span>,<br></span><span>  data: {<br></span><span>    array: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>]<br></span><span>  }<br></span><span>});<br></span></code></pre>
-          <p>The HTML file in Vue</p>
-          <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"array"</span>&gt;</span><br></span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"date in array"</span>&gt;</span>{\{date}\}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></span><span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></span></code></pre>
-          <h3 id="benefit-2-progressive">Benefit 2: Progressive<a class="fa fa-anchor" href="#benefit-2-progressive" onclick="event.stopPropagation()"></a></h3>
-          <p>Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follows:
-            &gt; Vue is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
-            &gt;
-            &gt; -- <a href="https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/">[source]</a></p>
-          <h3 id="benefit-3-versatile">Benefit 3: Versatile<a class="fa fa-anchor" href="#benefit-3-versatile" onclick="event.stopPropagation()"></a></h3>
-          <p>Vue is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.</p>
-          <h3 id="benefit-4-clean">Benefit 4: Clean<a class="fa fa-anchor" href="#benefit-4-clean" onclick="event.stopPropagation()"></a></h3>
-          <p>Vue syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by Vue to be more maintainable and testable.</p>
-          <h2 id="disadvantages-of-vue">Disadvantages of Vue<a class="fa fa-anchor" href="#disadvantages-of-vue" onclick="event.stopPropagation()"></a></h2>
-          <p>Like any other framework/library, Vue has its share of disadvantages.</p>
-          <ol>
-            <li>
-              <p><strong>Relatively Small Size Community:</strong><br>
-                Vue is a relatively new JavaScript framework as compared to Angular and React. The size of the community for Vue is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.</p>
-            </li>
-            <li>
-              <p><strong>Language Barriers:</strong><br>
-                A majority of users of Vue are the Chinese as Vue is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for Vue resources.</p>
-            </li>
-          </ol>
-          <h2 id="resources">Resources<a class="fa fa-anchor" href="#resources" onclick="event.stopPropagation()"></a></h2>
-          <p>Detailed comparison of Vue with other JavaScript frameworks can be found from:</p>
-          <ul>
-            <li><a href="https://vuejs.org/v2/guide/comparison.html">Vue Guild: Comparison with Other Frameworks</a></li>
-            <li><a href="https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176">Angular vs React vs Vue</a></li>
-          </ul>
-          <p>Links to VueJs tutorials and practices:</p>
-          <ul>
-            <li><a href="https://vuejs.org">VueJS Official Website</a></li>
-            <li><a href="https://vuejs.org/">VueSchool</a></li>
-            <li><a href="https://laracasts.com/series/learn-vue-2-step-by-step">Laracast</a></li>
-            <li><a href="https://vuetifyjs.com/zh-Hans/">Vuetify</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-vue">Introduction to Vue&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-vue">What is Vue?&#x200E;</a>
-              <a class="nav-link py-1" href="#hello-world">Hello World&#x200E;</a>
-              <a class="nav-link py-1" href="#vue-features">Vue Features&#x200E;</a>
-              <a class="nav-link py-1" href="#why-use-vue">Why use Vue?&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#benefit-1-approachable">Benefit 1: Approachable&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-2-progressive">Benefit 2: Progressive&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-3-versatile">Benefit 3: Versatile&#x200E;</a>
-                <a class="nav-link py-1" href="#benefit-4-clean">Benefit 4: Clean&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#disadvantages-of-vue">Disadvantages of Vue&#x200E;</a>
-              <a class="nav-link py-1" href="#resources">Resources&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to Vue</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="Javascript-framework-VueJs.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-vue"><span id="introduction-to-vue" class="anchor"></span>Introduction to Vue<a href="#introduction-to-vue" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Authors: <a href="https://github.com/chelseyong">Chelsey Ong</a>, <a href="https://github.com/LuLechuan">Lu Lechuan</a></strong> <br>
+Reviewers: <a href="https://github.com/emer7">Gilbert Emerson</a>, <a href="https://github.com/ongspxm">Ong Shu Peng</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-vue" data-v-7d17494f>What is Vue?‎</a></li> <li data-v-7d17494f><a href="#vue-features" data-v-7d17494f>Vue Features‎</a></li> <li data-v-7d17494f><a href="#why-use-vue" data-v-7d17494f>Why use Vue?‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#benefit-1-approachable" data-v-7d17494f>Benefit 1: Approachable‎</a></li> <li data-v-7d17494f><a href="#benefit-2-progressive" data-v-7d17494f>Benefit 2: Progressive‎</a></li> <li data-v-7d17494f><a href="#benefit-3-versatile" data-v-7d17494f>Benefit 3: Versatile‎</a></li> <li data-v-7d17494f><a href="#benefit-4-clean" data-v-7d17494f>Benefit 4: Clean‎</a></li></ul></li> <li data-v-7d17494f><a href="#disadvantages-of-vue" data-v-7d17494f>Disadvantages of Vue‎</a></li> <li data-v-7d17494f><a href="#resources" data-v-7d17494f>Resources‎</a></li></ul></div> <!----></div></div></div> <div class="alert box-container alert-info" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-info" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>
+This chapter assumes that the reader has a basic knowledge of HTML and JavaScript.
+</div> <!----></div></div></div> <h2 id="what-is-vue"><span id="what-is-vue" class="anchor"></span>What is Vue?<a href="#what-is-vue" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <blockquote><p><em>Vue</em> is an open-source <a href="https://en.wikipedia.org/wiki/JavaScript_framework">JavaScript framework</a> for building user interfaces. It is designed to improve code quality and maintainability.</p></blockquote> <p>This is a simple example to show how easy it is to integrate VueJs into your web project:<br><br>
+The main HTML file:</p> <pre><code class="hljs HTML"><span><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span>
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{ message }\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/vue@2.5.13/dist/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;the_path_to_the_javacript_file.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</span><span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</span></code></pre><p>This is inside the JavaScript file:</p> <pre><code class="hljs js"><span><span class="hljs-keyword">new</span> Vue ({
+</span><span>  <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
+</span><span>
+</span><span>  <span class="hljs-attr">data</span>: {
+</span><span>    <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Hello World&quot;</span>
+</span><span>  }
+</span><span>});
+</span></code></pre><div class="alert box-container alert-warning" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-exclamation" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>Note that <code class="hljs inline no-lang" data-v-7d17494f>{\{</code> and <code class="hljs inline no-lang" data-v-7d17494f>}\}</code> should be <code data-v-7d17494f>{<span data-v-7d17494f>{</span></code> and <code data-v-7d17494f>}<span data-v-7d17494f>}</span></code> respectively, due to the limitations of <a href="https://markbind.org" data-v-7d17494f>MarkBind</a>.</p></div> <!----></div></div></div> <p>Step-by-step explanation of the code:</p> <p><b>Step 1:</b> Import Vue <span placement="top" data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">Content Delivery Network</span>CDN</span> and the JavaScript file in the main HTML file.</p> <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/vue@2.5.13/dist/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;the_path_to_the_javacript_file.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</span></code></pre><p><b>Step 2:</b> Create an instance of Vue (Vue is an object) in the JavaScript file; bind the instance to one of the component in our html file (e.g. create a component with id <code class="hljs inline no-lang">root</code> and bind it with the instance of Vue).<br>
+In this case, only the <code class="hljs inline no-lang">root</code> component can be accessed in Vue while the rest are unaffected. This is how we progressively plug in Vue into our projects.</p> <pre><code class="hljs js"><span>  <span class="hljs-keyword">new</span> Vue ({
+</span><span>    <span class="hljs-attr">el</span>: <span class="hljs-string">'#root'</span>,
+</span><span>  });
+</span></code></pre><pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre><p><b>Step 3:</b> Specify our data (message: &quot;Hello World&quot;) in the instance of Vue Class.</p> <pre><code class="hljs js"><span>  data: {
+</span><span>    <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Hello World&quot;</span>
+</span><span>  }
+</span></code></pre><p><b>Step 4:</b> Pass the message to the HTML file using double curly brackets.</p> <pre><code class="hljs HTML"><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span>
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre><p><b>Step 5:</b> Open the browser and we will see &quot;Hello World&quot; being displayed:</p> <blockquote><h2 id="hello-world"><span id="hello-world" class="anchor"></span>Hello World<a href="#hello-world" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2></blockquote> <br> <h2 id="vue-features"><span id="vue-features" class="anchor"></span>Vue Features<a href="#vue-features" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ol><li><p><strong>Mutating of Data in the DOM</strong><br>
+In Vue, the state of the data can be directly modified.</p> <p>Let's say, there is a variable called <code class="hljs inline no-lang">message</code> in your app. To modify <code class="hljs inline no-lang">message</code>, you can do the following:</p> <pre><code class="hljs js"><span><span class="hljs-built_in">this</span>.message = <span class="hljs-string">'Hello Space'</span>;
+</span></code></pre><p>When <code class="hljs inline no-lang">message</code> is changed, the view will be re-rendered to show the new message. So you can say, the DOM is &quot;reacting&quot; to the changes in <code class="hljs inline no-lang">message</code>.</p></li></ol> <br> <ol start="2"><li><p><strong>Two-way binding</strong><br> <code class="hljs inline no-lang">v-model</code> is a <a href="https://vuejs.org/v2/api/#v-model">Vue directive</a> used to bind the DOM input field to its data variable.</p> <p>This allows the DOM variables and data to be &quot;in sync&quot;, regardless of which one is being updated first.
+In other words, if you change the input value, the bound data will change, and vice versa.</p> <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span>, <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;isChecked&quot;</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;checked&quot;</span>&gt;</span>Select<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</span><span><span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span>
+</span></code></pre><p>When the checkbox is selected, <code class="hljs inline no-lang">isChecked</code> is set to <code class="hljs inline no-lang">true</code>. If the program sets <code class="hljs inline no-lang">isChecked</code> to <code class="hljs inline no-lang">false</code>, then checkbox will be unselected.
+This reduces any extra step required to manually update the data.</p> <p>2-way binding is useful for updating input form bindings such as checkboxes or drop-downs, where new data is entered by users and then updated in the view.</p></li></ol> <br> <ol start="3"><li><p><strong>Conditionals and Loops</strong><br> <code class="hljs inline no-lang">v-if</code> allows you to conditionally insert/remove elements based on the truthfulness of the binding value.</p> <p><code class="hljs inline no-lang">v-for</code> allows you to loop through and render a list of items.</p> <p>Following the previous checkbox example, if you want to display a list of messages when the checkbox is checked, you can do the following:</p> <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;isChecked&quot;</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;message in messages&quot;</span>&gt;</span>
+</span><span>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{\{message}\}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span><span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre></li></ol> <br> <ol start="4"><li><p><strong>Passing Data From Outer to Inner Components</strong><br>
+When you have components that are nested within each other, data is passed from the outer component to the inner component via <code class="hljs inline no-lang">props</code>, where <code class="hljs inline no-lang">props</code> are just custom data shared between the components.</p> <p>This follows the <a href="https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow">1-way data flow</a> encouraged by Vue, which
+ensures that data can only be changed by the component itself and also allows bugs to be easily traced in the code.</p> <p>To pass props to a Vue component, <code class="hljs inline no-lang">v-bind:&lt;prop-name&gt;</code> is used. A demonstration of passing props is shown in the code segment below:</p> <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'todo-list'</span>, {
+</span><span>  <span class="hljs-attr">props</span>: [<span class="hljs-string">'item'</span>],
+</span><span>  <span class="hljs-attr">data</span>: [<span class="hljs-string">'totalCount'</span>],
+</span><span>  <span class="hljs-attr">template</span>:<span class="hljs-string">`</span>
+</span><span><span class="hljs-string">    &lt;div class='todo-list'&gt;</span>
+</span><span><span class="hljs-string">      &lt;p&gt;Total:{\{this.totalCount}\}&lt;/p&gt;</span>
+</span><span><span class="hljs-string">      &lt;p&gt;{\{item.name}\}: {\{item.count}\}&lt;/p&gt;</span>
+</span><span><span class="hljs-string">    &lt;/div&gt;</span>
+</span><span><span class="hljs-string">  `</span>
+</span><span>})
+</span><span>
+</span><span>&lt;todo-list
+</span><span>  v-<span class="hljs-keyword">for</span>=<span class="hljs-string">'item in items'</span>
+</span><span>  v-bind:key=<span class="hljs-string">'item.id'</span>
+</span><span>  v-bind:item=<span class="hljs-string">'item'</span>
+</span><span>&gt;&lt;/todo-list&gt;
+</span></code></pre><p><code class="hljs inline no-lang">to-do list</code> contains <code class="hljs inline no-lang">item</code>, i.e. <code class="hljs inline no-lang">to-do list</code> is the outer component and <code class="hljs inline no-lang">item</code> is the inner component.</p> <div class="alert box-container alert-success" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-lightbulb" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>Note that <code class="hljs inline no-lang" data-v-7d17494f>props</code> is passed from the outer component to the inner component while <code class="hljs inline no-lang" data-v-7d17494f>data</code> is kept private within a component.</p></div> <!----></div></div></div></li></ol> <br> <ol start="5"><li><p><strong>Emitting Events</strong><br>
+However, what if the user decides to update the <code class="hljs inline no-lang">item.count</code>? The data for <code class="hljs inline no-lang">item.count</code> has to be passed from <code class="hljs inline no-lang">item</code> to <code class="hljs inline no-lang">todo-list</code> so that <code class="hljs inline no-lang">totalCount</code> can be updated inside <code class="hljs inline no-lang">todo-list</code> .</p> <p>How do we do that if we have to follow the 1-way data flow rule?</p> <p>In situations where the inner component has to pass data back to the outer component, the inner component has to <a href="https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event">emit custom events</a>
+and the outer component will update after listening to these events.</p> <p>You can think of emitting events like putting out a flyer about an event. If someone is interested in this event, he or she can gather more information through reading the flyer.</p> <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'item'</span>, {
+</span><span>  <span class="hljs-attr">data</span>: [<span class="hljs-string">'count'</span>, <span class="hljs-string">'name'</span>],
+</span><span>  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;button v-on:click=&quot;$emit('increased-count', count+1)&quot;&gt;Increment item count&lt;/button&gt;`</span>
+</span><span>})
+</span><span>
+</span><span><span class="hljs-comment">/* Inside todo-list component */</span>
+</span><span><span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;item v-on:increased-count=&quot;updateCount&quot; v-for=&quot;item in items&quot;/&gt;`</span>
+</span></code></pre><div class="alert box-container alert-success" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-lightbulb" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f><p data-v-7d17494f>When the button is clicked, the <code class="hljs inline no-lang" data-v-7d17494f>item</code> component will emit a custom event named <code class="hljs inline no-lang" data-v-7d17494f>increased-count</code> while the <code class="hljs inline no-lang" data-v-7d17494f>todo-list</code> component listens for this event and executes its own <code class="hljs inline no-lang" data-v-7d17494f>updateCount</code> method.</p></div> <!----></div></div></div></li></ol> <br> <ol start="6"><li><p><strong>Computed Properties</strong><br>
+This is useful when you want to compose new data based on the data that has changed.
+Instead of calling methods to do that whenever data has changed, computed properties will do it for you automatically.</p> <pre><code class="hljs js"><span>computed: <span class="hljs-function"><span class="hljs-title">totalCount</span>(<span class="hljs-params"></span>)</span> {
+</span><span>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);
+</span><span>}
+</span></code></pre><p>Unlike the use of methods, this updating of <code class="hljs inline no-lang">totalCount</code> will only be triggered when the number of <code class="hljs inline no-lang">items</code> in the list or any <code class="hljs inline no-lang">item</code>'s <code class="hljs inline no-lang">count</code> changed.</p> <p>Since computed properties are cached and will not be processed every time the page refreshes, this can greatly improve the efficiency of your application.</p> <div class="alert box-container alert-warning" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><div class="icon-wrapper" data-v-7d17494f><i class="fas fa-exclamation" data-v-7d17494f></i></div> <!----> <div class="contents" data-v-7d17494f>
+     Note: computed properties must return the new data i.e. reactive properties.
+     It cannot perform other operations in response to the change in data.
+ </div> <!----></div></div></div></li></ol> <br> <ol start="7"><li><p><strong>Watched Properties</strong><br>
+Watched properties are used to call other functions when a particular data has been updated, such as <span data-mb-component-type="tooltip" class="trigger"><span data-mb-slot-name="_content">independent operations</span>asynchronous operations</span>.</p> <p>For example, when a new <code class="hljs inline no-lang">item</code> is added, we want to send a notification to our friend to alert him or her about the change.
+A watched property on <code class="hljs inline no-lang">items</code> can be added so that a notification can be sent whenever <code class="hljs inline no-lang">items</code> has changed.</p> <pre><code class="hljs js"><span>watch: {
+</span><span>  <span class="hljs-attr">totalCount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+</span><span>    <span class="hljs-built_in">this</span>.totalCount = <span class="hljs-built_in">this</span>.items.reduce(<span class="hljs-function">(<span class="hljs-params">sum, item</span>) =&gt;</span> sum + item.count);
+</span><span>
+</span><span>    <span class="hljs-comment">// notify friend about the change</span>
+</span><span>  }
+</span><span>}
+</span></code></pre><p>This may look quite similar to <code class="hljs inline no-lang">Computed properties</code>.</p> <p>To decide which is more suitable for your feature, here is a brief comparison:</p> <div class="table-responsive"><table class="markbind-table table table-bordered table-striped"><thead><tr><th style="text-align:left;">Watched property</th> <th style="text-align:left;">Computed property</th></tr></thead> <tbody><tr><td style="text-align:left;">used for running expensive operations</td> <td style="text-align:left;">used for updating data for dependencies</td></tr> <tr><td style="text-align:left;">executed every time page refreshes</td> <td style="text-align:left;">uses cached data and executes only when changed</td></tr> <tr><td style="text-align:left;"><strong>watches</strong> for change in 1 property</td> <td style="text-align:left;"><strong>creates</strong> a new property that is updated when 1 or more dependencies change</td></tr></tbody></table></div></li></ol> <br> <ol start="8"><li><p><strong>Lifecycle Hooks</strong><br>
+Every Vue instance goes through a series of initialization steps when it is created, i.e. setting up data observation, compiling the template, mounting the instance to the DOM, and updating the DOM when data modifies. Along these steps, Vue runs functions in the background called lifecycle hooks, allowing users to add code at each stage that could improve its rendering speed.<br><br>
+The following diagram shows all lifecycle hooks and their specific execution stages:<br> <a href="/learningresources/contents/javascript/javascript-framework-vue-images/vue-lifecycle-diagram.png" target="_self"><img src="/learningresources/contents/javascript/javascript-framework-vue-images/vue-lifecycle-diagram.png" alt="" title="Vue's Lifecycle Diagram" class="img-fluid"></a> <em>Figure 1. Vue's Lifecycle Diagram</em></p> <p>To run code at a specific stage, you can just define the corresponding hook function and add your code within the function.
+For example, the <code class="hljs inline no-lang">created</code> hook can be used to run code right after the Vue instance is created:</p> <pre><code class="hljs js"><span>Vue.component(<span class="hljs-string">'todo-list'</span>, {
+</span><span>  ...
+</span><span>  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+</span><span>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;to-do list is created.&quot;</span>);
+</span><span>  }
+</span><span>})
+</span></code></pre><p>For more detailed information about Vue lifecycle hooks, visit <a href="https://vuejs.org/v2/api/#Options-Lifecycle-Hooks">here</a>.<br></p></li></ol> <h2 id="why-use-vue"><span id="why-use-vue" class="anchor"></span>Why use Vue?<a href="#why-use-vue" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Now that we know what Vue is, let us look at some benefits it has to offer.</p> <h3 id="benefit-1-approachable"><span id="benefit-1-approachable" class="anchor"></span>Benefit 1: Approachable<a href="#benefit-1-approachable" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Vue is very easy to learn. Compared to other framework such as Angular and React, Vue is simple in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day. An example is provided below:<br><br>
+Iteration in React:<br><br>
+The JavaScript file in ReactJs</p> <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> Iteration = React.createClass({
+</span><span>  <span class="hljs-function"><span class="hljs-title">getInitialState</span>(<span class="hljs-params"></span>)</span> {
+</span><span>    <span class="hljs-keyword">return</span> {
+</span><span>      <span class="hljs-attr">array</span>: [<span class="hljs-string">&quot;Sunday&quot;</span>, <span class="hljs-string">&quot;Monday&quot;</span>, <span class="hljs-string">&quot;Tuesday&quot;</span>, <span class="hljs-string">&quot;Wednesday&quot;</span>, <span class="hljs-string">&quot;Thursday&quot;</span>, <span class="hljs-string">&quot;Friday&quot;</span>, <span class="hljs-string">&quot;Saturday&quot;</span>]
+</span><span>    }
+</span><span>  },
+</span><span>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> {
+</span><span>    <span class="hljs-built_in">this</span>.state.array.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date</span>) </span>{
+</span><span>      <span class="hljs-keyword">return</span> (
+</span><span>        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{date}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+</span><span>      )
+</span><span>    });
+</span><span>  }
+</span><span>});
+</span><span>ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Iteration</span> /&gt;</span></span>, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'array'</span>));
+</span></code></pre><p>The HTML file in ReactJs</p> <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;array&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre><p>Iteration in Vue:<br><br>
+The JavaScript file in Vue</p> <pre><code class="hljs js"><span><span class="hljs-keyword">var</span> Iteration = <span class="hljs-keyword">new</span> Vue({
+</span><span>  <span class="hljs-attr">el</span>: <span class="hljs-string">'#array'</span>,
+</span><span>  <span class="hljs-attr">data</span>: {
+</span><span>    <span class="hljs-attr">array</span>: [<span class="hljs-string">&quot;Sunday&quot;</span>, <span class="hljs-string">&quot;Monday&quot;</span>, <span class="hljs-string">&quot;Tuesday&quot;</span>, <span class="hljs-string">&quot;Wednesday&quot;</span>, <span class="hljs-string">&quot;Thursday&quot;</span>, <span class="hljs-string">&quot;Friday&quot;</span>, <span class="hljs-string">&quot;Saturday&quot;</span>]
+</span><span>  }
+</span><span>});
+</span></code></pre><p>The HTML file in Vue</p> <pre><code class="hljs html"><span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;array&quot;</span>&gt;</span>
+</span><span>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;date in array&quot;</span>&gt;</span>{\{date}\}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</span><span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre><h3 id="benefit-2-progressive"><span id="benefit-2-progressive" class="anchor"></span>Benefit 2: Progressive<a href="#benefit-2-progressive" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. This means that if you have a large application, you can plug Vue into just a part of your application without disturbing the other components. A quote from Evan You - the founder of VueJs is as follows:
+&gt; Vue is a more flexible, less opinionated solution (than Angular). That allows you to structure your app the way you want it to be, instead of being forced to do everything the Angular way (Angular requires a certain way to structure an application, making it hard to introduce Angular into an already built project). It’s only an interface layer so you can use it as a light feature in pages instead of a full blown SPA (single-page application).
+&gt;
+&gt; -- <a href="https://www.valuecoders.com/blog/technology-and-apps/vue-js-comparison-angular-react/">[source]</a></p> <h3 id="benefit-3-versatile"><span id="benefit-3-versatile" class="anchor"></span>Benefit 3: Versatile<a href="#benefit-3-versatile" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Vue is perfectly capable of powering sophisticated single-page applications when used in combination with modern tooling and supporting libraries.</p> <h3 id="benefit-4-clean"><span id="benefit-4-clean" class="anchor"></span>Benefit 4: Clean<a href="#benefit-4-clean" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Vue syntax is simple and this can make the HTML pages very clean. This would allow user interfaces built by Vue to be more maintainable and testable.</p> <h2 id="disadvantages-of-vue"><span id="disadvantages-of-vue" class="anchor"></span>Disadvantages of Vue<a href="#disadvantages-of-vue" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Like any other framework/library, Vue has its share of disadvantages.</p> <ol><li><p><strong>Relatively Small Size Community:</strong><br>
+Vue is a relatively new JavaScript framework as compared to Angular and React. The size of the community for Vue is therefore relatively small. Although small size community means you can differentiate yourself from other JavaScript developers, it also means there are fewer resources such as tutorials and problem-shooting guides.</p></li> <li><p><strong>Language Barriers:</strong><br>
+A majority of users of Vue are the Chinese as Vue is developed by a Chinese American. He is supportive of the Chinese community and hence a lot of the existing plugins are written in Chinese. There might be some language barriers for an English speaking developer seeking for Vue resources.</p></li></ol> <h2 id="resources"><span id="resources" class="anchor"></span>Resources<a href="#resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Detailed comparison of Vue with other JavaScript frameworks can be found from:</p> <ul><li><a href="https://vuejs.org/v2/guide/comparison.html">Vue Guild: Comparison with Other Frameworks</a></li> <li><a href="https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176">Angular vs React vs Vue</a></li></ul> <p>Links to VueJs tutorials and practices:</p> <ul><li><a href="https://vuejs.org">VueJS Official Website</a></li> <li><a href="https://vuejs.org/">VueSchool</a></li> <li><a href="https://laracasts.com/series/learn-vue-2-step-by-step">Laracast</a></li> <li><a href="https://vuetifyjs.com/zh-Hans/">Vuetify</a></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-vue" class="nav-link py-1" data-v-e8c82f88>Introduction to Vue‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-vue" class="nav-link py-1" data-v-e8c82f88>What is Vue?‎</a> <a href="#hello-world" class="nav-link py-1" data-v-e8c82f88>Hello World‎</a> <a href="#vue-features" class="nav-link py-1" data-v-e8c82f88>Vue Features‎</a> <a href="#why-use-vue" class="nav-link py-1" data-v-e8c82f88>Why use Vue?‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#benefit-1-approachable" class="nav-link py-1" data-v-e8c82f88>Benefit 1: Approachable‎</a> <a href="#benefit-2-progressive" class="nav-link py-1" data-v-e8c82f88>Benefit 2: Progressive‎</a> <a href="#benefit-3-versatile" class="nav-link py-1" data-v-e8c82f88>Benefit 3: Versatile‎</a> <a href="#benefit-4-clean" class="nav-link py-1" data-v-e8c82f88>Benefit 4: Clean‎</a></nav> <a href="#disadvantages-of-vue" class="nav-link py-1" data-v-e8c82f88>Disadvantages of Vue‎</a> <a href="#resources" class="nav-link py-1" data-v-e8c82f88>Resources‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

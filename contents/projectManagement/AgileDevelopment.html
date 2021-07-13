@@ -1,476 +1,67 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Agile Development</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Project Management
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a current">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="agile-development">Agile Development<a class="fa fa-anchor" href="#agile-development" onclick="event.stopPropagation()"></a></h1>
-          <p>Author: <a href="https://github.com/joanneong">Joanne Ong</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#overview">Overview‎</a></li>
-              <li><a href="#what-is-agile-development">What is Agile Development?‎</a></li>
-              <li><a href="#why-adopt-agile-development">Why Adopt Agile Development?‎</a></li>
-              <li><a href="#how-to-adopt-agile-development">How to Adopt Agile Development?‎</a></li>
-              <li><a href="#caveats-what-can-possibly-go-wrong">Caveats: What can Possibly go Wrong?‎</a></li>
-              <li><a href="#putting-it-all-together-the-spotify-success-story">Putting it All Together: The Spotify Success Story‎</a></li>
-              <li><a href="#other-related-resources">Other Related Resources‎</a></li>
-            </ul>
-          </box>
-
-          <h2 id="overview">Overview<a class="fa fa-anchor" href="#overview" onclick="event.stopPropagation()"></a></h2>
-          <p>In 2015, Forbes published an article boldly titled <a href="https://www.forbes.com/sites/stevedenning/2015/07/23/the-worlds-most-popular-innovation-engine/#22b176267c76">Agile: The World's Most Popular Innovation Engine</a>. Indeed, as a software engineering student, you may have heard of the term &quot;agile development&quot;, &quot;agile model&quot; or even simply &quot;agile&quot; before. In this chapter, we will explore agile development in greater depth, and learn why agile development is still thriving today.</p>
-          <h2 id="what-is-agile-development">What is Agile Development?<a class="fa fa-anchor" href="#what-is-agile-development" onclick="event.stopPropagation()"></a></h2>
-          <p>Popularised in 2001 by the <a href="https://agilemanifesto.org/"><em>Manifesto for Agile Software Development</em></a>, agile development is essentially a software development approach that can be adopted to manage a software project.</p>
-          <p>Yet, you should not mistake agile development for any single method or framework (e.g. <a href="https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMI2Y-34IDX2QIVwZWPCh3aUg7tEAAYASAAEgLPKvD_BwE">Scrum</a>). Rather, you should see agile development as an overarching approach possessing several distinguishing characteristics as consolidated in the <em>Manifesto</em>. To further simplify these characteristics, agile development can essentially be described as an approach that is flexible, iterative and people-centric.</p>
-          <p>But what does &quot;flexible, iterative and people-centric&quot; really mean? To comprehend this, let us examine each characteristic individually.</p>
-          <h4 id="1-agile-development-is-and-quot-flexible-and-quot">1. Agile Development is &quot;Flexible&quot;<a class="fa fa-anchor" href="#1-agile-development-is-and-quot-flexible-and-quot" onclick="event.stopPropagation()"></a></h4>
-          <p>For a start, agile development is &quot;flexible&quot; because it gives a project more room to evolve over time. This is possible as agile development utilises a form of planning known as <a href="https://www.projectmanager.com/blog/how-to-plan-in-an-agile-environment">adaptive planning</a>, which means that planning is done continuously throughout a project rather than sticking rigidly to a fixed plan established at the start. As a result, planning can take into consideration the project's current progress, and change accordingly to allow the project's priorities and scope to evolve.</p>
-          <p>To visualise this, let us consider adaptive planning in a game below:</p>
-          <blockquote>
-            <p>Imagine playing the old Battleships Game. You are using a traditional business strategy, which means that you have to select all your moves up front and then sit back and wait to see if you have won. I am using an agile business strategy, which means I can make a move, see what happens, learn from this, and adapt. Guess who is more likely to win?</p>
-            <p>-- from <a href="https://agileforeveryone.com/2015/04/24/agile-adaptive-business-strategy-with-scrum/">An agile, adaptive business strategy</a> by Edwin Dando</p>
-          </blockquote>
-          <h4 id="2-agile-development-is-and-quot-iterative-and-quot">2. Agile Development is &quot;Iterative&quot;<a class="fa fa-anchor" href="#2-agile-development-is-and-quot-iterative-and-quot" onclick="event.stopPropagation()"></a></h4>
-          <p>Secondly, agile development is &quot;iterative&quot; because it breaks product development work down into short cycles known as <a href="https://www.agilealliance.org/glossary/iteration/">iterations</a>. Each iteration involves going through planning, designing, coding and testing to result in a working product at the end of an iteration. However, a single iteration may not have added enough functionality to warrant a new release, so in reality multiple iterations are often required to release a new product or feature. Here is a diagram to illustrate this concept:</p>
-          <p><a href="/learningresources/contents/projectManagement/images/projectManagement-agileDev-iterations.jpg" target="_self"><img src="/learningresources/contents/projectManagement/images/projectManagement-agileDev-iterations.jpg" alt class="img-fluid"></a></p>
-          <h4 id="3-agile-development-is-and-quot-people-centric-and-quot">3. Agile Development is &quot;People-Centric&quot;<a class="fa fa-anchor" href="#3-agile-development-is-and-quot-people-centric-and-quot" onclick="event.stopPropagation()"></a></h4>
-          <p>Thirdly, agile development is &quot;people-centric&quot; because it focuses heavily on collaboration and effective communication. In fact, there are many recommendations on how to form a good agile team. While the specifics vary in accordance with the framework that you choose, the general consensus remains that agile development involves several crucial team roles that work in close relation with each other.</p>
-          <p>In particular, agile development also zooms in on direct and simple conversations as the main mode of communication. For example, popular agile frameworks like <a href="https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMIrJLEjuPV2QIV1BuPCh17KwH_EAAYASAAEgKXPfD_BwE">Scrum</a> and <a href="https://www.atlassian.com/agile/kanban">Kanban</a> typically have daily meetings called stand-ups where participants meet for no more than 15 minutes while standing up. Each team member simply answers three questions: &quot;what did I complete yesterday&quot;, &quot;what will I work on today&quot;, and &quot;am I blocked by anything?&quot;, quickly informing everyone of what is going on across the team.</p>
-          <p>The key characteristics then enable our software projects to gain numerous benefits when agile development is adopted to manage the project.</p>
-          <h2 id="why-adopt-agile-development">Why Adopt Agile Development?<a class="fa fa-anchor" href="#why-adopt-agile-development" onclick="event.stopPropagation()"></a></h2>
-          <p>There are quite a number of reasons why you might want to adopt development, but here are three of the most pertinent reasons why:</p>
-          <ol>
-            <li>
-              <p><strong>Agile development can increase user satisfaction with the product.</strong></p>
-              <p>As a project and system unfolds, stakeholders often discover that what they originally requested for at the start of the project may not be what they really want. Luckily, since agile development is &quot;flexible&quot;, the project’s priorities and scope can be readjusted to accommodate how the project is evolving. By the end of the project, the product will tend to stick closer to what stakeholders really want, increasing their satisfaction with the product.</p>
-            </li>
-            <li>
-              <p><strong>Agile development can increase product quality.</strong></p>
-              <p>Under agile development, <a href="https://smartbear.com/learn/automated-testing/testing-in-agile-environments/">testing</a> is part of every single iteration, so any bugs in the product can be found and fixed earlier and more easily. This can then result in increased product quality as bugs are kept to a minimum to ensure that working software is delivered at the end of each iteration.</p>
-            </li>
-            <li>
-              <p><strong>Agile development can increase project control.</strong></p>
-              <p>Project control can be succinctly defined as the management of a project’s costs and schedule. With agile development’s iterative and people-centric nature, project managers can gain more opportunities to monitor what is going on in the project and assess the project’s progress more accurately. If need be, the project manager can also communicate with the client to decide whether to change the scope of the project. Even in the worst case scenario, agile development will still guarantee a working product delivered by the deadline since changes are made incrementally, eliminating the risk of total project failure.</p>
-            </li>
-          </ol>
-          <h2 id="how-to-adopt-agile-development">How to Adopt Agile Development?<a class="fa fa-anchor" href="#how-to-adopt-agile-development" onclick="event.stopPropagation()"></a></h2>
-          <p>Now that you have a glimpse of what agile development can offer you, you may be wondering, how can you adopt agile development in your software projects?</p>
-          <p>As introduced previously, agile development can actually be seen as a high-level concept (or abstraction) that describes certain principles to follow in a software project. As a result, different software projects can choose to implement agile development differently to fit their own circumstances.</p>
-          <p>That said, there are many agile development frameworks that can help to guide you along the way. Examples of popular agile frameworks include (but are not limited to):</p>
-          <ul>
-            <li><a href="https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMI2Y-34IDX2QIVwZWPCh3aUg7tEAAYASAAEgLPKvD_BwE">Scrum</a></li>
-            <li><a href="https://www.atlassian.com/agile/kanban">Kanban</a></li>
-            <li><a href="https://www.agilealliance.org/what-is-scrumban/">Scrumban</a></li>
-            <li><a href="https://leankit.com/learn/lean/principles-of-lean-development/">Lean Software Development</a></li>
-            <li><a href="http://www.agilenutshell.com/xp">Extreme Programming (XP)</a></li>
-            <li><a href="https://agilemodeling.com/essays/fdd.htm">Feature-Driven Development (FDD)</a></li>
-            <li><a href="https://dsdmofagilemethodology.wikidot.com/">Dynamic Systems Development Method (DSDM)</a></li>
-          </ul>
-          <p>In addition to such agile frameworks, there are also many concrete practices that support agile development. These practices span over aspects like requirements, design, coding, testing and risk management, potentially easing your transition to agile development:</p>
-          <ul>
-            <li><a href="https://www.agilemodeling.com/artifacts/userStory.htm">User Stories</a></li>
-            <li><a href="https://www.thoughtworks.com/insights/blog/story-mapping-visual-way-building-product-backlog">User Story Mapping</a></li>
-            <li><a href="https://www.agilealliance.org/glossary/backlog/">Backlogs</a></li>
-            <li><a href="http://www.softwaretestingstudio.com/agile-velocity-sprint-metrics/">Velocity Tracking</a></li>
-            <li><a href="https://www.telerik.com/blogs/the-importance-of-timeboxing-and-iterations-for-agile-planning">Timeboxing</a></li>
-            <li><a href="https://www.codementor.io/pair-programming">Pair Programming</a></li>
-            <li><a href="/learningresources/contents/projectManagement/testDrivenDevelopment.html">Test Driven Development (TDD)</a></li>
-            <li><a href="http://istqbexamcertification.com/what-is-continuous-integration-in-agile-methodology/">Continuous Integration</a></li>
-            <li><a href="https://dzone.com/articles/reflection-loops-agile">Reflection loops</a></li>
-          </ul>
-          <p>Of course, your project does not have to be utilising <strong>all</strong> the frameworks/concrete practices in order to be agile in its development. Instead, great care should be taken to analyse and select the appropriate framework/concrete practices that will work best for the project.</p>
-          <h2 id="caveats-what-can-possibly-go-wrong">Caveats: What can Possibly go Wrong?<a class="fa fa-anchor" href="#caveats-what-can-possibly-go-wrong" onclick="event.stopPropagation()"></a></h2>
-          <p>Given that agile development can bring about so many benefits to our software projects, we must not forget that things can still go very wrong when using agile development. Such unfortunate situations are known as <a href="https://age-of-product.com/agile-management-anti-patterns/">agile anti-patterns</a>, or <a href="https://medium.com/agile-government-leadership/when-good-scrum-goes-bad-identifying-bad-agile-smells-690e7a16b501">agile smells</a>, and some common problems include:</p>
-          <ul>
-            <li>
-              <p><strong>Unfamiliarity with agile development</strong></p>
-              <p>If the team is unfamiliar with agile techniques, you will not be able to reap the full benefits of agile development since agile development depends on tight collaboration between team members. Therefore, it is crucial to ensure that the entire team has good foundations in agile techniques before the transition to agile development. This can be achieved by investing early in training sessions for the team, and bring everyone in the team up-to-date with what agile development entails for the project.</p>
-            </li>
-            <li>
-              <p><strong>Over-reliance on manual testing</strong></p>
-              <p>If the team relies too much on manual testing, agile development will likely be a nightmare for the team. Recall that agile development is iterative, and that testing a part of every single iteration, so with merely manual testing, the team will be forced to spend an unreasonable amount of time and effort on testing alone. Consequently, it is standard practice to employ <a href="https://reqtest.com/agile-blog/you-cant-work-agile-without-automated-testing/">automated testing</a> in agile development to allow developers and testers to focus on work that can be of higher value to the project.</p>
-            </li>
-            <li>
-              <p><strong>Structural rigidity in larger organisations</strong></p>
-              <p>If the team is operating in the context of a large organisation, agile development may not work out as well as it promises to. Unsurprisingly, transiting to agile development in large organisations poses great challenges because large organisations tend to have many established protocols and workflows in place. These protocols may then be familiar to the organisations but are not necessarily in line with agile principles and ideals, but discarding them entirely would cause huge disruptions to the organisations. To combat this, larger organisations can think about <a href="https://www.agilealliance.org/what-is-hybrid-agile-anyway/">hybrid models</a> - combining Agile methods with other non-Agile techniques that the organisation is currently accustomed to.</p>
-            </li>
-          </ul>
-          <h2 id="putting-it-all-together-the-spotify-success-story">Putting it all Together: The Spotify Success Story<a class="fa fa-anchor" href="#putting-it-all-together-the-spotify-success-story" onclick="event.stopPropagation()"></a></h2>
-          <p>By now, you should have gained a healthy understanding of agile development: <strong>what</strong> it is, <strong>why</strong> we should adopt it, and <strong>how</strong> we can adopt it. As a conclusion, let us look at a small example of how <a href="https://www.spotify.com/sg-en/">Spotify</a> - a Swedish music, podcast and video streaming service with over 70 million paying subscribers in 2018 - managed to apply agile development successfully to reap the benefits associated with agile development.</p>
-          <blockquote>
-            <p>In 2015, a small team in Spotify had an idea to solve a long-standing problem: how could users find the music they would really love in a library of millions of songs?...The team didn’t need a whole lot of ROI analyses or go up a steep hierarchical chain to get management approval to change the firm’s strategic plan. In an Agile setting, it was quick and easy for the team to carry out a series of tests. When the innovation, now known as Discover Weekly, was deployed just a few months later, it was a wild success—becoming not just a new feature but a global brand, resulting in an influx of millions of new users. The Discover Weekly team is just one of more than 100 small teams at Spotify, which has deployed Agile approaches to all work since its inception in 2008.</p>
-            <p>-- from <a href="https://www.forbes.com/sites/stevedenning/2016/11/26/can-big-organizations-be-agile/#316f8d6238e7">Can big organizations be agile?</a> by Steve Denning</p>
-          </blockquote>
-          <p><a href="https://medium.com/project-management-learnings/spotify-squad-framework-part-i-8f74bcfcd761">Having been agile since its inception in 2008</a>, Spotify has made full use of the fact that agile development is flexible, iterative and people-oriented to push out their new ideas efficiently. In this case, Spotify could steer the firm's strategy in a novel direction after sudden inspiration (&quot;flexible&quot;), and implemented the new feature in steps by &quot;carry[ing] out a series of tests&quot; (&quot;iterative&quot;) while working together in a small group known as the <em>Discover Weekly</em> team (&quot;people-oriented&quot;).</p>
-          <p><a href="https://www.forbes.com/sites/stevedenning/2016/11/26/can-big-organizations-be-agile/#316f8d6238e7">And Spotify is not the only company to have benefitted from agile development</a>. Evidently, agile development has the potential to do much for your project and organization - but only after you learn how to unleash this potential proper.</p>
-          <h2 id="other-related-resources">Other Related Resources<a class="fa fa-anchor" href="#other-related-resources" onclick="event.stopPropagation()"></a></h2>
-          <p>Here is a compilation of other resources on agile development for your further exploration:</p>
-          <h4 id="getting-started-with-agile-development">Getting Started With Agile Development<a class="fa fa-anchor" href="#getting-started-with-agile-development" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li><a href="https://saucelabs.com/blog/how-to-start-with-agile-development">How to start with agile development</a></li>
-            <li><a href="https://www.atlassian.com/agile">The Agile Coach</a></li>
-            <li><a href="https://blog.trello.com/beginners-guide-scrum-and-agile-project-management">The Beginner's Guide to Scrum and Agile Project Management</a></li>
-            <li><a href="https://www.ambysoft.com/essays/agileRoles.html">Roles on Agile Teams: From Small to Large Teams</a></li>
-            <li><a href="https://www.scaledagileframework.com/agile-teams/">Scaled Agile Framework (SAFe)</a></li>
-          </ul>
-          <h4 id="comparing-different-agile-frameworks">Comparing Different Agile Frameworks<a class="fa fa-anchor" href="#comparing-different-agile-frameworks" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li><a href="https://www.smartsheet.com/how-pick-right-agile-tool">How to Pick the Right Agile Tool</a></li>
-            <li><a href="https://www.cprime.com/2015/02/3-differences-between-scrum-and-kanban-you-need-to-know/">Kanban vs Scrum</a></li>
-            <li><a href="https://www.eylean.com/blog/2013/05/scrum-vs-kanban-vs-scrumban-planning-estimation-and-performance-metrics/">Scrum vs Kanban vs Scrumban</a></li>
-            <li><a href="https://dzone.com/articles/agile-framework-comparison-scrum-vs-kanban-vs-lean">Scrum vs Kanban vs Lean vs XP</a></li>
-            <li><a href="https://project-management.com/xp-fdd-dsdm-and-crystal-methods-of-agile-development/">XP vs FDD vs FDSM</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#agile-development">Agile Development&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#overview">Overview&#x200E;</a>
-              <a class="nav-link py-1" href="#what-is-agile-development">What is Agile Development?&#x200E;</a>
-              <a class="nav-link py-1" href="#why-adopt-agile-development">Why Adopt Agile Development?&#x200E;</a>
-              <a class="nav-link py-1" href="#how-to-adopt-agile-development">How to Adopt Agile Development?&#x200E;</a>
-              <a class="nav-link py-1" href="#caveats-what-can-possibly-go-wrong">Caveats: What can Possibly go Wrong?&#x200E;</a>
-              <a class="nav-link py-1" href="#putting-it-all-together-the-spotify-success-story">Putting it all Together: The Spotify Success Story&#x200E;</a>
-              <a class="nav-link py-1" href="#other-related-resources">Other Related Resources&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Agile Development</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="AgileDevelopment.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="agile-development"><span id="agile-development" class="anchor"></span>Agile Development<a href="#agile-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>Author: <a href="https://github.com/joanneong">Joanne Ong</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#overview" data-v-7d17494f>Overview‎</a></li> <li data-v-7d17494f><a href="#what-is-agile-development" data-v-7d17494f>What is Agile Development?‎</a></li> <li data-v-7d17494f><a href="#why-adopt-agile-development" data-v-7d17494f>Why Adopt Agile Development?‎</a></li> <li data-v-7d17494f><a href="#how-to-adopt-agile-development" data-v-7d17494f>How to Adopt Agile Development?‎</a></li> <li data-v-7d17494f><a href="#caveats-what-can-possibly-go-wrong" data-v-7d17494f>Caveats: What can Possibly go Wrong?‎</a></li> <li data-v-7d17494f><a href="#putting-it-all-together-the-spotify-success-story" data-v-7d17494f>Putting it All Together: The Spotify Success Story‎</a></li> <li data-v-7d17494f><a href="#other-related-resources" data-v-7d17494f>Other Related Resources‎</a></li></ul></div> <!----></div></div></div> <h2 id="overview"><span id="overview" class="anchor"></span>Overview<a href="#overview" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>In 2015, Forbes published an article boldly titled <a href="https://www.forbes.com/sites/stevedenning/2015/07/23/the-worlds-most-popular-innovation-engine/#22b176267c76">Agile: The World's Most Popular Innovation Engine</a>. Indeed, as a software engineering student, you may have heard of the term &quot;agile development&quot;, &quot;agile model&quot; or even simply &quot;agile&quot; before. In this chapter, we will explore agile development in greater depth, and learn why agile development is still thriving today.</p> <h2 id="what-is-agile-development"><span id="what-is-agile-development" class="anchor"></span>What is Agile Development?<a href="#what-is-agile-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Popularised in 2001 by the <a href="https://agilemanifesto.org/"><em>Manifesto for Agile Software Development</em></a>, agile development is essentially a software development approach that can be adopted to manage a software project.</p> <p>Yet, you should not mistake agile development for any single method or framework (e.g. <a href="https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMI2Y-34IDX2QIVwZWPCh3aUg7tEAAYASAAEgLPKvD_BwE">Scrum</a>). Rather, you should see agile development as an overarching approach possessing several distinguishing characteristics as consolidated in the <em>Manifesto</em>. To further simplify these characteristics, agile development can essentially be described as an approach that is flexible, iterative and people-centric.</p> <p>But what does &quot;flexible, iterative and people-centric&quot; really mean? To comprehend this, let us examine each characteristic individually.</p> <h4 id="1-agile-development-is-and-quot-flexible-and-quot"><span id="1-agile-development-is-and-quot-flexible-and-quot" class="anchor"></span>1. Agile Development is &quot;Flexible&quot;<a href="#1-agile-development-is-and-quot-flexible-and-quot" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>For a start, agile development is &quot;flexible&quot; because it gives a project more room to evolve over time. This is possible as agile development utilises a form of planning known as <a href="https://www.projectmanager.com/blog/how-to-plan-in-an-agile-environment">adaptive planning</a>, which means that planning is done continuously throughout a project rather than sticking rigidly to a fixed plan established at the start. As a result, planning can take into consideration the project's current progress, and change accordingly to allow the project's priorities and scope to evolve.</p> <p>To visualise this, let us consider adaptive planning in a game below:</p> <blockquote><p>Imagine playing the old Battleships Game. You are using a traditional business strategy, which means that you have to select all your moves up front and then sit back and wait to see if you have won. I am using an agile business strategy, which means I can make a move, see what happens, learn from this, and adapt. Guess who is more likely to win?</p> <p>-- from <a href="https://agileforeveryone.com/2015/04/24/agile-adaptive-business-strategy-with-scrum/">An agile, adaptive business strategy</a> by Edwin Dando</p></blockquote> <h4 id="2-agile-development-is-and-quot-iterative-and-quot"><span id="2-agile-development-is-and-quot-iterative-and-quot" class="anchor"></span>2. Agile Development is &quot;Iterative&quot;<a href="#2-agile-development-is-and-quot-iterative-and-quot" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Secondly, agile development is &quot;iterative&quot; because it breaks product development work down into short cycles known as <a href="https://www.agilealliance.org/glossary/iteration/">iterations</a>. Each iteration involves going through planning, designing, coding and testing to result in a working product at the end of an iteration. However, a single iteration may not have added enough functionality to warrant a new release, so in reality multiple iterations are often required to release a new product or feature. Here is a diagram to illustrate this concept:</p> <p><a href="/learningresources/contents/projectManagement/images/projectManagement-agileDev-iterations.jpg" target="_self"><img src="/learningresources/contents/projectManagement/images/projectManagement-agileDev-iterations.jpg" alt="" class="img-fluid"></a></p> <h4 id="3-agile-development-is-and-quot-people-centric-and-quot"><span id="3-agile-development-is-and-quot-people-centric-and-quot" class="anchor"></span>3. Agile Development is &quot;People-Centric&quot;<a href="#3-agile-development-is-and-quot-people-centric-and-quot" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <p>Thirdly, agile development is &quot;people-centric&quot; because it focuses heavily on collaboration and effective communication. In fact, there are many recommendations on how to form a good agile team. While the specifics vary in accordance with the framework that you choose, the general consensus remains that agile development involves several crucial team roles that work in close relation with each other.</p> <p>In particular, agile development also zooms in on direct and simple conversations as the main mode of communication. For example, popular agile frameworks like <a href="https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMIrJLEjuPV2QIV1BuPCh17KwH_EAAYASAAEgKXPfD_BwE">Scrum</a> and <a href="https://www.atlassian.com/agile/kanban">Kanban</a> typically have daily meetings called stand-ups where participants meet for no more than 15 minutes while standing up. Each team member simply answers three questions: &quot;what did I complete yesterday&quot;, &quot;what will I work on today&quot;, and &quot;am I blocked by anything?&quot;, quickly informing everyone of what is going on across the team.</p> <p>The key characteristics then enable our software projects to gain numerous benefits when agile development is adopted to manage the project.</p> <h2 id="why-adopt-agile-development"><span id="why-adopt-agile-development" class="anchor"></span>Why Adopt Agile Development?<a href="#why-adopt-agile-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>There are quite a number of reasons why you might want to adopt development, but here are three of the most pertinent reasons why:</p> <ol><li><p><strong>Agile development can increase user satisfaction with the product.</strong></p> <p>As a project and system unfolds, stakeholders often discover that what they originally requested for at the start of the project may not be what they really want. Luckily, since agile development is &quot;flexible&quot;, the project’s priorities and scope can be readjusted to accommodate how the project is evolving. By the end of the project, the product will tend to stick closer to what stakeholders really want, increasing their satisfaction with the product.</p></li> <li><p><strong>Agile development can increase product quality.</strong></p> <p>Under agile development, <a href="https://smartbear.com/learn/automated-testing/testing-in-agile-environments/">testing</a> is part of every single iteration, so any bugs in the product can be found and fixed earlier and more easily. This can then result in increased product quality as bugs are kept to a minimum to ensure that working software is delivered at the end of each iteration.</p></li> <li><p><strong>Agile development can increase project control.</strong></p> <p>Project control can be succinctly defined as the management of a project’s costs and schedule. With agile development’s iterative and people-centric nature, project managers can gain more opportunities to monitor what is going on in the project and assess the project’s progress more accurately. If need be, the project manager can also communicate with the client to decide whether to change the scope of the project. Even in the worst case scenario, agile development will still guarantee a working product delivered by the deadline since changes are made incrementally, eliminating the risk of total project failure.</p></li></ol> <h2 id="how-to-adopt-agile-development"><span id="how-to-adopt-agile-development" class="anchor"></span>How to Adopt Agile Development?<a href="#how-to-adopt-agile-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Now that you have a glimpse of what agile development can offer you, you may be wondering, how can you adopt agile development in your software projects?</p> <p>As introduced previously, agile development can actually be seen as a high-level concept (or abstraction) that describes certain principles to follow in a software project. As a result, different software projects can choose to implement agile development differently to fit their own circumstances.</p> <p>That said, there are many agile development frameworks that can help to guide you along the way. Examples of popular agile frameworks include (but are not limited to):</p> <ul><li><a href="https://www.scrum.org/resources/what-is-scrum?gclid=EAIaIQobChMI2Y-34IDX2QIVwZWPCh3aUg7tEAAYASAAEgLPKvD_BwE">Scrum</a></li> <li><a href="https://www.atlassian.com/agile/kanban">Kanban</a></li> <li><a href="https://www.agilealliance.org/what-is-scrumban/">Scrumban</a></li> <li><a href="https://leankit.com/learn/lean/principles-of-lean-development/">Lean Software Development</a></li> <li><a href="http://www.agilenutshell.com/xp">Extreme Programming (XP)</a></li> <li><a href="https://agilemodeling.com/essays/fdd.htm">Feature-Driven Development (FDD)</a></li> <li><a href="https://dsdmofagilemethodology.wikidot.com/">Dynamic Systems Development Method (DSDM)</a></li></ul> <p>In addition to such agile frameworks, there are also many concrete practices that support agile development. These practices span over aspects like requirements, design, coding, testing and risk management, potentially easing your transition to agile development:</p> <ul><li><a href="https://www.agilemodeling.com/artifacts/userStory.htm">User Stories</a></li> <li><a href="https://www.thoughtworks.com/insights/blog/story-mapping-visual-way-building-product-backlog">User Story Mapping</a></li> <li><a href="https://www.agilealliance.org/glossary/backlog/">Backlogs</a></li> <li><a href="http://www.softwaretestingstudio.com/agile-velocity-sprint-metrics/">Velocity Tracking</a></li> <li><a href="https://www.telerik.com/blogs/the-importance-of-timeboxing-and-iterations-for-agile-planning">Timeboxing</a></li> <li><a href="https://www.codementor.io/pair-programming">Pair Programming</a></li> <li><a href="/learningresources/contents/projectManagement/testDrivenDevelopment.html">Test Driven Development (TDD)</a></li> <li><a href="http://istqbexamcertification.com/what-is-continuous-integration-in-agile-methodology/">Continuous Integration</a></li> <li><a href="https://dzone.com/articles/reflection-loops-agile">Reflection loops</a></li></ul> <p>Of course, your project does not have to be utilising <strong>all</strong> the frameworks/concrete practices in order to be agile in its development. Instead, great care should be taken to analyse and select the appropriate framework/concrete practices that will work best for the project.</p> <h2 id="caveats-what-can-possibly-go-wrong"><span id="caveats-what-can-possibly-go-wrong" class="anchor"></span>Caveats: What can Possibly go Wrong?<a href="#caveats-what-can-possibly-go-wrong" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Given that agile development can bring about so many benefits to our software projects, we must not forget that things can still go very wrong when using agile development. Such unfortunate situations are known as <a href="https://age-of-product.com/agile-management-anti-patterns/">agile anti-patterns</a>, or <a href="https://medium.com/agile-government-leadership/when-good-scrum-goes-bad-identifying-bad-agile-smells-690e7a16b501">agile smells</a>, and some common problems include:</p> <ul><li><p><strong>Unfamiliarity with agile development</strong></p> <p>If the team is unfamiliar with agile techniques, you will not be able to reap the full benefits of agile development since agile development depends on tight collaboration between team members. Therefore, it is crucial to ensure that the entire team has good foundations in agile techniques before the transition to agile development. This can be achieved by investing early in training sessions for the team, and bring everyone in the team up-to-date with what agile development entails for the project.</p></li> <li><p><strong>Over-reliance on manual testing</strong></p> <p>If the team relies too much on manual testing, agile development will likely be a nightmare for the team. Recall that agile development is iterative, and that testing a part of every single iteration, so with merely manual testing, the team will be forced to spend an unreasonable amount of time and effort on testing alone. Consequently, it is standard practice to employ <a href="https://reqtest.com/agile-blog/you-cant-work-agile-without-automated-testing/">automated testing</a> in agile development to allow developers and testers to focus on work that can be of higher value to the project.</p></li> <li><p><strong>Structural rigidity in larger organisations</strong></p> <p>If the team is operating in the context of a large organisation, agile development may not work out as well as it promises to. Unsurprisingly, transiting to agile development in large organisations poses great challenges because large organisations tend to have many established protocols and workflows in place. These protocols may then be familiar to the organisations but are not necessarily in line with agile principles and ideals, but discarding them entirely would cause huge disruptions to the organisations. To combat this, larger organisations can think about <a href="https://www.agilealliance.org/what-is-hybrid-agile-anyway/">hybrid models</a> - combining Agile methods with other non-Agile techniques that the organisation is currently accustomed to.</p></li></ul> <h2 id="putting-it-all-together-the-spotify-success-story"><span id="putting-it-all-together-the-spotify-success-story" class="anchor"></span>Putting it all Together: The Spotify Success Story<a href="#putting-it-all-together-the-spotify-success-story" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>By now, you should have gained a healthy understanding of agile development: <strong>what</strong> it is, <strong>why</strong> we should adopt it, and <strong>how</strong> we can adopt it. As a conclusion, let us look at a small example of how <a href="https://www.spotify.com/sg-en/">Spotify</a> - a Swedish music, podcast and video streaming service with over 70 million paying subscribers in 2018 - managed to apply agile development successfully to reap the benefits associated with agile development.</p> <blockquote><p>In 2015, a small team in Spotify had an idea to solve a long-standing problem: how could users find the music they would really love in a library of millions of songs?...The team didn’t need a whole lot of ROI analyses or go up a steep hierarchical chain to get management approval to change the firm’s strategic plan. In an Agile setting, it was quick and easy for the team to carry out a series of tests. When the innovation, now known as Discover Weekly, was deployed just a few months later, it was a wild success—becoming not just a new feature but a global brand, resulting in an influx of millions of new users. The Discover Weekly team is just one of more than 100 small teams at Spotify, which has deployed Agile approaches to all work since its inception in 2008.</p> <p>-- from <a href="https://www.forbes.com/sites/stevedenning/2016/11/26/can-big-organizations-be-agile/#316f8d6238e7">Can big organizations be agile?</a> by Steve Denning</p></blockquote> <p><a href="https://medium.com/project-management-learnings/spotify-squad-framework-part-i-8f74bcfcd761">Having been agile since its inception in 2008</a>, Spotify has made full use of the fact that agile development is flexible, iterative and people-oriented to push out their new ideas efficiently. In this case, Spotify could steer the firm's strategy in a novel direction after sudden inspiration (&quot;flexible&quot;), and implemented the new feature in steps by &quot;carry[ing] out a series of tests&quot; (&quot;iterative&quot;) while working together in a small group known as the <em>Discover Weekly</em> team (&quot;people-oriented&quot;).</p> <p><a href="https://www.forbes.com/sites/stevedenning/2016/11/26/can-big-organizations-be-agile/#316f8d6238e7">And Spotify is not the only company to have benefitted from agile development</a>. Evidently, agile development has the potential to do much for your project and organization - but only after you learn how to unleash this potential proper.</p> <h2 id="other-related-resources"><span id="other-related-resources" class="anchor"></span>Other Related Resources<a href="#other-related-resources" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Here is a compilation of other resources on agile development for your further exploration:</p> <h4 id="getting-started-with-agile-development"><span id="getting-started-with-agile-development" class="anchor"></span>Getting Started With Agile Development<a href="#getting-started-with-agile-development" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li><a href="https://saucelabs.com/blog/how-to-start-with-agile-development">How to start with agile development</a></li> <li><a href="https://www.atlassian.com/agile">The Agile Coach</a></li> <li><a href="https://blog.trello.com/beginners-guide-scrum-and-agile-project-management">The Beginner's Guide to Scrum and Agile Project Management</a></li> <li><a href="https://www.ambysoft.com/essays/agileRoles.html">Roles on Agile Teams: From Small to Large Teams</a></li> <li><a href="https://www.scaledagileframework.com/agile-teams/">Scaled Agile Framework (SAFe)</a></li></ul> <h4 id="comparing-different-agile-frameworks"><span id="comparing-different-agile-frameworks" class="anchor"></span>Comparing Different Agile Frameworks<a href="#comparing-different-agile-frameworks" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li><a href="https://www.smartsheet.com/how-pick-right-agile-tool">How to Pick the Right Agile Tool</a></li> <li><a href="https://www.cprime.com/2015/02/3-differences-between-scrum-and-kanban-you-need-to-know/">Kanban vs Scrum</a></li> <li><a href="https://www.eylean.com/blog/2013/05/scrum-vs-kanban-vs-scrumban-planning-estimation-and-performance-metrics/">Scrum vs Kanban vs Scrumban</a></li> <li><a href="https://dzone.com/articles/agile-framework-comparison-scrum-vs-kanban-vs-lean">Scrum vs Kanban vs Lean vs XP</a></li> <li><a href="https://project-management.com/xp-fdd-dsdm-and-crystal-methods-of-agile-development/">XP vs FDD vs FDSM</a></li></ul></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#agile-development" class="nav-link py-1" data-v-e8c82f88>Agile Development‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#overview" class="nav-link py-1" data-v-e8c82f88>Overview‎</a> <a href="#what-is-agile-development" class="nav-link py-1" data-v-e8c82f88>What is Agile Development?‎</a> <a href="#why-adopt-agile-development" class="nav-link py-1" data-v-e8c82f88>Why Adopt Agile Development?‎</a> <a href="#how-to-adopt-agile-development" class="nav-link py-1" data-v-e8c82f88>How to Adopt Agile Development?‎</a> <a href="#caveats-what-can-possibly-go-wrong" class="nav-link py-1" data-v-e8c82f88>Caveats: What can Possibly go Wrong?‎</a> <a href="#putting-it-all-together-the-spotify-success-story" class="nav-link py-1" data-v-e8c82f88>Putting it all Together: The Spotify Success Story‎</a> <a href="#other-related-resources" class="nav-link py-1" data-v-e8c82f88>Other Related Resources‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

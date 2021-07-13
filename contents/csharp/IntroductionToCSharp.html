@@ -1,436 +1,157 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Introduction to C#</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">CSharp
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a current">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Testing
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="introduction-to-c">Introduction to C#<a class="fa fa-anchor" href="#introduction-to-c" onclick="event.stopPropagation()"></a></h1>
-          <p><strong>Author(s:) <a href="https://github.com/YuPeiHenry">Yu Pei, Henry</a></strong><br>
-            Reviewers: <a href="https://github.com/ChesterSng">Chester Sng</a>, <a href="https://github.com/sijie123">Lin Si Jie</a></p>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#what-is-c">What is C#‎</a></li>
-              <li><a href="#c-syntax-features">C# Syntax Features‎</a>
-                <ul>
-                  <li><a href="#object-array-collection-initializers">Object/Array/Collection Initializers‎</a></li>
-                  <li><a href="#closures">Closures‎</a></li>
-                  <li><a href="#nullable-type">Nullable Type‎</a></li>
-                  <li><a href="#other-features">Other Features</a></li>
-                </ul>
-              </li>
-              <li><a href="#why-learn-c">Why Learn C#?‎</a></li>
-              <li><a href="#how-to-get-started">How to Get Started‎</a></li>
-            </ul>
-          </box>
-
-          <h2 id="what-is-c">What is C#<a class="fa fa-anchor" href="#what-is-c" onclick="event.stopPropagation()"></a></h2>
-          <p>C# is a <em>general purpose</em>, <em>multi-paradigm</em>, <em>garbage collected</em>, <em>cross-platform</em> language by Microsoft, and part of the <em>.NET platform</em>. Some claim C# is Microsoft's answer to Java due to the fact that the two languages have a lot of similarities.</p>
-          <p>Given below are brief explanations of the key characteristics of C# mentioned above.</p>
-          <ul>
-            <li>
-              <p><strong>General purpose</strong>:</p>
-              <blockquote>In computer software, a general-purpose programming language is a programming language designed to be used for writing software in the widest variety of application domains (a general-purpose language). A general-purpose programming language has this status because it does not include language constructs designed to be used within a specific application domain.<br>--(source: [Wikipedia](https://en.wikipedia.org/wiki/General-purpose_programming_language))</blockquote>
-            </li>
-            <li>
-              <p><strong>Multi-paradigm</strong>: <a href="https://en.wikipedia.org/wiki/Programming_paradigm"><em>Programing Paradigms</em></a> are used to describe Programming Languages based on their features. Some commonly referred paradigms are <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Programming</a> (which primarily organizes code into objects that contain a state) and <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a> (where code represents a sequence of stateless functions.) C# supports both Object-Oriented and Functional Programming, and many others that can be found <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">here</a>.</p>
-            </li>
-            <li>
-              <p><strong>Garbage Collected</strong>: The intialization, storage and handling of variables require memory. <em>Garbage Collection</em> is a form of automatic memory management, where memory that is no longer referenced by the program will be deallocated. You may read more about <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">Garbage Collection</a>.</p>
-            </li>
-            <li>
-              <p><strong>Cross-Platform</strong>: <a href="https://en.wikipedia.org/wiki/Cross-platform_software">Cross-Platform</a> software is software that can be run across multiple platforms, which may require recompilation depending on the software. Common platforms include Windows, MacOS and Linux, and for mobile platforms Android and iOS. The benefits of writing Cross-Platform software is that developers will only need to primarily maintain 1 code base and be able to deploy to multiple platforms.</p>
-            </li>
-          </ul>
-          <p>Below is an example of of a simple C# program:</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-comment">//Comments can be marked with // or /**/</span><br></span><span><span class="hljs-comment">//Namespaces are similar to packages, except the file does not need to be physically in the directory</span><br></span><span><span class="hljs-keyword">using</span> ProjectName.Utils;<br></span><span><br></span><span><span class="hljs-keyword">namespace</span> <span class="hljs-title">ProjectName.Model</span><br></span><span>{<br></span><span>    <span class="hljs-comment">//Subclassing BaseClass</span><br></span><span>    <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> : <span class="hljs-title">BaseClass</span> {<br></span><span>        ...<br></span><span>        <span class="hljs-comment">//Method declaration</span><br></span><span>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params">String[] args</span>)</span> {<br></span><span>            <span class="hljs-comment">//Variable definition</span><br></span><span>            <span class="hljs-keyword">string</span> message = <span class="hljs-string">"Hello World!"</span>;<br></span><span>            Console.WriteLine(message);<br></span><span>        }<br></span><span>    }<br></span><span>}<br></span></code></pre>
-          <p>Developers that work with C# commonly use Visual Studio as their IDE and also as a build tool for compilation into common application/library formats, such as <code>.exe</code> or <code>.dll</code>. Using Visual Studio for C# development offers great convenience as it has an integrated testing framework, <a href="https://en.wikipedia.org/wiki/Visual_Studio_Unit_Testing_Framework">MSTest</a>.</p>
-          <h2 id="c-syntax-features">C# Syntax Features<a class="fa fa-anchor" href="#c-syntax-features" onclick="event.stopPropagation()"></a></h2>
-          <p>This section covers some noteworthy features of C# syntax <span class="dimmed">(some of them are found in other languages such as Java and Swift)</span>.</p>
-          <h3 id="object-array-collection-initializers">Object/Array/Collection Initializers<a class="fa fa-anchor" href="#object-array-collection-initializers" onclick="event.stopPropagation()"></a></h3>
-          <p>In C#, you can construct an <a href="https://en.wikipedia.org/wiki/Object_(computer_science)" title="In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier.">Object</a>, <a href="https://www.webopedia.com/TERM/A/array.html" title="In programming, a series of objects all of which are the same size and type. Each object in an array is called an array element. For example, you could have an array of integers or an array of characters or an array of anything that has a defined data type.">Array</a> or <a href="https://computersciencewiki.org/index.php/Collections" title="A collection — sometimes called a container — is simply an object that groups multiple elements into a single unit.">Collection</a> in a single statement as shown. This can be useful when writing tests, as test data will be better organised, as compared to calling the actual constructor.</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BookShelf</span>(<span class="hljs-params">Book[] books, param2, param3, param4</span>)</span><br></span><span><span class="hljs-function"></span>{<br></span><span>    <span class="hljs-keyword">this</span>.books = books<br></span><span>    <span class="hljs-comment">// Do something with param 2, 3, 4</span><br></span><span>}<br></span><span><br></span><span><span class="hljs-comment">// Without use of Object Initializer</span><br></span><span>BookShelf shelf1 = <span class="hljs-keyword">new</span> BookShelf(books, param2, param3, param4)<br></span><span><br></span><span><span class="hljs-comment">// With use of Object Initializer</span><br></span><span>BookShelf shelf2 = <span class="hljs-keyword">new</span> BookShelf() {<br></span><span>    books = { book1, book2 };<br></span><span>};<br></span></code></pre>
-          <p>In the above example, we want to test a <code>BookShelf</code>'s behaviors only related to the <code>Book[] array</code>. Instead of having to unnecessarily use param2, 3, 4 in construction, we can initialize a <code>BookShelf</code> only with the <code>Book[]</code> that we wanted to use.</p>
-          <h3 id="closures">Closures<a class="fa fa-anchor" href="#closures" onclick="event.stopPropagation()"></a></h3>
-          <p>Sometimes, it may be useful to <a href="https://www.informit.com/articles/article.aspx?p=2171751" title="Code that is executed only when results need to be evaluated. There are many reasons for executing code later">defer execution</a> or capture a local context for later execution. Context capturing is reflected below:</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-comment">//Capturing local context</span><br></span><span><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Context</span><br></span><span>{<br></span><span>    <span class="hljs-comment">//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.</span><br></span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Func&lt;Int&gt; <span class="hljs-title">GetCounter</span>(<span class="hljs-params"></span>)</span><br></span><span><span class="hljs-function"></span>    {<br></span><span>        <span class="hljs-comment">//Inside the context of this function, there is an integer variable count.</span><br></span><span>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br></span><span>        <span class="hljs-comment">//GetCounter is returning a function.</span><br></span><span>        <span class="hljs-keyword">return</span> () =&gt;<br></span><span>        {<br></span><span>            <span class="hljs-comment">//The function increments the count variable inside this context, which is initialized to 0.</span><br></span><span>            count++;<br></span><span>            <span class="hljs-comment">//It then returns the current count value.</span><br></span><span>            <span class="hljs-keyword">return</span> count;<br></span><span>        }<br></span><span>    }<br></span><span>}<br></span><span><br></span><span>Func&lt;Int&gt; counter = Context.GetCounter();<br></span><span><span class="hljs-comment">//Every time the function is called, the variable count in the captured context would increment by 1, and its new value will be returned.</span><br></span><span>counter(); <span class="hljs-comment">//Returns 1</span><br></span><span>counter(); <span class="hljs-comment">//Returns 2</span><br></span></code></pre>
-          <p>The ability to capture the value <code>count</code> outside of the defined function scope that returns <code>count</code>, is called a closure. If you wish to read more about closures, you may consult <a href="https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure">this article by dixin</a></p>
-          <h3 id="nullable-type">Nullable Type<a class="fa fa-anchor" href="#nullable-type" onclick="event.stopPropagation()"></a></h3>
-          <p>Normally to guard against null pointers, an <code>if</code> branch or a guard clause that checks against <code>null</code> is used. Below is a code example of conventional null pointer handling.</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {<br></span><span>    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);<br></span><span>}<br></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {<br></span><span>    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);<br></span><span>}<br></span><span><br></span><span>Car car = Car.ManufactureCar();<br></span><span>Double fuelLeft = <span class="hljs-number">0</span>;<br></span><span><span class="hljs-keyword">if</span> (car != <span class="hljs-literal">null</span>)<br></span><span>{<br></span><span>    car.AddFuelTank();<br></span><span>	fuelTank = car.GetFuelTank()<br></span><span>	<span class="hljs-keyword">if</span> (fuelTank != <span class="hljs-literal">null</span>) {<br></span><span>        fuelLeft = fuelTank.GetFuel();<br></span><span>    }<br></span><span>}<br></span><span><br></span><span>DoSomethingTo(fuelLeft);<br></span></code></pre>
-          <p>In C#, <code>null</code> handling does not need to be done the conventional way. C# has <code>Nullable</code> features, such as collaescing operators <code>??</code> and null conditional operators <code>.?</code>. Some may find this similar to <code>optionals</code> in Swift. Applying these features appropriately not only results in shorter and more concise code in general. It makes it easier to reduce the use of indentation as well. Nullables may appear less intuitive to new users, so its value may differ between communities.</p>
-          <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {<br></span><span>    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);<br></span><span>}<br></span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {<br></span><span>    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);<br></span><span>}<br></span><span><br></span><span>Car car = Car.ManufactureCar();<br></span><span><span class="hljs-comment">//Call Drive method of car if not null</span><br></span><span>car?.AddFuelTank();<br></span><span><br></span><span><span class="hljs-comment">//Get amount of fuel left with default value 0</span><br></span><span>Double fuelLeft = car?.GetFuelTank()?.GetFuel() ?? <span class="hljs-number">0</span>;<br></span><span><br></span><span>DoSomethingTo(fuelLeft);<br></span></code></pre>
-          <p>Some explanation of what <code>Double fuelLeft = car?.GetFuel() ?? 0</code> does:</p>
-          <ul>
-            <li>If car is not null, one can expect the statement to evaluate to <code>car.GetFuel()</code>.</li>
-            <li>If car is null, <code>car?.GetFuel()</code> evaluates to null.</li>
-            <li>If GetFuelTank() returns null, or car evaluates to null, car?.GetFuelTank()?.GetFuel() evaluates to null.</li>
-            <li><code>??</code> operator sees null, so the entire expression defaults to 0. If <code>??</code> sees a non-null value, the default value is not used.</li>
-          </ul>
-          <p>More can be read about Nullables <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/">here</a></p>
-          <h3 id="other-features">Other Features<a class="fa fa-anchor" href="#other-features" onclick="event.stopPropagation()"></a></h3>
-          <p>The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. Some features that were not listed are <a href="https://docs.microsoft.com/en-us/dotnet/csharp/async">Async/Await</a> and <a href="https://www.infoq.com/articles/default-interface-methods-cs8">Default Interface Implementation</a>. If you wish to explore other features, you may consult this <a href="https://stackify.com/csharp-8-features/">article</a> and others online.</p>
-          <h2 id="why-learn-c">Why Learn C#<a class="fa fa-anchor" href="#why-learn-c" onclick="event.stopPropagation()"></a></h2>
-          <p>C# is high in demand (as per <a href="https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb">source1</a>, <a href="https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ">source 2</a>). It is especially well-suited for Windows apps. It also thrives in game programming because the popualr game engine Unity has great cross-platform compatibility for desktop, web, mobile and console, and has extensive support for 2D/3D games, VR/AR games and games that require networking. C# can even be used on non-Windows environments as the .NET framework has <a href="https://en.wikipedia.org/wiki/Cross-platform_software" title="In computing, cross-platform software (also multi-platform software or platform-independent software) is computer software that is implemented on multiple computing platforms.">cross platform</a> support via the <a href="https://www.mono-project.com/">Mono project</a>.</p>
-          <h2 id="how-to-get-started">How to Get Started<a class="fa fa-anchor" href="#how-to-get-started" onclick="event.stopPropagation()"></a></h2>
-          <p>Getting started with C# is not difficult. You can download Visual Studio and follow the setup instructions for C# programming <a href="https://www.guru99.com/download-install-visual-studio.html">here</a>. If you are new to C# but have some familiarity with Java, you may follow the tutorial at <a href="https://www.sololearn.com/Play/CSharp">Sololearn</a>. It is a rather comprehensive tutorial that teaches fundamental syntax and concepts in C#. If you feel that certain parts of the tutorial are too simple, you can also skip them.</p>
-          <p>If you are entirely new to programming, you may find more hands on practice with simpler steps at <a href="https://csharp.net-tutorials.com/getting-started/introduction/">CSharp net</a>. This tutorial tends to be more rigorous and goes through in great detail the steps, starting from installing a development environment, to writing basic C# programs and finally topics commonly used in real applications, such as file handling and debugging. If you wish to skip certain parts of the tutorial, the structured contents are displayed on the right side of the website.</p>
-          <p>If you want to have a go at maintaining and enhancing a small project, you may find this <a href="https://1000projects.org/airline-reservation-system-a-net-project-with-code.html">fictitious airline reservation system</a> project
-            to be a good starting point. It covers commonly used components of a software, such as UI (Application User Interface), data storage and handling, and the logic behind the program (such as buying a ticket). More similar projects can be found at <a href="https://1000projects.org/c-projects.html">1000projects.org</a>.</p>
-          <p>If you feel that you have a grasp of C# fundamentals but find it difficult to write programs of bigger scale, you may consult
-            <a href="https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/">CSharp corner</a> for a list of design patterns that you may employ to better organise and plan your program structure. Sometimes, you may find that you have problems collaborating on a C# project. This may be due to some common misconceptions and mistakes you are commiting without realisation. You may reduce these problems by reading about <a href="https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/">some common mistakes in C# programming</a>.</p>
-          <p>If you want to develop a desktop application for Windows, you may consult <a href="https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?view=vs-2019">Microsoft's documentation</a> on creating an application with the <code>Windows Presentation Foundation</code>, a framework that is commonly used for creating UI for Windows Applications that has many useful features for building your UI.</p>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#introduction-to-c">Introduction to C#&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#what-is-c">What is C#&#x200E;</a>
-              <a class="nav-link py-1" href="#c-syntax-features">C# Syntax Features&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#object-array-collection-initializers">Object/Array/Collection Initializers&#x200E;</a>
-                <a class="nav-link py-1" href="#closures">Closures&#x200E;</a>
-                <a class="nav-link py-1" href="#nullable-type">Nullable Type&#x200E;</a>
-                <a class="nav-link py-1" href="#other-features">Other Features&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#why-learn-c">Why Learn C#&#x200E;</a>
-              <a class="nav-link py-1" href="#how-to-get-started">How to Get Started&#x200E;</a>
-            </nav>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Introduction to C#</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="IntroductionToCSharp.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="introduction-to-c"><span id="introduction-to-c" class="anchor"></span>Introduction to C#<a href="#introduction-to-c" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p><strong>Author(s:) <a href="https://github.com/YuPeiHenry">Yu Pei, Henry</a></strong><br>
+Reviewers: <a href="https://github.com/ChesterSng">Chester Sng</a>, <a href="https://github.com/sijie123">Lin Si Jie</a></p> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#what-is-c" data-v-7d17494f>What is C#‎</a></li> <li data-v-7d17494f><a href="#c-syntax-features" data-v-7d17494f>C# Syntax Features‎</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#object-array-collection-initializers" data-v-7d17494f>Object/Array/Collection Initializers‎</a></li> <li data-v-7d17494f><a href="#closures" data-v-7d17494f>Closures‎</a></li> <li data-v-7d17494f><a href="#nullable-type" data-v-7d17494f>Nullable Type‎</a></li> <li data-v-7d17494f><a href="#other-features" data-v-7d17494f>Other Features</a></li></ul></li> <li data-v-7d17494f><a href="#why-learn-c" data-v-7d17494f>Why Learn C#?‎</a></li> <li data-v-7d17494f><a href="#how-to-get-started" data-v-7d17494f>How to Get Started‎</a></li></ul></div> <!----></div></div></div> <h2 id="what-is-c"><span id="what-is-c" class="anchor"></span>What is C#<a href="#what-is-c" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>C# is a <em>general purpose</em>, <em>multi-paradigm</em>, <em>garbage collected</em>, <em>cross-platform</em> language by Microsoft, and part of the <em>.NET platform</em>. Some claim C# is Microsoft's answer to Java due to the fact that the two languages have a lot of similarities.</p> <p>Given below are brief explanations of the key characteristics of C# mentioned above.</p> <ul><li><p><strong>General purpose</strong>:</p> <blockquote>In computer software, a general-purpose programming language is a programming language designed to be used for writing software in the widest variety of application domains (a general-purpose language). A general-purpose programming language has this status because it does not include language constructs designed to be used within a specific application domain.<br>--(source: [Wikipedia](https://en.wikipedia.org/wiki/General-purpose_programming_language))</blockquote></li> <li><p><strong>Multi-paradigm</strong>: <a href="https://en.wikipedia.org/wiki/Programming_paradigm"><em>Programing Paradigms</em></a> are used to describe Programming Languages based on their features. Some commonly referred paradigms are <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Programming</a> (which primarily organizes code into objects that contain a state) and <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a> (where code represents a sequence of stateless functions.) C# supports both Object-Oriented and Functional Programming, and many others that can be found <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">here</a>.</p></li> <li><p><strong>Garbage Collected</strong>: The intialization, storage and handling of variables require memory. <em>Garbage Collection</em> is a form of automatic memory management, where memory that is no longer referenced by the program will be deallocated. You may read more about <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">Garbage Collection</a>.</p></li> <li><p><strong>Cross-Platform</strong>: <a href="https://en.wikipedia.org/wiki/Cross-platform_software">Cross-Platform</a> software is software that can be run across multiple platforms, which may require recompilation depending on the software. Common platforms include Windows, MacOS and Linux, and for mobile platforms Android and iOS. The benefits of writing Cross-Platform software is that developers will only need to primarily maintain 1 code base and be able to deploy to multiple platforms.</p></li></ul> <p>Below is an example of of a simple C# program:</p> <pre><code class="hljs csharp"><span><span class="hljs-comment">//Comments can be marked with // or /**/</span>
+</span><span><span class="hljs-comment">//Namespaces are similar to packages, except the file does not need to be physically in the directory</span>
+</span><span><span class="hljs-keyword">using</span> ProjectName.Utils;
+</span><span>
+</span><span><span class="hljs-keyword">namespace</span> <span class="hljs-title">ProjectName.Model</span>
+</span><span>{
+</span><span>    <span class="hljs-comment">//Subclassing BaseClass</span>
+</span><span>    <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> : <span class="hljs-title">BaseClass</span> {
+</span><span>        ...
+</span><span>        <span class="hljs-comment">//Method declaration</span>
+</span><span>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params">String[] args</span>)</span> {
+</span><span>            <span class="hljs-comment">//Variable definition</span>
+</span><span>            <span class="hljs-built_in">string</span> message = <span class="hljs-string">&quot;Hello World!&quot;</span>;
+</span><span>            Console.WriteLine(message);
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre><p>Developers that work with C# commonly use Visual Studio as their IDE and also as a build tool for compilation into common application/library formats, such as <code class="hljs inline no-lang">.exe</code> or <code class="hljs inline no-lang">.dll</code>. Using Visual Studio for C# development offers great convenience as it has an integrated testing framework, <a href="https://en.wikipedia.org/wiki/Visual_Studio_Unit_Testing_Framework">MSTest</a>.</p> <h2 id="c-syntax-features"><span id="c-syntax-features" class="anchor"></span>C# Syntax Features<a href="#c-syntax-features" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>This section covers some noteworthy features of C# syntax <span class="dimmed">(some of them are found in other languages such as Java and Swift)</span>.</p> <h3 id="object-array-collection-initializers"><span id="object-array-collection-initializers" class="anchor"></span>Object/Array/Collection Initializers<a href="#object-array-collection-initializers" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>In C#, you can construct an <a href="https://en.wikipedia.org/wiki/Object_(computer_science)" title="In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier.">Object</a>, <a href="https://www.webopedia.com/TERM/A/array.html" title="In programming, a series of objects all of which are the same size and type. Each object in an array is called an array element. For example, you could have an array of integers or an array of characters or an array of anything that has a defined data type.">Array</a> or <a href="https://computersciencewiki.org/index.php/Collections" title="A collection — sometimes called a container — is simply an object that groups multiple elements into a single unit.">Collection</a> in a single statement as shown. This can be useful when writing tests, as test data will be better organised, as compared to calling the actual constructor.</p> <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BookShelf</span>(<span class="hljs-params">Book[] books, param2, param3, param4</span>)</span>
+</span><span>{
+</span><span>    <span class="hljs-keyword">this</span>.books = books
+</span><span>    <span class="hljs-comment">// Do something with param 2, 3, 4</span>
+</span><span>}
+</span><span>
+</span><span><span class="hljs-comment">// Without use of Object Initializer</span>
+</span><span>BookShelf shelf1 = <span class="hljs-keyword">new</span> BookShelf(books, param2, param3, param4)
+</span><span>
+</span><span><span class="hljs-comment">// With use of Object Initializer</span>
+</span><span>BookShelf shelf2 = <span class="hljs-keyword">new</span> BookShelf() {
+</span><span>    books = { book1, book2 };
+</span><span>};
+</span></code></pre><p>In the above example, we want to test a <code class="hljs inline no-lang">BookShelf</code>'s behaviors only related to the <code class="hljs inline no-lang">Book[] array</code>. Instead of having to unnecessarily use param2, 3, 4 in construction, we can initialize a <code class="hljs inline no-lang">BookShelf</code> only with the <code class="hljs inline no-lang">Book[]</code> that we wanted to use.</p> <h3 id="closures"><span id="closures" class="anchor"></span>Closures<a href="#closures" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Sometimes, it may be useful to <a href="https://www.informit.com/articles/article.aspx?p=2171751" title="Code that is executed only when results need to be evaluated. There are many reasons for executing code later">defer execution</a> or capture a local context for later execution. Context capturing is reflected below:</p> <pre><code class="hljs csharp"><span><span class="hljs-comment">//Capturing local context</span>
+</span><span><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Context</span>
+</span><span>{
+</span><span>    <span class="hljs-comment">//GetCounter returns a nullary (0 argument) function. The function returns an integer when executed.</span>
+</span><span>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Func&lt;Int&gt; <span class="hljs-title">GetCounter</span>(<span class="hljs-params"></span>)</span>
+</span><span>    {
+</span><span>        <span class="hljs-comment">//Inside the context of this function, there is an integer variable count.</span>
+</span><span>        <span class="hljs-built_in">int</span> count = <span class="hljs-number">0</span>;
+</span><span>        <span class="hljs-comment">//GetCounter is returning a function.</span>
+</span><span>        <span class="hljs-keyword">return</span> () =&gt;
+</span><span>        {
+</span><span>            <span class="hljs-comment">//The function increments the count variable inside this context, which is initialized to 0.</span>
+</span><span>            count++;
+</span><span>            <span class="hljs-comment">//It then returns the current count value.</span>
+</span><span>            <span class="hljs-keyword">return</span> count;
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span><span>
+</span><span>Func&lt;Int&gt; counter = Context.GetCounter();
+</span><span><span class="hljs-comment">//Every time the function is called, the variable count in the captured context would increment by 1, and its new value will be returned.</span>
+</span><span>counter(); <span class="hljs-comment">//Returns 1</span>
+</span><span>counter(); <span class="hljs-comment">//Returns 2</span>
+</span></code></pre><p>The ability to capture the value <code class="hljs inline no-lang">count</code> outside of the defined function scope that returns <code class="hljs inline no-lang">count</code>, is called a closure. If you wish to read more about closures, you may consult <a href="https://weblogs.asp.net/dixin/understanding-csharp-features-6-closure">this article by dixin</a></p> <h3 id="nullable-type"><span id="nullable-type" class="anchor"></span>Nullable Type<a href="#nullable-type" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Normally to guard against null pointers, an <code class="hljs inline no-lang">if</code> branch or a guard clause that checks against <code class="hljs inline no-lang">null</code> is used. Below is a code example of conventional null pointer handling.</p> <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {
+</span><span>    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);
+</span><span>}
+</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {
+</span><span>    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);
+</span><span>}
+</span><span>
+</span><span>Car car = Car.ManufactureCar();
+</span><span>Double fuelLeft = <span class="hljs-number">0</span>;
+</span><span><span class="hljs-keyword">if</span> (car != <span class="hljs-literal">null</span>)
+</span><span>{
+</span><span>    car.AddFuelTank();
+</span><span>	fuelTank = car.GetFuelTank()
+</span><span>	<span class="hljs-keyword">if</span> (fuelTank != <span class="hljs-literal">null</span>) {
+</span><span>        fuelLeft = fuelTank.GetFuel();
+</span><span>    }
+</span><span>}
+</span><span>
+</span><span>DoSomethingTo(fuelLeft);
+</span></code></pre><p>In C#, <code class="hljs inline no-lang">null</code> handling does not need to be done the conventional way. C# has <code class="hljs inline no-lang">Nullable</code> features, such as collaescing operators <code class="hljs inline no-lang">??</code> and null conditional operators <code class="hljs inline no-lang">.?</code>. Some may find this similar to <code class="hljs inline no-lang">optionals</code> in Swift. Applying these features appropriately not only results in shorter and more concise code in general. It makes it easier to reduce the use of indentation as well. Nullables may appear less intuitive to new users, so its value may differ between communities.</p> <pre><code class="hljs csharp"><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Car <span class="hljs-title">ManufactureCar</span>(<span class="hljs-params"></span>)</span> {
+</span><span>    <span class="hljs-keyword">return</span> (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> Car(param1, param2);
+</span><span>}
+</span><span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFuelTank</span>(<span class="hljs-params"></span>)</span> {
+</span><span>    fuelTank =  (hasError) ? <span class="hljs-literal">null</span> : <span class="hljs-keyword">new</span> FuelTank(param3);
+</span><span>}
+</span><span>
+</span><span>Car car = Car.ManufactureCar();
+</span><span><span class="hljs-comment">//Call Drive method of car if not null</span>
+</span><span>car?.AddFuelTank();
+</span><span>
+</span><span><span class="hljs-comment">//Get amount of fuel left with default value 0</span>
+</span><span>Double fuelLeft = car?.GetFuelTank()?.GetFuel() ?? <span class="hljs-number">0</span>;
+</span><span>
+</span><span>DoSomethingTo(fuelLeft);
+</span></code></pre><p>Some explanation of what <code class="hljs inline no-lang">Double fuelLeft = car?.GetFuel() ?? 0</code> does:</p> <ul><li>If car is not null, one can expect the statement to evaluate to <code class="hljs inline no-lang">car.GetFuel()</code>.</li> <li>If car is null, <code class="hljs inline no-lang">car?.GetFuel()</code> evaluates to null.</li> <li>If GetFuelTank() returns null, or car evaluates to null, car?.GetFuelTank()?.GetFuel() evaluates to null.</li> <li><code class="hljs inline no-lang">??</code> operator sees null, so the entire expression defaults to 0. If <code class="hljs inline no-lang">??</code> sees a non-null value, the default value is not used.</li></ul> <p>More can be read about Nullables <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/">here</a></p> <h3 id="other-features"><span id="other-features" class="anchor"></span>Other Features<a href="#other-features" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>The list of features in C# can be quite long. This article only shows you selected features for their usefulness and ability to represent code more concisely. Some features that were not listed are <a href="https://docs.microsoft.com/en-us/dotnet/csharp/async">Async/Await</a> and <a href="https://www.infoq.com/articles/default-interface-methods-cs8">Default Interface Implementation</a>. If you wish to explore other features, you may consult this <a href="https://stackify.com/csharp-8-features/">article</a> and others online.</p> <h2 id="why-learn-c"><span id="why-learn-c" class="anchor"></span>Why Learn C#<a href="#why-learn-c" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>C# is high in demand (as per <a href="https://medium.com/sololearn/why-is-c-among-the-most-popular-programming-languages-in-the-world-ccf26824ffcb">source1</a>, <a href="https://mashable.com/2018/03/17/coding-course-class-bootcamp/#om2xRzXFHGqJ">source 2</a>). It is especially well-suited for Windows apps. It also thrives in game programming because the popualr game engine Unity has great cross-platform compatibility for desktop, web, mobile and console, and has extensive support for 2D/3D games, VR/AR games and games that require networking. C# can even be used on non-Windows environments as the .NET framework has <a href="https://en.wikipedia.org/wiki/Cross-platform_software" title="In computing, cross-platform software (also multi-platform software or platform-independent software) is computer software that is implemented on multiple computing platforms.">cross platform</a> support via the <a href="https://www.mono-project.com/">Mono project</a>.</p> <h2 id="how-to-get-started"><span id="how-to-get-started" class="anchor"></span>How to Get Started<a href="#how-to-get-started" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Getting started with C# is not difficult. You can download Visual Studio and follow the setup instructions for C# programming <a href="https://www.guru99.com/download-install-visual-studio.html">here</a>. If you are new to C# but have some familiarity with Java, you may follow the tutorial at <a href="https://www.sololearn.com/Play/CSharp">Sololearn</a>. It is a rather comprehensive tutorial that teaches fundamental syntax and concepts in C#. If you feel that certain parts of the tutorial are too simple, you can also skip them.</p> <p>If you are entirely new to programming, you may find more hands on practice with simpler steps at <a href="https://csharp.net-tutorials.com/getting-started/introduction/">CSharp net</a>. This tutorial tends to be more rigorous and goes through in great detail the steps, starting from installing a development environment, to writing basic C# programs and finally topics commonly used in real applications, such as file handling and debugging. If you wish to skip certain parts of the tutorial, the structured contents are displayed on the right side of the website.</p> <p>If you want to have a go at maintaining and enhancing a small project, you may find this <a href="https://1000projects.org/airline-reservation-system-a-net-project-with-code.html">fictitious airline reservation system</a> project
+to be a good starting point. It covers commonly used components of a software, such as UI (Application User Interface), data storage and handling, and the logic behind the program (such as buying a ticket). More similar projects can be found at <a href="https://1000projects.org/c-projects.html">1000projects.org</a>.</p> <p>If you feel that you have a grasp of C# fundamentals but find it difficult to write programs of bigger scale, you may consult
+<a href="https://www.c-sharpcorner.com/UploadFile/bd5be5/design-patterns-in-net/">CSharp corner</a> for a list of design patterns that you may employ to better organise and plan your program structure. Sometimes, you may find that you have problems collaborating on a C# project. This may be due to some common misconceptions and mistakes you are commiting without realisation. You may reduce these problems by reading about <a href="https://www.upwork.com/hiring/development/common-mistakes-in-c-sharp-programming/">some common mistakes in C# programming</a>.</p> <p>If you want to develop a desktop application for Windows, you may consult <a href="https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?view=vs-2019">Microsoft's documentation</a> on creating an application with the <code class="hljs inline no-lang">Windows Presentation Foundation</code>, a framework that is commonly used for creating UI for Windows Applications that has many useful features for building your UI.</p></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#introduction-to-c" class="nav-link py-1" data-v-e8c82f88>Introduction to C#‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#what-is-c" class="nav-link py-1" data-v-e8c82f88>What is C#‎</a> <a href="#c-syntax-features" class="nav-link py-1" data-v-e8c82f88>C# Syntax Features‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#object-array-collection-initializers" class="nav-link py-1" data-v-e8c82f88>Object/Array/Collection Initializers‎</a> <a href="#closures" class="nav-link py-1" data-v-e8c82f88>Closures‎</a> <a href="#nullable-type" class="nav-link py-1" data-v-e8c82f88>Nullable Type‎</a> <a href="#other-features" class="nav-link py-1" data-v-e8c82f88>Other Features‎</a></nav> <a href="#why-learn-c" class="nav-link py-1" data-v-e8c82f88>Why Learn C#‎</a> <a href="#how-to-get-started" class="nav-link py-1" data-v-e8c82f88>How to Get Started‎</a></nav> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>

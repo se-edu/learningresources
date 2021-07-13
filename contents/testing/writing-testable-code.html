@@ -1,514 +1,68 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="MarkBind 2.14.1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE-EDU/LearningResources - Writing Testable Code</title>
-  <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
-  <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
-  <link rel="stylesheet" href="../../markbind/css/octicons.css">
-  <link rel="stylesheet" href="../../markbind/css/github.min.css">
-  <link rel="stylesheet" href="../../markbind/css/markbind.css">
-  <link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
-  <link rel="stylesheet" href="../../markbind/layouts/default/styles.css">
-  <link rel="stylesheet" href="../../markbind/css/site-nav.css">
-  <link rel="stylesheet" href="../../markbind/css/page-nav.css">
-  <link rel="icon" href="/learningresources/favicon.ico">
-</head>
-
-<body data-spy="scroll" data-target="#page-nav" data-offset="100">
-  <div id="app">
-    <header>
-      <navbar placement="top" type="dark" class="temp-navbar">
-        <a slot="brand" href="https://se-education.org" title="SE-EDU" class="navbar-brand"><span><span aria-hidden="true" class="fas fa-chevron-circle-left"></span> <strong><strong>SE-EDU</strong></strong></span></a>
-        <li><a href="/learningresources/index.html" class="nav-link"><span><strong>Home</strong></span></a></li>
-        <li><a href="/learningresources/about.html" class="nav-link"><span><strong>About</strong></span></a></li>
-        <li><a href="/learningresources/contributing.html" class="nav-link"><span><strong>Contributing</strong></span></a></li>
-        <li><a href="https://github.com/se-edu/learningresources" class="nav-link"><span><span aria-hidden="true" class="fab fa-github"></span></span></a></li>
-        <li slot="right" class="nav-link">
-          <form class="navbar-form">
-            <searchbar :data="searchData" placeholder="Search this site" :on-hit="searchCallback" menu-align-right></searchbar>
-          </form>
-        </li>
-      </navbar>
-    </header>
-    <div id="flex-body">
-      <nav id="site-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-right-grey nav-inner position-sticky slim-scroll">
-          <span id="toc">
-            <ul class="px-0 site-nav-list">
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Programming Languages</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">C++
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/c++/rvalue.html" class="site-nav__a">Rvalue References and Move Semantics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">CSharp
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" class="site-nav__a">Introduction to CSharp</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/csharp/CSAsyncAwait.html" class="site-nav__a">Asynchronous Programming in C#</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/dart/Dart.html" class="site-nav__a">Dart</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/elm/Elm.html" class="site-nav__a">Elm</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/go/Go.html" class="site-nav__a">Go</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/haskell/Haskell.html" class="site-nav__a">Haskell</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Java
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaConcurrency.html" class="site-nav__a">Java Concurrency</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/streams-an-introduction.html" class="site-nav__a">Java Streams</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaSynchronization.html" class="site-nav__a">Java Synchronization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JavaReflections.html" class="site-nav__a">Java Reflection</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/java/JUnit.html" class="site-nav__a">JUnit</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">JavaScript
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" class="site-nav__a">Writing Testable JavaScript Code</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-promises.html" class="site-nav__a">Javascript Promises</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-modules.html" class="site-nav__a">Javascript Modules</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" class="site-nav__a">Static Typing in JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Kotlin
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/kotlin.html" class="site-nav__a">Introduction to Kotlin</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/kotlin/NullSafety.html" class="site-nav__a">Null Safety In Kotlin</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Python
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/python/introduction-to-python.html" class="site-nav__a">Introduction to Python</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/python/numpy.html" class="site-nav__a">NumPy</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Ruby.html" class="site-nav__a">Ruby</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/rust/Rust.html" class="site-nav__a">Rust</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/scala/Scala.html" class="site-nav__a">Scala</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/swift/welcome-to-swift.html" class="site-nav__a">Swift</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn dropdown-btn-open"><strong><strong>SE Topics</strong></strong>
-                  <i class="dropdown-btn-icon rotate-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container dropdown-container-open">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><button class="dropdown-btn">Architecture
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" class="site-nav__a">REST</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Code Quality
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" class="site-nav__a">Code Quality Metrics</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/projectManagement/documentation.html" class="site-nav__a">Documentation</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/functionalProgramming/intro.html" class="site-nav__a">Functional Programming</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Performance
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/performance/Performance.html" class="site-nav__a">Introduction to Performance Optimization</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/PerformanceProfiling.html" class="site-nav__a">Performance Profiling</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/performance/WebPerformance.html" class="site-nav__a">Web Performance</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Project Management
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" class="site-nav__a">Agile Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/devops/DevOps.html" class="site-nav__a">DevOps</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/projectManagement/githubActions.html" class="site-nav__a">Github Actions</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Revision Control
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" class="site-nav__a">Best Practices with git</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/scalability/scalable-development.html" class="site-nav__a">Scalability</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Static Analysis
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/intro.html" class="site-nav__a">Introduction to Static Analysis</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/checkStyle.html" class="site-nav__a">CheckStyle</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/PMD.html" class="site-nav__a">PMD</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/FindBugs.html" class="site-nav__a">FindBugs</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/staticAnalysis/ESLint.html" class="site-nav__a">ESLint</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn dropdown-btn-open">Testing
-                        <i class="dropdown-btn-icon rotate-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container dropdown-container-open">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/testing/integration-testing.html" class="site-nav__a">Integration Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/security-testing.html" class="site-nav__a">Security Testing</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/testDrivenDevelopment.html" class="site-nav__a">Test-Driven Development</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/testing/writing-testable-code.html" class="site-nav__a current">Writing Testable Code</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">UI/UX
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/uix/accessibility.html" class="site-nav__a">Accessibility</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/design-systems.html" class="site-nav__a">Design Systems</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/uix.html" class="site-nav__a">Introduction to UI/UX</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/uix/refining-ux-skills.html" class="site-nav__a">Refining UX Design Skills</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>App Frameworks</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/android/IntroToAndroid.html" class="site-nav__a">Android</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" class="site-nav__a">Angular</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ios/IntroToIos.html" class="site-nav__a">iOS</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/node/nodejs.html" class="site-nav__a">Node</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-React.html" class="site-nav__a">React</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" class="site-nav__a">Redux</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/ruby/Rails.html" class="site-nav__a">Ruby on Rails</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/java/Spring.html" class="site-nav__a">Spring</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" class="site-nav__a">Vue</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/csharp/Xamarin.html" class="site-nav__a">Xamarin</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Tools Useful for Software Engineers</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/regex/Regex.html" class="site-nav__a">Regular Expressions</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/docker/Docker.html" class="site-nav__a">Docker</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/zeromq/zeromq.html" class="site-nav__a">ZeroMQ</a></li>
-                    <li class="mt-2"><a href="/learningresources/contents/dotfiles/Dotfiles.html" class="site-nav__a">Dotfiles</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mt-2"><button class="dropdown-btn"><strong><strong>Other Topics</strong></strong>
-                  <i class="dropdown-btn-icon">
-                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                <div class="dropdown-container">
-                  <ul class="pl-3 site-nav-list">
-                    <li class="mt-2"><a href="/learningresources/contents/computerVision/cv.html" class="site-nav__a">Computer Vision</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Databases
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/data/databases/databases.html" class="site-nav__a">DBMS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/sql/SQL.html" class="site-nav__a">SQL</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/data/nosql/NoSQL.html" class="site-nav__a">NoSQL</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/ai/ml.html" class="site-nav__a">Machine Learning</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Multi-Threading
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/gpgpu.html" class="site-nav__a">GPGPU</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/gpgpu/cuda.html" class="site-nav__a">CUDA</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><a href="/learningresources/contents/naturalLanguage/nl.html" class="site-nav__a">Natural Language Processing</a></li>
-                    <li class="mt-2"><button class="dropdown-btn">Security
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" class="site-nav__a">Cross Site Request Forgery</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" class="site-nav__a">Cross Site Scripting</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/cryptography.html" class="site-nav__a">Cryptography</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/Https.html" class="site-nav__a">HTTPS</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/passwordStorage.html" class="site-nav__a">Password Storage</a></li>
-                          <li class="mt-2"><a href="/learningresources/contents/security/sqlInjection.html" class="site-nav__a">SQL Injection</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mt-2"><button class="dropdown-btn">Shell
-                        <i class="dropdown-btn-icon">
-                          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></i></button>
-                      <div class="dropdown-container">
-                        <ul class="pl-3 site-nav-list">
-                          <li class="mt-2"><a href="/learningresources/contents/shells/bash.html" class="site-nav__a">bash</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </span></div>
-      </nav>
-
-      <div id="content-wrapper">
-        <h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a class="fa fa-anchor" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()"></a></h1>
-        <div class="website-content">
-          <h1 id="writing-testable-code">Writing Testable Code<a class="fa fa-anchor" href="#writing-testable-code" onclick="event.stopPropagation()"></a></h1>
-          <box id="article-toc">
-            <ul>
-              <li><a href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No Seams for Isolating the Class Under Test</a>
-                <ul>
-                  <li><a href="#rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do Actual Work in Constructors</a></li>
-                  <li><a href="#rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't Mix Object Construction With Application Logic</a></li>
-                  <li><a href="#rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't Mix Service Objects With Value Objects</a></li>
-                  <li><a href="#rule-4-avoid-static-methods">Rule #4: Avoid Static Methods</a></li>
-                  <li><a href="#rule-5-favor-composition-over-inheritance">Rule #5: Favor Composition Over Inheritance</a></li>
-                </ul>
-              </li>
-              <li><a href="#flaw-2-brittle-global-state-and-amp-singleton">Flaw #2: Brittle Global State &amp; Singleton</a>
-                <ul>
-                  <li><a href="#rule-1-avoid-global-states">Rule #1: Avoid Global States</a></li>
-                  <li><a href="#rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern</a></li>
-                </ul>
-              </li>
-              <li><a href="#flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators</a>
-                <ul>
-                  <li><a href="#rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't Look for Things. Ask for Things.</a></li>
-                </ul>
-              </li>
-              <li><a href="#flaw-4-class-does-too-much">Flaw #4: Class Does Too Much</a>
-                <ul>
-                  <li><a href="#rule-1-avoid-mixing-of-concerns">Rule #1: Avoid Mixing of Concerns</a></li>
-                  <li><a href="#rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor Polymorphism Over Conditionals</a></li>
-                </ul>
-              </li>
-              <li><a href="#concluding-notes">Concluding Notes</a></li>
-            </ul>
-          </box>
-
-          <p>When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented programs.</p>
-          <p>This article compiles multiple posts from <a href="https://testing.googleblog.com">Google Testing Blog</a> on how to write more unit-testable code. It explains <a href="https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html">four common flaws</a> in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.</p>
-          <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No Seams for Isolating the Class Under Test<a class="fa fa-anchor" href="#flaw-1-no-seams-for-isolating-the-class-under-test" onclick="event.stopPropagation()"></a></h2>
-          <p>Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.</p>
-          <p>To create seams in your code, you need to acquire your dependency via <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. You inject real object for production and <a href="https://www.martinfowler.com/bliki/TestDouble.html">test doubles</a> for testing. For example, if a class depends on some database connection to retrieve some user data, you can inject a fake database connection to always return prepared data immediately without really performing any database operation.</p>
-          <p>That is the basic idea for how seams can help in unit testing. Below are five rules you can follow to create seams in your code.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a></p>
-          <h3 id="rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do Actual Work in Constructors<a class="fa fa-anchor" href="#rule-1-don-t-do-actual-work-in-constructors" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="warning-signs">Warning Signs<a class="fa fa-anchor" href="#warning-signs" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li><code>new</code> keyword in a constructor or at field declaration</li>
-            <li>Code does complex object graph construction inside a constructor rather than using a factory or builder</li>
-            <li>Anything more than field assignment in constructors</li>
-          </ul>
-          <p>Any work you do in a constructor needs to successfully navigate through in every test (not just the direct test, but also any related test which tries to instantiate your class indirectly as part of some larger object graph).</p>
-          <p>In short, the constructor's job is to assign the dependencies to fields. And that's all.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h3 id="rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't Mix Object Construction With Application Logic<a class="fa fa-anchor" href="#rule-2-don-t-mix-object-construction-with-application-logic" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="warning-signs-2">Warning Signs<a class="fa fa-anchor" href="#warning-signs-2" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li>Create objects using <code>new</code> keyword freely anywhere in your code</li>
-          </ul>
-          <p>You should have two kinds of classes in your application.</p>
-          <p>First, <strong><a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factories</a></strong>, where all <code>new</code> operators reside in, are in charge of constructing objects, and nothing else.</p>
-          <p>The other, <strong>application classes</strong>, are devoid of <code>new</code> operators. Instead of creating object, they simply ask for them. This makes it easier to test the application logic by replacing the real classes for test doubles.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-          <h3 id="rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't Mix Service Objects With Value Objects<a class="fa fa-anchor" href="#rule-3-don-t-mix-service-objects-with-value-objects" onclick="event.stopPropagation()"></a></h3>
-          <p>Value objects are your <strong>model</strong> objects, like <code>User</code>, <code>Email</code>, <code>CreditCard</code>.</p>
-          <ol>
-            <li>They are (or should be) very easy to construct. And they should never take a service object in its constructor (since otherwise it is not easy to construct).</li>
-            <li>You can freely create value objects with the &quot;new&quot; operator directly in line with your business logic (exception to previous rule) since they are leafs of your application graph).</li>
-            <li>They are <strong>never mocked</strong>.</li>
-          </ol>
-          <p>Service objects, on the other hand, are your <strong>logic</strong> objects, like <code>UserAuthenticator</code>, <code>MailServer</code>, <code>CreditCardProcessor</code>. Compared to value objects,</p>
-          <ol>
-            <li>Service objects are harder to construct. And their constructors ask for lots of other objects for collaboration.</li>
-            <li>Service objects are harder to construct and as a result are never constructed with a new operator in-line, (instead use factory / DI-framework) for the object graph construction.
-              <strong>Note</strong>: service objects don't take value objects in their constructors since DI-frameworks tend to be unaware about the how to create a value objects.</li>
-            <li>Service objects are harder to test since they are all about collaboration and as a result we are forced to use mocking, something which we want to minimize.</li>
-          </ol>
-          <p>Clearly, they are very different in their nature and usage. Mixing the two creates a hybrid which has no advantages of value-objects and all the baggage of service-object.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h3 id="rule-4-avoid-static-methods">Rule #4: Avoid Static Methods<a class="fa fa-anchor" href="#rule-4-avoid-static-methods" onclick="event.stopPropagation()"></a></h3>
-          <p>Static methods are procedural code. You can write your program in an OO language only using static methods, with one calling another, then it is not an OOP application but a procedural application. There is <em>no way</em> to unit test procedure application because there is no seams for you to divert the normal execution flow.</p>
-          <p>You can remove the static methods as below:</p>
-          <ol>
-            <li>If the static method has arguments, chances are you can move the method as an instance method to one of the method's arguments. (As in <code>method(a,b)</code> becomes <code>a.method(b)</code>)</li>
-            <li>If the static method takes no arguments, either it returns a constant in which case there is nothing to test; or it accesses <a href="#rule-2-avoid-singletons">global state</a>, which is bad.</li>
-          </ol>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h3 id="rule-5-favor-composition-over-inheritance">Rule #5: Favor Composition Over Inheritance<a class="fa fa-anchor" href="#rule-5-favor-composition-over-inheritance" onclick="event.stopPropagation()"></a></h3>
-          <p>At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.</p>
-          <p>Wrongly used inheritance clutters the focus of test because you need to mock out the your parent classes' irrelevant dependencies, too. For example,</p>
-          <p>Inheriting from AuthenticatedServlet will make your sub-class very hard to test since every test will have to mock out the authentication. But what if AuthenticatedServlet inherits from DbTransactionServlet? (that gets so much harder)</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-          <h2 id="flaw-2-brittle-global-state-and-amp-singleton">Flaw #2: Brittle Global State &amp; Singleton<a class="fa fa-anchor" href="#flaw-2-brittle-global-state-and-amp-singleton" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="rule-1-avoid-global-states">Rule #1: Avoid Global States<a class="fa fa-anchor" href="#rule-1-avoid-global-states" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="warning-signs-3">Warning Signs<a class="fa fa-anchor" href="#warning-signs-3" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li>Adding or using static fields or static methods</li>
-            <li>Adding or using registries</li>
-            <li>Using <code>System.currentTimeMillis()</code>, <code>new Date()</code> or <code>Math.random()</code></li>
-          </ul>
-          <p>Global states are a bad idea because they make the code hard to understand and reason about.</p>
-          <p>Moreover, they cause problems for testing because global states are persistent throughout the lifetime of a JVM instance. In unit testing, we have one JVM instance to run all tests (instead one JVM for one test, for performance reason). Thus the global states are persistent from tests to tests. Now, if some tests expect the global states to be in state A, while some other tests expect the global states to be in state B. In this scenario, you cannot run the tests in parallel, otherwise your tests will become flaky (sometimes pass, sometimes fail) because the order of tests matters.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h3 id="rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern<a class="fa fa-anchor" href="#rule-2-avoid-singleton-pattern" onclick="event.stopPropagation()"></a></h3>
-          <p>Singleton Pattern, despite being a well-know design patter, are global states in sheep's clothing. They have <strong>globally</strong> accessible <code>getInstance()</code> method and a private singleton object (which is the global state).</p>
-          <p>Another problem about Singleton Pattern is that they are globally accessible, thus any method can access them inside the code without explicitly declaring in its API. In other words, the API lied about its dependency!</p>
-          <p><strong>Note</strong> singletons (with lowercase s) are valid and sometimes very useful, which you can enforce their singleton identities by enforcing their constructors are called only once in the application. However, Singleton Pattern (with uppercase S) is almost always causing undesirable global states, which you should avoid. Only few examples of Singleton Pattern, including Constants and Logging, are acceptable since they don't affect the application logic.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html">Singletons are Pathological Liars</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-          <h2 id="flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators<a class="fa fa-anchor" href="#flaw-3-dig-into-collaborators" onclick="event.stopPropagation()"></a></h2>
-          <h3 id="rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't Look for Things. Ask for Things.<a class="fa fa-anchor" href="#rule-1-don-t-look-for-things-ask-for-things" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="warning-signs-4">Warning Signs<a class="fa fa-anchor" href="#warning-signs-4" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li>Objects are passed in but never used directly (only used to get access to other objects)</li>
-            <li><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> violation: method call chain walks an object graph with more than one dot. (e.g. <code>a.getB().getC().doSomething()</code>)</li>
-          </ul>
-          <p>The Law of Demeter can be summarized as &quot;only talk to your <strong>immediate</strong> friends&quot;.</p>
-          <p>Previously we mentioned the importance of dependency injection for creating seams in <a href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: no seams for isolating the class under test</a>. Here we emphasize on injecting only those <strong>direct dependency</strong>.</p>
-          <p>Let's use an example to illustrate why <strong>indirect</strong> dependency hurts testability:</p>
-          <p>Say you have an Authenticator class which needs a <code>Config</code> object, do you pass in a path to the configuration file, or just pass in a <code>Config</code> object? Since what you need is a <code>Config</code> object, not a file path, an example of indirect dependency will be you pass in a path to the configuration file, and read a <code>Config</code> object from the path. To test Authenticator, you have to first write some configuration to a file, pass the file path to Authenticator, and let it read a <code>Config</code> itself. Versus you can directly create a <code>Config</code> object and pass it to Authenticator using direct dependency.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h2 id="flaw-4-class-does-too-much">Flaw #4: Class Does Too Much<a class="fa fa-anchor" href="#flaw-4-class-does-too-much" onclick="event.stopPropagation()"></a></h2>
-          <p>To extreme, it becomes an anti-pattern, <a href="https://en.wikipedia.org/wiki/God_object">God Object</a>.</p>
-          <h3 id="rule-1-avoid-mixing-of-concerns">Rule #1: Avoid Mixing of Concerns<a class="fa fa-anchor" href="#rule-1-avoid-mixing-of-concerns" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="warning-signs-5">Warning Signs:<a class="fa fa-anchor" href="#warning-signs-5" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li>summing up what the class does includes the word &quot;and&quot;</li>
-            <li>class has fields that are only used in some methods (objects hiding inside)</li>
-            <li>class has static methods that only operate on parameters (methods should be instance methods of one of the parameters)</li>
-          </ul>
-          <p>These classes are hard to test since there are multiple objects hiding inside of them and as a result you are testing all of the objects at once.</p>
-          <p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a> also requires you to have classes with one concern (one reason to change), because these classes are simpler to understand what they are doing and easier to unit test.</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p>
-          <h3 id="rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor Polymorphism Over Conditionals<a class="fa fa-anchor" href="#rule-2-favor-polymorphism-over-conditionals" onclick="event.stopPropagation()"></a></h3>
-          <h4 id="warning-signs-6">Warning Signs:<a class="fa fa-anchor" href="#warning-signs-6" onclick="event.stopPropagation()"></a></h4>
-          <ul>
-            <li>Class has the same <code>switch</code> or <code>if</code> conditions in many places</li>
-          </ul>
-          <p>For a detailed code example, please refer to this <a href="https://stackoverflow.com/a/234491/3522482">Stack Overflow answer</a>.</p>
-          <p>From the answer, if you have one switch statement based on an internal field you probably have the same switch in multiple places. This causes problems when you add a new case as you have to update all the switch statements.</p>
-          <p>By using polymorphism, you get the same functionality and because a new case is a new class you don't have to search your code for things that need to be updated. It is all isolated for each class.</p>
-          <p>This closely follows with <a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open Closed Principle</a> because you can ship this abstract parent class (<strong>closed for modification</strong>) as part of your binary library, but people can still extend the functionality by adding new child classes (<strong>open for extension</strong>).</p>
-          <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p>
-          <h1 id="concluding-notes">Concluding Notes<a class="fa fa-anchor" href="#concluding-notes" onclick="event.stopPropagation()"></a></h1>
-          <p>This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.</p>
-        </div>
-      </div>
-
-
-      <nav id="page-nav" class="navbar navbar-light bg-transparent">
-        <div class="border-left-grey nav-inner position-sticky slim-scroll">
-
-          <nav class="nav nav-pills flex-column my-0 small no-flex-wrap">
-            <a class="nav-link py-1" href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques">A Student's Guide to Software Engineering Tools &amp; Techniques »&#x200E;</a>
-            <a class="nav-link py-1" href="#writing-testable-code">Writing Testable Code&#x200E;</a>
-            <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-              <a class="nav-link py-1" href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: No Seams for Isolating the Class Under Test&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rule-1-don-t-do-actual-work-in-constructors">Rule #1: Don't do Actual Work in Constructors&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-2-don-t-mix-object-construction-with-application-logic">Rule #2: Don't Mix Object Construction With Application Logic&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-3-don-t-mix-service-objects-with-value-objects">Rule #3: Don't Mix Service Objects With Value Objects&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-4-avoid-static-methods">Rule #4: Avoid Static Methods&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-5-favor-composition-over-inheritance">Rule #5: Favor Composition Over Inheritance&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#flaw-2-brittle-global-state-and-amp-singleton">Flaw #2: Brittle Global State &amp; Singleton&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rule-1-avoid-global-states">Rule #1: Avoid Global States&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-2-avoid-singleton-pattern">Rule #2: Avoid Singleton Pattern&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#flaw-3-dig-into-collaborators">Flaw #3: Dig Into Collaborators&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rule-1-don-t-look-for-things-ask-for-things">Rule #1: Don't Look for Things. Ask for Things.&#x200E;</a>
-              </nav>
-              <a class="nav-link py-1" href="#flaw-4-class-does-too-much">Flaw #4: Class Does Too Much&#x200E;</a>
-              <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap">
-                <a class="nav-link py-1" href="#rule-1-avoid-mixing-of-concerns">Rule #1: Avoid Mixing of Concerns&#x200E;</a>
-                <a class="nav-link py-1" href="#rule-2-favor-polymorphism-over-conditionals">Rule #2: Favor Polymorphism Over Conditionals&#x200E;</a>
-              </nav>
-            </nav>
-            <a class="nav-link py-1" href="#concluding-notes">Concluding Notes&#x200E;</a>
-
-          </nav>
-        </div>
-      </nav>
-    </div>
-    <footer>
-
-      <div class="text-center">
-        <small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 2.14.1</a> on Sun, May 31, 2020, 3:36:04 AM UTC]</small></div>
-    </footer>
-  </div>
-</body>
-<script src="../../markbind/js/vue.min.js"></script>
-<script src="../../markbind/js/vue-strap.min.js"></script>
-<script src="../../markbind/js/bootstrap-utility.min.js"></script>
-<script src="../../markbind/js/polyfill.min.js"></script>
-<script src="../../markbind/js/bootstrap-vue.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 3.0.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SE-EDU/LearningResources - Writing Testable Code</title>
+    <link rel="stylesheet" href="../../markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../markbind/css/bootstrap-vue.min.css">
+    <link rel="stylesheet" href="../../markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="../../markbind/css/octicons.css">
+    <link rel="stylesheet" href="../../markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="../../markbind/css/markbind.min.css"><script src="../../markbind/js/polyfill.min.js"></script>
+    <script src="../../markbind/js/vue.min.js"></script>
+    <script src="../../markbind/js/markbind.min.js"></script>
+    <script src="writing-testable-code.page-vue-render.js"></script>
+    <script src="../../markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/learningresources/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css">
+    
+  <link rel="stylesheet" href="/learningresources/css/main.css">
+<link rel="icon" href="/learningresources/favicon.ico"></head>
 <script>
   const baseUrl = '/learningresources'
-  const enableSearch = true
 </script>
-<script src="../../markbind/js/setup.js"></script>
-<script src="../../markbind/layouts/default/scripts.js"></script>
+<body  data-spy="scroll" data-target="#mb-page-nav" data-offset="100" >
+<div id="app" data-server-rendered="true"><header fixed=""><div data-v-15113a2f><nav class="navbar navbar-expand-md navbar-dark bg-dark" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-brand" data-v-15113a2f><a href="https://se-education.org" title="SE-EDU" class="navbar-brand" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fas fa-chevron-circle-left" data-v-15113a2f></span> <strong data-v-15113a2f><strong data-v-15113a2f>SE-EDU</strong></strong></span></a></div> <button type="button" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-v-15113a2f><span class="navbar-toggler-icon" data-v-15113a2f></span> </button> <div class="navbar-collapse collapse" data-v-15113a2f><ul class="navbar-nav mr-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/learningresources/index.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Home</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/about.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>About</strong></span></a></li> <li data-v-15113a2f><a href="/learningresources/contributing.html" class="nav-link" data-v-15113a2f><span data-v-15113a2f><strong data-v-15113a2f>Contributing</strong></span></a></li> <li data-v-15113a2f><a href="https://github.com/se-edu/learningresources" class="nav-link" data-v-15113a2f><span data-v-15113a2f><span aria-hidden="true" class="fab fa-github" data-v-15113a2f></span></span></a></li></ul> <ul class="navbar-nav navbar-right" data-v-15113a2f><li class="nav-link" data-v-15113a2f><form class="navbar-form" data-v-15113a2f><div style="position:relative;"><input type="text" placeholder="Search this site" autocomplete="off" value="" class="form-control"> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-right"></ul></div></form></li></ul></div></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" class="fixed-header-padding" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="font-weight-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Table of contents</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Programming Languages</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>C++
 
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/c++/rvalue.html" data-v-e8c82f88>Rvalue References and Move Semantics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>CSharp
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/IntroductionToCSharp.html" data-v-e8c82f88>Introduction to CSharp</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/csharp/CSAsyncAwait.html" data-v-e8c82f88>Asynchronous Programming in C#</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dart/Dart.html" data-v-e8c82f88>Dart</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/elm/Elm.html" data-v-e8c82f88>Elm</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/go/Go.html" data-v-e8c82f88>Go</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/haskell/Haskell.html" data-v-e8c82f88>Haskell</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Java
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaConcurrency.html" data-v-e8c82f88>Java Concurrency</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/streams-an-introduction.html" data-v-e8c82f88>Java Streams</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaSynchronization.html" data-v-e8c82f88>Java Synchronization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JavaReflections.html" data-v-e8c82f88>Java Reflection</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/java/JUnit.html" data-v-e8c82f88>JUnit</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>JavaScript
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/WritingTestableJavascript.html" data-v-e8c82f88>Writing Testable JavaScript Code</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-promises.html" data-v-e8c82f88>Javascript Promises</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-modules.html" data-v-e8c82f88>Javascript Modules</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/javascript/staticTypingInJavascript.html" data-v-e8c82f88>Static Typing in JavaScript</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Kotlin
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/kotlin.html" data-v-e8c82f88>Introduction to Kotlin</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/kotlin/NullSafety.html" data-v-e8c82f88>Null Safety In Kotlin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Python
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/introduction-to-python.html" data-v-e8c82f88>Introduction to Python</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/python/numpy.html" data-v-e8c82f88>NumPy</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Ruby.html" data-v-e8c82f88>Ruby</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/rust/Rust.html" data-v-e8c82f88>Rust</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scala/Scala.html" data-v-e8c82f88>Scala</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/swift/welcome-to-swift.html" data-v-e8c82f88>Swift</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>SE Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Architecture
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/architecture/RESTArchitecturalStyle.html" data-v-e8c82f88>REST</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Code Quality
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/codeQuality/CodeQualityMetrics.html" data-v-e8c82f88>Code Quality Metrics</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/documentation.html" data-v-e8c82f88>Documentation</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/functionalProgramming/intro.html" data-v-e8c82f88>Functional Programming</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Performance
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/Performance.html" data-v-e8c82f88>Introduction to Performance Optimization</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/PerformanceProfiling.html" data-v-e8c82f88>Performance Profiling</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/performance/WebPerformance.html" data-v-e8c82f88>Web Performance</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Project Management
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/AgileDevelopment.html" data-v-e8c82f88>Agile Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/devops/DevOps.html" data-v-e8c82f88>DevOps</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/projectManagement/githubActions.html" data-v-e8c82f88>Github Actions</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Revision Control
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/revisionControl/bestPracticesGit.html" data-v-e8c82f88>Best Practices with git</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/scalability/scalable-development.html" data-v-e8c82f88>Scalability</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Static Analysis
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/intro.html" data-v-e8c82f88>Introduction to Static Analysis</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/checkStyle.html" data-v-e8c82f88>CheckStyle</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/PMD.html" data-v-e8c82f88>PMD</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/FindBugs.html" data-v-e8c82f88>FindBugs</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/staticAnalysis/ESLint.html" data-v-e8c82f88>ESLint</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Testing
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/integration-testing.html" data-v-e8c82f88>Integration Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/security-testing.html" data-v-e8c82f88>Security Testing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/testDrivenDevelopment.html" data-v-e8c82f88>Test-Driven Development</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/testing/writing-testable-code.html" data-v-e8c82f88>Writing Testable Code</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>UI/UX
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/accessibility.html" data-v-e8c82f88>Accessibility</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/design-systems.html" data-v-e8c82f88>Design Systems</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/uix.html" data-v-e8c82f88>Introduction to UI/UX</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/uix/refining-ux-skills.html" data-v-e8c82f88>Refining UX Design Skills</a></div></li></ul></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>App Frameworks</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/android/IntroToAndroid.html" data-v-e8c82f88>Android</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Angular.html" data-v-e8c82f88>Angular</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ios/IntroToIos.html" data-v-e8c82f88>iOS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/node/nodejs.html" data-v-e8c82f88>Node</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-React.html" data-v-e8c82f88>React</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-Redux.html" data-v-e8c82f88>Redux</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ruby/Rails.html" data-v-e8c82f88>Ruby on Rails</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/java/Spring.html" data-v-e8c82f88>Spring</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/javascript/Javascript-framework-VueJs.html" data-v-e8c82f88>Vue</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/csharp/Xamarin.html" data-v-e8c82f88>Xamarin</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Tools Useful for Software Engineers</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/regex/Regex.html" data-v-e8c82f88>Regular Expressions</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/docker/Docker.html" data-v-e8c82f88>Docker</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/zeromq/zeromq.html" data-v-e8c82f88>ZeroMQ</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/dotfiles/Dotfiles.html" data-v-e8c82f88>Dotfiles</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e8c82f88><strong data-v-e8c82f88><strong data-v-e8c82f88>Other Topics</strong></strong> <i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/computerVision/cv.html" data-v-e8c82f88>Computer Vision</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Databases
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/databases/databases.html" data-v-e8c82f88>DBMS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/sql/SQL.html" data-v-e8c82f88>SQL</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/data/nosql/NoSQL.html" data-v-e8c82f88>NoSQL</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/ai/ml.html" data-v-e8c82f88>Machine Learning</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Multi-Threading
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/gpgpu.html" data-v-e8c82f88>GPGPU</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/gpgpu/cuda.html" data-v-e8c82f88>CUDA</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88><a href="/learningresources/contents/naturalLanguage/nl.html" data-v-e8c82f88>Natural Language Processing</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Security
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteRequestForgery/crossSiteRequestForgery.html" data-v-e8c82f88>Cross Site Request Forgery</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/crossSiteScripting/crossSiteScripting.html" data-v-e8c82f88>Cross Site Scripting</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/cryptography.html" data-v-e8c82f88>Cryptography</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/Https.html" data-v-e8c82f88>HTTPS</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/passwordStorage.html" data-v-e8c82f88>Password Storage</a></div></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/security/sqlInjection.html" data-v-e8c82f88>SQL Injection</a></div></li></ul></li> <li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e8c82f88>Shell
+
+<i onclick="handleSiteNavClick(this.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e8c82f88><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e8c82f88></span></i></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e8c82f88><li data-v-e8c82f88><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e8c82f88><a href="/learningresources/contents/shells/bash.html" data-v-e8c82f88>bash</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper" class="fixed-header-padding"><h1 id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques"><span id="a-student-s-guide-to-software-engineering-tools-and-amp-techniques" class="anchor"></span><span class="text-dark"><strong><strong>A Student's Guide to Software Engineering Tools &amp; Techniques »</strong></strong></span><a href="#a-student-s-guide-to-software-engineering-tools-and-amp-techniques" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p></p><div class="website-content"><h1 id="writing-testable-code"><span id="writing-testable-code" class="anchor"></span>Writing Testable Code<a href="#writing-testable-code" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <div id="article-toc" class="alert box-container alert-default" data-v-7d17494f><!----> <div class="header-and-body" data-v-7d17494f><!----> <div class="box-body-wrapper" data-v-7d17494f><!----> <!----> <div class="contents" data-v-7d17494f><ul data-v-7d17494f><li data-v-7d17494f><a href="#flaw-1-no-seams-for-isolating-the-class-under-test" data-v-7d17494f>Flaw #1: No Seams for Isolating the Class Under Test</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#rule-1-don-t-do-actual-work-in-constructors" data-v-7d17494f>Rule #1: Don't do Actual Work in Constructors</a></li> <li data-v-7d17494f><a href="#rule-2-don-t-mix-object-construction-with-application-logic" data-v-7d17494f>Rule #2: Don't Mix Object Construction With Application Logic</a></li> <li data-v-7d17494f><a href="#rule-3-don-t-mix-service-objects-with-value-objects" data-v-7d17494f>Rule #3: Don't Mix Service Objects With Value Objects</a></li> <li data-v-7d17494f><a href="#rule-4-avoid-static-methods" data-v-7d17494f>Rule #4: Avoid Static Methods</a></li> <li data-v-7d17494f><a href="#rule-5-favor-composition-over-inheritance" data-v-7d17494f>Rule #5: Favor Composition Over Inheritance</a></li></ul></li> <li data-v-7d17494f><a href="#flaw-2-brittle-global-state-and-amp-singleton" data-v-7d17494f>Flaw #2: Brittle Global State &amp; Singleton</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#rule-1-avoid-global-states" data-v-7d17494f>Rule #1: Avoid Global States</a></li> <li data-v-7d17494f><a href="#rule-2-avoid-singleton-pattern" data-v-7d17494f>Rule #2: Avoid Singleton Pattern</a></li></ul></li> <li data-v-7d17494f><a href="#flaw-3-dig-into-collaborators" data-v-7d17494f>Flaw #3: Dig Into Collaborators</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#rule-1-don-t-look-for-things-ask-for-things" data-v-7d17494f>Rule #1: Don't Look for Things. Ask for Things.</a></li></ul></li> <li data-v-7d17494f><a href="#flaw-4-class-does-too-much" data-v-7d17494f>Flaw #4: Class Does Too Much</a> <ul data-v-7d17494f><li data-v-7d17494f><a href="#rule-1-avoid-mixing-of-concerns" data-v-7d17494f>Rule #1: Avoid Mixing of Concerns</a></li> <li data-v-7d17494f><a href="#rule-2-favor-polymorphism-over-conditionals" data-v-7d17494f>Rule #2: Favor Polymorphism Over Conditionals</a></li></ul></li> <li data-v-7d17494f><a href="#concluding-notes" data-v-7d17494f>Concluding Notes</a></li></ul></div> <!----></div></div></div> <p>When the project is big enough and needs to be maintainable in the long run, it has to rely on automated tests to keep up its quality. Compared to system testing where you test the program as a whole, unit testing has its benefit for being fast (because it only instantiates a small piece of the program) and stable (because it usually mocks out the unstable dependency, e.g. network connection, database connection). Because of this, having automated unit tests becomes extremely important for Object-Oriented programs.</p> <p>This article compiles multiple posts from <a href="https://testing.googleblog.com">Google Testing Blog</a> on how to write more unit-testable code. It explains <a href="https://testing.googleblog.com/2008/11/guide-to-writing-testable-code.html">four common flaws</a> in untestable code, and rules to follow for each of the flaws. At the end of each rule, you will see link(s) to the original Google Testing Blog posts.</p> <h2 id="flaw-1-no-seams-for-isolating-the-class-under-test"><span id="flaw-1-no-seams-for-isolating-the-class-under-test" class="anchor"></span>Flaw #1: No Seams for Isolating the Class Under Test<a href="#flaw-1-no-seams-for-isolating-the-class-under-test" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>Seams is where we prevent the execution of normal code path and is how we achieve isolation of the class under test.</p> <p>To create seams in your code, you need to acquire your dependency via <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. You inject real object for production and <a href="https://www.martinfowler.com/bliki/TestDouble.html">test doubles</a> for testing. For example, if a class depends on some database connection to retrieve some user data, you can inject a fake database connection to always return prepared data immediately without really performing any database operation.</p> <p>That is the basic idea for how seams can help in unit testing. Below are five rules you can follow to create seams in your code.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a></p> <h3 id="rule-1-don-t-do-actual-work-in-constructors"><span id="rule-1-don-t-do-actual-work-in-constructors" class="anchor"></span>Rule #1: Don't do Actual Work in Constructors<a href="#rule-1-don-t-do-actual-work-in-constructors" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="warning-signs"><span id="warning-signs" class="anchor"></span>Warning Signs<a href="#warning-signs" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li><code class="hljs inline no-lang">new</code> keyword in a constructor or at field declaration</li> <li>Code does complex object graph construction inside a constructor rather than using a factory or builder</li> <li>Anything more than field assignment in constructors</li></ul> <p>Any work you do in a constructor needs to successfully navigate through in every test (not just the direct test, but also any related test which tries to instantiate your class indirectly as part of some larger object graph).</p> <p>In short, the constructor's job is to assign the dependencies to fields. And that's all.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p> <h3 id="rule-2-don-t-mix-object-construction-with-application-logic"><span id="rule-2-don-t-mix-object-construction-with-application-logic" class="anchor"></span>Rule #2: Don't Mix Object Construction With Application Logic<a href="#rule-2-don-t-mix-object-construction-with-application-logic" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="warning-signs-2"><span id="warning-signs-2" class="anchor"></span>Warning Signs<a href="#warning-signs-2" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li>Create objects using <code class="hljs inline no-lang">new</code> keyword freely anywhere in your code</li></ul> <p>You should have two kinds of classes in your application.</p> <p>First, <strong><a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factories</a></strong>, where all <code class="hljs inline no-lang">new</code> operators reside in, are in charge of constructing objects, and nothing else.</p> <p>The other, <strong>application classes</strong>, are devoid of <code class="hljs inline no-lang">new</code> operators. Instead of creating object, they simply ask for them. This makes it easier to test the application logic by replacing the real classes for test doubles.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p> <h3 id="rule-3-don-t-mix-service-objects-with-value-objects"><span id="rule-3-don-t-mix-service-objects-with-value-objects" class="anchor"></span>Rule #3: Don't Mix Service Objects With Value Objects<a href="#rule-3-don-t-mix-service-objects-with-value-objects" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Value objects are your <strong>model</strong> objects, like <code class="hljs inline no-lang">User</code>, <code class="hljs inline no-lang">Email</code>, <code class="hljs inline no-lang">CreditCard</code>.</p> <ol><li>They are (or should be) very easy to construct. And they should never take a service object in its constructor (since otherwise it is not easy to construct).</li> <li>You can freely create value objects with the &quot;new&quot; operator directly in line with your business logic (exception to previous rule) since they are leafs of your application graph).</li> <li>They are <strong>never mocked</strong>.</li></ol> <p>Service objects, on the other hand, are your <strong>logic</strong> objects, like <code class="hljs inline no-lang">UserAuthenticator</code>, <code class="hljs inline no-lang">MailServer</code>, <code class="hljs inline no-lang">CreditCardProcessor</code>. Compared to value objects,</p> <ol><li>Service objects are harder to construct. And their constructors ask for lots of other objects for collaboration.</li> <li>Service objects are harder to construct and as a result are never constructed with a new operator in-line, (instead use factory / DI-framework) for the object graph construction.
+<strong>Note</strong>: service objects don't take value objects in their constructors since DI-frameworks tend to be unaware about the how to create a value objects.</li> <li>Service objects are harder to test since they are all about collaboration and as a result we are forced to use mocking, something which we want to minimize.</li></ol> <p>Clearly, they are very different in their nature and usage. Mixing the two creates a hybrid which has no advantages of value-objects and all the baggage of service-object.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p> <h3 id="rule-4-avoid-static-methods"><span id="rule-4-avoid-static-methods" class="anchor"></span>Rule #4: Avoid Static Methods<a href="#rule-4-avoid-static-methods" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Static methods are procedural code. You can write your program in an OO language only using static methods, with one calling another, then it is not an OOP application but a procedural application. There is <em>no way</em> to unit test procedure application because there is no seams for you to divert the normal execution flow.</p> <p>You can remove the static methods as below:</p> <ol><li>If the static method has arguments, chances are you can move the method as an instance method to one of the method's arguments. (As in <code class="hljs inline no-lang">method(a,b)</code> becomes <code class="hljs inline no-lang">a.method(b)</code>)</li> <li>If the static method takes no arguments, either it returns a constant in which case there is nothing to test; or it accesses <a href="#rule-2-avoid-singletons">global state</a>, which is bad.</li></ol> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p> <h3 id="rule-5-favor-composition-over-inheritance"><span id="rule-5-favor-composition-over-inheritance" class="anchor"></span>Rule #5: Favor Composition Over Inheritance<a href="#rule-5-favor-composition-over-inheritance" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>At run-time you can not choose a different inheritance, but you can chose a different composition. This is important for tests as we want to test things in isolation.</p> <p>Wrongly used inheritance clutters the focus of test because you need to mock out the your parent classes' irrelevant dependencies, too. For example,</p> <p>Inheriting from AuthenticatedServlet will make your sub-class very hard to test since every test will have to mock out the authentication. But what if AuthenticatedServlet inherits from DbTransactionServlet? (that gets so much harder)</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/12/static-methods-are-death-to-testability.html">Static Methods are Death to Testability</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p> <h2 id="flaw-2-brittle-global-state-and-amp-singleton"><span id="flaw-2-brittle-global-state-and-amp-singleton" class="anchor"></span>Flaw #2: Brittle Global State &amp; Singleton<a href="#flaw-2-brittle-global-state-and-amp-singleton" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="rule-1-avoid-global-states"><span id="rule-1-avoid-global-states" class="anchor"></span>Rule #1: Avoid Global States<a href="#rule-1-avoid-global-states" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="warning-signs-3"><span id="warning-signs-3" class="anchor"></span>Warning Signs<a href="#warning-signs-3" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li>Adding or using static fields or static methods</li> <li>Adding or using registries</li> <li>Using <code class="hljs inline no-lang">System.currentTimeMillis()</code>, <code class="hljs inline no-lang">new Date()</code> or <code class="hljs inline no-lang">Math.random()</code></li></ul> <p>Global states are a bad idea because they make the code hard to understand and reason about.</p> <p>Moreover, they cause problems for testing because global states are persistent throughout the lifetime of a JVM instance. In unit testing, we have one JVM instance to run all tests (instead one JVM for one test, for performance reason). Thus the global states are persistent from tests to tests. Now, if some tests expect the global states to be in state A, while some other tests expect the global states to be in state B. In this scenario, you cannot run the tests in parallel, otherwise your tests will become flaky (sometimes pass, sometimes fail) because the order of tests matters.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p> <h3 id="rule-2-avoid-singleton-pattern"><span id="rule-2-avoid-singleton-pattern" class="anchor"></span>Rule #2: Avoid Singleton Pattern<a href="#rule-2-avoid-singleton-pattern" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>Singleton Pattern, despite being a well-know design patter, are global states in sheep's clothing. They have <strong>globally</strong> accessible <code class="hljs inline no-lang">getInstance()</code> method and a private singleton object (which is the global state).</p> <p>Another problem about Singleton Pattern is that they are globally accessible, thus any method can access them inside the code without explicitly declaring in its API. In other words, the API lied about its dependency!</p> <p><strong>Note</strong> singletons (with lowercase s) are valid and sometimes very useful, which you can enforce their singleton identities by enforcing their constructors are called only once in the application. However, Singleton Pattern (with uppercase S) is almost always causing undesirable global states, which you should avoid. Only few examples of Singleton Pattern, including Constants and Logging, are acceptable since they don't affect the application logic.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html">Singletons are Pathological Liars</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p> <h2 id="flaw-3-dig-into-collaborators"><span id="flaw-3-dig-into-collaborators" class="anchor"></span>Flaw #3: Dig Into Collaborators<a href="#flaw-3-dig-into-collaborators" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="rule-1-don-t-look-for-things-ask-for-things"><span id="rule-1-don-t-look-for-things-ask-for-things" class="anchor"></span>Rule #1: Don't Look for Things. Ask for Things.<a href="#rule-1-don-t-look-for-things-ask-for-things" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="warning-signs-4"><span id="warning-signs-4" class="anchor"></span>Warning Signs<a href="#warning-signs-4" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li>Objects are passed in but never used directly (only used to get access to other objects)</li> <li><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> violation: method call chain walks an object graph with more than one dot. (e.g. <code class="hljs inline no-lang">a.getB().getC().doSomething()</code>)</li></ul> <p>The Law of Demeter can be summarized as &quot;only talk to your <strong>immediate</strong> friends&quot;.</p> <p>Previously we mentioned the importance of dependency injection for creating seams in <a href="#flaw-1-no-seams-for-isolating-the-class-under-test">Flaw #1: no seams for isolating the class under test</a>. Here we emphasize on injecting only those <strong>direct dependency</strong>.</p> <p>Let's use an example to illustrate why <strong>indirect</strong> dependency hurts testability:</p> <p>Say you have an Authenticator class which needs a <code class="hljs inline no-lang">Config</code> object, do you pass in a path to the configuration file, or just pass in a <code class="hljs inline no-lang">Config</code> object? Since what you need is a <code class="hljs inline no-lang">Config</code> object, not a file path, an example of indirect dependency will be you pass in a path to the configuration file, and read a <code class="hljs inline no-lang">Config</code> object from the path. To test Authenticator, you have to first write some configuration to a file, pass the file path to Authenticator, and let it read a <code class="hljs inline no-lang">Config</code> itself. Versus you can directly create a <code class="hljs inline no-lang">Config</code> object and pass it to Authenticator using direct dependency.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p> <h2 id="flaw-4-class-does-too-much"><span id="flaw-4-class-does-too-much" class="anchor"></span>Flaw #4: Class Does Too Much<a href="#flaw-4-class-does-too-much" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>To extreme, it becomes an anti-pattern, <a href="https://en.wikipedia.org/wiki/God_object">God Object</a>.</p> <h3 id="rule-1-avoid-mixing-of-concerns"><span id="rule-1-avoid-mixing-of-concerns" class="anchor"></span>Rule #1: Avoid Mixing of Concerns<a href="#rule-1-avoid-mixing-of-concerns" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="warning-signs-5"><span id="warning-signs-5" class="anchor"></span>Warning Signs:<a href="#warning-signs-5" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li>summing up what the class does includes the word &quot;and&quot;</li> <li>class has fields that are only used in some methods (objects hiding inside)</li> <li>class has static methods that only operate on parameters (methods should be instance methods of one of the parameters)</li></ul> <p>These classes are hard to test since there are multiple objects hiding inside of them and as a result you are testing all of the objects at once.</p> <p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a> also requires you to have classes with one concern (one reason to change), because these classes are simpler to understand what they are doing and easier to unit test.</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/09/where-have-all-new-operators-gone.html">Where Have all the &quot;new&quot; Operators Gone?</a> and <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a></p> <h3 id="rule-2-favor-polymorphism-over-conditionals"><span id="rule-2-favor-polymorphism-over-conditionals" class="anchor"></span>Rule #2: Favor Polymorphism Over Conditionals<a href="#rule-2-favor-polymorphism-over-conditionals" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <h4 id="warning-signs-6"><span id="warning-signs-6" class="anchor"></span>Warning Signs:<a href="#warning-signs-6" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h4> <ul><li>Class has the same <code class="hljs inline no-lang">switch</code> or <code class="hljs inline no-lang">if</code> conditions in many places</li></ul> <p>For a detailed code example, please refer to this <a href="https://stackoverflow.com/a/234491/3522482">Stack Overflow answer</a>.</p> <p>From the answer, if you have one switch statement based on an internal field you probably have the same switch in multiple places. This causes problems when you add a new case as you have to update all the switch statements.</p> <p>By using polymorphism, you get the same functionality and because a new case is a new class you don't have to search your code for things that need to be updated. It is all isolated for each class.</p> <p>This closely follows with <a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open Closed Principle</a> because you can ship this abstract parent class (<strong>closed for modification</strong>) as part of your binary library, but people can still extend the functionality by adding new child classes (<strong>open for extension</strong>).</p> <p><em>Sources</em>: <a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Writing Testable Code</a>.</p> <h1 id="concluding-notes"><span id="concluding-notes" class="anchor"></span>Concluding Notes<a href="#concluding-notes" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>This article includes ten rules that can help you understand some key concepts, such as seams, dependency injection, global states, singletons and Singleton. Also, I hope you can apply these rules into practice, like writing a program with these rules in mind or reviewing some code your wrote before and see whether you can improve its testability, so you can benefit from the things you learn in this article.</p></div> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i><p></p></div> <nav id="page-nav" class="fixed-header-padding" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e8c82f88><a href="#writing-testable-code" class="nav-link py-1" data-v-e8c82f88>Writing Testable Code‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#flaw-1-no-seams-for-isolating-the-class-under-test" class="nav-link py-1" data-v-e8c82f88>Flaw #1: No Seams for Isolating the Class Under Test‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#rule-1-don-t-do-actual-work-in-constructors" class="nav-link py-1" data-v-e8c82f88>Rule #1: Don't do Actual Work in Constructors‎</a> <a href="#rule-2-don-t-mix-object-construction-with-application-logic" class="nav-link py-1" data-v-e8c82f88>Rule #2: Don't Mix Object Construction With Application Logic‎</a> <a href="#rule-3-don-t-mix-service-objects-with-value-objects" class="nav-link py-1" data-v-e8c82f88>Rule #3: Don't Mix Service Objects With Value Objects‎</a> <a href="#rule-4-avoid-static-methods" class="nav-link py-1" data-v-e8c82f88>Rule #4: Avoid Static Methods‎</a> <a href="#rule-5-favor-composition-over-inheritance" class="nav-link py-1" data-v-e8c82f88>Rule #5: Favor Composition Over Inheritance‎</a></nav> <a href="#flaw-2-brittle-global-state-and-amp-singleton" class="nav-link py-1" data-v-e8c82f88>Flaw #2: Brittle Global State &amp; Singleton‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#rule-1-avoid-global-states" class="nav-link py-1" data-v-e8c82f88>Rule #1: Avoid Global States‎</a> <a href="#rule-2-avoid-singleton-pattern" class="nav-link py-1" data-v-e8c82f88>Rule #2: Avoid Singleton Pattern‎</a></nav> <a href="#flaw-3-dig-into-collaborators" class="nav-link py-1" data-v-e8c82f88>Flaw #3: Dig Into Collaborators‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#rule-1-don-t-look-for-things-ask-for-things" class="nav-link py-1" data-v-e8c82f88>Rule #1: Don't Look for Things. Ask for Things.‎</a></nav> <a href="#flaw-4-class-does-too-much" class="nav-link py-1" data-v-e8c82f88>Flaw #4: Class Does Too Much‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e8c82f88><a href="#rule-1-avoid-mixing-of-concerns" class="nav-link py-1" data-v-e8c82f88>Rule #1: Avoid Mixing of Concerns‎</a> <a href="#rule-2-favor-polymorphism-over-conditionals" class="nav-link py-1" data-v-e8c82f88>Rule #2: Favor Polymorphism Over Conditionals‎</a></nav></nav> <a href="#concluding-notes" class="nav-link py-1" data-v-e8c82f88>Concluding Notes‎</a> <!----></nav></div> <!----></nav></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 3.0.4</a> on Tue, 13 Jul 2021, 18:39:25 UTC]</small></div></footer></div>
+</body><script src="../../markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
 </html>
